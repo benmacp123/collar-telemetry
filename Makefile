@@ -10,6 +10,10 @@ test:
 	PYTHONPATH=src python -m pytest -vv --cov=telemetry tests/
 
 
+profile:
+	PYTHONPATH=src python scripts/profile_studies.py
+
+
 format:
 	black src/ tests/ scripts/
 

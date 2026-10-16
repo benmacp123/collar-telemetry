@@ -7,7 +7,7 @@ EARTH_RADIUS_M = 6_371_008.8  # IUGG mean Earth radius
 
 def haversine_m(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """Great-circle distance in metres between two WGS84 points.
-    
+
     Args:
         lat1: Latitude of the first point in degrees.
         lon1: Longitude of the first point in degrees.
