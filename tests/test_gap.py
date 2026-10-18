@@ -214,3 +214,61 @@ def test_state_round_trips_through_json_in_a_stream(split):
     run(resumed, items[split:])
     assert [a for h in tick_hours for a in resumed.tick(at(h))] == expected
     assert len(expected) == 1
+
+
+def burst(days, start_hour=14, length=5):
+    """One fix a minute for ``length`` hours a day from ``start_hour``."""
+    return [
+        Fix("A", at(d * 24 + start_hour) + timedelta(minutes=m), 30.5, -86.5)
+        for d in range(days)
+        for m in range(length * 60)
+    ]
+
+
+def test_each_clock_hour_counts_once_for_active_hours():
+    """Sixty fixes in one hour weigh the same as one fix in another."""
+    detector = GapDetector()
+    state = {}
+    feed(detector, state, fixes([0]))
+    feed(
+        detector,
+        state,
+        [Fix("A", at(1) + timedelta(minutes=m), 30.5, -86.5) for m in range(60)],
+    )
+    assert state["weights"][0] == pytest.approx(state["weights"][1], rel=0.01)
+
+
+def test_burst_tag_active_through_its_whole_burst():
+    """A 1-min burst tag counts every hour of its daily burst as active."""
+    detector = GapDetector()
+    state = {}
+    feed(detector, state, burst(5))
+    assert active_hours(state["weights"], 0.25) == set(range(14, 19))
+
+
+def test_allowance_runs_on_the_clock_not_active_hours():
+    """A burst tag alerts once the clock allowance has passed and its
+    normal hours have been silent for min_silence, not after the
+    allowance counted in active hours (days later)."""
+    config = GapConfig(allowance=timedelta(hours=48))
+    detector = GapDetector(config)
+    state = {}
+    feed(detector, state, burst(5))
+    last = burst(5)[-1].timestamp
+    alerts = []
+    hour = 0
+    while not alerts and hour < 24 * 10:
+        hour += 1
+        alerts = detector.on_tick(state, "A", last + hour * HOUR)
+    # 48 h on the clock, then 6 h of the 14:00-19:00 burst window: about
+    # three days, where counting 48 h of active hours would take ten.
+    assert last + 48 * HOUR <= alerts[0].time <= last + 80 * HOUR
+
+
+def test_no_alert_within_allowance_even_if_active_hours_silent():
+    """Silence shorter than the allowance never alerts."""
+    detector = GapDetector(GapConfig(allowance=timedelta(hours=30)))
+    state = {}
+    feed(detector, state, fixes(range(24 * 5)))
+    assert ticks(detector, state, 24 * 5, 24 * 5 + 28) == []
+    assert len(ticks(detector, state, 24 * 5 + 29, 24 * 5 + 31)) == 1

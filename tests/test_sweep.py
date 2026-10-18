@@ -49,18 +49,16 @@ def test_overrides_replace_window_box_and_merge():
 
 def test_gap_margin_adds_to_upload_interval():
     """The gap margin sits on top of the upload interval."""
-    assert gap_config(SCENARIOS["ideal"], 12 * HOUR).min_silence == 12 * HOUR
-    assert gap_config(SCENARIOS["satellite_daily"], 12 * HOUR).min_silence == (
-        36 * HOUR
-    )
+    assert gap_config(SCENARIOS["ideal"], 12 * HOUR).allowance == 12 * HOUR
+    assert gap_config(SCENARIOS["satellite_daily"], 12 * HOUR).allowance == (36 * HOUR)
 
 
 def test_grid_sweeps_each_detector_on_its_own():
-    """Twelve mortality settings and four gap margins."""
+    """Twelve mortality settings and five gap margins."""
     points = grid()
     assert sum(1 for swept, _ in points if swept == "mortality") == 12
     gap = [o for swept, o in points if swept == "gap"]
-    assert len(gap) == 4
+    assert len(gap) == 5
     assert all(o.mortality_window is None for o in gap)
 
 

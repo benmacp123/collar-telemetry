@@ -68,7 +68,7 @@ def test_silent_collar_raises_one_gap_soon_after_threshold():
     gaps = by_detector(result, "gap")
     assert len(gaps) == 1
     assert gaps[0].status == OPEN
-    crossed = fixes[-1].timestamp + gap_config(SCENARIOS["ideal"]).min_silence
+    crossed = fixes[-1].timestamp + gap_config(SCENARIOS["ideal"]).allowance
     assert crossed <= gaps[0].raised_at <= crossed + HOUR
 
 
@@ -78,8 +78,8 @@ def test_daily_upload_does_not_raise_daily_gaps():
     result = replay([deployment()], fixes, SCENARIOS["satellite_daily"])
     gaps = by_detector(result, "gap")
     assert len(gaps) == 1
-    min_silence = gap_config(SCENARIOS["satellite_daily"]).min_silence
-    assert gaps[0].opened_at == fixes[-1].timestamp + min_silence
+    allowance = gap_config(SCENARIOS["satellite_daily"]).allowance
+    assert gaps[0].opened_at == fixes[-1].timestamp + allowance
 
 
 def test_planned_end_raises_no_gap():
@@ -135,7 +135,7 @@ def test_summary_counts_fixes_drops_and_incidents():
     assert summary["arrivals"] >= len(fixes)
     assert summary["cleaner_dropped"]["duplicate"] <= summary["arrivals"] - len(fixes)
     assert summary["incidents"]["gap"]["incidents"] == len(by_detector(result, "gap"))
-    assert summary["settings"]["gap_min_silence_hours"] == 1.0 + UPLOAD_MARGIN / HOUR
+    assert summary["settings"]["gap_allowance_hours"] == 1.0 + UPLOAD_MARGIN / HOUR
 
 
 def test_deployment_without_fixes_is_skipped():
@@ -153,18 +153,18 @@ def test_unknown_taxon_is_an_error():
 
 
 def test_gap_threshold_follows_upload_interval():
-    """min_silence is the upload interval plus the margin, never below the
-    detector default."""
-    assert gap_config(SCENARIOS["ideal"]).min_silence == UPLOAD_MARGIN
-    assert gap_config(SCENARIOS["gsm"]).min_silence == HOUR + UPLOAD_MARGIN
-    assert gap_config(SCENARIOS["satellite_daily"]).min_silence == (
+    """The clock allowance is the upload interval plus the margin; the
+    active-hours floor stays at the detector default."""
+    assert gap_config(SCENARIOS["ideal"]).allowance == UPLOAD_MARGIN
+    assert gap_config(SCENARIOS["gsm"]).allowance == HOUR + UPLOAD_MARGIN
+    assert gap_config(SCENARIOS["satellite_daily"]).allowance == (
         timedelta(days=1) + UPLOAD_MARGIN
     )
-    assert gap_config(SCENARIOS["satellite_2day"]).min_silence == (
+    assert gap_config(SCENARIOS["satellite_2day"]).allowance == (
         timedelta(days=2) + UPLOAD_MARGIN
     )
-    default = GapConfig().min_silence
-    assert gap_config(SCENARIOS["ideal"], timedelta(hours=1)).min_silence == default
+    for scenario in SCENARIOS.values():
+        assert gap_config(scenario).min_silence == GapConfig().min_silence
 
 
 def test_watch_ends_by_end_type():

@@ -4,7 +4,8 @@ Every threshold the pipeline uses, with where it came from. Labels:
 
 - **Observed**: measured on this project's tuning data (vulture
   deployments starting before 2013). The scoring set (2013 on) was not
-  inspected.
+  inspected while choosing values; it was scored once, on 2026-10-18,
+  after the thresholds were frozen.
 - **Literature**: taken from a cited source.
 - **Provisional**: a reasoned starting point, still to be checked on the
   tuning set.
@@ -79,17 +80,20 @@ Settings in `src/telemetry/replay.py` that shape every reported result.
 | Setting | Value | Basis | Label |
 |---|---|---|---|
 | Clock tick | 1 h | Gap alerts can be raised up to one tick late; fine against thresholds of 6 h or more. | Provisional |
-| Gap `min_silence` | Upload interval + 24 h (24 h ideal, 25 h GSM, 48 h daily, 72 h every other day) | The newest fix can be a whole upload interval old when it arrives. Tuning-set sweep, ideal arrival: margins of 6 / 12 / 24 / 48 h give 2.89 / 1.35 / 0.67 / 0.32 gap alerts per animal-month for a median delay of 14 / 20 / 40 / 72 h on deaths; 24 h also cuts GSM from 5.61 to 0.98, since it absorbs whole out-of-coverage days. Every tuning-set death is flagged at every margin. Chosen on vultures and applied to the mammals unchanged. | Observed (sweep) |
+| Gap `allowance` (clock time) | Upload interval + 36 h (36 h ideal, 37 h GSM, 60 h daily, 84 h every other day) | The newest fix can be a whole upload interval old when it arrives; upload delay runs on the clock, so it is not counted in active hours. Tuning-set sweep, ideal arrival: margins of 6 / 12 / 24 / 36 / 48 h give 2.89 / 2.54 / 1.08 / 0.88 / 0.50 gap alerts per animal-month for a median delay of 14 / 14 / 24 / 36 / 48 h on deaths; 36 h also cuts GSM to 1.11 (3.36 at 24 h), since it absorbs whole out-of-coverage days. Every tuning-set death is flagged at every margin. Chosen on vultures and applied to the mammals unchanged. | Observed (sweep) |
+| Gap `min_silence` (active hours) | 6 h, or 3x the usual fix interval if longer | Also required: silence through the collar's normal hours, so a nightly switch-off is not a gap. | Provisional |
 | Planned ends | `removal`, `captured`, `released`: ticking stops at deploy-off | The operator knows about these when they happen (Movebank end-type definitions). | Provisional |
 | Other ends | Watched for 7 days after the last arrival | Deaths, transmission ends and unknown ends are only known afterwards, so the final silence can raise a gap alert. | Provisional |
 | Arrival seed | 2026 | Fixed so every run gives the same results. | - |
 
-Known limitation: the gap detector counts silence in the collar's normally
-active hours only, but the upload allowance is wall-clock time. On a tag
-that is active only a few hours a day, the 54 h threshold needs well over
-a week of real silence, so some end-of-track gaps fall outside the 7-day
-watch. The 24 h margin makes this worse (72 h of active hours under 2-day
-uploads), and the scoring set is mostly such tags.
+Fixed before scoring (2026-10-18): the upload allowance used to be
+counted in the collar's active hours, and active hours were weighted by
+fix count, so a 1-min burst tag on for about 5 hours a day needed well
+over a week of real silence to alert, past the 7-day watch. The allowance
+now runs on the clock and each clock hour with a fix counts once. The
+earlier 24 h margin was chosen under the old rule, where it behaved like
+about 30 h of clock time on the hourly tuning tags; 36 h is the closest
+match under the new rule.
 
 ## References
 

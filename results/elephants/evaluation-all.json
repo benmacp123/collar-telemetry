@@ -14,9 +14,9 @@
       "animal_months": 291.8,
       "load": {
         "gap": {
-          "incidents": 191,
+          "incidents": 145,
           "late_fix": 0,
-          "per_animal_month": 0.655
+          "per_animal_month": 0.497
         },
         "movement": {
           "incidents": 10,
@@ -54,9 +54,9 @@
       "animal_months": 291.8,
       "load": {
         "gap": {
-          "incidents": 146,
-          "late_fix": 45,
-          "per_animal_month": 0.5
+          "incidents": 101,
+          "late_fix": 16,
+          "per_animal_month": 0.346
         },
         "movement": {
           "incidents": 10,
@@ -94,9 +94,9 @@
       "animal_months": 291.8,
       "load": {
         "gap": {
-          "incidents": 109,
-          "late_fix": 44,
-          "per_animal_month": 0.374
+          "incidents": 85,
+          "late_fix": 35,
+          "per_animal_month": 0.291
         },
         "movement": {
           "incidents": 10,
@@ -134,9 +134,9 @@
       "animal_months": 291.8,
       "load": {
         "gap": {
-          "incidents": 636,
-          "late_fix": 449,
-          "per_animal_month": 2.179
+          "incidents": 217,
+          "late_fix": 75,
+          "per_animal_month": 0.744
         },
         "movement": {
           "incidents": 11,

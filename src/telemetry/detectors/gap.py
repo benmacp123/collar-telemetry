@@ -4,16 +4,25 @@ Many collars are duty-cycled, for example off overnight, so a plain "no fix
 for N hours" rule would alert every night. The detector instead learns two
 things from each deployment's own fixes:
 
-- **When the collar is normally on:** a histogram of fixes by hour of day
-  (UTC), with older fixes weighted down over time so it follows schedule
-  changes. An hour is active if it holds at least ``active_fraction`` of
-  the busiest hour's weight.
+- **When the collar is normally on:** a histogram of clock hours with at
+  least one fix, by hour of day (UTC), with older hours weighted down over
+  time so it follows schedule changes. Each clock hour counts once however
+  many fixes it holds, so a tag that fixes every minute in short bursts
+  does not look active only in its busiest hours. An hour of day is active
+  if it holds at least ``active_fraction`` of the busiest hour's weight.
 - **How often it normally fixes:** the median of recent intervals.
 
-On each clock tick it measures the silence since the last fix counting only
-active hours, and raises one alert when that exceeds
-``max(factor * expected interval, min_silence)``. The next fix resolves it
-(reason ``fix_received``) and re-arms the detector.
+On each clock tick it raises one alert when both hold:
+
+- the silence since the last fix, counting only active hours, exceeds
+  ``max(factor * expected interval, min_silence)``; and
+- the silence on the clock exceeds ``allowance``, the time fixes may
+  legitimately take to arrive (for example a daily upload). Upload delay
+  runs on the clock whether or not the collar is on, so it is not counted
+  in active hours; doing so made a tag that is on a few hours a day wait
+  many days before alerting.
+
+The next fix resolves it (reason ``fix_received``) and re-arms the detector.
 
 Silence is measured from the last fix the detector has seen. Behind a
 ``Cleaner`` that lags arrival by up to the cleaner's ``max_lateness``, so
@@ -37,8 +46,11 @@ class GapConfig:
 
     Attributes:
         factor: Silence, in expected intervals, before alerting.
-        min_silence: Shortest silence that can alert, whatever the
-            interval; keeps fast-fixing tags from alerting on short drops.
+        min_silence: Shortest silence, in active hours, that can alert,
+            whatever the interval; keeps fast-fixing tags from alerting on
+            short drops.
+        allowance: Silence on the clock always allowed before alerting,
+            for upload delay.
         warmup: Time from the first fix before the detector may alert, so
             the schedule has been seen.
         half_life: Half-life of the hour-of-day histogram's memory.
@@ -49,6 +61,7 @@ class GapConfig:
 
     factor: float = 3.0
     min_silence: timedelta = timedelta(hours=6)
+    allowance: timedelta = timedelta(0)
     warmup: timedelta = timedelta(days=3)
     half_life: timedelta = timedelta(days=14)
     active_fraction: float = 0.25
@@ -59,8 +72,8 @@ def active_hours(weights: list[float], active_fraction: float) -> set[int]:
     """Hours of day (UTC) whose weight marks them as normally active.
 
     Args:
-        weights: 24 values, one per hour, holding the decayed count of fixes
-            seen in that hour.
+        weights: 24 values, one per hour of day, holding the decayed count
+            of clock hours with a fix seen in that hour.
         active_fraction: Share of the busiest hour's weight an hour needs
             to count as one the collar is normally on.
 
@@ -152,7 +165,10 @@ class GapDetector:
         elapsed = fix.timestamp - datetime.fromisoformat(state["weighted_at"])
         decay = 0.5 ** (max(elapsed, timedelta(0)) / self.config.half_life)
         state["weights"] = [weight * decay for weight in state["weights"]]
-        state["weights"][fix.timestamp.hour] += 1.0
+        slot = fix.timestamp.replace(minute=0, second=0, microsecond=0).isoformat()
+        if state.get("slot") != slot:
+            state["weights"][fix.timestamp.hour] += 1.0
+            state["slot"] = slot
         state["weighted_at"] = fix.timestamp.isoformat()
         alerts = []
         if state["open"]:
@@ -193,16 +209,19 @@ class GapDetector:
             return []
         if now - datetime.fromisoformat(state["first"]) < self.config.warmup:
             return []
+        last = datetime.fromisoformat(state["last"])
+        if now - last < self.config.allowance:
+            return []
         expected = timedelta(minutes=statistics.median(state["intervals"]))
         threshold = max(self.config.factor * expected, self.config.min_silence)
         hours = active_hours(state["weights"], self.config.active_fraction)
-        last = datetime.fromisoformat(state["last"])
         silence = active_silence(last, now, hours, threshold)
         if silence < threshold:
             return []
         state["open"] = True
         message = (
-            f"No fix for {threshold / HOUR:.1f} h of the collar's normal hours "
+            f"No fix for {(now - last) / HOUR:.0f} h, including "
+            f"{threshold / HOUR:.1f} h of the collar's normal hours "
             f"(usually every {expected / timedelta(minutes=1):.0f} min); "
             f"last fix {last:%Y-%m-%d %H:%M} UTC"
         )

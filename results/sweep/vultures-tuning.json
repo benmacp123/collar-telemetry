@@ -17,12 +17,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 39.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -37,12 +37,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 50.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -57,12 +57,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -77,12 +77,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 42.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -97,12 +97,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 40.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -117,12 +117,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 62.23,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -137,12 +137,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -157,12 +157,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 43.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -177,12 +177,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 85.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -197,12 +197,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 98.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -217,12 +217,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 119.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -237,12 +237,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 88.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -257,12 +257,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 85.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -277,12 +277,12 @@
       "carcass_rate_at_mark": 0.333,
       "carcass_rate_at_mark_200m": 0.333,
       "carcass_max_delay_hours": 98.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -297,12 +297,12 @@
       "carcass_rate_at_mark": 0.333,
       "carcass_rate_at_mark_200m": 0.333,
       "carcass_max_delay_hours": 119.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -317,12 +317,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 88.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -337,12 +337,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 39.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -357,12 +357,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 50.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -377,12 +377,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -397,12 +397,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 42.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -417,12 +417,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 40.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -437,12 +437,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 62.23,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -457,12 +457,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -477,12 +477,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 43.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -497,12 +497,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 85.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -517,12 +517,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 98.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -537,12 +537,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 119.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -557,12 +557,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 88.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -577,12 +577,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 85.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -597,12 +597,12 @@
       "carcass_rate_at_mark": 0.333,
       "carcass_rate_at_mark_200m": 0.333,
       "carcass_max_delay_hours": 98.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -617,12 +617,12 @@
       "carcass_rate_at_mark": 0.333,
       "carcass_rate_at_mark_200m": 0.333,
       "carcass_max_delay_hours": 119.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -637,12 +637,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 88.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -657,12 +657,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 39.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -677,12 +677,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 50.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -697,12 +697,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -717,12 +717,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 42.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -737,12 +737,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 40.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -757,12 +757,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 62.23,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -777,12 +777,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -797,12 +797,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 43.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -817,12 +817,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 85.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -837,12 +837,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 98.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -857,12 +857,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 119.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -877,12 +877,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 88.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "mortality",
@@ -897,12 +897,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 85.0,
-      "gap_per_animal_month": 0.672,
+      "gap_per_animal_month": 1.076,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
+      "other_deaths_median_gap_delay_hours": 24.0,
+      "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "mortality",
@@ -917,12 +917,12 @@
       "carcass_rate_at_mark": 0.333,
       "carcass_rate_at_mark_200m": 0.333,
       "carcass_max_delay_hours": 98.58,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "mortality",
@@ -937,12 +937,12 @@
       "carcass_rate_at_mark": 0.333,
       "carcass_rate_at_mark_200m": 0.333,
       "carcass_max_delay_hours": 119.05,
-      "gap_per_animal_month": 0.271,
-      "gap_late_fix_share": 0.214,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "mortality",
@@ -957,12 +957,12 @@
       "carcass_rate_at_mark": 0.5,
       "carcass_rate_at_mark_200m": 0.5,
       "carcass_max_delay_hours": 88.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
     },
     {
       "swept": "gap",
@@ -997,12 +997,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 62.23,
-      "gap_per_animal_month": 0.739,
-      "gap_late_fix_share": 0.307,
+      "gap_per_animal_month": 6.296,
+      "gap_late_fix_share": 0.852,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 46.0,
-      "other_deaths_max_gap_delay_hours": 63.0
+      "other_deaths_median_gap_delay_hours": 30.0,
+      "other_deaths_max_gap_delay_hours": 30.0
     },
     {
       "swept": "gap",
@@ -1017,12 +1017,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.423,
-      "gap_late_fix_share": 0.3,
+      "gap_per_animal_month": 1.432,
+      "gap_late_fix_share": 0.674,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 86.0,
-      "other_deaths_max_gap_delay_hours": 109.0
+      "other_deaths_median_gap_delay_hours": 54.0,
+      "other_deaths_max_gap_delay_hours": 54.0
     },
     {
       "swept": "gap",
@@ -1037,12 +1037,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 43.0,
-      "gap_per_animal_month": 5.61,
-      "gap_late_fix_share": 0.502,
+      "gap_per_animal_month": 7.344,
+      "gap_late_fix_share": 0.587,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 15.0,
-      "other_deaths_max_gap_delay_hours": 18.0
+      "other_deaths_median_gap_delay_hours": 14.0,
+      "other_deaths_max_gap_delay_hours": 17.0
     },
     {
       "swept": "gap",
@@ -1057,12 +1057,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 40.0,
-      "gap_per_animal_month": 1.355,
+      "gap_per_animal_month": 2.543,
       "gap_late_fix_share": 0.0,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 20.0,
-      "other_deaths_max_gap_delay_hours": 23.0
+      "other_deaths_median_gap_delay_hours": 14.0,
+      "other_deaths_max_gap_delay_hours": 17.0
     },
     {
       "swept": "gap",
@@ -1077,12 +1077,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 62.23,
-      "gap_per_animal_month": 0.555,
-      "gap_late_fix_share": 0.246,
+      "gap_per_animal_month": 1.476,
+      "gap_late_fix_share": 0.397,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 69.0
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0
     },
     {
       "swept": "gap",
@@ -1097,12 +1097,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.361,
-      "gap_late_fix_share": 0.285,
+      "gap_per_animal_month": 0.877,
+      "gap_late_fix_share": 0.482,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 92.0,
-      "other_deaths_max_gap_delay_hours": 115.0
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0
     },
     {
       "swept": "gap",
@@ -1117,35 +1117,35 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 43.0,
-      "gap_per_animal_month": 3.662,
-      "gap_late_fix_share": 0.632,
+      "gap_per_animal_month": 6.414,
+      "gap_late_fix_share": 0.584,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 21.0,
+      "other_deaths_median_gap_delay_hours": 14.0,
+      "other_deaths_max_gap_delay_hours": 17.0
+    },
+    {
+      "swept": "gap",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 24.0,
+      "mortality_per_animal_month": 0.603,
+      "false_mortality_per_animal_month": 0.593,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 1.076,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 24.0,
       "other_deaths_max_gap_delay_hours": 24.0
     },
     {
       "swept": "gap",
-      "scenario": "ideal",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 24.0,
-      "mortality_per_animal_month": 0.603,
-      "false_mortality_per_animal_month": 0.593,
-      "carcass_deaths": 6,
-      "carcass_detected": 4,
-      "carcass_rate_at_mark": 0.667,
-      "carcass_rate_at_mark_200m": 0.667,
-      "carcass_max_delay_hours": 40.0,
-      "gap_per_animal_month": 0.672,
-      "gap_late_fix_share": 0.0,
-      "other_deaths": 11,
-      "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 40.0,
-      "other_deaths_max_gap_delay_hours": 46.0
-    },
-    {
-      "swept": "gap",
       "scenario": "satellite_daily",
       "mortality_window_hours": null,
       "mortality_box_m": null,
@@ -1157,12 +1157,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 62.23,
-      "gap_per_animal_month": 0.39,
-      "gap_late_fix_share": 0.152,
+      "gap_per_animal_month": 0.804,
+      "gap_late_fix_share": 0.34,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
     },
     {
       "swept": "gap",
@@ -1177,72 +1177,152 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.271,
+      "gap_per_animal_month": 0.629,
+      "gap_late_fix_share": 0.433,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 72.0,
+      "other_deaths_max_gap_delay_hours": 72.0
+    },
+    {
+      "swept": "gap",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 24.0,
+      "mortality_per_animal_month": 0.605,
+      "false_mortality_per_animal_month": 0.595,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 3.358,
+      "gap_late_fix_share": 0.68,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 25.0,
+      "other_deaths_max_gap_delay_hours": 25.0
+    },
+    {
+      "swept": "gap",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_per_animal_month": 0.603,
+      "false_mortality_per_animal_month": 0.593,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0
+    },
+    {
+      "swept": "gap",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_per_animal_month": 0.603,
+      "false_mortality_per_animal_month": 0.593,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0
+    },
+    {
+      "swept": "gap",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_per_animal_month": 0.603,
+      "false_mortality_per_animal_month": 0.593,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0
+    },
+    {
+      "swept": "gap",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_per_animal_month": 0.605,
+      "false_mortality_per_animal_month": 0.595,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0
+    },
+    {
+      "swept": "gap",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 48.0,
+      "mortality_per_animal_month": 0.603,
+      "false_mortality_per_animal_month": 0.593,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.503,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 48.0,
+      "other_deaths_max_gap_delay_hours": 48.0
+    },
+    {
+      "swept": "gap",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 48.0,
+      "mortality_per_animal_month": 0.603,
+      "false_mortality_per_animal_month": 0.593,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.454,
       "gap_late_fix_share": 0.214,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
-    },
-    {
-      "swept": "gap",
-      "scenario": "gsm",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 24.0,
-      "mortality_per_animal_month": 0.605,
-      "false_mortality_per_animal_month": 0.595,
-      "carcass_deaths": 6,
-      "carcass_detected": 4,
-      "carcass_rate_at_mark": 0.667,
-      "carcass_rate_at_mark_200m": 0.667,
-      "carcass_max_delay_hours": 43.0,
-      "gap_per_animal_month": 0.98,
-      "gap_late_fix_share": 0.314,
-      "other_deaths": 11,
-      "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 41.0,
-      "other_deaths_max_gap_delay_hours": 47.0
-    },
-    {
-      "swept": "gap",
-      "scenario": "ideal",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 48.0,
-      "mortality_per_animal_month": 0.603,
-      "false_mortality_per_animal_month": 0.593,
-      "carcass_deaths": 6,
-      "carcass_detected": 4,
-      "carcass_rate_at_mark": 0.667,
-      "carcass_rate_at_mark_200m": 0.667,
-      "carcass_max_delay_hours": 40.0,
-      "gap_per_animal_month": 0.323,
-      "gap_late_fix_share": 0.0,
-      "other_deaths": 11,
-      "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 72.0,
-      "other_deaths_max_gap_delay_hours": 92.0
-    },
-    {
-      "swept": "gap",
-      "scenario": "satellite_daily",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 48.0,
-      "mortality_per_animal_month": 0.603,
-      "false_mortality_per_animal_month": 0.593,
-      "carcass_deaths": 6,
-      "carcass_detected": 4,
-      "carcass_rate_at_mark": 0.667,
-      "carcass_rate_at_mark_200m": 0.667,
-      "carcass_max_delay_hours": 62.23,
-      "gap_per_animal_month": 0.238,
-      "gap_late_fix_share": 0.107,
-      "other_deaths": 11,
-      "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 112.0,
-      "other_deaths_max_gap_delay_hours": 138.0
+      "other_deaths_max_gap_delay_hours": 72.0
     },
     {
       "swept": "gap",
@@ -1257,12 +1337,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 71.05,
-      "gap_per_animal_month": 0.192,
-      "gap_late_fix_share": 0.169,
+      "gap_per_animal_month": 0.352,
+      "gap_late_fix_share": 0.268,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 144.0,
-      "other_deaths_max_gap_delay_hours": 184.0
+      "other_deaths_median_gap_delay_hours": 96.0,
+      "other_deaths_max_gap_delay_hours": 96.0
     },
     {
       "swept": "gap",
@@ -1277,12 +1357,12 @@
       "carcass_rate_at_mark": 0.667,
       "carcass_rate_at_mark_200m": 0.667,
       "carcass_max_delay_hours": 43.0,
-      "gap_per_animal_month": 0.352,
-      "gap_late_fix_share": 0.088,
+      "gap_per_animal_month": 0.794,
+      "gap_late_fix_share": 0.364,
       "other_deaths": 11,
       "other_deaths_detected": 11,
-      "other_deaths_median_gap_delay_hours": 73.0,
-      "other_deaths_max_gap_delay_hours": 93.0
+      "other_deaths_median_gap_delay_hours": 49.0,
+      "other_deaths_max_gap_delay_hours": 49.0
     }
   ]
 }

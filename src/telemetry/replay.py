@@ -23,10 +23,10 @@ Each deployment is ticked from its first arrival until its end of watch:
   watched for ``SILENT_HORIZON`` after its last arrival, as an operator
   would, and its final silence can raise a gap alert.
 
-The gap detector's ``min_silence`` is the upload interval plus
-``UPLOAD_MARGIN``: with daily uploads the newest fix is up to a day old
+The gap detector's ``allowance`` (clock time, not active hours) is the
+upload interval plus ``UPLOAD_MARGIN``: with daily uploads the newest fix is up to a day old
 when it arrives, so a fixed threshold would raise a gap alert every day.
-The 24 h margin was chosen on the tuning-set sweep (``results/SWEEP.md``);
+The 36 h margin was chosen on the tuning-set sweep (``results/SWEEP.md``);
 it also absorbs whole GSM out-of-coverage days. The tick and watch horizon
 are provisional; see ``docs/ASSUMPTIONS.md``.
 """
@@ -48,7 +48,7 @@ from telemetry.stream import Detector, FixStream
 TICK = timedelta(hours=1)
 PLANNED_ENDS = frozenset({"removal", "captured", "released"})
 SILENT_HORIZON = timedelta(days=7)
-UPLOAD_MARGIN = timedelta(hours=24)
+UPLOAD_MARGIN = timedelta(hours=36)
 MERGE_SLACK = timedelta(hours=12)
 DEFAULT_SEED = 2026
 
@@ -147,13 +147,11 @@ def gap_config(
         margin: Silence allowed beyond the upload interval.
 
     Returns:
-        GapConfig: The defaults, with ``min_silence`` raised to the upload
-        interval (none for ideal arrival) plus ``margin`` where that is
-        longer.
+        GapConfig: The defaults, with ``allowance`` set to the upload
+        interval (none for ideal arrival) plus ``margin``.
     """
-    default = GapConfig()
     upload = scenario.upload_every or timedelta(0)
-    return replace(default, min_silence=max(default.min_silence, upload + margin))
+    return replace(GapConfig(), allowance=upload + margin)
 
 
 def detectors_for(
@@ -286,9 +284,9 @@ def replay(
     summary = summarise(scenario, seed, tick, streams, incidents)
     if overrides != Overrides():
         summary["overrides"] = overrides.to_dict()
-        summary["settings"]["gap_min_silence_hours"] = gap_config(
+        summary["settings"]["gap_allowance_hours"] = gap_config(
             scenario, overrides.upload_margin
-        ).min_silence / timedelta(hours=1)
+        ).allowance / timedelta(hours=1)
     summary["fixes"] = sum(len(feed) for feed in by_deployment.values())
     summary["arrivals"] = len(arrivals)
     return ReplayResult(incidents, summary)
@@ -401,6 +399,7 @@ def summarise(
             "max_lateness_hours": scenario.max_lateness / timedelta(hours=1),
             "gap_min_silence_hours": gap_config(scenario).min_silence
             / timedelta(hours=1),
+            "gap_allowance_hours": gap_config(scenario).allowance / timedelta(hours=1),
             "silent_horizon_days": SILENT_HORIZON / timedelta(days=1),
             "planned_ends": sorted(PLANNED_ENDS),
         },

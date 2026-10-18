@@ -28,18 +28,22 @@ Silence allowed beyond the upload interval (ideal arrival has none). Mortality s
 | Scenario | Margin (h) | Gap alerts per animal-month | Resolved late | Deaths flagged | Median delay (h) | Slowest (h) |
 |---|---|---|---|---|---|---|
 | Ideal | 6 | 2.89 | 0% | 11 of 11 | 14.0 | 17.0 |
-| Ideal | 12 | 1.35 | 0% | 11 of 11 | 20.0 | 23.0 |
-| Ideal | 24 | 0.67 | 0% | 11 of 11 | 40.0 | 46.0 |
-| Ideal | 48 | 0.32 | 0% | 11 of 11 | 72.0 | 92.0 |
-| GSM | 6 | 5.61 | 50% | 11 of 11 | 15.0 | 18.0 |
-| GSM | 12 | 3.66 | 63% | 11 of 11 | 21.0 | 24.0 |
-| GSM | 24 | 0.98 | 31% | 11 of 11 | 41.0 | 47.0 |
-| GSM | 48 | 0.35 | 9% | 11 of 11 | 73.0 | 93.0 |
-| Satellite, daily | 6 | 0.74 | 31% | 11 of 11 | 46.0 | 63.0 |
-| Satellite, daily | 12 | 0.56 | 25% | 11 of 11 | 60.0 | 69.0 |
-| Satellite, daily | 24 | 0.39 | 15% | 11 of 11 | 72.0 | 92.0 |
-| Satellite, daily | 48 | 0.24 | 11% | 11 of 11 | 112.0 | 138.0 |
-| Satellite, 2-day | 6 | 0.42 | 30% | 11 of 11 | 86.0 | 109.0 |
-| Satellite, 2-day | 12 | 0.36 | 28% | 11 of 11 | 92.0 | 115.0 |
-| Satellite, 2-day | 24 | 0.27 | 21% | 11 of 11 | 112.0 | 138.0 |
-| Satellite, 2-day | 48 | 0.19 | 17% | 11 of 11 | 144.0 | 184.0 |
+| Ideal | 12 | 2.54 | 0% | 11 of 11 | 14.0 | 17.0 |
+| Ideal | 24 | 1.08 | 0% | 11 of 11 | 24.0 | 24.0 |
+| Ideal | 36 | 0.88 | 0% | 11 of 11 | 36.0 | 36.0 |
+| Ideal | 48 | 0.50 | 0% | 11 of 11 | 48.0 | 48.0 |
+| GSM | 6 | 7.34 | 59% | 11 of 11 | 14.0 | 17.0 |
+| GSM | 12 | 6.41 | 58% | 11 of 11 | 14.0 | 17.0 |
+| GSM | 24 | 3.36 | 68% | 11 of 11 | 25.0 | 25.0 |
+| GSM | 36 | 1.11 | 21% | 11 of 11 | 37.0 | 37.0 |
+| GSM | 48 | 0.79 | 36% | 11 of 11 | 49.0 | 49.0 |
+| Satellite, daily | 6 | 6.30 | 85% | 11 of 11 | 30.0 | 30.0 |
+| Satellite, daily | 12 | 1.48 | 40% | 11 of 11 | 36.0 | 36.0 |
+| Satellite, daily | 24 | 0.80 | 34% | 11 of 11 | 48.0 | 48.0 |
+| Satellite, daily | 36 | 0.56 | 18% | 11 of 11 | 60.0 | 60.0 |
+| Satellite, daily | 48 | 0.45 | 21% | 11 of 11 | 72.0 | 72.0 |
+| Satellite, 2-day | 6 | 1.43 | 67% | 11 of 11 | 54.0 | 54.0 |
+| Satellite, 2-day | 12 | 0.88 | 48% | 11 of 11 | 60.0 | 60.0 |
+| Satellite, 2-day | 24 | 0.63 | 43% | 11 of 11 | 72.0 | 72.0 |
+| Satellite, 2-day | 36 | 0.44 | 29% | 11 of 11 | 84.0 | 84.0 |
+| Satellite, 2-day | 48 | 0.35 | 27% | 11 of 11 | 96.0 | 96.0 |

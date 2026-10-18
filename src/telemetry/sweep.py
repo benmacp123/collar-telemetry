@@ -21,7 +21,7 @@ from telemetry.replay import DEFAULT_SEED, Overrides, replay
 HOUR = timedelta(hours=1)
 MORTALITY_WINDOWS_H = (24, 36, 48, 72)
 MORTALITY_BOXES_M = (100.0, 150.0, 200.0)
-UPLOAD_MARGINS_H = (6, 12, 24, 48)
+UPLOAD_MARGINS_H = (6, 12, 24, 36, 48)
 
 
 def grid() -> list[tuple[str, Overrides]]:
