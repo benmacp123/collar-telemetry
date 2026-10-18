@@ -60,6 +60,12 @@ def is_valid(fix: Fix) -> bool:
 
     Rejects out-of-range values and (0, 0), the usual placeholder for a
     failed fix.
+
+    Args:
+        fix: The fix to check.
+
+    Returns:
+        True if the coordinates could be a real position.
     """
     if not (-90 <= fix.lat <= 90 and -180 <= fix.lon <= 180):
         return False
@@ -70,6 +76,12 @@ class Cleaner:
     """Validation, reordering, de-duplication and speed filtering."""
 
     def __init__(self, config: CleaningConfig):
+        """Create a cleaner.
+
+        Args:
+            config: Thresholds to clean with. The cleaner keeps no state of
+                its own; each deployment's state is passed in on every call.
+        """
         self.config = config
 
     def arrive(self, state: dict, fix: Fix) -> list[Fix]:
@@ -85,6 +97,9 @@ class Cleaner:
         _init(state)
         if not is_valid(fix):
             return self._drop(state, "invalid")
+
+        # Detectors have already seen everything up to the last released
+        # fix, so anything at or before it can no longer be slotted in.
         last = state["last_released"]
         if last is not None:
             last_time = datetime.fromisoformat(last["timestamp"])
@@ -95,6 +110,9 @@ class Cleaner:
         stamp = fix.timestamp.isoformat()
         if any(item["timestamp"] == stamp for item in state["buffer"]):
             return self._drop(state, "duplicate")
+
+        # Hold the fix in time order and move the watermark on if it is the
+        # newest yet; everything at least max_lateness older is then due.
         state["buffer"].append(fix.to_dict())
         state["buffer"].sort(key=lambda item: datetime.fromisoformat(item["timestamp"]))
         newest = state["newest"]
@@ -118,16 +136,36 @@ class Cleaner:
         return self._release(state, now - self.config.max_lateness)
 
     def _drop(self, state: dict, reason: str) -> list[Fix]:
+        """Count a dropped fix.
+
+        Args:
+            state: This deployment's cleaning state, updated in place.
+            reason: One of ``DROP_REASONS``.
+
+        Returns:
+            An empty list, so callers can ``return self._drop(...)``.
+        """
         state["dropped"][reason] += 1
         return []
 
     def _release(self, state: dict, watermark: datetime) -> list[Fix]:
+        """Release buffered fixes at or before ``watermark``, speed-filtered.
+
+        Args:
+            state: This deployment's cleaning state, updated in place.
+            watermark: Fixes at or before this time are due.
+
+        Returns:
+            Due fixes that passed the speed filter, oldest first.
+        """
         released = []
         while state["buffer"]:
             fix = Fix.from_dict(state["buffer"][0])
             if fix.timestamp > watermark:
                 break
             state["buffer"].pop(0)
+            # Recorded even if the speed filter rejects it, so a repeat of
+            # this fix is still recognised as a duplicate.
             state["last_released"] = fix.to_dict()
             if self._too_fast(state, fix):
                 state["rejected_run"] += 1
@@ -139,19 +177,36 @@ class Cleaner:
         return released
 
     def _too_fast(self, state: dict, fix: Fix) -> bool:
+        """Whether reaching ``fix`` from the last accepted fix is impossible.
+
+        Args:
+            state: This deployment's cleaning state.
+            fix: The fix being released.
+
+        Returns:
+            True if the fix should be rejected for speed.
+        """
         if state["anchor"] is None:
             return False
+        # Several rejections in a row suggest the anchor, not the new fixes,
+        # is wrong; accepting this one makes it the new anchor.
         if state["rejected_run"] >= self.config.max_consecutive_rejects:
             return False
         anchor = Fix.from_dict(state["anchor"])
         seconds = (fix.timestamp - anchor.timestamp).total_seconds()
         distance = haversine_m(anchor.lat, anchor.lon, fix.lat, fix.lon)
+        # Either fix may be off by gps_error_m, so only distance beyond
+        # that counts as movement.
         distance = max(0.0, distance - 2 * self.config.gps_error_m)
         return distance > self.config.max_speed_mps * seconds
 
 
 def _init(state: dict) -> None:
-    """Fill in an empty state dict with the cleaner's fields."""
+    """Fill in an empty state dict with the cleaner's fields.
+
+    Args:
+        state: A deployment's cleaning state; existing fields are kept.
+    """
     state.setdefault("buffer", [])
     state.setdefault("newest", None)
     state.setdefault("last_released", None)

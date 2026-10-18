@@ -1,4 +1,5 @@
 # Collar Telemetry
+[![Python Applications test with GitHub Actions](https://github.com/benmacp123/collar-telemetry/actions/workflows/main.yml/badge.svg)](https://github.com/benmacp123/collar-telemetry/actions/workflows/main.yml)
 
 Can a small, cheap, serverless pipeline turn raw GPS-collar fixes into
 alerts a ranger can trust?

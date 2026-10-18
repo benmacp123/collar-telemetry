@@ -7,6 +7,7 @@ import statistics
 from collections import defaultdict
 from pathlib import Path
 
+from telemetry.fixes import Deployment, Fix
 from telemetry.geo import haversine_m
 from telemetry.movebank import read_deployments, read_fixes
 
@@ -37,28 +38,31 @@ STUDIES = [
 GAP_FACTOR = 3
 
 
-def profile_deployment(deployment: object, fixes: list) -> dict:
+def profile_deployment(deployment: Deployment, fixes: list[Fix]) -> dict:
     """Summary statistics for one deployment's fixes.
 
     Args:
-        deployment (object): Deployment object with attributes deployment_id, deploy_off, and end_type.
-        fixes (list): List of fix objects with attributes timestamp, lat, lon, and deployment
+        deployment (Deployment): The deployment being profiled.
+        fixes (list[Fix]): The deployment's fixes, in file order.
 
     Returns:
-        dict: A dictionary containing summary statistics for the deployment, including:
+        dict: One table row, keyed by column heading:
             - deployment: Deployment ID
-            - end type: Type of deployment end
+            - end type: Movebank deployment-end-type, or "-"
             - fixes: Number of fixes
             - first: Date of the first fix
             - last: Date of the last fix
-            - median interval (min): Median interval between fixes in minutes
-            - gaps: Number of gaps exceeding GAP_FACTOR times the median interval
-            - longest gap (days): Longest gap between fixes in days
-            - duplicate times: Number of duplicate timestamps
-            - out of order: Number of fixes that are out of order
-            - max speed (m/s): Maximum speed between consecutive fixes in meters per second
-            - last fix to deploy-off (days): Days between the last fix and deployment off,
+            - median interval (min): Median interval between fixes, minutes
+            - gaps: Intervals over GAP_FACTOR times the median
+            - longest gap (days): Longest interval between fixes, days
+            - duplicate times: Fixes sharing a timestamp with the previous one
+            - out of order: Fixes earlier than the one before them in the file
+            - max speed (m/s): Fastest implied speed between consecutive fixes
+            - last fix to deploy-off (days): Time from the last fix to the
+              recorded end of the deployment, or "-" if open-ended
     """
+    # Out-of-order fixes are counted in file order; everything else in time
+    # order.
     file_order = [fix.timestamp for fix in fixes]
     out_of_order = sum(
         later < earlier for earlier, later in zip(file_order, file_order[1:])
@@ -68,6 +72,8 @@ def profile_deployment(deployment: object, fixes: list) -> dict:
         (b.timestamp - a.timestamp).total_seconds() / 60
         for a, b in zip(ordered, ordered[1:])
     ]
+
+    # Compute median interval and speeds, filtering out non-positive intervals
     positive = [minutes for minutes in intervals if minutes > 0]
     median = statistics.median(positive) if positive else float("nan")
     speeds = [
@@ -75,6 +81,8 @@ def profile_deployment(deployment: object, fixes: list) -> dict:
         for a, b, minutes in zip(ordered, ordered[1:], intervals)
         if minutes > 0
     ]
+
+    # Compute the last fix timestamp and silent days until deployment off
     last = ordered[-1].timestamp if ordered else None
     silent_days = (
         (deployment.deploy_off - last).total_seconds() / 86400
@@ -142,6 +150,8 @@ def main():
         event_files = sorted(RAW.glob(pattern.format(stem=stem)), key=part_number)
         fixes, report = read_fixes(event_files, deployments)
         by_deployment = defaultdict(list)
+
+        # Group fixes by deployment ID
         for fix in fixes:
             by_deployment[fix.deployment_id].append(fix)
         rows = [

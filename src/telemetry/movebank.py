@@ -128,7 +128,7 @@ def _read_event_file(path, by_key: defaultdict[list], fixes: list, report: LoadR
 
     Args:
         path: The path to the event CSV file.
-        by_key: A dictionary mapping (tag, animal) keys to their corresponding deployments.
+        by_key: Deployments keyed by (tag, animal), for matching rows.
         fixes: A list to which the parsed fixes will be appended.
         report: A LoadReport instance to which drop counts will be added.
     """

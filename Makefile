@@ -23,6 +23,10 @@ format-check:
 
 lint:
 	PYTHONPATH=src python -m pylint --disable=R,C src/telemetry
+	# Every module, class and function needs a docstring, tests included.
+	PYTHONPATH=src python -m pylint --disable=all \
+		--enable=missing-module-docstring,missing-class-docstring,missing-function-docstring \
+		src scripts tests
 
 
 all: install format lint test

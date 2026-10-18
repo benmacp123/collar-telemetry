@@ -30,7 +30,17 @@ class Deployment:
     end_type: str | None
 
     def covers(self, timestamp: datetime) -> bool:
-        """Whether a fix at ``timestamp`` belongs to this deployment."""
+        """Whether a fix at ``timestamp`` belongs to this deployment.
+
+        Follows Movebank's rule: fixes before deploy-on or after deploy-off
+        are not associated with the animal.
+
+        Args:
+            timestamp: Time of the fix (UTC).
+
+        Returns:
+            True if the timestamp falls inside the deployment, inclusive.
+        """
         if timestamp < self.deploy_on:
             return False
         return self.deploy_off is None or timestamp <= self.deploy_off
@@ -53,7 +63,11 @@ class Fix:
     lon: float
 
     def to_dict(self) -> dict:
-        """JSON-ready form, for state saved between invocations."""
+        """JSON-ready form, for state saved between invocations.
+
+        Returns:
+            dict: The fix's fields, with the timestamp as ISO 8601 text.
+        """
         return {
             "deployment_id": self.deployment_id,
             "timestamp": self.timestamp.isoformat(),
@@ -63,7 +77,14 @@ class Fix:
 
     @classmethod
     def from_dict(cls, data: dict) -> "Fix":
-        """Rebuild a fix saved with ``to_dict``."""
+        """Rebuild a fix saved with ``to_dict``.
+
+        Args:
+            data: A dict produced by ``Fix.to_dict``.
+
+        Returns:
+            Fix: The equivalent fix.
+        """
         return cls(
             data["deployment_id"],
             datetime.fromisoformat(data["timestamp"]),

@@ -39,12 +39,14 @@ def plan_parts(sizes: Counter, order: list, max_bytes: int) -> dict:
 
     Args:
         sizes (Counter): A Counter mapping each (tag, animal) key to its byte size.
-        order (list): A list of (tag, animal) keys in the desired order for filling parts.
+        order (list): (tag, animal) keys in the order parts are filled.
         max_bytes (int): The maximum byte size for each part.
 
     Returns:
         dict: A dictionary mapping each (tag, animal) key to its assigned part number.
     """
+    # Fill parts in order, never splitting a key across parts or going
+    # over max_bytes.
     parts, part, used = {}, 1, 0
     for key in order:
         if sizes[key] > max_bytes:
@@ -65,6 +67,7 @@ def main():
     parser.add_argument("--max-mb", type=float, default=50)
     args = parser.parse_args()
 
+    # Read the reference data to determine the order of animals
     with open(args.reference, newline="", encoding="utf-8") as handle:
         order = list(
             dict.fromkeys(
@@ -84,6 +87,7 @@ def main():
         for line in handle:
             sizes[row_key(line, header, columns)] += len(line.encode("utf-8"))
 
+    # Check for any animals in the event file that are not present in the reference data
     unknown = set(sizes) - set(order)
     if unknown:
         raise ValueError(f"event rows for animals not in the reference data: {unknown}")
@@ -98,6 +102,8 @@ def main():
         part: open(path, "w", newline="", encoding="utf-8")
         for part, path in paths.items()
     }
+
+    # Count the bytes written to each part and verify that the total matches the input
     written = Counter()
     try:
         for output in outputs.values():
