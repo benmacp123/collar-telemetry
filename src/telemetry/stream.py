@@ -1,67 +1,42 @@
 """Feed fixes through detectors one at a time, keeping per-animal state.
 
 The unit of work is one fix for one deployment: ``process_fix`` takes that
-deployment's state, updates it in place and returns any alerts. An optional
-``Cleaner`` sits in front of the detectors, so they see clean fixes in time
-order whatever order the fixes arrive in. State is
+deployment's state, updates it in place and returns any incidents. An
+optional ``Cleaner`` sits in front of the detectors, so they see clean
+fixes in time order whatever order the fixes arrive in. State is
 plain JSON (``AnimalState.to_dict``), so a Lambda handler can load it from
 a table, call ``process_fix`` and save it back; ``FixStream`` does the
 same in memory for the local replay runner.
 
 Detectors also receive clock ticks, because some alerts (a silent collar)
 are raised by the absence of fixes rather than by a fix.
+
+Detectors report transitions (``Alert``); an ``AlertLifecycle`` behind
+them turns those into incidents, so callers get one ``Incident`` when an
+episode opens and one when it resolves, not one per fix.
 """
 
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Protocol
 
+from telemetry.alerts import Alert, AlertLifecycle, Incident, open_incidents
 from telemetry.cleaning import Cleaner
 from telemetry.fixes import Fix
-
-
-@dataclass(frozen=True)
-class Alert:
-    """A detector's finding about one deployment.
-
-    Attributes:
-        deployment_id: Deployment the alert is about.
-        detector: Name of the detector that raised it.
-        time: Time of the evidence: the triggering fix, or the tick time
-            for alerts raised by the clock.
-        message: Human-readable summary for the operator.
-    """
-
-    deployment_id: str
-    detector: str
-    time: datetime
-    message: str
-
-    def to_dict(self) -> dict:
-        """JSON-ready form, for alert files and queues.
-
-        Returns:
-            dict: The alert's fields, with the time as ISO 8601 text.
-        """
-        return {
-            "deployment_id": self.deployment_id,
-            "detector": self.detector,
-            "time": self.time.isoformat(),
-            "message": self.message,
-        }
 
 
 class Detector(Protocol):
     """What the stream needs from a detector.
 
     Each detector owns one dict inside each deployment's state, starting
-    empty, and may keep only JSON-serialisable values in it.
+    empty, and may keep only JSON-serialisable values in it. It reports an
+    open ``Alert`` when an episode starts and a resolved one when it ends.
     """
 
     name: str
 
     def on_fix(self, state: dict, deployment_id: str, fix: Fix) -> list[Alert]:
-        """Update ``state`` for a new fix and return any alerts.
+        """Update ``state`` for a new fix and return any transitions.
 
         Args:
             state: This detector's state for the deployment, updated in
@@ -70,11 +45,11 @@ class Detector(Protocol):
             fix: The next fix (clean and in time order behind a cleaner).
 
         Returns:
-            list[Alert]: Alerts raised by this fix, often none.
+            list[Alert]: Transitions raised by this fix, often none.
         """
 
     def on_tick(self, state: dict, deployment_id: str, now: datetime) -> list[Alert]:
-        """Check ``state`` against the clock and return any alerts.
+        """Check ``state`` against the clock and return any transitions.
 
         Args:
             state: This detector's state for the deployment, updated in
@@ -83,7 +58,8 @@ class Detector(Protocol):
             now: Current time (replay or wall-clock).
 
         Returns:
-            list[Alert]: Alerts raised by the passage of time, often none.
+            list[Alert]: Transitions raised by the passage of time, often
+            none.
         """
 
 
@@ -98,6 +74,7 @@ class AnimalState:
             necessarily the last to arrive.
         cleaning: The cleaner's state (buffer, watermark, drop counts).
         detectors: Each detector's own state, keyed by detector name.
+        alerts: The lifecycle's state (open incidents, drop counts).
     """
 
     deployment_id: str
@@ -105,6 +82,7 @@ class AnimalState:
     latest_fix: Fix | None = None
     cleaning: dict = field(default_factory=dict)
     detectors: dict[str, dict] = field(default_factory=dict)
+    alerts: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         """JSON-ready form, for storage between invocations.
@@ -118,6 +96,7 @@ class AnimalState:
             "latest_fix": self.latest_fix and self.latest_fix.to_dict(),
             "cleaning": self.cleaning,
             "detectors": self.detectors,
+            "alerts": self.alerts,
         }
 
     @classmethod
@@ -137,6 +116,7 @@ class AnimalState:
             latest_fix=Fix.from_dict(latest) if latest else None,
             cleaning=data["cleaning"],
             detectors=data["detectors"],
+            alerts=data["alerts"],
         )
 
 
@@ -145,8 +125,10 @@ def process_fix(
     fix: Fix,
     detectors: list[Detector],
     cleaner: Cleaner | None = None,
-) -> list[Alert]:
-    """Run one arriving fix through cleaning and every detector.
+    lifecycle: AlertLifecycle | None = None,
+) -> list[Incident]:
+    """Run one arriving fix through cleaning, every detector and the
+    lifecycle.
 
     Args:
         state: State of the fix's deployment, updated in place.
@@ -154,9 +136,10 @@ def process_fix(
         detectors: Detectors to run, in order.
         cleaner: Cleaning stage; without one, fixes go straight to the
             detectors in arrival order.
+        lifecycle: Alert lifecycle; one with default settings if omitted.
 
     Returns:
-        Alerts raised by any detector.
+        list[Incident]: Incidents opened or resolved by this fix.
 
     Raises:
         ValueError: If the fix belongs to a different deployment.
@@ -170,7 +153,8 @@ def process_fix(
     if state.latest_fix is None or fix.timestamp > state.latest_fix.timestamp:
         state.latest_fix = fix
     released = cleaner.arrive(state.cleaning, fix) if cleaner else [fix]
-    return _detect(state, released, detectors)
+    alerts = _detect(state, released, detectors)
+    return (lifecycle or AlertLifecycle()).apply(state.alerts, alerts)
 
 
 def process_tick(
@@ -178,7 +162,8 @@ def process_tick(
     now: datetime,
     detectors: list[Detector],
     cleaner: Cleaner | None = None,
-) -> list[Alert]:
+    lifecycle: AlertLifecycle | None = None,
+) -> list[Incident]:
     """Give one deployment a clock tick.
 
     The cleaner first releases any fixes now due, then every detector
@@ -189,16 +174,17 @@ def process_tick(
         now: Current time (replay time, or wall-clock time in the cloud).
         detectors: Detectors to run, in order.
         cleaner: Cleaning stage, as for ``process_fix``.
+        lifecycle: Alert lifecycle, as for ``process_fix``.
 
     Returns:
-        Alerts raised by any detector.
+        list[Incident]: Incidents opened or resolved by this tick.
     """
     released = cleaner.tick(state.cleaning, now) if cleaner else []
     alerts = _detect(state, released, detectors)
     for detector in detectors:
         own = state.detectors.setdefault(detector.name, {})
         alerts += detector.on_tick(own, state.deployment_id, now)
-    return alerts
+    return (lifecycle or AlertLifecycle()).apply(state.alerts, alerts)
 
 
 def _detect(
@@ -212,7 +198,7 @@ def _detect(
         detectors: Detectors to run, in order.
 
     Returns:
-        list[Alert]: Alerts raised by any detector for any fix.
+        list[Alert]: Transitions raised by any detector for any fix.
     """
     alerts = []
     for fix in fixes:
@@ -225,51 +211,74 @@ def _detect(
 class FixStream:
     """In-memory state for every deployment, for the local replay runner."""
 
-    def __init__(self, detectors: list[Detector], cleaner: Cleaner | None = None):
+    def __init__(
+        self,
+        detectors: list[Detector],
+        cleaner: Cleaner | None = None,
+        lifecycle: AlertLifecycle | None = None,
+    ):
         """Create an empty stream.
 
         Args:
             detectors: Detectors every fix and tick is run through.
             cleaner: Optional cleaning stage in front of the detectors.
+            lifecycle: Alert lifecycle; one with default settings if
+                omitted.
 
         Raises:
             ValueError: If two detectors share a name, since each name keys
-                its detector's state.
+                its detector's state and its incidents.
         """
         names = [detector.name for detector in detectors]
         if len(set(names)) != len(names):
             raise ValueError(f"detector names must be unique: {names}")
         self.detectors = detectors
         self.cleaner = cleaner
+        self.lifecycle = lifecycle or AlertLifecycle()
         self.states: dict[str, AnimalState] = {}
 
-    def ingest(self, fix: Fix) -> list[Alert]:
+    def ingest(self, fix: Fix) -> list[Incident]:
         """Process one fix, creating its deployment's state if new.
 
         Args:
             fix: The arriving fix.
 
         Returns:
-            list[Alert]: Alerts raised for the fix's deployment.
+            list[Incident]: Incidents opened or resolved for the fix's
+            deployment.
         """
         state = self.states.setdefault(
             fix.deployment_id, AnimalState(fix.deployment_id)
         )
-        return process_fix(state, fix, self.detectors, self.cleaner)
+        return process_fix(state, fix, self.detectors, self.cleaner, self.lifecycle)
 
-    def tick(self, now: datetime) -> list[Alert]:
+    def tick(self, now: datetime) -> list[Incident]:
         """Give a clock tick to every deployment seen so far.
 
         Args:
             now: Current replay time.
 
         Returns:
-            list[Alert]: Alerts raised for any deployment.
+            list[Incident]: Incidents opened or resolved for any deployment.
         """
-        alerts = []
+        incidents = []
         for state in self.states.values():
-            alerts += process_tick(state, now, self.detectors, self.cleaner)
-        return alerts
+            incidents += process_tick(
+                state, now, self.detectors, self.cleaner, self.lifecycle
+            )
+        return incidents
+
+    def open_incidents(self) -> list[Incident]:
+        """Incidents still open, for reporting at the end of a replay.
+
+        Returns:
+            list[Incident]: Open incidents for every deployment.
+        """
+        return [
+            incident
+            for state in self.states.values()
+            for incident in open_incidents(state.alerts)
+        ]
 
     def to_dict(self) -> dict:
         """JSON-ready snapshot of every deployment's state.
@@ -281,7 +290,11 @@ class FixStream:
 
     @classmethod
     def from_dict(
-        cls, data: dict, detectors: list[Detector], cleaner: Cleaner | None = None
+        cls,
+        data: dict,
+        detectors: list[Detector],
+        cleaner: Cleaner | None = None,
+        lifecycle: AlertLifecycle | None = None,
     ) -> "FixStream":
         """Resume a stream from a ``to_dict`` snapshot.
 
@@ -289,11 +302,12 @@ class FixStream:
             data: A dict produced by ``FixStream.to_dict``.
             detectors: Detectors, configured as when the snapshot was taken.
             cleaner: Cleaner, configured as when the snapshot was taken.
+            lifecycle: Lifecycle, configured as when the snapshot was taken.
 
         Returns:
             FixStream: A stream that carries on where the snapshot left off.
         """
-        stream = cls(detectors, cleaner)
+        stream = cls(detectors, cleaner, lifecycle)
         stream.states = {
             key: AnimalState.from_dict(value) for key, value in data.items()
         }

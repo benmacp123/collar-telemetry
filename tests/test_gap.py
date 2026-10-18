@@ -124,6 +124,23 @@ def test_a_new_fix_rearms_the_detector():
     assert len(ticks(detector, state, 111, 130)) == 1
 
 
+def test_the_next_fix_resolves_an_open_gap():
+    """A fix after an alerted silence resolves it, at the fix's time."""
+    detector, state = GapDetector(GapConfig(min_silence=3 * HOUR)), {}
+    feed(detector, state, fixes(range(96)))
+    ticks(detector, state, 97, 110)
+    resolved = feed(detector, state, fixes([111]))
+    assert [(a.status, a.reason, a.time) for a in resolved] == [
+        ("resolved", "fix_received", at(111))
+    ]
+
+
+def test_fixes_without_an_open_gap_resolve_nothing():
+    """Ordinary fixes produce no transitions."""
+    detector, state = GapDetector(), {}
+    assert not feed(detector, state, fixes(range(96)))
+
+
 def test_min_silence_holds_back_fast_tags():
     """A 1-minute tag silent for 30 min is not worth an alert."""
     detector, state = GapDetector(GapConfig(min_silence=6 * HOUR)), {}

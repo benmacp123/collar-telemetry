@@ -106,7 +106,7 @@ def test_one_gps_outlier_does_not_reset_the_cluster():
 
 
 def test_leaving_resets_the_cluster_and_rearms():
-    """Moving away re-arms, and stopping again elsewhere alerts again."""
+    """Moving away resolves and re-arms; stopping elsewhere alerts again."""
     detector, state = MortalityDetector(), {}
     first = feed(detector, state, still(range(30)))
     trip = feed(detector, state, moving(range(30, 35)))
@@ -114,8 +114,20 @@ def test_leaving_resets_the_cluster_and_rearms():
         Fix("A", f.timestamp, f.lat + 0.1, f.lon) for f in still(range(35, 70))
     ]
     second = feed(detector, state, elsewhere)
-    assert len(first) == 1 and not trip and len(second) == 1
+    assert len(first) == 1 and len(second) == 1
     assert second[0].time == at(35 + 24)
+    # The trip starts on the cluster, so hours 31 and 32 are the two fixes
+    # outside it, and the second confirms the move.
+    assert [(a.status, a.reason, a.time) for a in trip] == [
+        ("resolved", "moved", at(32))
+    ]
+
+
+def test_leaving_an_unalerted_cluster_resolves_nothing():
+    """A short rest that never alerted has nothing to resolve."""
+    detector, state = MortalityDetector(), {}
+    feed(detector, state, still(range(10)))
+    assert not feed(detector, state, moving(range(10, 15)))
 
 
 def test_two_fixes_a_day_apart_are_not_enough():
@@ -169,3 +181,19 @@ def test_state_round_trips_through_json_in_a_stream(split):
     alerts += run(resumed, fixes[split:])
     assert alerts == expected
     assert len(expected) == 1
+
+
+def test_a_short_drag_stays_one_incident():
+    """End to end: a carcass dragged 200 m and still again is one incident."""
+    stream = FixStream([MortalityDetector()])
+    dragged = [
+        Fix("A", f.timestamp, f.lat + 0.002, f.lon) for f in still(range(30, 70))
+    ]
+    events = [e for f in still(range(30)) + dragged for e in stream.ingest(f)]
+    assert [(e.status, e.flaps) for e in events] == [
+        ("open", 0),
+        ("resolved", 0),
+        ("open", 1),
+    ]
+    assert len({e.incident_id for e in events}) == 1
+    assert events[-1].opened_at == at(24)

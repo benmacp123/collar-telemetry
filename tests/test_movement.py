@@ -94,13 +94,15 @@ def test_sustained_dash_alerts_once():
 
 
 def test_rearms_after_returning_to_normal():
-    """A second run after settling down again raises a second alert."""
+    """Settling down resolves the alert, and a second run alerts again."""
     detector, state = MovementDetector(), {}
     feed(detector, state, wander(range(14 * 24)))
     first = feed(detector, state, dash(range(14 * 24, 14 * 24 + 6)))
     calm = feed(detector, state, wander(range(14 * 24 + 6, 16 * 24), lat=LAT + 0.5))
     second = feed(detector, state, dash(range(16 * 24, 16 * 24 + 6)))
-    assert len(first) == 1 and not calm and len(second) == 1
+    assert len(first) == 1 and len(second) == 1
+    assert [(a.status, a.reason) for a in calm] == [("resolved", "normal")]
+    assert second[0].status == "open"
 
 
 def test_no_alert_during_warmup():
@@ -182,8 +184,12 @@ def test_a_long_episode_closes_and_learning_resumes():
     detector, state = MovementDetector(config), {}
     feed(detector, state, wander(range(14 * 24)))
     # The episode opens an hour into the run and closes 6 h later.
-    feed(detector, state, dash(range(14 * 24, 14 * 24 + 8)))
+    alerts = feed(detector, state, dash(range(14 * 24, 14 * 24 + 8)))
     assert not state["open"]
+    assert [(a.status, a.reason) for a in alerts] == [
+        ("open", None),
+        ("resolved", "expired"),
+    ]
 
 
 def test_quantile_past_the_last_bin_returns_the_top_edge():

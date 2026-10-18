@@ -78,14 +78,18 @@ def test_fix_for_another_deployment_rejected():
 
 
 def test_tick_reaches_every_deployment():
-    """A tick is given to every deployment, stamped with the tick time."""
+    """A tick reaches every deployment; repeats of an open alert are dropped."""
     stream = FixStream([CountingDetector()])
     stream.ingest(fix("A", 0))
     stream.ingest(fix("B", 0))
     now = START + timedelta(days=1)
-    alerts = stream.tick(now)
-    assert {alert.deployment_id for alert in alerts} == {"A", "B"}
-    assert all(alert.time == now for alert in alerts)
+    incidents = stream.tick(now)
+    assert {incident.deployment_id for incident in incidents} == {"A", "B"}
+    assert all(incident.opened_at == now for incident in incidents)
+    # CountingDetector re-raises on every tick, but each incident is open.
+    assert not stream.tick(now + timedelta(hours=1))
+    assert stream.states["A"].alerts["dropped"]["duplicate_open"] == 1
+    assert len(stream.open_incidents()) == 2
 
 
 def test_state_survives_a_json_round_trip():
@@ -119,4 +123,6 @@ def test_alert_to_dict():
         "detector": "count",
         "time": "2016-04-19T00:00:00+00:00",
         "message": "fix 3",
+        "status": "open",
+        "reason": None,
     }

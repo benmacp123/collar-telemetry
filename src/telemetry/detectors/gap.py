@@ -12,7 +12,8 @@ things from each deployment's own fixes:
 
 On each clock tick it measures the silence since the last fix counting only
 active hours, and raises one alert when that exceeds
-``max(factor * expected interval, min_silence)``. A new fix re-arms it.
+``max(factor * expected interval, min_silence)``. The next fix resolves it
+(reason ``fix_received``) and re-arms the detector.
 
 Silence is measured from the last fix the detector has seen. Behind a
 ``Cleaner`` that lags arrival by up to the cleaner's ``max_lateness``, so
@@ -24,7 +25,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 
 from telemetry.fixes import Fix
-from telemetry.stream import Alert
+from telemetry.alerts import RESOLVED, Alert
 
 HOUR = timedelta(hours=1)
 
@@ -121,14 +122,14 @@ class GapDetector:
         Args:
             state: This detector's state for the deployment, updated in
                 place.
-            deployment_id: Deployment the fix belongs to (unused; required
-                by the ``Detector`` protocol).
+            deployment_id: Deployment the fix belongs to, named in any
+                resolve.
             fix: The next clean fix, in time order.
 
         Returns:
-            list[Alert]: Always empty; gaps are only found on clock ticks.
+            list[Alert]: A resolve if a gap alert was open, otherwise empty;
+            gaps themselves are only found on clock ticks.
         """
-        # pylint: disable=unused-argument
         if "weights" not in state:
             state.update(
                 first=fix.timestamp.isoformat(),
@@ -153,9 +154,26 @@ class GapDetector:
         state["weights"] = [weight * decay for weight in state["weights"]]
         state["weights"][fix.timestamp.hour] += 1.0
         state["weighted_at"] = fix.timestamp.isoformat()
+        alerts = []
+        if state["open"]:
+            message = (
+                f"Collar reporting again: fix at {fix.timestamp:%Y-%m-%d %H:%M} "
+                f"UTC after silence since "
+                f"{datetime.fromisoformat(state['last']):%Y-%m-%d %H:%M} UTC"
+            )
+            alerts.append(
+                Alert(
+                    deployment_id,
+                    self.name,
+                    fix.timestamp,
+                    message,
+                    RESOLVED,
+                    "fix_received",
+                )
+            )
         state["last"] = fix.timestamp.isoformat()
         state["open"] = False
-        return []
+        return alerts
 
     def on_tick(self, state: dict, deployment_id: str, now: datetime) -> list[Alert]:
         """Alert once if the collar has been silent too long.

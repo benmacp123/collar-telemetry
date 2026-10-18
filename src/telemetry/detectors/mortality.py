@@ -14,7 +14,8 @@ per deployment: the bounding box of the fixes since the animal last moved.
   starts from them.
 - The detector **alerts once** when the cluster has lasted ``window`` and
   holds at least ``min_fixes`` fixes, so two fixes a day apart are not
-  enough evidence. It re-arms when the animal moves.
+  enough evidence. When the animal moves, the alert resolves (reason
+  ``moved``) at the fix that confirms the move, and the detector re-arms.
 
 Roosting, resting and denning look the same as death for a while, so
 ``window`` must be longer than the species' longest normal rest (12-14 h
@@ -30,7 +31,7 @@ from datetime import datetime, timedelta
 
 from telemetry.fixes import Fix
 from telemetry.geo import haversine_m
-from telemetry.stream import Alert
+from telemetry.alerts import RESOLVED, Alert
 
 
 @dataclass(frozen=True)
@@ -149,14 +150,15 @@ class MortalityDetector:
             fix: The next clean fix, in time order.
 
         Returns:
-            list[Alert]: One alert when a cluster first qualifies, otherwise
-            empty.
+            list[Alert]: An open when a cluster first qualifies, a resolve
+            when the animal leaves an alerted cluster, otherwise empty.
         """
         if "cluster" not in state:
             state.update(cluster=new_cluster([fix]), pending=[], open=False)
             return []
 
         cluster = state["cluster"]
+        resolved = []
         if extent_with(cluster, fix) <= self.config.max_extent_m:
             # Back inside: any pending fixes were outliers, not a departure.
             state["pending"] = []
@@ -169,12 +171,14 @@ class MortalityDetector:
             # If they are spread out (the animal is travelling), start
             # from the last of them alone.
             pending = [Fix.from_dict(item) for item in state["pending"]]
+            if state["open"]:
+                resolved.append(self._resolve(deployment_id, state["cluster"], fix))
             cluster = new_cluster(pending)
             if extent(cluster) > self.config.max_extent_m:
                 cluster = new_cluster(pending[-1:])
             state.update(cluster=cluster, pending=[], open=False)
 
-        return self._check(state, deployment_id, cluster)
+        return resolved + self._check(state, deployment_id, cluster)
 
     def on_tick(self, state: dict, deployment_id: str, now: datetime) -> list[Alert]:
         """Do nothing: only fixes show whether a tag is moving.
@@ -191,6 +195,28 @@ class MortalityDetector:
         """
         # pylint: disable=unused-argument
         return []
+
+    def _resolve(self, deployment_id: str, cluster: dict, fix: Fix) -> Alert:
+        """A resolve for an alerted cluster the animal has now left.
+
+        Args:
+            deployment_id: Deployment named in the alert.
+            cluster: The alerted cluster, before it is replaced.
+            fix: The fix that confirms the move.
+
+        Returns:
+            Alert: The resolve, at the confirming fix.
+        """
+        lat = cluster["sum_lat"] / cluster["n"]
+        lon = cluster["sum_lon"] / cluster["n"]
+        distance = haversine_m(lat, lon, fix.lat, fix.lon)
+        message = (
+            f"Moving again: {distance:.0f} m from the cluster near "
+            f"{lat:.5f}, {lon:.5f} at {fix.timestamp:%Y-%m-%d %H:%M} UTC"
+        )
+        return Alert(
+            deployment_id, self.name, fix.timestamp, message, RESOLVED, "moved"
+        )
 
     def _check(self, state: dict, deployment_id: str, cluster: dict) -> list[Alert]:
         """Alert if the cluster qualifies and has not already been alerted.

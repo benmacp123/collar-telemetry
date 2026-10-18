@@ -19,14 +19,15 @@ from the histogram, so state stays the same size however long the track.
 **Alert.** After ``warmup`` and ``min_samples`` measurements, a
 displacement above ``max(factor * quantile, min_displacement_m)`` raises
 one alert. The floor stops an animal that barely moves alerting on a short
-walk. The detector re-arms once displacement drops back to the quantile.
+walk. The alert resolves, and the detector re-arms, once displacement
+drops back to the quantile (reason ``normal``).
 
 **Episodes do not teach the baseline.** Measurements taken while an alert
 is open are left out of the histogram: a high quantile moves a lot with a
 few extreme samples, so learning from one emergency would hide the next.
 So that a lasting change of behaviour (a relocation, a range shift) cannot
 keep the detector open and blind for good, an episode also closes after
-``max_episode``.
+``max_episode`` (reason ``expired``).
 """
 
 import math
@@ -35,7 +36,7 @@ from datetime import datetime, timedelta
 
 from telemetry.fixes import Fix
 from telemetry.geo import haversine_m
-from telemetry.stream import Alert
+from telemetry.alerts import RESOLVED, Alert
 
 # Histogram bins: edges at 10 ** (i / BINS_PER_DECADE) metres.
 BINS_PER_DECADE = 10
@@ -148,7 +149,8 @@ class MovementDetector:
             fix: The next clean fix, in time order.
 
         Returns:
-            list[Alert]: One alert when an episode starts, otherwise empty.
+            list[Alert]: An open when an episode starts, a resolve when it
+            ends, otherwise empty.
         """
         if "window" not in state:
             state.update(
@@ -228,19 +230,35 @@ class MovementDetector:
             displacement: Distance between them, in metres.
 
         Returns:
-            list[Alert]: One alert or none.
+            list[Alert]: An open, a resolve, or none.
         """
         normal = histogram_quantile(state["weights"], self.config.quantile)
         if state["open"]:
             # Re-arm once movement is back within normal, or the episode has
             # lasted long enough that it may be the new normal.
             opened_at = datetime.fromisoformat(state["opened_at"])
-            if (
-                displacement <= normal
-                or fix.timestamp - opened_at >= self.config.max_episode
-            ):
-                state.update(open=False, opened_at=None)
-            return []
+            if displacement <= normal:
+                reason = "normal"
+                message = (
+                    f"Movement back within normal: {displacement / 1000:.1f} km "
+                    f"over the span, under this animal's "
+                    f"{self.config.quantile:.0%} level ({normal / 1000:.1f} km)"
+                )
+            elif fix.timestamp - opened_at >= self.config.max_episode:
+                reason = "expired"
+                hours = self.config.max_episode / timedelta(hours=1)
+                message = (
+                    f"Unusual movement still under way after {hours:.0f} h; "
+                    f"treating it as the new normal and learning from it"
+                )
+            else:
+                return []
+            state.update(open=False, opened_at=None)
+            return [
+                Alert(
+                    deployment_id, self.name, fix.timestamp, message, RESOLVED, reason
+                )
+            ]
         if fix.timestamp - datetime.fromisoformat(state["first"]) < self.config.warmup:
             return []
         if sum(state["weights"]) < self.config.min_samples:
