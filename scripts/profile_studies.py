@@ -101,7 +101,7 @@ def profile_deployment(deployment: object, fixes: list) -> dict:
 
 def part_number(path: Path) -> int:
     """Sort key putting ``...-2.csv`` before ``...-10.csv``.
-    
+
     Args:
         path (Path): Path object representing the file path.
 
