@@ -83,3 +83,11 @@ was extracted. Only CC0 or CC-BY data is committed.
   recorded cause. Several of these tracks end in multi-day stationary
   periods, so this is the only committed study with mortality events
   inside the tracks.
+
+## Label overrides (`data/labels.csv`)
+
+Deaths recorded only in a deployment's comments, not in its
+`deployment-end-type`, found by reading the vulture reference data
+(CC0, as above). Each row quotes the comment it relies on. Evaluation
+uses these labels in place of the end type; nothing parses comments in
+code.
