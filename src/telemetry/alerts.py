@@ -31,6 +31,13 @@ Detectors are independent: a dead animal can have a mortality incident and,
 once its battery dies, a gap incident too. Overlap is reported by
 evaluation, not suppressed here.
 
+Incidents carry two clocks. ``opened_at`` and ``resolved_at`` are evidence
+times (the fix or tick behind the transition); ``raised_at`` and
+``resolve_raised_at`` are when the transition was processed (replay clock
+or wall clock), passed in as ``now``. Behind a cleaner, and with fixes
+uploaded in batches, the two differ, and detection delay must be measured
+on the processing clock.
+
 The merge decision compares evidence times only (the resolve's and the
 reopen's), so it does not depend on when ticks or invocations happen.
 
@@ -101,6 +108,9 @@ class Incident:
         resolve_message: The resolving alert's message, or None.
         flaps: Times the incident resolved and was reopened within the
             merge window.
+        raised_at: Processing time the first open was raised, or None if
+            the caller gave no clock.
+        resolve_raised_at: Processing time of the final resolve, or None.
     """
 
     incident_id: str
@@ -113,6 +123,8 @@ class Incident:
     resolution: str | None = None
     resolve_message: str | None = None
     flaps: int = 0
+    raised_at: datetime | None = None
+    resolve_raised_at: datetime | None = None
 
     def to_dict(self) -> dict:
         """JSON-ready form, for alert files, queues and state.
@@ -127,10 +139,12 @@ class Incident:
             "status": self.status,
             "opened_at": self.opened_at.isoformat(),
             "message": self.message,
-            "resolved_at": self.resolved_at and self.resolved_at.isoformat(),
+            "resolved_at": _iso(self.resolved_at),
             "resolution": self.resolution,
             "resolve_message": self.resolve_message,
             "flaps": self.flaps,
+            "raised_at": _iso(self.raised_at),
+            "resolve_raised_at": _iso(self.resolve_raised_at),
         }
 
     @classmethod
@@ -144,7 +158,6 @@ class Incident:
         Returns:
             Incident: The equivalent incident.
         """
-        resolved_at = data["resolved_at"]
         return cls(
             incident_id=data["incident_id"],
             deployment_id=data["deployment_id"],
@@ -152,11 +165,37 @@ class Incident:
             status=data["status"],
             opened_at=datetime.fromisoformat(data["opened_at"]),
             message=data["message"],
-            resolved_at=datetime.fromisoformat(resolved_at) if resolved_at else None,
+            resolved_at=_from_iso(data["resolved_at"]),
             resolution=data["resolution"],
             resolve_message=data["resolve_message"],
             flaps=data["flaps"],
+            raised_at=_from_iso(data["raised_at"]),
+            resolve_raised_at=_from_iso(data["resolve_raised_at"]),
         )
+
+
+def _iso(time: datetime | None) -> str | None:
+    """ISO 8601 text for an optional time.
+
+    Args:
+        time: A time, or None.
+
+    Returns:
+        str | None: The time as text, or None.
+    """
+    return time.isoformat() if time else None
+
+
+def _from_iso(text: str | None) -> datetime | None:
+    """Parse optional ISO 8601 text saved by ``_iso``.
+
+    Args:
+        text: ISO 8601 text, or None.
+
+    Returns:
+        datetime | None: The time, or None.
+    """
+    return datetime.fromisoformat(text) if text else None
 
 
 def default_merge_within() -> dict[str, timedelta]:
@@ -201,7 +240,9 @@ class AlertLifecycle:
         """
         self.config = config or LifecycleConfig()
 
-    def apply(self, state: dict, alerts: list[Alert]) -> list[Incident]:
+    def apply(
+        self, state: dict, alerts: list[Alert], now: datetime | None = None
+    ) -> list[Incident]:
         """Apply detector transitions, in order, to a deployment's incidents.
 
         Args:
@@ -209,6 +250,8 @@ class AlertLifecycle:
                 starts as an empty dict.
             alerts: Transitions from the deployment's detectors, in the
                 order they were raised.
+            now: Processing time (replay or wall clock), recorded as when
+                each transition was raised; None leaves it unrecorded.
 
         Returns:
             list[Incident]: Incidents opened, reopened or resolved, in order.
@@ -222,9 +265,9 @@ class AlertLifecycle:
         events = []
         for alert in alerts:
             if alert.status == OPEN:
-                events += self._open(state, alert)
+                events += self._open(state, alert, now)
             else:
-                events += self._resolve(state, alert)
+                events += self._resolve(state, alert, now)
         return events
 
     def _window(self, detector: str) -> timedelta:
@@ -238,12 +281,16 @@ class AlertLifecycle:
         """
         return self.config.merge_within.get(detector, timedelta(0))
 
-    def _open(self, state: dict, alert: Alert) -> list[Incident]:
+    def _open(self, state: dict, alert: Alert, now: datetime | None) -> list[Incident]:
         """Open an incident, reopen a recent one, or drop a duplicate.
+
+        A reopen keeps the first open's ``raised_at``, so detection delay
+        still runs from the first alert.
 
         Args:
             state: The deployment's lifecycle state, updated in place.
             alert: An open transition.
+            now: Processing time, or None.
 
         Returns:
             list[Incident]: The opened or reopened incident, or nothing.
@@ -262,6 +309,7 @@ class AlertLifecycle:
                         "resolved_at": None,
                         "resolution": None,
                         "resolve_message": None,
+                        "resolve_raised_at": None,
                         "flaps": recent["flaps"] + 1,
                     }
                 )
@@ -275,16 +323,20 @@ class AlertLifecycle:
             status=OPEN,
             opened_at=alert.time,
             message=alert.message,
+            raised_at=now,
         )
         state["open"][alert.detector] = incident.to_dict()
         return [incident]
 
-    def _resolve(self, state: dict, alert: Alert) -> list[Incident]:
+    def _resolve(
+        self, state: dict, alert: Alert, now: datetime | None
+    ) -> list[Incident]:
         """Resolve an open incident, remembering it if it may reopen.
 
         Args:
             state: The deployment's lifecycle state, updated in place.
             alert: A resolved transition.
+            now: Processing time, or None.
 
         Returns:
             list[Incident]: The resolved incident, or nothing if none was
@@ -302,6 +354,7 @@ class AlertLifecycle:
                 "resolved_at": alert.time.isoformat(),
                 "resolution": LATE_FIX if late else alert.reason,
                 "resolve_message": alert.message,
+                "resolve_raised_at": _iso(now),
             }
         )
         if self._window(alert.detector) > timedelta(0):

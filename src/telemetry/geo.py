@@ -25,3 +25,26 @@ def haversine_m(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
         + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
     )
     return 2 * EARTH_RADIUS_M * math.asin(math.sqrt(a))
+
+
+def offset(lat: float, lon: float, bearing_deg: float, distance_m: float) -> tuple:
+    """The point ``distance_m`` from a start point on a given bearing.
+
+    Uses a flat-Earth approximation, accurate to well under a metre at the
+    few hundred metres it is used for (GPS scatter).
+
+    Args:
+        lat: Start latitude in degrees.
+        lon: Start longitude in degrees.
+        bearing_deg: Direction of travel, clockwise from north.
+        distance_m: Distance to move, in metres.
+
+    Returns:
+        tuple: ``(lat, lon)`` of the new point, in degrees.
+    """
+    bearing = math.radians(bearing_deg)
+    dlat = distance_m * math.cos(bearing) / EARTH_RADIUS_M
+    dlon = (
+        distance_m * math.sin(bearing) / (EARTH_RADIUS_M * math.cos(math.radians(lat)))
+    )
+    return lat + math.degrees(dlat), lon + math.degrees(dlon)

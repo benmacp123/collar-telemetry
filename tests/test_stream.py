@@ -126,3 +126,11 @@ def test_alert_to_dict():
         "status": "open",
         "reason": None,
     }
+
+
+def test_ticks_and_arrivals_stamp_raised_time():
+    """Incidents record the arrival or tick time, not the evidence time."""
+    stream = FixStream([CountingDetector(every=1)])
+    arrived = START + timedelta(days=2)
+    [incident] = stream.ingest(fix("A", 0), now=arrived)
+    assert incident.opened_at == START and incident.raised_at == arrived

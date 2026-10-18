@@ -125,3 +125,21 @@ def test_state_and_incidents_survive_json():
     [back] = life.apply(state, [opened(30)])
     assert back.incident_id == first.incident_id
     assert Incident.from_dict(json.loads(json.dumps(back.to_dict()))) == back
+
+
+def test_raised_times_follow_the_processing_clock():
+    """Raised times record processing time, kept across a reopen."""
+    life, state = lifecycle(mortality=36), {}
+    later = START + 100 * HOUR
+    [first] = life.apply(state, [opened(0)], now=later)
+    [gone] = life.apply(state, [resolved(10)], now=later + HOUR)
+    [back] = life.apply(state, [opened(40)], now=later + 2 * HOUR)
+    assert first.raised_at == later and first.opened_at == START
+    assert gone.resolve_raised_at == later + HOUR
+    assert back.raised_at == later and back.resolve_raised_at is None
+
+
+def test_raised_times_are_empty_without_a_clock():
+    """Without ``now`` the raised times stay unrecorded, not guessed."""
+    [incident] = lifecycle().apply({}, [opened(0)])
+    assert incident.raised_at is None

@@ -126,6 +126,7 @@ def process_fix(
     detectors: list[Detector],
     cleaner: Cleaner | None = None,
     lifecycle: AlertLifecycle | None = None,
+    now: datetime | None = None,
 ) -> list[Incident]:
     """Run one arriving fix through cleaning, every detector and the
     lifecycle.
@@ -137,6 +138,9 @@ def process_fix(
         cleaner: Cleaning stage; without one, fixes go straight to the
             detectors in arrival order.
         lifecycle: Alert lifecycle; one with default settings if omitted.
+        now: Arrival time (replay clock, or wall clock in the cloud),
+            recorded as when any incident was raised. Without it, incidents
+            have no ``raised_at`` and detection delay cannot be measured.
 
     Returns:
         list[Incident]: Incidents opened or resolved by this fix.
@@ -154,7 +158,7 @@ def process_fix(
         state.latest_fix = fix
     released = cleaner.arrive(state.cleaning, fix) if cleaner else [fix]
     alerts = _detect(state, released, detectors)
-    return (lifecycle or AlertLifecycle()).apply(state.alerts, alerts)
+    return (lifecycle or AlertLifecycle()).apply(state.alerts, alerts, now)
 
 
 def process_tick(
@@ -184,7 +188,7 @@ def process_tick(
     for detector in detectors:
         own = state.detectors.setdefault(detector.name, {})
         alerts += detector.on_tick(own, state.deployment_id, now)
-    return (lifecycle or AlertLifecycle()).apply(state.alerts, alerts)
+    return (lifecycle or AlertLifecycle()).apply(state.alerts, alerts, now)
 
 
 def _detect(
@@ -237,11 +241,12 @@ class FixStream:
         self.lifecycle = lifecycle or AlertLifecycle()
         self.states: dict[str, AnimalState] = {}
 
-    def ingest(self, fix: Fix) -> list[Incident]:
+    def ingest(self, fix: Fix, now: datetime | None = None) -> list[Incident]:
         """Process one fix, creating its deployment's state if new.
 
         Args:
             fix: The arriving fix.
+            now: Replay time at arrival, as for ``process_fix``.
 
         Returns:
             list[Incident]: Incidents opened or resolved for the fix's
@@ -250,7 +255,9 @@ class FixStream:
         state = self.states.setdefault(
             fix.deployment_id, AnimalState(fix.deployment_id)
         )
-        return process_fix(state, fix, self.detectors, self.cleaner, self.lifecycle)
+        return process_fix(
+            state, fix, self.detectors, self.cleaner, self.lifecycle, now
+        )
 
     def tick(self, now: datetime) -> list[Incident]:
         """Give a clock tick to every deployment seen so far.
