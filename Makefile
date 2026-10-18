@@ -14,6 +14,10 @@ profile:
 	PYTHONPATH=src python scripts/profile_studies.py
 
 
+replay:
+	PYTHONPATH=src python scripts/replay.py
+
+
 format:
 	black src/ tests/ scripts/
 

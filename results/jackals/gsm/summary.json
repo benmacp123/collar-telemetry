@@ -1,0 +1,49 @@
+{
+  "study": "jackals",
+  "scenario": "gsm",
+  "seed": 2026,
+  "settings": {
+    "tick_hours": 1.0,
+    "max_lateness_hours": 3.0,
+    "gap_min_silence_hours": 7.0,
+    "silent_horizon_days": 7.0,
+    "planned_ends": [
+      "captured",
+      "released",
+      "removal"
+    ]
+  },
+  "deployments": 22,
+  "cleaner_dropped": {
+    "duplicate": 1109,
+    "invalid": 0,
+    "late": 768,
+    "speed": 10
+  },
+  "lifecycle_dropped": {
+    "duplicate_open": 0,
+    "orphan_resolve": 0
+  },
+  "incidents": {
+    "gap": {
+      "incidents": 1018,
+      "open_at_end": 22,
+      "late_fix": 878,
+      "flaps": 0
+    },
+    "mortality": {
+      "incidents": 14,
+      "open_at_end": 0,
+      "late_fix": 0,
+      "flaps": 0
+    },
+    "movement": {
+      "incidents": 5,
+      "open_at_end": 0,
+      "late_fix": 0,
+      "flaps": 0
+    }
+  },
+  "fixes": 130688,
+  "arrivals": 131913
+}

@@ -1,0 +1,43 @@
+{
+  "study": "elephants",
+  "scenario": "ideal",
+  "seed": 2026,
+  "settings": {
+    "tick_hours": 1.0,
+    "max_lateness_hours": 0.0,
+    "gap_min_silence_hours": 6.0,
+    "silent_horizon_days": 7.0,
+    "planned_ends": [
+      "captured",
+      "released",
+      "removal"
+    ]
+  },
+  "deployments": 14,
+  "cleaner_dropped": {
+    "duplicate": 0,
+    "invalid": 0,
+    "late": 0,
+    "speed": 0
+  },
+  "lifecycle_dropped": {
+    "duplicate_open": 0,
+    "orphan_resolve": 0
+  },
+  "incidents": {
+    "gap": {
+      "incidents": 611,
+      "open_at_end": 10,
+      "late_fix": 0,
+      "flaps": 0
+    },
+    "movement": {
+      "incidents": 10,
+      "open_at_end": 0,
+      "late_fix": 0,
+      "flaps": 0
+    }
+  },
+  "fixes": 283688,
+  "arrivals": 283688
+}

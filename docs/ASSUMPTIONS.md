@@ -72,6 +72,24 @@ such event is labelled synthetic in results.
 | Collar life after death | 7 days | Dead vultures whose collars keep reporting do so for 53-337 h. Most (12 of 17) stop within hours, which is the gap detector's case. | Provisional, observed range |
 | Death time | Random fix time, at least 7 days after the first fix and 7 days before the last (seeded) | Gives the detectors a baseline and covers the carcass period. | - |
 
+## Replay runner
+
+Settings in `src/telemetry/replay.py` that shape every reported result.
+
+| Setting | Value | Basis | Label |
+|---|---|---|---|
+| Clock tick | 1 h | Gap alerts can be raised up to one tick late; fine against thresholds of 6 h or more. | Provisional |
+| Gap `min_silence` | Upload interval + 6 h (6 h ideal, 7 h GSM, 30 h daily, 54 h every other day) | The newest fix can be a whole upload interval old when it arrives, so a fixed 6 h would alert after every upload. | Provisional |
+| Planned ends | `removal`, `captured`, `released`: ticking stops at deploy-off | The operator knows about these when they happen (Movebank end-type definitions). | Provisional |
+| Other ends | Watched for 7 days after the last arrival | Deaths, transmission ends and unknown ends are only known afterwards, so the final silence can raise a gap alert. | Provisional |
+| Arrival seed | 2026 | Fixed so every run gives the same results. | - |
+
+Known limitation: the gap detector counts silence in the collar's normally
+active hours only, but the upload allowance is wall-clock time. On a tag
+that is active only a few hours a day, the 54 h threshold needs well over
+a week of real silence, so some end-of-track gaps fall outside the 7-day
+watch.
+
 ## References
 
 1. Christiansen P (2002) Locomotion in terrestrial mammals: the influence

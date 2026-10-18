@@ -1,0 +1,49 @@
+{
+  "study": "vultures",
+  "scenario": "gsm",
+  "seed": 2026,
+  "settings": {
+    "tick_hours": 1.0,
+    "max_lateness_hours": 3.0,
+    "gap_min_silence_hours": 7.0,
+    "silent_horizon_days": 7.0,
+    "planned_ends": [
+      "captured",
+      "released",
+      "removal"
+    ]
+  },
+  "deployments": 57,
+  "cleaner_dropped": {
+    "duplicate": 11802,
+    "invalid": 0,
+    "late": 7425,
+    "speed": 179
+  },
+  "lifecycle_dropped": {
+    "duplicate_open": 0,
+    "orphan_resolve": 0
+  },
+  "incidents": {
+    "gap": {
+      "incidents": 6169,
+      "open_at_end": 56,
+      "late_fix": 3354,
+      "flaps": 0
+    },
+    "mortality": {
+      "incidents": 1023,
+      "open_at_end": 16,
+      "late_fix": 0,
+      "flaps": 138
+    },
+    "movement": {
+      "incidents": 188,
+      "open_at_end": 0,
+      "late_fix": 0,
+      "flaps": 0
+    }
+  },
+  "fixes": 1311532,
+  "arrivals": 1324581
+}

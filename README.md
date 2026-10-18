@@ -19,4 +19,5 @@ make install
 make test
 make lint
 make format-check
+make replay   # every study under every arrival scenario, into results/
 ```

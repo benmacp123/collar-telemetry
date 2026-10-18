@@ -9,30 +9,10 @@ from pathlib import Path
 
 from telemetry.fixes import Deployment, Fix
 from telemetry.geo import haversine_m
-from telemetry.movebank import read_deployments, read_fixes
+from telemetry.studies import STUDIES
 
 RAW = Path(__file__).resolve().parent.parent / "data" / "raw"
 OUTPUT = RAW.parent / "PROFILE.md"
-
-# (title, file stem, event-file pattern). Event files over GitHub's size
-# limit are committed split into numbered parts by scripts/split_events.py.
-STUDIES = [
-    (
-        "Vultures, southeastern United States",
-        "Vultures tagged in the southeastern United States_part",
-        "{stem}-gps-*.csv",
-    ),
-    (
-        "Black-backed jackal, Etosha",
-        "Black-backed jackal, Etosha National Park, Namibia",
-        "{stem}.csv",
-    ),
-    (
-        "African elephant, Kruger",
-        "ThermochronTracking Elephants Kruger 2007",
-        "{stem}.csv",
-    ),
-]
 
 # A gap is an interval longer than this many times the deployment's median.
 GAP_FACTOR = 3
@@ -107,19 +87,6 @@ def profile_deployment(deployment: Deployment, fixes: list[Fix]) -> dict:
     }
 
 
-def part_number(path: Path) -> int:
-    """Sort key putting ``...-2.csv`` before ``...-10.csv``.
-
-    Args:
-        path (Path): Path object representing the file path.
-
-    Returns:
-        int: The part number extracted from the file name, or 0 if not present.
-    """
-    suffix = path.stem.rsplit("-", 1)[-1]
-    return int(suffix) if suffix.isdigit() else 0
-
-
 def markdown_table(rows: list) -> str:
     """Render a list of dicts with identical keys as a Markdown table.
 
@@ -145,10 +112,8 @@ def main():
         "Max speed is the fastest implied speed between consecutive fixes, for",
         "screening only; it is not an outlier threshold.",
     ]
-    for title, stem, pattern in STUDIES:
-        deployments = read_deployments(RAW / f"{stem}-reference-data.csv")
-        event_files = sorted(RAW.glob(pattern.format(stem=stem)), key=part_number)
-        fixes, report = read_fixes(event_files, deployments)
+    for study in STUDIES:
+        deployments, fixes, report = study.load(RAW)
         by_deployment = defaultdict(list)
 
         # Group fixes by deployment ID
@@ -159,7 +124,7 @@ def main():
         ]
         sections += [
             "",
-            f"## {title}",
+            f"## {study.title}",
             "",
             f"{report.rows} event rows, {len(fixes)} fixes kept, "
             f"{len(deployments)} deployments. Dropped: {report.not_visible} "
