@@ -28,6 +28,10 @@ project plan:
   last fix to the gap incident still open at the end of the replay.
 - **Operator load** is incidents per animal-month, where an animal-month
   is 30.4375 days of track between first and last fix.
+- **Precision** of the mortality and ``likely_death`` incidents: an
+  incident is true if it is on a dead deployment and still open after the
+  death start, ambiguous if the same holds on an ambiguous track, and
+  false otherwise.
 
 Times are on the processing clock (``raised_at``), so upload batching
 shows in every delay.
@@ -41,7 +45,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from telemetry.alerts import LATE_FIX, OPEN, Incident
+from telemetry.alerts import LATE_FIX, LIKELY_DEATH, MORTALITY, OPEN, Incident
 from telemetry.fixes import Deployment, Fix
 from telemetry.geo import haversine_m
 from telemetry.replay import PLANNED_ENDS
@@ -362,6 +366,51 @@ def false_mortality(truth: Truth, incidents: list[Incident]) -> int:
     )
 
 
+def classify(truth: Truth, incident: Incident) -> str:
+    """Whether a mortality-type incident was right.
+
+    Args:
+        truth: The incident's deployment.
+        incident: A mortality or likely-death incident.
+
+    Returns:
+        str: ``"true"`` if the deployment is dead and the incident was
+        open after the death start, ``"ambiguous"`` if the same holds on an
+        ambiguous track, otherwise ``"false"``.
+    """
+    after = incident.resolved_at is None or incident.resolved_at > truth.still_start
+    if after and truth.label == DEAD:
+        return "true"
+    if after and truth.label == AMBIGUOUS:
+        return "ambiguous"
+    return "false"
+
+
+def precision(
+    truths: list[Truth], own: dict[tuple[str, str], list[Incident]], detector: str
+) -> dict:
+    """How many of one detector's incidents were right.
+
+    Args:
+        truths: The deployments scored.
+        own: Their incidents by (deployment, detector).
+        detector: ``MORTALITY`` or ``LIKELY_DEATH``.
+
+    Returns:
+        dict: True, false and ambiguous counts, and the share of true among
+        true and false (ambiguous left out), or None with neither.
+    """
+    counts = Counter({"true": 0, "false": 0, "ambiguous": 0})
+    for truth in truths:
+        for incident in own.get((truth.deployment_id, detector), []):
+            counts[classify(truth, incident)] += 1
+    judged = counts["true"] + counts["false"]
+    return {
+        **dict(counts),
+        "precision": round(counts["true"] / judged, 3) if judged else None,
+    }
+
+
 def detection_rate(delays: list[float | None], deadline_hours: float) -> float | None:
     """Share of deaths flagged within a deadline.
 
@@ -441,6 +490,7 @@ def evaluate(
     carcass = [d for d in deaths if d["carcass"]]
     no_carcass = [d for d in deaths if not d["carcass"]]
     delays = [d["mortality_delay_hours"] for d in carcass]
+    likely = [d["likely_death_delay_hours"] for d in carcass]
     wide = [d["mortality_delay_hours_200m"] for d in carcass]
     return {
         "deployments": len(truths),
@@ -461,6 +511,17 @@ def evaluate(
             ),
             "rate_at_mark_200m": (
                 detection_rate(wide, mark_hours) if mark_hours is not None else None
+            ),
+        },
+        "precision": {
+            MORTALITY: precision(truths, own, MORTALITY),
+            LIKELY_DEATH: precision(truths, own, LIKELY_DEATH),
+        },
+        "likely_death": {
+            "deaths": len(carcass),
+            "detected": sum(1 for d in likely if d is not None),
+            "rate_at_mark": (
+                detection_rate(likely, mark_hours) if mark_hours is not None else None
             ),
         },
         "gap_on_deaths": {
@@ -494,6 +555,9 @@ def _death_record(
     """
     found = mortality_detection(truth.still_start, mortality)
     found_wide = mortality_detection(truth.still_start_wide, mortality)
+    likely = mortality_detection(
+        truth.still_start, own.get((truth.deployment_id, LIKELY_DEATH), [])
+    )
     return {
         "deployment_id": truth.deployment_id,
         "carcass": truth.carcass,
@@ -502,6 +566,7 @@ def _death_record(
         "mortality_delay_hours": found[0] if found else None,
         "early": bool(found and found[1]),
         "mortality_delay_hours_200m": found_wide[0] if found_wide else None,
+        "likely_death_delay_hours": likely[0] if likely else None,
         "gap_delay_hours": gap_detection(
             truth.last_fix, own.get((truth.deployment_id, "gap"), [])
         ),

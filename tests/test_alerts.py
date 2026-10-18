@@ -4,6 +4,7 @@ import json
 from datetime import datetime, timedelta, timezone
 
 from telemetry.alerts import (
+    LIKELY_DEATH,
     LATE_FIX,
     OPEN,
     RESOLVED,
@@ -69,13 +70,61 @@ def test_duplicate_open_and_orphan_resolve_are_dropped_and_counted():
 
 
 def test_detectors_have_separate_incidents():
-    """Mortality and gap on the same deployment are independent incidents."""
+    """Movement and gap on the same deployment are independent incidents."""
     life, state = lifecycle(), {}
-    events = life.apply(state, [opened(0, "mortality"), opened(1, "gap")])
-    assert [event.detector for event in events] == ["mortality", "gap"]
+    events = life.apply(state, [opened(0, "movement"), opened(1, "gap")])
+    assert [event.detector for event in events] == ["movement", "gap"]
     [done] = life.apply(state, [resolved(2, "gap", "fix_received")])
     assert done.detector == "gap"
-    assert [i.detector for i in open_incidents(state)] == ["mortality"]
+    assert [i.detector for i in open_incidents(state)] == ["movement"]
+
+
+def test_still_then_silent_raises_likely_death():
+    """A gap opening while mortality is open adds a likely-death incident."""
+    life, state = lifecycle(), {}
+    life.apply(state, [opened(0, "mortality")], now=START)
+    events = life.apply(state, [opened(5, "gap")], now=START + 6 * HOUR)
+    assert [e.detector for e in events] == ["gap", LIKELY_DEATH]
+    likely = events[1]
+    assert likely.opened_at == START + 5 * HOUR
+    assert likely.raised_at == START + 6 * HOUR
+    assert likely.incident_id == f"A:{LIKELY_DEATH}:{(START + 5 * HOUR).isoformat()}"
+
+
+def test_silent_then_still_also_raises_likely_death():
+    """The order does not matter; the ID uses the later evidence time."""
+    life, state = lifecycle(), {}
+    events = life.apply(state, [opened(5, "gap"), opened(2, "mortality")])
+    assert events[-1].detector == LIKELY_DEATH
+    assert events[-1].opened_at == START + 5 * HOUR
+
+
+def test_likely_death_survives_collar_reporting_again():
+    """A gap resolving leaves likely death open; the carcass is still there."""
+    life, state = lifecycle(), {}
+    life.apply(state, [opened(0, "mortality"), opened(5, "gap")])
+    life.apply(state, [resolved(9, "gap", "fix_received")])
+    assert {i.detector for i in open_incidents(state)} == {"mortality", LIKELY_DEATH}
+
+
+def test_likely_death_resolves_when_the_animal_moves():
+    """Mortality resolving as moved resolves likely death the same way."""
+    life, state = lifecycle(), {}
+    life.apply(state, [opened(0, "mortality"), opened(5, "gap")])
+    events = life.apply(state, [resolved(9, "mortality", "moved")])
+    assert [(e.detector, e.resolution) for e in events] == [
+        ("mortality", "moved"),
+        (LIKELY_DEATH, "moved"),
+    ]
+    assert [i.detector for i in open_incidents(state)] == ["gap"]
+
+
+def test_no_likely_death_without_both():
+    """Mortality alone, or gap alone, raises no likely death."""
+    life, state = lifecycle(), {}
+    events = life.apply(state, [opened(0, "mortality"), resolved(3, "mortality")])
+    events += life.apply(state, [opened(5, "gap")])
+    assert LIKELY_DEATH not in {e.detector for e in events}
 
 
 def test_reopen_within_the_window_continues_the_incident():

@@ -19,6 +19,11 @@
           "late_fix": 0,
           "per_animal_month": 0.878
         },
+        "likely_death": {
+          "incidents": 61,
+          "late_fix": 0,
+          "per_animal_month": 0.086
+        },
         "mortality": {
           "incidents": 428,
           "late_fix": 0,
@@ -42,6 +47,25 @@
         "rate_at_mark": 0.667,
         "rate_at_mark_200m": 0.667
       },
+      "precision": {
+        "mortality": {
+          "true": 5,
+          "false": 421,
+          "ambiguous": 2,
+          "precision": 0.012
+        },
+        "likely_death": {
+          "true": 5,
+          "false": 54,
+          "ambiguous": 2,
+          "precision": 0.085
+        }
+      },
+      "likely_death": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.333
+      },
       "gap_on_deaths": {
         "deaths": 11,
         "detected": 11,
@@ -57,6 +81,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -67,6 +92,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
+          "likely_death_delay_hours": 36.0,
           "gap_delay_hours": 36.0
         },
         {
@@ -77,6 +103,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -87,6 +114,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -97,6 +125,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -107,6 +136,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -117,6 +147,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -127,6 +158,7 @@
           "mortality_delay_hours": 40.0,
           "early": false,
           "mortality_delay_hours_200m": 40.0,
+          "likely_death_delay_hours": 373.0,
           "gap_delay_hours": 36.0
         },
         {
@@ -137,6 +169,7 @@
           "mortality_delay_hours": 39.0,
           "early": false,
           "mortality_delay_hours_200m": 39.0,
+          "likely_death_delay_hours": 75.0,
           "gap_delay_hours": 36.0
         },
         {
@@ -147,6 +180,7 @@
           "mortality_delay_hours": 39.0,
           "early": false,
           "mortality_delay_hours_200m": 39.0,
+          "likely_death_delay_hours": 89.0,
           "gap_delay_hours": 36.0
         },
         {
@@ -157,6 +191,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -167,6 +202,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -177,6 +213,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -187,6 +224,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -197,6 +235,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -207,6 +246,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 36.0
         },
         {
@@ -217,6 +257,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
+          "likely_death_delay_hours": 166.0,
           "gap_delay_hours": 36.0
         }
       ],
@@ -247,6 +288,11 @@
           "late_fix": 73,
           "per_animal_month": 0.557
         },
+        "likely_death": {
+          "incidents": 37,
+          "late_fix": 2,
+          "per_animal_month": 0.052
+        },
         "mortality": {
           "incidents": 428,
           "late_fix": 0,
@@ -270,6 +316,25 @@
         "rate_at_mark": 0.667,
         "rate_at_mark_200m": 0.667
       },
+      "precision": {
+        "mortality": {
+          "true": 5,
+          "false": 421,
+          "ambiguous": 2,
+          "precision": 0.012
+        },
+        "likely_death": {
+          "true": 5,
+          "false": 30,
+          "ambiguous": 2,
+          "precision": 0.143
+        }
+      },
+      "likely_death": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.0
+      },
       "gap_on_deaths": {
         "deaths": 11,
         "detected": 11,
@@ -285,6 +350,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -295,6 +361,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
+          "likely_death_delay_hours": 60.0,
           "gap_delay_hours": 60.0
         },
         {
@@ -305,6 +372,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -315,6 +383,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -325,6 +394,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -335,6 +405,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -345,6 +416,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -355,6 +427,7 @@
           "mortality_delay_hours": 52.37,
           "early": false,
           "mortality_delay_hours_200m": 52.37,
+          "likely_death_delay_hours": 397.0,
           "gap_delay_hours": 60.0
         },
         {
@@ -365,6 +438,7 @@
           "mortality_delay_hours": 50.58,
           "early": false,
           "mortality_delay_hours_200m": 50.58,
+          "likely_death_delay_hours": 148.0,
           "gap_delay_hours": 60.0
         },
         {
@@ -375,6 +449,7 @@
           "mortality_delay_hours": 62.23,
           "early": false,
           "mortality_delay_hours_200m": 62.23,
+          "likely_death_delay_hours": 113.0,
           "gap_delay_hours": 60.0
         },
         {
@@ -385,6 +460,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -395,6 +471,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -405,6 +482,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -415,6 +493,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -425,6 +504,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -435,6 +515,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 60.0
         },
         {
@@ -445,6 +526,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
+          "likely_death_delay_hours": 190.0,
           "gap_delay_hours": 60.0
         }
       ],
@@ -475,6 +557,11 @@
           "late_fix": 90,
           "per_animal_month": 0.444
         },
+        "likely_death": {
+          "incidents": 31,
+          "late_fix": 4,
+          "per_animal_month": 0.044
+        },
         "mortality": {
           "incidents": 428,
           "late_fix": 0,
@@ -498,6 +585,25 @@
         "rate_at_mark": 0.667,
         "rate_at_mark_200m": 0.667
       },
+      "precision": {
+        "mortality": {
+          "true": 5,
+          "false": 421,
+          "ambiguous": 2,
+          "precision": 0.012
+        },
+        "likely_death": {
+          "true": 5,
+          "false": 24,
+          "ambiguous": 2,
+          "precision": 0.172
+        }
+      },
+      "likely_death": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.0
+      },
       "gap_on_deaths": {
         "deaths": 11,
         "detected": 11,
@@ -513,6 +619,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -523,6 +630,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
+          "likely_death_delay_hours": 84.0,
           "gap_delay_hours": 84.0
         },
         {
@@ -533,6 +641,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -543,6 +652,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -553,6 +663,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -563,6 +674,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -573,6 +685,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -583,6 +696,7 @@
           "mortality_delay_hours": 42.92,
           "early": false,
           "mortality_delay_hours_200m": 42.92,
+          "likely_death_delay_hours": 421.0,
           "gap_delay_hours": 84.0
         },
         {
@@ -593,6 +707,7 @@
           "mortality_delay_hours": 71.05,
           "early": false,
           "mortality_delay_hours_200m": 71.05,
+          "likely_death_delay_hours": 172.0,
           "gap_delay_hours": 84.0
         },
         {
@@ -603,6 +718,7 @@
           "mortality_delay_hours": 48.63,
           "early": false,
           "mortality_delay_hours_200m": 48.63,
+          "likely_death_delay_hours": 137.0,
           "gap_delay_hours": 84.0
         },
         {
@@ -613,6 +729,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -623,6 +740,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -633,6 +751,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -643,6 +762,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -653,6 +773,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -663,6 +784,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 84.0
         },
         {
@@ -673,6 +795,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
+          "likely_death_delay_hours": 214.0,
           "gap_delay_hours": 84.0
         }
       ],
@@ -703,6 +826,11 @@
           "late_fix": 165,
           "per_animal_month": 1.109
         },
+        "likely_death": {
+          "incidents": 66,
+          "late_fix": 2,
+          "per_animal_month": 0.093
+        },
         "mortality": {
           "incidents": 429,
           "late_fix": 0,
@@ -726,6 +854,25 @@
         "rate_at_mark": 0.667,
         "rate_at_mark_200m": 0.667
       },
+      "precision": {
+        "mortality": {
+          "true": 5,
+          "false": 422,
+          "ambiguous": 2,
+          "precision": 0.012
+        },
+        "likely_death": {
+          "true": 5,
+          "false": 59,
+          "ambiguous": 2,
+          "precision": 0.078
+        }
+      },
+      "likely_death": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.333
+      },
       "gap_on_deaths": {
         "deaths": 11,
         "detected": 11,
@@ -741,6 +888,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -751,6 +899,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
+          "likely_death_delay_hours": 37.0,
           "gap_delay_hours": 37.0
         },
         {
@@ -761,6 +910,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -771,6 +921,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -781,6 +932,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -791,6 +943,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -801,6 +954,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -811,6 +965,7 @@
           "mortality_delay_hours": 43.0,
           "early": false,
           "mortality_delay_hours_200m": 43.0,
+          "likely_death_delay_hours": 137.0,
           "gap_delay_hours": 37.0
         },
         {
@@ -821,6 +976,7 @@
           "mortality_delay_hours": 42.0,
           "early": false,
           "mortality_delay_hours_200m": 42.0,
+          "likely_death_delay_hours": 76.0,
           "gap_delay_hours": 37.0
         },
         {
@@ -831,6 +987,7 @@
           "mortality_delay_hours": 42.0,
           "early": false,
           "mortality_delay_hours_200m": 42.0,
+          "likely_death_delay_hours": 90.0,
           "gap_delay_hours": 37.0
         },
         {
@@ -841,6 +998,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -851,6 +1009,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -861,6 +1020,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -871,6 +1031,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -881,6 +1042,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -891,6 +1053,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
+          "likely_death_delay_hours": null,
           "gap_delay_hours": 37.0
         },
         {
@@ -901,6 +1064,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
+          "likely_death_delay_hours": 167.0,
           "gap_delay_hours": 37.0
         }
       ],

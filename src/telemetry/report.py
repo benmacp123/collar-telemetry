@@ -132,6 +132,30 @@ def _section(report: dict) -> list[str]:
             f"{result['both_detectors']} |"
         )
 
+    lines += [
+        "",
+        "### Priority alerts",
+        "",
+        "`likely_death` is raised while a mortality and a gap incident are "
+        "both open. Precision is the share of incidents on real deaths "
+        "(ambiguous tracks left out).",
+        "",
+        "| Scenario | Likely death per animal-month | Precision | "
+        "Mortality precision | Carcass deaths flagged | By mark |",
+        "|---|---|---|---|---|---|",
+    ]
+    for name in SCENARIO_ORDER:
+        result = scenarios[name]
+        likely = result["likely_death"]
+        rate = result["load"].get("likely_death", {}).get("per_animal_month")
+        lines.append(
+            f"| {SCENARIO_LABELS[name]} | {_cell(rate)} | "
+            f"{_share(result['precision']['likely_death']['precision'])} | "
+            f"{_share(result['precision']['mortality']['precision'])} | "
+            f"{likely['detected']} of {likely['deaths']} | "
+            f"{_share(likely['rate_at_mark'])} |"
+        )
+
     ambiguous = first["ambiguous"]
     if ambiguous:
         lines += [

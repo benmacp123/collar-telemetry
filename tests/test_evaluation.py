@@ -20,6 +20,7 @@ from telemetry.evaluation import (
     TUNING,
     Truth,
     build_truth,
+    classify,
     detection_rate,
     evaluate,
     false_mortality,
@@ -27,6 +28,7 @@ from telemetry.evaluation import (
     gap_detection,
     label_for,
     mortality_detection,
+    precision,
     read_incidents,
     read_labels,
     reference_mark,
@@ -292,3 +294,33 @@ def test_carcass_split_does_not_follow_detector_window():
     truths = build_truth("vultures", [vulture], walk_then_still(10, 31), {})
     assert truths[0].still_hours == 31.0
     assert truths[0].carcass
+
+
+def test_classify_by_label_and_timing():
+    """True only on a death and open after its start; ambiguous kept apart."""
+    before = incident("mortality", START, resolved=START + 5 * HOUR)
+    during = incident("mortality", START + 30 * HOUR)
+    assert classify(truth(), before) == "false"
+    assert classify(truth(), during) == "true"
+    assert classify(truth(label=AMBIGUOUS), during) == "ambiguous"
+    assert classify(truth(label=ALIVE), during) == "false"
+
+
+def test_precision_leaves_ambiguous_out():
+    """Precision is true over true plus false."""
+    dead, alive = truth(), Truth(
+        **{**truth().__dict__, "deployment_id": "B", "label": ALIVE}
+    )
+    own = {
+        ("A", "likely_death"): [incident("likely_death", START + 30 * HOUR)],
+        ("B", "likely_death"): [
+            Incident("B:x", "B", "likely_death", OPEN, START, "", raised_at=START)
+        ],
+    }
+    assert precision([dead, alive], own, "likely_death") == {
+        "true": 1,
+        "false": 1,
+        "ambiguous": 0,
+        "precision": 0.5,
+    }
+    assert precision([dead], {}, "likely_death")["precision"] is None

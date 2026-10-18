@@ -28,6 +28,17 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | Satellite, daily | 5 | 5 | 60% | 40% | 5 (5 flagged) | 60.0 | 5 |
 | Satellite, 2-day | 5 | 5 | 60% | 40% | 5 (5 flagged) | 84.0 | 5 |
 
+### Priority alerts
+
+`likely_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
+
+| Scenario | Likely death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
+|---|---|---|---|---|---|
+| Ideal | 0.06 | 23% | 3% | 5 of 5 | 60% |
+| GSM | 0.06 | 21% | 3% | 5 of 5 | 40% |
+| Satellite, daily | 0.04 | 33% | 3% | 5 of 5 | 0% |
+| Satellite, 2-day | 0.04 | 36% | 3% | 5 of 5 | 0% |
+
 ### Possible unrecorded deaths
 
 Unplanned ends that finish stationary; not counted as false alarms. Mortality delay under ideal arrival.
@@ -64,6 +75,17 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | Satellite, daily | 6 | 4 | 67% | 67% | 11 (11 flagged) | 60.0 | 5 |
 | Satellite, 2-day | 6 | 4 | 67% | 67% | 11 (11 flagged) | 84.0 | 5 |
 
+### Priority alerts
+
+`likely_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
+
+| Scenario | Likely death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
+|---|---|---|---|---|---|
+| Ideal | 0.09 | 8% | 1% | 4 of 6 | 33% |
+| GSM | 0.09 | 8% | 1% | 4 of 6 | 33% |
+| Satellite, daily | 0.05 | 14% | 1% | 4 of 6 | 0% |
+| Satellite, 2-day | 0.04 | 17% | 1% | 4 of 6 | 0% |
+
 ### Possible unrecorded deaths
 
 Unplanned ends that finish stationary; not counted as false alarms. Mortality delay under ideal arrival.
@@ -97,6 +119,17 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | Satellite, daily | 0 | 0 | – | – | 3 (3 flagged) | 61.0 | 0 |
 | Satellite, 2-day | 0 | 0 | – | – | 3 (3 flagged) | 85.0 | 0 |
 
+### Priority alerts
+
+`likely_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
+
+| Scenario | Likely death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
+|---|---|---|---|---|---|
+| Ideal | – | – | 0% | 0 of 0 | – |
+| GSM | – | – | 0% | 0 of 0 | – |
+| Satellite, daily | – | – | 0% | 0 of 0 | – |
+| Satellite, 2-day | – | – | 0% | 0 of 0 | – |
+
 ## African elephant, Kruger (all set)
 
 14 deployments (11 alive, 3 dead-after-track); 291.8 animal-months. Reference mark 80.5 h (own carcass minimum + vulture mark - vulture carcass minimum).
@@ -120,3 +153,14 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | GSM | 0 | 0 | – | – | 0 (0 flagged) | – | 0 |
 | Satellite, daily | 0 | 0 | – | – | 0 (0 flagged) | – | 0 |
 | Satellite, 2-day | 0 | 0 | – | – | 0 (0 flagged) | – | 0 |
+
+### Priority alerts
+
+`likely_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
+
+| Scenario | Likely death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
+|---|---|---|---|---|---|
+| Ideal | – | – | – | 0 of 0 | – |
+| GSM | – | – | – | 0 of 0 | – |
+| Satellite, daily | – | – | – | 0 of 0 | – |
+| Satellite, 2-day | – | – | – | 0 of 0 | – |

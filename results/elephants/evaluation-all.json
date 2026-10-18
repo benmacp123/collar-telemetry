@@ -36,6 +36,25 @@
         "rate_at_mark": null,
         "rate_at_mark_200m": null
       },
+      "precision": {
+        "mortality": {
+          "true": 0,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": null
+        },
+        "likely_death": {
+          "true": 0,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": null
+        }
+      },
+      "likely_death": {
+        "deaths": 0,
+        "detected": 0,
+        "rate_at_mark": null
+      },
       "gap_on_deaths": {
         "deaths": 0,
         "detected": 0,
@@ -75,6 +94,25 @@
         "mark_hours": 80.5,
         "rate_at_mark": null,
         "rate_at_mark_200m": null
+      },
+      "precision": {
+        "mortality": {
+          "true": 0,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": null
+        },
+        "likely_death": {
+          "true": 0,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": null
+        }
+      },
+      "likely_death": {
+        "deaths": 0,
+        "detected": 0,
+        "rate_at_mark": null
       },
       "gap_on_deaths": {
         "deaths": 0,
@@ -116,6 +154,25 @@
         "rate_at_mark": null,
         "rate_at_mark_200m": null
       },
+      "precision": {
+        "mortality": {
+          "true": 0,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": null
+        },
+        "likely_death": {
+          "true": 0,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": null
+        }
+      },
+      "likely_death": {
+        "deaths": 0,
+        "detected": 0,
+        "rate_at_mark": null
+      },
       "gap_on_deaths": {
         "deaths": 0,
         "detected": 0,
@@ -155,6 +212,25 @@
         "mark_hours": 80.5,
         "rate_at_mark": null,
         "rate_at_mark_200m": null
+      },
+      "precision": {
+        "mortality": {
+          "true": 0,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": null
+        },
+        "likely_death": {
+          "true": 0,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": null
+        }
+      },
+      "likely_death": {
+        "deaths": 0,
+        "detected": 0,
+        "rate_at_mark": null
       },
       "gap_on_deaths": {
         "deaths": 0,

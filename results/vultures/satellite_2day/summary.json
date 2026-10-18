@@ -32,6 +32,12 @@
       "late_fix": 119,
       "flaps": 0
     },
+    "likely_death": {
+      "incidents": 49,
+      "open_at_end": 15,
+      "late_fix": 5,
+      "flaps": 0
+    },
     "mortality": {
       "incidents": 628,
       "open_at_end": 15,

@@ -25,6 +25,16 @@ def report():
             "rate_at_mark": 1.0,
             "rate_at_mark_200m": 1.0,
         },
+        "precision": {
+            "mortality": {"true": 1, "false": 9, "ambiguous": 0, "precision": 0.1},
+            "likely_death": {
+                "true": 1,
+                "false": 1,
+                "ambiguous": 0,
+                "precision": 0.5,
+            },
+        },
+        "likely_death": {"deaths": 1, "detected": 1, "rate_at_mark": 1.0},
         "gap_on_deaths": {"deaths": 1, "detected": 1, "median_delay_hours": 7.0},
         "both_detectors": 1,
         "deaths": [
@@ -58,6 +68,7 @@ def test_markdown_has_load_deaths_and_ambiguous_sections():
     assert "## Jackals (all set)" in text
     assert "| Ideal | – | 0.00 | – | 1.00 | 50% |" in text
     assert "| B | 40.0 | – |" in text
+    assert "| Ideal | – | 50% | 10% | 1 of 1 | 100% |" in text
 
 
 def test_write_figures_writes_delay_and_load_pngs(tmp_path):

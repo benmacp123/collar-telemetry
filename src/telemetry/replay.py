@@ -35,7 +35,15 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, replace
 from datetime import datetime, timedelta, timezone
 
-from telemetry.alerts import LATE_FIX, OPEN, AlertLifecycle, Incident, LifecycleConfig
+from telemetry.alerts import (
+    LATE_FIX,
+    LIKELY_DEATH,
+    MORTALITY,
+    OPEN,
+    AlertLifecycle,
+    Incident,
+    LifecycleConfig,
+)
 from telemetry.arrival import Arrival, ArrivalScenario, merge_arrivals, simulate_arrival
 from telemetry.cleaning import DROP_REASONS, Cleaner
 from telemetry.detectors.gap import GapConfig, GapDetector
@@ -103,7 +111,12 @@ class Overrides:
         if self.mortality_window is None:
             return AlertLifecycle()
         return AlertLifecycle(
-            LifecycleConfig({"mortality": self.mortality_window + MERGE_SLACK})
+            LifecycleConfig(
+                {
+                    MORTALITY: self.mortality_window + MERGE_SLACK,
+                    LIKELY_DEATH: self.mortality_window + MERGE_SLACK,
+                }
+            )
         )
 
     def to_dict(self) -> dict:

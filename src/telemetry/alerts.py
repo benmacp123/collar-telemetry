@@ -28,8 +28,16 @@ episode starts (the animal stops moving, the collar goes quiet) and
   and a store can de-duplicate on it.
 
 Detectors are independent: a dead animal can have a mortality incident and,
-once its battery dies, a gap incident too. Overlap is reported by
-evaluation, not suppressed here.
+once its battery dies, a gap incident too. Neither is suppressed. Instead,
+while both are open for a deployment the lifecycle raises a third,
+higher-priority incident, ``likely_death``: an animal that stopped moving
+and whose collar then went quiet (or the other way round). On the vulture
+tuning set 8-17% of likely-death incidents were on real carcasses, against
+1% of mortality incidents (held-out set: 21-36% against 3%). It usually
+comes late, once a carcass collar stops, so it confirms a death rather
+than giving the first warning. It opens when the second of the two opens, and resolves only when the mortality incident does (the animal
+moved): a collar that starts reporting again from the same spot is still
+a likely carcass.
 
 Incidents carry two clocks. ``opened_at`` and ``resolved_at`` are evidence
 times (the fix or tick behind the transition); ``raised_at`` and
@@ -48,6 +56,9 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 
 OPEN = "open"
+MORTALITY = "mortality"
+GAP = "gap"
+LIKELY_DEATH = "likely_death"
 RESOLVED = "resolved"
 LATE_FIX = "late_fix"
 
@@ -206,13 +217,14 @@ def default_merge_within() -> dict[str, timedelta]:
     into several incidents. A mortality reopen cannot come sooner than the
     detector's own ``window`` after the resolve, since the new cluster has
     to last that long, so the merge window must exceed the longest species
-    window (36 h, vultures); 48 h leaves 12 h of slack. Gap and movement
-    resolves are taken as final.
+    window (36 h, vultures); 48 h leaves 12 h of slack. ``likely_death``
+    follows mortality, since it resolves and reopens with it. Gap and
+    movement resolves are taken as final.
 
     Returns:
         dict[str, timedelta]: Merge window by detector name.
     """
-    return {"mortality": timedelta(hours=48)}
+    return {MORTALITY: timedelta(hours=48), LIKELY_DEATH: timedelta(hours=48)}
 
 
 @dataclass(frozen=True)
@@ -269,7 +281,47 @@ class AlertLifecycle:
                 events += self._open(state, alert, now)
             else:
                 events += self._resolve(state, alert, now)
+            events += self._link(state, alert, now)
         return events
+
+    def _link(self, state: dict, alert: Alert, now: datetime | None) -> list[Incident]:
+        """Open or resolve ``likely_death`` after a transition.
+
+        Args:
+            state: The deployment's lifecycle state, updated in place.
+            alert: The transition just applied.
+            now: Processing time, or None.
+
+        Returns:
+            list[Incident]: The likely-death incident opened, reopened or
+            resolved, or nothing.
+        """
+        open_ = state["open"]
+        if alert.detector == MORTALITY and alert.status != OPEN:
+            if LIKELY_DEATH not in open_:
+                return []
+            resolve = Alert(
+                alert.deployment_id,
+                LIKELY_DEATH,
+                alert.time,
+                alert.message,
+                RESOLVED,
+                alert.reason,
+            )
+            return self._resolve(state, resolve, now)
+        if MORTALITY not in open_ or GAP not in open_ or LIKELY_DEATH in open_:
+            return []
+        mortality, gap = open_[MORTALITY], open_[GAP]
+        # Evidence time is when the second of the two opened, so the ID is
+        # stable whichever order they arrive in.
+        time = max(
+            datetime.fromisoformat(mortality["opened_at"]),
+            datetime.fromisoformat(gap["opened_at"]),
+        )
+        message = f"Likely death. {mortality['message']}. {gap['message']}"
+        return self._open(
+            state, Alert(alert.deployment_id, LIKELY_DEATH, time, message), now
+        )
 
     def _window(self, detector: str) -> timedelta:
         """Merge window for a detector.
