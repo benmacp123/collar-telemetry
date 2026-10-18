@@ -6,6 +6,7 @@ for Lambda.
 
 import csv
 from collections import defaultdict
+from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -86,16 +87,18 @@ class LoadReport:
 
 
 def read_fixes(
-    path: Path, deployments: list[Deployment]
+    paths: Path | Iterable[Path], deployments: list[Deployment]
 ) -> tuple[list[Fix], LoadReport]:
-    """Read a Movebank event CSV and attach each fix to its deployment.
+    """Read Movebank event CSVs and attach each fix to its deployment.
 
     A row belongs to the deployment with the same tag and animal whose
     deploy-on/off window contains its timestamp, following Movebank's own
-    rule. Fixes keep their file order; sorting is the cleaning step's job.
+    rule. Fixes keep their file order, files in the order given; sorting
+    is the cleaning step's job.
 
     Args:
-        path: Path to the event CSV.
+        paths: The event CSV, or the parts of one split to fit GitHub's
+            file size limit.
         deployments: Deployments from the matching reference-data file.
 
     Returns:
@@ -107,6 +110,13 @@ def read_fixes(
 
     fixes = []
     report = LoadReport()
+    for path in [paths] if isinstance(paths, Path) else paths:
+        _read_event_file(path, by_key, fixes, report)
+    return fixes, report
+
+
+def _read_event_file(path, by_key, fixes, report):
+    """Append one event file's fixes to ``fixes``, counting drops in ``report``."""
     with open(path, newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
             report.rows += 1
@@ -128,4 +138,3 @@ def read_fixes(
                 report.unmatched += 1
                 continue
             fixes.append(Fix(match.deployment_id, timestamp, float(lat), float(lon)))
-    return fixes, report

@@ -13,20 +13,52 @@ from telemetry.movebank import read_deployments, read_fixes
 RAW = Path(__file__).resolve().parent.parent / "data" / "raw"
 OUTPUT = RAW.parent / "PROFILE.md"
 
+# (title, file stem, event-file pattern). Event files over GitHub's size
+# limit are committed split into numbered parts by scripts/split_events.py.
 STUDIES = [
+    (
+        "Vultures, southeastern United States",
+        "Vultures tagged in the southeastern United States_part",
+        "{stem}-gps-*.csv",
+    ),
     (
         "Black-backed jackal, Etosha",
         "Black-backed jackal, Etosha National Park, Namibia",
+        "{stem}.csv",
     ),
-    ("African elephant, Kruger", "ThermochronTracking Elephants Kruger 2007"),
+    (
+        "African elephant, Kruger",
+        "ThermochronTracking Elephants Kruger 2007",
+        "{stem}.csv",
+    ),
 ]
 
 # A gap is an interval longer than this many times the deployment's median.
 GAP_FACTOR = 3
 
 
-def profile_deployment(deployment, fixes):
-    """Summary statistics for one deployment's fixes."""
+def profile_deployment(deployment: object, fixes: list) -> dict:
+    """Summary statistics for one deployment's fixes.
+
+    Args:
+        deployment (object): Deployment object with attributes deployment_id, deploy_off, and end_type.
+        fixes (list): List of fix objects with attributes timestamp, lat, lon, and deployment
+
+    Returns:
+        dict: A dictionary containing summary statistics for the deployment, including:
+            - deployment: Deployment ID
+            - end type: Type of deployment end
+            - fixes: Number of fixes
+            - first: Date of the first fix
+            - last: Date of the last fix
+            - median interval (min): Median interval between fixes in minutes
+            - gaps: Number of gaps exceeding GAP_FACTOR times the median interval
+            - longest gap (days): Longest gap between fixes in days
+            - duplicate times: Number of duplicate timestamps
+            - out of order: Number of fixes that are out of order
+            - max speed (m/s): Maximum speed between consecutive fixes in meters per second
+            - last fix to deploy-off (days): Days between the last fix and deployment off,
+    """
     file_order = [fix.timestamp for fix in fixes]
     out_of_order = sum(
         later < earlier for earlier, later in zip(file_order, file_order[1:])
@@ -67,8 +99,28 @@ def profile_deployment(deployment, fixes):
     }
 
 
-def markdown_table(rows):
-    """Render a list of dicts with identical keys as a Markdown table."""
+def part_number(path: Path) -> int:
+    """Sort key putting ``...-2.csv`` before ``...-10.csv``.
+    
+    Args:
+        path (Path): Path object representing the file path.
+
+    Returns:
+        int: The part number extracted from the file name, or 0 if not present.
+    """
+    suffix = path.stem.rsplit("-", 1)[-1]
+    return int(suffix) if suffix.isdigit() else 0
+
+
+def markdown_table(rows: list) -> str:
+    """Render a list of dicts with identical keys as a Markdown table.
+
+    Args:
+        rows (list): List of dictionaries with identical keys representing table rows.
+
+    Returns:
+        str: A string representing the Markdown table, including headers and rows.
+    """
     header = list(rows[0])
     lines = ["| " + " | ".join(header) + " |", "|" + "---|" * len(header)]
     lines += ["| " + " | ".join(str(row[key]) for key in header) + " |" for row in rows]
@@ -85,9 +137,10 @@ def main():
         "Max speed is the fastest implied speed between consecutive fixes, for",
         "screening only; it is not an outlier threshold.",
     ]
-    for title, stem in STUDIES:
+    for title, stem, pattern in STUDIES:
         deployments = read_deployments(RAW / f"{stem}-reference-data.csv")
-        fixes, report = read_fixes(RAW / f"{stem}.csv", deployments)
+        event_files = sorted(RAW.glob(pattern.format(stem=stem)), key=part_number)
+        fixes, report = read_fixes(event_files, deployments)
         by_deployment = defaultdict(list)
         for fix in fixes:
             by_deployment[fix.deployment_id].append(fix)

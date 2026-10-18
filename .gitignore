@@ -224,3 +224,7 @@ __marimo__/
 *.tfvars
 crash.log
 .terraform.lock.hcl.bak
+
+# Full vulture event export (249 MB, over GitHub's file limit); the
+# committed copy is split into data/raw/...-gps-N.csv by scripts/split_events.py.
+data/raw/Vultures tagged in the southeastern United States_part-gps.csv

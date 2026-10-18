@@ -52,3 +52,34 @@ was extracted. Only CC0 or CC-BY data is committed.
   <https://doi.org/10.3389/fevo.2019.00004>
 - **Note:** the three `dead` deployments record deaths after the tracking
   data ends (August 2009), so the tracks contain no mortality events.
+
+## Vultures, southeastern United States
+
+- **Data package:** Kluever BM (2026) Data from: Study "Vultures tagged in
+  the southeastern United States" [part]. Movebank Data Repository.
+  <https://doi.org/10.5441/001/1.666>
+- **Movebank study:** "Vultures tagged in the southeastern United States"
+  (study ID 24797204)
+- **Licence:** CC0 1.0 Universal
+- **Retrieved:** 2026-10-18
+- **Files:**
+  - `raw/Vultures tagged in the southeastern United States_part-gps-1.csv`
+    to `-6.csv` - GPS fixes (1,316,403 rows, 57 deployments on black and
+    turkey vultures, 2006-2021). The published
+    `..._part-gps.csv` is 249 MB, over GitHub's 100 MB file limit, so it
+    is committed split by `scripts/split_events.py`: each part has the
+    original header and rows byte for byte in their original order, and
+    each animal's rows sit in a single part. The split was checked to
+    reproduce the original rows exactly.
+  - `raw/Vultures tagged in the southeastern United States_part-reference-data.csv`
+    - one row per deployment, including `deployment-end-type`, mortality
+    type and death comments (unmodified)
+  - `raw/VULTURES.md` - the package README
+- **Related publication:** Evans BA, Humphrey JS, Tillman EA, Avery ML,
+  Kluever BM (2024) Site-specific space use and resource selection by black
+  vultures (*Coragyps atratus*) in the southeastern USA. Ibis 166(1):129-145.
+  <https://doi.org/10.1111/ibi.13244>
+- **Note:** 21 deployments end `dead` and 4 `dead/fall-off`, most with a
+  recorded cause. Several of these tracks end in multi-day stationary
+  periods, so this is the only committed study with mortality events
+  inside the tracks.

@@ -119,3 +119,22 @@ def test_file_order_is_kept(tmp_path, reused_collar):
     )
     fixes, _ = read_fixes(events, read_deployments(reused_collar))
     assert fixes[0].timestamp > fixes[1].timestamp
+
+
+def test_split_event_files_are_read_in_order(tmp_path, reused_collar):
+    first = write(
+        tmp_path / "events-1.csv",
+        EVENT_HEADER,
+        ["1,true,2009-03-01 00:00:00.000,15.8,-19.0,T1,A"],
+    )
+    second = write(
+        tmp_path / "events-2.csv",
+        EVENT_HEADER,
+        [
+            "2,true,2009-08-01 00:00:00.000,15.9,-19.1,T1,B",
+            "3,false,2009-08-01 01:00:00.000,15.9,-19.1,T1,B",
+        ],
+    )
+    fixes, report = read_fixes([first, second], read_deployments(reused_collar))
+    assert [fix.deployment_id for fix in fixes] == ["T1-A", "T1-B"]
+    assert (report.rows, report.not_visible) == (3, 1)
