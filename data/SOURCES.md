@@ -20,7 +20,7 @@ was extracted. Only CC0 or CC-BY data is committed.
     - one row per deployment, including `deployment-end-type`
   - `raw/carcassLocations.csv` - anthrax carcass locations and jackal
     counts at carcasses
-  - `raw/JACKAL.md` - the package README (published as `README.txt`)
+  - `raw/JACKALS.md` - the package README (published as `README.txt`)
 - **Related publications:**
   - Borchering RK et al. (2017) J. R. Soc. Interface.
     <https://doi.org/10.1098/rsif.2017.0555>

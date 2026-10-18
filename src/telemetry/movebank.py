@@ -27,6 +27,14 @@ def parse_timestamp(value: str) -> datetime:
 
 
 def _optional(value: str | None) -> str | None:
+    """Return a stripped string or None if empty.
+
+    Args:
+        value: A string or None.
+
+    Returns:
+        The stripped string, or None if the input was None or empty after stripping.
+    """
     value = (value or "").strip()
     return value or None
 
@@ -115,8 +123,15 @@ def read_fixes(
     return fixes, report
 
 
-def _read_event_file(path, by_key, fixes, report):
-    """Append one event file's fixes to ``fixes``, counting drops in ``report``."""
+def _read_event_file(path, by_key: defaultdict[list], fixes: list, report: LoadReport):
+    """Append one event file's fixes to ``fixes``, counting drops in ``report``.
+
+    Args:
+        path: The path to the event CSV file.
+        by_key: A dictionary mapping (tag, animal) keys to their corresponding deployments.
+        fixes: A list to which the parsed fixes will be appended.
+        report: A LoadReport instance to which drop counts will be added.
+    """
     with open(path, newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
             report.rows += 1

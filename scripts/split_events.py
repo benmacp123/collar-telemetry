@@ -17,16 +17,34 @@ from collections import Counter
 from pathlib import Path
 
 
-def row_key(line, header, columns):
-    """The (tag, animal) key of one physical CSV line."""
+def row_key(line: str, header: list, columns: list) -> tuple:
+    """The (tag, animal) key of one physical CSV line.
+
+    Args:
+        line (str): A single line from the CSV file.
+        header (list): The header row of the CSV file as a list of strings.
+        columns (list): The indices of the tag and animal columns in the header.
+
+    Returns:
+        tuple: A tuple containing the tag and animal identifiers for the given line.
+    """
     fields = next(csv.reader([line]))
     if len(fields) != len(header):
         raise ValueError(f"line does not hold one whole record: {line[:80]!r}")
     return tuple(fields[index] for index in columns)
 
 
-def plan_parts(sizes, order, max_bytes):
-    """Assign each key to a part number, filling parts in ``order``."""
+def plan_parts(sizes: Counter, order: list, max_bytes: int) -> dict:
+    """Assign each key to a part number, filling parts in ``order``.
+
+    Args:
+        sizes (Counter): A Counter mapping each (tag, animal) key to its byte size.
+        order (list): A list of (tag, animal) keys in the desired order for filling parts.
+        max_bytes (int): The maximum byte size for each part.
+
+    Returns:
+        dict: A dictionary mapping each (tag, animal) key to its assigned part number.
+    """
     parts, part, used = {}, 1, 0
     for key in order:
         if sizes[key] > max_bytes:
