@@ -51,3 +51,22 @@ class Fix:
     timestamp: datetime
     lat: float
     lon: float
+
+    def to_dict(self) -> dict:
+        """JSON-ready form, for state saved between invocations."""
+        return {
+            "deployment_id": self.deployment_id,
+            "timestamp": self.timestamp.isoformat(),
+            "lat": self.lat,
+            "lon": self.lon,
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "Fix":
+        """Rebuild a fix saved with ``to_dict``."""
+        return cls(
+            data["deployment_id"],
+            datetime.fromisoformat(data["timestamp"]),
+            data["lat"],
+            data["lon"],
+        )
