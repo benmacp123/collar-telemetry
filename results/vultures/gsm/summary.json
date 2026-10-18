@@ -5,7 +5,7 @@
   "settings": {
     "tick_hours": 1.0,
     "max_lateness_hours": 3.0,
-    "gap_min_silence_hours": 7.0,
+    "gap_min_silence_hours": 25.0,
     "silent_horizon_days": 7.0,
     "planned_ends": [
       "captured",
@@ -26,16 +26,16 @@
   },
   "incidents": {
     "gap": {
-      "incidents": 6169,
+      "incidents": 990,
       "open_at_end": 56,
-      "late_fix": 3354,
+      "late_fix": 313,
       "flaps": 0
     },
     "mortality": {
-      "incidents": 1023,
-      "open_at_end": 16,
+      "incidents": 628,
+      "open_at_end": 15,
       "late_fix": 0,
-      "flaps": 138
+      "flaps": 52
     },
     "movement": {
       "incidents": 188,

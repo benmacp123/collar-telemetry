@@ -16,6 +16,7 @@ from pathlib import Path
 
 from telemetry.arrival import SCENARIOS
 from telemetry.evaluation import (
+    CARCASS_MIN,
     HOUR,
     SCORING,
     TUNING,
@@ -26,7 +27,6 @@ from telemetry.evaluation import (
     reference_mark,
 )
 from telemetry.report import write_figures, write_markdown
-from telemetry.species import profile_for
 from telemetry.studies import STUDIES
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -54,8 +54,8 @@ def parse_args() -> argparse.Namespace:
 def mammal_mark(vulture_mark: float, taxon: str) -> float:
     """Reference deadline for a species with no observed carcass periods.
 
-    Carried from vultures: the species' own mortality window plus the time
-    the vulture mark leaves after the vulture window.
+    Carried from vultures: the species' carcass minimum plus the time the
+    vulture mark leaves after the vulture carcass minimum.
 
     Args:
         vulture_mark: The vulture reference mark, in hours.
@@ -64,9 +64,8 @@ def mammal_mark(vulture_mark: float, taxon: str) -> float:
     Returns:
         float: The mark, in hours.
     """
-    vulture_window = profile_for(VULTURE_TAXON).mortality.window / HOUR
-    window = profile_for(taxon).mortality.window / HOUR
-    return round(window + vulture_mark - vulture_window, 1)
+    vulture_min = CARCASS_MIN[VULTURE_TAXON] / HOUR
+    return round(CARCASS_MIN[taxon] / HOUR + vulture_mark - vulture_min, 1)
 
 
 def main():
@@ -103,7 +102,7 @@ def main():
                 "mark_basis": (
                     "median tuning-set carcass period"
                     if study.slug == "vultures"
-                    else "own mortality window + vulture mark - vulture window"
+                    else "own carcass minimum + vulture mark - vulture carcass minimum"
                 ),
                 "scenarios": scenarios,
             }

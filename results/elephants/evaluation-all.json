@@ -3,7 +3,7 @@
   "title": "African elephant, Kruger",
   "set": "all",
   "mark_hours": 80.5,
-  "mark_basis": "own mortality window + vulture mark - vulture window",
+  "mark_basis": "own carcass minimum + vulture mark - vulture carcass minimum",
   "scenarios": {
     "ideal": {
       "deployments": 14,
@@ -14,9 +14,9 @@
       "animal_months": 291.8,
       "load": {
         "gap": {
-          "incidents": 611,
+          "incidents": 191,
           "late_fix": 0,
-          "per_animal_month": 2.094
+          "per_animal_month": 0.655
         },
         "movement": {
           "incidents": 10,
@@ -54,9 +54,9 @@
       "animal_months": 291.8,
       "load": {
         "gap": {
-          "incidents": 309,
-          "late_fix": 153,
-          "per_animal_month": 1.059
+          "incidents": 146,
+          "late_fix": 45,
+          "per_animal_month": 0.5
         },
         "movement": {
           "incidents": 10,
@@ -94,9 +94,9 @@
       "animal_months": 291.8,
       "load": {
         "gap": {
-          "incidents": 199,
-          "late_fix": 112,
-          "per_animal_month": 0.682
+          "incidents": 109,
+          "late_fix": 44,
+          "per_animal_month": 0.374
         },
         "movement": {
           "incidents": 10,
@@ -134,9 +134,9 @@
       "animal_months": 291.8,
       "load": {
         "gap": {
-          "incidents": 1545,
-          "late_fix": 968,
-          "per_animal_month": 5.294
+          "incidents": 636,
+          "late_fix": 449,
+          "per_animal_month": 2.179
         },
         "movement": {
           "incidents": 11,

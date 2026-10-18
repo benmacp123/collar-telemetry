@@ -22,6 +22,10 @@ evaluate:
 	PYTHONPATH=src python scripts/evaluate.py
 
 
+sweep:
+	PYTHONPATH=src python scripts/sweep.py
+
+
 results: replay evaluate
 
 

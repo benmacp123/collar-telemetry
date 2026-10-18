@@ -76,10 +76,13 @@ class SpeciesProfile:
 # Literature: Hirt et al. (2017) list the California condor, a related New
 # World vulture, at 90 km/h (25 m/s); their flying model predicts 36 m/s for
 # a 2 kg bird but is fitted mostly on flapping fliers. 30 m/s sits above
-# everything observed. Mortality window, provisional: must outlast the 12-14
-# h overnight roost, so 24 h. Movement floor, provisional: vultures cover
-# tens of kilometres a day on the wing, so 10 km in 3 h.
-_VULTURE_MORTALITY = MortalityConfig(window=timedelta(hours=24))
+# everything observed. Mortality window, observed: chosen on the tuning-set
+# sweep (results/SWEEP.md). 36 h cuts false mortality alerts by 38% against
+# 24 h with no loss of carcass deaths flagged by the reference mark; 48 h
+# cuts more but flags one death after the mark under satellite uploads.
+# Movement floor, provisional: vultures cover tens of kilometres a day on
+# the wing, so 10 km in 3 h.
+_VULTURE_MORTALITY = MortalityConfig(window=timedelta(hours=36))
 _VULTURE_MOVEMENT = MovementConfig(min_displacement_m=10_000.0)
 
 PROFILES: dict[str, SpeciesProfile] = {

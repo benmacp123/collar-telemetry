@@ -3,7 +3,7 @@
   "title": "Black-backed jackal, Etosha",
   "set": "all",
   "mark_hours": 92.5,
-  "mark_basis": "own mortality window + vulture mark - vulture window",
+  "mark_basis": "own carcass minimum + vulture mark - vulture carcass minimum",
   "scenarios": {
     "ideal": {
       "deployments": 22,
@@ -14,14 +14,14 @@
       "animal_months": 182.1,
       "load": {
         "gap": {
-          "incidents": 270,
+          "incidents": 32,
           "late_fix": 0,
-          "per_animal_month": 1.483
+          "per_animal_month": 0.176
         },
         "mortality": {
-          "incidents": 14,
+          "incidents": 13,
           "late_fix": 0,
-          "per_animal_month": 0.077
+          "per_animal_month": 0.071
         },
         "movement": {
           "incidents": 5,
@@ -30,8 +30,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 14,
-        "per_animal_month": 0.077
+        "incidents": 13,
+        "per_animal_month": 0.071
       },
       "mortality": {
         "deaths": 0,
@@ -44,7 +44,7 @@
       "gap_on_deaths": {
         "deaths": 3,
         "detected": 3,
-        "median_delay_hours": 6.99
+        "median_delay_hours": 24.99
       },
       "both_detectors": 0,
       "deaths": [
@@ -56,7 +56,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 6.99
+          "gap_delay_hours": 24.99
         },
         {
           "deployment_id": "AU219-CM23",
@@ -66,7 +66,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 6.99
+          "gap_delay_hours": 24.99
         },
         {
           "deployment_id": "AU396-CM70",
@@ -76,7 +76,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 6.98
+          "gap_delay_hours": 24.98
         }
       ],
       "ambiguous": []
@@ -90,14 +90,14 @@
       "animal_months": 182.1,
       "load": {
         "gap": {
-          "incidents": 40,
-          "late_fix": 10,
-          "per_animal_month": 0.22
+          "incidents": 30,
+          "late_fix": 1,
+          "per_animal_month": 0.165
         },
         "mortality": {
-          "incidents": 14,
+          "incidents": 13,
           "late_fix": 0,
-          "per_animal_month": 0.077
+          "per_animal_month": 0.071
         },
         "movement": {
           "incidents": 5,
@@ -106,8 +106,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 14,
-        "per_animal_month": 0.077
+        "incidents": 13,
+        "per_animal_month": 0.071
       },
       "mortality": {
         "deaths": 0,
@@ -120,7 +120,7 @@
       "gap_on_deaths": {
         "deaths": 3,
         "detected": 3,
-        "median_delay_hours": 30.99
+        "median_delay_hours": 48.99
       },
       "both_detectors": 0,
       "deaths": [
@@ -132,7 +132,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 30.99
+          "gap_delay_hours": 48.99
         },
         {
           "deployment_id": "AU219-CM23",
@@ -142,7 +142,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 30.99
+          "gap_delay_hours": 48.99
         },
         {
           "deployment_id": "AU396-CM70",
@@ -152,7 +152,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 30.98
+          "gap_delay_hours": 48.98
         }
       ],
       "ambiguous": []
@@ -166,14 +166,14 @@
       "animal_months": 182.1,
       "load": {
         "gap": {
-          "incidents": 34,
-          "late_fix": 5,
-          "per_animal_month": 0.187
+          "incidents": 30,
+          "late_fix": 2,
+          "per_animal_month": 0.165
         },
         "mortality": {
-          "incidents": 14,
+          "incidents": 13,
           "late_fix": 0,
-          "per_animal_month": 0.077
+          "per_animal_month": 0.071
         },
         "movement": {
           "incidents": 5,
@@ -182,8 +182,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 14,
-        "per_animal_month": 0.077
+        "incidents": 13,
+        "per_animal_month": 0.071
       },
       "mortality": {
         "deaths": 0,
@@ -196,7 +196,7 @@
       "gap_on_deaths": {
         "deaths": 3,
         "detected": 3,
-        "median_delay_hours": 54.99
+        "median_delay_hours": 72.99
       },
       "both_detectors": 0,
       "deaths": [
@@ -208,7 +208,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 54.99
+          "gap_delay_hours": 72.99
         },
         {
           "deployment_id": "AU219-CM23",
@@ -218,7 +218,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 54.99
+          "gap_delay_hours": 72.99
         },
         {
           "deployment_id": "AU396-CM70",
@@ -228,7 +228,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 54.98
+          "gap_delay_hours": 72.98
         }
       ],
       "ambiguous": []
@@ -242,14 +242,14 @@
       "animal_months": 182.1,
       "load": {
         "gap": {
-          "incidents": 1018,
-          "late_fix": 878,
-          "per_animal_month": 5.591
+          "incidents": 142,
+          "late_fix": 110,
+          "per_animal_month": 0.78
         },
         "mortality": {
-          "incidents": 14,
+          "incidents": 13,
           "late_fix": 0,
-          "per_animal_month": 0.077
+          "per_animal_month": 0.071
         },
         "movement": {
           "incidents": 5,
@@ -258,8 +258,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 14,
-        "per_animal_month": 0.077
+        "incidents": 13,
+        "per_animal_month": 0.071
       },
       "mortality": {
         "deaths": 0,
@@ -272,7 +272,7 @@
       "gap_on_deaths": {
         "deaths": 3,
         "detected": 3,
-        "median_delay_hours": 7.99
+        "median_delay_hours": 25.99
       },
       "both_detectors": 0,
       "deaths": [
@@ -284,7 +284,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 7.99
+          "gap_delay_hours": 25.99
         },
         {
           "deployment_id": "AU219-CM23",
@@ -294,7 +294,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 7.99
+          "gap_delay_hours": 25.99
         },
         {
           "deployment_id": "AU396-CM70",
@@ -304,7 +304,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 7.98
+          "gap_delay_hours": 25.98
         }
       ],
       "ambiguous": []

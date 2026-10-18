@@ -8,7 +8,7 @@ project plan:
   ``data/labels.csv`` overrides it; ``dead-after-track`` (the animal died
   after the collar stopped) counts as alive for every fix the pipeline
   saw. Other unplanned ends whose track finishes with a stationary period
-  at least the species' mortality window long are ``ambiguous``
+  at least the species' ``CARCASS_MIN`` long are ``ambiguous``
   (possible unrecorded deaths or dropped tags): they are reported apart
   and left out of the false-alarm count. Everything else is ``alive``.
 - **Split.** Vulture deployments starting before 2013 are the tuning set
@@ -20,7 +20,7 @@ project plan:
   of the median of the last ``TAIL_FIXES`` fixes. 100 m matches the
   observed carcass scatter; 200 m is reported as a sensitivity check.
 - **Carcass deaths** (final stationary period at least the species'
-  mortality window) are mortality-detector cases. A mortality incident
+  ``CARCASS_MIN``) are mortality-detector cases. A mortality incident
   still open after the death start detects it, even if it was raised
   earlier; its delay is ``raised_at`` minus death start, floored at 0,
   and early detections are counted. Deaths with a shorter stationary end
@@ -45,7 +45,6 @@ from telemetry.alerts import LATE_FIX, OPEN, Incident
 from telemetry.fixes import Deployment, Fix
 from telemetry.geo import haversine_m
 from telemetry.replay import PLANNED_ENDS
-from telemetry.species import profile_for
 
 DEAD = "dead"
 DEAD_AFTER_TRACK = "dead-after-track"
@@ -66,6 +65,18 @@ TAIL_FIXES = 5
 ANIMAL_MONTH = timedelta(days=30.4375)
 HOUR = timedelta(hours=1)
 
+# Shortest final stationary period that counts as a carcass, by taxon. These
+# are the mortality windows in force before the threshold sweep, frozen here
+# so labels, the case split and the reference mark stay fixed while the
+# detector's own window is tuned; otherwise changing a threshold would
+# change what it is scored against.
+CARCASS_MIN = {
+    "Cathartes aura": timedelta(hours=24),
+    "Coragyps atratus": timedelta(hours=24),
+    "Canis mesomelas": timedelta(hours=24),
+    "Loxodonta africana": timedelta(hours=12),
+}
+
 
 @dataclass(frozen=True)
 class Truth:
@@ -73,7 +84,7 @@ class Truth:
 
     Attributes:
         deployment_id: The deployment.
-        taxon: Its taxon, which sets the mortality window.
+        taxon: Its taxon, which sets ``carcass_min``.
         label: One of ``LABELS``.
         split: ``TUNING``, ``SCORING`` or ``ALL``.
         first_fix: Time of its first fix.
@@ -81,7 +92,8 @@ class Truth:
         still_start: Start of the final stationary period at
             ``STILL_RADIUS_M``.
         still_start_wide: The same at ``SENSITIVITY_RADIUS_M``.
-        window: The species' mortality detector window.
+        carcass_min: Shortest final stationary period counted as a
+            carcass, from ``CARCASS_MIN``.
     """
 
     deployment_id: str
@@ -92,7 +104,7 @@ class Truth:
     last_fix: datetime
     still_start: datetime
     still_start_wide: datetime
-    window: timedelta
+    carcass_min: timedelta
 
     @property
     def still_hours(self) -> float:
@@ -109,9 +121,9 @@ class Truth:
         mortality detector to see.
 
         Returns:
-            bool: True if it lasts at least the mortality window.
+            bool: True if it lasts at least ``carcass_min``.
         """
-        return self.last_fix - self.still_start >= self.window
+        return self.last_fix - self.still_start >= self.carcass_min
 
 
 def read_labels(path: Path) -> dict[str, str]:
@@ -182,7 +194,7 @@ def label_for(
     deployment: Deployment,
     overrides: dict[str, str],
     still: timedelta,
-    window: timedelta,
+    carcass_min: timedelta,
 ) -> str:
     """A deployment's label.
 
@@ -190,7 +202,7 @@ def label_for(
         deployment: The deployment.
         overrides: Label overrides by deployment ID.
         still: Length of the track's final stationary period.
-        window: The species' mortality window.
+        carcass_min: The species' ``CARCASS_MIN``.
 
     Returns:
         str: One of ``LABELS``.
@@ -201,7 +213,7 @@ def label_for(
         return DEAD
     if deployment.end_type in PLANNED_ENDS:
         return ALIVE
-    return AMBIGUOUS if still >= window else ALIVE
+    return AMBIGUOUS if still >= carcass_min else ALIVE
 
 
 def build_truth(
@@ -222,7 +234,7 @@ def build_truth(
         list[Truth]: One per deployment with fixes, by deployment ID.
 
     Raises:
-        KeyError: If a deployment's taxon has no species profile.
+        KeyError: If a deployment's taxon has no ``CARCASS_MIN`` entry.
     """
     by_deployment: dict[str, list[Fix]] = {}
     for fix in fixes:
@@ -235,21 +247,24 @@ def build_truth(
         )
         if not own:
             continue
-        window = profile_for(deployment.taxon).mortality.window
+        carcass_min = CARCASS_MIN[deployment.taxon]
         still_start = final_still_start(own, STILL_RADIUS_M)
         truths.append(
             Truth(
                 deployment_id=deployment.deployment_id,
                 taxon=deployment.taxon,
                 label=label_for(
-                    deployment, overrides, own[-1].timestamp - still_start, window
+                    deployment,
+                    overrides,
+                    own[-1].timestamp - still_start,
+                    carcass_min,
                 ),
                 split=split_for(study, deployment),
                 first_fix=own[0].timestamp,
                 last_fix=own[-1].timestamp,
                 still_start=still_start,
                 still_start_wide=final_still_start(own, SENSITIVITY_RADIUS_M),
-                window=window,
+                carcass_min=carcass_min,
             )
         )
     return truths

@@ -42,7 +42,7 @@ JACKAL = "Canis mesomelas"
 
 
 def deployment(deployment_id="A", end_type=None, deploy_on=START):
-    """A jackal deployment (24 h mortality window)."""
+    """A jackal deployment (24 h carcass minimum)."""
     return Deployment(
         deployment_id, "tag", deployment_id, JACKAL, deploy_on, None, end_type
     )
@@ -77,7 +77,7 @@ def truth(label=DEAD, still_start=START + 10 * HOUR, last_fix=START + 60 * HOUR)
         last_fix=last_fix,
         still_start=still_start,
         still_start_wide=still_start,
-        window=DAY,
+        carcass_min=DAY,
     )
 
 
@@ -284,3 +284,11 @@ def test_read_incidents_round_trip(tmp_path):
         encoding="utf-8",
     )
     assert read_incidents(path) == original
+
+
+def test_carcass_split_does_not_follow_detector_window():
+    """A 30 h vulture carcass stays a carcass though the window is 36 h."""
+    vulture = Deployment("A", "tag", "A", "Cathartes aura", START, None, "dead")
+    truths = build_truth("vultures", [vulture], walk_then_still(10, 31), {})
+    assert truths[0].still_hours == 31.0
+    assert truths[0].carcass

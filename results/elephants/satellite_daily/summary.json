@@ -5,7 +5,7 @@
   "settings": {
     "tick_hours": 1.0,
     "max_lateness_hours": 0.0,
-    "gap_min_silence_hours": 30.0,
+    "gap_min_silence_hours": 48.0,
     "silent_horizon_days": 7.0,
     "planned_ends": [
       "captured",
@@ -26,9 +26,9 @@
   },
   "incidents": {
     "gap": {
-      "incidents": 309,
+      "incidents": 146,
       "open_at_end": 9,
-      "late_fix": 153,
+      "late_fix": 45,
       "flaps": 0
     },
     "movement": {

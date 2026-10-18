@@ -33,11 +33,11 @@ flapping fliers, and vultures mostly soar.
 
 | Setting | Value | Basis | Label |
 |---|---|---|---|
-| Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 6-20 m [3, 7]. Dead vultures on the tuning set scatter around their final position with a median of 16 m and a 95th percentile of 59 m. | Provisional, **likely too tight** (see below) |
-| Window, vultures | 24 h | Must outlast the 12-14 h overnight roost. | Provisional |
+| Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 6-20 m [3, 7]. Dead vultures on the tuning set scatter around their final position with a median of 16 m and a 95th percentile of 59 m. Tuning-set sweep: 150 m and 200 m add false alarms (1.26 and 1.47 against 0.95 per animal-month at 24 h) and flag no extra carcass deaths. | Observed (sweep); splits some deaths into several incidents (see below) |
+| Window, vultures | 36 h | Must outlast the 12-14 h overnight roost. Tuning-set sweep (`results/SWEEP.md`): false alarms 0.95 / 0.59 / 0.23 / 0.10 per animal-month at 24 / 36 / 48 / 72 h. Carcass deaths flagged by the 92.5 h mark: 4 of 6 up to 36 h; at 48 h one is flagged after the mark under satellite uploads. | Observed (sweep, 6 carcass deaths) |
 | Window, jackal | 24 h | Jackals lie up through the day. This study's deaths show at most about 10 h stationary before the track stops. | Provisional |
 | Window, elephant | 12 h | Wild elephants sleep about 2 h a day, mostly 02:00-06:00 [8], and rarely stay within 100 m for long. Collar makers' own mortality triggers default to 4-8 h of inactivity [9]. | Provisional, literature-informed |
-| Reopen window | 36 h | A reopen cannot come sooner than the detector window after a resolve. | Provisional, **likely too short** (see below) |
+| Reopen window | 48 h | A reopen cannot come sooner than the detector window after a resolve, so it must exceed the longest window (36 h) with slack. | Provisional |
 
 **Finding: the 100 m box splits one death into several incidents.** On
 synthetic carcasses using the observed scatter, 15% of deaths (hourly
@@ -79,7 +79,7 @@ Settings in `src/telemetry/replay.py` that shape every reported result.
 | Setting | Value | Basis | Label |
 |---|---|---|---|
 | Clock tick | 1 h | Gap alerts can be raised up to one tick late; fine against thresholds of 6 h or more. | Provisional |
-| Gap `min_silence` | Upload interval + 6 h (6 h ideal, 7 h GSM, 30 h daily, 54 h every other day) | The newest fix can be a whole upload interval old when it arrives, so a fixed 6 h would alert after every upload. | Provisional |
+| Gap `min_silence` | Upload interval + 24 h (24 h ideal, 25 h GSM, 48 h daily, 72 h every other day) | The newest fix can be a whole upload interval old when it arrives. Tuning-set sweep, ideal arrival: margins of 6 / 12 / 24 / 48 h give 2.89 / 1.35 / 0.67 / 0.32 gap alerts per animal-month for a median delay of 14 / 20 / 40 / 72 h on deaths; 24 h also cuts GSM from 5.61 to 0.98, since it absorbs whole out-of-coverage days. Every tuning-set death is flagged at every margin. Chosen on vultures and applied to the mammals unchanged. | Observed (sweep) |
 | Planned ends | `removal`, `captured`, `released`: ticking stops at deploy-off | The operator knows about these when they happen (Movebank end-type definitions). | Provisional |
 | Other ends | Watched for 7 days after the last arrival | Deaths, transmission ends and unknown ends are only known afterwards, so the final silence can raise a gap alert. | Provisional |
 | Arrival seed | 2026 | Fixed so every run gives the same results. | - |
@@ -88,7 +88,8 @@ Known limitation: the gap detector counts silence in the collar's normally
 active hours only, but the upload allowance is wall-clock time. On a tag
 that is active only a few hours a day, the 54 h threshold needs well over
 a week of real silence, so some end-of-track gaps fall outside the 7-day
-watch.
+watch. The 24 h margin makes this worse (72 h of active hours under 2-day
+uploads), and the scoring set is mostly such tags.
 
 ## References
 

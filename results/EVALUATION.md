@@ -12,10 +12,10 @@ Every threshold is still provisional (`docs/ASSUMPTIONS.md`).
 
 | Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late |
 |---|---|---|---|---|---|
-| Ideal | 0.96 | 0.95 | 0.14 | 2.89 | 0% |
-| GSM | 0.96 | 0.95 | 0.13 | 5.61 | 50% |
-| Satellite, daily | 0.96 | 0.95 | 0.14 | 0.74 | 31% |
-| Satellite, 2-day | 0.96 | 0.95 | 0.14 | 0.42 | 30% |
+| Ideal | 0.60 | 0.59 | 0.14 | 0.67 | 0% |
+| GSM | 0.60 | 0.59 | 0.13 | 0.98 | 31% |
+| Satellite, daily | 0.60 | 0.59 | 0.14 | 0.39 | 15% |
+| Satellite, 2-day | 0.60 | 0.59 | 0.14 | 0.27 | 21% |
 
 ### Deaths
 
@@ -23,10 +23,10 @@ Carcass deaths (final stationary period at least the mortality window) are score
 
 | Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Other deaths | Gap median delay (h) | Both detectors |
 |---|---|---|---|---|---|---|---|
-| Ideal | 6 | 4 | 67% | 67% | 11 (11 flagged) | 14.0 | 5 |
-| GSM | 6 | 4 | 67% | 67% | 11 (11 flagged) | 15.0 | 5 |
-| Satellite, daily | 6 | 4 | 67% | 67% | 11 (11 flagged) | 46.0 | 5 |
-| Satellite, 2-day | 6 | 4 | 67% | 67% | 11 (11 flagged) | 86.0 | 5 |
+| Ideal | 6 | 4 | 67% | 67% | 11 (11 flagged) | 40.0 | 5 |
+| GSM | 6 | 4 | 67% | 67% | 11 (11 flagged) | 41.0 | 5 |
+| Satellite, daily | 6 | 4 | 67% | 67% | 11 (11 flagged) | 72.0 | 5 |
+| Satellite, 2-day | 6 | 4 | 67% | 67% | 11 (11 flagged) | 112.0 | 5 |
 
 ### Possible unrecorded deaths
 
@@ -35,20 +35,20 @@ Unplanned ends that finish stationary; not counted as false alarms. Mortality de
 | Deployment | Stationary (h) | Mortality delay (h) |
 |---|---|---|
 | CLE_BLVU_121785 | 31.0 | 0.0 |
-| LTH_BLVU_68357 | 41.0 | 19.0 |
+| LTH_BLVU_68357 | 41.0 | 37.0 |
 
 ## Black-backed jackal, Etosha (all set)
 
-22 deployments (19 alive, 3 dead); 182.1 animal-months. Reference mark 92.5 h (own mortality window + vulture mark - vulture window).
+22 deployments (19 alive, 3 dead); 182.1 animal-months. Reference mark 92.5 h (own carcass minimum + vulture mark - vulture carcass minimum).
 
 ### Operator load (incidents per animal-month)
 
 | Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late |
 |---|---|---|---|---|---|
-| Ideal | 0.08 | 0.08 | 0.03 | 1.48 | 0% |
-| GSM | 0.08 | 0.08 | 0.03 | 5.59 | 86% |
-| Satellite, daily | 0.08 | 0.08 | 0.03 | 0.22 | 25% |
-| Satellite, 2-day | 0.08 | 0.08 | 0.03 | 0.19 | 15% |
+| Ideal | 0.07 | 0.07 | 0.03 | 0.18 | 0% |
+| GSM | 0.07 | 0.07 | 0.03 | 0.78 | 77% |
+| Satellite, daily | 0.07 | 0.07 | 0.03 | 0.17 | 3% |
+| Satellite, 2-day | 0.07 | 0.07 | 0.03 | 0.17 | 7% |
 
 ### Deaths
 
@@ -56,23 +56,23 @@ Carcass deaths (final stationary period at least the mortality window) are score
 
 | Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Other deaths | Gap median delay (h) | Both detectors |
 |---|---|---|---|---|---|---|---|
-| Ideal | 0 | 0 | – | – | 3 (3 flagged) | 7.0 | 0 |
-| GSM | 0 | 0 | – | – | 3 (3 flagged) | 8.0 | 0 |
-| Satellite, daily | 0 | 0 | – | – | 3 (3 flagged) | 31.0 | 0 |
-| Satellite, 2-day | 0 | 0 | – | – | 3 (3 flagged) | 55.0 | 0 |
+| Ideal | 0 | 0 | – | – | 3 (3 flagged) | 25.0 | 0 |
+| GSM | 0 | 0 | – | – | 3 (3 flagged) | 26.0 | 0 |
+| Satellite, daily | 0 | 0 | – | – | 3 (3 flagged) | 49.0 | 0 |
+| Satellite, 2-day | 0 | 0 | – | – | 3 (3 flagged) | 73.0 | 0 |
 
 ## African elephant, Kruger (all set)
 
-14 deployments (11 alive, 3 dead-after-track); 291.8 animal-months. Reference mark 80.5 h (own mortality window + vulture mark - vulture window).
+14 deployments (11 alive, 3 dead-after-track); 291.8 animal-months. Reference mark 80.5 h (own carcass minimum + vulture mark - vulture carcass minimum).
 
 ### Operator load (incidents per animal-month)
 
 | Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late |
 |---|---|---|---|---|---|
-| Ideal | – | 0.00 | 0.03 | 2.09 | 0% |
-| GSM | – | 0.00 | 0.04 | 5.29 | 63% |
-| Satellite, daily | – | 0.00 | 0.03 | 1.06 | 50% |
-| Satellite, 2-day | – | 0.00 | 0.03 | 0.68 | 56% |
+| Ideal | – | 0.00 | 0.03 | 0.66 | 0% |
+| GSM | – | 0.00 | 0.04 | 2.18 | 71% |
+| Satellite, daily | – | 0.00 | 0.03 | 0.50 | 31% |
+| Satellite, 2-day | – | 0.00 | 0.03 | 0.37 | 40% |
 
 ### Deaths
 

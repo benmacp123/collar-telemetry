@@ -15,14 +15,14 @@
       "animal_months": 709.4,
       "load": {
         "gap": {
-          "incidents": 2049,
+          "incidents": 477,
           "late_fix": 0,
-          "per_animal_month": 2.888
+          "per_animal_month": 0.672
         },
         "mortality": {
-          "incidents": 681,
+          "incidents": 428,
           "late_fix": 0,
-          "per_animal_month": 0.96
+          "per_animal_month": 0.603
         },
         "movement": {
           "incidents": 96,
@@ -31,8 +31,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 674,
-        "per_animal_month": 0.95
+        "incidents": 421,
+        "per_animal_month": 0.593
       },
       "mortality": {
         "deaths": 6,
@@ -45,7 +45,7 @@
       "gap_on_deaths": {
         "deaths": 11,
         "detected": 11,
-        "median_delay_hours": 14.0
+        "median_delay_hours": 40.0
       },
       "both_detectors": 5,
       "deaths": [
@@ -57,7 +57,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 17.0
+          "gap_delay_hours": 46.0
         },
         {
           "deployment_id": "ACT_TUVU_111943",
@@ -67,7 +67,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
-          "gap_delay_hours": 16.0
+          "gap_delay_hours": 44.0
         },
         {
           "deployment_id": "LAV_BLVU_68349",
@@ -77,7 +77,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 12.0
+          "gap_delay_hours": 36.0
         },
         {
           "deployment_id": "LCP_BLVU_68350",
@@ -87,7 +87,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 17.0
+          "gap_delay_hours": 46.0
         },
         {
           "deployment_id": "LEH_TUVU_68351",
@@ -97,7 +97,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 6.0
+          "gap_delay_hours": 32.0
         },
         {
           "deployment_id": "LEJ_TUVU_68352",
@@ -107,7 +107,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 16.0
+          "gap_delay_hours": 44.0
         },
         {
           "deployment_id": "LEM_TUVU_68353",
@@ -117,17 +117,17 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 14.0
+          "gap_delay_hours": 40.0
         },
         {
           "deployment_id": "LEP_TUVU_68354",
           "carcass": true,
           "still_hours": 337.0,
           "still_hours_200m": 337.0,
-          "mortality_delay_hours": 24.0,
+          "mortality_delay_hours": 40.0,
           "early": false,
-          "mortality_delay_hours_200m": 24.0,
-          "gap_delay_hours": 16.0
+          "mortality_delay_hours_200m": 40.0,
+          "gap_delay_hours": 44.0
         },
         {
           "deployment_id": "LET_TUVU_68355",
@@ -137,17 +137,17 @@
           "mortality_delay_hours": 39.0,
           "early": false,
           "mortality_delay_hours_200m": 39.0,
-          "gap_delay_hours": 6.0
+          "gap_delay_hours": 32.0
         },
         {
           "deployment_id": "LEV_TUVU_68356",
           "carcass": true,
           "still_hours": 53.0,
           "still_hours_200m": 53.0,
-          "mortality_delay_hours": 24.0,
+          "mortality_delay_hours": 39.0,
           "early": false,
-          "mortality_delay_hours_200m": 24.0,
-          "gap_delay_hours": 14.0
+          "mortality_delay_hours_200m": 39.0,
+          "gap_delay_hours": 40.0
         },
         {
           "deployment_id": "LXE_TUVU_68359",
@@ -157,7 +157,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 14.0
+          "gap_delay_hours": 40.0
         },
         {
           "deployment_id": "LXV_TUVU_68360",
@@ -167,7 +167,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 14.0
+          "gap_delay_hours": 40.0
         },
         {
           "deployment_id": "MEM_BLVU_68361",
@@ -177,7 +177,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 6.0
+          "gap_delay_hours": 32.0
         },
         {
           "deployment_id": "MET_TUVU_68359",
@@ -187,7 +187,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 14.0
+          "gap_delay_hours": 40.0
         },
         {
           "deployment_id": "MEX_TUVU_68360",
@@ -197,7 +197,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 12.0
+          "gap_delay_hours": 36.0
         },
         {
           "deployment_id": "MHA_BLVU_68350",
@@ -207,7 +207,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 6.0
+          "gap_delay_hours": 30.0
         },
         {
           "deployment_id": "PMH_BLVU_68354",
@@ -217,7 +217,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
-          "gap_delay_hours": 16.0
+          "gap_delay_hours": 44.0
         }
       ],
       "ambiguous": [
@@ -229,7 +229,7 @@
         {
           "deployment_id": "LTH_BLVU_68357",
           "still_hours": 41.0,
-          "mortality_delay_hours": 19.0
+          "mortality_delay_hours": 37.0
         }
       ]
     },
@@ -243,14 +243,14 @@
       "animal_months": 709.4,
       "load": {
         "gap": {
-          "incidents": 524,
-          "late_fix": 161,
-          "per_animal_month": 0.739
+          "incidents": 277,
+          "late_fix": 42,
+          "per_animal_month": 0.39
         },
         "mortality": {
-          "incidents": 681,
+          "incidents": 428,
           "late_fix": 0,
-          "per_animal_month": 0.96
+          "per_animal_month": 0.603
         },
         "movement": {
           "incidents": 96,
@@ -259,8 +259,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 674,
-        "per_animal_month": 0.95
+        "incidents": 421,
+        "per_animal_month": 0.593
       },
       "mortality": {
         "deaths": 6,
@@ -273,7 +273,7 @@
       "gap_on_deaths": {
         "deaths": 11,
         "detected": 11,
-        "median_delay_hours": 46.0
+        "median_delay_hours": 72.0
       },
       "both_detectors": 5,
       "deaths": [
@@ -285,7 +285,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 63.0
+          "gap_delay_hours": 92.0
         },
         {
           "deployment_id": "ACT_TUVU_111943",
@@ -295,7 +295,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
-          "gap_delay_hours": 50.0
+          "gap_delay_hours": 88.0
         },
         {
           "deployment_id": "LAV_BLVU_68349",
@@ -305,7 +305,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 42.0
+          "gap_delay_hours": 66.0
         },
         {
           "deployment_id": "LCP_BLVU_68350",
@@ -315,7 +315,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 63.0
+          "gap_delay_hours": 92.0
         },
         {
           "deployment_id": "LEH_TUVU_68351",
@@ -325,7 +325,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 46.0
+          "gap_delay_hours": 72.0
         },
         {
           "deployment_id": "LEJ_TUVU_68352",
@@ -335,7 +335,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 60.0
+          "gap_delay_hours": 88.0
         },
         {
           "deployment_id": "LEM_TUVU_68353",
@@ -345,17 +345,17 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 46.0
+          "gap_delay_hours": 72.0
         },
         {
           "deployment_id": "LEP_TUVU_68354",
           "carcass": true,
           "still_hours": 337.0,
           "still_hours_200m": 337.0,
-          "mortality_delay_hours": 28.37,
+          "mortality_delay_hours": 52.37,
           "early": false,
-          "mortality_delay_hours_200m": 28.37,
-          "gap_delay_hours": 50.0
+          "mortality_delay_hours_200m": 52.37,
+          "gap_delay_hours": 88.0
         },
         {
           "deployment_id": "LET_TUVU_68355",
@@ -365,17 +365,17 @@
           "mortality_delay_hours": 50.58,
           "early": false,
           "mortality_delay_hours_200m": 50.58,
-          "gap_delay_hours": 46.0
+          "gap_delay_hours": 72.0
         },
         {
           "deployment_id": "LEV_TUVU_68356",
           "carcass": true,
           "still_hours": 53.0,
           "still_hours_200m": 53.0,
-          "mortality_delay_hours": 38.23,
+          "mortality_delay_hours": 62.23,
           "early": false,
-          "mortality_delay_hours_200m": 38.23,
-          "gap_delay_hours": 46.0
+          "mortality_delay_hours_200m": 62.23,
+          "gap_delay_hours": 72.0
         },
         {
           "deployment_id": "LXE_TUVU_68359",
@@ -385,7 +385,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 46.0
+          "gap_delay_hours": 72.0
         },
         {
           "deployment_id": "LXV_TUVU_68360",
@@ -395,7 +395,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 46.0
+          "gap_delay_hours": 72.0
         },
         {
           "deployment_id": "MEM_BLVU_68361",
@@ -405,7 +405,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 46.0
+          "gap_delay_hours": 72.0
         },
         {
           "deployment_id": "MET_TUVU_68359",
@@ -415,7 +415,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 46.0
+          "gap_delay_hours": 72.0
         },
         {
           "deployment_id": "MEX_TUVU_68360",
@@ -425,7 +425,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 42.0
+          "gap_delay_hours": 66.0
         },
         {
           "deployment_id": "MHA_BLVU_68350",
@@ -435,7 +435,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 36.0
+          "gap_delay_hours": 60.0
         },
         {
           "deployment_id": "PMH_BLVU_68354",
@@ -445,7 +445,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
-          "gap_delay_hours": 60.0
+          "gap_delay_hours": 88.0
         }
       ],
       "ambiguous": [
@@ -471,14 +471,14 @@
       "animal_months": 709.4,
       "load": {
         "gap": {
-          "incidents": 300,
-          "late_fix": 90,
-          "per_animal_month": 0.423
+          "incidents": 192,
+          "late_fix": 41,
+          "per_animal_month": 0.271
         },
         "mortality": {
-          "incidents": 681,
+          "incidents": 428,
           "late_fix": 0,
-          "per_animal_month": 0.96
+          "per_animal_month": 0.603
         },
         "movement": {
           "incidents": 96,
@@ -487,8 +487,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 674,
-        "per_animal_month": 0.95
+        "incidents": 421,
+        "per_animal_month": 0.593
       },
       "mortality": {
         "deaths": 6,
@@ -501,7 +501,7 @@
       "gap_on_deaths": {
         "deaths": 11,
         "detected": 11,
-        "median_delay_hours": 86.0
+        "median_delay_hours": 112.0
       },
       "both_detectors": 5,
       "deaths": [
@@ -513,7 +513,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 98.0
+          "gap_delay_hours": 138.0
         },
         {
           "deployment_id": "ACT_TUVU_111943",
@@ -523,7 +523,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
-          "gap_delay_hours": 94.0
+          "gap_delay_hours": 122.0
         },
         {
           "deployment_id": "LAV_BLVU_68349",
@@ -533,7 +533,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 72.0
+          "gap_delay_hours": 96.0
         },
         {
           "deployment_id": "LCP_BLVU_68350",
@@ -543,7 +543,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 109.0
+          "gap_delay_hours": 138.0
         },
         {
           "deployment_id": "LEH_TUVU_68351",
@@ -553,7 +553,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 78.0
+          "gap_delay_hours": 104.0
         },
         {
           "deployment_id": "LEJ_TUVU_68352",
@@ -563,7 +563,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 94.0
+          "gap_delay_hours": 132.0
         },
         {
           "deployment_id": "LEM_TUVU_68353",
@@ -573,7 +573,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 86.0
+          "gap_delay_hours": 112.0
         },
         {
           "deployment_id": "LEP_TUVU_68354",
@@ -583,7 +583,7 @@
           "mortality_delay_hours": 42.92,
           "early": false,
           "mortality_delay_hours_200m": 42.92,
-          "gap_delay_hours": 94.0
+          "gap_delay_hours": 122.0
         },
         {
           "deployment_id": "LET_TUVU_68355",
@@ -593,7 +593,7 @@
           "mortality_delay_hours": 71.05,
           "early": false,
           "mortality_delay_hours_200m": 71.05,
-          "gap_delay_hours": 78.0
+          "gap_delay_hours": 104.0
         },
         {
           "deployment_id": "LEV_TUVU_68356",
@@ -603,7 +603,7 @@
           "mortality_delay_hours": 48.63,
           "early": false,
           "mortality_delay_hours_200m": 48.63,
-          "gap_delay_hours": 86.0
+          "gap_delay_hours": 112.0
         },
         {
           "deployment_id": "LXE_TUVU_68359",
@@ -613,7 +613,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 86.0
+          "gap_delay_hours": 112.0
         },
         {
           "deployment_id": "LXV_TUVU_68360",
@@ -623,7 +623,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 86.0
+          "gap_delay_hours": 112.0
         },
         {
           "deployment_id": "MEM_BLVU_68361",
@@ -633,7 +633,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 78.0
+          "gap_delay_hours": 104.0
         },
         {
           "deployment_id": "MET_TUVU_68359",
@@ -643,7 +643,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 86.0
+          "gap_delay_hours": 112.0
         },
         {
           "deployment_id": "MEX_TUVU_68360",
@@ -653,7 +653,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 72.0
+          "gap_delay_hours": 96.0
         },
         {
           "deployment_id": "MHA_BLVU_68350",
@@ -663,7 +663,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 72.0
+          "gap_delay_hours": 96.0
         },
         {
           "deployment_id": "PMH_BLVU_68354",
@@ -673,7 +673,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
-          "gap_delay_hours": 94.0
+          "gap_delay_hours": 132.0
         }
       ],
       "ambiguous": [
@@ -685,7 +685,7 @@
         {
           "deployment_id": "LTH_BLVU_68357",
           "still_hours": 41.0,
-          "mortality_delay_hours": 20.17
+          "mortality_delay_hours": 68.17
         }
       ]
     },
@@ -699,14 +699,14 @@
       "animal_months": 709.4,
       "load": {
         "gap": {
-          "incidents": 3980,
-          "late_fix": 1997,
-          "per_animal_month": 5.61
+          "incidents": 695,
+          "late_fix": 218,
+          "per_animal_month": 0.98
         },
         "mortality": {
-          "incidents": 683,
+          "incidents": 429,
           "late_fix": 0,
-          "per_animal_month": 0.963
+          "per_animal_month": 0.605
         },
         "movement": {
           "incidents": 93,
@@ -715,8 +715,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 676,
-        "per_animal_month": 0.953
+        "incidents": 422,
+        "per_animal_month": 0.595
       },
       "mortality": {
         "deaths": 6,
@@ -729,7 +729,7 @@
       "gap_on_deaths": {
         "deaths": 11,
         "detected": 11,
-        "median_delay_hours": 15.0
+        "median_delay_hours": 41.0
       },
       "both_detectors": 5,
       "deaths": [
@@ -741,7 +741,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 18.0
+          "gap_delay_hours": 47.0
         },
         {
           "deployment_id": "ACT_TUVU_111943",
@@ -751,7 +751,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
-          "gap_delay_hours": 17.0
+          "gap_delay_hours": 45.0
         },
         {
           "deployment_id": "LAV_BLVU_68349",
@@ -761,7 +761,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 13.0
+          "gap_delay_hours": 37.0
         },
         {
           "deployment_id": "LCP_BLVU_68350",
@@ -771,7 +771,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 18.0
+          "gap_delay_hours": 47.0
         },
         {
           "deployment_id": "LEH_TUVU_68351",
@@ -781,7 +781,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 7.0
+          "gap_delay_hours": 41.0
         },
         {
           "deployment_id": "LEJ_TUVU_68352",
@@ -791,7 +791,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 17.0
+          "gap_delay_hours": 45.0
         },
         {
           "deployment_id": "LEM_TUVU_68353",
@@ -801,17 +801,17 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 15.0
+          "gap_delay_hours": 41.0
         },
         {
           "deployment_id": "LEP_TUVU_68354",
           "carcass": true,
           "still_hours": 337.0,
           "still_hours_200m": 337.0,
-          "mortality_delay_hours": 27.0,
+          "mortality_delay_hours": 43.0,
           "early": false,
-          "mortality_delay_hours_200m": 27.0,
-          "gap_delay_hours": 17.0
+          "mortality_delay_hours_200m": 43.0,
+          "gap_delay_hours": 45.0
         },
         {
           "deployment_id": "LET_TUVU_68355",
@@ -821,17 +821,17 @@
           "mortality_delay_hours": 42.0,
           "early": false,
           "mortality_delay_hours_200m": 42.0,
-          "gap_delay_hours": 7.0
+          "gap_delay_hours": 33.0
         },
         {
           "deployment_id": "LEV_TUVU_68356",
           "carcass": true,
           "still_hours": 53.0,
           "still_hours_200m": 53.0,
-          "mortality_delay_hours": 27.0,
+          "mortality_delay_hours": 42.0,
           "early": false,
-          "mortality_delay_hours_200m": 27.0,
-          "gap_delay_hours": 15.0
+          "mortality_delay_hours_200m": 42.0,
+          "gap_delay_hours": 41.0
         },
         {
           "deployment_id": "LXE_TUVU_68359",
@@ -841,7 +841,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 15.0
+          "gap_delay_hours": 41.0
         },
         {
           "deployment_id": "LXV_TUVU_68360",
@@ -851,7 +851,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 15.0
+          "gap_delay_hours": 41.0
         },
         {
           "deployment_id": "MEM_BLVU_68361",
@@ -861,7 +861,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 7.0
+          "gap_delay_hours": 41.0
         },
         {
           "deployment_id": "MET_TUVU_68359",
@@ -871,7 +871,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 15.0
+          "gap_delay_hours": 41.0
         },
         {
           "deployment_id": "MEX_TUVU_68360",
@@ -881,7 +881,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 13.0
+          "gap_delay_hours": 37.0
         },
         {
           "deployment_id": "MHA_BLVU_68350",
@@ -891,7 +891,7 @@
           "mortality_delay_hours": null,
           "early": false,
           "mortality_delay_hours_200m": null,
-          "gap_delay_hours": 7.0
+          "gap_delay_hours": 31.0
         },
         {
           "deployment_id": "PMH_BLVU_68354",
@@ -901,7 +901,7 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 0.0,
-          "gap_delay_hours": 17.0
+          "gap_delay_hours": 45.0
         }
       ],
       "ambiguous": [
@@ -913,7 +913,7 @@
         {
           "deployment_id": "LTH_BLVU_68357",
           "still_hours": 41.0,
-          "mortality_delay_hours": 22.0
+          "mortality_delay_hours": 40.0
         }
       ]
     }

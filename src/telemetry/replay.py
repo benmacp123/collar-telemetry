@@ -23,9 +23,11 @@ Each deployment is ticked from its first arrival until its end of watch:
   watched for ``SILENT_HORIZON`` after its last arrival, as an operator
   would, and its final silence can raise a gap alert.
 
-The gap detector's ``min_silence`` grows with the upload interval: with
-daily uploads the newest fix is up to a day old when it arrives, so a
-6 h threshold would raise a gap alert every day. All three values here
+The gap detector's ``min_silence`` is the upload interval plus
+``UPLOAD_MARGIN``: with daily uploads the newest fix is up to a day old
+when it arrives, so a fixed threshold would raise a gap alert every day.
+The 24 h margin was chosen on the tuning-set sweep (``results/SWEEP.md``);
+it also absorbs whole GSM out-of-coverage days. The tick and watch horizon
 are provisional; see ``docs/ASSUMPTIONS.md``.
 """
 
@@ -33,7 +35,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, replace
 from datetime import datetime, timedelta, timezone
 
-from telemetry.alerts import LATE_FIX, OPEN, AlertLifecycle, Incident
+from telemetry.alerts import LATE_FIX, OPEN, AlertLifecycle, Incident, LifecycleConfig
 from telemetry.arrival import Arrival, ArrivalScenario, merge_arrivals, simulate_arrival
 from telemetry.cleaning import DROP_REASONS, Cleaner
 from telemetry.detectors.gap import GapConfig, GapDetector
@@ -46,10 +48,79 @@ from telemetry.stream import Detector, FixStream
 TICK = timedelta(hours=1)
 PLANNED_ENDS = frozenset({"removal", "captured", "released"})
 SILENT_HORIZON = timedelta(days=7)
-UPLOAD_MARGIN = timedelta(hours=6)
+UPLOAD_MARGIN = timedelta(hours=24)
+MERGE_SLACK = timedelta(hours=12)
 DEFAULT_SEED = 2026
 
 EPOCH = datetime(1970, 1, 1, tzinfo=timezone.utc)
+
+
+@dataclass(frozen=True)
+class Overrides:
+    """Settings that replace the defaults, for threshold sweeps.
+
+    The defaults reproduce a plain replay exactly.
+
+    Attributes:
+        mortality_window: Replaces every species' mortality window; None
+            keeps them. The mortality merge window follows it, at the
+            window plus ``MERGE_SLACK``, since a reopen can never come
+            sooner than the window.
+        mortality_box_m: Replaces the mortality detector's stationary box
+            (``max_extent_m``); None keeps it.
+        upload_margin: Silence allowed beyond the upload interval before a
+            gap alert.
+    """
+
+    mortality_window: timedelta | None = None
+    mortality_box_m: float | None = None
+    upload_margin: timedelta = UPLOAD_MARGIN
+
+    def profile(self, profile: SpeciesProfile) -> SpeciesProfile:
+        """A species profile with these overrides applied.
+
+        Args:
+            profile: The species' own settings.
+
+        Returns:
+            SpeciesProfile: The profile, with the mortality window and box
+            replaced where set.
+        """
+        mortality = profile.mortality
+        if self.mortality_window is not None:
+            mortality = replace(mortality, window=self.mortality_window)
+        if self.mortality_box_m is not None:
+            mortality = replace(mortality, max_extent_m=self.mortality_box_m)
+        return replace(profile, mortality=mortality)
+
+    def lifecycle(self) -> AlertLifecycle:
+        """The alert lifecycle for these overrides.
+
+        Returns:
+            AlertLifecycle: Default merge windows, or a mortality merge
+            window following an overridden mortality window.
+        """
+        if self.mortality_window is None:
+            return AlertLifecycle()
+        return AlertLifecycle(
+            LifecycleConfig({"mortality": self.mortality_window + MERGE_SLACK})
+        )
+
+    def to_dict(self) -> dict:
+        """JSON-ready form, in hours and metres.
+
+        Returns:
+            dict: The three settings; None where a default is kept.
+        """
+        return {
+            "mortality_window_hours": (
+                self.mortality_window / timedelta(hours=1)
+                if self.mortality_window is not None
+                else None
+            ),
+            "mortality_box_m": self.mortality_box_m,
+            "upload_margin_hours": self.upload_margin / timedelta(hours=1),
+        }
 
 
 @dataclass(frozen=True)
@@ -66,31 +137,36 @@ class ReplayResult:
     summary: dict
 
 
-def gap_config(scenario: ArrivalScenario) -> GapConfig:
+def gap_config(
+    scenario: ArrivalScenario, margin: timedelta = UPLOAD_MARGIN
+) -> GapConfig:
     """Gap settings for an arrival scenario.
 
     Args:
         scenario: The upload pattern.
+        margin: Silence allowed beyond the upload interval.
 
     Returns:
         GapConfig: The defaults, with ``min_silence`` raised to the upload
-        interval plus ``UPLOAD_MARGIN`` when fixes are uploaded in batches.
+        interval (none for ideal arrival) plus ``margin`` where that is
+        longer.
     """
     default = GapConfig()
-    if scenario.upload_every is None:
-        return default
-    return replace(
-        default,
-        min_silence=max(default.min_silence, scenario.upload_every + UPLOAD_MARGIN),
-    )
+    upload = scenario.upload_every or timedelta(0)
+    return replace(default, min_silence=max(default.min_silence, upload + margin))
 
 
-def detectors_for(profile: SpeciesProfile, scenario: ArrivalScenario) -> list[Detector]:
+def detectors_for(
+    profile: SpeciesProfile,
+    scenario: ArrivalScenario,
+    margin: timedelta = UPLOAD_MARGIN,
+) -> list[Detector]:
     """The detectors a deployment is run through.
 
     Args:
         profile: The deployment's species settings.
         scenario: The upload pattern, which sets the gap threshold.
+        margin: Silence allowed beyond the upload interval.
 
     Returns:
         list[Detector]: Mortality, unusual-movement and gap detectors.
@@ -98,7 +174,7 @@ def detectors_for(profile: SpeciesProfile, scenario: ArrivalScenario) -> list[De
     return [
         MortalityDetector(profile.mortality),
         MovementDetector(profile.movement),
-        GapDetector(gap_config(scenario)),
+        GapDetector(gap_config(scenario, margin)),
     ]
 
 
@@ -143,6 +219,7 @@ def replay(
     scenario: ArrivalScenario,
     seed: int = DEFAULT_SEED,
     tick: timedelta = TICK,
+    overrides: Overrides | None = None,
 ) -> ReplayResult:
     """Replay a study under one arrival scenario.
 
@@ -152,6 +229,8 @@ def replay(
         scenario: The upload pattern.
         seed: Arrival seed; the same seed gives the same result.
         tick: Interval between clock ticks.
+        overrides: Settings replacing the defaults, for sweeps; None keeps
+            the defaults.
 
     Returns:
         ReplayResult: Every incident and a summary of the run.
@@ -163,7 +242,8 @@ def replay(
     for fix in fixes:
         by_deployment[fix.deployment_id].append(fix)
 
-    lifecycle = AlertLifecycle()
+    overrides = overrides or Overrides()
+    lifecycle = overrides.lifecycle()
     streams: dict[str, FixStream] = {}
     windows: list[tuple[datetime, datetime, str]] = []
     feeds = []
@@ -173,12 +253,12 @@ def replay(
         )
         if not own:
             continue
-        profile = profile_for(deployment.taxon)
+        profile = overrides.profile(profile_for(deployment.taxon))
         arrivals = simulate_arrival(own, scenario, seed)
         # One stream per deployment, since detector and cleaner settings
         # depend on the species; the detectors themselves hold no state.
         streams[deployment.deployment_id] = FixStream(
-            detectors_for(profile, scenario),
+            detectors_for(profile, scenario, overrides.upload_margin),
             Cleaner(profile.cleaning(scenario.max_lateness)),
             lifecycle,
         )
@@ -204,6 +284,11 @@ def replay(
 
     incidents = sorted(latest.values(), key=lambda i: (i.raised_at, i.incident_id))
     summary = summarise(scenario, seed, tick, streams, incidents)
+    if overrides != Overrides():
+        summary["overrides"] = overrides.to_dict()
+        summary["settings"]["gap_min_silence_hours"] = gap_config(
+            scenario, overrides.upload_margin
+        ).min_silence / timedelta(hours=1)
     summary["fixes"] = sum(len(feed) for feed in by_deployment.values())
     summary["arrivals"] = len(arrivals)
     return ReplayResult(incidents, summary)

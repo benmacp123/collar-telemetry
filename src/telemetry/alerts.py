@@ -204,14 +204,15 @@ def default_merge_within() -> dict[str, timedelta]:
     Mortality gets one because a carcass moved a little by scavengers, or a
     GPS fix wandering past the cluster edge, would otherwise split one death
     into several incidents. A mortality reopen cannot come sooner than the
-    detector's own ``window`` (24 h by default) after the resolve, since the
-    new cluster has to last that long, so the merge window must exceed it;
-    36 h leaves 12 h of slack. Gap and movement resolves are taken as final.
+    detector's own ``window`` after the resolve, since the new cluster has
+    to last that long, so the merge window must exceed the longest species
+    window (36 h, vultures); 48 h leaves 12 h of slack. Gap and movement
+    resolves are taken as final.
 
     Returns:
         dict[str, timedelta]: Merge window by detector name.
     """
-    return {"mortality": timedelta(hours=36)}
+    return {"mortality": timedelta(hours=48)}
 
 
 @dataclass(frozen=True)

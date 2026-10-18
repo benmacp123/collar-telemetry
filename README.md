@@ -21,4 +21,5 @@ make lint
 make format-check
 make replay   # every study under every arrival scenario, into results/
 make evaluate # score the replay: results/EVALUATION.md and results/figures/
+make sweep    # threshold sweep on the vulture tuning set: results/SWEEP.md
 ```

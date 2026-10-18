@@ -17,6 +17,7 @@ from telemetry.geo import offset
 from telemetry.replay import (
     DEFAULT_SEED,
     SILENT_HORIZON,
+    UPLOAD_MARGIN,
     first_tick_after,
     gap_config,
     replay,
@@ -61,13 +62,13 @@ def test_same_seed_gives_same_result():
 
 
 def test_silent_collar_raises_one_gap_soon_after_threshold():
-    """A collar that stops raises one gap, within a tick of 6 h silence."""
+    """A collar that stops raises one gap, within a tick of its threshold."""
     fixes = walk(24 * 5)
     result = replay([deployment(end_type="dead")], fixes, SCENARIOS["ideal"])
     gaps = by_detector(result, "gap")
     assert len(gaps) == 1
     assert gaps[0].status == OPEN
-    crossed = fixes[-1].timestamp + timedelta(hours=6)
+    crossed = fixes[-1].timestamp + gap_config(SCENARIOS["ideal"]).min_silence
     assert crossed <= gaps[0].raised_at <= crossed + HOUR
 
 
@@ -134,7 +135,7 @@ def test_summary_counts_fixes_drops_and_incidents():
     assert summary["arrivals"] >= len(fixes)
     assert summary["cleaner_dropped"]["duplicate"] <= summary["arrivals"] - len(fixes)
     assert summary["incidents"]["gap"]["incidents"] == len(by_detector(result, "gap"))
-    assert summary["settings"]["gap_min_silence_hours"] == 7.0
+    assert summary["settings"]["gap_min_silence_hours"] == 1.0 + UPLOAD_MARGIN / HOUR
 
 
 def test_deployment_without_fixes_is_skipped():
@@ -152,12 +153,18 @@ def test_unknown_taxon_is_an_error():
 
 
 def test_gap_threshold_follows_upload_interval():
-    """min_silence is the default for ideal, upload + 6 h when batched."""
+    """min_silence is the upload interval plus the margin, never below the
+    detector default."""
+    assert gap_config(SCENARIOS["ideal"]).min_silence == UPLOAD_MARGIN
+    assert gap_config(SCENARIOS["gsm"]).min_silence == HOUR + UPLOAD_MARGIN
+    assert gap_config(SCENARIOS["satellite_daily"]).min_silence == (
+        timedelta(days=1) + UPLOAD_MARGIN
+    )
+    assert gap_config(SCENARIOS["satellite_2day"]).min_silence == (
+        timedelta(days=2) + UPLOAD_MARGIN
+    )
     default = GapConfig().min_silence
-    assert gap_config(SCENARIOS["ideal"]).min_silence == default
-    assert gap_config(SCENARIOS["gsm"]).min_silence == timedelta(hours=7)
-    assert gap_config(SCENARIOS["satellite_daily"]).min_silence == timedelta(hours=30)
-    assert gap_config(SCENARIOS["satellite_2day"]).min_silence == timedelta(hours=54)
+    assert gap_config(SCENARIOS["ideal"], timedelta(hours=1)).min_silence == default
 
 
 def test_watch_ends_by_end_type():
