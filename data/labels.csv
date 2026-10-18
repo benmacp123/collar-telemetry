@@ -1,3 +1,6 @@
 deployment-id,label,basis,evidence
 ELV_TUVU_121787,dead,animal-death-comments (end type transmission-end),"Dead in water between Key West and Marquesas"
 HAL_TUVU_121789,dead,animal-death-comments (no end type),"Found dead at Key Deer NWR (2014-06-30)"
+AM254,dead-after-track,deployment-end-comments (end type dead),"Animal deceased - collar retrieved. Cow deceased 27 Nov - 2 Dec 09."
+AM110,dead-after-track,deployment-end-comments (end type dead),"Animal deceased; collar recovered 20 May 2012. Carcass est 5-6 months old, death est Feb/March 2012."
+AM308,dead-after-track,deployment-end-comments (end type dead),"animal deceased April 2012, tag recovered"

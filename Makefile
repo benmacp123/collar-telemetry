@@ -18,6 +18,13 @@ replay:
 	PYTHONPATH=src python scripts/replay.py
 
 
+evaluate:
+	PYTHONPATH=src python scripts/evaluate.py
+
+
+results: replay evaluate
+
+
 format:
 	black src/ tests/ scripts/
 

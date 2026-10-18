@@ -91,3 +91,10 @@ Deaths recorded only in a deployment's comments, not in its
 (CC0, as above). Each row quotes the comment it relies on. Evaluation
 uses these labels in place of the end type; nothing parses comments in
 code.
+
+The three Kruger elephants recorded `dead` (also CC0, as above) died
+months after their tracks end: the collars stopped in August 2009, and
+the end comments date the deaths between late 2009 and April 2012. They
+are labelled `dead-after-track`. The animal was alive for every fix the
+pipeline sees, so the final silence is a collar stopping, not a death to
+detect.

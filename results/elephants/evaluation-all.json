@@ -1,0 +1,169 @@
+{
+  "study": "elephants",
+  "title": "African elephant, Kruger",
+  "set": "all",
+  "mark_hours": 80.5,
+  "mark_basis": "own mortality window + vulture mark - vulture window",
+  "scenarios": {
+    "ideal": {
+      "deployments": 14,
+      "labels": {
+        "alive": 11,
+        "dead-after-track": 3
+      },
+      "animal_months": 291.8,
+      "load": {
+        "gap": {
+          "incidents": 611,
+          "late_fix": 0,
+          "per_animal_month": 2.094
+        },
+        "movement": {
+          "incidents": 10,
+          "late_fix": 0,
+          "per_animal_month": 0.034
+        }
+      },
+      "false_mortality": {
+        "incidents": 0,
+        "per_animal_month": 0.0
+      },
+      "mortality": {
+        "deaths": 0,
+        "detected": 0,
+        "early": 0,
+        "mark_hours": 80.5,
+        "rate_at_mark": null,
+        "rate_at_mark_200m": null
+      },
+      "gap_on_deaths": {
+        "deaths": 0,
+        "detected": 0,
+        "median_delay_hours": null
+      },
+      "both_detectors": 0,
+      "deaths": [],
+      "ambiguous": []
+    },
+    "satellite_daily": {
+      "deployments": 14,
+      "labels": {
+        "alive": 11,
+        "dead-after-track": 3
+      },
+      "animal_months": 291.8,
+      "load": {
+        "gap": {
+          "incidents": 309,
+          "late_fix": 153,
+          "per_animal_month": 1.059
+        },
+        "movement": {
+          "incidents": 10,
+          "late_fix": 0,
+          "per_animal_month": 0.034
+        }
+      },
+      "false_mortality": {
+        "incidents": 0,
+        "per_animal_month": 0.0
+      },
+      "mortality": {
+        "deaths": 0,
+        "detected": 0,
+        "early": 0,
+        "mark_hours": 80.5,
+        "rate_at_mark": null,
+        "rate_at_mark_200m": null
+      },
+      "gap_on_deaths": {
+        "deaths": 0,
+        "detected": 0,
+        "median_delay_hours": null
+      },
+      "both_detectors": 0,
+      "deaths": [],
+      "ambiguous": []
+    },
+    "satellite_2day": {
+      "deployments": 14,
+      "labels": {
+        "alive": 11,
+        "dead-after-track": 3
+      },
+      "animal_months": 291.8,
+      "load": {
+        "gap": {
+          "incidents": 199,
+          "late_fix": 112,
+          "per_animal_month": 0.682
+        },
+        "movement": {
+          "incidents": 10,
+          "late_fix": 0,
+          "per_animal_month": 0.034
+        }
+      },
+      "false_mortality": {
+        "incidents": 0,
+        "per_animal_month": 0.0
+      },
+      "mortality": {
+        "deaths": 0,
+        "detected": 0,
+        "early": 0,
+        "mark_hours": 80.5,
+        "rate_at_mark": null,
+        "rate_at_mark_200m": null
+      },
+      "gap_on_deaths": {
+        "deaths": 0,
+        "detected": 0,
+        "median_delay_hours": null
+      },
+      "both_detectors": 0,
+      "deaths": [],
+      "ambiguous": []
+    },
+    "gsm": {
+      "deployments": 14,
+      "labels": {
+        "alive": 11,
+        "dead-after-track": 3
+      },
+      "animal_months": 291.8,
+      "load": {
+        "gap": {
+          "incidents": 1545,
+          "late_fix": 968,
+          "per_animal_month": 5.294
+        },
+        "movement": {
+          "incidents": 11,
+          "late_fix": 0,
+          "per_animal_month": 0.038
+        }
+      },
+      "false_mortality": {
+        "incidents": 0,
+        "per_animal_month": 0.0
+      },
+      "mortality": {
+        "deaths": 0,
+        "detected": 0,
+        "early": 0,
+        "mark_hours": 80.5,
+        "rate_at_mark": null,
+        "rate_at_mark_200m": null
+      },
+      "gap_on_deaths": {
+        "deaths": 0,
+        "detected": 0,
+        "median_delay_hours": null
+      },
+      "both_detectors": 0,
+      "deaths": [],
+      "ambiguous": []
+    }
+  }
+}
