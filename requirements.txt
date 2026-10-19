@@ -1,6 +1,5 @@
 matplotlib==3.11.2
 numpy==2.5.2
-pandas==3.0.5
 shapely==2.1.2
 pytest==9.1.1
 pytest-cov==7.1.0

@@ -1,9 +1,9 @@
 """Sweep mortality and gap thresholds on the vulture tuning set.
 
 Run with ``make sweep``. Replays only vulture deployments that start
-before 2013 (the tuning set) under every setting in ``telemetry.sweep``
+before 2013 (the tuning set) under every setting in ``telemetry.analysis.sweep``
 and every arrival scenario, and writes ``results/sweep/vultures-tuning.json``,
-``results/SWEEP.md`` and ``results/figures/sweep-vultures-tuning.png``.
+``results/sweep/SWEEP.md`` and ``results/figures/sweep-vultures-tuning.png``.
 Settings run in parallel; results do not depend on the order.
 """
 
@@ -11,12 +11,17 @@ import json
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
-from telemetry.arrival import SCENARIOS
-from telemetry.evaluation import TUNING, build_truth, read_labels, reference_mark
-from telemetry.evaluation import split_for
-from telemetry.report import write_sweep
-from telemetry.studies import STUDIES
-from telemetry.sweep import grid, sweep_point
+from telemetry.sim.arrival import SCENARIOS
+from telemetry.analysis.evaluation import (
+    TUNING,
+    build_truth,
+    read_labels,
+    reference_mark,
+)
+from telemetry.analysis.evaluation import split_for
+from telemetry.analysis.report import write_sweep
+from telemetry.data.studies import STUDIES
+from telemetry.analysis.sweep import grid, sweep_point
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
@@ -84,7 +89,7 @@ def main():
     (out / "vultures-tuning.json").write_text(
         json.dumps(report, indent=2) + "\n", encoding="utf-8"
     )
-    write_sweep(report, RESULTS / "SWEEP.md", RESULTS / "figures")
+    write_sweep(report, out / "SWEEP.md", RESULTS / "figures")
     print(f"{len(rows)} sweep points written to {out.relative_to(ROOT)}")
 
 

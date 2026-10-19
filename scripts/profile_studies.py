@@ -7,9 +7,9 @@ import statistics
 from collections import defaultdict
 from pathlib import Path
 
-from telemetry.fixes import Deployment, Fix
-from telemetry.geo import haversine_m
-from telemetry.studies import STUDIES
+from telemetry.core.fixes import Deployment, Fix
+from telemetry.core.geo import haversine_m
+from telemetry.data.studies import STUDIES
 
 RAW = Path(__file__).resolve().parent.parent / "data" / "raw"
 OUTPUT = RAW.parent / "PROFILE.md"

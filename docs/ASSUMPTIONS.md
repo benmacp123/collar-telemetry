@@ -10,8 +10,8 @@ Every threshold the pipeline uses, with where it came from. Labels:
 - **Provisional**: a reasoned starting point, still to be checked on the
   tuning set.
 
-Code: `src/telemetry/species.py` (per-species settings) and
-`src/telemetry/synthetic.py` (synthetic mortality events).
+Code: `src/telemetry/core/species.py` (per-species settings) and
+`src/telemetry/sim/synthetic.py` (synthetic mortality events).
 
 ## Speed limits for the cleaner
 
@@ -35,7 +35,7 @@ flapping fliers, and vultures mostly soar.
 | Setting | Value | Basis | Label |
 |---|---|---|---|
 | Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 6-20 m [3, 7]. Dead vultures on the tuning set scatter around their final position with a median of 16 m and a 95th percentile of 59 m. Tuning-set sweep: 150 m and 200 m add false alarms (1.26 and 1.47 against 0.95 per animal-month at 24 h) and flag no extra carcass deaths. | Observed (sweep); splits some deaths into several incidents (see below) |
-| Window, vultures | 36 h | Must outlast the 12-14 h overnight roost. Tuning-set sweep (`results/SWEEP.md`): false alarms 0.95 / 0.59 / 0.23 / 0.10 per animal-month at 24 / 36 / 48 / 72 h. Carcass deaths flagged by the 92.5 h mark: 4 of 6 up to 36 h; at 48 h one is flagged after the mark under satellite uploads. | Observed (sweep, 6 carcass deaths) |
+| Window, vultures | 36 h | Must outlast the 12-14 h overnight roost. Tuning-set sweep (`results/sweep/SWEEP.md`): false alarms 0.95 / 0.59 / 0.23 / 0.10 per animal-month at 24 / 36 / 48 / 72 h. Carcass deaths flagged by the 92.5 h mark: 4 of 6 up to 36 h; at 48 h one is flagged after the mark under satellite uploads. | Observed (sweep, 6 carcass deaths) |
 | Window, jackal | 24 h | Jackals lie up through the day. This study's deaths show at most about 10 h stationary before the track stops. | Provisional |
 | Window, elephant | 12 h | Wild elephants sleep about 2 h a day, mostly 02:00-06:00 [8], and rarely stay within 100 m for long. Collar makers' own mortality triggers default to 4-8 h of inactivity [9]. | Provisional, literature-informed |
 | Reopen window | 48 h | A reopen cannot come sooner than the detector window after a resolve, so it must exceed the longest window (36 h) with slack. | Provisional |
@@ -88,7 +88,9 @@ such event is labelled synthetic in results.
 
 ## Replay runner
 
-Settings in `src/telemetry/replay.py` that shape every reported result.
+Settings in `src/telemetry/sim/replay.py` (tick, watch, seed) and
+`src/telemetry/core/pipeline.py` (gap allowance) that shape every reported
+result.
 
 | Setting | Value | Basis | Label |
 |---|---|---|---|

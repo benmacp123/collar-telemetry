@@ -53,7 +53,7 @@ never left Etosha and raised no geofence alerts.
 ![Where the Kruger geofence alerted: all on the western, unfenced edge](results/figures/elephants-geofence-map.png)
 
 Full tables for every study and arrival scenario are in
-[`results/EVALUATION.md`](results/EVALUATION.md).
+[`results/evaluation/EVALUATION.md`](results/evaluation/EVALUATION.md).
 
 **Status:** detection core (mortality, data gap, unusual movement,
 geofence), local replay and evaluation complete. Not yet built: the AWS
@@ -62,9 +62,11 @@ deployment (Lambda, SQS, DynamoDB, Terraform).
 ## How it works
 
 All detection logic lives in a pure-Python core
-([`src/telemetry/`](src/telemetry/)) with no AWS imports, so the same code
-runs in the local replay runner (every result here) and, next, in Lambda
-handlers.
+([`src/telemetry/core/`](src/telemetry/core/)) with no AWS imports, so the
+same code runs in the local replay runner (every result here) and, next,
+in Lambda handlers. The rest of the package is the replay harness
+(`sim/`), data loading (`data/`) and scoring and reporting (`analysis/`);
+a test keeps each layer to its own imports.
 
 - **Cleaning:** schema checks, de-duplication, a short hold that reorders
   late fixes, and a per-species speed filter for impossible jumps.
@@ -105,7 +107,7 @@ handlers.
 - **Held-out split:** thresholds were chosen only on vulture deployments
   starting before 2013 (hourly tags), with a sweep that shows the
   trade-off rather than a single tuned number
-  ([`results/SWEEP.md`](results/SWEEP.md)). Deployments from 2013 on
+  ([`results/sweep/SWEEP.md`](results/sweep/SWEEP.md)). Deployments from 2013 on
   (mostly 1-3 minute tags) were scored once after the thresholds were
   frozen, which also tests whether they carry across fix rates. They did:
   false alarms were lower on the held-out set than on the tuning set.
@@ -164,9 +166,11 @@ make results  # replay every study and scenario, then score (about 5 min)
 make sweep    # threshold sweep on the vulture tuning set (about 2 min)
 ```
 
-`make results` writes `results/<study>/<scenario>/summary.json`, the
-evaluation JSON, [`results/EVALUATION.md`](results/EVALUATION.md) and the
-figures. The held-out vulture set was first scored with
+`make help` lists every target. `make results` writes
+`results/replay/<study>/<scenario>/summary.json`, the evaluation JSON,
+[`results/evaluation/EVALUATION.md`](results/evaluation/EVALUATION.md) and
+the figures; [`results/README.md`](results/README.md) says what each
+output is. The held-out vulture set was first scored with
 `PYTHONPATH=src python scripts/evaluate.py --score`; since then its
 results are kept in every run. Runs are seeded and reproduce byte for
 byte.

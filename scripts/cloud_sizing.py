@@ -18,11 +18,12 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from telemetry.arrival import SCENARIOS
-from telemetry.replay import DEFAULT_SEED, replay, stream_for, timelines
-from telemetry.slices import Slice, slice_timeline
-from telemetry.stream import AnimalState
-from telemetry.studies import STUDIES
+from telemetry.sim.arrival import SCENARIOS
+from telemetry.core.pipeline import stream_for
+from telemetry.sim.replay import DEFAULT_SEED, replay, timelines
+from telemetry.core.slices import Slice, slice_timeline
+from telemetry.core.stream import AnimalState
+from telemetry.data.studies import STUDIES
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"

@@ -2,9 +2,10 @@
 
 Run with ``make evaluate`` after ``make replay`` (``make results`` does
 both). Reads ``data/raw/``, ``data/labels.csv`` and each
-``results/<study>/<scenario>/incidents.jsonl``, and writes
-``results/<study>/evaluation-<set>.json``, ``results/EVALUATION.md`` and
-the figures in ``results/figures/``.
+``results/replay/<study>/<scenario>/incidents.jsonl``, and writes
+``results/evaluation/<study>-<set>.json``,
+``results/evaluation/EVALUATION.md`` and the figures in
+``results/figures/``.
 
 The vulture scoring set (deployments from 2013) is first scored only with
 ``--score``, once thresholds are frozen on the tuning set. After that its
@@ -16,8 +17,8 @@ import argparse
 import json
 from pathlib import Path
 
-from telemetry.arrival import SCENARIOS
-from telemetry.evaluation import (
+from telemetry.sim.arrival import SCENARIOS
+from telemetry.analysis.evaluation import (
     CARCASS_MIN,
     HOUR,
     SCORING,
@@ -29,13 +30,14 @@ from telemetry.evaluation import (
     read_labels,
     reference_mark,
 )
-from telemetry.report import write_figures, write_geofence_map, write_markdown
-from telemetry.studies import STUDIES
+from telemetry.analysis.report import write_figures, write_geofence_map, write_markdown
+from telemetry.data.studies import STUDIES
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 LABELS = ROOT / "data" / "labels.csv"
 RESULTS = ROOT / "results"
+EVALUATION = RESULTS / "evaluation"
 VULTURE_TAXON = "Cathartes aura"
 
 
@@ -74,6 +76,7 @@ def mammal_mark(vulture_mark: float, taxon: str) -> float:
 def main():
     """Score every study and scenario and write the reports."""
     args = parse_args()
+    EVALUATION.mkdir(parents=True, exist_ok=True)
     overrides = read_labels(LABELS)
     reports = []
     vulture_mark = None
@@ -82,7 +85,7 @@ def main():
         fence = study.fence(RAW)
         truths = build_truth(study.slug, deployments, fixes, overrides)
         sets = sorted({t.split for t in truths})
-        scored = (RESULTS / study.slug / f"evaluation-{SCORING}.json").exists()
+        scored = (EVALUATION / f"{study.slug}-{SCORING}.json").exists()
         if not (args.score or scored):
             sets = [s for s in sets if s != SCORING]
         taxon = truths[0].taxon
@@ -97,7 +100,7 @@ def main():
             chosen = [t for t in truths if t.split == name]
             scenarios = {}
             for scenario in SCENARIOS:
-                path = RESULTS / study.slug / scenario / "incidents.jsonl"
+                path = RESULTS / "replay" / study.slug / scenario / "incidents.jsonl"
                 incidents = read_incidents(path)
                 scenarios[scenario] = evaluate(chosen, incidents, mark)
                 if fence is not None:
@@ -128,11 +131,11 @@ def main():
                 ),
                 "scenarios": scenarios,
             }
-            out = RESULTS / study.slug / f"evaluation-{name}.json"
+            out = EVALUATION / f"{study.slug}-{name}.json"
             out.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
             reports.append(report)
             print(f"{study.slug}/{name}: wrote {out.relative_to(ROOT)}")
-    write_markdown(reports, RESULTS / "EVALUATION.md")
+    write_markdown(reports, EVALUATION / "EVALUATION.md")
     write_figures(reports, RESULTS / "figures")
 
 
