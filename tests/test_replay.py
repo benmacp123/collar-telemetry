@@ -19,11 +19,11 @@ from telemetry.replay import (
     DEFAULT_SEED,
     SILENT_HORIZON,
     UPLOAD_MARGIN,
-    first_tick_after,
     gap_config,
     replay,
     watch_until,
 )
+from telemetry.stream import first_tick_after
 from telemetry.studies import STUDIES, part_number
 
 START = datetime(2009, 3, 1, tzinfo=timezone.utc)

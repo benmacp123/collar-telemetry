@@ -5,8 +5,9 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
+from telemetry.arrival import Arrival
 from telemetry.fixes import Fix
-from telemetry.stream import Alert, AnimalState, FixStream, process_fix
+from telemetry.stream import Alert, AnimalState, FixStream, advance, process_fix
 
 START = datetime(2016, 4, 19, tzinfo=timezone.utc)
 
@@ -134,3 +135,99 @@ def test_ticks_and_arrivals_stamp_raised_time():
     arrived = START + timedelta(days=2)
     [incident] = stream.ingest(fix("A", 0), now=arrived)
     assert incident.opened_at == START and incident.raised_at == arrived
+
+
+class RecordingDetector:
+    """Records the order of fixes and ticks it sees; never alerts."""
+
+    name = "record"
+
+    def on_fix(self, state, deployment_id, fix):
+        """Record the fix's hour offset from START."""
+        state.setdefault("log", []).append(["fix", hours_after(fix.timestamp)])
+        return []
+
+    def on_tick(self, state, deployment_id, now):
+        """Record the tick's hour offset from START."""
+        state.setdefault("log", []).append(["tick", hours_after(now)])
+        return []
+
+
+def hours_after(time):
+    """Hours from START to ``time``."""
+    return (time - START) / timedelta(hours=1)
+
+
+def arrive(hours, taken=None):
+    """An arrival for deployment A ``hours`` after START."""
+    return Arrival(
+        START + timedelta(hours=hours), fix("A", hours if taken is None else taken)
+    )
+
+
+def test_advance_interleaves_ticks_and_arrivals():
+    """Ticks start after the first arrival; a tick at an arrival's instant
+    runs after it; ``until`` runs ticks up to and including it."""
+    state = AnimalState("A")
+    detectors = [RecordingDetector()]
+    advance(
+        state,
+        [arrive(0.5), arrive(2), arrive(2.5)],
+        START + timedelta(hours=4),
+        detectors,
+    )
+    assert state.detectors["record"]["log"] == [
+        ["fix", 0.5],
+        ["tick", 1],
+        ["fix", 2],
+        ["tick", 2],
+        ["fix", 2.5],
+        ["tick", 3],
+        ["tick", 4],
+    ]
+    assert state.next_tick == START + timedelta(hours=5)
+
+
+def test_advance_without_arrivals_does_not_start_the_clock():
+    """A clock-only call before the first arrival runs no ticks."""
+    state = AnimalState("A")
+    assert not advance(state, [], START + timedelta(days=1), [RecordingDetector()])
+    assert state.next_tick is None and not state.detectors
+
+
+def test_advance_rejects_an_arrival_before_a_tick_already_run():
+    """An arrival the clock has already passed would change results by
+    split, so it is an error."""
+    state = AnimalState("A")
+    advance(state, [arrive(0.5)], START + timedelta(hours=2), [RecordingDetector()])
+    with pytest.raises(ValueError, match="not after the tick"):
+        advance(state, [arrive(2)], None, [RecordingDetector()])
+    advance(state, [arrive(2.1)], None, [RecordingDetector()])
+
+
+def test_advance_rejects_an_arrival_before_the_last_one():
+    """Arrivals must come in arrival order."""
+    state = AnimalState("A")
+    advance(state, [arrive(5)], None, [RecordingDetector()])
+    with pytest.raises(ValueError, match="before the last arrival"):
+        advance(state, [arrive(4.5)], None, [RecordingDetector()])
+
+
+def test_clock_cursor_survives_a_json_round_trip():
+    """The tick cursor and last arrival are saved with the state."""
+    state = AnimalState("A")
+    advance(state, [arrive(0.5)], START + timedelta(hours=3), [RecordingDetector()])
+    again = AnimalState.from_dict(json.loads(json.dumps(state.to_dict())))
+    assert again == state
+    assert again.next_tick == START + timedelta(hours=4)
+
+
+def test_arrivals_at_the_instant_of_an_on_grid_first_arrival_are_accepted():
+    """No tick runs at the first arrival's instant, so a batch arriving
+    exactly on the hour is not mistaken for a late arrival."""
+    state = AnimalState("A")
+    batch = [arrive(3, taken=1), arrive(3, taken=2)]
+    advance(state, batch[:1], None, [RecordingDetector()])
+    advance(state, batch[1:], START + timedelta(hours=4), [RecordingDetector()])
+    assert state.detectors["record"]["log"] == [["fix", 1], ["fix", 2], ["tick", 4]]
+    assert state.last_tick == START + timedelta(hours=4)

@@ -6,12 +6,14 @@ AWS account: fixes are read from committed files, arrival is simulated
 with a fixed seed, and the same ``FixStream`` core the Lambda handlers
 wrap does the detection.
 
-The replay clock moves through the merged arrival feed. Each fix is
-ingested at its arrival time, which becomes the incident's ``raised_at``,
-so detection delay reflects upload batching. Between arrivals the clock
-ticks every ``tick`` (hourly by default), which is what raises a
-silent-collar alert and flushes the cleaner's hold. A gap alert can
-therefore be raised up to one tick after its threshold is crossed.
+Deployments are independent, so each one's timeline runs on its own
+through ``FixStream.advance``, the same function the cloud handler calls
+with one slice at a time. Each fix is ingested at its arrival time, which
+becomes the incident's ``raised_at``, so detection delay reflects upload
+batching. Between arrivals the clock ticks every ``tick`` (hourly by
+default), which is what raises a silent-collar alert and flushes the
+cleaner's hold. A gap alert can therefore be raised up to one tick after
+its threshold is crossed.
 
 Each deployment is ticked from its first arrival until its end of watch:
 
@@ -32,8 +34,9 @@ are provisional; see ``docs/ASSUMPTIONS.md``.
 """
 
 from collections import Counter, defaultdict
+from collections.abc import Iterator
 from dataclasses import dataclass, replace
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 
 from telemetry.alerts import (
     LATE_FIX,
@@ -44,7 +47,7 @@ from telemetry.alerts import (
     Incident,
     LifecycleConfig,
 )
-from telemetry.arrival import Arrival, ArrivalScenario, merge_arrivals, simulate_arrival
+from telemetry.arrival import Arrival, ArrivalScenario, simulate_arrival
 from telemetry.cleaning import DROP_REASONS, Cleaner
 from telemetry.detectors.gap import GapConfig, GapDetector
 from telemetry.detectors.geofence import Fence, GeofenceDetector
@@ -52,16 +55,13 @@ from telemetry.detectors.mortality import MortalityDetector
 from telemetry.detectors.movement import MovementDetector
 from telemetry.fixes import Deployment, Fix
 from telemetry.species import SpeciesProfile, profile_for
-from telemetry.stream import Detector, FixStream
+from telemetry.stream import TICK, Detector, FixStream
 
-TICK = timedelta(hours=1)
 PLANNED_ENDS = frozenset({"removal", "captured", "released"})
 SILENT_HORIZON = timedelta(days=7)
 UPLOAD_MARGIN = timedelta(hours=36)
 MERGE_SLACK = timedelta(hours=12)
 DEFAULT_SEED = 2026
-
-EPOCH = datetime(1970, 1, 1, tzinfo=timezone.utc)
 
 
 @dataclass(frozen=True)
@@ -196,6 +196,95 @@ def detectors_for(
     return detectors
 
 
+@dataclass(frozen=True)
+class Timeline:
+    """What one deployment receives in a replay.
+
+    Attributes:
+        deployment: The deployment.
+        arrivals: Its arrivals under the scenario, in arrival order.
+        until: End of watch (``watch_until``).
+    """
+
+    deployment: Deployment
+    arrivals: list[Arrival]
+    until: datetime
+
+
+def timelines(
+    deployments: list[Deployment],
+    fixes: list[Fix],
+    scenario: ArrivalScenario,
+    seed: int = DEFAULT_SEED,
+) -> Iterator[Timeline]:
+    """Each deployment's arrivals and end of watch, the input to a replay.
+
+    The replay runner and the cloud publisher both read this, so they feed
+    the core the same thing.
+
+    Args:
+        deployments: The study's deployments.
+        fixes: Their fixes, in any order.
+        scenario: The upload pattern.
+        seed: Arrival seed.
+
+    Yields:
+        Timeline: One per deployment with fixes, by deployment ID.
+    """
+    by_deployment = defaultdict(list)
+    for fix in fixes:
+        by_deployment[fix.deployment_id].append(fix)
+    for deployment in sorted(deployments, key=lambda d: d.deployment_id):
+        own = sorted(
+            by_deployment.get(deployment.deployment_id, []), key=lambda f: f.timestamp
+        )
+        if not own:
+            continue
+        arrivals = simulate_arrival(own, scenario, seed)
+        yield Timeline(
+            deployment, arrivals, watch_until(deployment, arrivals, scenario)
+        )
+
+
+def stream_for(
+    taxon: str,
+    scenario: ArrivalScenario,
+    overrides: Overrides | None = None,
+    fence: Fence | None = None,
+    lifecycle: AlertLifecycle | None = None,
+) -> FixStream:
+    """An empty stream configured for one deployment.
+
+    Each deployment gets its own stream, since detector and cleaner
+    settings depend on the species; the detectors themselves hold no
+    state. The cloud handler builds its stream here too, so both runners
+    use the same settings.
+
+    Args:
+        taxon: The deployment's taxon, which picks the species profile.
+        scenario: The upload pattern, which sets the gap allowance and the
+            cleaner's hold.
+        overrides: Settings replacing the defaults, for sweeps; None keeps
+            the defaults.
+        fence: The study's geofence, or None.
+        lifecycle: A lifecycle to share between streams; built from
+            ``overrides`` if omitted.
+
+    Returns:
+        FixStream: A stream with no state yet.
+
+    Raises:
+        KeyError: If the taxon has no species profile.
+    """
+    overrides = overrides or Overrides()
+    profile = overrides.profile(profile_for(taxon))
+    return FixStream(
+        detectors_for(profile, scenario, overrides.upload_margin, fence),
+        Cleaner(profile.cleaning(scenario.max_lateness)),
+        lifecycle or overrides.lifecycle(),
+    )
+
+
 def watch_until(
     deployment: Deployment, arrivals: list[Arrival], scenario: ArrivalScenario
 ) -> datetime:
@@ -216,19 +305,6 @@ def watch_until(
     if deployment.end_type in PLANNED_ENDS and deployment.deploy_off is not None:
         return max(deployment.deploy_off, last + scenario.max_lateness)
     return last + SILENT_HORIZON
-
-
-def first_tick_after(time: datetime, tick: timedelta) -> datetime:
-    """The first tick strictly after ``time``, on a grid fixed to the epoch.
-
-    Args:
-        time: Any UTC time.
-        tick: Tick interval.
-
-    Returns:
-        datetime: The next grid point after ``time``.
-    """
-    return EPOCH + ((time - EPOCH) // tick + 1) * tick
 
 
 def replay(
@@ -258,49 +334,21 @@ def replay(
     Raises:
         KeyError: If a deployment's taxon has no species profile.
     """
-    by_deployment = defaultdict(list)
-    for fix in fixes:
-        by_deployment[fix.deployment_id].append(fix)
-
     overrides = overrides or Overrides()
     lifecycle = overrides.lifecycle()
     streams: dict[str, FixStream] = {}
-    windows: list[tuple[datetime, datetime, str]] = []
-    feeds = []
-    for deployment in sorted(deployments, key=lambda d: d.deployment_id):
-        own = sorted(
-            by_deployment.get(deployment.deployment_id, []), key=lambda f: f.timestamp
-        )
-        if not own:
-            continue
-        profile = overrides.profile(profile_for(deployment.taxon))
-        arrivals = simulate_arrival(own, scenario, seed)
-        # One stream per deployment, since detector and cleaner settings
-        # depend on the species; the detectors themselves hold no state.
-        streams[deployment.deployment_id] = FixStream(
-            detectors_for(profile, scenario, overrides.upload_margin, fence),
-            Cleaner(profile.cleaning(scenario.max_lateness)),
-            lifecycle,
-        )
-        windows.append(
-            (
-                arrivals[0].time,
-                watch_until(deployment, arrivals, scenario),
-                deployment.deployment_id,
-            )
-        )
-        feeds.append(arrivals)
-
     latest: dict[str, Incident] = {}
-    clock = _Clock(streams, windows, tick, latest)
-    arrivals = merge_arrivals(feeds)
-    for arrival in arrivals:
-        # Ticks due before this arrival run first; a tick at the same
-        # instant runs after it, so the gap detector sees the fresh fix.
-        clock.run_until(arrival.time, inclusive=False)
-        stream = streams[arrival.fix.deployment_id]
-        clock.record(stream.ingest(arrival.fix, now=arrival.time))
-    clock.run_until(max((end for _, end, _ in windows), default=EPOCH), inclusive=True)
+    arrived = 0
+    for timeline in timelines(deployments, fixes, scenario, seed):
+        deployment = timeline.deployment
+        arrived += len(timeline.arrivals)
+        stream = stream_for(deployment.taxon, scenario, overrides, fence, lifecycle)
+        streams[deployment.deployment_id] = stream
+        # Keep only the newest state of each incident.
+        for incident in stream.advance(
+            deployment.deployment_id, timeline.arrivals, timeline.until, tick
+        ):
+            latest[incident.incident_id] = incident
 
     incidents = sorted(latest.values(), key=lambda i: (i.raised_at, i.incident_id))
     summary = summarise(scenario, seed, tick, streams, incidents)
@@ -309,70 +357,9 @@ def replay(
         summary["settings"]["gap_allowance_hours"] = gap_config(
             scenario, overrides.upload_margin
         ).allowance / timedelta(hours=1)
-    summary["fixes"] = sum(len(feed) for feed in by_deployment.values())
-    summary["arrivals"] = len(arrivals)
+    summary["fixes"] = len(fixes)
+    summary["arrivals"] = arrived
     return ReplayResult(incidents, summary)
-
-
-class _Clock:
-    """Hourly (or ``tick``) ticks for the deployments being watched."""
-
-    def __init__(
-        self,
-        streams: dict[str, FixStream],
-        windows: list[tuple[datetime, datetime, str]],
-        tick: timedelta,
-        latest: dict[str, Incident],
-    ):
-        """Set up a clock before the first arrival.
-
-        Args:
-            streams: Each deployment's stream, by deployment ID.
-            windows: (first arrival, end of watch, deployment ID) per
-                deployment.
-            tick: Tick interval.
-            latest: Incidents by ID, updated as ticks raise them.
-        """
-        self.streams = streams
-        self.pending = sorted(windows)
-        self.active: dict[str, datetime] = {}
-        self.tick = tick
-        self.latest = latest
-        self.next = first_tick_after(self.pending[0][0], tick) if self.pending else None
-
-    def record(self, incidents: list[Incident]) -> None:
-        """Keep the newest state of each incident.
-
-        Args:
-            incidents: Incidents just opened, reopened or resolved.
-        """
-        for incident in incidents:
-            self.latest[incident.incident_id] = incident
-
-    def run_until(self, limit: datetime, inclusive: bool) -> None:
-        """Run every tick up to ``limit``.
-
-        Args:
-            limit: Time to run up to.
-            inclusive: Whether a tick exactly at ``limit`` runs.
-        """
-        while self.next is not None and (
-            self.next < limit or (inclusive and self.next == limit)
-        ):
-            now = self.next
-            while self.pending and self.pending[0][0] <= now:
-                _, end, deployment_id = self.pending.pop(0)
-                self.active[deployment_id] = end
-            for deployment_id, end in list(self.active.items()):
-                if end < now:
-                    del self.active[deployment_id]
-                    continue
-                self.record(self.streams[deployment_id].tick(now))
-            if self.active or not self.pending:
-                self.next = now + self.tick
-            else:
-                # Nobody is being watched: skip ahead to the next start.
-                self.next = first_tick_after(self.pending[0][0], self.tick)
 
 
 def summarise(

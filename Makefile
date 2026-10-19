@@ -29,6 +29,10 @@ sweep:
 results: replay evaluate
 
 
+cloud-sizing:
+	PYTHONPATH=src python scripts/cloud_sizing.py
+
+
 format:
 	black src/ tests/ scripts/
 

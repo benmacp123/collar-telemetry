@@ -5,11 +5,17 @@ deployment's state, updates it in place and returns any incidents. An
 optional ``Cleaner`` sits in front of the detectors, so they see clean
 fixes in time order whatever order the fixes arrive in. State is
 plain JSON (``AnimalState.to_dict``), so a Lambda handler can load it from
-a table, call ``process_fix`` and save it back; ``FixStream`` does the
-same in memory for the local replay runner.
+a table, call ``advance`` and save it back; ``FixStream`` does the same in
+memory for the local replay runner.
 
 Detectors also receive clock ticks, because some alerts (a silent collar)
-are raised by the absence of fixes rather than by a fix.
+are raised by the absence of fixes rather than by a fix. ``advance`` is
+the one place arrivals and ticks are interleaved: it runs a deployment's
+arrivals with the ticks due between them, on a fixed hourly grid. Its tick
+cursor lives in the state, so a timeline split into any number of pieces,
+each run in a separate invocation, gives the same incidents as one run.
+Both runners call it: the replay runner with a deployment's whole
+timeline, the cloud runner with one slice per message.
 
 Detectors report transitions (``Alert``); an ``AlertLifecycle`` behind
 them turns those into incidents, so callers get one ``Incident`` when an
@@ -17,12 +23,29 @@ episode opens and one when it resolves, not one per fix.
 """
 
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Protocol
 
 from telemetry.alerts import Alert, AlertLifecycle, Incident, open_incidents
+from telemetry.arrival import Arrival
 from telemetry.cleaning import Cleaner
 from telemetry.fixes import Fix
+
+TICK = timedelta(hours=1)
+EPOCH = datetime(1970, 1, 1, tzinfo=timezone.utc)
+
+
+def first_tick_after(time: datetime, tick: timedelta) -> datetime:
+    """The first tick strictly after ``time``, on a grid fixed to the epoch.
+
+    Args:
+        time: Any UTC time.
+        tick: Tick interval.
+
+    Returns:
+        datetime: The next grid point after ``time``.
+    """
+    return EPOCH + ((time - EPOCH) // tick + 1) * tick
 
 
 class Detector(Protocol):
@@ -75,6 +98,12 @@ class AnimalState:
         cleaning: The cleaner's state (buffer, watermark, drop counts).
         detectors: Each detector's own state, keyed by detector name.
         alerts: The lifecycle's state (open incidents, drop counts).
+        next_tick: The next tick ``advance`` will run. None until the first
+            arrival.
+        last_tick: The last tick ``advance`` ran, or None. Not always
+            ``next_tick`` less one tick: no tick runs at the instant of the
+            first arrival.
+        last_arrival: Arrival time of the last fix run by ``advance``.
     """
 
     deployment_id: str
@@ -83,6 +112,9 @@ class AnimalState:
     cleaning: dict = field(default_factory=dict)
     detectors: dict[str, dict] = field(default_factory=dict)
     alerts: dict = field(default_factory=dict)
+    next_tick: datetime | None = None
+    last_tick: datetime | None = None
+    last_arrival: datetime | None = None
 
     def to_dict(self) -> dict:
         """JSON-ready form, for storage between invocations.
@@ -97,6 +129,9 @@ class AnimalState:
             "cleaning": self.cleaning,
             "detectors": self.detectors,
             "alerts": self.alerts,
+            "next_tick": _iso(self.next_tick),
+            "last_tick": _iso(self.last_tick),
+            "last_arrival": _iso(self.last_arrival),
         }
 
     @classmethod
@@ -117,7 +152,34 @@ class AnimalState:
             cleaning=data["cleaning"],
             detectors=data["detectors"],
             alerts=data["alerts"],
+            next_tick=_from_iso(data["next_tick"]),
+            last_tick=_from_iso(data["last_tick"]),
+            last_arrival=_from_iso(data["last_arrival"]),
         )
+
+
+def _iso(time: datetime | None) -> str | None:
+    """ISO 8601 text for a time that may be missing.
+
+    Args:
+        time: A time, or None.
+
+    Returns:
+        str | None: The time as text, or None.
+    """
+    return time and time.isoformat()
+
+
+def _from_iso(text: str | None) -> datetime | None:
+    """Parse text written by ``_iso``.
+
+    Args:
+        text: ISO 8601 text, or None.
+
+    Returns:
+        datetime | None: The time, or None.
+    """
+    return datetime.fromisoformat(text) if text else None
 
 
 def process_fix(
@@ -191,6 +253,103 @@ def process_tick(
     return (lifecycle or AlertLifecycle()).apply(state.alerts, alerts, now)
 
 
+def advance(
+    state: AnimalState,
+    arrivals: list[Arrival],
+    until: datetime | None,
+    detectors: list[Detector],
+    cleaner: Cleaner | None = None,
+    lifecycle: AlertLifecycle | None = None,
+    tick: timedelta = TICK,
+) -> list[Incident]:
+    """Run a deployment's arrivals with the clock ticks due around them.
+
+    Before each arrival, every tick strictly before its arrival time runs;
+    a tick at the same instant runs after it, so the gap detector sees the
+    fresh fix. Then, if ``until`` is given, every tick up to and including
+    ``until`` runs. Ticks start at the first grid point after the
+    deployment's first arrival and fall on a grid fixed to the epoch.
+
+    Args:
+        state: State of the deployment, updated in place.
+        arrivals: The deployment's next arrivals, in arrival order.
+        until: Time to run the clock to after the last arrival, or None to
+            leave the clock at the last arrival (when an upload is split
+            across several calls).
+        detectors: Detectors to run, in order.
+        cleaner: Cleaning stage, as for ``process_fix``.
+        lifecycle: Alert lifecycle, as for ``process_fix``.
+        tick: Tick interval; must not change over a deployment's life.
+
+    Returns:
+        list[Incident]: Incidents opened or resolved, in the order raised;
+        an incident that changes twice appears twice.
+
+    Raises:
+        ValueError: If an arrival is earlier than an arrival or tick
+            already run, which would make the result depend on how the
+            timeline was split.
+    """
+    incidents = []
+    for arrival in arrivals:
+        if state.last_arrival is not None and arrival.time < state.last_arrival:
+            raise ValueError(
+                f"arrival at {arrival.time} is before the last arrival "
+                f"{state.last_arrival} for {state.deployment_id!r}"
+            )
+        if state.last_tick is not None and arrival.time <= state.last_tick:
+            raise ValueError(
+                f"arrival at {arrival.time} is not after the tick at "
+                f"{state.last_tick} for {state.deployment_id!r}"
+            )
+        incidents += _run_ticks(
+            state, arrival.time, False, detectors, cleaner, lifecycle, tick
+        )
+        incidents += process_fix(
+            state, arrival.fix, detectors, cleaner, lifecycle, now=arrival.time
+        )
+        state.last_arrival = arrival.time
+        if state.next_tick is None:
+            state.next_tick = first_tick_after(arrival.time, tick)
+    if until is not None:
+        incidents += _run_ticks(state, until, True, detectors, cleaner, lifecycle, tick)
+    return incidents
+
+
+def _run_ticks(
+    state: AnimalState,
+    limit: datetime,
+    inclusive: bool,
+    detectors: list[Detector],
+    cleaner: Cleaner | None,
+    lifecycle: AlertLifecycle | None,
+    tick: timedelta,
+) -> list[Incident]:
+    """Run every tick from the state's cursor up to ``limit``.
+
+    Args:
+        state: State of the deployment; its ``next_tick`` moves on.
+        limit: Time to run up to.
+        inclusive: Whether a tick exactly at ``limit`` runs.
+        detectors: Detectors to run, in order.
+        cleaner: Cleaning stage, as for ``process_fix``.
+        lifecycle: Alert lifecycle, as for ``process_fix``.
+        tick: Tick interval.
+
+    Returns:
+        list[Incident]: Incidents opened or resolved by the ticks.
+    """
+    incidents = []
+    # Nothing ticks before the first arrival: the collar is not yet known.
+    while state.next_tick is not None and (
+        state.next_tick < limit or (inclusive and state.next_tick == limit)
+    ):
+        incidents += process_tick(state, state.next_tick, detectors, cleaner, lifecycle)
+        state.last_tick = state.next_tick
+        state.next_tick += tick
+    return incidents
+
+
 def _detect(
     state: AnimalState, fixes: list[Fix], detectors: list[Detector]
 ) -> list[Alert]:
@@ -257,6 +416,36 @@ class FixStream:
         )
         return process_fix(
             state, fix, self.detectors, self.cleaner, self.lifecycle, now
+        )
+
+    def advance(
+        self,
+        deployment_id: str,
+        arrivals: list[Arrival],
+        until: datetime | None,
+        tick: timedelta = TICK,
+    ) -> list[Incident]:
+        """Run one deployment's arrivals and ticks, as ``advance`` does.
+
+        Args:
+            deployment_id: The deployment, whose state is created if new.
+            arrivals: Its next arrivals, in arrival order.
+            until: Time to run its clock to afterwards, or None.
+            tick: Tick interval.
+
+        Returns:
+            list[Incident]: Incidents opened or resolved, in the order
+            raised.
+        """
+        state = self.states.setdefault(deployment_id, AnimalState(deployment_id))
+        return advance(
+            state,
+            arrivals,
+            until,
+            self.detectors,
+            self.cleaner,
+            self.lifecycle,
+            tick,
         )
 
     def tick(self, now: datetime) -> list[Incident]:

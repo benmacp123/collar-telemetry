@@ -1,0 +1,204 @@
+[
+  {
+    "study": "vultures",
+    "scenario": "satellite_daily",
+    "deployments": 57,
+    "slices": 36995,
+    "empty_slices": 5353,
+    "arrivals": 1311532,
+    "incidents": 1380,
+    "matches_replay": true,
+    "message_bytes": {
+      "median": 1570,
+      "p99": 42889,
+      "max": 103360
+    },
+    "state_bytes": {
+      "median": 3831,
+      "p99": 12013,
+      "max": 22116
+    },
+    "largest_state_parts": {
+      "detectors.movement": 19088,
+      "detectors.gap": 1415,
+      "alerts": 695,
+      "cleaning": 370,
+      "detectors.mortality": 248,
+      "latest_fix": 118,
+      "last_arrival": 44,
+      "next_tick": 41,
+      "last_tick": 41,
+      "deployment_id": 32,
+      "fixes_seen": 20
+    }
+  },
+  {
+    "study": "vultures",
+    "scenario": "gsm",
+    "deployments": 57,
+    "slices": 36991,
+    "empty_slices": 8193,
+    "arrivals": 1324581,
+    "incidents": 2051,
+    "matches_replay": true,
+    "message_bytes": {
+      "median": 1569,
+      "p99": 46736,
+      "max": 236479
+    },
+    "state_bytes": {
+      "median": 4131,
+      "p99": 28548,
+      "max": 62210
+    },
+    "largest_state_parts": {
+      "detectors.movement": 34455,
+      "cleaning": 25597,
+      "detectors.gap": 1423,
+      "detectors.mortality": 351,
+      "latest_fix": 118,
+      "alerts": 84,
+      "last_arrival": 44,
+      "next_tick": 41,
+      "last_tick": 41,
+      "deployment_id": 32,
+      "fixes_seen": 20
+    }
+  },
+  {
+    "study": "jackals",
+    "scenario": "satellite_daily",
+    "deployments": 22,
+    "slices": 6881,
+    "empty_slices": 1726,
+    "arrivals": 130688,
+    "incidents": 50,
+    "matches_replay": true,
+    "message_bytes": {
+      "median": 2427,
+      "p99": 8824,
+      "max": 15665
+    },
+    "state_bytes": {
+      "median": 3687,
+      "p99": 4788,
+      "max": 5298
+    },
+    "largest_state_parts": {
+      "detectors.movement": 2913,
+      "detectors.gap": 1245,
+      "cleaning": 366,
+      "detectors.mortality": 358,
+      "latest_fix": 116,
+      "alerts": 84,
+      "last_arrival": 44,
+      "next_tick": 41,
+      "last_tick": 41,
+      "detectors.geofence": 38,
+      "deployment_id": 30,
+      "fixes_seen": 19
+    }
+  },
+  {
+    "study": "jackals",
+    "scenario": "gsm",
+    "deployments": 22,
+    "slices": 6877,
+    "empty_slices": 2240,
+    "arrivals": 131913,
+    "incidents": 113,
+    "matches_replay": true,
+    "message_bytes": {
+      "median": 2324,
+      "p99": 10439,
+      "max": 31150
+    },
+    "state_bytes": {
+      "median": 3967,
+      "p99": 5475,
+      "max": 7031
+    },
+    "largest_state_parts": {
+      "detectors.movement": 2907,
+      "cleaning": 2201,
+      "detectors.gap": 1159,
+      "detectors.mortality": 348,
+      "latest_fix": 116,
+      "alerts": 84,
+      "last_arrival": 44,
+      "next_tick": 41,
+      "last_tick": 41,
+      "detectors.geofence": 38,
+      "deployment_id": 30,
+      "fixes_seen": 19
+    }
+  },
+  {
+    "study": "elephants",
+    "scenario": "satellite_daily",
+    "deployments": 14,
+    "slices": 8965,
+    "empty_slices": 1104,
+    "arrivals": 283688,
+    "incidents": 313,
+    "matches_replay": true,
+    "message_bytes": {
+      "median": 4130,
+      "p99": 5539,
+      "max": 5612
+    },
+    "state_bytes": {
+      "median": 3533,
+      "p99": 4133,
+      "max": 4581
+    },
+    "largest_state_parts": {
+      "detectors.movement": 1713,
+      "alerts": 893,
+      "detectors.gap": 879,
+      "detectors.mortality": 394,
+      "cleaning": 372,
+      "latest_fix": 119,
+      "last_arrival": 44,
+      "next_tick": 41,
+      "last_tick": 41,
+      "detectors.geofence": 37,
+      "deployment_id": 25,
+      "fixes_seen": 20
+    }
+  },
+  {
+    "study": "elephants",
+    "scenario": "gsm",
+    "deployments": 14,
+    "slices": 8960,
+    "empty_slices": 1872,
+    "arrivals": 286534,
+    "incidents": 430,
+    "matches_replay": true,
+    "message_bytes": {
+      "median": 4026,
+      "p99": 10932,
+      "max": 21351
+    },
+    "state_bytes": {
+      "median": 3884,
+      "p99": 4462,
+      "max": 4811
+    },
+    "largest_state_parts": {
+      "detectors.movement": 1696,
+      "cleaning": 1030,
+      "detectors.gap": 898,
+      "alerts": 473,
+      "detectors.mortality": 391,
+      "latest_fix": 112,
+      "last_arrival": 44,
+      "next_tick": 41,
+      "last_tick": 41,
+      "detectors.geofence": 37,
+      "deployment_id": 25,
+      "fixes_seen": 20
+    }
+  }
+]
