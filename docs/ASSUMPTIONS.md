@@ -59,6 +59,19 @@ stops an animal that barely moves from alerting on a short walk.
 | Black-backed jackal | 3 km | Hourly moves of up to 3 km and a mean of 14.6 km a day (VHF, Botswana) [10]. | Literature-informed |
 | African savanna elephant | 3 km | | Provisional |
 
+## Geofence detector
+
+| Setting | Value | Basis | Label |
+|---|---|---|---|
+| Edge band | 100 m either side of the boundary | Several times typical GPS error (10-30 m, stationary collar tests [3, 7]); fixes in the band change nothing, so jitter along a fence line does not alert. | Provisional |
+| Fixes to confirm | 2 in a row beyond the band, to open or to resolve | One stray fix should not raise or clear an alert. | Provisional |
+| Boundaries | OpenStreetMap relations for Etosha (2982497) and Kruger (1752987) | Redistributable (ODbL), unlike WDPA. Kruger's relation excludes the unfenced private reserves to its west, so crossings there alert. | Observed (source choice) |
+| Projection | Local equirectangular plane centred on each park | Accurate to a few per cent over a park; tested to within 10 m at 5 km. | - |
+
+Not chosen on data: no geofence ground truth exists. On the elephants,
+excursions last a median of 15 h and 17% are under 6 h, so jitter is not
+what drives the alerts.
+
 ## Synthetic mortality events
 
 The jackal and elephant tracks stop at or before death, so the mortality

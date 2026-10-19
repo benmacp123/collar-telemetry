@@ -18,6 +18,11 @@
           "late_fix": 0,
           "per_animal_month": 0.497
         },
+        "geofence": {
+          "incidents": 202,
+          "late_fix": 0,
+          "per_animal_month": 0.692
+        },
         "movement": {
           "incidents": 10,
           "late_fix": 0,
@@ -62,7 +67,19 @@
       },
       "both_detectors": 0,
       "deaths": [],
-      "ambiguous": []
+      "ambiguous": [],
+      "geofence": {
+        "fence": "Kruger National Park",
+        "incidents": 202,
+        "per_animal_month": 0.692,
+        "deployments": 4,
+        "open_at_end": 1,
+        "median_hours_outside": 15.0,
+        "short_share": 0.169,
+        "exits_by_edge": {
+          "west": 202
+        }
+      }
     },
     "satellite_daily": {
       "deployments": 14,
@@ -77,6 +94,11 @@
           "late_fix": 16,
           "per_animal_month": 0.346
         },
+        "geofence": {
+          "incidents": 202,
+          "late_fix": 0,
+          "per_animal_month": 0.692
+        },
         "movement": {
           "incidents": 10,
           "late_fix": 0,
@@ -121,7 +143,19 @@
       },
       "both_detectors": 0,
       "deaths": [],
-      "ambiguous": []
+      "ambiguous": [],
+      "geofence": {
+        "fence": "Kruger National Park",
+        "incidents": 202,
+        "per_animal_month": 0.692,
+        "deployments": 4,
+        "open_at_end": 1,
+        "median_hours_outside": 15.0,
+        "short_share": 0.169,
+        "exits_by_edge": {
+          "west": 202
+        }
+      }
     },
     "satellite_2day": {
       "deployments": 14,
@@ -136,6 +170,11 @@
           "late_fix": 35,
           "per_animal_month": 0.291
         },
+        "geofence": {
+          "incidents": 202,
+          "late_fix": 0,
+          "per_animal_month": 0.692
+        },
         "movement": {
           "incidents": 10,
           "late_fix": 0,
@@ -180,7 +219,19 @@
       },
       "both_detectors": 0,
       "deaths": [],
-      "ambiguous": []
+      "ambiguous": [],
+      "geofence": {
+        "fence": "Kruger National Park",
+        "incidents": 202,
+        "per_animal_month": 0.692,
+        "deployments": 4,
+        "open_at_end": 1,
+        "median_hours_outside": 15.0,
+        "short_share": 0.169,
+        "exits_by_edge": {
+          "west": 202
+        }
+      }
     },
     "gsm": {
       "deployments": 14,
@@ -194,6 +245,11 @@
           "incidents": 217,
           "late_fix": 75,
           "per_animal_month": 0.744
+        },
+        "geofence": {
+          "incidents": 202,
+          "late_fix": 0,
+          "per_animal_month": 0.692
         },
         "movement": {
           "incidents": 11,
@@ -239,7 +295,19 @@
       },
       "both_detectors": 0,
       "deaths": [],
-      "ambiguous": []
+      "ambiguous": [],
+      "geofence": {
+        "fence": "Kruger National Park",
+        "incidents": 202,
+        "per_animal_month": 0.692,
+        "deployments": 4,
+        "open_at_end": 1,
+        "median_hours_outside": 15.0,
+        "short_share": 0.169,
+        "exits_by_edge": {
+          "west": 202
+        }
+      }
     }
   }
 }

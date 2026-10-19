@@ -50,9 +50,10 @@ def main():
     scenarios = [SCENARIOS[name] for name in args.scenario or SCENARIOS]
     for study in studies:
         deployments, fixes, _ = study.load(RAW)
+        fence = study.fence(RAW)
         for scenario in scenarios:
             started = time.perf_counter()
-            result = replay(deployments, fixes, scenario, args.seed)
+            result = replay(deployments, fixes, scenario, args.seed, fence=fence)
             out = RESULTS / study.slug / scenario.name
             out.mkdir(parents=True, exist_ok=True)
             summary = {"study": study.slug, **result.summary}

@@ -10,12 +10,12 @@ Every threshold is still provisional (`docs/ASSUMPTIONS.md`).
 
 ### Operator load (incidents per animal-month)
 
-| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late |
-|---|---|---|---|---|---|
-| Ideal | 0.41 | 0.39 | 0.19 | 0.42 | 0% |
-| GSM | 0.41 | 0.39 | 0.19 | 0.72 | 41% |
-| Satellite, daily | 0.41 | 0.39 | 0.19 | 0.22 | 19% |
-| Satellite, 2-day | 0.41 | 0.39 | 0.19 | 0.18 | 33% |
+| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late | Geofence |
+|---|---|---|---|---|---|---|
+| Ideal | 0.41 | 0.39 | 0.19 | 0.42 | 0% | – |
+| GSM | 0.41 | 0.39 | 0.19 | 0.72 | 41% | – |
+| Satellite, daily | 0.41 | 0.39 | 0.19 | 0.22 | 19% | – |
+| Satellite, 2-day | 0.41 | 0.39 | 0.19 | 0.18 | 33% | – |
 
 ### Deaths
 
@@ -57,12 +57,12 @@ Unplanned ends that finish stationary; not counted as false alarms. Mortality de
 
 ### Operator load (incidents per animal-month)
 
-| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late |
-|---|---|---|---|---|---|
-| Ideal | 0.60 | 0.59 | 0.14 | 0.88 | 0% |
-| GSM | 0.60 | 0.59 | 0.13 | 1.11 | 21% |
-| Satellite, daily | 0.60 | 0.59 | 0.14 | 0.56 | 18% |
-| Satellite, 2-day | 0.60 | 0.59 | 0.14 | 0.44 | 29% |
+| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late | Geofence |
+|---|---|---|---|---|---|---|
+| Ideal | 0.60 | 0.59 | 0.14 | 0.88 | 0% | – |
+| GSM | 0.60 | 0.59 | 0.13 | 1.11 | 21% | – |
+| Satellite, daily | 0.60 | 0.59 | 0.14 | 0.56 | 18% | – |
+| Satellite, 2-day | 0.60 | 0.59 | 0.14 | 0.44 | 29% | – |
 
 ### Deaths
 
@@ -101,12 +101,12 @@ Unplanned ends that finish stationary; not counted as false alarms. Mortality de
 
 ### Operator load (incidents per animal-month)
 
-| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late |
-|---|---|---|---|---|---|
-| Ideal | 0.07 | 0.07 | 0.03 | 0.18 | 0% |
-| GSM | 0.07 | 0.07 | 0.03 | 0.52 | 65% |
-| Satellite, daily | 0.07 | 0.07 | 0.03 | 0.18 | 0% |
-| Satellite, 2-day | 0.07 | 0.07 | 0.03 | 0.18 | 6% |
+| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late | Geofence |
+|---|---|---|---|---|---|---|
+| Ideal | 0.07 | 0.07 | 0.03 | 0.18 | 0% | – |
+| GSM | 0.07 | 0.07 | 0.03 | 0.52 | 65% | – |
+| Satellite, daily | 0.07 | 0.07 | 0.03 | 0.18 | 0% | – |
+| Satellite, 2-day | 0.07 | 0.07 | 0.03 | 0.18 | 6% | – |
 
 ### Deaths
 
@@ -130,18 +130,29 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | Satellite, daily | – | – | 0% | 0 of 0 | – |
 | Satellite, 2-day | – | – | 0% | 0 of 0 | – |
 
+### Geofence
+
+Exit fence on Etosha National Park (OpenStreetMap boundary, 100 m edge band, 2 fixes to confirm). There is no ground truth for crossings, so this reports volume and how long animals stayed out. Crossings do not depend on upload timing.
+
+| Scenario | Alerts per animal-month | Alerts | Animals | Median hours outside | Under 6 h | Exits by nearest edge |
+|---|---|---|---|---|---|---|
+| Ideal | 0.00 | 0 | 0 | – | – | – |
+| GSM | 0.00 | 0 | 0 | – | – | – |
+| Satellite, daily | 0.00 | 0 | 0 | – | – | – |
+| Satellite, 2-day | 0.00 | 0 | 0 | – | – | – |
+
 ## African elephant, Kruger (all set)
 
 14 deployments (11 alive, 3 dead-after-track); 291.8 animal-months. Reference mark 80.5 h (own carcass minimum + vulture mark - vulture carcass minimum).
 
 ### Operator load (incidents per animal-month)
 
-| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late |
-|---|---|---|---|---|---|
-| Ideal | – | 0.00 | 0.03 | 0.50 | 0% |
-| GSM | – | 0.00 | 0.04 | 0.74 | 35% |
-| Satellite, daily | – | 0.00 | 0.03 | 0.35 | 16% |
-| Satellite, 2-day | – | 0.00 | 0.03 | 0.29 | 41% |
+| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late | Geofence |
+|---|---|---|---|---|---|---|
+| Ideal | – | 0.00 | 0.03 | 0.50 | 0% | 0.69 |
+| GSM | – | 0.00 | 0.04 | 0.74 | 35% | 0.69 |
+| Satellite, daily | – | 0.00 | 0.03 | 0.35 | 16% | 0.69 |
+| Satellite, 2-day | – | 0.00 | 0.03 | 0.29 | 41% | 0.69 |
 
 ### Deaths
 
@@ -164,3 +175,14 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | GSM | – | – | – | 0 of 0 | – |
 | Satellite, daily | – | – | – | 0 of 0 | – |
 | Satellite, 2-day | – | – | – | 0 of 0 | – |
+
+### Geofence
+
+Exit fence on Kruger National Park (OpenStreetMap boundary, 100 m edge band, 2 fixes to confirm). There is no ground truth for crossings, so this reports volume and how long animals stayed out. Crossings do not depend on upload timing.
+
+| Scenario | Alerts per animal-month | Alerts | Animals | Median hours outside | Under 6 h | Exits by nearest edge |
+|---|---|---|---|---|---|---|
+| Ideal | 0.69 | 202 | 4 | 15.0 | 17% | west 202 |
+| GSM | 0.69 | 202 | 4 | 15.0 | 17% | west 202 |
+| Satellite, daily | 0.69 | 202 | 4 | 15.0 | 17% | west 202 |
+| Satellite, 2-day | 0.69 | 202 | 4 | 15.0 | 17% | west 202 |

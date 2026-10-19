@@ -7,6 +7,7 @@ same files the same way.
 from dataclasses import dataclass
 from pathlib import Path
 
+from telemetry.detectors.geofence import EXIT, Fence
 from telemetry.fixes import Deployment, Fix
 from telemetry.movebank import LoadReport, read_deployments, read_fixes
 
@@ -22,12 +23,28 @@ class Study:
         pattern: Glob for the event files, with ``{stem}`` filled in.
             Event files over GitHub's size limit are committed split into
             numbered parts by ``scripts/split_events.py``.
+        boundary: Stem of the park boundary in ``boundaries/`` under the
+            raw directory (an exit fence), or None for no geofence.
     """
 
     slug: str
     title: str
     stem: str
     pattern: str
+    boundary: str | None = None
+
+    def fence(self, raw: Path) -> Fence | None:
+        """The study's geofence, if it has one.
+
+        Args:
+            raw: The raw data directory.
+
+        Returns:
+            Fence | None: The park boundary as an exit fence, or None.
+        """
+        if self.boundary is None:
+            return None
+        return Fence.from_file(raw / "boundaries" / f"{self.boundary}.geojson", EXIT)
 
     def reference_path(self, raw: Path) -> Path:
         """Path of the study's reference-data (deployments) file.
@@ -91,11 +108,13 @@ STUDIES: list[Study] = [
         "Black-backed jackal, Etosha",
         "Black-backed jackal, Etosha National Park, Namibia",
         "{stem}.csv",
+        boundary="etosha",
     ),
     Study(
         "elephants",
         "African elephant, Kruger",
         "ThermochronTracking Elephants Kruger 2007",
         "{stem}.csv",
+        boundary="kruger",
     ),
 ]

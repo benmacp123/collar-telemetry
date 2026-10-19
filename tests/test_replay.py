@@ -12,6 +12,7 @@ import pytest
 from telemetry.alerts import OPEN
 from telemetry.arrival import SCENARIOS, Arrival, simulate_arrival
 from telemetry.detectors.gap import GapConfig
+from telemetry.detectors.geofence import EXIT, Fence
 from telemetry.fixes import Deployment, Fix
 from telemetry.geo import offset
 from telemetry.replay import (
@@ -225,3 +226,25 @@ def test_committed_studies_have_their_files():
         assert parts == sorted(parts, key=part_number)
     vultures = STUDIES[0].event_paths(raw)
     assert [part_number(p) for p in vultures] == [1, 2, 3, 4, 5, 6]
+
+
+def test_replay_runs_the_geofence_when_given_a_fence():
+    """A deployment walking out of a fence raises one geofence incident."""
+    lat, lon = -19.0, 15.5
+    ring = [
+        [lon - 0.05, lat - 0.05],
+        [lon + 0.05, lat - 0.05],
+        [lon + 0.05, lat + 0.05],
+        [lon - 0.05, lat + 0.05],
+        [lon - 0.05, lat - 0.05],
+    ]
+    fence = Fence({"type": "Polygon", "coordinates": [ring]}, "Box", EXIT, 100.0)
+    # Walks north 300 m an hour, leaving the box (5.5 km) after ~19 h.
+    result = replay([deployment()], walk(48), SCENARIOS["ideal"], fence=fence)
+    geofence = by_detector(result, "geofence")
+    assert len(geofence) == 1
+    assert geofence[0].message.startswith("Left Box")
+    assert "geofence" not in {
+        i.detector
+        for i in replay([deployment()], walk(48), SCENARIOS["ideal"]).incidents
+    }

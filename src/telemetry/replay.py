@@ -47,6 +47,7 @@ from telemetry.alerts import (
 from telemetry.arrival import Arrival, ArrivalScenario, merge_arrivals, simulate_arrival
 from telemetry.cleaning import DROP_REASONS, Cleaner
 from telemetry.detectors.gap import GapConfig, GapDetector
+from telemetry.detectors.geofence import Fence, GeofenceDetector
 from telemetry.detectors.mortality import MortalityDetector
 from telemetry.detectors.movement import MovementDetector
 from telemetry.fixes import Deployment, Fix
@@ -171,6 +172,7 @@ def detectors_for(
     profile: SpeciesProfile,
     scenario: ArrivalScenario,
     margin: timedelta = UPLOAD_MARGIN,
+    fence: Fence | None = None,
 ) -> list[Detector]:
     """The detectors a deployment is run through.
 
@@ -178,15 +180,20 @@ def detectors_for(
         profile: The deployment's species settings.
         scenario: The upload pattern, which sets the gap threshold.
         margin: Silence allowed beyond the upload interval.
+        fence: The study's geofence, or None.
 
     Returns:
-        list[Detector]: Mortality, unusual-movement and gap detectors.
+        list[Detector]: Mortality, unusual-movement and gap detectors, and
+        a geofence detector when there is a fence.
     """
-    return [
+    detectors = [
         MortalityDetector(profile.mortality),
         MovementDetector(profile.movement),
         GapDetector(gap_config(scenario, margin)),
     ]
+    if fence is not None:
+        detectors.append(GeofenceDetector(fence))
+    return detectors
 
 
 def watch_until(
@@ -231,6 +238,7 @@ def replay(
     seed: int = DEFAULT_SEED,
     tick: timedelta = TICK,
     overrides: Overrides | None = None,
+    fence: Fence | None = None,
 ) -> ReplayResult:
     """Replay a study under one arrival scenario.
 
@@ -242,6 +250,7 @@ def replay(
         tick: Interval between clock ticks.
         overrides: Settings replacing the defaults, for sweeps; None keeps
             the defaults.
+        fence: Geofence applied to every deployment, or None.
 
     Returns:
         ReplayResult: Every incident and a summary of the run.
@@ -269,7 +278,7 @@ def replay(
         # One stream per deployment, since detector and cleaner settings
         # depend on the species; the detectors themselves hold no state.
         streams[deployment.deployment_id] = FixStream(
-            detectors_for(profile, scenario, overrides.upload_margin),
+            detectors_for(profile, scenario, overrides.upload_margin, fence),
             Cleaner(profile.cleaning(scenario.max_lateness)),
             lifecycle,
         )

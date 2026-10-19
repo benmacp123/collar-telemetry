@@ -1,7 +1,8 @@
 # Data sources
 
 One entry per dataset: name, URL, DOI, licence, date retrieved, and what
-was extracted. Only CC0 or CC-BY data is committed.
+was extracted. Tracking data is CC0 or CC-BY only; the park boundaries are
+an OpenStreetMap extract under the ODbL (see the last section).
 
 ## Black-backed jackal, Etosha National Park, Namibia
 
@@ -98,3 +99,31 @@ the end comments date the deaths between late 2009 and April 2012. They
 are labelled `dead-after-track`. The animal was alive for every fix the
 pipeline sees, so the final silence is a collar stopping, not a death to
 detect.
+
+## Park boundaries (`raw/boundaries/`)
+
+- **Source:** OpenStreetMap, via the public Overpass API
+  (<https://overpass-api.de/>), fetched by `scripts/fetch_boundaries.py`.
+- **Licence:** Open Database Licence (ODbL 1.0),
+  <https://opendatacommons.org/licenses/odbl/1-0/>. Attribution:
+  "© OpenStreetMap contributors". Share-alike: these files, and anything
+  derived from them as a database, stay under the ODbL, apart from the
+  CC0 rest of the repository. Figures drawn from them carry the
+  attribution.
+- **Retrieved:** 2026-10-19.
+- **Files:**
+  - `raw/boundaries/etosha.geojson` - Etosha National Park, relation
+    2982497 (Wikidata Q675633). One polygon, 419 vertices, about
+    23,000 km² (published area 22,270 km²).
+  - `raw/boundaries/kruger.geojson` - Kruger National Park, relation
+    1752987 (Wikidata Q24451). One polygon, 1,688 vertices, about
+    19,100 km² (published area about 19,500 km²).
+- **Processing:** each relation's outer member ways are joined into
+  polygons and inner ways cut out as holes (shapely `polygonize`);
+  coordinates are rounded to 6 decimal places (about 0.1 m). Relations
+  were found by name and checked against their Wikidata IDs.
+- **Note:** Kruger's relation is the national park alone. Its western
+  edge borders the Associated Private Nature Reserves (Sabi Sand,
+  Timbavati and others), which are unfenced from Kruger, so crossings
+  there are real but not operationally meaningful; evaluation reports
+  them as such.

@@ -6,8 +6,10 @@ both). Reads ``data/raw/``, ``data/labels.csv`` and each
 ``results/<study>/evaluation-<set>.json``, ``results/EVALUATION.md`` and
 the figures in ``results/figures/``.
 
-The vulture scoring set (deployments from 2013) is scored only with
-``--score``, to be run once thresholds are frozen on the tuning set.
+The vulture scoring set (deployments from 2013) is first scored only with
+``--score``, once thresholds are frozen on the tuning set. After that its
+results file exists and every run includes it, so the published tables
+stay complete; any later re-score must be declared as such.
 """
 
 import argparse
@@ -22,11 +24,12 @@ from telemetry.evaluation import (
     TUNING,
     build_truth,
     evaluate,
+    geofence_summary,
     read_incidents,
     read_labels,
     reference_mark,
 )
-from telemetry.report import write_figures, write_markdown
+from telemetry.report import write_figures, write_geofence_map, write_markdown
 from telemetry.studies import STUDIES
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -76,9 +79,11 @@ def main():
     vulture_mark = None
     for study in STUDIES:
         deployments, fixes, _ = study.load(RAW)
+        fence = study.fence(RAW)
         truths = build_truth(study.slug, deployments, fixes, overrides)
         sets = sorted({t.split for t in truths})
-        if not args.score:
+        scored = (RESULTS / study.slug / f"evaluation-{SCORING}.json").exists()
+        if not (args.score or scored):
             sets = [s for s in sets if s != SCORING]
         taxon = truths[0].taxon
         if study.slug == "vultures":
@@ -93,7 +98,24 @@ def main():
             scenarios = {}
             for scenario in SCENARIOS:
                 path = RESULTS / study.slug / scenario / "incidents.jsonl"
-                scenarios[scenario] = evaluate(chosen, read_incidents(path), mark)
+                incidents = read_incidents(path)
+                scenarios[scenario] = evaluate(chosen, incidents, mark)
+                if fence is not None:
+                    scenarios[scenario]["geofence"] = geofence_summary(
+                        chosen, incidents, fixes, fence
+                    )
+                    # Crossings do not depend on upload timing, so one map
+                    # (ideal arrival) covers every scenario.
+                    if (
+                        scenario == "ideal"
+                        and scenarios[scenario]["geofence"]["incidents"]
+                    ):
+                        write_geofence_map(
+                            fence,
+                            fixes,
+                            incidents,
+                            RESULTS / "figures" / f"{study.slug}-geofence-map.png",
+                        )
             report = {
                 "study": study.slug,
                 "title": study.title,

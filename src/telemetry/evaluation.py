@@ -45,7 +45,10 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from shapely.geometry import LineString
+
 from telemetry.alerts import LATE_FIX, LIKELY_DEATH, MORTALITY, OPEN, Incident
+from telemetry.detectors.geofence import Fence
 from telemetry.fixes import Deployment, Fix
 from telemetry.geo import haversine_m
 from telemetry.replay import PLANNED_ENDS
@@ -622,3 +625,79 @@ def _median(values) -> float | None:
     """
     present = [v for v in values if v is not None]
     return round(statistics.median(present), 2) if present else None
+
+
+GEOFENCE = "geofence"
+SHORT_EXCURSION = timedelta(hours=6)
+
+
+def nearest_edge(polygon, lat: float, lon: float) -> str:
+    """Which edge of a park a point outside it lies beyond.
+
+    Draws an east-west line through the point and finds where it crosses
+    the park; a point nearer the western crossing is ``"west"``. Points
+    north or south of the park's whole extent are ``"north"`` or
+    ``"south"``.
+
+    Args:
+        polygon: The park, a shapely (multi)polygon in lon/lat.
+        lat: Latitude of the point.
+        lon: Longitude of the point.
+
+    Returns:
+        str: ``"west"``, ``"east"``, ``"north"`` or ``"south"``.
+    """
+    west, south, east, north = polygon.bounds
+    crossing = polygon.intersection(LineString([(west - 1, lat), (east + 1, lat)]))
+    if crossing.is_empty:
+        return "north" if lat > (south + north) / 2 else "south"
+    left, _, right, _ = crossing.bounds
+    return "west" if abs(lon - left) <= abs(lon - right) else "east"
+
+
+def geofence_summary(
+    truths: list[Truth],
+    incidents: list[Incident],
+    fixes: list[Fix],
+    fence: Fence,
+) -> dict:
+    """What the geofence raised, for a fence with no ground truth.
+
+    Crossings are real by construction (the fix is beyond the band), so
+    this reports volume, how long animals stayed out, how many excursions
+    were short (a sign of an unfenced edge or flicker) and which edge they
+    crossed.
+
+    Args:
+        truths: The deployments scored.
+        incidents: Every incident the replay raised.
+        fixes: The study's fixes, used to place each exit.
+        fence: The geofence.
+
+    Returns:
+        dict: Incident counts, rate, hours outside and exits by edge.
+    """
+    ids = {t.deployment_id for t in truths}
+    months = sum((t.last_fix - t.first_fix) / ANIMAL_MONTH for t in truths)
+    own = [i for i in incidents if i.detector == GEOFENCE and i.deployment_id in ids]
+    where = {(f.deployment_id, f.timestamp): f for f in fixes}
+    edges = Counter()
+    for incident in own:
+        fix = where.get((incident.deployment_id, incident.opened_at))
+        if fix is not None:
+            edges[nearest_edge(fence.polygon, fix.lat, fix.lon)] += 1
+    durations = [i.resolved_at - i.opened_at for i in own if i.resolved_at is not None]
+    return {
+        "fence": fence.name,
+        "incidents": len(own),
+        "per_animal_month": _rate(len(own), months),
+        "deployments": len({i.deployment_id for i in own}),
+        "open_at_end": sum(1 for i in own if i.status == OPEN),
+        "median_hours_outside": _median(d / HOUR for d in durations),
+        "short_share": (
+            round(sum(1 for d in durations if d < SHORT_EXCURSION) / len(durations), 3)
+            if durations
+            else None
+        ),
+        "exits_by_edge": dict(sorted(edges.items())),
+    }

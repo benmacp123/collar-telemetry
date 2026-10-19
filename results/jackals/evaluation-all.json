@@ -101,7 +101,17 @@
           "gap_delay_hours": 36.98
         }
       ],
-      "ambiguous": []
+      "ambiguous": [],
+      "geofence": {
+        "fence": "Etosha National Park",
+        "incidents": 0,
+        "per_animal_month": 0.0,
+        "deployments": 0,
+        "open_at_end": 0,
+        "median_hours_outside": null,
+        "short_share": null,
+        "exits_by_edge": {}
+      }
     },
     "satellite_daily": {
       "deployments": 22,
@@ -199,7 +209,17 @@
           "gap_delay_hours": 60.98
         }
       ],
-      "ambiguous": []
+      "ambiguous": [],
+      "geofence": {
+        "fence": "Etosha National Park",
+        "incidents": 0,
+        "per_animal_month": 0.0,
+        "deployments": 0,
+        "open_at_end": 0,
+        "median_hours_outside": null,
+        "short_share": null,
+        "exits_by_edge": {}
+      }
     },
     "satellite_2day": {
       "deployments": 22,
@@ -297,7 +317,17 @@
           "gap_delay_hours": 84.98
         }
       ],
-      "ambiguous": []
+      "ambiguous": [],
+      "geofence": {
+        "fence": "Etosha National Park",
+        "incidents": 0,
+        "per_animal_month": 0.0,
+        "deployments": 0,
+        "open_at_end": 0,
+        "median_hours_outside": null,
+        "short_share": null,
+        "exits_by_edge": {}
+      }
     },
     "gsm": {
       "deployments": 22,
@@ -395,7 +425,17 @@
           "gap_delay_hours": 37.98
         }
       ],
-      "ambiguous": []
+      "ambiguous": [],
+      "geofence": {
+        "fence": "Etosha National Park",
+        "incidents": 0,
+        "per_animal_month": 0.0,
+        "deployments": 0,
+        "open_at_end": 0,
+        "median_hours_outside": null,
+        "short_share": null,
+        "exits_by_edge": {}
+      }
     }
   }
 }

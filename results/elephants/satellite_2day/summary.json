@@ -32,6 +32,12 @@
       "late_fix": 35,
       "flaps": 0
     },
+    "geofence": {
+      "incidents": 202,
+      "open_at_end": 1,
+      "late_fix": 0,
+      "flaps": 0
+    },
     "movement": {
       "incidents": 10,
       "open_at_end": 0,

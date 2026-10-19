@@ -2,9 +2,9 @@
 [![Python Applications test with GitHub Actions](https://github.com/benmacp123/collar-telemetry/actions/workflows/main.yml/badge.svg)](https://github.com/benmacp123/collar-telemetry/actions/workflows/main.yml)
 
 An alerting pipeline for wildlife GPS collars. It turns raw, late and
-duplicated fixes into alerts for possible deaths, silent collars and
-unusual movement, and is scored against real recorded deaths in public
-Movebank data.
+duplicated fixes into alerts for possible deaths, silent collars, unusual
+movement and park-boundary crossings, and is scored against real recorded
+deaths in public Movebank data.
 
 ## The question
 
@@ -39,12 +39,25 @@ small sample, so these rates are indicative, not precise.
 
 ![Share of held-out deaths flagged by deadline, by arrival scenario](results/figures/vultures-scoring-delay.png)
 
+**Geofencing shows that the boundary matters as much as the detector.**
+Using Kruger National Park's published boundary, 4 of 14 elephants raised
+202 "left the park" alerts (0.7 per animal-month), every one on the
+western edge. That edge borders the private reserves (Sabi Sand,
+Timbavati), which share Kruger's open system with no fence between them,
+so these are real crossings but not ones a ranger needs to hear about.
+The animals stayed out for a median of 15 h, so this is not GPS jitter.
+The fix is a better boundary, not a better detector: the detector takes
+any polygon, so a park would load its own operational fence. Jackals
+never left Etosha and raised no geofence alerts.
+
+![Where the Kruger geofence alerted: all on the western, unfenced edge](results/figures/elephants-geofence-map.png)
+
 Full tables for every study and arrival scenario are in
 [`results/EVALUATION.md`](results/EVALUATION.md).
 
-**Status:** detection core, local replay and evaluation complete. Not yet
-built: the AWS deployment (Lambda, SQS, DynamoDB, Terraform) and the
-geofence detector.
+**Status:** detection core (mortality, data gap, unusual movement,
+geofence), local replay and evaluation complete. Not yet built: the AWS
+deployment (Lambda, SQS, DynamoDB, Terraform).
 
 ## How it works
 
@@ -62,7 +75,11 @@ handlers.
   - *data gap*: a collar silent through hours it is normally on (it
     learns each collar's duty cycle), after allowing for upload delay;
   - *unusual movement*: displacement far outside the animal's own recent
-    baseline.
+    baseline;
+  - *geofence*: crossing any GeoJSON boundary, as an exit fence (a park)
+    or a keep-out zone. Fixes within 100 m of the boundary are ignored and
+    two fixes in a row confirm a crossing, so jitter along a fence line
+    does not alert. Built on shapely, projected to metres locally.
 - **Alert lifecycle:** one incident per episode, not one per fix; flaps
   reopen the same incident; resolves based on late fixes are flagged. A
   `likely_death` incident is raised while a mortality and a gap incident
@@ -116,8 +133,8 @@ handlers.
 
 ## Data
 
-All three studies are CC0 1.0, from the Movebank Data Repository; full
-citations, file details and retrieval dates are in
+All three tracking studies are CC0 1.0, from the Movebank Data
+Repository; full citations, file details and retrieval dates are in
 [`data/SOURCES.md`](data/SOURCES.md).
 
 - Vultures, southeastern United States: Kluever BM (2026),
@@ -128,6 +145,11 @@ citations, file details and retrieval dates are in
 - African elephant, Kruger National Park: Slotow R, Thaker M, Vanak AT
   (2019), <https://doi.org/10.5441/001/1.403h24q5>. 14 deployments,
   2007-2009.
+- Park boundaries for Etosha and Kruger: © OpenStreetMap contributors,
+  under the Open Database Licence (ODbL 1.0), relations 2982497 and
+  1752987, in [`data/raw/boundaries/`](data/raw/boundaries/). Refreshed
+  only by the optional `scripts/fetch_boundaries.py`; nothing else needs
+  the network.
 
 ## Reproducing
 
@@ -144,10 +166,14 @@ make sweep    # threshold sweep on the vulture tuning set (about 2 min)
 
 `make results` writes `results/<study>/<scenario>/summary.json`, the
 evaluation JSON, [`results/EVALUATION.md`](results/EVALUATION.md) and the
-figures. The held-out vulture set is scored only with
-`PYTHONPATH=src python scripts/evaluate.py --score`. Runs are seeded and
-reproduce byte for byte.
+figures. The held-out vulture set was first scored with
+`PYTHONPATH=src python scripts/evaluate.py --score`; since then its
+results are kept in every run. Runs are seeded and reproduce byte for
+byte.
 
 ## Licence
 
-Code and data are released under CC0 1.0; see [`LICENSE`](LICENSE).
+Code and the Movebank data are released under CC0 1.0; see
+[`LICENSE`](LICENSE). The park boundaries in `data/raw/boundaries/` are an
+OpenStreetMap extract and stay under the ODbL 1.0, © OpenStreetMap
+contributors; maps drawn from them carry that attribution.

@@ -13,7 +13,7 @@ SCENARIO_LABELS = {
     "satellite_daily": "Satellite, daily",
     "satellite_2day": "Satellite, 2-day",
 }
-DETECTORS = ("mortality", "movement", "gap")
+DETECTORS = ("mortality", "movement", "gap", "geofence")
 
 
 def _cell(value, digits: int = 2) -> str:
@@ -89,8 +89,9 @@ def _section(report: dict) -> list[str]:
         "",
         "### Operator load (incidents per animal-month)",
         "",
-        "| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late |",
-        "|---|---|---|---|---|---|",
+        "| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late "
+        "| Geofence |",
+        "|---|---|---|---|---|---|---|",
     ]
     for name in SCENARIO_ORDER:
         result = scenarios[name]
@@ -105,7 +106,8 @@ def _section(report: dict) -> list[str]:
         lines.append(
             f"| {SCENARIO_LABELS[name]} | {rate('mortality')} | "
             f"{_cell(result['false_mortality']['per_animal_month'])} | "
-            f"{rate('movement')} | {rate('gap')} | {_share(late)} |"
+            f"{rate('movement')} | {rate('gap')} | {_share(late)} | "
+            f"{rate('geofence')} |"
         )
 
     lines += [
@@ -155,6 +157,31 @@ def _section(report: dict) -> list[str]:
             f"{likely['detected']} of {likely['deaths']} | "
             f"{_share(likely['rate_at_mark'])} |"
         )
+
+    geofence = first.get("geofence")
+    if geofence:
+        lines += [
+            "",
+            "### Geofence",
+            "",
+            f"Exit fence on {geofence['fence']} (OpenStreetMap boundary, 100 m "
+            "edge band, 2 fixes to confirm). There is no ground truth for "
+            "crossings, so this reports volume and how long animals stayed out. "
+            "Crossings do not depend on upload timing.",
+            "",
+            "| Scenario | Alerts per animal-month | Alerts | Animals | "
+            "Median hours outside | Under 6 h | Exits by nearest edge |",
+            "|---|---|---|---|---|---|---|",
+        ]
+        for name in SCENARIO_ORDER:
+            fence = scenarios[name]["geofence"]
+            edges = ", ".join(f"{e} {n}" for e, n in fence["exits_by_edge"].items())
+            lines.append(
+                f"| {SCENARIO_LABELS[name]} | {_cell(fence['per_animal_month'])} | "
+                f"{fence['incidents']} | {fence['deployments']} | "
+                f"{_cell(fence['median_hours_outside'], 1)} | "
+                f"{_share(fence['short_share'])} | {edges or '–'} |"
+            )
 
     ambiguous = first["ambiguous"]
     if ambiguous:
@@ -647,3 +674,81 @@ def _sweep_figure(pyplot, report: dict):
     )
     figure.tight_layout()
     return figure
+
+
+def write_geofence_map(fence, fixes: list, incidents: list, path: Path) -> None:
+    """Map a study's fixes, its fence and where the geofence alerted.
+
+    Args:
+        fence: The study's ``Fence``.
+        fixes: The study's fixes.
+        incidents: Incidents from one replay; geofence opens are plotted.
+        path: Output PNG.
+    """
+    import math  # pylint: disable=import-outside-toplevel
+
+    import matplotlib  # pylint: disable=import-outside-toplevel
+
+    matplotlib.use("Agg")
+    from matplotlib import pyplot  # pylint: disable=import-outside-toplevel
+
+    pyplot.rcParams.update(STYLE)
+    where = {(f.deployment_id, f.timestamp): f for f in fixes}
+    exits = [
+        where[(i.deployment_id, i.opened_at)]
+        for i in incidents
+        if i.detector == "geofence" and (i.deployment_id, i.opened_at) in where
+    ]
+    figure, ax = pyplot.subplots(figsize=(5.4, 7.6))
+    # Every 20th fix is plenty to show where the animals ranged.
+    sample = fixes[::20]
+    ax.scatter(
+        [f.lon for f in sample],
+        [f.lat for f in sample],
+        s=1,
+        color=GRID,
+        rasterized=True,
+        label="Fixes (1 in 20)",
+    )
+    for part in getattr(fence.polygon, "geoms", [fence.polygon]):
+        xs, ys = part.exterior.xy
+        ax.plot(xs, ys, color=INK_SECONDARY, linewidth=1.5)
+    ax.plot([], [], color=INK_SECONDARY, linewidth=1.5, label=f"{fence.name} boundary")
+    ax.scatter(
+        [f.lon for f in exits],
+        [f.lat for f in exits],
+        s=36,
+        color=SERIES[1],
+        edgecolor=SURFACE,
+        linewidth=1.5,
+        zorder=3,
+        label=f"Geofence alerts ({len(exits)})",
+    )
+    lons = [f.lon for f in fixes]
+    lats = [f.lat for f in fixes]
+    pad = 0.05
+    ax.set_xlim(min(lons) - pad, max(lons) + pad)
+    ax.set_ylim(min(lats) - pad, max(lats) + pad)
+    # Equal distances on both axes at this latitude.
+    ax.set_aspect(1 / math.cos(math.radians(sum(lats) / len(lats))))
+    ax.set_xlabel("Longitude")
+    ax.set_ylabel("Latitude")
+    ax.legend(loc="upper left", bbox_to_anchor=(0.0, -0.08), ncol=1, markerscale=1)
+    figure.suptitle(
+        f"Where the geofence alerted: {fence.name}",
+        x=0.01,
+        ha="left",
+        color=INK,
+        fontsize=12,
+    )
+    figure.text(
+        0.99,
+        0.01,
+        "Boundary © OpenStreetMap contributors (ODbL)",
+        ha="right",
+        color=INK_SECONDARY,
+        fontsize=7,
+    )
+    figure.tight_layout()
+    _save(figure, path)
+    pyplot.close(figure)
