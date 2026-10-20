@@ -1,0 +1,37 @@
+# Local end to end, no AWS account: moto stands in for SQS, DynamoDB
+# (with Streams) and SNS, and each handler runs in the Lambda image under
+# the runtime interface emulator. The poller in scripts/cloud_local.py
+# runs on the host and plays the event-source mappings.
+#   make cloud-local
+name: collar-telemetry
+
+x-lambda: &lambda
+  # Built by `make lambda-image` (docker build --network host: the owner's
+  # Docker bridge network has no DNS, and pip needs PyPI).
+  image: collar-telemetry-lambda
+  depends_on: [moto]
+  environment: &lambda-env
+    AWS_ENDPOINT_URL: http://moto:5000
+    AWS_ACCESS_KEY_ID: testing
+    AWS_SECRET_ACCESS_KEY: testing
+    AWS_DEFAULT_REGION: eu-west-2
+    STATE_TABLE: collar-state
+    INCIDENTS_TABLE: collar-incidents
+    # moto's default account.
+    TOPIC_ARN: arn:aws:sns:eu-west-2:123456789012:collar-alerts
+    NOTIFY_ENABLED: "true"
+
+services:
+  moto:
+    image: motoserver/moto:5.2.4@sha256:120b1589c6df7e35d2092935f6ff724486bb2c4189d0e36ce795baba1400ffd2
+    ports: ["127.0.0.1:5000:5000"]
+
+  processor:
+    <<: *lambda
+    command: ["cloud.processor.handler"]
+    ports: ["127.0.0.1:9001:8080"]
+
+  notifier:
+    <<: *lambda
+    command: ["cloud.notifier.handler"]
+    ports: ["127.0.0.1:9002:8080"]

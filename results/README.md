@@ -11,6 +11,8 @@ runs are seeded and reproduce byte for byte. Do not edit by hand.
 | `evaluation/EVALUATION.md` | The evaluation tables, with definitions | `make evaluate` |
 | `sweep/vultures-tuning.json`, `sweep/SWEEP.md` | Mortality window, box and gap margin swept on the vulture tuning set | `make sweep` |
 | `cloud/sizing.json` | The cloud runner's daily slices run locally: message and state sizes, and a check that the incidents match the replay | `make cloud-sizing` |
+| `cloud/local-moto.json` | Every study under `satellite_daily` and `gsm` sent through the cloud handlers on in-process moto, with resends: message counts, and checks that the stored incidents match the replay and that each `likely_death` incident sent one notification | `make cloud-moto` |
+| `cloud/local-docker.json` | The same for every jackal and one vulture, with the handlers in Lambda containers | `make cloud-local` |
 | `figures/` | PNG figures used in the README and reports | `make evaluate`, `make sweep` |
 
 Scenarios are the simulated upload patterns (`ideal`, `satellite_daily`,

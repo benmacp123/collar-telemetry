@@ -56,17 +56,19 @@ Full tables for every study and arrival scenario are in
 [`results/evaluation/EVALUATION.md`](results/evaluation/EVALUATION.md).
 
 **Status:** detection core (mortality, data gap, unusual movement,
-geofence), local replay and evaluation complete. Not yet built: the AWS
-deployment (Lambda, SQS, DynamoDB, Terraform).
+geofence), local replay and evaluation complete. Cloud handlers built and
+checked end to end against an AWS emulator (moto), with every incident
+matching the replay. Not yet built: Terraform and a real AWS deployment.
 
 ## How it works
 
 All detection logic lives in a pure-Python core
 ([`src/telemetry/core/`](src/telemetry/core/)) with no AWS imports, so the
-same code runs in the local replay runner (every result here) and, next,
-in Lambda handlers. The rest of the package is the replay harness
-(`sim/`), data loading (`data/`) and scoring and reporting (`analysis/`);
-a test keeps each layer to its own imports.
+same code runs in the local replay runner (every result here) and in the
+Lambda handlers ([`src/cloud/`](src/cloud/), the only code that imports
+boto3). The rest of the package is the replay harness (`sim/`), data
+loading (`data/`) and scoring and reporting (`analysis/`); a test keeps
+each layer to its own imports.
 
 - **Cleaning:** schema checks, de-duplication, a short hold that reorders
   late fixes, and a per-species speed filter for impossible jumps.
@@ -86,6 +88,14 @@ a test keeps each layer to its own imports.
   reopen the same incident; resolves based on late fixes are flagged. A
   `likely_death` incident is raised while a mortality and a gap incident
   are open together.
+- **Cloud runner:** a publisher cuts each collar's replay timeline into
+  daily messages on an SQS FIFO queue (one message group per collar, so
+  each collar's messages stay in order). A processor Lambda runs each
+  message through the core and saves state and incidents to DynamoDB in
+  one conditional transaction, so a retried message changes nothing. A
+  notifier Lambda reads the incidents table's stream and emails
+  `likely_death` incidents through SNS: at least once, never lost to a
+  crash between saving and sending.
 - **Arrival scenarios:** each study is replayed under four seeded upload
   patterns: ideal (every fix arrives as taken), GSM (hourly uploads, 10%
   of days out of coverage, retries and duplicates), and satellite uploads
@@ -164,6 +174,8 @@ make install
 make test lint format-check
 make results  # replay every study and scenario, then score (about 5 min)
 make sweep    # threshold sweep on the vulture tuning set (about 2 min)
+make cloud-local  # handlers in Lambda containers on moto (Docker, ~6 min)
+make cloud-moto   # every study through the handlers on in-process moto
 ```
 
 `make help` lists every target. `make results` writes
