@@ -29,11 +29,13 @@ they measure the emulator, and the file should stay identical between runs.
 import argparse
 import json
 import os
+import resource
 import sys
 import time
 import urllib.error
 import urllib.request
-from collections import Counter
+from collections import Counter, defaultdict
+from contextlib import contextmanager
 from pathlib import Path
 
 import boto3
@@ -59,7 +61,8 @@ def parse_args() -> argparse.Namespace:
     """Read the command line.
 
     Returns:
-        argparse.Namespace: ``mode``, ``study``, ``scenario`` and ``only``.
+        argparse.Namespace: ``mode``, ``study``, ``scenario``, ``only``
+        and ``max_memory_gb``.
     """
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--mode", choices=["moto", "docker"], default="moto")
@@ -73,6 +76,12 @@ def parse_args() -> argparse.Namespace:
         default=[],
         metavar="STUDY=DEPLOYMENT",
         help="limit a study to these deployments (repeatable)",
+    )
+    parser.add_argument(
+        "--max-memory-gb",
+        type=float,
+        default=8.0,
+        help="address-space cap for this process (default 8)",
     )
     return parser.parse_args()
 
@@ -113,6 +122,67 @@ def invokers(mode: str, aws: dict, topic_arn: str) -> tuple:
     )
 
 
+@contextmanager
+def fresh_emulator(mode: str):
+    """An empty AWS emulator for one collar's run.
+
+    Each collar gets its own, because moto keeps a full copy of a table
+    for every transaction (its rollback backup) and never frees it: memory
+    grows with transactions times table size, so a whole study in one
+    emulator ran out of memory (27 GB on the vultures). Collars are
+    independent, so running them apart changes no result.
+
+    Args:
+        mode: ``moto`` (in-process mock) or ``docker`` (reset the moto
+            server).
+
+    Yields:
+        None: The emulator is ready.
+    """
+    if mode == "docker":
+        reset_moto()
+        yield
+        return
+    # Imported here so the Docker mode does not need moto installed.
+    from moto import mock_aws  # pylint: disable=import-outside-toplevel
+
+    with mock_aws():
+        yield
+
+
+def run_deployment(mode, study, deployment, fixes, scenario) -> tuple:
+    """Run one collar through the handlers in a fresh emulator.
+
+    Args:
+        mode: ``moto`` or ``docker``.
+        study: The study.
+        deployment: The collar's deployment.
+        fixes: Its fixes.
+        scenario: The arrival scenario.
+
+    Returns:
+        tuple: Feed counts (``Counter``), stored incident items and
+        notification bodies.
+    """
+    with fresh_emulator(mode):
+        aws = clients()
+        resources = local.create_resources(aws["sqs"], aws["dynamodb"], aws["sns"])
+        poller = local.Poller(
+            aws["sqs"],
+            aws["dynamodbstreams"],
+            resources,
+            *invokers(mode, aws, resources.topic_arn),
+        )
+        messages = publisher.messages_for(study, [deployment], fixes, scenario)
+        counts = local.feed(
+            aws["sqs"], resources, poller, messages, resend_every=RESEND_EVERY
+        )
+        items = run_incidents(
+            aws["dynamodb"], local.TABLES, publisher.run_id(study, scenario)
+        )
+        return counts, items, local.read_notifications(aws["sqs"], resources)
+
+
 def run_one(mode, study, deployments, fixes, fence, scenario) -> dict:
     """Run one study and scenario through the handlers and check it.
 
@@ -132,24 +202,22 @@ def run_one(mode, study, deployments, fixes, fence, scenario) -> dict:
             differ from what the replay implies.
     """
     started = time.perf_counter()
-    aws = clients()
-    resources = local.create_resources(aws["sqs"], aws["dynamodb"], aws["sns"])
-    poller = local.Poller(
-        aws["sqs"],
-        aws["dynamodbstreams"],
-        resources,
-        *invokers(mode, aws, resources.topic_arn),
-    )
-    messages = publisher.messages_for(study, deployments, fixes, scenario)
-    counts = local.feed(
-        aws["sqs"], resources, poller, messages, resend_every=RESEND_EVERY
-    )
+    by_deployment = defaultdict(list)
+    for fix in fixes:
+        by_deployment[fix.deployment_id].append(fix)
+    counts, items, notifications = Counter(), [], []
+    for deployment in sorted(deployments, key=lambda d: d.deployment_id):
+        own = by_deployment.get(deployment.deployment_id)
+        if not own:
+            continue
+        more, stored, sent = run_deployment(mode, study, deployment, own, scenario)
+        counts += more
+        items += stored
+        notifications += sent
     run = publisher.run_id(study, scenario)
-    items = run_incidents(aws["dynamodb"], local.TABLES, run)
     expected = replay(deployments, fixes, scenario, DEFAULT_SEED, fence=fence)
     comparison = local.compare(items, expected.incidents)
     file_matches = _matches_file(study, scenario, deployments, items)
-    notifications = local.read_notifications(aws["sqs"], resources)
     likely = sum(i.detector == "likely_death" for i in expected.incidents)
     notified = Counter(_incident_line(body) for body in notifications)
     result = {
@@ -171,10 +239,11 @@ def run_one(mode, study, deployments, fixes, fence, scenario) -> dict:
         "notifications": len(notifications),
         "notified_incidents": len(notified),
     }
+    peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024
     print(
         f"{study.slug}/{scenario.name}: {json.dumps(result)}\n"
         f"  latency (emulator, not AWS): {local.latencies(items)}; "
-        f"{time.perf_counter() - started:.0f} s"
+        f"{time.perf_counter() - started:.0f} s; peak memory {peak} MB"
     )
     assert result["matches_replay"], comparison
     assert file_matches is not False, f"{run} differs from incidents.jsonl"
@@ -261,6 +330,12 @@ def main():
         AWS_DEFAULT_REGION="eu-west-2",
     )
     os.environ.pop("AWS_PROFILE", None)
+    if args.mode == "docker":
+        os.environ["AWS_ENDPOINT_URL"] = MOTO_URL
+    # A hard cap, so a runaway emulator raises MemoryError here instead of
+    # the kernel killing whatever else is running (it took VS Code with it).
+    cap = int(args.max_memory_gb * 1024**3)
+    resource.setrlimit(resource.RLIMIT_AS, (cap, cap))
     # Print progress as it happens when output goes to a file.
     sys.stdout.reconfigure(line_buffering=True)
     studies = [s for s in STUDIES if not args.study or s.slug in args.study]
@@ -279,20 +354,9 @@ def main():
             fixes = [f for f in fixes if f.deployment_id in only[study.slug]]
         fence = study.fence(RAW)
         for scenario in scenarios:
-            if args.mode == "docker":
-                os.environ["AWS_ENDPOINT_URL"] = MOTO_URL
-                reset_moto()
-                results.append(
-                    run_one(args.mode, study, deployments, fixes, fence, scenario)
-                )
-            else:
-                # Imported here so the Docker mode does not need moto.
-                from moto import mock_aws  # pylint: disable=import-outside-toplevel
-
-                with mock_aws():
-                    results.append(
-                        run_one(args.mode, study, deployments, fixes, fence, scenario)
-                    )
+            results.append(
+                run_one(args.mode, study, deployments, fixes, fence, scenario)
+            )
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / f"local-{args.mode}.json").write_text(
         json.dumps(results, indent=2) + "\n", encoding="utf-8"
