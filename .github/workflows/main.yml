@@ -23,3 +23,33 @@ jobs:
     - name: Check formatting
       run: |
         make format-check
+
+  # The same checks as `make tf-check`, with the CLI installed by the
+  # action rather than run in Docker. Validates without AWS credentials:
+  # no backend, no provider calls.
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra/terraform
+    steps:
+    - uses: actions/checkout@v4
+    - uses: hashicorp/setup-terraform@v4
+      with:
+        terraform_version: "1.16.6"
+        terraform_wrapper: false
+    - name: Check formatting
+      run: terraform fmt -check -recursive -diff
+    - name: Validate
+      run: |
+        terraform init -backend=false -input=false
+        terraform validate
+
+  # Builds the deploy zip in the pinned Python 3.14 image and imports both
+  # handlers from it, so a missing wheel or file fails here, not on deploy.
+  lambda-zip:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build and smoke-test the zip
+      run: make lambda-zip

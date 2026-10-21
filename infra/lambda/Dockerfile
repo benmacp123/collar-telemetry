@@ -5,8 +5,10 @@
 # The base defaults to the Docker Hub copy of the AWS Lambda Python image:
 # public.ecr.aws is unreachable from the owner's network (checked
 # 2026-10-20), and Docker Hub has no 3.14 tag. That copy is stale (3.13.0,
-# January 2025), which is fine for local emulation; a deploy should build
-# from the maintained image instead:
+# January 2025), which is fine for local emulation. The deploy does not use
+# this image: it ships the zip from `make lambda-zip` on the managed
+# python3.14 runtime. Where public.ecr.aws is reachable, the maintained
+# image can stand in locally:
 #   --build-arg BASE=public.ecr.aws/lambda/python:3.14
 ARG BASE=amazon/aws-lambda-python:3.13@sha256:01b4aadb2181e2aa473dd7eb8a125de366cbcf77e6aa75cc2b3b719775da49b4
 FROM ${BASE}
