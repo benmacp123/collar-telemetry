@@ -1,15 +1,18 @@
 """DynamoDB access for the handlers: state items and incident items.
 
 Two tables. The state table holds one item per deployment per run, keyed
-``<run_id>#<deployment_id>``, with the deployment's ``AnimalState`` as
-compact JSON and the sequence number of the last message applied. The
+``<run_id>#<deployment_id>``, with the deployment's ``AnimalState``, the
+sequence number of the last message applied and the deployment's
+settings (taxon, upload plan, boundary), from which the clock builds its
+ticks. The
 incidents table holds one item per incident, keyed by run and incident ID,
 with the incident's newest form as JSON plus the fields the notifier and
 the comparison filter on. Its stream feeds the notifier.
 
 The state put is conditional on the stored sequence number being the one
 before the message's, so a message that was already applied cannot be
-applied twice. A message that changed incidents is saved in one
+applied twice; a clock tick keeps the stored number and requires it
+unchanged. A message that changed incidents is saved in one
 ``TransactWriteItems``, so the incidents can never be written without the
 state that produced them; most messages change none, and those are saved
 with a plain conditional put, since a transaction bills every item twice.
@@ -124,6 +127,7 @@ def commit(
     incidents: list[Incident],
     processed_at: datetime,
     stored_at: datetime,
+    stored_seq: int | None = None,
 ) -> None:
     """Save a message's new state and changed incidents together.
 
@@ -143,9 +147,12 @@ def commit(
         processed_at: Wall-clock time the handler started on the message.
         stored_at: Wall-clock time of the write, as near as the handler
             can tell (DynamoDB does not report commit time).
+        stored_seq: For a clock tick, the sequence number the state item
+            holds, which the tick keeps; ignored for a slice.
 
     Raises:
-        ValueError: If more incidents changed than one transaction holds.
+        ValueError: If more incidents changed than one transaction holds,
+            or a tick has no ``stored_seq``.
         botocore.exceptions.ClientError: If the stored sequence number is
             not the one before the message's, i.e. another invocation got
             there first: ``ConditionalCheckFailedException`` from the put,
@@ -156,45 +163,62 @@ def commit(
             f"{len(incidents)} incidents in one message for {message.key}; "
             f"at most {MAX_INCIDENTS} fit in a transaction"
         )
+    if message.is_tick:
+        if stored_seq is None:
+            raise ValueError(f"tick for {message.key} needs the stored seq")
+        seq, previous = stored_seq, stored_seq
+    else:
+        seq, previous = message.seq, message.seq - 1
     state_put = {
         "TableName": tables.state,
-        "Item": state_item(message, state, stored_at),
+        "Item": state_item(message, state, stored_at, seq),
     }
-    if message.seq == 0:
+    if previous < 0:
         state_put["ConditionExpression"] = "attribute_not_exists(#key)"
         state_put["ExpressionAttributeNames"] = {"#key": "key"}
     else:
         state_put["ConditionExpression"] = "seq = :previous"
-        state_put["ExpressionAttributeValues"] = {
-            ":previous": {"N": str(message.seq - 1)}
-        }
+        state_put["ExpressionAttributeValues"] = {":previous": {"N": str(previous)}}
     if not incidents:
         client.put_item(**state_put)
         return
     actions = [{"Put": state_put}]
     actions += [
-        {"Update": _incident_update(tables, message, incident, processed_at, stored_at)}
+        {
+            "Update": _incident_update(
+                tables, message, seq, incident, processed_at, stored_at
+            )
+        }
         for incident in incidents
     ]
     client.transact_write_items(TransactItems=actions)
 
 
-def state_item(message: Message, state: AnimalState, stored_at: datetime) -> dict:
+def state_item(
+    message: Message, state: AnimalState, stored_at: datetime, seq: int | None = None
+) -> dict:
     """The state table item saved after a message.
 
     Args:
         message: The message applied.
         state: The deployment's state after it.
         stored_at: Wall-clock time of the write.
+        seq: Sequence number to store; defaults to the message's.
 
     Returns:
         dict: The item, in DynamoDB's typed form.
     """
+    settings = {
+        "taxon": message.taxon,
+        "uploads": message.uploads.to_dict(),
+        "boundary": message.boundary,
+    }
     return {
         "key": {"S": message.key},
-        "seq": {"N": str(message.seq)},
+        "seq": {"N": str(message.seq if seq is None else seq)},
         "run_id": {"S": message.run_id},
         "deployment_id": {"S": message.deployment_id},
+        "settings": {"S": json.dumps(settings, separators=(",", ":"))},
         "state": {"B": pack_state(state)},
         "stored_at": {"S": stored_at.isoformat()},
     }
@@ -253,6 +277,7 @@ def write_units(size: int, transaction: bool) -> int:
 def _incident_update(
     tables: Tables,
     message: Message,
+    seq: int,
     incident: Incident,
     processed_at: datetime,
     stored_at: datetime,
@@ -262,6 +287,8 @@ def _incident_update(
     Args:
         tables: Table names.
         message: The message that changed it.
+        seq: The sequence number stored with the state (for a tick, the
+            last slice's).
         incident: Its newest form.
         processed_at: Wall-clock time the handler started on the message.
         stored_at: Wall-clock time of the write.
@@ -291,7 +318,7 @@ def _incident_update(
             ":detector": {"S": incident.detector},
             ":status": {"S": incident.status},
             ":incident": {"S": json.dumps(incident.to_dict(), separators=(",", ":"))},
-            ":seq": {"N": str(message.seq)},
+            ":seq": {"N": str(seq)},
             ":sent": {"S": sent},
             ":processed": {"S": processed_at.isoformat()},
             ":stored": {"S": stored_at.isoformat()},

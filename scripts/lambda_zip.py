@@ -17,7 +17,7 @@ changed. Pip installs wheels only (``--only-binary``) and checks every
 hash, so nothing is compiled for the build machine by mistake and no
 other file can stand in for a locked wheel.
 
-After writing it, the script unpacks the zip and imports both handlers
+After writing it, the script unpacks the zip and imports the three handlers
 from it in a fresh interpreter with site-packages switched off (``-S``),
 so a missing file or wheel fails the build instead of the first deploy.
 
@@ -63,6 +63,7 @@ FIXED_TIME = (1980, 1, 1, 0, 0, 0)
 SMOKE_TEST = """
 from shapely.geometry import Point
 import boto3
+import cloud.clock
 import cloud.notifier
 import cloud.processor
 fence = cloud.processor._fence("etosha")

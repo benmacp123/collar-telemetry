@@ -125,6 +125,7 @@ def fixture_account(monkeypatch):
                 "budgets",
                 "sts",
                 "sqs",
+                "scheduler",
             )
         }
 
@@ -136,7 +137,7 @@ def test_leftovers_is_empty_for_a_clean_account(account):
 
 def test_leftovers_finds_tagged_and_untagged_remains(account):
     """A tagged queue, an untagged log group a late Lambda recreated, a
-    role and the budget are all reported."""
+    role, the untagged clock schedule and the budget are all reported."""
     account["sqs"].create_queue(
         QueueName="collar-notify-failures", tags={"Project": "collar-telemetry"}
     )
@@ -145,6 +146,15 @@ def test_leftovers_finds_tagged_and_untagged_remains(account):
     account["logs"].create_log_group(logGroupName="/aws/lambda/someone-else")
     account["iam"].create_role(
         RoleName="collar-notifier", AssumeRolePolicyDocument="{}"
+    )
+    account["scheduler"].create_schedule(
+        Name="collar-clock",
+        ScheduleExpression="rate(1 hour)",
+        FlexibleTimeWindow={"Mode": "OFF"},
+        Target={
+            "Arn": "arn:aws:lambda:eu-west-2:123456789012:function:x",
+            "RoleArn": "arn:aws:iam::123456789012:role/x",
+        },
     )
     account_id = account["sts"].get_caller_identity()["Account"]
     account["budgets"].create_budget(
@@ -162,6 +172,7 @@ def test_leftovers_finds_tagged_and_untagged_remains(account):
             next(name for name in found if name.endswith(":collar-notify-failures")),
             "/aws/lambda/collar-processor",
             "iam role collar-notifier",
+            "schedule collar-clock",
             "budget collar-monthly",
         ]
     )

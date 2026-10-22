@@ -1,11 +1,12 @@
 # Every target runs from committed files; only the tf-plan, tf-apply,
-# tf-destroy, cloud-aws and cloud-leftovers targets need an AWS account.
+# tf-destroy, cloud-aws, cloud-clock and cloud-leftovers targets need an
+# AWS account.
 # `make help` lists them.
 
 .PHONY: help install setup test lint format format-check profile replay \
 	evaluate results sweep departure cloud-sizing cloud-moto lambda-requirements \
 	lambda-image cloud-local lambda-zip lock tf-check tf-fmt tf-plan \
-	tf-apply tf-output tf-destroy cloud-aws cloud-leftovers prices cloud-usage cloud-cost all
+	tf-apply tf-output tf-destroy cloud-aws cloud-clock cloud-leftovers prices cloud-usage cloud-cost all
 
 help: ## List the targets and what each writes
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | \
@@ -146,6 +147,9 @@ tf-destroy: ## Remove everything deployed (needs Docker, credentials)
 # ARGS go to scripts/cloud_aws.py run, e.g. ARGS="--label smoke --study jackals".
 cloud-aws: ## Publish to the deployed stack, compare -> results/cloud/aws-<label>.json
 	PYTHONPATH=src python scripts/cloud_aws.py run $(ARGS)
+
+cloud-clock: ## After a deployed run: one clock tick to each collar -> results/cloud/aws-clock.json
+	PYTHONPATH=src python scripts/cloud_aws.py clock $(ARGS)
 
 cloud-leftovers: ## After tf-destroy: list anything of the project still in AWS
 	PYTHONPATH=src python scripts/cloud_aws.py leftovers

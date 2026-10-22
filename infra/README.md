@@ -12,7 +12,9 @@ incidents matched the replay runner's exactly (`results/cloud/aws-*.json`).
 publisher -> SQS FIFO -> processor Lambda -> DynamoDB (state, incidents)
              (group =                         |
               collar)                         stream -> notifier Lambda -> SNS email
-                                                                           (potential_death only)
+                ^                                                          (potential_death only)
+                |
+EventBridge Scheduler -> clock Lambda (live mode only; deployed disabled)
 ```
 
 - **Messages** (`src/cloud/messages.py`): one collar's slice of simulated
@@ -21,10 +23,30 @@ publisher -> SQS FIFO -> processor Lambda -> DynamoDB (state, incidents)
   the boundary name. Messages carry everything the processor needs, so
   no configuration table is required.
 - **Idempotency:** each state item records the last sequence number
-  applied. The processor writes state and changed incidents in one
-  `TransactWriteItems`, conditional on that number, so a redelivered
+  applied, and every state write is conditional on it, so a redelivered
   message is skipped and a missing one stops its collar instead of being
-  stepped over.
+  stepped over. A message that changes incidents writes state and
+  incidents in one `TransactWriteItems`; the rest (94% in the full run)
+  use a plain conditional `PutItem`, since a transaction bills every
+  write twice. The state is stored zlib-compressed (about a third of its
+  JSON size), as writes are billed per started kilobyte.
+- **Live clock** (`src/cloud/clock.py`): replay slices carry their own
+  "run the clock to" time, but a live collar that falls silent sends
+  nothing, so nothing would raise its gap alert. An EventBridge Scheduler
+  rule (`clock_rate`, default hourly; `clock_enabled`, default false)
+  invokes the clock handler with the scheduled time; it lists the live
+  run's collars from the state table and sends each a tick (a message
+  with no sequence number) in the collar's own message group. The core
+  is split-invariant (running the clock to T1 then T2 equals running it
+  to T2), so a tick that changes no incident is not saved at all, and
+  one that does is saved under the stored sequence number. Tests replace
+  a silent collar's clock-only slices with ticks through the queue and
+  get the replay's incidents exactly. Cost is an estimate, not metered:
+  hourly ticks add roughly $0.4-2.6 per 1,000 animal-months (SQS FIFO
+  requests, Lambda invocations and one state read per tick; writes only
+  when an incident changes), more than the rest of live mode. A slower
+  rate costs proportionally less and delays a gap alert by up to one
+  interval on top of its 36 h or longer allowance.
 - **Outbox:** the notifier reads the incidents table's stream, publishes,
   then marks the incident `notified_at`. A crash before publishing retries
   the send; a crash after publishing and before marking sends a
@@ -55,8 +77,8 @@ runner's and each `potential_death` incident sent exactly one notification.
 inside the pinned `python:3.14-slim` image: the `lambda` dependency
 group, exported from `uv.lock` with hashes, as manylinux wheels for Lambda's `python3.14` runtime on x86_64 (Amazon
 Linux 2023), plus the core, `src/cloud` and the boundaries. The build is
-reproducible (same inputs, same bytes) and ends by importing both
-handlers from the unpacked zip alone. A zip rather than a container image
+reproducible (same inputs, same bytes) and ends by importing every
+handler from the unpacked zip alone. A zip rather than a container image
 means no ECR repository and no image push. The local image below is for
 emulation only.
 
@@ -75,6 +97,10 @@ emulation only.
   `ReportBatchItemFailures`. The queue trigger is capped at
   `processor_concurrency` instances. The stream trigger passes only
   `potential_death` items.
+- `clock.tf`: the clock Lambda, its role (scan state, send to the
+  queue), the scheduler's role (invoke the clock only) and the schedule,
+  disabled unless `clock_enabled = true`. Schedules take no tags, so
+  `cloud-leftovers` checks for it by name.
 - `iam.tf`: one role per handler, allowed only the calls its code makes.
 - `alerts.tf`: the SNS topic, an email subscription filtered to
   `potential_death`, and an account-wide AWS Budgets alarm (default $5).
@@ -121,10 +147,15 @@ Every step needs AWS credentials (`AWS_PROFILE`) and costs a little money;
    most of it the workstation publishing at about 33 messages a second).
    Rerunning a run and collar sends nothing new: the processor skips
    slices it has applied, and notified incidents keep `notified_at`.
-5. `make tf-destroy`, then `make cloud-leftovers`. The tagging API lists
+5. The clock test: `make cloud-clock` invokes the clock handler once for
+   `jackals-satellite_daily`, with a time before every collar's clock,
+   and checks each collar's tick drains through the processor with no
+   dead letter (`results/cloud/aws-clock.json`). No stored incident
+   changes.
+6. `make tf-destroy`, then `make cloud-leftovers`. The tagging API lists
    deleted resources for a while after `destroy`, so confirm a hit with
    the service's own get call before treating it as real.
-6. Within 15 days (CloudWatch's one-minute retention), `make cloud-usage`
+7. Within 15 days (CloudWatch's one-minute retention), `make cloud-usage`
    to save the metered usage, then `make cloud-cost` (offline).
 
 Each `cloud-aws` run writes `results/cloud/aws-<label>.json` and exits

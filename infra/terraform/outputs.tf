@@ -31,3 +31,8 @@ output "notify_failures_url" {
   description = "Stream batches the notifier gave up on."
   value       = aws_sqs_queue.notify_failures.url
 }
+
+output "clock_function" {
+  description = "Clock handler, to invoke by hand for a test tick."
+  value       = aws_lambda_function.clock.function_name
+}

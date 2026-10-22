@@ -98,7 +98,9 @@ each layer to its own imports.
   them in the same transaction. A
   notifier Lambda reads the incidents table's stream and emails
   `potential_death` incidents through SNS: at least once, never lost to a
-  crash between saving and sending.
+  crash between saving and sending. For live use, a scheduled clock
+  Lambda (deployed disabled) ticks every collar so a silent one still
+  raises its gap alert.
 - **Arrival scenarios:** each study is replayed under four seeded upload
   patterns: ideal (every fix arrives as taken), GSM (hourly uploads, 10%
   of days out of coverage, retries and duplicates), and satellite uploads

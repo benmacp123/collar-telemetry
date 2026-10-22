@@ -26,3 +26,13 @@ def test_keys_name_run_deployment_and_sequence():
     message = messages()[3]
     assert message.key == state_key(RUN, "A") == f"{RUN}#A"
     assert message.dedup_id == f"{RUN}#A#3"
+
+
+def test_tick_has_no_sequence_and_dedups_on_its_time():
+    """A tick is told apart by its missing sequence number, survives JSON,
+    and two ticks to the same time share a deduplication ID."""
+    last = messages()[-1]
+    tick = replace(last, seq=None)
+    assert tick.is_tick and not last.is_tick
+    assert Message.from_json(tick.to_json()) == tick
+    assert tick.dedup_id == f"{RUN}#A#tick#{last.slice.until.isoformat()}"

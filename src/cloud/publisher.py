@@ -8,7 +8,6 @@ at a time per animal and keeps its slices in order; different animals run
 in parallel.
 """
 
-import hashlib
 from dataclasses import replace
 from collections.abc import Iterable, Iterator
 from datetime import datetime, timezone
@@ -18,7 +17,7 @@ from telemetry.data.studies import Study
 from telemetry.sim.arrival import ArrivalScenario
 from telemetry.sim.replay import DEFAULT_SEED, timelines
 
-from cloud.messages import Message, UploadSettings
+from cloud.messages import Message, UploadSettings, fifo_dedup_id
 
 # The cloud sizing run found 236 KB bodies at worst (vultures, GSM). A cap
 # of 1,000 arrivals (about 100 KB) keeps each message under the 256 KiB
@@ -94,8 +93,7 @@ def dedup_id(message: Message, suffix: str = "") -> str:
     Returns:
         str: An ID unique to the run, deployment and sequence number.
     """
-    plain = message.dedup_id + suffix
-    return plain if len(plain) <= 128 else hashlib.sha256(plain.encode()).hexdigest()
+    return fifo_dedup_id(message.dedup_id + suffix)
 
 
 def publish(

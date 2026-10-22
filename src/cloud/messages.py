@@ -11,8 +11,16 @@ deployment are numbered from 0 in order; the processor applies slice ``n``
 only to state that has applied ``n - 1``, so a redelivered message is
 recognised and skipped, and a missing one stops the deployment rather than
 being stepped over.
+
+A clock tick (live mode) is a message with no sequence number and an
+empty slice: it runs the deployment's clock to ``until`` so a silent
+collar still raises its gap alert. It travels in the deployment's message
+group, so it is applied in order with the slices around it, and it is
+idempotent by itself: a tick to a time the clock has passed changes
+nothing (see ``processor``).
 """
 
+import hashlib
 import json
 from dataclasses import dataclass
 from datetime import datetime, timedelta
@@ -79,7 +87,8 @@ class Message:
 
     Attributes:
         run_id: The run (study and scenario), so runs can share tables.
-        seq: The slice's position in its deployment's timeline, from 0.
+        seq: The slice's position in its deployment's timeline, from 0;
+            None for a clock tick.
         taxon: The deployment's taxon, which picks the species profile.
         uploads: The upload plan.
         boundary: Name of the bundled boundary file (an exit fence), or
@@ -90,7 +99,7 @@ class Message:
     """
 
     run_id: str
-    seq: int
+    seq: int | None
     taxon: str
     uploads: UploadSettings
     boundary: str | None
@@ -117,13 +126,25 @@ class Message:
         return state_key(self.run_id, self.deployment_id)
 
     @property
-    def dedup_id(self) -> str:
-        """SQS FIFO deduplication ID: the same slice sent twice within the
-        dedup window is dropped by the queue.
+    def is_tick(self) -> bool:
+        """Whether this is a clock tick rather than a numbered slice.
 
         Returns:
-            str: ``<run_id>#<deployment_id>#<seq>``.
+            bool: True when ``seq`` is None.
         """
+        return self.seq is None
+
+    @property
+    def dedup_id(self) -> str:
+        """SQS FIFO deduplication ID: the same slice or tick sent twice
+        within the dedup window is dropped by the queue.
+
+        Returns:
+            str: ``<run_id>#<deployment_id>#<seq>``, or for a tick
+            ``<run_id>#<deployment_id>#tick#<until>``.
+        """
+        if self.is_tick:
+            return f"{self.key}#tick#{self.slice.until.isoformat()}"
         return f"{self.key}#{self.seq}"
 
     def to_json(self) -> str:
@@ -180,3 +201,16 @@ def state_key(run_id: str, deployment_id: str) -> str:
         str: ``<run_id>#<deployment_id>``.
     """
     return f"{run_id}#{deployment_id}"
+
+
+def fifo_dedup_id(plain: str) -> str:
+    """A deduplication ID SQS accepts: hashed if longer than its 128
+    characters.
+
+    Args:
+        plain: The readable ID.
+
+    Returns:
+        str: ``plain``, or its SHA-256 hex digest.
+    """
+    return plain if len(plain) <= 128 else hashlib.sha256(plain.encode()).hexdigest()

@@ -31,7 +31,7 @@ ALLOWED = {
 
 # What the Lambda image runs: these may import only the core, AWS's SDK and
 # each other. The publisher and local harness run on a workstation.
-HANDLER_MODULES = {"messages", "store", "processor", "notifier"}
+HANDLER_MODULES = {"messages", "store", "processor", "notifier", "clock"}
 HANDLER_ALLOWED = {"boto3", "botocore", "telemetry.core"} | {
     f"cloud.{name}" for name in HANDLER_MODULES
 }

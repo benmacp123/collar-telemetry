@@ -1,5 +1,6 @@
 """Run studies through the deployed stack and check it against the replay
-runner, or check that ``terraform destroy`` left nothing behind.
+runner, test live mode's clock once, or check that ``terraform destroy``
+left nothing behind.
 
 Needs AWS credentials (``AWS_PROFILE``) and, for ``run``, the stack's
 outputs saved by ``make tf-output``. Unlike ``cloud_local.py`` there is no
@@ -14,6 +15,13 @@ deduplication ID, which the queue should drop, and once with a new one,
 which the processor should skip. ``--expect-notify`` (the deliberate email
 test, with ``notify_enabled`` applied) waits for the notifier to mark every
 ``potential_death`` incident.
+
+``clock`` invokes the clock handler once, as its (disabled) schedule
+would, for a run already stored, with a time before every collar's
+clock: each deployment gets a tick that the processor finds idle. It
+proves on AWS what the moto tests cannot (the handler's scan and send
+permissions, the tick through the real queue and trigger) without
+changing any stored incident. Writes ``results/cloud/aws-clock.json``.
 
 Writes ``results/cloud/aws-<label>.json``, with wall-clock latencies:
 sent-to-stored includes time queued behind the rest of the run, since
@@ -35,7 +43,7 @@ from telemetry.data.studies import STUDIES
 from telemetry.sim.arrival import SCENARIOS
 from telemetry.sim.replay import DEFAULT_SEED, replay
 
-from cloud import deployed, local, publisher
+from cloud import clock, deployed, local, publisher
 from cloud.store import run_incidents
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -69,6 +77,9 @@ def parse_args() -> argparse.Namespace:
     )
     run.add_argument("--resend-every", type=int, default=0)
     run.add_argument("--expect-notify", action="store_true")
+    tick = commands.add_parser("clock", help="invoke the clock handler once")
+    tick.add_argument("--run-id", default="jackals-satellite_daily")
+    tick.add_argument("--until", default="2000-01-01T00:00:00Z")
     left = commands.add_parser("leftovers", help="look for anything not destroyed")
     left.add_argument("--region", default="eu-west-2")
     left.add_argument("--project", default="collar-telemetry")
@@ -297,6 +308,63 @@ def run(args) -> int:
     return 1 if problems else 0
 
 
+def clock_test(args) -> int:
+    """Invoke the clock handler once and check its ticks drain cleanly.
+
+    Args:
+        args: The parsed command line.
+
+    Returns:
+        int: The exit status: 0 if every deployment got a tick and none
+        was dead-lettered.
+    """
+    stack = deployed.load_stack(OUTPUTS)
+    outputs = json.loads(OUTPUTS.read_text(encoding="utf-8"))
+    aws = {
+        name: boto3.client(name, region_name=stack.region)
+        for name in ("lambda", "sqs", "dynamodb")
+    }
+    expected = len(
+        clock.ticks(
+            aws["dynamodb"],
+            stack.tables,
+            args.run_id,
+            datetime.fromisoformat(args.until),
+        )
+    )
+    started_at = datetime.now(timezone.utc)
+    started = time.perf_counter()
+    response = aws["lambda"].invoke(
+        FunctionName=outputs["clock_function"]["value"],
+        Payload=json.dumps({"run_id": args.run_id, "until": args.until}),
+    )
+    payload = json.loads(response["Payload"].read())
+    deployed.wait_for_drain(aws["sqs"], stack.queue_url)
+    result = {
+        "label": "clock",
+        "run_id": args.run_id,
+        "until": args.until,
+        "deployments": expected,
+        "function_error": response.get("FunctionError"),
+        "ticks": payload.get("ticks"),
+        "dead_letters": deployed.queue_depth(aws["sqs"], stack.dead_letter_queue_url),
+        "invoke_to_drained_s": round(time.perf_counter() - started),
+        "started_at": started_at.isoformat(timespec="seconds"),
+        "drained_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+    (OUT / "aws-clock.json").write_text(
+        json.dumps(result, indent=2) + "\n", encoding="utf-8"
+    )
+    print(json.dumps(result, indent=2))
+    passed = (
+        result["function_error"] is None
+        and expected > 0
+        and result["ticks"] == expected
+        and result["dead_letters"] == 0
+    )
+    return 0 if passed else 1
+
+
 def check_leftovers(args) -> int:
     """Print anything of the project's still in the account.
 
@@ -308,7 +376,14 @@ def check_leftovers(args) -> int:
     """
     clients = {
         name: boto3.client(name, region_name=args.region)
-        for name in ("resourcegroupstaggingapi", "logs", "iam", "budgets", "sts")
+        for name in (
+            "resourcegroupstaggingapi",
+            "logs",
+            "iam",
+            "budgets",
+            "sts",
+            "scheduler",
+        )
     }
     found = deployed.leftovers(clients, args.project, args.prefix)
     for name in found:
@@ -323,7 +398,8 @@ def main():
     args = parse_args()
     # Print progress as it happens when output goes to a file.
     sys.stdout.reconfigure(line_buffering=True)
-    sys.exit(run(args) if args.command == "run" else check_leftovers(args))
+    commands = {"run": run, "clock": clock_test, "leftovers": check_leftovers}
+    sys.exit(commands[args.command](args))
 
 
 if __name__ == "__main__":

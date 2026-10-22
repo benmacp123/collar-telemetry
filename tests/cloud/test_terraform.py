@@ -76,6 +76,7 @@ def test_environment_matches_what_the_handlers_read():
         "TOPIC_ARN",
         "NOTIFY_ENABLED",
         "BOUNDARIES_DIR",
+        "QUEUE_URL",
     ):
         assert re.search(rf"\b{name}\s*=", text)
     boundaries = re.search(r'BOUNDARIES_DIR\s*=\s*"([^"]+)"', text).group(1)
@@ -101,3 +102,16 @@ def test_cost_report_uses_the_deployed_memory_and_names():
         assert f'"{function}"' in block
         memory = int(re.search(r"memory_size\s*=\s*(\d+)", block).group(1))
         assert memory == cost.MEMORY_MB[role]
+
+
+def test_clock_schedule_is_off_by_default_and_sends_its_scheduled_time():
+    """The live clock deploys disabled, so replays see no extra ticks, and
+    passes the scheduled time, so a retried invocation sends the same
+    ticks."""
+    text = _terraform()
+    enabled = re.search(
+        r'variable "clock_enabled" \{.*?default\s*=\s*(\w+)', text, re.S
+    ).group(1)
+    assert enabled == "false"
+    assert 'state               = var.clock_enabled ? "ENABLED" : "DISABLED"' in text
+    assert 'until  = "<aws.scheduler.scheduled-time>"' in text

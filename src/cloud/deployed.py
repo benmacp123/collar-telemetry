@@ -184,13 +184,14 @@ def leftovers(clients: dict, project: str, prefix: str) -> list[str]:
 
     The tagging API finds tagged resources, but a Lambda still running
     when ``destroy`` deletes its log group writes a new, untagged one, and
-    IAM roles and budgets are global, so those are looked up by name too.
+    IAM roles and budgets are global and schedules take no tags, so those
+    are looked up by name too.
     The tagging API can list a just-deleted resource for a while: check
     again before treating a hit as left behind.
 
     Args:
         clients: boto3 clients keyed ``resourcegroupstaggingapi``, ``logs``,
-            ``iam``, ``budgets`` and ``sts``.
+            ``iam``, ``budgets``, ``sts`` and ``scheduler``.
         project: The ``Project`` tag value.
         prefix: The resource name prefix (Terraform's ``name_prefix``).
 
@@ -204,13 +205,21 @@ def leftovers(clients: dict, project: str, prefix: str) -> list[str]:
     groups = clients["logs"].get_paginator("describe_log_groups")
     for page in groups.paginate(logGroupNamePrefix=f"/aws/lambda/{prefix}-"):
         found += [g["logGroupName"] for g in page["logGroups"]]
-    for role in (f"{prefix}-processor", f"{prefix}-notifier"):
+    for role in ("processor", "notifier", "clock", "scheduler"):
+        role = f"{prefix}-{role}"
         try:
             clients["iam"].get_role(RoleName=role)
             found.append(f"iam role {role}")
         except ClientError as error:
             if error.response["Error"]["Code"] != "NoSuchEntity":
                 raise
+    schedule = f"{prefix}-clock"
+    try:
+        clients["scheduler"].get_schedule(Name=schedule)
+        found.append(f"schedule {schedule}")
+    except ClientError as error:
+        if error.response["Error"]["Code"] != "ResourceNotFoundException":
+            raise
     account = clients["sts"].get_caller_identity()["Account"]
     budget = f"{prefix}-monthly"
     try:

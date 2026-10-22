@@ -1,4 +1,4 @@
-# Both handlers ship in one zip (`make lambda-zip`); the handler setting
+# Every handler ships in one zip (`make lambda-zip`); the handler setting
 # picks the entry point. Runtime and architecture must match the wheels
 # scripts/lambda_zip.py installs.
 locals {

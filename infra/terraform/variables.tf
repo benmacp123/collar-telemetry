@@ -44,3 +44,21 @@ variable "lambda_zip" {
   type        = string
   default     = "../../build/lambda.zip"
 }
+
+variable "clock_enabled" {
+  description = "Whether live mode's clock schedule runs. Off for replays, which carry their own clock."
+  type        = bool
+  default     = false
+}
+
+variable "clock_rate" {
+  description = "How often the clock ticks every live deployment. A gap alert can come this much later than the gap allowance."
+  type        = string
+  default     = "rate(1 hour)"
+}
+
+variable "live_run_id" {
+  description = "The run the clock ticks: the run ID live slices are published under."
+  type        = string
+  default     = "live"
+}

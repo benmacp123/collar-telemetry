@@ -147,9 +147,15 @@ def compute(args):
     months = sum(entry["animal_months"] for entry in runs)
     bill = cost.run_bill(used, sent, prices)
     projection = cost.live_projection(used, sent, prices, months)
+    # Every deployed run's minutes are busy, not idle; the email and clock
+    # tests are short and may be skipped, so only those recorded count.
     busy = [
         cost.window(other["started_at"], other["drained_at"])
-        for other in (run_file(label) for label in ("smoke", "full"))
+        for other in (
+            run_file(label)
+            for label in ("smoke", "email", "full", "clock")
+            if (OUT / f"aws-{label}.json").exists()
+        )
     ]
     quiet = cost.idle(usage, busy)
     if quiet["empty_receives_per_minute"] is not None:

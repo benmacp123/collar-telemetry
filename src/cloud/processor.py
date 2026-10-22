@@ -12,6 +12,16 @@ message that arrives before its predecessor fails, to be retried once the
 predecessor is in. A batch is processed in order; on the first failure the
 rest of the batch is reported failed too, since later messages may belong
 to the same deployment and must not overtake it.
+
+A clock tick (live mode, from ``cloud.clock``) runs a deployment's clock
+with no arrivals, as the replay's empty slices do. Ticks are cheap to
+repeat because the core is split-invariant: running the clock to T1 and
+then T2 gives what running it straight to T2 gives. So a tick that
+changes no incident is not saved at all (the next tick or slice reruns
+those clock steps from the stored state), and one that does is saved
+under the stored sequence number, conditional on it being unchanged.
+Live arrivals are stamped when received, so they always fall after a
+saved tick, as ``advance`` requires.
 """
 
 import logging
@@ -22,11 +32,13 @@ from pathlib import Path
 
 import boto3
 
+from telemetry.core.alerts import Incident
 from telemetry.core.detectors.geofence import EXIT, Fence
 from telemetry.core.pipeline import stream_for
+from telemetry.core.stream import AnimalState
 
 from cloud.messages import Message
-from cloud.store import Tables, commit, load_state
+from cloud.store import Saved, Tables, commit, load_state
 
 LOG = logging.getLogger(__name__)
 LOG.setLevel(logging.INFO)
@@ -37,6 +49,7 @@ DEFAULT_BOUNDARIES = Path(__file__).resolve().parents[2] / "data/raw/boundaries"
 
 APPLIED = "applied"
 DUPLICATE = "duplicate"
+IDLE = "idle"
 
 
 class OutOfOrder(Exception):
@@ -109,7 +122,8 @@ def process_message(message: Message, client, tables: Tables, clock=None) -> str
             defaults to UTC now.
 
     Returns:
-        str: ``APPLIED`` or ``DUPLICATE``.
+        str: ``APPLIED``, ``DUPLICATE``, or for a tick that changed no
+        incident (or a deployment with no state yet) ``IDLE``.
 
     Raises:
         OutOfOrder: If the message's predecessor has not been applied.
@@ -117,6 +131,23 @@ def process_message(message: Message, client, tables: Tables, clock=None) -> str
     clock = clock or (lambda: datetime.now(timezone.utc))
     processed_at = clock()
     saved = load_state(client, tables, message.key)
+    if message.is_tick:
+        if saved is None:
+            return IDLE
+        state, incidents = _run(message, saved)
+        if not incidents:
+            return IDLE
+        commit(
+            client,
+            tables,
+            message,
+            state,
+            incidents,
+            processed_at,
+            clock(),
+            stored_seq=saved.seq,
+        )
+        return APPLIED
     applied = -1 if saved is None else saved.seq
     if message.seq <= applied:
         return DUPLICATE
@@ -124,6 +155,22 @@ def process_message(message: Message, client, tables: Tables, clock=None) -> str
         raise OutOfOrder(
             f"{message.key}: message {message.seq} arrived after {applied}"
         )
+    state, incidents = _run(message, saved)
+    commit(client, tables, message, state, incidents, processed_at, clock())
+    return APPLIED
+
+
+def _run(message: Message, saved: Saved | None) -> tuple[AnimalState, list[Incident]]:
+    """Run a message's slice through the core from the stored state.
+
+    Args:
+        message: The message.
+        saved: The deployment's stored state, or None before its first.
+
+    Returns:
+        tuple: The state after the slice, and the newest form of each
+        incident it changed.
+    """
     stream = stream_for(message.taxon, message.uploads, fence=_fence(message.boundary))
     if saved is not None:
         stream.states[message.deployment_id] = saved.state
@@ -134,16 +181,7 @@ def process_message(message: Message, client, tables: Tables, clock=None) -> str
         message.deployment_id, list(message.slice.arrivals), message.slice.until
     ):
         latest[incident.incident_id] = incident
-    commit(
-        client,
-        tables,
-        message,
-        stream.states[message.deployment_id],
-        list(latest.values()),
-        processed_at,
-        clock(),
-    )
-    return APPLIED
+    return stream.states[message.deployment_id], list(latest.values())
 
 
 @lru_cache(maxsize=8)
