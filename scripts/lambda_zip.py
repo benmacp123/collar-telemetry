@@ -3,15 +3,19 @@
 Run with ``make lambda-zip``, which runs this inside the pinned
 ``python:3.14-slim`` image (the Lambda ``python3.14`` runtime's Python) so
 the build does not depend on the host's Python. The zip holds the
-detection core, ``src/cloud`` and the bundled boundaries, plus
-``requirements-lambda.txt`` installed as manylinux wheels for the Lambda
+detection core, ``src/cloud`` and the bundled boundaries, plus the
+``lambda`` dependency group installed as manylinux wheels for the Lambda
 platform; it is the same content as the local image in
-``infra/lambda/Dockerfile``, which stays for emulation only.
+``infra/lambda/Dockerfile``, which stays for emulation only. The image has
+no uv, so the Makefile first exports the group from ``uv.lock``, hashes
+included, to ``build/requirements-lambda.txt``.
 
-The zip is reproducible: entries are sorted and carry a fixed timestamp,
-so the same inputs give the same bytes and Terraform sees no change when
-nothing changed. Pip installs wheels only (``--only-binary``), so nothing
-is compiled for the build machine by mistake.
+The zip is reproducible: every version and wheel hash comes from
+``uv.lock``, and entries are sorted and carry a fixed timestamp, so the
+same inputs give the same bytes and Terraform sees no change when nothing
+changed. Pip installs wheels only (``--only-binary``) and checks every
+hash, so nothing is compiled for the build machine by mistake and no
+other file can stand in for a locked wheel.
 
 After writing it, the script unpacks the zip and imports both handlers
 from it in a fresh interpreter with site-packages switched off (``-S``),
@@ -31,12 +35,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUT = ROOT / "build" / "lambda.zip"
+DEFAULT_REQUIREMENTS = ROOT / "build" / "requirements-lambda.txt"
 
 # The Lambda runtime and architecture the Terraform deploys
 # (infra/terraform/lambda.tf); keep them in step. python3.14 runs on
 # Amazon Linux 2023 (glibc 2.34), so any wheel up to manylinux_2_34
 # loads; numpy has no manylinux2014 wheel for 3.14. pip does not widen a
-# platform tag to older ones, so each is listed.
+# platform tag to older ones, so each is listed (uv's --python-platform
+# would, but the build image has pip, not uv).
 PYTHON_VERSION = "3.14"
 PLATFORMS = [f"manylinux_2_{minor}_x86_64" for minor in (34, 28, 27, 26, 17)] + [
     "manylinux2014_x86_64"
@@ -69,25 +75,33 @@ def main() -> None:
     """Build the zip, then smoke-test it."""
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    parser.add_argument(
+        "--requirements",
+        type=Path,
+        default=DEFAULT_REQUIREMENTS,
+        help="hashed export of the lambda group (make lambda-requirements)",
+    )
     args = parser.parse_args()
     with tempfile.TemporaryDirectory() as tmp:
         package = Path(tmp) / "package"
-        install(package)
+        install(package, args.requirements)
         copy_sources(package)
         write_zip(package, args.out)
     smoke_test(args.out)
     print(f"wrote {args.out} ({args.out.stat().st_size / 1e6:.1f} MB)")
 
 
-def install(package: Path) -> None:
+def install(package: Path, requirements: Path) -> None:
     """Install the Lambda requirements as wheels for the Lambda platform.
 
     Args:
         package: Directory to install into.
+        requirements: Hashed requirements file exported from uv.lock.
 
     Raises:
         subprocess.CalledProcessError: If pip fails, for example when a
-            requirement has no wheel for the platform.
+            requirement has no wheel for the platform or a hash does not
+            match.
     """
     subprocess.run(
         [
@@ -98,8 +112,9 @@ def install(package: Path) -> None:
             "--quiet",
             "--no-cache-dir",
             "--disable-pip-version-check",
+            "--require-hashes",
             "--requirement",
-            str(ROOT / "requirements-lambda.txt"),
+            str(requirements),
             "--target",
             str(package),
             "--python-version",

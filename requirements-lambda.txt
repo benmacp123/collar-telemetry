@@ -1,7 +1,0 @@
-# What the Lambda image installs: the detection core's one dependency and
-# the AWS SDK (pinned rather than relying on the runtime's copy).
-shapely==2.1.2
-# shapely's own dependency, pinned (as in requirements.txt) so the deploy
-# zip is reproducible.
-numpy==2.5.2
-boto3==1.43.116

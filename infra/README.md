@@ -52,8 +52,8 @@ runner's and each `likely_death` incident sent exactly one notification.
 ## Deploy package
 
 `make lambda-zip` builds `build/lambda.zip` (git-ignored, about 37 MB)
-inside the pinned `python:3.14-slim` image: `requirements-lambda.txt` as
-manylinux wheels for Lambda's `python3.14` runtime on x86_64 (Amazon
+inside the pinned `python:3.14-slim` image: the `lambda` dependency
+group, exported from `uv.lock` with hashes, as manylinux wheels for Lambda's `python3.14` runtime on x86_64 (Amazon
 Linux 2023), plus the core, `src/cloud` and the boundaries. The build is
 reproducible (same inputs, same bytes) and ends by importing both
 handlers from the unpacked zip alone. A zip rather than a container image

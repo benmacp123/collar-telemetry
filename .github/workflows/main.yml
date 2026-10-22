@@ -7,13 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python 3.12
-      uses: actions/setup-python@v5
+    # uv installs the Python in .python-version (3.14, as in Lambda).
+    - uses: astral-sh/setup-uv@v10
       with:
-        python-version: "3.12"
+        version: "0.12.3"
+    - name: Check uv.lock matches pyproject.toml
+      run: uv lock --check
     - name: Install Dependencies
       run: |
         make install
+        echo "$PWD/venv/bin" >> "$GITHUB_PATH"
     - name: Lint with Pylint
       run: |
         make lint
@@ -51,5 +54,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    # Only to export the lambda group from uv.lock; the build runs in Docker.
+    - uses: astral-sh/setup-uv@v10
+      with:
+        version: "0.12.3"
     - name: Build and smoke-test the zip
       run: make lambda-zip

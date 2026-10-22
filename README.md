@@ -166,12 +166,14 @@ Repository; full citations, file details and retrieval dates are in
 
 ## Reproducing
 
-Everything runs from committed files, with no accounts or keys. Python
-3.12 or later (CI runs 3.12):
+Everything runs from committed files, with no accounts or keys. Needs
+[uv](https://docs.astral.sh/uv/), which installs Python 3.14 (the Lambda
+runtime's version) if it is missing; `uv.lock` pins every package, so
+local runs, CI and the deploy zip get the same versions:
 
 ```
-python -m venv venv && source venv/bin/activate
-make install
+make install  # uv sync into venv/
+source venv/bin/activate
 make test lint format-check
 make results  # replay every study and scenario, then score (about 5 min)
 make sweep    # threshold sweep on the vulture tuning set (about 2 min)

@@ -1,0 +1,40 @@
+# Dependencies for every environment, each pinned once; uv.lock pins the
+# full tree. Not an installable package: the Makefile runs the code with
+# PYTHONPATH=src, and Lambda gets it copied into the zip.
+[project]
+name = "collar-telemetry"
+version = "0.1.0"
+description = "GPS-collar telemetry and alerting pipeline for wildlife collars"
+readme = "README.md"
+license = "MIT"
+# The Lambda python3.14 runtime; local runs and CI use the same minor.
+requires-python = "==3.14.*"
+dependencies = []
+
+[dependency-groups]
+# What the deployed handlers import: the detection core's one dependency
+# and its numpy, plus the AWS SDK (pinned rather than relying on the
+# runtime's copy). `make lambda-zip` exports this group alone.
+lambda = [
+    "shapely==2.1.2",
+    "numpy==2.5.2",
+    "boto3==1.43.116",
+]
+# Replay, evaluation and figures.
+analysis = [
+    { include-group = "lambda" },
+    "matplotlib==3.11.2",
+]
+dev = [
+    { include-group = "analysis" },
+    "moto[dynamodb,sqs,sns]==5.2.4",
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "pylint==4.0.7",
+    "black==26.5.1",
+]
+
+[tool.uv]
+package = false
+default-groups = ["dev"]
+required-version = ">=0.12.3"

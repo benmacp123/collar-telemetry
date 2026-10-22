@@ -3,18 +3,24 @@
 # `make help` lists them.
 
 .PHONY: help install setup test lint format format-check profile replay \
-	evaluate results sweep cloud-sizing cloud-moto lambda-image cloud-local \
-	lambda-zip tf-check tf-fmt tf-plan tf-apply tf-output tf-destroy \
-	cloud-aws cloud-leftovers prices cloud-usage cloud-cost all
+	evaluate results sweep cloud-sizing cloud-moto lambda-requirements \
+	lambda-image cloud-local lambda-zip lock tf-check tf-fmt tf-plan \
+	tf-apply tf-output tf-destroy cloud-aws cloud-leftovers prices cloud-usage cloud-cost all
 
 help: ## List the targets and what each writes
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ":.*## "}; {printf "  %-16s %s\n", $$1, $$2}'
 
 
-install: ## Install pinned dependencies into the active venv
-	python -m pip install --upgrade pip &&\
-		python -m pip install -r requirements.txt
+# uv manages the venv at venv/ (the portfolio's convention) rather than
+# .venv; activate it before the other targets.
+export UV_PROJECT_ENVIRONMENT = venv
+
+install: ## Sync venv/ to uv.lock exactly (all groups)
+	uv sync --frozen
+
+lock: ## Re-resolve uv.lock after editing pyproject.toml
+	uv lock
 
 setup: install ## Same as install
 
@@ -58,7 +64,23 @@ cloud-moto: ## Every study through the handlers on in-process moto (~20 min)
 
 COMPOSE = docker compose -f infra/local/compose.yaml
 
+# The lambda group exported from uv.lock, with hashes, for the zip build,
+# which runs pip in a container without uv. Exported, not committed, so
+# pyproject.toml stays the one place each version is pinned.
+LAMBDA_REQUIREMENTS = build/requirements-lambda.txt
+
+lambda-requirements: ## Export the lambda group -> build/requirements-lambda.txt
+	mkdir -p build
+	uv export --frozen --only-group lambda --no-emit-project --no-header \
+		--output-file $(LAMBDA_REQUIREMENTS) > /dev/null
+
+# The emulation image's base is Python 3.13 and uv.lock only records 3.14
+# wheels, so the image gets the same versions without hashes and pip picks
+# its cp313 wheels.
 lambda-image: ## Build the handlers' Lambda image (needs Docker)
+	mkdir -p build
+	uv export --frozen --only-group lambda --no-emit-project --no-header \
+		--no-hashes --output-file build/requirements-lambda-image.txt > /dev/null
 	docker build --network host -f infra/lambda/Dockerfile \
 		-t collar-telemetry-lambda .
 
@@ -78,8 +100,9 @@ DOCKER_RUN = docker run --rm --network host --user $$(id -u):$$(id -g) \
 	-e HOME=/tmp -v $(CURDIR):/repo -w /repo
 TF = $(DOCKER_RUN) -w /repo/infra/terraform $(TF_IMAGE)
 
-lambda-zip: ## Build the deploy zip -> build/lambda.zip (needs Docker)
-	$(DOCKER_RUN) $(PYTHON_IMAGE) python scripts/lambda_zip.py
+lambda-zip: lambda-requirements ## Build the deploy zip -> build/lambda.zip (needs Docker)
+	$(DOCKER_RUN) $(PYTHON_IMAGE) python scripts/lambda_zip.py \
+		--requirements $(LAMBDA_REQUIREMENTS)
 
 tf-fmt: ## Format the Terraform (needs Docker)
 	$(TF) fmt -recursive

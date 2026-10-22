@@ -1,6 +1,5 @@
 # One image for both handlers; the command picks the handler.
-# Build from the repository root:
-#   docker build -f infra/lambda/Dockerfile -t collar-telemetry-lambda .
+# Build with `make lambda-image`, which exports the requirements first.
 #
 # The base defaults to the Docker Hub copy of the AWS Lambda Python image:
 # public.ecr.aws is unreachable from the owner's network (checked
@@ -13,8 +12,12 @@
 ARG BASE=amazon/aws-lambda-python:3.13@sha256:01b4aadb2181e2aa473dd7eb8a125de366cbcf77e6aa75cc2b3b719775da49b4
 FROM ${BASE}
 
-COPY requirements-lambda.txt ${LAMBDA_TASK_ROOT}/
-RUN pip install --no-cache-dir -r ${LAMBDA_TASK_ROOT}/requirements-lambda.txt \
+# The lambda dependency group's versions from uv.lock; `make lambda-image`
+# writes it first. No hashes: the lock holds only 3.14 wheels, and this
+# base is 3.13.
+COPY build/requirements-lambda-image.txt ${LAMBDA_TASK_ROOT}/
+RUN pip install --no-cache-dir \
+        -r ${LAMBDA_TASK_ROOT}/requirements-lambda-image.txt \
         --target ${LAMBDA_TASK_ROOT}
 
 # Only the core and the cloud package: the handlers import nothing else
