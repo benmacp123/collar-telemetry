@@ -108,7 +108,7 @@ detect.
   <https://opendatacommons.org/licenses/odbl/1-0/>. Attribution:
   "© OpenStreetMap contributors". Share-alike: these files, and anything
   derived from them as a database, stay under the ODbL, apart from the
-  CC0 rest of the repository. Figures drawn from them carry the
+  rest of the repository (MIT code, CC0 tracking data). Figures drawn from them carry the
   attribution.
 - **Retrieved:** 2026-10-19.
 - **Files:**

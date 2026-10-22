@@ -13,6 +13,7 @@ runs are seeded and reproduce byte for byte. Do not edit by hand.
 | `cloud/sizing.json` | The cloud runner's daily slices run locally: message and state sizes, and a check that the incidents match the replay | `make cloud-sizing` |
 | `cloud/local-moto.json` | Every study under `satellite_daily` and `gsm` sent through the cloud handlers on in-process moto, with resends: message counts, and checks that the stored incidents match the replay and that each `likely_death` incident sent one notification | `make cloud-moto` |
 | `cloud/local-docker.json` | The same for every jackal and one vulture, with the handlers in Lambda containers | `make cloud-local` |
+| `cloud/aws-<label>.json` | Runs on the deployed AWS stack (`smoke`: jackals and the heaviest vulture, with resends; `email`: one vulture with notification on; `full`: every study under `satellite_daily` and `gsm`): checks against the replay, dead letters, wall-clock latencies and the run's time window. Needs an AWS account, so not reproducible from a clone; the local files above check the same handlers without one | `make tf-apply`, then `make cloud-aws ARGS=...` |
 | `figures/` | PNG figures used in the README and reports | `make evaluate`, `make sweep` |
 
 Scenarios are the simulated upload patterns (`ideal`, `satellite_daily`,

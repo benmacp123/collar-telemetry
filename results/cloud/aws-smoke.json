@@ -1,0 +1,116 @@
+{
+  "label": "smoke",
+  "started_at": "2026-10-22T10:54:57+00:00",
+  "drained_at": "2026-10-22T11:06:03+00:00",
+  "region": "eu-west-2",
+  "publish_s": 605,
+  "publish_to_drained_s": 666,
+  "dead_letters": 0,
+  "notify_failures": 0,
+  "runs": [
+    {
+      "messages": 685,
+      "resent_each_way": 7,
+      "study": "vultures",
+      "scenario": "satellite_daily",
+      "deployments": 1,
+      "replay_incidents": 18,
+      "stored_incidents": 18,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 0,
+      "notified_incidents": 0,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 1.333,
+          "p95": 2.085
+        },
+        "stored_to_notified_s": null
+      }
+    },
+    {
+      "messages": 692,
+      "resent_each_way": 7,
+      "study": "vultures",
+      "scenario": "gsm",
+      "deployments": 1,
+      "replay_incidents": 29,
+      "stored_incidents": 29,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 1,
+      "notified_incidents": 0,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 1.505,
+          "p95": 3.427
+        },
+        "stored_to_notified_s": null
+      }
+    },
+    {
+      "messages": 6881,
+      "resent_each_way": 70,
+      "study": "jackals",
+      "scenario": "satellite_daily",
+      "deployments": 22,
+      "replay_incidents": 50,
+      "stored_incidents": 50,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 0,
+      "notified_incidents": 0,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 1.237,
+          "p95": 3.914
+        },
+        "stored_to_notified_s": null
+      }
+    },
+    {
+      "messages": 6877,
+      "resent_each_way": 70,
+      "study": "jackals",
+      "scenario": "gsm",
+      "deployments": 22,
+      "replay_incidents": 113,
+      "stored_incidents": 113,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 0,
+      "notified_incidents": 0,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 1.932,
+          "p95": 4.687
+        },
+        "stored_to_notified_s": null
+      }
+    }
+  ]
+}

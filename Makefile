@@ -1,13 +1,15 @@
-# Every target runs from committed files; none needs an account or the
-# network. `make help` lists them.
+# Every target runs from committed files; only the tf-plan, tf-apply,
+# tf-destroy, cloud-aws and cloud-leftovers targets need an AWS account.
+# `make help` lists them.
 
 .PHONY: help install setup test lint format format-check profile replay \
 	evaluate results sweep cloud-sizing cloud-moto lambda-image cloud-local \
-	lambda-zip tf-check tf-fmt tf-plan all
+	lambda-zip tf-check tf-fmt tf-plan tf-apply tf-output tf-destroy \
+	cloud-aws cloud-leftovers all
 
 help: ## List the targets and what each writes
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | \
-		awk 'BEGIN {FS = ":.*## "}; {printf "  %-14s %s\n", $$1, $$2}'
+		awk 'BEGIN {FS = ":.*## "}; {printf "  %-16s %s\n", $$1, $$2}'
 
 
 install: ## Install pinned dependencies into the active venv
@@ -87,12 +89,37 @@ tf-check: ## terraform fmt -check and validate, as CI runs them (needs Docker)
 	$(TF) init -backend=false -input=false
 	$(TF) validate
 
-# Reads your AWS account, so run it yourself: it needs credentials in
-# ~/.aws and infra/terraform/terraform.tfvars. Makes no changes.
+# These read or change your AWS account, so run them yourself: they need
+# credentials in ~/.aws and infra/terraform/terraform.tfvars. apply and
+# destroy run interactively (-it) so Terraform asks before changing
+# anything.
+TF_AWS = $(DOCKER_RUN) -v $(HOME)/.aws:/tmp/.aws:ro -e AWS_PROFILE \
+	-w /repo/infra/terraform
+NOTIFY ?= false
+
 tf-plan: lambda-zip ## terraform plan against your AWS account (needs Docker, credentials)
 	$(TF) init -input=false
-	$(DOCKER_RUN) -v $(HOME)/.aws:/tmp/.aws:ro -e AWS_PROFILE \
-		-w /repo/infra/terraform $(TF_IMAGE) plan -out=tfplan
+	$(TF_AWS) $(TF_IMAGE) plan -out=tfplan
+
+tf-apply: lambda-zip ## Deploy; NOTIFY=true sends likely_death emails (needs Docker, credentials)
+	$(TF) init -input=false
+	$(TF_AWS) -it $(TF_IMAGE) apply -var notify_enabled=$(NOTIFY)
+	$(MAKE) tf-output
+
+# The outputs include the account ID: build/ is git-ignored.
+tf-output: ## Save terraform output -json -> build/terraform-outputs.json
+	mkdir -p build
+	$(TF) output -json > build/terraform-outputs.json
+
+tf-destroy: ## Remove everything deployed (needs Docker, credentials)
+	$(TF_AWS) -it $(TF_IMAGE) destroy
+
+# ARGS go to scripts/cloud_aws.py run, e.g. ARGS="--label smoke --study jackals".
+cloud-aws: ## Publish to the deployed stack, compare -> results/cloud/aws-<label>.json
+	PYTHONPATH=src python scripts/cloud_aws.py run $(ARGS)
+
+cloud-leftovers: ## After tf-destroy: list anything of the project still in AWS
+	PYTHONPATH=src python scripts/cloud_aws.py leftovers
 
 
 all: install format lint test ## install, format, lint, test

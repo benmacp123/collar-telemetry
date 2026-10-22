@@ -190,7 +190,9 @@ byte.
 
 ## Licence
 
-Code and the Movebank data are released under CC0 1.0; see
-[`LICENSE`](LICENSE). The park boundaries in `data/raw/boundaries/` are an
+Code, documentation and results are released under the MIT Licence; see
+[`LICENSE`](LICENSE). The Movebank tracking data in `data/raw/` keeps its
+original CC0 1.0 licence; please cite the studies listed above. The park
+boundaries in `data/raw/boundaries/` are an
 OpenStreetMap extract and stay under the ODbL 1.0, © OpenStreetMap
 contributors; maps drawn from them carry that attribution.

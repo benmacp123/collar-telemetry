@@ -1,0 +1,40 @@
+{
+  "label": "email",
+  "date": "2026-10-22",
+  "region": "eu-west-2",
+  "publish_s": 10,
+  "publish_to_drained_s": 70,
+  "dead_letters": 0,
+  "notify_failures": 0,
+  "runs": [
+    {
+      "messages": 505,
+      "resent_each_way": 0,
+      "study": "vultures",
+      "scenario": "satellite_daily",
+      "deployments": 1,
+      "replay_incidents": 17,
+      "stored_incidents": 17,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 1,
+      "notified_incidents": 1,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 1.512,
+          "p95": 2.703
+        },
+        "stored_to_notified_s": {
+          "median": 2.934,
+          "p95": 2.934
+        }
+      }
+    }
+  ]
+}

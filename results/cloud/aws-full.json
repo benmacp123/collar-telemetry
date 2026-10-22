@@ -1,0 +1,174 @@
+{
+  "label": "full",
+  "started_at": "2026-10-22T11:11:27+00:00",
+  "drained_at": "2026-10-22T12:06:16+00:00",
+  "region": "eu-west-2",
+  "publish_s": 3229,
+  "publish_to_drained_s": 3289,
+  "dead_letters": 0,
+  "notify_failures": 0,
+  "runs": [
+    {
+      "messages": 36995,
+      "resent_each_way": 0,
+      "study": "vultures",
+      "scenario": "satellite_daily",
+      "deployments": 57,
+      "replay_incidents": 1380,
+      "stored_incidents": 1380,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 56,
+      "notified_incidents": 1,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 5.791,
+          "p95": 18.728
+        },
+        "stored_to_notified_s": {
+          "median": 2.934,
+          "p95": 2.934
+        }
+      }
+    },
+    {
+      "messages": 37006,
+      "resent_each_way": 0,
+      "study": "vultures",
+      "scenario": "gsm",
+      "deployments": 57,
+      "replay_incidents": 2051,
+      "stored_incidents": 2051,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 95,
+      "notified_incidents": 1,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 6.263,
+          "p95": 20.106
+        },
+        "stored_to_notified_s": {
+          "median": 2.939,
+          "p95": 2.939
+        }
+      }
+    },
+    {
+      "messages": 6881,
+      "resent_each_way": 0,
+      "study": "jackals",
+      "scenario": "satellite_daily",
+      "deployments": 22,
+      "replay_incidents": 50,
+      "stored_incidents": 50,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 0,
+      "notified_incidents": 0,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 1.237,
+          "p95": 3.914
+        },
+        "stored_to_notified_s": null
+      }
+    },
+    {
+      "messages": 6877,
+      "resent_each_way": 0,
+      "study": "jackals",
+      "scenario": "gsm",
+      "deployments": 22,
+      "replay_incidents": 113,
+      "stored_incidents": 113,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 0,
+      "notified_incidents": 0,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 1.932,
+          "p95": 4.687
+        },
+        "stored_to_notified_s": null
+      }
+    },
+    {
+      "messages": 8965,
+      "resent_each_way": 0,
+      "study": "elephants",
+      "scenario": "satellite_daily",
+      "deployments": 14,
+      "replay_incidents": 313,
+      "stored_incidents": 313,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 0,
+      "notified_incidents": 0,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 1.511,
+          "p95": 3.678
+        },
+        "stored_to_notified_s": null
+      }
+    },
+    {
+      "messages": 8960,
+      "resent_each_way": 0,
+      "study": "elephants",
+      "scenario": "gsm",
+      "deployments": 14,
+      "replay_incidents": 430,
+      "stored_incidents": 430,
+      "matches_replay": true,
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "different": []
+      },
+      "matches_incidents_jsonl": true,
+      "likely_death_incidents": 0,
+      "notified_incidents": 0,
+      "not_notified": [],
+      "latency_s": {
+        "sent_to_stored_s": {
+          "median": 2.196,
+          "p95": 6.088
+        },
+        "stored_to_notified_s": null
+      }
+    }
+  ]
+}
