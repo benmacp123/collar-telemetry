@@ -16,7 +16,7 @@ dependencies = []
 # and its numpy, plus the AWS SDK (pinned rather than relying on the
 # runtime's copy). `make lambda-zip` exports this group alone.
 lambda = [
-    "shapely==2.1.2",
+    "shapely==2.2.0",
     "numpy==2.5.2",
     "boto3==1.43.116",
 ]
