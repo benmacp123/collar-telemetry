@@ -92,8 +92,10 @@ each layer to its own imports.
 - **Cloud runner:** a publisher cuts each collar's replay timeline into
   daily messages on an SQS FIFO queue (one message group per collar, so
   each collar's messages stay in order). A processor Lambda runs each
-  message through the core and saves state and incidents to DynamoDB in
-  one conditional transaction, so a retried message changes nothing. A
+  message through the core and saves its state (compressed) to DynamoDB
+  with a write conditional on the previous message's number, so a
+  retried message changes nothing; a message that changes incidents saves
+  them in the same transaction. A
   notifier Lambda reads the incidents table's stream and emails
   `potential_death` incidents through SNS: at least once, never lost to a
   crash between saving and sending.

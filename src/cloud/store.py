@@ -7,16 +7,24 @@ incidents table holds one item per incident, keyed by run and incident ID,
 with the incident's newest form as JSON plus the fields the notifier and
 the comparison filter on. Its stream feeds the notifier.
 
-A processed message is saved in one ``TransactWriteItems``: the state put
-is conditional on the stored sequence number being the one before the
-message's, so the incidents can never be written without the state that
-produced them, and a message that was already applied cannot be applied
-twice. JSON is stored as strings rather than DynamoDB maps, since maps
-would turn every float into a ``Decimal`` and back.
+The state put is conditional on the stored sequence number being the one
+before the message's, so a message that was already applied cannot be
+applied twice. A message that changed incidents is saved in one
+``TransactWriteItems``, so the incidents can never be written without the
+state that produced them; most messages change none, and those are saved
+with a plain conditional put, since a transaction bills every item twice.
+
+JSON is stored rather than DynamoDB maps, since maps would turn every
+float into a ``Decimal`` and back. The state is zlib-compressed into a
+binary attribute (about a third of its size): writes are billed per 1 KB
+of item, and the state is rewritten on every message. Incidents stay
+readable strings; they are written rarely and filtered on.
 """
 
 import json
+import math
 import os
+import zlib
 from dataclasses import dataclass
 from datetime import datetime
 
@@ -80,9 +88,32 @@ def load_state(client, tables: Tables, key: str) -> Saved | None:
     ).get("Item")
     if item is None:
         return None
-    return Saved(
-        int(item["seq"]["N"]), AnimalState.from_dict(json.loads(item["state"]["S"]))
-    )
+    return Saved(int(item["seq"]["N"]), unpack_state(item["state"]["B"]))
+
+
+def pack_state(state: AnimalState) -> bytes:
+    """A state as stored: compact JSON, zlib-compressed.
+
+    Args:
+        state: The deployment's state.
+
+    Returns:
+        bytes: The value of the item's ``state`` attribute.
+    """
+    text = json.dumps(state.to_dict(), separators=(",", ":"))
+    return zlib.compress(text.encode("utf-8"))
+
+
+def unpack_state(data: bytes) -> AnimalState:
+    """Rebuild a state stored with ``pack_state``.
+
+    Args:
+        data: The item's ``state`` attribute.
+
+    Returns:
+        AnimalState: The state.
+    """
+    return AnimalState.from_dict(json.loads(zlib.decompress(data)))
 
 
 def commit(
@@ -94,7 +125,10 @@ def commit(
     processed_at: datetime,
     stored_at: datetime,
 ) -> None:
-    """Save a message's new state and changed incidents in one transaction.
+    """Save a message's new state and changed incidents together.
+
+    With no incidents the state is saved with a conditional put; with any,
+    in one transaction (see the module docstring).
 
     Incident items are updated, not replaced, so the notifier's
     ``notified_at`` mark survives later changes to the incident, and the
@@ -112,9 +146,10 @@ def commit(
 
     Raises:
         ValueError: If more incidents changed than one transaction holds.
-        botocore.exceptions.ClientError: ``TransactionCanceledException``
-            if the stored sequence number is not the one before the
-            message's, i.e. another invocation got there first.
+        botocore.exceptions.ClientError: If the stored sequence number is
+            not the one before the message's, i.e. another invocation got
+            there first: ``ConditionalCheckFailedException`` from the put,
+            ``TransactionCanceledException`` from the transaction.
     """
     if len(incidents) > MAX_INCIDENTS:
         raise ValueError(
@@ -123,14 +158,7 @@ def commit(
         )
     state_put = {
         "TableName": tables.state,
-        "Item": {
-            "key": {"S": message.key},
-            "seq": {"N": str(message.seq)},
-            "run_id": {"S": message.run_id},
-            "deployment_id": {"S": message.deployment_id},
-            "state": {"S": json.dumps(state.to_dict(), separators=(",", ":"))},
-            "stored_at": {"S": stored_at.isoformat()},
-        },
+        "Item": state_item(message, state, stored_at),
     }
     if message.seq == 0:
         state_put["ConditionExpression"] = "attribute_not_exists(#key)"
@@ -140,12 +168,86 @@ def commit(
         state_put["ExpressionAttributeValues"] = {
             ":previous": {"N": str(message.seq - 1)}
         }
+    if not incidents:
+        client.put_item(**state_put)
+        return
     actions = [{"Put": state_put}]
     actions += [
         {"Update": _incident_update(tables, message, incident, processed_at, stored_at)}
         for incident in incidents
     ]
     client.transact_write_items(TransactItems=actions)
+
+
+def state_item(message: Message, state: AnimalState, stored_at: datetime) -> dict:
+    """The state table item saved after a message.
+
+    Args:
+        message: The message applied.
+        state: The deployment's state after it.
+        stored_at: Wall-clock time of the write.
+
+    Returns:
+        dict: The item, in DynamoDB's typed form.
+    """
+    return {
+        "key": {"S": message.key},
+        "seq": {"N": str(message.seq)},
+        "run_id": {"S": message.run_id},
+        "deployment_id": {"S": message.deployment_id},
+        "state": {"B": pack_state(state)},
+        "stored_at": {"S": stored_at.isoformat()},
+    }
+
+
+def item_size(item: dict) -> int:
+    """An item's size in bytes as DynamoDB bills it, for string, number
+    and binary attributes.
+
+    Names and string values count their UTF-8 bytes and binary values
+    their length. A number counts one byte per two significant digits plus
+    one, AWS's documented approximation; numbers here are small integers,
+    where it is exact enough.
+
+    Args:
+        item: An item in DynamoDB's typed form.
+
+    Returns:
+        int: Its size in bytes.
+
+    Raises:
+        ValueError: For an attribute type this does not size.
+    """
+    size = 0
+    for name, value in item.items():
+        size += len(name.encode("utf-8"))
+        ((kind, data),) = value.items()
+        if kind == "S":
+            size += len(data.encode("utf-8"))
+        elif kind == "B":
+            size += len(data)
+        elif kind == "N":
+            digits = data.lstrip("-").replace(".", "").strip("0") or "0"
+            size += math.ceil(len(digits) / 2) + 1
+        else:
+            raise ValueError(f"cannot size a {kind} attribute ({name})")
+    return size
+
+
+def write_units(size: int, transaction: bool) -> int:
+    """On-demand write request units for writing an item of this size.
+
+    Args:
+        size: The larger of the item's sizes before and after the write,
+            in bytes (DynamoDB bills the larger).
+        transaction: Whether the write is part of a transaction, which
+            bills twice.
+
+    Returns:
+        int: Write request units.
+    """
+    units = max(1, math.ceil(size / 1024))
+    return 2 * units if transaction else units
 
 
 def _incident_update(

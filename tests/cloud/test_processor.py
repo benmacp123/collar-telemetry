@@ -2,6 +2,7 @@
 in order, with state and incidents saved together."""
 
 import json
+import zlib
 from dataclasses import replace
 
 import pytest
@@ -11,7 +12,16 @@ from telemetry.core.alerts import Incident
 
 from cloud import local, processor
 from cloud.messages import state_key
-from cloud.store import MAX_INCIDENTS, commit, load_state, run_incidents
+from cloud.store import (
+    MAX_INCIDENTS,
+    commit,
+    item_size,
+    load_state,
+    pack_state,
+    run_incidents,
+    unpack_state,
+    write_units,
+)
 from cloud_helpers import RUN, expected, messages, sqs_records
 
 
@@ -139,16 +149,107 @@ def test_batch_reports_the_failure_and_everything_after_it(aws):
     assert incidents(aws) == expected()
 
 
-def test_concurrent_write_is_rejected(aws):
+@pytest.mark.parametrize(
+    "changed, code",
+    [
+        (False, "ConditionalCheckFailedException"),
+        (True, "TransactionCanceledException"),
+    ],
+)
+def test_concurrent_write_is_rejected(aws, changed, code):
     """The conditional put refuses a second writer for the same sequence
-    number, so two invocations cannot both apply a message."""
+    number, with or without incidents, so two invocations cannot both apply
+    a message."""
     first = messages()[0]
     apply(aws, [first])
     saved = load_state(aws["dynamodb"], local.TABLES, first.key)
     now = saved.state.last_arrival
+    changes = [Incident("A:gap:x", "A", "gap", "open", now, "m")] if changed else []
     with pytest.raises(ClientError) as error:
-        commit(aws["dynamodb"], local.TABLES, first, saved.state, [], now, now)
-    assert error.value.response["Error"]["Code"] == "TransactionCanceledException"
+        commit(aws["dynamodb"], local.TABLES, first, saved.state, changes, now, now)
+    assert error.value.response["Error"]["Code"] == code
+
+
+class Recorder:
+    """A DynamoDB client that records which write call each save used."""
+
+    def __init__(self, client):
+        """Wrap a client.
+
+        Args:
+            client: A boto3 DynamoDB client.
+        """
+        self.client = client
+        self.calls = []
+
+    def __getattr__(self, name):
+        """The wrapped client's attribute, recording write calls.
+
+        Args:
+            name: The attribute.
+
+        Returns:
+            The attribute, wrapped if it is a write call.
+        """
+        attribute = getattr(self.client, name)
+        if name not in ("put_item", "transact_write_items"):
+            return attribute
+
+        def record(**kwargs):
+            """Record the call and pass it on."""
+            self.calls.append(name)
+            return attribute(**kwargs)
+
+        return record
+
+
+def test_transaction_only_when_incidents_change(aws):
+    """Messages that change no incident are saved with a plain put, so
+    they are not billed twice; the rest use a transaction."""
+    recorder = Recorder(aws["dynamodb"])
+    used = []
+    for message in messages():
+        before = stored(aws)
+        processor.process_message(message, recorder, local.TABLES)
+        used.append((recorder.calls[-1], stored(aws) != before))
+    assert {call for call, changed in used if changed} == {"transact_write_items"}
+    assert {call for call, changed in used if not changed} == {"put_item"}
+    assert incidents(aws) == expected()
+
+
+def test_state_is_stored_compressed(aws):
+    """The state attribute is zlib-compressed JSON of the state, smaller
+    than the JSON, and reads back unchanged."""
+    batch = messages()
+    apply(aws, batch)
+    item = aws["dynamodb"].get_item(
+        TableName=local.TABLES.state, Key={"key": {"S": batch[-1].key}}
+    )["Item"]
+    saved = load_state(aws["dynamodb"], local.TABLES, batch[-1].key)
+    text = json.dumps(saved.state.to_dict(), separators=(",", ":"))
+    assert json.loads(zlib.decompress(item["state"]["B"])) == json.loads(text)
+    assert len(item["state"]["B"]) < len(text)
+    assert unpack_state(pack_state(saved.state)) == saved.state
+
+
+def test_item_size_follows_dynamodb_rules():
+    """Names and values count as DynamoDB bills them: UTF-8 bytes for
+    strings, length for binary, two digits a byte plus one for numbers."""
+    assert item_size({"ab": {"S": "é"}}) == 2 + 2
+    assert item_size({"b": {"B": b"\x00" * 10}}) == 1 + 10
+    assert item_size({"n": {"N": "12345"}}) == 1 + 3 + 1
+    assert item_size({"n": {"N": "100"}}) == 1 + 1 + 1
+    with pytest.raises(ValueError):
+        item_size({"m": {"M": {}}})
+
+
+def test_write_units_round_up_per_kilobyte_and_double_in_transactions():
+    """A write bills one unit per started kilobyte, at least one, and a
+    transaction bills twice."""
+    assert write_units(0, transaction=False) == 1
+    assert write_units(1024, transaction=False) == 1
+    assert write_units(1025, transaction=False) == 2
+    assert write_units(1025, transaction=True) == 4
 
 
 def test_too_many_incidents_for_one_transaction_fail(aws):

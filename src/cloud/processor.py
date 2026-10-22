@@ -3,7 +3,7 @@
 For each message the handler loads the deployment's state, builds the
 deployment's stream with ``stream_for`` (the replay runner's settings),
 runs the slice through ``advance`` and saves the new state and changed
-incidents in one conditional transaction (``store.commit``).
+incidents with one conditional write (``store.commit``).
 
 Retries are safe. The state item records the sequence number of the last
 message applied, so a message seen again (an SQS redelivery after a crash

@@ -9,9 +9,9 @@
     "incidents": 1363,
     "matches_replay": true,
     "message_bytes": {
-      "median": 1570,
-      "p99": 42889,
-      "max": 103360
+      "median": 1746,
+      "p99": 43064,
+      "max": 103535
     },
     "state_bytes": {
       "median": 3832,
@@ -30,25 +30,29 @@
       "last_tick": 41,
       "deployment_id": 32,
       "fixes_seen": 20
+    },
+    "state_write_units": {
+      "json_transaction": 343014,
+      "stored": 78707
     }
   },
   {
     "study": "vultures",
     "scenario": "gsm",
     "deployments": 57,
-    "slices": 36991,
+    "slices": 37006,
     "empty_slices": 8193,
     "arrivals": 1324581,
     "incidents": 2032,
     "matches_replay": true,
     "message_bytes": {
-      "median": 1569,
-      "p99": 46736,
-      "max": 236479
+      "median": 1732,
+      "p99": 47020,
+      "max": 107035
     },
     "state_bytes": {
       "median": 4133,
-      "p99": 28548,
+      "p99": 28641,
       "max": 62210
     },
     "largest_state_parts": {
@@ -63,6 +67,10 @@
       "last_tick": 41,
       "deployment_id": 32,
       "fixes_seen": 20
+    },
+    "state_write_units": {
+      "json_transaction": 489186,
+      "stored": 87659
     }
   },
   {
@@ -75,9 +83,9 @@
     "incidents": 50,
     "matches_replay": true,
     "message_bytes": {
-      "median": 2427,
-      "p99": 8824,
-      "max": 15665
+      "median": 2606,
+      "p99": 9003,
+      "max": 15843
     },
     "state_bytes": {
       "median": 3687,
@@ -97,6 +105,10 @@
       "detectors.geofence": 38,
       "deployment_id": 30,
       "fixes_seen": 19
+    },
+    "state_write_units": {
+      "json_transaction": 60396,
+      "stored": 13868
     }
   },
   {
@@ -109,9 +121,9 @@
     "incidents": 113,
     "matches_replay": true,
     "message_bytes": {
-      "median": 2324,
-      "p99": 10439,
-      "max": 31150
+      "median": 2489,
+      "p99": 10605,
+      "max": 31315
     },
     "state_bytes": {
       "median": 3968,
@@ -131,6 +143,10 @@
       "detectors.geofence": 38,
       "deployment_id": 30,
       "fixes_seen": 19
+    },
+    "state_write_units": {
+      "json_transaction": 63000,
+      "stored": 14108
     }
   },
   {
@@ -143,9 +159,9 @@
     "incidents": 313,
     "matches_replay": true,
     "message_bytes": {
-      "median": 4130,
-      "p99": 5539,
-      "max": 5612
+      "median": 4314,
+      "p99": 5723,
+      "max": 5796
     },
     "state_bytes": {
       "median": 3533,
@@ -165,6 +181,10 @@
       "detectors.geofence": 37,
       "deployment_id": 25,
       "fixes_seen": 20
+    },
+    "state_write_units": {
+      "json_transaction": 73066,
+      "stored": 18838
     }
   },
   {
@@ -177,9 +197,9 @@
     "incidents": 430,
     "matches_replay": true,
     "message_bytes": {
-      "median": 4026,
-      "p99": 10932,
-      "max": 21351
+      "median": 4196,
+      "p99": 11102,
+      "max": 21521
     },
     "state_bytes": {
       "median": 3884,
@@ -199,6 +219,10 @@
       "detectors.geofence": 37,
       "deployment_id": 25,
       "fixes_seen": 20
+    },
+    "state_write_units": {
+      "json_transaction": 80100,
+      "stored": 19194
     }
   }
 ]
