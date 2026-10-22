@@ -7,7 +7,7 @@ import importlib.util
 import re
 from pathlib import Path
 
-from cloud import local, notifier
+from cloud import cost, local, notifier
 
 ROOT = Path(__file__).resolve().parents[2]
 TERRAFORM = ROOT / "infra" / "terraform"
@@ -88,3 +88,16 @@ def test_filters_pass_the_notified_detector():
     text = _terraform()
     assert f'S = ["{notifier.NOTIFIED_DETECTOR}"]' in text
     assert f'detector = ["{notifier.NOTIFIED_DETECTOR}"]' in text
+
+
+def test_cost_report_uses_the_deployed_memory_and_names():
+    """The cost report prices Lambda time at each function's configured
+    memory and reads metrics by the deployed function names."""
+    text = _terraform()
+    for role, function in cost.FUNCTIONS.items():
+        block = re.search(
+            rf'resource "aws_lambda_function" "{role}" \{{(.*?)\n\}}', text, re.S
+        ).group(1)
+        assert f'"{function}"' in block
+        memory = int(re.search(r"memory_size\s*=\s*(\d+)", block).group(1))
+        assert memory == cost.MEMORY_MB[role]

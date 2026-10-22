@@ -1,0 +1,217 @@
+{
+  "label": "full",
+  "window": [
+    "2026-10-22T11:11:00+00:00",
+    "2026-10-22T12:08:00+00:00"
+  ],
+  "prices": {
+    "file": "data/prices/aws-eu-west-2.json",
+    "retrieved": "2026-10-22"
+  },
+  "checks": {
+    "published": 105684,
+    "counted": 105684,
+    "metered_sent": 105684.0,
+    "metered_received": 105684.0,
+    "processor_errors": 0.0
+  },
+  "metered": {
+    "processor_invocations": 10836.0,
+    "processor_ms": 2814743.1489377995,
+    "processor_errors": 0.0,
+    "notifier_invocations": 176.0,
+    "notifier_ms": 448.50999949,
+    "messages_sent": 105684.0,
+    "messages_received": 105684.0,
+    "messages_deleted": 105684.0,
+    "empty_receives": 4782.0,
+    "write_request_units": 953530.0,
+    "read_request_units": 174933.0,
+    "state_write_request_units": 940486.0,
+    "log_bytes": 19469779.0,
+    "sns_published": 0,
+    "emails": 0
+  },
+  "sqs_counted": {
+    "batches": 10674,
+    "billed": 13206,
+    "messages": 105684,
+    "message_chunks": 105867,
+    "message_bytes": 401474760
+  },
+  "runs": [
+    {
+      "study": "vultures",
+      "scenario": "satellite_daily",
+      "deployments": 57,
+      "slices": 36995,
+      "animal_months": 1213.5687885010268,
+      "slices_per_animal_month": 30.484468907358274
+    },
+    {
+      "study": "vultures",
+      "scenario": "gsm",
+      "deployments": 57,
+      "slices": 37006,
+      "animal_months": 1213.5263518138263,
+      "slices_per_animal_month": 30.49459943303917
+    },
+    {
+      "study": "jackals",
+      "scenario": "satellite_daily",
+      "deployments": 22,
+      "slices": 6881,
+      "animal_months": 225.42258726899385,
+      "slices_per_animal_month": 30.524891419993295
+    },
+    {
+      "study": "jackals",
+      "scenario": "gsm",
+      "deployments": 22,
+      "slices": 6877,
+      "animal_months": 225.48601414556242,
+      "slices_per_animal_month": 30.498565625274455
+    },
+    {
+      "study": "elephants",
+      "scenario": "satellite_daily",
+      "deployments": 14,
+      "slices": 8965,
+      "animal_months": 294.0780287474333,
+      "slices_per_animal_month": 30.48510641269132
+    },
+    {
+      "study": "elephants",
+      "scenario": "gsm",
+      "deployments": 14,
+      "slices": 8960,
+      "animal_months": 294.14373716632446,
+      "slices_per_animal_month": 30.46129788897576
+    }
+  ],
+  "animal_months": 3466.225507643167,
+  "run_bill": {
+    "lines": {
+      "lambda_requests": {
+        "quantity": 11012.0,
+        "unit_usd": 2e-07,
+        "usd": 0.0022023999999999998,
+        "basis": "metered"
+      },
+      "lambda_compute_gb_s": {
+        "quantity": 1407.4837019687723,
+        "unit_usd": 1.66667e-05,
+        "usd": 0.02345810861560294,
+        "basis": "metered duration x configured memory"
+      },
+      "sqs_requests": {
+        "quantity": 42192.0,
+        "unit_usd": 5e-07,
+        "usd": 0.021096,
+        "basis": "sends counted from the messages; receives and deletes one per invocation (assumed); empty receives metered"
+      },
+      "dynamodb_write_units": {
+        "quantity": 953530.0,
+        "unit_usd": 7.423e-07,
+        "usd": 0.707805319,
+        "basis": "metered (includes transactions' double writes)"
+      },
+      "dynamodb_read_units": {
+        "quantity": 174933.0,
+        "unit_usd": 1.487e-07,
+        "usd": 0.0260125371,
+        "basis": "metered"
+      },
+      "log_ingestion_gb": {
+        "quantity": 0.018132644705474377,
+        "unit_usd": 0.5985,
+        "usd": 0.010852387856226414,
+        "basis": "metered"
+      },
+      "sns_requests": {
+        "quantity": 0,
+        "unit_usd": 5e-07,
+        "usd": 0.0,
+        "basis": "metered"
+      },
+      "sns_emails": {
+        "quantity": 0,
+        "unit_usd": 2e-05,
+        "usd": 0.0,
+        "basis": "metered"
+      }
+    },
+    "sqs_requests": {
+      "send": 13206,
+      "receive": 13368.0,
+      "delete": 10836.0,
+      "empty_receive": 4782.0
+    },
+    "total_usd": 0.7914267525718294
+  },
+  "run_usd_per_animal_month": 0.00022832523470463808,
+  "live_projection": {
+    "slices_per_animal_month": 30.489649264585502,
+    "low": {
+      "usage": {
+        "lambda_requests": 30.540424956937862,
+        "lambda_compute_gb_s": 0.4060565877393765,
+        "sqs_requests": 91.57453815398925,
+        "dynamodb_write_units": 275.0917382315224,
+        "dynamodb_read_units": 50.46786471747602,
+        "log_ingestion_gb": 5.2312363017037305e-06,
+        "sns_requests": 0.0,
+        "sns_emails": 0.0
+      },
+      "usd": {
+        "lambda_requests": 6.108084991387572e-06,
+        "lambda_compute_gb_s": 6.767623330875866e-06,
+        "sqs_requests": 4.578726907699463e-05,
+        "dynamodb_write_units": 0.00020420059728925907,
+        "dynamodb_read_units": 7.504571483488684e-06,
+        "log_ingestion_gb": 3.130894926569683e-06,
+        "sns_requests": 0.0,
+        "sns_emails": 0.0
+      },
+      "total_usd": 0.0002734990410985755
+    },
+    "high": {
+      "usage": {
+        "lambda_requests": 30.540424956937862,
+        "lambda_compute_gb_s": 3.9600051882429597,
+        "sqs_requests": 91.57453815398925,
+        "dynamodb_write_units": 275.0917382315224,
+        "dynamodb_read_units": 50.46786471747602,
+        "log_ingestion_gb": 5.102048517065864e-05,
+        "sns_requests": 0.0,
+        "sns_emails": 0.0
+      },
+      "usd": {
+        "lambda_requests": 6.108084991387572e-06,
+        "lambda_compute_gb_s": 6.600021847088894e-05,
+        "sqs_requests": 4.578726907699463e-05,
+        "dynamodb_write_units": 0.00020420059728925907,
+        "dynamodb_read_units": 7.504571483488684e-06,
+        "log_ingestion_gb": 3.05357603746392e-05,
+        "sns_requests": 0.0,
+        "sns_emails": 0.0
+      },
+      "total_usd": 0.0003601365016866581
+    }
+  },
+  "idle": {
+    "quiet_minutes": 36,
+    "empty_receives_per_minute": 15.0,
+    "requests_per_month": 657450.0,
+    "usd_per_month": 0.328725
+  },
+  "free_tier": {
+    "animals": {
+      "lambda_requests": 32743.486752722154,
+      "lambda_compute_gb_s": 101009.96867064171,
+      "sqs_requests": 3740.6686062011827,
+      "log_ingestion_gb": 97999.85208442213
+    },
+    "limit": 3740.6686062011827
+  }
+}

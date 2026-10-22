@@ -2,8 +2,9 @@
 
 The serverless deployment (phase 3): Terraform in `terraform/`, the
 deploy package built by `make lambda-zip`, and a local run of the same
-handlers that needs no AWS account. Nothing here has been applied to AWS
-yet.
+handlers that needs no AWS account. Deployed to eu-west-2 on 2026-10-22,
+run against every study, and destroyed the same day. Every run's stored
+incidents matched the replay runner's exactly (`results/cloud/aws-*.json`).
 
 ## Pipeline
 
@@ -97,9 +98,104 @@ names must match the local run's, the runtime must match the zip's
 wheels, each handler setting must name a real function, and the
 environment variables must be the ones the handlers read.
 
-Not yet proven: the trigger settings (batch sizes, retries,
-dead-lettering, the stream filter), the IAM policies and the email
-subscription. Session 4's deploy is the first real test of each.
+The deploy proved what the local runs could not: the trigger settings
+(batch sizes, the stream filter, `ReportBatchItemFailures`), the IAM
+policies, the 60 s timeout on the heaviest slices (over 100 KB) and the
+email subscription. No message reached either failure queue.
+
+## Deploy, run and destroy
+
+Every step needs AWS credentials (`AWS_PROFILE`) and costs a little money;
+`terraform.tfvars` must hold `alert_email`.
+
+1. `make tf-plan`, then `make tf-apply` (notifications off), which also
+   saves the outputs to the git-ignored `build/terraform-outputs.json`.
+   Confirm the subscription from the email SNS sends: until then SNS drops
+   every alert without an error.
+2. A smoke run, with resends, which the queue or the processor should
+   drop:
+   `make cloud-aws ARGS="--label smoke --study jackals --resend-every 50"`.
+3. Optional, the email test: `make tf-apply NOTIFY=true`, then one
+   vulture with `--expect-notify`, then `make tf-apply` to switch it off.
+4. The full run: `make cloud-aws ARGS="--label full"` (about an hour,
+   most of it the workstation publishing at about 33 messages a second).
+   Rerunning a run and collar sends nothing new: the processor skips
+   slices it has applied, and notified incidents keep `notified_at`.
+5. `make tf-destroy`, then `make cloud-leftovers`. The tagging API lists
+   deleted resources for a while after `destroy`, so confirm a hit with
+   the service's own get call before treating it as real.
+6. Within 15 days (CloudWatch's one-minute retention), `make cloud-usage`
+   to save the metered usage, then `make cloud-cost` (offline).
+
+Each `cloud-aws` run writes `results/cloud/aws-<label>.json` and exits
+non-zero on any difference from the replay, dead letter or missing
+notification. A message in the FIFO dead-letter queue stops its collar,
+since later sequence numbers fail the processor's check, so the fix is to
+rerun that collar.
+
+## Latency
+
+Wall-clock time from publishing a slice to storing the first write of
+each incident, full run: jackals and elephants median 1.2-2.2 s, p95
+3.7-6.1 s; vultures median 5.8-6.3 s, p95 18.7-20.1 s. Everything is
+published up front, so these include time queued behind the rest of the
+run (vultures' heavy slices, at a processor concurrency of 5). Stored to
+notified: 2.9 s (two notifications).
+
+## Cost
+
+`make cloud-cost` prices the full run from metered usage, without an
+account: CloudWatch's per-minute sums for the run's window
+(`results/cloud/usage-aws.json`, fetched once by `make cloud-usage`) at
+the committed list prices (`data/prices/aws-eu-west-2.json`, dated, from
+AWS's public Price List). Results in `results/cloud/COST.md`:
+
+- **As billed:** each line's quantity, with how it was found. Lambda time
+  and calls, DynamoDB request units (including transactions' double
+  writes), log bytes and empty receives are metered. SQS sends are
+  counted from the run's own messages. Receives and deletes are not
+  metered per call, so they are taken as one each per processor
+  invocation (assumed).
+- **Per animal-month:** divided by the animal-months the run covered,
+  from each deployment's first arrival to its end of watch.
+- **Live mode (provisional):** the replay hands the processor batches of
+  up to ten slices; live, each collar's daily slice arrives alone. The
+  projection gives a range: per-invocation costs (run time, Lambda's log
+  lines) spread over slices (low), or charged in full to every slice
+  (high).
+- **Idle:** the queue trigger keeps long-polling an empty queue, and each
+  empty receive is a billed request. Measured in the quiet minutes
+  outside the runs.
+- **Free tier:** list prices throughout, with how many animals the
+  always-free allowances would cover. DynamoDB on-demand request units
+  have none.
+
+Cost Explorer, about 48 hours after the session, checks the total.
+
+Results (list prices of 2026-10-22, USD, before free tier):
+
+- **The full run cost $0.79**: 105,684 slices over 3,466 animal-months,
+  so **$0.23 per 1,000 animal-months**. No processor errors; metered sends
+  equal the messages published.
+- **DynamoDB writes are 89% of it.** Each slice rewrites the collar's
+  whole state item (median about 4 KB, at most 62 KB) inside a
+  transaction, which bills every write twice: about 9 write units a
+  slice, 99% of them on the state table. Smaller state, or a plain
+  conditional write when a slice raises no incident, would be the place
+  to save. Lambda time is 3%, SQS 3%.
+- **Live mode, projected: $0.27-0.36 per 1,000 animal-months.** The
+  replay averaged 9.8 slices per invocation (260 ms per invocation,
+  27 ms per slice); live, each slice gets its own, which mostly adds
+  Lambda time and log lines. DynamoDB writes still dominate.
+- **Idle: $0.33 a month.** The queue trigger made a median 15 empty
+  receives a minute in 36 quiet minutes, 657,000 requests a month. That
+  is the live cost of 900 to 1,200 animals, so for a small
+  project the fixed cost of an idle trigger outweighs the per-animal
+  cost.
+- **Free tier:** idle polling uses about two thirds of SQS's 1M free
+  requests, and the rest covers about 3,700 animals; Lambda's allowances
+  would cover over 30,000. DynamoDB request units have no free tier, so a
+  100-collar project would pay about $0.02 a month, all of it DynamoDB.
 
 ## Local emulation image
 

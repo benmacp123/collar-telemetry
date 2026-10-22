@@ -14,6 +14,8 @@ runs are seeded and reproduce byte for byte. Do not edit by hand.
 | `cloud/local-moto.json` | Every study under `satellite_daily` and `gsm` sent through the cloud handlers on in-process moto, with resends: message counts, and checks that the stored incidents match the replay and that each `likely_death` incident sent one notification | `make cloud-moto` |
 | `cloud/local-docker.json` | The same for every jackal and one vulture, with the handlers in Lambda containers | `make cloud-local` |
 | `cloud/aws-<label>.json` | Runs on the deployed AWS stack (`smoke`: jackals and the heaviest vulture, with resends; `email`: one vulture with notification on; `full`: every study under `satellite_daily` and `gsm`): checks against the replay, dead letters, wall-clock latencies and the run's time window. Needs an AWS account, so not reproducible from a clone; the local files above check the same handlers without one | `make tf-apply`, then `make cloud-aws ARGS=...` |
+| `cloud/usage-aws.json` | Per-minute CloudWatch sums for the deployed stack's functions, queue, tables, log groups and topic over the session-4 day: resource names and counts, no account details. Needs an AWS account to fetch; committed so the cost report reproduces without one | `make cloud-usage` |
+| `cloud/cost.json`, `cloud/COST.md` | The full run's bill at the committed list prices (`data/prices/`), cost per animal-month, a provisional live-mode projection, idle polling cost and free-tier headroom | `make cloud-cost` |
 | `figures/` | PNG figures used in the README and reports | `make evaluate`, `make sweep` |
 
 Scenarios are the simulated upload patterns (`ideal`, `satellite_daily`,

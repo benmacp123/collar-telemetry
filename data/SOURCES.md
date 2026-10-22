@@ -127,3 +127,21 @@ detect.
   Timbavati and others), which are unfenced from Kruger, so crossings
   there are real but not operationally meaningful; evaluation reports
   them as such.
+
+## AWS list prices (`prices/aws-eu-west-2.json`)
+
+- **Source:** AWS's public Price List files
+  (<https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json>),
+  no account needed, fetched by `scripts/fetch_prices.py` (`make prices`).
+  Each price records its offer file URL and publication date.
+- **Licence:** published list prices, reproduced as facts with their
+  source and date; AWS's site terms apply to the files themselves. Only
+  the ten prices the cost report uses are kept.
+- **Retrieved:** 2026-10-22 (offers published 2026-09-11 to 2026-10-16).
+- **Free tier:** allowances written into the price list (SNS's first
+  1,000 emails and 1M requests, DynamoDB's first 25 GB) are read from it;
+  those that are not (Lambda's 1M requests and 400,000 GB-seconds, SQS's
+  1M requests, CloudWatch Logs' 5 GB) are copied from each service's
+  pricing page, checked 2026-10-22, and named with their page.
+- **Note:** list prices change; the report states the snapshot's date,
+  and a newer snapshot changes the figures without changing the usage.

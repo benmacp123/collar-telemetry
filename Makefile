@@ -5,7 +5,7 @@
 .PHONY: help install setup test lint format format-check profile replay \
 	evaluate results sweep cloud-sizing cloud-moto lambda-image cloud-local \
 	lambda-zip tf-check tf-fmt tf-plan tf-apply tf-output tf-destroy \
-	cloud-aws cloud-leftovers all
+	cloud-aws cloud-leftovers prices cloud-usage cloud-cost all
 
 help: ## List the targets and what each writes
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | \
@@ -121,5 +121,14 @@ cloud-aws: ## Publish to the deployed stack, compare -> results/cloud/aws-<label
 cloud-leftovers: ## After tf-destroy: list anything of the project still in AWS
 	PYTHONPATH=src python scripts/cloud_aws.py leftovers
 
+# Optional: the snapshot is committed. Public price files, no account needed.
+prices: ## Fetch AWS list prices -> data/prices/aws-eu-west-2.json
+	python scripts/fetch_prices.py
+
+cloud-usage: ## After a deployed run: CloudWatch usage -> results/cloud/usage-aws.json (credentials)
+	PYTHONPATH=src python scripts/cloud_cost.py fetch
+
+cloud-cost: ## Price the usage, project live mode -> results/cloud/cost.json, COST.md
+	PYTHONPATH=src python scripts/cloud_cost.py compute
 
 all: install format lint test ## install, format, lint, test
