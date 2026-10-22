@@ -16,7 +16,7 @@ collar on a carcass would report:
   percentile ``scatter_p95_m``. Observed: dead vultures in the tuning set
   scatter around their final position with a median of 16 m and a 95th
   percentile of 59 m (5 deployments, 337 fixes), in line with stationary
-  collar tests in the literature (median 6-20 m; Belant 2009; Adams et al.
+  collar tests in the literature (median 6-17 m; Belant 2009; Adams et al.
   2013).
 - **Collar life.** The collar reports for ``duration`` after death, then
   stops. Provisional: 7 days; observed stationary tails of dead vultures

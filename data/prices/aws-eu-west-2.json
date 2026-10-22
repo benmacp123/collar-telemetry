@@ -1,0 +1,139 @@
+{
+  "region": "eu-west-2",
+  "currency": "USD",
+  "retrieved": "2026-10-22",
+  "prices": {
+    "lambda_request": {
+      "service": "AWSLambda",
+      "sku": "NDYBVXT3KB548Z2A",
+      "usage_type": "EUW2-Request",
+      "unit": "Request",
+      "usd": 2e-07,
+      "description": "AWS Lambda - Total Requests - EU (London)",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSLambda/20261016182359/eu-west-2/index.json",
+      "published": "2026-10-16T18:23:59Z"
+    },
+    "lambda_gb_second": {
+      "service": "AWSLambda",
+      "sku": "RP9RSZYUC96SQ4G2",
+      "usage_type": "EUW2-Lambda-GB-Second",
+      "unit": "Lambda-GB-Second",
+      "usd": 1.66667e-05,
+      "description": "AWS Lambda - Total Compute - EU (London)-Tier-1",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSLambda/20261016182359/eu-west-2/index.json",
+      "published": "2026-10-16T18:23:59Z"
+    },
+    "sqs_fifo_request": {
+      "service": "AWSQueueService",
+      "sku": "7JDCXCCHVYH99G79",
+      "usage_type": "EUW2-Requests-FIFO-Tier1",
+      "unit": "Requests",
+      "usd": 5e-07,
+      "description": "$0.50 per million Amazon SQS FIFO requests in Tier1 in EU (London)",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSQueueService/20260911124607/eu-west-2/index.json",
+      "published": "2026-09-11T12:46:07Z"
+    },
+    "dynamodb_write_request_unit": {
+      "service": "AmazonDynamoDB",
+      "sku": "6PCERDN3NMDKW474",
+      "usage_type": "EUW2-WriteRequestUnits",
+      "unit": "WriteRequestUnits",
+      "usd": 7.423e-07,
+      "description": "$0.7423 per million write request units Europe West 2",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonDynamoDB/20260911124422/eu-west-2/index.json",
+      "published": "2026-09-11T12:44:22Z"
+    },
+    "dynamodb_read_request_unit": {
+      "service": "AmazonDynamoDB",
+      "sku": "C3KVQJC3P2UZ6DKW",
+      "usage_type": "EUW2-ReadRequestUnits",
+      "unit": "ReadRequestUnits",
+      "usd": 1.487e-07,
+      "description": "$0.1487 per million read request units Europe West 2",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonDynamoDB/20260911124422/eu-west-2/index.json",
+      "published": "2026-09-11T12:44:22Z"
+    },
+    "dynamodb_storage_gb_month": {
+      "service": "AmazonDynamoDB",
+      "sku": "8BMKSHZNW5CVQKKZ",
+      "usage_type": "EUW2-TimedStorage-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": 0.29715,
+      "description": "$0.29715 per GB-Month of storage used beyond first 25 free GB-Months",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonDynamoDB/20260911124422/eu-west-2/index.json",
+      "published": "2026-09-11T12:44:22Z"
+    },
+    "sns_request": {
+      "service": "AmazonSNS",
+      "sku": "P727SHX3Q2TGG46A",
+      "usage_type": "EUW2-Requests-Tier1",
+      "unit": "Requests",
+      "usd": 5e-07,
+      "description": "$0.50 per 1,000,000 Amazon SNS API Requests per month thereafter",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSNS/20260915151944/eu-west-2/index.json",
+      "published": "2026-09-15T15:19:44Z"
+    },
+    "sns_email": {
+      "service": "AmazonSNS",
+      "sku": "BBXDQTDDJAKQZVUY",
+      "usage_type": "EUW2-DeliveryAttempts-SMTP",
+      "unit": "Notifications",
+      "usd": 2e-05,
+      "description": "$2.00 per 100,000 Amazon SNS Email/Email-JSON Notifications thereafter",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSNS/20260915151944/eu-west-2/index.json",
+      "published": "2026-09-15T15:19:44Z"
+    },
+    "logs_ingested_gb": {
+      "service": "AmazonCloudWatch",
+      "sku": "S9T455EP2J2BR9R9",
+      "usage_type": "EUW2-DataProcessing-Bytes",
+      "unit": "GB",
+      "usd": 0.5985,
+      "description": "$0.5985 per GB custom log data ingested in Standard log class - EU (London)",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/20261007115540/eu-west-2/index.json",
+      "published": "2026-10-07T11:55:40Z"
+    },
+    "logs_stored_gb_month": {
+      "service": "AmazonCloudWatch",
+      "sku": "7YQ22RBNQBPK86VK",
+      "usage_type": "EUW2-TimedStorage-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": 0.0315,
+      "description": "$0.0315 per GB-mo of log storage -  EU (London)",
+      "offer": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/20261007115540/eu-west-2/index.json",
+      "published": "2026-10-07T11:55:40Z"
+    }
+  },
+  "free_tier": {
+    "dynamodb_storage_gb_month": {
+      "free_per_month": 25,
+      "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonDynamoDB/20260911124422/eu-west-2/index.json"
+    },
+    "lambda_gb_second": {
+      "free_per_month": 400000,
+      "source": "https://aws.amazon.com/lambda/pricing/"
+    },
+    "lambda_request": {
+      "free_per_month": 1000000,
+      "source": "https://aws.amazon.com/lambda/pricing/"
+    },
+    "logs_ingested_gb": {
+      "free_per_month": 5,
+      "source": "https://aws.amazon.com/cloudwatch/pricing/",
+      "note": "5 GB shared by ingestion, storage and Logs Insights scans"
+    },
+    "sns_email": {
+      "free_per_month": 1000,
+      "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSNS/20260915151944/eu-west-2/index.json"
+    },
+    "sns_request": {
+      "free_per_month": 1000000,
+      "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSNS/20260915151944/eu-west-2/index.json"
+    },
+    "sqs_fifo_request": {
+      "free_per_month": 1000000,
+      "source": "https://aws.amazon.com/sqs/pricing/",
+      "note": "shared by standard and FIFO requests"
+    }
+  }
+}

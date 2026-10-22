@@ -17,12 +17,17 @@ References:
     Gravett N et al. (2017) PLoS ONE 12:e0171903.
         https://doi.org/10.1371/journal.pone.0171903
     Hirt MR, Jetz W, Rall BC, Brose U (2017) Nat. Ecol. Evol. 1:1116-1122,
-        Supplementary Tables 4 and database.
+        Supplementary Table 4 and maximum speed database.
         https://doi.org/10.1038/s41559-017-0241-4
     Hutchinson JR et al. (2003) Nature 422:493-494.
         https://doi.org/10.1038/422493a
     Iriarte-Diaz J (2002) J. Exp. Biol. 205:2897-2908.
     Kaunda SKK (2001) Afr. Zool. 36:143-152.
+    Thaker M et al. (2019) Front. Ecol. Evol. 7:4.
+        https://doi.org/10.3389/fevo.2019.00004
+
+How far each source was checked (full text, abstract or a secondary
+listing) is recorded in ``docs/ASSUMPTIONS.md``.
 """
 
 from dataclasses import dataclass, field
@@ -73,15 +78,18 @@ class SpeciesProfile:
 # Vultures (Cathartidae). Speed, observed: tag-recorded ground speed on the
 # tuning set has a 99.9th percentile of 18-19 m/s and a maximum of 23 m/s
 # (turkey vulture; one black vulture reading of 65 m/s is a GPS error).
-# Literature: Hirt et al. (2017) list the California condor, a related New
-# World vulture, at 90 km/h (25 m/s); their flying model predicts 36 m/s for
-# a 2 kg bird but is fitted mostly on flapping fliers. 30 m/s sits above
-# everything observed. Mortality window, observed: chosen on the tuning-set
+# Supporting only: Hirt et al. (2017) list the California condor, a related
+# New World vulture, at 90 km/h (25 m/s), sourced from a website; their
+# flying model predicts 36 m/s for a 2 kg bird but includes raptor stoop
+# speeds. 30 m/s sits above everything observed, and the speed filter's
+# 2 x 30 m GPS allowance keeps jitter on 1-3 min tags far below it.
+# Mortality window, observed: chosen on the tuning-set
 # sweep (results/sweep/SWEEP.md). 36 h cuts false mortality alerts by 38% against
 # 24 h with no loss of carcass deaths flagged by the reference mark; 48 h
 # cuts more but flags one death after the mark under satellite uploads.
 # Movement floor, provisional: vultures cover tens of kilometres a day on
-# the wing, so 10 km in 3 h.
+# the wing, so 10 km in 3 h. On the tuning set each bird's own threshold
+# is above it for 32 of 34 birds, so it is a backstop.
 _VULTURE_MORTALITY = MortalityConfig(window=timedelta(hours=36))
 _VULTURE_MOVEMENT = MovementConfig(min_displacement_m=10_000.0)
 
@@ -91,25 +99,27 @@ PROFILES: dict[str, SpeciesProfile] = {
         SpeciesProfile("Cathartes aura", 30.0, _VULTURE_MORTALITY, _VULTURE_MOVEMENT),
         SpeciesProfile("Coragyps atratus", 30.0, _VULTURE_MORTALITY, _VULTURE_MOVEMENT),
         # Black-backed jackal. Speed, literature: 58-60 km/h (16.2-16.7
-        # m/s; Christiansen 2002, Iriarte-Diaz 2002, via Hirt et al. 2017),
-        # rounded up to 17 m/s. Mortality window, provisional: jackals lie
-        # up through the day, and this study's deaths show at most ~10 h
-        # stationary before the track stops, so the default 24 h. Movement
-        # floor, literature-informed: hourly moves of up to 3 km and a mean
-        # of 14.6 km a day (Kaunda 2001, VHF in Botswana), so 3 km in 3 h.
+        # m/s; Christiansen 2002, Iriarte-Diaz 2002, as listed by Hirt et
+        # al. 2017), rounded up to 17 m/s. Mortality window, provisional:
+        # jackals lie up through the day and no published lie-up durations
+        # were found, so the default 24 h. Movement floor, provisional: a
+        # mean of 14.6 km a day (Kaunda 2001, VHF in Botswana), so 3 km in
+        # 3 h is about 1.7 times the mean rate.
         SpeciesProfile(
             "Canis mesomelas",
             17.0,
             MortalityConfig(window=timedelta(hours=24)),
             MovementConfig(min_displacement_m=3_000.0),
         ),
-        # African savanna elephant. Speed, literature: 34-40 km/h listed for
-        # Loxodonta africana (Garland 1983, via Hirt et al. 2017); the
-        # fastest measured elephant gait is 6.8 m/s (Hutchinson et al.
-        # 2003), so 11 m/s is a safe ceiling. Mortality window, provisional
-        # with literature support: wild elephants sleep about 2 h a day,
-        # mostly 02:00-06:00 (Gravett et al. 2017), and rarely stay within
-        # 100 m for long, so 12 h. Movement floor, provisional: 3 km in 3 h.
+        # African savanna elephant. Speed, literature: 35 km/h (Garland
+        # 1983, as listed by Hirt et al. 2017); the fastest gait measured,
+        # on Asian elephants, is about 6.7 m/s (Hutchinson et al. 2003), so
+        # 11 m/s is a safe ceiling. Mortality window, provisional with
+        # literature support: wild elephants sleep about 2 h a day, mostly
+        # 02:00-06:00 (Gravett et al. 2017), and this population's stays at
+        # water average 2.6-3.5 h (Thaker et al. 2019), so 12 h. Movement
+        # floor, provisional: 3 km in 3 h is about 2.5 times this
+        # population's mean speed of 0.4 km/h (Thaker et al. 2019).
         SpeciesProfile(
             "Loxodonta africana",
             11.0,

@@ -43,7 +43,7 @@ class GeofenceConfig:
     Attributes:
         buffer_m: Half-width of the edge band, in metres; fixes this close
             to the boundary change nothing. Several times the typical GPS
-            error of 10-30 m.
+            error of 6-30 m.
         confirm_fixes: Fixes in a row beyond the band needed to open or
             resolve an incident.
     """

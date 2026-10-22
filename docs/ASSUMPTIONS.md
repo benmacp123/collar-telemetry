@@ -21,23 +21,32 @@ minutes or hours, which leaves a wide margin for real movement.
 
 | Taxon | Limit | Basis | Label |
 |---|---|---|---|
-| Turkey vulture, black vulture | 30 m/s | Tag-recorded ground speed on the tuning set: 99.9th percentile 18-19 m/s, maximum 23 m/s (one black vulture reading of 65 m/s treated as a GPS error). California condor listed at 90 km/h (25 m/s) [4]. | Observed, literature |
-| Black-backed jackal | 17 m/s | 58-60 km/h (16.2-16.7 m/s) [1, 6], compiled in [4]. | Literature |
-| African savanna elephant | 11 m/s | 34-40 km/h listed [2, 4]; fastest measured elephant gait 6.8 m/s [5]. | Literature |
+| Turkey vulture, black vulture | 30 m/s | Tag-recorded ground speed on the tuning set: 99.9th percentile 18-19 m/s, maximum 23 m/s (one black vulture reading of 65 m/s treated as a GPS error). California condor listed at 90 km/h (25 m/s) in [4], whose source for it is a website (speedofanimals.com), so it is supporting only. | Observed |
+| Black-backed jackal | 17 m/s | 59.98 km/h from [1] and 58.29 km/h from [6] (16.2-16.7 m/s), as listed in [4]'s speed database; the primary papers were not read. | Literature (secondary) |
+| African savanna elephant | 11 m/s | 35 km/h from [2], as listed in [4] (which also lists 34 and 40 km/h from other sources); the fastest gait measured, on 42 Asian elephants, was about 15 mph (6.7 m/s) [5]. | Literature (secondary) |
 
-The allometric model of Hirt et al. [4] predicts 36 m/s for a 2 kg flier,
-12 m/s for a 7.8 kg runner and 9.6 m/s for a 2,800 kg runner. The species
-entries are preferred because the flying model is fitted mostly on
-flapping fliers, and vultures mostly soar.
+The speed filter subtracts twice `gps_error_m` (30 m) from each step
+before comparing it with the limit, so on the 1-3 min tags GPS jitter
+cannot trip it: at a 1-minute interval a fix would need to be about 900 m
+off. Short intervals do bring implied speeds closer to instantaneous ones,
+which is why the vulture limit is set against the tuning set's
+instantaneous tag speeds (maximum 23 m/s) rather than hourly averages.
+
+The allometric model of Hirt et al. [4] (Supplementary Table 4) predicts
+36 m/s for a 2 kg flier, 12 m/s for a 7.8 kg runner and 9.6 m/s for a
+2,800 kg runner. The species entries are preferred for vultures because
+the flying model is fitted on 55 data points (29 birds), several of them
+raptor stoop speeds (red-tailed hawk 195 km/h), and vultures soar rather
+than stoop.
 
 ## Mortality detector
 
 | Setting | Value | Basis | Label |
 |---|---|---|---|
-| Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 6-20 m [3, 7]. Dead vultures on the tuning set scatter around their final position with a median of 16 m and a 95th percentile of 59 m. Tuning-set sweep: 150 m and 200 m add false alarms (1.26 and 1.47 against 0.95 per animal-month at 24 h) and flag no extra carcass deaths. | Observed (sweep); splits some deaths into several incidents (see below) |
+| Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 5.8 m (open area, [3]) and 16.9 m (open sky, [7]), and about 30 m on average under suburban cover [7]. Dead vultures on the tuning set scatter around their final position with a median of 16 m and a 95th percentile of 59 m. Tuning-set sweep: 150 m and 200 m add false alarms (1.26 and 1.47 against 0.95 per animal-month at 24 h) and flag no extra carcass deaths. | Observed (sweep); splits some deaths into several incidents (see below) |
 | Window, vultures | 36 h | Must outlast the 12-14 h overnight roost. Tuning-set sweep (`results/sweep/SWEEP.md`): false alarms 0.95 / 0.59 / 0.23 / 0.10 per animal-month at 24 / 36 / 48 / 72 h. Carcass deaths flagged by the 92.5 h mark: 4 of 6 up to 36 h; at 48 h one is flagged after the mark under satellite uploads. | Observed (sweep, 6 carcass deaths) |
-| Window, jackal | 24 h | Jackals lie up through the day. This study's deaths show at most about 10 h stationary before the track stops. | Provisional |
-| Window, elephant | 12 h | Wild elephants sleep about 2 h a day, mostly 02:00-06:00 [8], and rarely stay within 100 m for long. Collar makers' own mortality triggers default to 4-8 h of inactivity [9]. | Provisional, literature-informed |
+| Window, jackal | 24 h | Jackals lie up through the day and travel a mean of 14.6 km a day [10]. No published lie-up durations for black-backed jackals were found. This study's deaths show at most about 10 h stationary before the track stops (seen while labelling, not used to choose the value). Not checked: whether jackals feeding at large carcasses (the Etosha study's subject) stay within 100 m for a day. | Provisional |
+| Window, elephant | 12 h | Wild elephants sleep about 2 h a day, mostly 02:00-06:00, with no single bout over 142 min [8]. On this Kruger population, continuous stays at water average 2.6 h (wet season) and 3.5 h (dry, s.d. 4.1 h), measured within 200 m of water [12], so a long dry-season stay at water is the most likely false alarm. Collar makers' activity-sensor mortality timers default to 4-24 h [9]; those measure collar motion, not position. | Provisional, literature-informed |
 | Reopen window | 48 h | A reopen cannot come sooner than the detector window after a resolve, so it must exceed the longest window (36 h) with slack. | Provisional |
 
 **Finding: the 100 m box splits one death into several incidents.** On
@@ -55,15 +64,15 @@ stops an animal that barely moves from alerting on a short walk.
 
 | Taxon | Floor (3 h span) | Basis | Label |
 |---|---|---|---|
-| Vultures | 10 km | Cover tens of kilometres a day on the wing. | Provisional |
-| Black-backed jackal | 3 km | Hourly moves of up to 3 km and a mean of 14.6 km a day (VHF, Botswana) [10]. | Literature-informed |
-| African savanna elephant | 3 km | | Provisional |
+| Vultures | 10 km | Cover tens of kilometres a day on the wing. On the tuning set the bird's own threshold (2 x its 99th percentile) is above 10 km for 32 of 34 birds (median 33 km), so the floor is a backstop; it binds for two black vultures (7.7 and 9.3 km). | Provisional, checked on the tuning set |
+| Black-backed jackal | 3 km | 3 km in 3 h is about 1.7 times the mean daily rate of 14.6 km a day (VHF, Botswana) [10]. | Provisional, literature-informed |
+| African savanna elephant | 3 km | 3 km in 3 h is about 2.5 times the mean speed of this Kruger population (0.4 km/h, 30-min fixes) and twice the fastest water-to-water segment average (1.5 km/h) [12]. | Provisional, literature-informed |
 
 ## Geofence detector
 
 | Setting | Value | Basis | Label |
 |---|---|---|---|
-| Edge band | 100 m either side of the boundary | Several times typical GPS error (10-30 m, stationary collar tests [3, 7]); fixes in the band change nothing, so jitter along a fence line does not alert. | Provisional |
+| Edge band | 100 m either side of the boundary | Several times typical GPS error (6-30 m, stationary collar tests [3, 7]); fixes in the band change nothing, so jitter along a fence line does not alert. | Provisional |
 | Fixes to confirm | 2 in a row beyond the band, to open or to resolve | One stray fix should not raise or clear an alert. | Provisional |
 | Boundaries | OpenStreetMap relations for Etosha (2982497) and Kruger (1752987) | Redistributable (ODbL), unlike WDPA. Kruger's relation excludes the unfenced private reserves to its west, so crossings there alert. | Observed (source choice) |
 | Projection | Local equirectangular plane centred on each park | Accurate to a few per cent over a park; tested to within 10 m at 5 km. | - |
@@ -81,7 +90,7 @@ such event is labelled synthetic in results.
 | Setting | Value | Basis | Label |
 |---|---|---|---|
 | Schedule | The real collar's own timestamps | Keeps duty cycles and fix intervals realistic. | - |
-| Fix success | 0.7 | A collar on a carcass is often tilted or under the body. Tilt cuts fix success sharply: 20-fold from 60° to 30° antenna angle in one habitat [3], and performance falls below 90° from vertical [11]. | Provisional |
+| Fix success | 0.7 | A collar on a carcass is often tilted or under the body. Tilt cuts fix success sharply: 20-fold from 60° to 30° antenna angle in alder [3], and performance is significantly lower at angles below 90° from vertical [11]. | Provisional |
 | Scatter | Lognormal, median 16 m, 95th percentile 59 m, uniform direction | Dead vultures on the tuning set (5 deployments, 337 fixes); consistent with [3, 7]. | Observed |
 | Collar life after death | 7 days | Dead vultures whose collars keep reporting do so for 53-337 h. Most (12 of 17) stop within hours, which is the gap detector's case. | Provisional, observed range |
 | Death time | Random fix time, at least 7 days after the first fix and 7 days before the last (seeded) | Gives the detectors a baseline and covers the carcass period. | - |
@@ -112,37 +121,56 @@ match under the new rule.
 
 ## References
 
+Checked 2026-10-22. Each entry says how far it was checked: full text,
+abstract, a secondary listing, or not reachable. A figure taken from a
+source that could not be read in full says so in the tables above.
+
 1. Christiansen P (2002) Locomotion in terrestrial mammals: the influence
    of body mass, limb length and bone proportions on speed. *Zool. J. Linn.
-   Soc.* 136:685-714.
+   Soc.* 136:685-714. Not read; value as listed in [4].
 2. Garland T (1983) The relation between maximal running speed and body
-   mass in terrestrial mammals. *J. Zool.* 199:157-170.
+   mass in terrestrial mammals. *J. Zool.* 199:157-170. Not read; value
+   as listed in [4].
 3. Belant JL (2009) Effects of antenna orientation and vegetation on
    global positioning system telemetry collar performance. *Northeast.
-   Nat.* 16:577-584.
+   Nat.* 16:577-584. Results checked (publisher's page).
 4. Hirt MR, Jetz W, Rall BC, Brose U (2017) A general scaling law reveals
    why the largest animals are not the fastest. *Nat. Ecol. Evol.*
-   1:1116-1122, Supplementary Table 4 and species database.
+   1:1116-1122. Supplementary Information checked: Supplementary Table 4
+   (model fits) and the maximum speed database.
    <https://doi.org/10.1038/s41559-017-0241-4>
 5. Hutchinson JR, Famini D, Lair R, Kram R (2003) Are fast-moving elephants
    really running? *Nature* 422:493-494.
-   <https://doi.org/10.1038/422493a>
+   <https://doi.org/10.1038/422493a> Paper not reachable; speed and
+   sample from the University of Colorado press release (1 April 2003).
 6. Iriarte-Díaz J (2002) Differential scaling of locomotor performance in
    small and large terrestrial mammals. *J. Exp. Biol.* 205:2897-2908.
+   Abstract checked; value as listed in [4].
 7. Adams AL, Dickinson KJM, Robertson BC, van Heezik Y (2013) An evaluation
    of the accuracy and performance of lightweight GPS collars in a
    suburban environment. *PLoS ONE* 8:e68496.
-   <https://doi.org/10.1371/journal.pone.0068496>
+   <https://doi.org/10.1371/journal.pone.0068496> Full text checked.
 8. Gravett N et al. (2017) Inactivity/sleep in two wild free-roaming
    African elephant matriarchs: does large body size make elephants the
    shortest mammalian sleepers? *PLoS ONE* 12:e0171903.
-   <https://doi.org/10.1371/journal.pone.0171903>
-9. Lotek Wireless, LifeCycle Pro Series specification sheet (default
-   mortality delay 4 h); USDA Forest Service test of the Lotek GPS_2200
-   (default 8 h). Manufacturer figures.
+   <https://doi.org/10.1371/journal.pone.0171903> Full text checked.
+9. Collar makers' activity-sensor mortality delays, manufacturer figures:
+   Lotek LifeCycle Pro 330/500 product page, default 24 h (checked
+   2026-10-22); Lotek LifeCycle Pro Series specification sheet (May 2024),
+   default 4 h (no longer online; seen in a search listing only); USDA
+   Forest Service evaluation of the Lotek GPS_2200, default 8 h (page not
+   reachable; seen in a search listing only).
 10. Kaunda SKK (2001) Spatial utilization by black-backed jackals in
     southeastern Botswana. *Afr. Zool.* 36:143-152.
+    <https://doi.org/10.1080/15627020.2001.11657132> Abstract checked.
 11. D'Eon RG, Delparte D (2005) Effects of radio-collar position and
     orientation on GPS radio-collar performance, and the implications of
     PDOP in data screening. *J. Appl. Ecol.* 42:383-388.
-    <https://doi.org/10.1111/j.1365-2664.2005.01010.x>
+    <https://doi.org/10.1111/j.1365-2664.2005.01010.x> Abstract checked.
+12. Thaker M, Gupte PR, Prins HHT, Slotow R, Vanak AT (2019) Fine-scale
+    tracking of ambient temperature and movement reveals shuttling
+    behavior of elephants to water. *Front. Ecol. Evol.* 7:4.
+    <https://doi.org/10.3389/fevo.2019.00004> Full text checked. The
+    paper behind this project's elephant data, so its figures describe
+    the same animals; they are published values, not this project's
+    results.
