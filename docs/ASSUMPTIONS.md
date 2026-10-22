@@ -43,23 +43,31 @@ than stoop.
 
 | Setting | Value | Basis | Label |
 |---|---|---|---|
-| Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 5.8 m (open area, [3]) and 16.9 m (open sky, [7]), and about 30 m on average under suburban cover [7]. Dead vultures on the tuning set scatter around their final position with a median of 15.9 m and a 95th percentile of 36.5 m, leaving out repeated positions (`make carcass`). Tuning-set sweep: 150 m and 200 m add false alarms (1.26 and 1.47 against 0.95 per animal-month at 24 h) and flag no extra carcass deaths. | Observed (sweep); splits some deaths into several incidents (see below) |
+| Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 5.8 m (open area, [3]) and 16.9 m (open sky, [7]), and about 30 m on average under suburban cover [7]. Dead vultures on the tuning set scatter around their final position with a median of 15.9 m and a 95th percentile of 36.5 m, leaving out repeated positions (`make carcass`). Tuning-set sweep: 150 m and 200 m add false alarms (1.26 and 1.47 against 0.95 per animal-month at 24 h) and flag no extra carcass deaths. | Observed (sweep) |
 | Window, vultures | 36 h | Must outlast the 12-14 h overnight roost. Tuning-set sweep (`results/sweep/SWEEP.md`): false alarms 0.95 / 0.59 / 0.23 / 0.10 per animal-month at 24 / 36 / 48 / 72 h. Carcass deaths flagged by the 92.5 h mark: 4 of 6 up to 36 h; at 48 h one is flagged after the mark under satellite uploads. | Observed (sweep, 6 carcass deaths) |
 | Window, jackal | 24 h | Jackals lie up through the day and travel a mean of 14.6 km a day [10]. No published lie-up durations for black-backed jackals were found. This study's deaths show at most about 10 h stationary before the track stops (seen while labelling, not used to choose the value). Not checked: whether jackals feeding at large carcasses (the Etosha study's subject) stay within 100 m for a day. | Provisional |
 | Window, elephant | 12 h | Wild elephants sleep about 2 h a day, mostly 02:00-06:00, with no single bout over 142 min [8]. On this Kruger population, continuous stays at water average 2.6 h (wet season) and 3.5 h (dry, s.d. 4.1 h), measured within 200 m of water [12], so a long dry-season stay at water is the most likely false alarm. Collar makers' activity-sensor mortality timers default to 4-24 h [9]; those measure collar motion, not position. | Provisional, literature-informed |
-| Reopen window | 48 h | A reopen cannot come sooner than the detector window after a resolve, so it must exceed the longest window (36 h) with slack. | Provisional |
+| Leaving radius, once alerted (all taxa) | 75 m from the cluster's centre at the alert | The growing box lets scattered carcass fixes read as "moving again" (see below). Smallest radius with no flaps on the tuning-seed synthetic deaths of either mammal (50 m leaves 1 and 3); applies only after an alert, so it changes no open or detection. Twice the carcass scatter's 95th percentile (36.5 m). Cost on the vulture tuning set: false alerts stay open a median 8 h (7 h with the box) and a 90th percentile 89 h (75 h). Chosen by the owner, 2026-10-22. | Observed (tuning data, `make departure`) |
+| Leave fixes | 2 in a row | Three cut flaps less than the radius and add false alerts (0.86 against 0.59 per animal-month on the vulture tuning set), and lose one carcass death by the mark under satellite uploads. | Observed (tuning data, `make departure`) |
+| Reopen window | 48 h | A reopen cannot come sooner than the detector window after a resolve, so it must exceed the longest window (36 h) with slack. 72 h and 96 h change no death outcome with the box and keep merged false alerts open longer. | Provisional; checked on tuning data |
 
-**Finding: the 100 m box splits one death into several incidents.** On
-synthetic carcasses using the earlier scatter (median 16 m, 95th
-percentile 59 m, which did not reproduce; see Synthetic mortality events)
-and one fix rate for every carcass, 15% of deaths (hourly
-fixes) and 42% (30-minute fixes) became more than one incident. Each death
-also produced 1.4-2.0 false "moving again" messages, because two stray
-fixes in a row break the box. A 150 m box cut that to 0-3%, and 200 m to
-0%. A larger box also makes a resting animal look dead sooner, so the box
-size is chosen with that trade-off on the tuning set, not here. To be
-redone with the current synthetic model, whose tighter scatter should
-split fewer deaths (follow-up 4).
+**Finding: the growing box makes carcasses "move again".** The box
+stretches with every fix, so a carcass reporting hundreds of scattered
+fixes sooner or later puts two in a row past its far edge, and the alert
+resolves as "moving again" while the animal is still dead. Measured with
+`make departure` on tuning data only: the vulture tuning set and mammal
+variants drawn with seed 2027, not the reported variants' seed 2026.
+With the box alone, 10 of 22 jackal and 11 of 14 elephant deaths in the
+reporting regime flapped (16 and 23 flaps in all). The 48 h reopen window
+merged every flap, so no death split into two incidents, but the operator
+saw each one as a resolve and a reopen (no second email, since the
+notifier sends once per incident). A 150 m box cut flaps to 1 each but added
+about a third more false alerts on living vultures; the 75 m leaving radius cut
+them to 0 with no new false alert. The one vulture carcass that flaps
+under every setting (PMH_BLVU_68354) really moved: it lay still from
+14 May 2011, shifted 247 m on 20 May and died there, and the reopen joins
+the two stays. An earlier measurement (15-42% of deaths split, from a
+scatter of 16 / 59 m that did not reproduce) is superseded.
 
 ## Unusual-movement detector
 

@@ -67,11 +67,24 @@ class Overrides:
             (``max_extent_m``); None keeps it.
         upload_margin: Silence allowed beyond the upload interval before a
             gap alert.
+        mortality_leave_fixes: Replaces the fixes outside the cluster that
+            confirm a move; None keeps it.
+        mortality_leave_radius_m: Replaces the mortality detector's
+            radius from the alert's centre once alerted; None keeps it.
+        mortality_merge: Replaces the mortality and ``likely_death`` merge
+            window, whatever the window; None keeps the default (or the
+            one following ``mortality_window``).
+        mortality_box_only: Drops the leaving radius, so the box decides
+            after the alert too, as before the radius was added.
     """
 
     mortality_window: timedelta | None = None
     mortality_box_m: float | None = None
     upload_margin: timedelta = UPLOAD_MARGIN
+    mortality_leave_fixes: int | None = None
+    mortality_leave_radius_m: float | None = None
+    mortality_merge: timedelta | None = None
+    mortality_box_only: bool = False
 
     def profile(self, profile: SpeciesProfile) -> SpeciesProfile:
         """A species profile with these overrides applied.
@@ -80,7 +93,7 @@ class Overrides:
             profile: The species' own settings.
 
         Returns:
-            SpeciesProfile: The profile, with the mortality window and box
+            SpeciesProfile: The profile, with the mortality settings
             replaced where set.
         """
         mortality = profile.mortality
@@ -88,6 +101,12 @@ class Overrides:
             mortality = replace(mortality, window=self.mortality_window)
         if self.mortality_box_m is not None:
             mortality = replace(mortality, max_extent_m=self.mortality_box_m)
+        if self.mortality_leave_fixes is not None:
+            mortality = replace(mortality, leave_fixes=self.mortality_leave_fixes)
+        if self.mortality_leave_radius_m is not None:
+            mortality = replace(mortality, leave_radius_m=self.mortality_leave_radius_m)
+        if self.mortality_box_only:
+            mortality = replace(mortality, leave_radius_m=None)
         return replace(profile, mortality=mortality)
 
     def lifecycle(self) -> AlertLifecycle:
@@ -95,33 +114,38 @@ class Overrides:
 
         Returns:
             AlertLifecycle: Default merge windows, or a mortality merge
-            window following an overridden mortality window.
+            window that is overridden or follows an overridden window.
         """
-        if self.mortality_window is None:
+        merge = self.mortality_merge
+        if merge is None and self.mortality_window is not None:
+            merge = self.mortality_window + MERGE_SLACK
+        if merge is None:
             return AlertLifecycle()
-        return AlertLifecycle(
-            LifecycleConfig(
-                {
-                    MORTALITY: self.mortality_window + MERGE_SLACK,
-                    LIKELY_DEATH: self.mortality_window + MERGE_SLACK,
-                }
-            )
-        )
+        return AlertLifecycle(LifecycleConfig({MORTALITY: merge, LIKELY_DEATH: merge}))
 
     def to_dict(self) -> dict:
         """JSON-ready form, in hours and metres.
 
         Returns:
-            dict: The three settings; None where a default is kept.
+            dict: Every setting; None where a default is kept.
         """
+        hours = timedelta(hours=1)
         return {
             "mortality_window_hours": (
-                self.mortality_window / timedelta(hours=1)
+                self.mortality_window / hours
                 if self.mortality_window is not None
                 else None
             ),
             "mortality_box_m": self.mortality_box_m,
-            "upload_margin_hours": self.upload_margin / timedelta(hours=1),
+            "upload_margin_hours": self.upload_margin / hours,
+            "mortality_leave_fixes": self.mortality_leave_fixes,
+            "mortality_leave_radius_m": self.mortality_leave_radius_m,
+            "mortality_merge_hours": (
+                self.mortality_merge / hours
+                if self.mortality_merge is not None
+                else None
+            ),
+            "mortality_box_only": self.mortality_box_only,
         }
 
 

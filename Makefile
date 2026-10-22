@@ -3,7 +3,7 @@
 # `make help` lists them.
 
 .PHONY: help install setup test lint format format-check profile replay \
-	evaluate results sweep cloud-sizing cloud-moto lambda-requirements \
+	evaluate results sweep departure cloud-sizing cloud-moto lambda-requirements \
 	lambda-image cloud-local lambda-zip lock tf-check tf-fmt tf-plan \
 	tf-apply tf-output tf-destroy cloud-aws cloud-leftovers prices cloud-usage cloud-cost all
 
@@ -58,6 +58,9 @@ sweep: ## Threshold sweep on the vulture tuning set -> results/sweep/
 
 carcass: ## Measure collars on vulture carcasses -> results/carcass/
 	PYTHONPATH=src python scripts/carcass_profile.py
+
+departure: ## Compare mortality leave tests on tuning data -> results/departure/
+	PYTHONPATH=src python scripts/departure.py
 
 cloud-sizing: ## Run the cloud slicing locally, check it -> results/cloud/
 	PYTHONPATH=src python scripts/cloud_sizing.py

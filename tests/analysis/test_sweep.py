@@ -48,6 +48,29 @@ def test_overrides_replace_window_box_and_merge():
     assert merge == 48 * HOUR + MERGE_SLACK
 
 
+def test_overrides_replace_leave_settings_and_merge():
+    """Leave fixes, leave radius and merge window are set independently."""
+    overrides = Overrides(
+        mortality_leave_fixes=3,
+        mortality_leave_radius_m=75.0,
+        mortality_merge=96 * HOUR,
+    )
+    mortality = overrides.profile(profile_for(JACKAL)).mortality
+    assert (mortality.leave_fixes, mortality.leave_radius_m) == (3, 75.0)
+    merge = overrides.lifecycle().config.merge_within
+    assert merge["mortality"] == merge["likely_death"] == 96 * HOUR
+    assert overrides.to_dict()["mortality_merge_hours"] == 96.0
+
+
+def test_box_only_drops_the_leaving_radius():
+    """The box-only override restores the detector as it was before the radius."""
+    assert profile_for(JACKAL).mortality.leave_radius_m == 75.0
+    mortality = (
+        Overrides(mortality_box_only=True).profile(profile_for(JACKAL)).mortality
+    )
+    assert mortality.leave_radius_m is None
+
+
 def test_grid_sweeps_each_detector_on_its_own():
     """Twelve mortality settings and five gap margins."""
     points = grid()

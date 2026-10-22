@@ -16,6 +16,14 @@ per deployment: the bounding box of the fixes since the animal last moved.
   holds at least ``min_fixes`` fixes, so two fixes a day apart are not
   enough evidence. When the animal moves, the alert resolves (reason
   ``moved``) at the fix that confirms the move, and the detector re-arms.
+- Once alerted, a fix **leaves** only if it is more than
+  ``leave_radius_m`` from the cluster's centre as it was at the alert.
+  The box test alone grows with every fix: a carcass reporting hundreds
+  of scattered fixes eventually puts two in a row past its far edge and
+  resolves as "moving again" while still dead. A fixed centre and radius
+  does not grow, and leaves detection untouched, since it applies only
+  after the alert. 75 m was chosen on tuning data
+  (``results/departure/DEPARTURE.md``).
 
 Roosting, resting and denning look the same as death for a while, so
 ``window`` must be longer than the species' longest normal rest (12-14 h
@@ -36,8 +44,8 @@ from telemetry.core.alerts import RESOLVED, Alert
 
 @dataclass(frozen=True)
 class MortalityConfig:
-    """Mortality detector settings. Defaults are provisional, not yet
-    chosen on the tuning set.
+    """Mortality detector settings. The box and leaving radius were
+    chosen on tuning data; species profiles set the window.
 
     Attributes:
         max_extent_m: Largest corner-to-corner size, in metres, of a
@@ -47,12 +55,16 @@ class MortalityConfig:
         min_fixes: Fewest fixes a cluster needs before it can alert.
         leave_fixes: Consecutive fixes outside the cluster that mean the
             animal has moved; fewer are treated as GPS outliers.
+        leave_radius_m: Once alerted, how far, in metres, a fix must be
+            from the cluster's centre at the alert to count as outside;
+            None keeps the box test after the alert too.
     """
 
     max_extent_m: float = 100.0
     window: timedelta = timedelta(hours=24)
     min_fixes: int = 6
     leave_fixes: int = 2
+    leave_radius_m: float | None = 75.0
 
 
 def new_cluster(fixes: list[Fix]) -> dict:
@@ -159,7 +171,7 @@ class MortalityDetector:
 
         cluster = state["cluster"]
         resolved = []
-        if extent_with(cluster, fix) <= self.config.max_extent_m:
+        if self._fits(state, fix):
             # Back inside: any pending fixes were outliers, not a departure.
             state["pending"] = []
             add_fix(cluster, fix)
@@ -177,8 +189,26 @@ class MortalityDetector:
             if extent(cluster) > self.config.max_extent_m:
                 cluster = new_cluster(pending[-1:])
             state.update(cluster=cluster, pending=[], open=False)
+            state.pop("anchor", None)
 
         return resolved + self._check(state, deployment_id, cluster)
+
+    def _fits(self, state: dict, fix: Fix) -> bool:
+        """Whether ``fix`` stays with the current cluster.
+
+        Args:
+            state: This detector's state for the deployment.
+            fix: The candidate fix.
+
+        Returns:
+            bool: True if it is within ``leave_radius_m`` of the alert's
+            centre (once alerted, when set), else if the stretched box is
+            within ``max_extent_m``.
+        """
+        if "anchor" in state:
+            lat, lon = state["anchor"]
+            return haversine_m(lat, lon, fix.lat, fix.lon) <= self.config.leave_radius_m
+        return extent_with(state["cluster"], fix) <= self.config.max_extent_m
 
     def on_tick(self, state: dict, deployment_id: str, now: datetime) -> list[Alert]:
         """Do nothing: only fixes show whether a tag is moving.
@@ -239,6 +269,8 @@ class MortalityDetector:
         state["open"] = True
         lat = cluster["sum_lat"] / cluster["n"]
         lon = cluster["sum_lon"] / cluster["n"]
+        if self.config.leave_radius_m is not None:
+            state["anchor"] = [lat, lon]
         message = (
             f"Possible mortality or dropped tag: no movement beyond "
             f"{self.config.max_extent_m:.0f} m for "

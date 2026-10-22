@@ -156,6 +156,72 @@ def test_spread_out_departure_starts_from_the_last_fix():
     assert state["cluster"]["n"] == 1
 
 
+def scatter_after_alert():
+    """A still cluster that alerts, then fixes 55 m north and twice 55 m south.
+
+    The south pair stretches the box to about 110 m, past the 100 m
+    extent, though no fix is more than 55 m from where the tag lies.
+    """
+    offset = 0.0005  # about 55 m of latitude
+    return still(range(30), jitter=0.00005) + [
+        Fix("A", at(30), LAT + offset, LON),
+        Fix("A", at(31), LAT - offset, LON),
+        Fix("A", at(32), LAT - offset, LON),
+    ]
+
+
+def test_box_alone_resolves_a_scattered_carcass():
+    """Without a radius, two fixes past the grown box read as a move."""
+    detector = MortalityDetector(MortalityConfig(leave_radius_m=None))
+    alerts = feed(detector, {}, scatter_after_alert())
+    assert [(a.status, a.time) for a in alerts] == [
+        ("open", at(24)),
+        ("resolved", at(32)),
+    ]
+
+
+def test_leave_radius_keeps_a_scattered_carcass_alerted():
+    """With a 60 m radius from the alert's centre, the scatter stays put."""
+    detector = MortalityDetector(MortalityConfig(leave_radius_m=60.0))
+    alerts = feed(detector, {}, scatter_after_alert())
+    assert [(a.status, a.time) for a in alerts] == [("open", at(24))]
+
+
+def test_leave_radius_still_resolves_a_real_move():
+    """A real departure resolves at the same fix as with the box test."""
+    detector, state = MortalityDetector(MortalityConfig(leave_radius_m=60.0)), {}
+    feed(detector, state, still(range(30)))
+    trip = feed(detector, state, moving(range(30, 35)))
+    assert [(a.status, a.time) for a in trip] == [("resolved", at(32))]
+    assert "anchor" not in state
+
+
+def test_leave_radius_centre_is_fixed_at_the_alert():
+    """The centre is fixed at the alert and later fixes do not move it."""
+    detector, state = MortalityDetector(MortalityConfig(leave_radius_m=60.0)), {}
+    fixes = still(range(40))
+    feed(detector, state, fixes[:24])
+    assert "anchor" not in state
+    alerts = feed(detector, state, fixes[24:25])
+    assert [a.time for a in alerts] == [at(24)]
+    centre = [state["cluster"]["sum_lat"] / 25, state["cluster"]["sum_lon"] / 25]
+    feed(detector, state, fixes[25:])
+    assert state["anchor"] == centre
+
+
+def test_box_only_state_has_no_anchor():
+    """Without a radius the state holds no centre, as before the radius."""
+    detector, state = MortalityDetector(MortalityConfig(leave_radius_m=None)), {}
+    feed(detector, state, still(range(30)))
+    assert state["open"] and "anchor" not in state
+
+
+def test_default_keeps_a_scattered_carcass_alerted():
+    """The default 75 m radius holds the scatter that breaks the box."""
+    alerts = feed(MortalityDetector(), {}, scatter_after_alert())
+    assert [a.status for a in alerts] == ["open"]
+
+
 def test_ticks_never_alert():
     """Only fixes show whether a tag moves; silence is the gap detector's job."""
     detector, state = MortalityDetector(), {}

@@ -79,6 +79,7 @@ SENSITIVITY_RADIUS_M = 200.0
 TAIL_FIXES = 5
 ANIMAL_MONTH = timedelta(days=30.4375)
 HOUR = timedelta(hours=1)
+VULTURE_TAXON = "Cathartes aura"
 
 # Shortest final stationary period that counts as a carcass, by taxon. These
 # are the mortality windows in force before the threshold sweep, frozen here
@@ -452,6 +453,23 @@ def reference_mark(truths: list[Truth]) -> float | None:
     """
     periods = [t.still_hours for t in truths if t.label == DEAD and t.carcass]
     return round(statistics.median(periods), 1) if periods else None
+
+
+def mammal_mark(vulture_mark: float, taxon: str) -> float:
+    """Reference deadline for a species with no observed carcass periods.
+
+    Carried from vultures: the species' carcass minimum plus the time the
+    vulture mark leaves after the vulture carcass minimum.
+
+    Args:
+        vulture_mark: The vulture reference mark, in hours.
+        taxon: The species.
+
+    Returns:
+        float: The mark, in hours.
+    """
+    vulture_min = CARCASS_MIN[VULTURE_TAXON] / HOUR
+    return round(CARCASS_MIN[taxon] / HOUR + vulture_mark - vulture_min, 1)
 
 
 def evaluate(

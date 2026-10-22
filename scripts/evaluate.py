@@ -24,13 +24,12 @@ from pathlib import Path
 
 from telemetry.sim.arrival import SCENARIOS
 from telemetry.analysis.evaluation import (
-    CARCASS_MIN,
-    HOUR,
     SCORING,
     TUNING,
     build_truth,
     evaluate,
     geofence_summary,
+    mammal_mark,
     read_incidents,
     read_labels,
     reference_mark,
@@ -46,7 +45,6 @@ RAW = ROOT / "data" / "raw"
 LABELS = ROOT / "data" / "labels.csv"
 RESULTS = ROOT / "results"
 EVALUATION = RESULTS / "evaluation"
-VULTURE_TAXON = "Cathartes aura"
 
 
 def parse_args() -> argparse.Namespace:
@@ -62,23 +60,6 @@ def parse_args() -> argparse.Namespace:
         help="also score the vulture scoring set (only once thresholds are frozen)",
     )
     return parser.parse_args()
-
-
-def mammal_mark(vulture_mark: float, taxon: str) -> float:
-    """Reference deadline for a species with no observed carcass periods.
-
-    Carried from vultures: the species' carcass minimum plus the time the
-    vulture mark leaves after the vulture carcass minimum.
-
-    Args:
-        vulture_mark: The vulture reference mark, in hours.
-        taxon: The species.
-
-    Returns:
-        float: The mark, in hours.
-    """
-    vulture_min = CARCASS_MIN[VULTURE_TAXON] / HOUR
-    return round(CARCASS_MIN[taxon] / HOUR + vulture_mark - vulture_min, 1)
 
 
 def score_variant(variant, overrides: dict[str, str], vulture_mark: float) -> dict:
