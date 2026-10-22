@@ -373,7 +373,5 @@ def test_score_synthetic_offset_is_positive_when_computed_start_is_later():
     result = score_synthetic(truths, [], 90.0, injected)
     offset_hours = result["synthetic"]["reporting"]["death_start_offset_hours"]
     assert offset_hours["later"] == 1
-    assert offset_hours["min"] == pytest.approx(
-        (truths[0].still_start - START) / HOUR
-    )
+    assert offset_hours["min"] == pytest.approx((truths[0].still_start - START) / HOUR)
     assert result["synthetic"]["reporting"]["mortality"]["detected"] == 0

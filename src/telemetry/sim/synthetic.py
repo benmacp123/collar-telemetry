@@ -377,9 +377,8 @@ def synthetic_study(
                     event.death_time,
                     event.lat,
                     event.lon,
-                    len(event.fixes) - sum(
-                        1 for f in event.fixes if f.timestamp <= event.death_time
-                    ),
+                    len(event.fixes)
+                    - sum(1 for f in event.fixes if f.timestamp <= event.death_time),
                 )
             )
     return variant

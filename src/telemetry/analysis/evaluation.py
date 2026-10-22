@@ -659,9 +659,7 @@ def score_synthetic(
     by_id = {death.deployment_id: death for death in injected}
     own: dict[tuple[str, str], list[Incident]] = {}
     for incident in incidents:
-        own.setdefault((incident.deployment_id, incident.detector), []).append(
-            incident
-        )
+        own.setdefault((incident.deployment_id, incident.detector), []).append(incident)
     for record in result["deaths"]:
         death = by_id[record["deployment_id"]]
         record["regime"] = death.regime
@@ -709,6 +707,7 @@ def _synthetic_group(
         _hours(starts[d["deployment_id"]] - by_id[d["deployment_id"]].death_time)
         for d in records
     ]
+
     def detection(prefix: str) -> dict:
         """Detection counts, rate and median delay for one detector.
 
@@ -737,9 +736,8 @@ def _synthetic_group(
     return {
         "deaths": len(records),
         "carcass": sum(1 for d in records if d["carcass"]),
-        "mortality": detection("mortality") | {
-            "early": sum(1 for d in records if d["early"])
-        },
+        "mortality": detection("mortality")
+        | {"early": sum(1 for d in records if d["early"])},
         "likely_death": detection("likely_death"),
         "death_start_offset_hours": {
             "exact": sum(1 for o in offsets if o == 0),
