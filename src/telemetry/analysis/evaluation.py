@@ -33,6 +33,13 @@ project plan:
   death start, ambiguous if the same holds on an ambiguous track, and
   false otherwise.
 
+- **Synthetic deaths** (``score_synthetic``) are scored exactly like real
+  ones, from the computed death start, then broken down by carcass
+  regime. Each is also scored from its injected death time, and how far
+  the computed start falls from it is reported, since one scattered
+  carcass fix beyond ``STILL_RADIUS_M`` moves the computed start weeks
+  later.
+
 Times are on the processing clock (``raised_at``), so upload batching
 shows in every delay.
 """
@@ -52,6 +59,7 @@ from telemetry.core.detectors.geofence import Fence
 from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.geo import haversine_m
 from telemetry.sim.replay import PLANNED_ENDS
+from telemetry.sim.synthetic import REGIMES, InjectedDeath
 
 DEAD = "dead"
 DEAD_AFTER_TRACK = "dead-after-track"
@@ -625,6 +633,123 @@ def _median(values) -> float | None:
     """
     present = [v for v in values if v is not None]
     return round(statistics.median(present), 2) if present else None
+
+
+def score_synthetic(
+    truths: list[Truth],
+    incidents: list[Incident],
+    mark_hours: float | None,
+    injected: list[InjectedDeath],
+) -> dict:
+    """Score a synthetic variant's deaths, pooled and by carcass regime.
+
+    Args:
+        truths: The variant's deployments.
+        incidents: Every incident its replay raised.
+        mark_hours: Reference deadline, or None.
+        injected: What was injected, one per synthetic deployment.
+
+    Returns:
+        dict: ``evaluate``'s result with each death record tagged with its
+        regime and its delays from the injected time, plus ``synthetic``:
+        the mortality and ``likely_death`` results pooled and per regime,
+        and the death-start offset.
+    """
+    result = evaluate(truths, incidents, mark_hours)
+    by_id = {death.deployment_id: death for death in injected}
+    own: dict[tuple[str, str], list[Incident]] = {}
+    for incident in incidents:
+        own.setdefault((incident.deployment_id, incident.detector), []).append(
+            incident
+        )
+    for record in result["deaths"]:
+        death = by_id[record["deployment_id"]]
+        record["regime"] = death.regime
+        for detector, key in (
+            (MORTALITY, "mortality_delay_hours_injected"),
+            (LIKELY_DEATH, "likely_death_delay_hours_injected"),
+        ):
+            found = mortality_detection(
+                death.death_time, own.get((death.deployment_id, detector), [])
+            )
+            record[key] = found[0] if found else None
+    starts = {t.deployment_id: t.still_start for t in truths}
+    groups = {"pooled": result["deaths"]} | {
+        regime: [d for d in result["deaths"] if d["regime"] == regime]
+        for regime in REGIMES
+    }
+    result["synthetic"] = {
+        name: _synthetic_group(records, mark_hours, starts, by_id)
+        for name, records in groups.items()
+    }
+    return result
+
+
+def _synthetic_group(
+    records: list[dict],
+    mark_hours: float | None,
+    starts: dict[str, datetime],
+    by_id: dict[str, InjectedDeath],
+) -> dict:
+    """Detection and death-start offset for one group of synthetic deaths.
+
+    Args:
+        records: The group's death records from ``evaluate``.
+        mark_hours: Reference deadline, or None.
+        starts: Computed death start by deployment.
+        by_id: Injected deaths by deployment.
+
+    Returns:
+        dict: Death and carcass counts, mortality and ``likely_death``
+        detection from the computed death start and from the injected
+        time, and the offset of the computed death start from the
+        injected time (positive when the computed start is later).
+    """
+    offsets = [
+        _hours(starts[d["deployment_id"]] - by_id[d["deployment_id"]].death_time)
+        for d in records
+    ]
+    def detection(prefix: str) -> dict:
+        """Detection counts, rate and median delay for one detector.
+
+        Args:
+            prefix: ``"mortality"`` or ``"likely_death"``, the record
+                keys' prefix.
+
+        Returns:
+            dict: Detected count, rate at the mark and median delay, from
+            the computed death start and from the injected time.
+        """
+        out = {}
+        for suffix in ("", "_injected"):
+            delays = [d[f"{prefix}_delay_hours{suffix}"] for d in records]
+            out |= {
+                f"detected{suffix}": sum(1 for d in delays if d is not None),
+                f"rate_at_mark{suffix}": (
+                    detection_rate(delays, mark_hours)
+                    if mark_hours is not None
+                    else None
+                ),
+                f"median_delay_hours{suffix}": _median(delays),
+            }
+        return out
+
+    return {
+        "deaths": len(records),
+        "carcass": sum(1 for d in records if d["carcass"]),
+        "mortality": detection("mortality") | {
+            "early": sum(1 for d in records if d["early"])
+        },
+        "likely_death": detection("likely_death"),
+        "death_start_offset_hours": {
+            "exact": sum(1 for o in offsets if o == 0),
+            "earlier": sum(1 for o in offsets if o < 0),
+            "later": sum(1 for o in offsets if o > 0),
+            "min": min(offsets) if offsets else None,
+            "median": _median(offsets),
+            "max": max(offsets) if offsets else None,
+        },
+    }
 
 
 GEOFENCE = "geofence"

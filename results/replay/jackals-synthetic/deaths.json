@@ -1,0 +1,403 @@
+{
+  "study": "jackals-synthetic",
+  "seed": 2026,
+  "deaths": [
+    {
+      "deployment_id": "AU200-1-CM05~reporting",
+      "source_id": "AU200-1-CM05",
+      "regime": "reporting",
+      "death_time": "2009-03-02T08:00:38+00:00",
+      "lat": -19.13319,
+      "lon": 15.89814,
+      "carcass_fixes": 307
+    },
+    {
+      "deployment_id": "AU200-1-CM05~sparse",
+      "source_id": "AU200-1-CM05",
+      "regime": "sparse",
+      "death_time": "2009-03-02T08:00:38+00:00",
+      "lat": -19.13319,
+      "lon": 15.89814,
+      "carcass_fixes": 80
+    },
+    {
+      "deployment_id": "AU200-2-CM62~reporting",
+      "source_id": "AU200-2-CM62",
+      "regime": "reporting",
+      "death_time": "2009-08-09T14:01:44+00:00",
+      "lat": -19.07723,
+      "lon": 15.85657,
+      "carcass_fixes": 367
+    },
+    {
+      "deployment_id": "AU200-2-CM62~sparse",
+      "source_id": "AU200-2-CM62",
+      "regime": "sparse",
+      "death_time": "2009-08-09T14:01:44+00:00",
+      "lat": -19.07723,
+      "lon": 15.85657,
+      "carcass_fixes": 104
+    },
+    {
+      "deployment_id": "AU205-CM08~reporting",
+      "source_id": "AU205-CM08",
+      "regime": "reporting",
+      "death_time": "2009-03-22T17:00:54+00:00",
+      "lat": -19.05583,
+      "lon": 15.71436,
+      "carcass_fixes": 361
+    },
+    {
+      "deployment_id": "AU205-CM08~sparse",
+      "source_id": "AU205-CM08",
+      "regime": "sparse",
+      "death_time": "2009-03-22T17:00:54+00:00",
+      "lat": -19.05583,
+      "lon": 15.71436,
+      "carcass_fixes": 91
+    },
+    {
+      "deployment_id": "AU206-CM09~reporting",
+      "source_id": "AU206-CM09",
+      "regime": "reporting",
+      "death_time": "2010-04-16T14:00:49+00:00",
+      "lat": -19.05334,
+      "lon": 15.67268,
+      "carcass_fixes": 383
+    },
+    {
+      "deployment_id": "AU206-CM09~sparse",
+      "source_id": "AU206-CM09",
+      "regime": "sparse",
+      "death_time": "2010-04-16T14:00:49+00:00",
+      "lat": -19.05334,
+      "lon": 15.67268,
+      "carcass_fixes": 94
+    },
+    {
+      "deployment_id": "AU207-CM36~reporting",
+      "source_id": "AU207-CM36",
+      "regime": "reporting",
+      "death_time": "2009-06-17T04:00:42+00:00",
+      "lat": -19.03739,
+      "lon": 15.82874,
+      "carcass_fixes": 388
+    },
+    {
+      "deployment_id": "AU207-CM36~sparse",
+      "source_id": "AU207-CM36",
+      "regime": "sparse",
+      "death_time": "2009-06-17T04:00:42+00:00",
+      "lat": -19.03739,
+      "lon": 15.82874,
+      "carcass_fixes": 95
+    },
+    {
+      "deployment_id": "AU210-CM11~reporting",
+      "source_id": "AU210-CM11",
+      "regime": "reporting",
+      "death_time": "2009-06-05T01:00:54+00:00",
+      "lat": -19.00338,
+      "lon": 15.75354,
+      "carcass_fixes": 379
+    },
+    {
+      "deployment_id": "AU210-CM11~sparse",
+      "source_id": "AU210-CM11",
+      "regime": "sparse",
+      "death_time": "2009-06-05T01:00:54+00:00",
+      "lat": -19.00338,
+      "lon": 15.75354,
+      "carcass_fixes": 118
+    },
+    {
+      "deployment_id": "AU211-CM15~reporting",
+      "source_id": "AU211-CM15",
+      "regime": "reporting",
+      "death_time": "2009-10-01T00:00:44+00:00",
+      "lat": -19.17774,
+      "lon": 16.01612,
+      "carcass_fixes": 353
+    },
+    {
+      "deployment_id": "AU211-CM15~sparse",
+      "source_id": "AU211-CM15",
+      "regime": "sparse",
+      "death_time": "2009-10-01T00:00:44+00:00",
+      "lat": -19.17774,
+      "lon": 16.01612,
+      "carcass_fixes": 97
+    },
+    {
+      "deployment_id": "AU212-CM40~reporting",
+      "source_id": "AU212-CM40",
+      "regime": "reporting",
+      "death_time": "2009-05-08T17:41:01+00:00",
+      "lat": -19.14369,
+      "lon": 15.92506,
+      "carcass_fixes": 1235
+    },
+    {
+      "deployment_id": "AU212-CM40~sparse",
+      "source_id": "AU212-CM40",
+      "regime": "sparse",
+      "death_time": "2009-05-08T17:41:01+00:00",
+      "lat": -19.14369,
+      "lon": 15.92506,
+      "carcass_fixes": 330
+    },
+    {
+      "deployment_id": "AU213-CM42~reporting",
+      "source_id": "AU213-CM42",
+      "regime": "reporting",
+      "death_time": "2009-05-08T09:21:12+00:00",
+      "lat": -18.96562,
+      "lon": 15.85221,
+      "carcass_fixes": 376
+    },
+    {
+      "deployment_id": "AU213-CM42~sparse",
+      "source_id": "AU213-CM42",
+      "regime": "sparse",
+      "death_time": "2009-05-08T09:21:12+00:00",
+      "lat": -18.96562,
+      "lon": 15.85221,
+      "carcass_fixes": 98
+    },
+    {
+      "deployment_id": "AU214-CM44~reporting",
+      "source_id": "AU214-CM44",
+      "regime": "reporting",
+      "death_time": "2009-08-04T13:01:12+00:00",
+      "lat": -19.11896,
+      "lon": 15.89387,
+      "carcass_fixes": 380
+    },
+    {
+      "deployment_id": "AU214-CM44~sparse",
+      "source_id": "AU214-CM44",
+      "regime": "sparse",
+      "death_time": "2009-08-04T13:01:12+00:00",
+      "lat": -19.11896,
+      "lon": 15.89387,
+      "carcass_fixes": 107
+    },
+    {
+      "deployment_id": "AU215-CM10~reporting",
+      "source_id": "AU215-CM10",
+      "regime": "reporting",
+      "death_time": "2009-03-12T16:01:12+00:00",
+      "lat": -19.04711,
+      "lon": 15.73127,
+      "carcass_fixes": 248
+    },
+    {
+      "deployment_id": "AU215-CM10~sparse",
+      "source_id": "AU215-CM10",
+      "regime": "sparse",
+      "death_time": "2009-03-12T16:01:12+00:00",
+      "lat": -19.04711,
+      "lon": 15.73127,
+      "carcass_fixes": 79
+    },
+    {
+      "deployment_id": "AU216-CM20~reporting",
+      "source_id": "AU216-CM20",
+      "regime": "reporting",
+      "death_time": "2009-03-04T06:00:43+00:00",
+      "lat": -19.09063,
+      "lon": 15.8144,
+      "carcass_fixes": 304
+    },
+    {
+      "deployment_id": "AU216-CM20~sparse",
+      "source_id": "AU216-CM20",
+      "regime": "sparse",
+      "death_time": "2009-03-04T06:00:43+00:00",
+      "lat": -19.09063,
+      "lon": 15.8144,
+      "carcass_fixes": 80
+    },
+    {
+      "deployment_id": "AU217-CM18~reporting",
+      "source_id": "AU217-CM18",
+      "regime": "reporting",
+      "death_time": "2009-03-23T08:01:12+00:00",
+      "lat": -19.2039,
+      "lon": 16.04153,
+      "carcass_fixes": 119
+    },
+    {
+      "deployment_id": "AU217-CM18~sparse",
+      "source_id": "AU217-CM18",
+      "regime": "sparse",
+      "death_time": "2009-03-23T08:01:12+00:00",
+      "lat": -19.2039,
+      "lon": 16.04153,
+      "carcass_fixes": 21
+    },
+    {
+      "deployment_id": "AU218-CM33~reporting",
+      "source_id": "AU218-CM33",
+      "regime": "reporting",
+      "death_time": "2009-04-23T11:01:44+00:00",
+      "lat": -19.03345,
+      "lon": 15.81443,
+      "carcass_fixes": 403
+    },
+    {
+      "deployment_id": "AU218-CM33~sparse",
+      "source_id": "AU218-CM33",
+      "regime": "sparse",
+      "death_time": "2009-04-23T11:01:44+00:00",
+      "lat": -19.03345,
+      "lon": 15.81443,
+      "carcass_fixes": 114
+    },
+    {
+      "deployment_id": "AU219-2-CM83~reporting",
+      "source_id": "AU219-2-CM83",
+      "regime": "reporting",
+      "death_time": "2010-06-20T13:00:49+00:00",
+      "lat": -19.16427,
+      "lon": 15.91618,
+      "carcass_fixes": 674
+    },
+    {
+      "deployment_id": "AU219-2-CM83~sparse",
+      "source_id": "AU219-2-CM83",
+      "regime": "sparse",
+      "death_time": "2010-06-20T13:00:49+00:00",
+      "lat": -19.16427,
+      "lon": 15.91618,
+      "carcass_fixes": 177
+    },
+    {
+      "deployment_id": "AU219-CM23~reporting",
+      "source_id": "AU219-CM23",
+      "regime": "reporting",
+      "death_time": "2009-04-21T00:00:49+00:00",
+      "lat": -19.05422,
+      "lon": 15.81614,
+      "carcass_fixes": 164
+    },
+    {
+      "deployment_id": "AU219-CM23~sparse",
+      "source_id": "AU219-CM23",
+      "regime": "sparse",
+      "death_time": "2009-04-21T00:00:49+00:00",
+      "lat": -19.05422,
+      "lon": 15.81614,
+      "carcass_fixes": 46
+    },
+    {
+      "deployment_id": "AU220-CM26~reporting",
+      "source_id": "AU220-CM26",
+      "regime": "reporting",
+      "death_time": "2009-04-05T06:01:00+00:00",
+      "lat": -19.20378,
+      "lon": 16.05767,
+      "carcass_fixes": 331
+    },
+    {
+      "deployment_id": "AU220-CM26~sparse",
+      "source_id": "AU220-CM26",
+      "regime": "sparse",
+      "death_time": "2009-04-05T06:01:00+00:00",
+      "lat": -19.20378,
+      "lon": 16.05767,
+      "carcass_fixes": 75
+    },
+    {
+      "deployment_id": "AU239-CM47~reporting",
+      "source_id": "AU239-CM47",
+      "regime": "reporting",
+      "death_time": "2009-08-08T05:20:55+00:00",
+      "lat": -19.16135,
+      "lon": 15.98458,
+      "carcass_fixes": 1129
+    },
+    {
+      "deployment_id": "AU239-CM47~sparse",
+      "source_id": "AU239-CM47",
+      "regime": "sparse",
+      "death_time": "2009-08-08T05:20:55+00:00",
+      "lat": -19.16135,
+      "lon": 15.98458,
+      "carcass_fixes": 277
+    },
+    {
+      "deployment_id": "AU396-2-CM95~reporting",
+      "source_id": "AU396-2-CM95",
+      "regime": "reporting",
+      "death_time": "2010-07-31T03:01:27+00:00",
+      "lat": -19.15656,
+      "lon": 15.898,
+      "carcass_fixes": 304
+    },
+    {
+      "deployment_id": "AU396-2-CM95~sparse",
+      "source_id": "AU396-2-CM95",
+      "regime": "sparse",
+      "death_time": "2010-07-31T03:01:27+00:00",
+      "lat": -19.15656,
+      "lon": 15.898,
+      "carcass_fixes": 80
+    },
+    {
+      "deployment_id": "AU396-CM70~reporting",
+      "source_id": "AU396-CM70",
+      "regime": "reporting",
+      "death_time": "2010-04-28T10:00:45+00:00",
+      "lat": -19.17526,
+      "lon": 15.93934,
+      "carcass_fixes": 344
+    },
+    {
+      "deployment_id": "AU396-CM70~sparse",
+      "source_id": "AU396-CM70",
+      "regime": "sparse",
+      "death_time": "2010-04-28T10:00:45+00:00",
+      "lat": -19.17526,
+      "lon": 15.93934,
+      "carcass_fixes": 96
+    },
+    {
+      "deployment_id": "AU398-CM69~reporting",
+      "source_id": "AU398-CM69",
+      "regime": "reporting",
+      "death_time": "2010-02-13T03:01:00+00:00",
+      "lat": -19.1476,
+      "lon": 15.9066,
+      "carcass_fixes": 326
+    },
+    {
+      "deployment_id": "AU398-CM69~sparse",
+      "source_id": "AU398-CM69",
+      "regime": "sparse",
+      "death_time": "2010-02-13T03:01:00+00:00",
+      "lat": -19.1476,
+      "lon": 15.9066,
+      "carcass_fixes": 92
+    },
+    {
+      "deployment_id": "AU399-CM72~reporting",
+      "source_id": "AU399-CM72",
+      "regime": "reporting",
+      "death_time": "2010-02-01T00:00:57+00:00",
+      "lat": -19.116,
+      "lon": 15.60271,
+      "carcass_fixes": 307
+    },
+    {
+      "deployment_id": "AU399-CM72~sparse",
+      "source_id": "AU399-CM72",
+      "regime": "sparse",
+      "death_time": "2010-02-01T00:00:57+00:00",
+      "lat": -19.116,
+      "lon": 15.60271,
+      "carcass_fixes": 83
+    }
+  ],
+  "skipped": {}
+}

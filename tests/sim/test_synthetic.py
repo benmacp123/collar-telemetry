@@ -12,11 +12,16 @@ from telemetry.core.detectors.mortality import MortalityConfig, MortalityDetecto
 from telemetry.core.fixes import Fix
 from telemetry.core.geo import haversine_m, offset
 from telemetry.core.stream import FixStream
+from telemetry.core.fixes import Deployment
 from telemetry.sim.synthetic import (
+    REPORTING,
+    SPARSE,
     CarcassConfig,
     choose_death_time,
     inject_mortality,
     scatter_distance,
+    synthetic_id,
+    synthetic_study,
 )
 
 START = datetime(2009, 3, 1, tzinfo=timezone.utc)
@@ -186,3 +191,69 @@ def test_an_injected_death_is_one_incident():
     assert len({i.incident_id for i in incidents}) == 1
     delay = incidents[0].opened_at - event.death_time
     assert timedelta(hours=24) <= delay < timedelta(hours=36)
+
+
+def deployment(deployment_id):
+    """A jackal deployment from START with no recorded end."""
+    return Deployment(
+        deployment_id, "tag", "animal", "Canis mesomelas", START, None, None
+    )
+
+
+def walk_as(deployment_id, hours):
+    """``walk`` for another deployment ID."""
+    return [Fix(deployment_id, f.timestamp, f.lat, f.lon) for f in walk(hours)]
+
+
+def test_synthetic_study_kills_each_deployment_once_per_regime():
+    """Each usable deployment gives a reporting and a sparse copy dying together."""
+    fixes = walk_as("J1", 24 * 30) + walk_as("J2", 24 * 30)
+    variant = synthetic_study([deployment("J2"), deployment("J1")], fixes, 2026)
+    ids = [d.deployment_id for d in variant.deployments]
+    assert ids == [
+        synthetic_id("J1", REPORTING),
+        synthetic_id("J1", SPARSE),
+        synthetic_id("J2", REPORTING),
+        synthetic_id("J2", SPARSE),
+    ]
+    assert [d.regime for d in variant.deaths] == [REPORTING, SPARSE] * 2
+    for first, second in zip(variant.deaths[::2], variant.deaths[1::2]):
+        assert first.death_time == second.death_time
+        assert first.source_id == second.source_id
+    # Sparse carcasses keep fewer of the same scheduled fixes.
+    assert variant.deaths[1].carcass_fixes < variant.deaths[0].carcass_fixes
+    assert not variant.skipped
+
+
+def test_synthetic_deployments_end_dead_at_their_last_fix():
+    """The evaluation labels synthetic deployments dead with no override."""
+    variant = synthetic_study([deployment("J1")], walk_as("J1", 24 * 30), 2026)
+    for synthetic in variant.deployments:
+        own = [f for f in variant.fixes if f.deployment_id == synthetic.deployment_id]
+        assert synthetic.end_type == "dead"
+        assert synthetic.deploy_off == own[-1].timestamp
+        assert synthetic.taxon == "Canis mesomelas"
+    assert {f.deployment_id for f in variant.fixes} == {
+        d.deployment_id for d in variant.deployments
+    }
+
+
+def test_synthetic_study_skips_short_tracks_with_a_reason():
+    """A track too short for a death is listed, not silently dropped."""
+    fixes = walk_as("J1", 24 * 30) + walk_as("J2", 48)
+    variant = synthetic_study([deployment("J1"), deployment("J2")], fixes, 2026)
+    assert set(variant.skipped) == {"J2"}
+    assert "too short" in variant.skipped["J2"]
+    assert {d.source_id for d in variant.deaths} == {"J1"}
+
+
+def test_synthetic_study_death_ignores_other_deployments():
+    """A deployment's death does not change when another is added."""
+    alone = synthetic_study([deployment("J1")], walk_as("J1", 24 * 30), 2026)
+    both = synthetic_study(
+        [deployment("J1"), deployment("J2")],
+        walk_as("J1", 24 * 30) + walk_as("J2", 24 * 30),
+        2026,
+    )
+    assert alone.deaths == both.deaths[:2]
+    assert alone.fixes == [f for f in both.fixes if f.deployment_id.startswith("J1")]

@@ -1,0 +1,56 @@
+{
+  "study": "jackals-synthetic",
+  "scenario": "gsm",
+  "seed": 2026,
+  "settings": {
+    "tick_hours": 1.0,
+    "max_lateness_hours": 3.0,
+    "gap_min_silence_hours": 6.0,
+    "gap_allowance_hours": 37.0,
+    "silent_horizon_days": 7.0,
+    "planned_ends": [
+      "captured",
+      "released",
+      "removal"
+    ]
+  },
+  "deployments": 44,
+  "cleaner_dropped": {
+    "duplicate": 973,
+    "invalid": 0,
+    "late": 619,
+    "speed": 8
+  },
+  "lifecycle_dropped": {
+    "duplicate_open": 0,
+    "orphan_resolve": 0
+  },
+  "incidents": {
+    "gap": {
+      "incidents": 118,
+      "open_at_end": 44,
+      "late_fix": 60,
+      "flaps": 0
+    },
+    "likely_death": {
+      "incidents": 47,
+      "open_at_end": 43,
+      "late_fix": 0,
+      "flaps": 0
+    },
+    "mortality": {
+      "incidents": 46,
+      "open_at_end": 43,
+      "late_fix": 0,
+      "flaps": 24
+    },
+    "movement": {
+      "incidents": 4,
+      "open_at_end": 0,
+      "late_fix": 0,
+      "flaps": 0
+    }
+  },
+  "fixes": 109564,
+  "arrivals": 110654
+}

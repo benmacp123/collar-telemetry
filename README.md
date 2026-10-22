@@ -141,8 +141,10 @@ each layer to its own imports.
 - **Mammals are only partly tested.** The jackal and elephant tracks
   contain no carcass periods (jackal tracks stop at death; the elephants
   died after their collars stopped), so only their false-alarm rates and
-  gap alerts are measured. Synthetic carcasses for them are written but
-  not yet scored.
+  gap alerts are measured. Their mortality detection is scored on
+  synthetic carcasses (`results/evaluation/EVALUATION.md`), which a
+  30-day collar life makes easy to catch: every one is flagged, sparse
+  ones included.
 
 ## Data
 

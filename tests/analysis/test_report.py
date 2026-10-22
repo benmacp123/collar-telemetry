@@ -1,7 +1,9 @@
 """Tests for the evaluation tables and figures."""
 
+from telemetry.analysis import report as report_module
 from telemetry.analysis.report import (
     SCENARIO_ORDER,
+    SYNTHETIC_GROUPS,
     detection_curve,
     markdown,
     write_figures,
@@ -53,6 +55,88 @@ def report():
         "mark_basis": "test",
         "scenarios": {name: result for name in SCENARIO_ORDER},
     }
+
+
+def synthetic_report():
+    """A minimal synthetic variant report: one death in each regime."""
+    group = {
+        "deaths": 1,
+        "carcass": 1,
+        "mortality": {
+            "detected": 1,
+            "detected_injected": 1,
+            "early": 0,
+            "rate_at_mark": 1.0,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours": 20.0,
+            "median_delay_hours_injected": 21.0,
+        },
+        "likely_death": {
+            "detected": 0,
+            "detected_injected": 0,
+            "rate_at_mark": 0.0,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours": None,
+            "median_delay_hours_injected": None,
+        },
+        "death_start_offset_hours": {
+            "exact": 1,
+            "earlier": 0,
+            "later": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0,
+        },
+    }
+    result = {
+        "load": {"mortality": {"incidents": 2, "per_animal_month": 9.0}},
+        "deaths": [
+            {"carcass": True, "regime": regime, "mortality_delay_hours": 20.0}
+            for regime in ("reporting", "sparse")
+        ],
+        "synthetic": {name: group for name in SYNTHETIC_GROUPS},
+    }
+    return {
+        "study": "jackals-synthetic",
+        "title": "Jackals, synthetic deaths",
+        "set": "all",
+        "synthetic": True,
+        "seed": 2026,
+        "mark_hours": 90.0,
+        "mark_basis": "test",
+        "scenarios": {name: result for name in SCENARIO_ORDER},
+    }
+
+
+def test_markdown_synthetic_section_shows_regimes_and_injected_delays():
+    """A synthetic variant gets its deaths table by regime, not a load table."""
+    text = markdown([report(), synthetic_report()])
+    section = text.split("## Jackals, synthetic deaths")[1]
+    assert "| Ideal | Sparse | 1 | 1 | 0 | 100% (100%) | 20.0 (21.0) | 0 |" in section
+    assert "Operator load" not in section
+    assert "exact for 1" in section
+
+
+def test_write_figures_keeps_synthetic_variants_off_the_load_figure(
+    tmp_path, monkeypatch
+):
+    """A synthetic variant gets a delay figure but no load panel of its own."""
+    panels = []
+    real_load_figure = report_module._load_figure
+
+    def spy(pyplot, reports):
+        """Record which reports reach the load figure."""
+        panels.extend(r["study"] for r in reports)
+        return real_load_figure(pyplot, reports)
+
+    monkeypatch.setattr(report_module, "_load_figure", spy)
+    write_figures([report(), synthetic_report()], tmp_path)
+    assert panels == ["jackals"]
+    assert sorted(p.name for p in tmp_path.iterdir()) == [
+        "jackals-all-delay.png",
+        "jackals-synthetic-all-delay.png",
+        "load.png",
+    ]
 
 
 def test_detection_curve_steps_up_per_detected_death():

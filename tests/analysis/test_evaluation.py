@@ -32,10 +32,12 @@ from telemetry.analysis.evaluation import (
     read_incidents,
     read_labels,
     reference_mark,
+    score_synthetic,
     split_for,
 )
 from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.geo import offset
+from telemetry.sim.synthetic import InjectedDeath
 
 START = datetime(2009, 3, 1, tzinfo=timezone.utc)
 HOUR = timedelta(hours=1)
@@ -324,3 +326,54 @@ def test_precision_leaves_ambiguous_out():
         "precision": 0.5,
     }
     assert precision([dead], {}, "likely_death")["precision"] is None
+
+
+def test_score_synthetic_reports_regimes_and_injected_delays():
+    """Synthetic deaths are split by regime and also scored from the injected time."""
+    death = START + 10 * HOUR
+    fixes = walk_then_still(11, 50, "A") + walk_then_still(11, 50, "B")
+    dead = [deployment("A", "dead"), deployment("B", "dead")]
+    truths = build_truth("jackals-synthetic", dead, fixes, {})
+    injected = [
+        InjectedDeath("A", "a", "reporting", death, 0.0, 0.0, 50),
+        InjectedDeath("B", "b", "sparse", death, 0.0, 0.0, 50),
+    ]
+    raised = START + 20 * HOUR
+    incidents = [
+        Incident(
+            incident_id=f"{d}:mortality",
+            deployment_id=d,
+            detector="mortality",
+            status=OPEN,
+            opened_at=raised,
+            message="",
+            raised_at=raised,
+        )
+        for d in ("A", "B")
+    ]
+    result = score_synthetic(truths, incidents, 90.0, injected)
+    regimes = {d["deployment_id"]: d["regime"] for d in result["deaths"]}
+    assert regimes == {"A": "reporting", "B": "sparse"}
+    assert all(d["mortality_delay_hours"] == 10.0 for d in result["deaths"])
+    assert all(d["mortality_delay_hours_injected"] == 10.0 for d in result["deaths"])
+    summary = result["synthetic"]
+    assert summary["pooled"]["deaths"] == 2
+    assert summary["reporting"]["deaths"] == summary["sparse"]["deaths"] == 1
+    assert summary["pooled"]["mortality"]["detected_injected"] == 2
+    assert summary["pooled"]["mortality"]["median_delay_hours_injected"] == 10.0
+    assert summary["pooled"]["likely_death"]["detected"] == 0
+    assert summary["pooled"]["death_start_offset_hours"]["exact"] == 2
+
+
+def test_score_synthetic_offset_is_positive_when_computed_start_is_later():
+    """A computed death start after the injected time shows as a later offset."""
+    fixes = walk_then_still(30, 40)
+    truths = build_truth("jackals-synthetic", [deployment("A", "dead")], fixes, {})
+    injected = [InjectedDeath("A", "a", "reporting", START, 0.0, 0.0, 40)]
+    result = score_synthetic(truths, [], 90.0, injected)
+    offset_hours = result["synthetic"]["reporting"]["death_start_offset_hours"]
+    assert offset_hours["later"] == 1
+    assert offset_hours["min"] == pytest.approx(
+        (truths[0].still_start - START) / HOUR
+    )
+    assert result["synthetic"]["reporting"]["mortality"]["detected"] == 0

@@ -45,7 +45,7 @@ format-check: ## Check formatting without changing files
 profile: ## Profile each study -> data/PROFILE.md
 	PYTHONPATH=src python scripts/profile_studies.py
 
-replay: ## Replay every study and scenario -> results/replay/
+replay: ## Replay every study, synthetic variant and scenario -> results/replay/
 	PYTHONPATH=src python scripts/replay.py
 
 evaluate: ## Score the replays -> results/evaluation/, results/figures/

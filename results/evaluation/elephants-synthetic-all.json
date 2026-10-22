@@ -1,0 +1,2231 @@
+{
+  "study": "elephants-synthetic",
+  "title": "African elephant, Kruger, synthetic deaths",
+  "set": "all",
+  "synthetic": true,
+  "seed": 2026,
+  "mark_hours": 80.5,
+  "mark_basis": "own carcass minimum + vulture mark - vulture carcass minimum",
+  "scenarios": {
+    "ideal": {
+      "deployments": 28,
+      "labels": {
+        "dead": 28
+      },
+      "animal_months": 267.3,
+      "load": {
+        "gap": {
+          "incidents": 143,
+          "late_fix": 0,
+          "per_animal_month": 0.535
+        },
+        "geofence": {
+          "incidents": 336,
+          "late_fix": 0,
+          "per_animal_month": 1.257
+        },
+        "likely_death": {
+          "incidents": 31,
+          "late_fix": 0,
+          "per_animal_month": 0.116
+        },
+        "mortality": {
+          "incidents": 29,
+          "late_fix": 0,
+          "per_animal_month": 0.109
+        },
+        "movement": {
+          "incidents": 8,
+          "late_fix": 0,
+          "per_animal_month": 0.03
+        }
+      },
+      "false_mortality": {
+        "incidents": 0,
+        "per_animal_month": 0.0
+      },
+      "mortality": {
+        "deaths": 28,
+        "detected": 28,
+        "early": 2,
+        "mark_hours": 80.5,
+        "rate_at_mark": 1.0,
+        "rate_at_mark_200m": 1.0
+      },
+      "precision": {
+        "mortality": {
+          "true": 29,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": 1.0
+        },
+        "likely_death": {
+          "true": 31,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": 1.0
+        }
+      },
+      "likely_death": {
+        "deaths": 28,
+        "detected": 28,
+        "rate_at_mark": 0.0
+      },
+      "gap_on_deaths": {
+        "deaths": 0,
+        "detected": 0,
+        "median_delay_hours": null
+      },
+      "both_detectors": 28,
+      "deaths": [
+        {
+          "deployment_id": "AM105~reporting",
+          "carcass": true,
+          "still_hours": 714.5,
+          "still_hours_200m": 714.5,
+          "mortality_delay_hours": 12.53,
+          "early": false,
+          "mortality_delay_hours_200m": 12.53,
+          "likely_death_delay_hours": 751.0,
+          "gap_delay_hours": 36.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.53,
+          "likely_death_delay_hours_injected": 751.0
+        },
+        {
+          "deployment_id": "AM105~sparse",
+          "carcass": true,
+          "still_hours": 706.5,
+          "still_hours_200m": 706.5,
+          "mortality_delay_hours": 12.53,
+          "early": false,
+          "mortality_delay_hours_200m": 12.53,
+          "likely_death_delay_hours": 189.0,
+          "gap_delay_hours": 36.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 12.53,
+          "likely_death_delay_hours_injected": 189.0
+        },
+        {
+          "deployment_id": "AM107~reporting",
+          "carcass": true,
+          "still_hours": 706.5,
+          "still_hours_200m": 710.5,
+          "mortality_delay_hours": 12.0,
+          "early": false,
+          "mortality_delay_hours_200m": 16.0,
+          "likely_death_delay_hours": 743.0,
+          "gap_delay_hours": 36.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 11.0,
+          "likely_death_delay_hours_injected": 742.0
+        },
+        {
+          "deployment_id": "AM107~sparse",
+          "carcass": true,
+          "still_hours": 697.0,
+          "still_hours_200m": 701.5,
+          "mortality_delay_hours": 25.0,
+          "early": false,
+          "mortality_delay_hours_200m": 29.5,
+          "likely_death_delay_hours": 504.0,
+          "gap_delay_hours": 36.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 24.0,
+          "likely_death_delay_hours_injected": 503.0
+        },
+        {
+          "deployment_id": "AM108~reporting",
+          "carcass": true,
+          "still_hours": 80.5,
+          "still_hours_200m": 716.0,
+          "mortality_delay_hours": 0.0,
+          "early": true,
+          "mortality_delay_hours_200m": 12.5,
+          "likely_death_delay_hours": 116.5,
+          "gap_delay_hours": 36.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.5,
+          "likely_death_delay_hours_injected": 752.0
+        },
+        {
+          "deployment_id": "AM108~sparse",
+          "carcass": true,
+          "still_hours": 715.5,
+          "still_hours_200m": 715.5,
+          "mortality_delay_hours": 29.0,
+          "early": false,
+          "mortality_delay_hours_200m": 29.0,
+          "likely_death_delay_hours": 752.0,
+          "gap_delay_hours": 36.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 29.0,
+          "likely_death_delay_hours_injected": 752.0
+        },
+        {
+          "deployment_id": "AM110~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 12.5,
+          "early": false,
+          "mortality_delay_hours_200m": 13.0,
+          "likely_death_delay_hours": 756.0,
+          "gap_delay_hours": 36.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.5,
+          "likely_death_delay_hours_injected": 756.0
+        },
+        {
+          "deployment_id": "AM110~sparse",
+          "carcass": true,
+          "still_hours": 719.0,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 16.5,
+          "early": false,
+          "mortality_delay_hours_200m": 17.0,
+          "likely_death_delay_hours": 755.0,
+          "gap_delay_hours": 36.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 16.5,
+          "likely_death_delay_hours_injected": 755.0
+        },
+        {
+          "deployment_id": "AM239~reporting",
+          "carcass": true,
+          "still_hours": 716.0,
+          "still_hours_200m": 716.0,
+          "mortality_delay_hours": 12.0,
+          "early": false,
+          "mortality_delay_hours_200m": 12.0,
+          "likely_death_delay_hours": 752.0,
+          "gap_delay_hours": 36.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.0,
+          "likely_death_delay_hours_injected": 752.0
+        },
+        {
+          "deployment_id": "AM239~sparse",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 718.5,
+          "mortality_delay_hours": 14.0,
+          "early": false,
+          "mortality_delay_hours_200m": 14.0,
+          "likely_death_delay_hours": 755.0,
+          "gap_delay_hours": 36.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 14.0,
+          "likely_death_delay_hours_injected": 755.0
+        },
+        {
+          "deployment_id": "AM253~reporting",
+          "carcass": true,
+          "still_hours": 720.0,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 12.0,
+          "early": false,
+          "mortality_delay_hours_200m": 12.0,
+          "likely_death_delay_hours": 756.0,
+          "gap_delay_hours": 36.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.0,
+          "likely_death_delay_hours_injected": 756.0
+        },
+        {
+          "deployment_id": "AM253~sparse",
+          "carcass": true,
+          "still_hours": 720.0,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 16.5,
+          "early": false,
+          "mortality_delay_hours_200m": 16.5,
+          "likely_death_delay_hours": 756.0,
+          "gap_delay_hours": 36.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 16.5,
+          "likely_death_delay_hours_injected": 756.0
+        },
+        {
+          "deployment_id": "AM254~reporting",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 719.0,
+          "mortality_delay_hours": 12.0,
+          "early": false,
+          "mortality_delay_hours_200m": 12.5,
+          "likely_death_delay_hours": 754.5,
+          "gap_delay_hours": 36.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.0,
+          "likely_death_delay_hours_injected": 754.5
+        },
+        {
+          "deployment_id": "AM254~sparse",
+          "carcass": true,
+          "still_hours": 719.0,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 42.0,
+          "early": false,
+          "mortality_delay_hours_200m": 42.5,
+          "likely_death_delay_hours": 755.5,
+          "gap_delay_hours": 36.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 42.0,
+          "likely_death_delay_hours_injected": 755.5
+        },
+        {
+          "deployment_id": "AM255~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 12.0,
+          "early": false,
+          "mortality_delay_hours_200m": 12.0,
+          "likely_death_delay_hours": 755.5,
+          "gap_delay_hours": 36.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.0,
+          "likely_death_delay_hours_injected": 755.5
+        },
+        {
+          "deployment_id": "AM255~sparse",
+          "carcass": true,
+          "still_hours": 715.0,
+          "still_hours_200m": 715.0,
+          "mortality_delay_hours": 13.5,
+          "early": false,
+          "mortality_delay_hours_200m": 13.5,
+          "likely_death_delay_hours": 751.5,
+          "gap_delay_hours": 36.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 13.5,
+          "likely_death_delay_hours_injected": 751.5
+        },
+        {
+          "deployment_id": "AM306~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 12.0,
+          "early": false,
+          "mortality_delay_hours_200m": 12.0,
+          "likely_death_delay_hours": 756.0,
+          "gap_delay_hours": 36.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.0,
+          "likely_death_delay_hours_injected": 756.0
+        },
+        {
+          "deployment_id": "AM306~sparse",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 17.0,
+          "early": false,
+          "mortality_delay_hours_200m": 17.0,
+          "likely_death_delay_hours": 756.0,
+          "gap_delay_hours": 36.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 17.0,
+          "likely_death_delay_hours_injected": 756.0
+        },
+        {
+          "deployment_id": "AM307~reporting",
+          "carcass": true,
+          "still_hours": 558.0,
+          "still_hours_200m": 558.5,
+          "mortality_delay_hours": 13.5,
+          "early": false,
+          "mortality_delay_hours_200m": 14.0,
+          "likely_death_delay_hours": 223.5,
+          "gap_delay_hours": 36.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 13.0,
+          "likely_death_delay_hours_injected": 223.0
+        },
+        {
+          "deployment_id": "AM307~sparse",
+          "carcass": true,
+          "still_hours": 553.5,
+          "still_hours_200m": 554.0,
+          "mortality_delay_hours": 19.0,
+          "early": false,
+          "mortality_delay_hours_200m": 19.5,
+          "likely_death_delay_hours": 220.5,
+          "gap_delay_hours": 36.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 18.5,
+          "likely_death_delay_hours_injected": 220.0
+        },
+        {
+          "deployment_id": "AM308~reporting",
+          "carcass": true,
+          "still_hours": 721.5,
+          "still_hours_200m": 722.0,
+          "mortality_delay_hours": 16.5,
+          "early": false,
+          "mortality_delay_hours_200m": 17.0,
+          "likely_death_delay_hours": 289.5,
+          "gap_delay_hours": 36.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 14.5,
+          "likely_death_delay_hours_injected": 287.5
+        },
+        {
+          "deployment_id": "AM308~sparse",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 16.0,
+          "early": false,
+          "mortality_delay_hours_200m": 17.5,
+          "likely_death_delay_hours": 266.5,
+          "gap_delay_hours": 36.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 15.0,
+          "likely_death_delay_hours_injected": 265.5
+        },
+        {
+          "deployment_id": "AM91~reporting",
+          "carcass": true,
+          "still_hours": 252.5,
+          "still_hours_200m": 722.5,
+          "mortality_delay_hours": 0.0,
+          "early": true,
+          "mortality_delay_hours_200m": 19.0,
+          "likely_death_delay_hours": 288.85,
+          "gap_delay_hours": 36.35,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 16.5,
+          "likely_death_delay_hours_injected": 756.32
+        },
+        {
+          "deployment_id": "AM91~sparse",
+          "carcass": true,
+          "still_hours": 720.5,
+          "still_hours_200m": 721.0,
+          "mortality_delay_hours": 12.0,
+          "early": false,
+          "mortality_delay_hours_200m": 12.5,
+          "likely_death_delay_hours": 757.32,
+          "gap_delay_hours": 36.85,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 10.0,
+          "likely_death_delay_hours_injected": 755.32
+        },
+        {
+          "deployment_id": "AM93~reporting",
+          "carcass": true,
+          "still_hours": 701.5,
+          "still_hours_200m": 702.0,
+          "mortality_delay_hours": 13.0,
+          "early": false,
+          "mortality_delay_hours_200m": 13.5,
+          "likely_death_delay_hours": 738.0,
+          "gap_delay_hours": 36.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.48,
+          "likely_death_delay_hours_injected": 737.48
+        },
+        {
+          "deployment_id": "AM93~sparse",
+          "carcass": true,
+          "still_hours": 697.0,
+          "still_hours_200m": 697.5,
+          "mortality_delay_hours": 15.5,
+          "early": false,
+          "mortality_delay_hours_200m": 16.0,
+          "likely_death_delay_hours": 733.0,
+          "gap_delay_hours": 36.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 14.98,
+          "likely_death_delay_hours_injected": 732.48
+        },
+        {
+          "deployment_id": "AM99~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 720.5,
+          "mortality_delay_hours": 12.0,
+          "early": false,
+          "mortality_delay_hours_200m": 13.0,
+          "likely_death_delay_hours": 755.5,
+          "gap_delay_hours": 36.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.0,
+          "likely_death_delay_hours_injected": 755.5
+        },
+        {
+          "deployment_id": "AM99~sparse",
+          "carcass": true,
+          "still_hours": 718.0,
+          "still_hours_200m": 719.0,
+          "mortality_delay_hours": 19.0,
+          "early": false,
+          "mortality_delay_hours_200m": 20.0,
+          "likely_death_delay_hours": 754.5,
+          "gap_delay_hours": 36.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 19.0,
+          "likely_death_delay_hours_injected": 754.5
+        }
+      ],
+      "ambiguous": [],
+      "synthetic": {
+        "pooled": {
+          "deaths": 28,
+          "carcass": 28,
+          "mortality": {
+            "detected": 28,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 13.25,
+            "detected_injected": 28,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 13.25,
+            "early": 2
+          },
+          "likely_death": {
+            "detected": 28,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 752.0,
+            "detected_injected": 28,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 753.25
+          },
+          "death_start_offset_hours": {
+            "exact": 17,
+            "earlier": 9,
+            "later": 2,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 635.5
+          }
+        },
+        "reporting": {
+          "deaths": 14,
+          "carcass": 14,
+          "mortality": {
+            "detected": 14,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 12.0,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 12.24,
+            "early": 2
+          },
+          "likely_death": {
+            "detected": 14,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 751.5,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 753.25
+          },
+          "death_start_offset_hours": {
+            "exact": 8,
+            "earlier": 4,
+            "later": 2,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 635.5
+          }
+        },
+        "sparse": {
+          "deaths": 14,
+          "carcass": 14,
+          "mortality": {
+            "detected": 14,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 16.5,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 16.5,
+            "early": 0
+          },
+          "likely_death": {
+            "detected": 14,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 753.25,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 753.25
+          },
+          "death_start_offset_hours": {
+            "exact": 9,
+            "earlier": 5,
+            "later": 0,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    },
+    "satellite_daily": {
+      "deployments": 28,
+      "labels": {
+        "dead": 28
+      },
+      "animal_months": 267.3,
+      "load": {
+        "gap": {
+          "incidents": 105,
+          "late_fix": 22,
+          "per_animal_month": 0.393
+        },
+        "geofence": {
+          "incidents": 336,
+          "late_fix": 0,
+          "per_animal_month": 1.257
+        },
+        "likely_death": {
+          "incidents": 30,
+          "late_fix": 0,
+          "per_animal_month": 0.112
+        },
+        "mortality": {
+          "incidents": 29,
+          "late_fix": 0,
+          "per_animal_month": 0.109
+        },
+        "movement": {
+          "incidents": 8,
+          "late_fix": 0,
+          "per_animal_month": 0.03
+        }
+      },
+      "false_mortality": {
+        "incidents": 0,
+        "per_animal_month": 0.0
+      },
+      "mortality": {
+        "deaths": 28,
+        "detected": 28,
+        "early": 2,
+        "mark_hours": 80.5,
+        "rate_at_mark": 1.0,
+        "rate_at_mark_200m": 1.0
+      },
+      "precision": {
+        "mortality": {
+          "true": 29,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": 1.0
+        },
+        "likely_death": {
+          "true": 30,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": 1.0
+        }
+      },
+      "likely_death": {
+        "deaths": 28,
+        "detected": 28,
+        "rate_at_mark": 0.0
+      },
+      "gap_on_deaths": {
+        "deaths": 0,
+        "detected": 0,
+        "median_delay_hours": null
+      },
+      "both_detectors": 28,
+      "deaths": [
+        {
+          "deployment_id": "AM105~reporting",
+          "carcass": true,
+          "still_hours": 714.5,
+          "still_hours_200m": 714.5,
+          "mortality_delay_hours": 25.63,
+          "early": false,
+          "mortality_delay_hours_200m": 25.63,
+          "likely_death_delay_hours": 775.0,
+          "gap_delay_hours": 60.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 25.63,
+          "likely_death_delay_hours_injected": 775.0
+        },
+        {
+          "deployment_id": "AM105~sparse",
+          "carcass": true,
+          "still_hours": 706.5,
+          "still_hours_200m": 706.5,
+          "mortality_delay_hours": 19.43,
+          "early": false,
+          "mortality_delay_hours_200m": 19.43,
+          "likely_death_delay_hours": 520.0,
+          "gap_delay_hours": 60.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 19.43,
+          "likely_death_delay_hours_injected": 520.0
+        },
+        {
+          "deployment_id": "AM107~reporting",
+          "carcass": true,
+          "still_hours": 706.5,
+          "still_hours_200m": 710.5,
+          "mortality_delay_hours": 12.87,
+          "early": false,
+          "mortality_delay_hours_200m": 16.87,
+          "likely_death_delay_hours": 767.0,
+          "gap_delay_hours": 60.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 11.87,
+          "likely_death_delay_hours_injected": 766.0
+        },
+        {
+          "deployment_id": "AM107~sparse",
+          "carcass": true,
+          "still_hours": 697.0,
+          "still_hours_200m": 701.5,
+          "mortality_delay_hours": 30.0,
+          "early": false,
+          "mortality_delay_hours_200m": 34.5,
+          "likely_death_delay_hours": 757.0,
+          "gap_delay_hours": 60.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 29.0,
+          "likely_death_delay_hours_injected": 756.0
+        },
+        {
+          "deployment_id": "AM108~reporting",
+          "carcass": true,
+          "still_hours": 80.5,
+          "still_hours_200m": 716.0,
+          "mortality_delay_hours": 0.0,
+          "early": true,
+          "mortality_delay_hours_200m": 23.58,
+          "likely_death_delay_hours": 140.5,
+          "gap_delay_hours": 60.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 23.58,
+          "likely_death_delay_hours_injected": 776.0
+        },
+        {
+          "deployment_id": "AM108~sparse",
+          "carcass": true,
+          "still_hours": 715.5,
+          "still_hours_200m": 715.5,
+          "mortality_delay_hours": 33.75,
+          "early": false,
+          "mortality_delay_hours_200m": 33.75,
+          "likely_death_delay_hours": 776.0,
+          "gap_delay_hours": 60.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 33.75,
+          "likely_death_delay_hours_injected": 776.0
+        },
+        {
+          "deployment_id": "AM110~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 14.48,
+          "early": false,
+          "mortality_delay_hours_200m": 14.98,
+          "likely_death_delay_hours": 780.0,
+          "gap_delay_hours": 60.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 14.48,
+          "likely_death_delay_hours_injected": 780.0
+        },
+        {
+          "deployment_id": "AM110~sparse",
+          "carcass": true,
+          "still_hours": 719.0,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 19.12,
+          "early": false,
+          "mortality_delay_hours_200m": 19.62,
+          "likely_death_delay_hours": 779.0,
+          "gap_delay_hours": 60.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 19.12,
+          "likely_death_delay_hours_injected": 779.0
+        },
+        {
+          "deployment_id": "AM239~reporting",
+          "carcass": true,
+          "still_hours": 716.0,
+          "still_hours_200m": 716.0,
+          "mortality_delay_hours": 12.62,
+          "early": false,
+          "mortality_delay_hours_200m": 12.62,
+          "likely_death_delay_hours": 776.0,
+          "gap_delay_hours": 60.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.62,
+          "likely_death_delay_hours_injected": 776.0
+        },
+        {
+          "deployment_id": "AM239~sparse",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 718.5,
+          "mortality_delay_hours": 21.68,
+          "early": false,
+          "mortality_delay_hours_200m": 21.68,
+          "likely_death_delay_hours": 779.0,
+          "gap_delay_hours": 60.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 21.68,
+          "likely_death_delay_hours_injected": 779.0
+        },
+        {
+          "deployment_id": "AM253~reporting",
+          "carcass": true,
+          "still_hours": 720.0,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 12.27,
+          "early": false,
+          "mortality_delay_hours_200m": 12.27,
+          "likely_death_delay_hours": 780.0,
+          "gap_delay_hours": 60.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.27,
+          "likely_death_delay_hours_injected": 780.0
+        },
+        {
+          "deployment_id": "AM253~sparse",
+          "carcass": true,
+          "still_hours": 720.0,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 25.53,
+          "early": false,
+          "mortality_delay_hours_200m": 25.53,
+          "likely_death_delay_hours": 780.0,
+          "gap_delay_hours": 60.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 25.53,
+          "likely_death_delay_hours_injected": 780.0
+        },
+        {
+          "deployment_id": "AM254~reporting",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 719.0,
+          "mortality_delay_hours": 12.47,
+          "early": false,
+          "mortality_delay_hours_200m": 12.97,
+          "likely_death_delay_hours": 778.5,
+          "gap_delay_hours": 60.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.47,
+          "likely_death_delay_hours_injected": 778.5
+        },
+        {
+          "deployment_id": "AM254~sparse",
+          "carcass": true,
+          "still_hours": 719.0,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 59.6,
+          "early": false,
+          "mortality_delay_hours_200m": 60.1,
+          "likely_death_delay_hours": 779.5,
+          "gap_delay_hours": 60.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 59.6,
+          "likely_death_delay_hours_injected": 779.5
+        },
+        {
+          "deployment_id": "AM255~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 20.47,
+          "early": false,
+          "mortality_delay_hours_200m": 20.47,
+          "likely_death_delay_hours": 779.5,
+          "gap_delay_hours": 60.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 20.47,
+          "likely_death_delay_hours_injected": 779.5
+        },
+        {
+          "deployment_id": "AM255~sparse",
+          "carcass": true,
+          "still_hours": 715.0,
+          "still_hours_200m": 715.0,
+          "mortality_delay_hours": 35.87,
+          "early": false,
+          "mortality_delay_hours_200m": 35.87,
+          "likely_death_delay_hours": 775.5,
+          "gap_delay_hours": 60.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 35.87,
+          "likely_death_delay_hours_injected": 775.5
+        },
+        {
+          "deployment_id": "AM306~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 28.07,
+          "early": false,
+          "mortality_delay_hours_200m": 28.07,
+          "likely_death_delay_hours": 780.0,
+          "gap_delay_hours": 60.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 28.07,
+          "likely_death_delay_hours_injected": 780.0
+        },
+        {
+          "deployment_id": "AM306~sparse",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 22.67,
+          "early": false,
+          "mortality_delay_hours_200m": 22.67,
+          "likely_death_delay_hours": 780.0,
+          "gap_delay_hours": 60.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 22.67,
+          "likely_death_delay_hours_injected": 780.0
+        },
+        {
+          "deployment_id": "AM307~reporting",
+          "carcass": true,
+          "still_hours": 558.0,
+          "still_hours_200m": 558.5,
+          "mortality_delay_hours": 18.67,
+          "early": false,
+          "mortality_delay_hours_200m": 19.17,
+          "likely_death_delay_hours": 618.5,
+          "gap_delay_hours": 60.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 18.17,
+          "likely_death_delay_hours_injected": 618.0
+        },
+        {
+          "deployment_id": "AM307~sparse",
+          "carcass": true,
+          "still_hours": 553.5,
+          "still_hours_200m": 554.0,
+          "mortality_delay_hours": 30.45,
+          "early": false,
+          "mortality_delay_hours_200m": 30.95,
+          "likely_death_delay_hours": 244.5,
+          "gap_delay_hours": 60.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 29.95,
+          "likely_death_delay_hours_injected": 244.0
+        },
+        {
+          "deployment_id": "AM308~reporting",
+          "carcass": true,
+          "still_hours": 721.5,
+          "still_hours_200m": 722.0,
+          "mortality_delay_hours": 27.38,
+          "early": false,
+          "mortality_delay_hours_200m": 27.88,
+          "likely_death_delay_hours": 313.5,
+          "gap_delay_hours": 60.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 25.38,
+          "likely_death_delay_hours_injected": 311.5
+        },
+        {
+          "deployment_id": "AM308~sparse",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 16.05,
+          "early": false,
+          "mortality_delay_hours_200m": 17.55,
+          "likely_death_delay_hours": 290.5,
+          "gap_delay_hours": 60.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 15.05,
+          "likely_death_delay_hours_injected": 289.5
+        },
+        {
+          "deployment_id": "AM91~reporting",
+          "carcass": true,
+          "still_hours": 252.5,
+          "still_hours_200m": 722.5,
+          "mortality_delay_hours": 0.0,
+          "early": true,
+          "mortality_delay_hours_200m": 40.57,
+          "likely_death_delay_hours": 312.85,
+          "gap_delay_hours": 60.35,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 38.07,
+          "likely_death_delay_hours_injected": 780.32
+        },
+        {
+          "deployment_id": "AM91~sparse",
+          "carcass": true,
+          "still_hours": 720.5,
+          "still_hours_200m": 721.0,
+          "mortality_delay_hours": 22.28,
+          "early": false,
+          "mortality_delay_hours_200m": 22.78,
+          "likely_death_delay_hours": 781.32,
+          "gap_delay_hours": 60.85,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 20.28,
+          "likely_death_delay_hours_injected": 779.32
+        },
+        {
+          "deployment_id": "AM93~reporting",
+          "carcass": true,
+          "still_hours": 701.5,
+          "still_hours_200m": 702.0,
+          "mortality_delay_hours": 35.5,
+          "early": false,
+          "mortality_delay_hours_200m": 36.0,
+          "likely_death_delay_hours": 762.0,
+          "gap_delay_hours": 60.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 34.98,
+          "likely_death_delay_hours_injected": 761.48
+        },
+        {
+          "deployment_id": "AM93~sparse",
+          "carcass": true,
+          "still_hours": 697.0,
+          "still_hours_200m": 697.5,
+          "mortality_delay_hours": 35.13,
+          "early": false,
+          "mortality_delay_hours_200m": 35.63,
+          "likely_death_delay_hours": 757.0,
+          "gap_delay_hours": 60.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 34.62,
+          "likely_death_delay_hours_injected": 756.48
+        },
+        {
+          "deployment_id": "AM99~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 720.5,
+          "mortality_delay_hours": 29.35,
+          "early": false,
+          "mortality_delay_hours_200m": 30.35,
+          "likely_death_delay_hours": 779.5,
+          "gap_delay_hours": 60.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 29.35,
+          "likely_death_delay_hours_injected": 779.5
+        },
+        {
+          "deployment_id": "AM99~sparse",
+          "carcass": true,
+          "still_hours": 718.0,
+          "still_hours_200m": 719.0,
+          "mortality_delay_hours": 35.3,
+          "early": false,
+          "mortality_delay_hours_200m": 36.3,
+          "likely_death_delay_hours": 778.5,
+          "gap_delay_hours": 60.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 35.3,
+          "likely_death_delay_hours_injected": 778.5
+        }
+      ],
+      "ambiguous": [],
+      "synthetic": {
+        "pooled": {
+          "deaths": 28,
+          "carcass": 28,
+          "mortality": {
+            "detected": 28,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 22.48,
+            "detected_injected": 28,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 24.48,
+            "early": 2
+          },
+          "likely_death": {
+            "detected": 28,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 776.0,
+            "detected_injected": 28,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 777.25
+          },
+          "death_start_offset_hours": {
+            "exact": 17,
+            "earlier": 9,
+            "later": 2,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 635.5
+          }
+        },
+        "reporting": {
+          "deaths": 14,
+          "carcass": 14,
+          "mortality": {
+            "detected": 14,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 16.58,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 22.02,
+            "early": 2
+          },
+          "likely_death": {
+            "detected": 14,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 775.5,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 777.25
+          },
+          "death_start_offset_hours": {
+            "exact": 8,
+            "earlier": 4,
+            "later": 2,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 635.5
+          }
+        },
+        "sparse": {
+          "deaths": 14,
+          "carcass": 14,
+          "mortality": {
+            "detected": 14,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 27.77,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 27.27,
+            "early": 0
+          },
+          "likely_death": {
+            "detected": 14,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 777.25,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 777.25
+          },
+          "death_start_offset_hours": {
+            "exact": 9,
+            "earlier": 5,
+            "later": 0,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    },
+    "satellite_2day": {
+      "deployments": 28,
+      "labels": {
+        "dead": 28
+      },
+      "animal_months": 267.3,
+      "load": {
+        "gap": {
+          "incidents": 83,
+          "late_fix": 27,
+          "per_animal_month": 0.311
+        },
+        "geofence": {
+          "incidents": 336,
+          "late_fix": 0,
+          "per_animal_month": 1.257
+        },
+        "likely_death": {
+          "incidents": 29,
+          "late_fix": 1,
+          "per_animal_month": 0.109
+        },
+        "mortality": {
+          "incidents": 29,
+          "late_fix": 0,
+          "per_animal_month": 0.109
+        },
+        "movement": {
+          "incidents": 8,
+          "late_fix": 0,
+          "per_animal_month": 0.03
+        }
+      },
+      "false_mortality": {
+        "incidents": 0,
+        "per_animal_month": 0.0
+      },
+      "mortality": {
+        "deaths": 28,
+        "detected": 28,
+        "early": 2,
+        "mark_hours": 80.5,
+        "rate_at_mark": 1.0,
+        "rate_at_mark_200m": 1.0
+      },
+      "precision": {
+        "mortality": {
+          "true": 29,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": 1.0
+        },
+        "likely_death": {
+          "true": 29,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": 1.0
+        }
+      },
+      "likely_death": {
+        "deaths": 28,
+        "detected": 28,
+        "rate_at_mark": 0.0
+      },
+      "gap_on_deaths": {
+        "deaths": 0,
+        "detected": 0,
+        "median_delay_hours": null
+      },
+      "both_detectors": 28,
+      "deaths": [
+        {
+          "deployment_id": "AM105~reporting",
+          "carcass": true,
+          "still_hours": 714.5,
+          "still_hours_200m": 714.5,
+          "mortality_delay_hours": 56.5,
+          "early": false,
+          "mortality_delay_hours_200m": 56.5,
+          "likely_death_delay_hours": 799.0,
+          "gap_delay_hours": 84.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 56.5,
+          "likely_death_delay_hours_injected": 799.0
+        },
+        {
+          "deployment_id": "AM105~sparse",
+          "carcass": true,
+          "still_hours": 706.5,
+          "still_hours_200m": 706.5,
+          "mortality_delay_hours": 18.45,
+          "early": false,
+          "mortality_delay_hours_200m": 18.45,
+          "likely_death_delay_hours": 544.0,
+          "gap_delay_hours": 84.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 18.45,
+          "likely_death_delay_hours_injected": 544.0
+        },
+        {
+          "deployment_id": "AM107~reporting",
+          "carcass": true,
+          "still_hours": 706.5,
+          "still_hours_200m": 710.5,
+          "mortality_delay_hours": 37.28,
+          "early": false,
+          "mortality_delay_hours_200m": 41.28,
+          "likely_death_delay_hours": 791.0,
+          "gap_delay_hours": 84.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 36.28,
+          "likely_death_delay_hours_injected": 790.0
+        },
+        {
+          "deployment_id": "AM107~sparse",
+          "carcass": true,
+          "still_hours": 697.0,
+          "still_hours_200m": 701.5,
+          "mortality_delay_hours": 45.4,
+          "early": false,
+          "mortality_delay_hours_200m": 49.9,
+          "likely_death_delay_hours": 781.0,
+          "gap_delay_hours": 84.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 44.4,
+          "likely_death_delay_hours_injected": 780.0
+        },
+        {
+          "deployment_id": "AM108~reporting",
+          "carcass": true,
+          "still_hours": 80.5,
+          "still_hours_200m": 716.0,
+          "mortality_delay_hours": 0.0,
+          "early": true,
+          "mortality_delay_hours_200m": 31.45,
+          "likely_death_delay_hours": 164.5,
+          "gap_delay_hours": 84.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 31.45,
+          "likely_death_delay_hours_injected": 800.0
+        },
+        {
+          "deployment_id": "AM108~sparse",
+          "carcass": true,
+          "still_hours": 715.5,
+          "still_hours_200m": 715.5,
+          "mortality_delay_hours": 60.9,
+          "early": false,
+          "mortality_delay_hours_200m": 60.9,
+          "likely_death_delay_hours": 800.0,
+          "gap_delay_hours": 84.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 60.9,
+          "likely_death_delay_hours_injected": 800.0
+        },
+        {
+          "deployment_id": "AM110~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 49.02,
+          "early": false,
+          "mortality_delay_hours_200m": 49.52,
+          "likely_death_delay_hours": 804.0,
+          "gap_delay_hours": 84.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 49.02,
+          "likely_death_delay_hours_injected": 804.0
+        },
+        {
+          "deployment_id": "AM110~sparse",
+          "carcass": true,
+          "still_hours": 719.0,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 59.03,
+          "early": false,
+          "mortality_delay_hours_200m": 59.53,
+          "likely_death_delay_hours": 803.0,
+          "gap_delay_hours": 84.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 59.03,
+          "likely_death_delay_hours_injected": 803.0
+        },
+        {
+          "deployment_id": "AM239~reporting",
+          "carcass": true,
+          "still_hours": 716.0,
+          "still_hours_200m": 716.0,
+          "mortality_delay_hours": 44.57,
+          "early": false,
+          "mortality_delay_hours_200m": 44.57,
+          "likely_death_delay_hours": 800.0,
+          "gap_delay_hours": 84.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 44.57,
+          "likely_death_delay_hours_injected": 800.0
+        },
+        {
+          "deployment_id": "AM239~sparse",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 718.5,
+          "mortality_delay_hours": 53.78,
+          "early": false,
+          "mortality_delay_hours_200m": 53.78,
+          "likely_death_delay_hours": 803.0,
+          "gap_delay_hours": 84.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 53.78,
+          "likely_death_delay_hours_injected": 803.0
+        },
+        {
+          "deployment_id": "AM253~reporting",
+          "carcass": true,
+          "still_hours": 720.0,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 43.58,
+          "early": false,
+          "mortality_delay_hours_200m": 43.58,
+          "likely_death_delay_hours": 804.0,
+          "gap_delay_hours": 84.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 43.58,
+          "likely_death_delay_hours_injected": 804.0
+        },
+        {
+          "deployment_id": "AM253~sparse",
+          "carcass": true,
+          "still_hours": 720.0,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 59.75,
+          "early": false,
+          "mortality_delay_hours_200m": 59.75,
+          "likely_death_delay_hours": 804.0,
+          "gap_delay_hours": 84.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 59.75,
+          "likely_death_delay_hours_injected": 804.0
+        },
+        {
+          "deployment_id": "AM254~reporting",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 719.0,
+          "mortality_delay_hours": 12.57,
+          "early": false,
+          "mortality_delay_hours_200m": 13.07,
+          "likely_death_delay_hours": 802.5,
+          "gap_delay_hours": 84.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 12.57,
+          "likely_death_delay_hours_injected": 802.5
+        },
+        {
+          "deployment_id": "AM254~sparse",
+          "carcass": true,
+          "still_hours": 719.0,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 76.7,
+          "early": false,
+          "mortality_delay_hours_200m": 77.2,
+          "likely_death_delay_hours": 803.5,
+          "gap_delay_hours": 84.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 76.7,
+          "likely_death_delay_hours_injected": 803.5
+        },
+        {
+          "deployment_id": "AM255~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 29.43,
+          "early": false,
+          "mortality_delay_hours_200m": 29.43,
+          "likely_death_delay_hours": 803.5,
+          "gap_delay_hours": 84.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 29.43,
+          "likely_death_delay_hours_injected": 803.5
+        },
+        {
+          "deployment_id": "AM255~sparse",
+          "carcass": true,
+          "still_hours": 715.0,
+          "still_hours_200m": 715.0,
+          "mortality_delay_hours": 43.58,
+          "early": false,
+          "mortality_delay_hours_200m": 43.58,
+          "likely_death_delay_hours": 799.5,
+          "gap_delay_hours": 84.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 43.58,
+          "likely_death_delay_hours_injected": 799.5
+        },
+        {
+          "deployment_id": "AM306~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 18.45,
+          "early": false,
+          "mortality_delay_hours_200m": 18.45,
+          "likely_death_delay_hours": 804.0,
+          "gap_delay_hours": 84.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 18.45,
+          "likely_death_delay_hours_injected": 804.0
+        },
+        {
+          "deployment_id": "AM306~sparse",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 38.5,
+          "early": false,
+          "mortality_delay_hours_200m": 38.5,
+          "likely_death_delay_hours": 804.0,
+          "gap_delay_hours": 84.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 38.5,
+          "likely_death_delay_hours_injected": 804.0
+        },
+        {
+          "deployment_id": "AM307~reporting",
+          "carcass": true,
+          "still_hours": 558.0,
+          "still_hours_200m": 558.5,
+          "mortality_delay_hours": 42.3,
+          "early": false,
+          "mortality_delay_hours_200m": 42.8,
+          "likely_death_delay_hours": 642.5,
+          "gap_delay_hours": 84.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 41.8,
+          "likely_death_delay_hours_injected": 642.0
+        },
+        {
+          "deployment_id": "AM307~sparse",
+          "carcass": true,
+          "still_hours": 553.5,
+          "still_hours_200m": 554.0,
+          "mortality_delay_hours": 35.3,
+          "early": false,
+          "mortality_delay_hours_200m": 35.8,
+          "likely_death_delay_hours": 268.5,
+          "gap_delay_hours": 84.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 34.8,
+          "likely_death_delay_hours_injected": 268.0
+        },
+        {
+          "deployment_id": "AM308~reporting",
+          "carcass": true,
+          "still_hours": 721.5,
+          "still_hours_200m": 722.0,
+          "mortality_delay_hours": 42.88,
+          "early": false,
+          "mortality_delay_hours_200m": 43.38,
+          "likely_death_delay_hours": 805.5,
+          "gap_delay_hours": 84.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 40.88,
+          "likely_death_delay_hours_injected": 803.5
+        },
+        {
+          "deployment_id": "AM308~sparse",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 58.05,
+          "early": false,
+          "mortality_delay_hours_200m": 59.55,
+          "likely_death_delay_hours": 314.5,
+          "gap_delay_hours": 84.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 57.05,
+          "likely_death_delay_hours_injected": 313.5
+        },
+        {
+          "deployment_id": "AM91~reporting",
+          "carcass": true,
+          "still_hours": 252.5,
+          "still_hours_200m": 722.5,
+          "mortality_delay_hours": 0.0,
+          "early": true,
+          "mortality_delay_hours_200m": 58.48,
+          "likely_death_delay_hours": 336.85,
+          "gap_delay_hours": 84.35,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 55.98,
+          "likely_death_delay_hours_injected": 804.32
+        },
+        {
+          "deployment_id": "AM91~sparse",
+          "carcass": true,
+          "still_hours": 720.5,
+          "still_hours_200m": 721.0,
+          "mortality_delay_hours": 21.1,
+          "early": false,
+          "mortality_delay_hours_200m": 21.6,
+          "likely_death_delay_hours": 805.32,
+          "gap_delay_hours": 84.85,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 19.1,
+          "likely_death_delay_hours_injected": 803.32
+        },
+        {
+          "deployment_id": "AM93~reporting",
+          "carcass": true,
+          "still_hours": 701.5,
+          "still_hours_200m": 702.0,
+          "mortality_delay_hours": 38.5,
+          "early": false,
+          "mortality_delay_hours_200m": 39.0,
+          "likely_death_delay_hours": 786.0,
+          "gap_delay_hours": 84.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 37.98,
+          "likely_death_delay_hours_injected": 785.48
+        },
+        {
+          "deployment_id": "AM93~sparse",
+          "carcass": true,
+          "still_hours": 697.0,
+          "still_hours_200m": 697.5,
+          "mortality_delay_hours": 24.63,
+          "early": false,
+          "mortality_delay_hours_200m": 25.13,
+          "likely_death_delay_hours": 781.0,
+          "gap_delay_hours": 84.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 24.12,
+          "likely_death_delay_hours_injected": 780.48
+        },
+        {
+          "deployment_id": "AM99~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 720.5,
+          "mortality_delay_hours": 56.6,
+          "early": false,
+          "mortality_delay_hours_200m": 57.6,
+          "likely_death_delay_hours": 803.5,
+          "gap_delay_hours": 84.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 56.6,
+          "likely_death_delay_hours_injected": 803.5
+        },
+        {
+          "deployment_id": "AM99~sparse",
+          "carcass": true,
+          "still_hours": 718.0,
+          "still_hours_200m": 719.0,
+          "mortality_delay_hours": 51.57,
+          "early": false,
+          "mortality_delay_hours_200m": 52.57,
+          "likely_death_delay_hours": 802.5,
+          "gap_delay_hours": 84.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 51.57,
+          "likely_death_delay_hours_injected": 802.5
+        }
+      ],
+      "ambiguous": [],
+      "synthetic": {
+        "pooled": {
+          "deaths": 28,
+          "carcass": 28,
+          "mortality": {
+            "detected": 28,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 43.23,
+            "detected_injected": 28,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 43.58,
+            "early": 2
+          },
+          "likely_death": {
+            "detected": 28,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 801.25,
+            "detected_injected": 28,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 802.5
+          },
+          "death_start_offset_hours": {
+            "exact": 17,
+            "earlier": 9,
+            "later": 2,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 635.5
+          }
+        },
+        "reporting": {
+          "deaths": 14,
+          "carcass": 14,
+          "mortality": {
+            "detected": 14,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 40.4,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 41.34,
+            "early": 2
+          },
+          "likely_death": {
+            "detected": 14,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 801.25,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 803.0
+          },
+          "death_start_offset_hours": {
+            "exact": 8,
+            "earlier": 4,
+            "later": 2,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 635.5
+          }
+        },
+        "sparse": {
+          "deaths": 14,
+          "carcass": 14,
+          "mortality": {
+            "detected": 14,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 48.48,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 47.98,
+            "early": 0
+          },
+          "likely_death": {
+            "detected": 14,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 801.25,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 801.25
+          },
+          "death_start_offset_hours": {
+            "exact": 9,
+            "earlier": 5,
+            "later": 0,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    },
+    "gsm": {
+      "deployments": 28,
+      "labels": {
+        "dead": 28
+      },
+      "animal_months": 267.3,
+      "load": {
+        "gap": {
+          "incidents": 199,
+          "late_fix": 58,
+          "per_animal_month": 0.745
+        },
+        "geofence": {
+          "incidents": 336,
+          "late_fix": 0,
+          "per_animal_month": 1.257
+        },
+        "likely_death": {
+          "incidents": 31,
+          "late_fix": 0,
+          "per_animal_month": 0.116
+        },
+        "mortality": {
+          "incidents": 29,
+          "late_fix": 0,
+          "per_animal_month": 0.109
+        },
+        "movement": {
+          "incidents": 8,
+          "late_fix": 0,
+          "per_animal_month": 0.03
+        }
+      },
+      "false_mortality": {
+        "incidents": 0,
+        "per_animal_month": 0.0
+      },
+      "mortality": {
+        "deaths": 28,
+        "detected": 28,
+        "early": 2,
+        "mark_hours": 80.5,
+        "rate_at_mark": 1.0,
+        "rate_at_mark_200m": 1.0
+      },
+      "precision": {
+        "mortality": {
+          "true": 29,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": 1.0
+        },
+        "likely_death": {
+          "true": 31,
+          "false": 0,
+          "ambiguous": 0,
+          "precision": 1.0
+        }
+      },
+      "likely_death": {
+        "deaths": 28,
+        "detected": 28,
+        "rate_at_mark": 0.0
+      },
+      "gap_on_deaths": {
+        "deaths": 0,
+        "detected": 0,
+        "median_delay_hours": null
+      },
+      "both_detectors": 28,
+      "deaths": [
+        {
+          "deployment_id": "AM105~reporting",
+          "carcass": true,
+          "still_hours": 714.5,
+          "still_hours_200m": 714.5,
+          "mortality_delay_hours": 16.0,
+          "early": false,
+          "mortality_delay_hours_200m": 16.0,
+          "likely_death_delay_hours": 752.0,
+          "gap_delay_hours": 37.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 16.0,
+          "likely_death_delay_hours_injected": 752.0
+        },
+        {
+          "deployment_id": "AM105~sparse",
+          "carcass": true,
+          "still_hours": 706.5,
+          "still_hours_200m": 706.5,
+          "mortality_delay_hours": 16.0,
+          "early": false,
+          "mortality_delay_hours_200m": 16.0,
+          "likely_death_delay_hours": 190.0,
+          "gap_delay_hours": 37.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 16.0,
+          "likely_death_delay_hours_injected": 190.0
+        },
+        {
+          "deployment_id": "AM107~reporting",
+          "carcass": true,
+          "still_hours": 706.5,
+          "still_hours_200m": 710.5,
+          "mortality_delay_hours": 15.0,
+          "early": false,
+          "mortality_delay_hours_200m": 19.0,
+          "likely_death_delay_hours": 744.0,
+          "gap_delay_hours": 37.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 14.0,
+          "likely_death_delay_hours_injected": 743.0
+        },
+        {
+          "deployment_id": "AM107~sparse",
+          "carcass": true,
+          "still_hours": 697.0,
+          "still_hours_200m": 701.5,
+          "mortality_delay_hours": 28.0,
+          "early": false,
+          "mortality_delay_hours_200m": 32.5,
+          "likely_death_delay_hours": 193.0,
+          "gap_delay_hours": 37.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 27.0,
+          "likely_death_delay_hours_injected": 192.0
+        },
+        {
+          "deployment_id": "AM108~reporting",
+          "carcass": true,
+          "still_hours": 80.5,
+          "still_hours_200m": 716.0,
+          "mortality_delay_hours": 0.0,
+          "early": true,
+          "mortality_delay_hours_200m": 15.58,
+          "likely_death_delay_hours": 117.5,
+          "gap_delay_hours": 37.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 15.58,
+          "likely_death_delay_hours_injected": 753.0
+        },
+        {
+          "deployment_id": "AM108~sparse",
+          "carcass": true,
+          "still_hours": 715.5,
+          "still_hours_200m": 715.5,
+          "mortality_delay_hours": 32.0,
+          "early": false,
+          "mortality_delay_hours_200m": 32.0,
+          "likely_death_delay_hours": 96.0,
+          "gap_delay_hours": 37.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 32.0,
+          "likely_death_delay_hours_injected": 96.0
+        },
+        {
+          "deployment_id": "AM110~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 16.0,
+          "early": false,
+          "mortality_delay_hours_200m": 16.5,
+          "likely_death_delay_hours": 757.0,
+          "gap_delay_hours": 37.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 16.0,
+          "likely_death_delay_hours_injected": 757.0
+        },
+        {
+          "deployment_id": "AM110~sparse",
+          "carcass": true,
+          "still_hours": 719.0,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 20.0,
+          "early": false,
+          "mortality_delay_hours_200m": 20.5,
+          "likely_death_delay_hours": 756.0,
+          "gap_delay_hours": 37.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 20.0,
+          "likely_death_delay_hours_injected": 756.0
+        },
+        {
+          "deployment_id": "AM239~reporting",
+          "carcass": true,
+          "still_hours": 716.0,
+          "still_hours_200m": 716.0,
+          "mortality_delay_hours": 15.0,
+          "early": false,
+          "mortality_delay_hours_200m": 15.0,
+          "likely_death_delay_hours": 753.0,
+          "gap_delay_hours": 37.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 15.0,
+          "likely_death_delay_hours_injected": 753.0
+        },
+        {
+          "deployment_id": "AM239~sparse",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 718.5,
+          "mortality_delay_hours": 17.0,
+          "early": false,
+          "mortality_delay_hours_200m": 17.0,
+          "likely_death_delay_hours": 756.0,
+          "gap_delay_hours": 37.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 17.0,
+          "likely_death_delay_hours_injected": 756.0
+        },
+        {
+          "deployment_id": "AM253~reporting",
+          "carcass": true,
+          "still_hours": 720.0,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 15.0,
+          "early": false,
+          "mortality_delay_hours_200m": 15.0,
+          "likely_death_delay_hours": 757.0,
+          "gap_delay_hours": 37.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 15.0,
+          "likely_death_delay_hours_injected": 757.0
+        },
+        {
+          "deployment_id": "AM253~sparse",
+          "carcass": true,
+          "still_hours": 720.0,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 20.0,
+          "early": false,
+          "mortality_delay_hours_200m": 20.0,
+          "likely_death_delay_hours": 757.0,
+          "gap_delay_hours": 37.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 20.0,
+          "likely_death_delay_hours_injected": 757.0
+        },
+        {
+          "deployment_id": "AM254~reporting",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 719.0,
+          "mortality_delay_hours": 15.5,
+          "early": false,
+          "mortality_delay_hours_200m": 16.0,
+          "likely_death_delay_hours": 755.5,
+          "gap_delay_hours": 37.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 15.5,
+          "likely_death_delay_hours_injected": 755.5
+        },
+        {
+          "deployment_id": "AM254~sparse",
+          "carcass": true,
+          "still_hours": 719.0,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 45.5,
+          "early": false,
+          "mortality_delay_hours_200m": 46.0,
+          "likely_death_delay_hours": 365.5,
+          "gap_delay_hours": 37.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 45.5,
+          "likely_death_delay_hours_injected": 365.5
+        },
+        {
+          "deployment_id": "AM255~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 15.25,
+          "early": false,
+          "mortality_delay_hours_200m": 15.25,
+          "likely_death_delay_hours": 756.5,
+          "gap_delay_hours": 37.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 15.25,
+          "likely_death_delay_hours_injected": 756.5
+        },
+        {
+          "deployment_id": "AM255~sparse",
+          "carcass": true,
+          "still_hours": 715.0,
+          "still_hours_200m": 715.0,
+          "mortality_delay_hours": 16.5,
+          "early": false,
+          "mortality_delay_hours_200m": 16.5,
+          "likely_death_delay_hours": 752.5,
+          "gap_delay_hours": 37.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 16.5,
+          "likely_death_delay_hours_injected": 752.5
+        },
+        {
+          "deployment_id": "AM306~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 15.0,
+          "early": false,
+          "mortality_delay_hours_200m": 15.0,
+          "likely_death_delay_hours": 757.0,
+          "gap_delay_hours": 37.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 15.0,
+          "likely_death_delay_hours_injected": 757.0
+        },
+        {
+          "deployment_id": "AM306~sparse",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 719.5,
+          "mortality_delay_hours": 20.0,
+          "early": false,
+          "mortality_delay_hours_200m": 20.0,
+          "likely_death_delay_hours": 757.0,
+          "gap_delay_hours": 37.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 20.0,
+          "likely_death_delay_hours_injected": 757.0
+        },
+        {
+          "deployment_id": "AM307~reporting",
+          "carcass": true,
+          "still_hours": 558.0,
+          "still_hours_200m": 558.5,
+          "mortality_delay_hours": 16.5,
+          "early": false,
+          "mortality_delay_hours_200m": 17.0,
+          "likely_death_delay_hours": 224.5,
+          "gap_delay_hours": 37.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 16.0,
+          "likely_death_delay_hours_injected": 224.0
+        },
+        {
+          "deployment_id": "AM307~sparse",
+          "carcass": true,
+          "still_hours": 553.5,
+          "still_hours_200m": 554.0,
+          "mortality_delay_hours": 22.5,
+          "early": false,
+          "mortality_delay_hours_200m": 23.0,
+          "likely_death_delay_hours": 221.5,
+          "gap_delay_hours": 37.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 22.0,
+          "likely_death_delay_hours_injected": 221.0
+        },
+        {
+          "deployment_id": "AM308~reporting",
+          "carcass": true,
+          "still_hours": 721.5,
+          "still_hours_200m": 722.0,
+          "mortality_delay_hours": 19.5,
+          "early": false,
+          "mortality_delay_hours_200m": 20.0,
+          "likely_death_delay_hours": 290.5,
+          "gap_delay_hours": 37.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 17.5,
+          "likely_death_delay_hours_injected": 288.5
+        },
+        {
+          "deployment_id": "AM308~sparse",
+          "carcass": true,
+          "still_hours": 718.5,
+          "still_hours_200m": 720.0,
+          "mortality_delay_hours": 19.5,
+          "early": false,
+          "mortality_delay_hours_200m": 21.0,
+          "likely_death_delay_hours": 267.5,
+          "gap_delay_hours": 37.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 18.5,
+          "likely_death_delay_hours_injected": 266.5
+        },
+        {
+          "deployment_id": "AM91~reporting",
+          "carcass": true,
+          "still_hours": 252.5,
+          "still_hours_200m": 722.5,
+          "mortality_delay_hours": 0.0,
+          "early": true,
+          "mortality_delay_hours_200m": 22.78,
+          "likely_death_delay_hours": 289.85,
+          "gap_delay_hours": 37.35,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 20.28,
+          "likely_death_delay_hours_injected": 757.32
+        },
+        {
+          "deployment_id": "AM91~sparse",
+          "carcass": true,
+          "still_hours": 720.5,
+          "still_hours_200m": 721.0,
+          "mortality_delay_hours": 15.32,
+          "early": false,
+          "mortality_delay_hours_200m": 15.82,
+          "likely_death_delay_hours": 758.32,
+          "gap_delay_hours": 37.85,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 13.32,
+          "likely_death_delay_hours_injected": 756.32
+        },
+        {
+          "deployment_id": "AM93~reporting",
+          "carcass": true,
+          "still_hours": 701.5,
+          "still_hours_200m": 702.0,
+          "mortality_delay_hours": 16.0,
+          "early": false,
+          "mortality_delay_hours_200m": 16.5,
+          "likely_death_delay_hours": 739.0,
+          "gap_delay_hours": 37.5,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 15.48,
+          "likely_death_delay_hours_injected": 738.48
+        },
+        {
+          "deployment_id": "AM93~sparse",
+          "carcass": true,
+          "still_hours": 697.0,
+          "still_hours_200m": 697.5,
+          "mortality_delay_hours": 19.0,
+          "early": false,
+          "mortality_delay_hours_200m": 19.5,
+          "likely_death_delay_hours": 734.0,
+          "gap_delay_hours": 37.0,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 18.48,
+          "likely_death_delay_hours_injected": 733.48
+        },
+        {
+          "deployment_id": "AM99~reporting",
+          "carcass": true,
+          "still_hours": 719.5,
+          "still_hours_200m": 720.5,
+          "mortality_delay_hours": 15.5,
+          "early": false,
+          "mortality_delay_hours_200m": 16.5,
+          "likely_death_delay_hours": 756.5,
+          "gap_delay_hours": 37.0,
+          "regime": "reporting",
+          "mortality_delay_hours_injected": 15.5,
+          "likely_death_delay_hours_injected": 756.5
+        },
+        {
+          "deployment_id": "AM99~sparse",
+          "carcass": true,
+          "still_hours": 718.0,
+          "still_hours_200m": 719.0,
+          "mortality_delay_hours": 31.12,
+          "early": false,
+          "mortality_delay_hours_200m": 32.12,
+          "likely_death_delay_hours": 755.5,
+          "gap_delay_hours": 37.5,
+          "regime": "sparse",
+          "mortality_delay_hours_injected": 31.12,
+          "likely_death_delay_hours_injected": 755.5
+        }
+      ],
+      "ambiguous": [],
+      "synthetic": {
+        "pooled": {
+          "deaths": 28,
+          "carcass": 28,
+          "mortality": {
+            "detected": 28,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 16.25,
+            "detected_injected": 28,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 16.25,
+            "early": 2
+          },
+          "likely_death": {
+            "detected": 28,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 752.25,
+            "detected_injected": 28,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 753.0
+          },
+          "death_start_offset_hours": {
+            "exact": 17,
+            "earlier": 9,
+            "later": 2,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 635.5
+          }
+        },
+        "reporting": {
+          "deaths": 14,
+          "carcass": 14,
+          "mortality": {
+            "detected": 14,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 15.38,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 15.5,
+            "early": 2
+          },
+          "likely_death": {
+            "detected": 14,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 752.5,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 754.25
+          },
+          "death_start_offset_hours": {
+            "exact": 8,
+            "earlier": 4,
+            "later": 2,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 635.5
+          }
+        },
+        "sparse": {
+          "deaths": 14,
+          "carcass": 14,
+          "mortality": {
+            "detected": 14,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 20.0,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 20.0,
+            "early": 0
+          },
+          "likely_death": {
+            "detected": 14,
+            "rate_at_mark": 0.0,
+            "median_delay_hours": 743.25,
+            "detected_injected": 14,
+            "rate_at_mark_injected": 0.0,
+            "median_delay_hours_injected": 742.99
+          },
+          "death_start_offset_hours": {
+            "exact": 9,
+            "earlier": 5,
+            "later": 0,
+            "min": -2.0,
+            "median": 0.0,
+            "max": 0.0
+          }
+        }
+      }
+    }
+  }
+}

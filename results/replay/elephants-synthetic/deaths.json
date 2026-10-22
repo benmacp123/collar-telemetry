@@ -1,0 +1,259 @@
+{
+  "study": "elephants-synthetic",
+  "seed": 2026,
+  "deaths": [
+    {
+      "deployment_id": "AM105~reporting",
+      "source_id": "AM105",
+      "regime": "reporting",
+      "death_time": "2008-01-01T07:00:00+00:00",
+      "lat": -25.13067,
+      "lon": 31.92083,
+      "carcass_fixes": 362
+    },
+    {
+      "deployment_id": "AM105~sparse",
+      "source_id": "AM105",
+      "regime": "sparse",
+      "death_time": "2008-01-01T07:00:00+00:00",
+      "lat": -25.13067,
+      "lon": 31.92083,
+      "carcass_fixes": 108
+    },
+    {
+      "deployment_id": "AM107~reporting",
+      "source_id": "AM107",
+      "regime": "reporting",
+      "death_time": "2007-08-30T10:00:00+00:00",
+      "lat": -24.98579,
+      "lon": 31.30122,
+      "carcass_fixes": 698
+    },
+    {
+      "deployment_id": "AM107~sparse",
+      "source_id": "AM107",
+      "regime": "sparse",
+      "death_time": "2007-08-30T10:00:00+00:00",
+      "lat": -24.98579,
+      "lon": 31.30122,
+      "carcass_fixes": 175
+    },
+    {
+      "deployment_id": "AM108~reporting",
+      "source_id": "AM108",
+      "regime": "reporting",
+      "death_time": "2008-05-25T13:00:00+00:00",
+      "lat": -25.00313,
+      "lon": 31.31749,
+      "carcass_fixes": 688
+    },
+    {
+      "deployment_id": "AM108~sparse",
+      "source_id": "AM108",
+      "regime": "sparse",
+      "death_time": "2008-05-25T13:00:00+00:00",
+      "lat": -25.00313,
+      "lon": 31.31749,
+      "carcass_fixes": 163
+    },
+    {
+      "deployment_id": "AM110~reporting",
+      "source_id": "AM110",
+      "regime": "reporting",
+      "death_time": "2007-11-15T18:00:00+00:00",
+      "lat": -24.24769,
+      "lon": 31.68257,
+      "carcass_fixes": 746
+    },
+    {
+      "deployment_id": "AM110~sparse",
+      "source_id": "AM110",
+      "regime": "sparse",
+      "death_time": "2007-11-15T18:00:00+00:00",
+      "lat": -24.24769,
+      "lon": 31.68257,
+      "carcass_fixes": 212
+    },
+    {
+      "deployment_id": "AM239~reporting",
+      "source_id": "AM239",
+      "regime": "reporting",
+      "death_time": "2008-12-11T19:00:00+00:00",
+      "lat": -24.713859,
+      "lon": 31.666071,
+      "carcass_fixes": 534
+    },
+    {
+      "deployment_id": "AM239~sparse",
+      "source_id": "AM239",
+      "regime": "sparse",
+      "death_time": "2008-12-11T19:00:00+00:00",
+      "lat": -24.713859,
+      "lon": 31.666071,
+      "carcass_fixes": 156
+    },
+    {
+      "deployment_id": "AM253~reporting",
+      "source_id": "AM253",
+      "regime": "reporting",
+      "death_time": "2008-02-21T17:00:00+00:00",
+      "lat": -24.71508,
+      "lon": 31.77375,
+      "carcass_fixes": 747
+    },
+    {
+      "deployment_id": "AM253~sparse",
+      "source_id": "AM253",
+      "regime": "sparse",
+      "death_time": "2008-02-21T17:00:00+00:00",
+      "lat": -24.71508,
+      "lon": 31.77375,
+      "carcass_fixes": 204
+    },
+    {
+      "deployment_id": "AM254~reporting",
+      "source_id": "AM254",
+      "regime": "reporting",
+      "death_time": "2009-05-03T05:30:00+00:00",
+      "lat": -24.89537,
+      "lon": 31.6963,
+      "carcass_fixes": 553
+    },
+    {
+      "deployment_id": "AM254~sparse",
+      "source_id": "AM254",
+      "regime": "sparse",
+      "death_time": "2009-05-03T05:30:00+00:00",
+      "lat": -24.89537,
+      "lon": 31.6963,
+      "carcass_fixes": 137
+    },
+    {
+      "deployment_id": "AM255~reporting",
+      "source_id": "AM255",
+      "regime": "reporting",
+      "death_time": "2008-03-04T12:30:00+00:00",
+      "lat": -24.61348,
+      "lon": 31.70585,
+      "carcass_fixes": 745
+    },
+    {
+      "deployment_id": "AM255~sparse",
+      "source_id": "AM255",
+      "regime": "sparse",
+      "death_time": "2008-03-04T12:30:00+00:00",
+      "lat": -24.61348,
+      "lon": 31.70585,
+      "carcass_fixes": 175
+    },
+    {
+      "deployment_id": "AM306~reporting",
+      "source_id": "AM306",
+      "regime": "reporting",
+      "death_time": "2008-08-06T14:00:00+00:00",
+      "lat": -24.2342,
+      "lon": 31.49447,
+      "carcass_fixes": 732
+    },
+    {
+      "deployment_id": "AM306~sparse",
+      "source_id": "AM306",
+      "regime": "sparse",
+      "death_time": "2008-08-06T14:00:00+00:00",
+      "lat": -24.2342,
+      "lon": 31.49447,
+      "carcass_fixes": 182
+    },
+    {
+      "deployment_id": "AM307~reporting",
+      "source_id": "AM307",
+      "regime": "reporting",
+      "death_time": "2009-04-05T17:00:00+00:00",
+      "lat": -24.40833,
+      "lon": 31.50742,
+      "carcass_fixes": 538
+    },
+    {
+      "deployment_id": "AM307~sparse",
+      "source_id": "AM307",
+      "regime": "sparse",
+      "death_time": "2009-04-05T17:00:00+00:00",
+      "lat": -24.40833,
+      "lon": 31.50742,
+      "carcass_fixes": 153
+    },
+    {
+      "deployment_id": "AM308~reporting",
+      "source_id": "AM308",
+      "regime": "reporting",
+      "death_time": "2009-04-12T22:30:00+00:00",
+      "lat": -24.46037,
+      "lon": 31.480379,
+      "carcass_fixes": 475
+    },
+    {
+      "deployment_id": "AM308~sparse",
+      "source_id": "AM308",
+      "regime": "sparse",
+      "death_time": "2009-04-12T22:30:00+00:00",
+      "lat": -24.46037,
+      "lon": 31.480379,
+      "carcass_fixes": 118
+    },
+    {
+      "deployment_id": "AM91~reporting",
+      "source_id": "AM91",
+      "regime": "reporting",
+      "death_time": "2008-05-30T00:41:00+00:00",
+      "lat": -24.40604,
+      "lon": 31.74513,
+      "carcass_fixes": 778
+    },
+    {
+      "deployment_id": "AM91~sparse",
+      "source_id": "AM91",
+      "regime": "sparse",
+      "death_time": "2008-05-30T00:41:00+00:00",
+      "lat": -24.40604,
+      "lon": 31.74513,
+      "carcass_fixes": 202
+    },
+    {
+      "deployment_id": "AM93~reporting",
+      "source_id": "AM93",
+      "regime": "reporting",
+      "death_time": "2007-09-10T07:31:00+00:00",
+      "lat": -24.39416,
+      "lon": 31.7719,
+      "carcass_fixes": 668
+    },
+    {
+      "deployment_id": "AM93~sparse",
+      "source_id": "AM93",
+      "regime": "sparse",
+      "death_time": "2007-09-10T07:31:00+00:00",
+      "lat": -24.39416,
+      "lon": 31.7719,
+      "carcass_fixes": 187
+    },
+    {
+      "deployment_id": "AM99~reporting",
+      "source_id": "AM99",
+      "regime": "reporting",
+      "death_time": "2008-07-09T17:30:00+00:00",
+      "lat": -24.18984,
+      "lon": 31.70775,
+      "carcass_fixes": 746
+    },
+    {
+      "deployment_id": "AM99~sparse",
+      "source_id": "AM99",
+      "regime": "sparse",
+      "death_time": "2008-07-09T17:30:00+00:00",
+      "lat": -24.18984,
+      "lon": 31.70775,
+      "carcass_fixes": 187
+    }
+  ],
+  "skipped": {}
+}

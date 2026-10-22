@@ -1,0 +1,62 @@
+{
+  "study": "elephants-synthetic",
+  "scenario": "satellite_daily",
+  "seed": 2026,
+  "settings": {
+    "tick_hours": 1.0,
+    "max_lateness_hours": 0.0,
+    "gap_min_silence_hours": 6.0,
+    "gap_allowance_hours": 60.0,
+    "silent_horizon_days": 7.0,
+    "planned_ends": [
+      "captured",
+      "released",
+      "removal"
+    ]
+  },
+  "deployments": 28,
+  "cleaner_dropped": {
+    "duplicate": 0,
+    "invalid": 0,
+    "late": 0,
+    "speed": 0
+  },
+  "lifecycle_dropped": {
+    "duplicate_open": 0,
+    "orphan_resolve": 0
+  },
+  "incidents": {
+    "gap": {
+      "incidents": 105,
+      "open_at_end": 28,
+      "late_fix": 22,
+      "flaps": 0
+    },
+    "geofence": {
+      "incidents": 336,
+      "open_at_end": 0,
+      "late_fix": 0,
+      "flaps": 0
+    },
+    "likely_death": {
+      "incidents": 30,
+      "open_at_end": 28,
+      "late_fix": 0,
+      "flaps": 0
+    },
+    "mortality": {
+      "incidents": 29,
+      "open_at_end": 28,
+      "late_fix": 0,
+      "flaps": 21
+    },
+    "movement": {
+      "incidents": 8,
+      "open_at_end": 0,
+      "late_fix": 0,
+      "flaps": 0
+    }
+  },
+  "fixes": 274579,
+  "arrivals": 274579
+}

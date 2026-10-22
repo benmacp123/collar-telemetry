@@ -38,8 +38,13 @@ a reporting carcass, and one cut off and destroyed goes silent, which is
 the gap detector's case.
 
 Every injected event is synthetic and must be reported as such. The death
-time is the evaluation's "death start": the start of the final stationary
-period.
+time is meant to be the evaluation's "death start", the start of the final
+stationary period; the evaluation computes that from the fixes, as for real
+deaths, and reports how far it falls from the injected time.
+
+``synthetic_study`` turns a whole study into a labelled synthetic variant:
+each deployment dies once in each regime at the same time, so the two
+regimes are compared on the same tracks.
 
 References:
     Adams AL, Dickinson KJM, Robertson BC, van Heezik Y (2013) PLoS ONE
@@ -51,14 +56,25 @@ References:
 
 import math
 import random
-from dataclasses import dataclass
+from collections import defaultdict
+from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 
-from telemetry.core.fixes import Fix
+from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.geo import offset
 
 # z-score of the 95th percentile of a standard normal.
 Z95 = 1.6448536269514722
+
+REPORTING = "reporting"
+SPARSE = "sparse"
+REGIMES = (REPORTING, SPARSE)
+SYNTHETIC_END = "dead"
+# Joins a real deployment ID and a regime into a synthetic one. Movebank IDs
+# in the committed studies never contain it.
+SEPARATOR = "~"
+WARMUP = timedelta(days=7)
+COVER = timedelta(days=7)
 
 
 @dataclass(frozen=True)
@@ -218,3 +234,152 @@ def inject_mortality(
     return SyntheticDeath(
         before + after, carcass.timestamp, carcass.lat, carcass.lon, sparse
     )
+
+
+@dataclass(frozen=True)
+class InjectedDeath:
+    """What was injected into one synthetic deployment.
+
+    Attributes:
+        deployment_id: The synthetic deployment.
+        source_id: The real deployment its track came from.
+        regime: ``REPORTING`` or ``SPARSE``.
+        death_time: Time of the last real fix.
+        lat: Latitude of the carcass.
+        lon: Longitude of the carcass.
+        carcass_fixes: Synthetic fixes after the death.
+    """
+
+    deployment_id: str
+    source_id: str
+    regime: str
+    death_time: datetime
+    lat: float
+    lon: float
+    carcass_fixes: int
+
+    def to_dict(self) -> dict:
+        """The record as JSON-ready values.
+
+        Returns:
+            dict: Fields, with the death time in ISO 8601.
+        """
+        return {
+            "deployment_id": self.deployment_id,
+            "source_id": self.source_id,
+            "regime": self.regime,
+            "death_time": self.death_time.isoformat(),
+            "lat": round(self.lat, 6),
+            "lon": round(self.lon, 6),
+            "carcass_fixes": self.carcass_fixes,
+        }
+
+
+@dataclass(frozen=True)
+class SyntheticStudy:
+    """A study's labelled synthetic variant.
+
+    Attributes:
+        deployments: Synthetic deployments, two per usable real one.
+        fixes: Their fixes.
+        deaths: What was injected, one per synthetic deployment.
+        skipped: Real deployments with no usable death time, with the
+            reason.
+    """
+
+    deployments: list[Deployment]
+    fixes: list[Fix]
+    deaths: list[InjectedDeath]
+    skipped: dict[str, str] = field(default_factory=dict)
+
+
+def synthetic_id(deployment_id: str, regime: str) -> str:
+    """The ID of a deployment's synthetic copy in one regime.
+
+    Args:
+        deployment_id: The real deployment.
+        regime: ``REPORTING`` or ``SPARSE``.
+
+    Returns:
+        str: ``<deployment_id>~<regime>``.
+    """
+    return f"{deployment_id}{SEPARATOR}{regime}"
+
+
+def synthetic_study(
+    deployments: list[Deployment],
+    fixes: list[Fix],
+    seed: int,
+    config: CarcassConfig | None = None,
+) -> SyntheticStudy:
+    """Give every deployment a death in each carcass regime.
+
+    The death time is drawn once per deployment, from a random source
+    seeded by ``seed`` and the deployment ID, so adding or dropping one
+    deployment changes no other. Each regime then draws its own carcass
+    fixes. The synthetic deployments end ``SYNTHETIC_END`` at their last
+    fix, so the evaluation labels them dead without an override.
+
+    Args:
+        deployments: The real study's deployments.
+        fixes: Their fixes, in any order.
+        seed: Seed for death times and carcass fixes.
+        config: Carcass settings; the documented defaults if omitted.
+
+    Returns:
+        SyntheticStudy: The variant, with the deployments that could not
+        take a death listed with the reason.
+    """
+    by_deployment = defaultdict(list)
+    for fix in fixes:
+        by_deployment[fix.deployment_id].append(fix)
+    variant = SyntheticStudy([], [], [], {})
+    for deployment in sorted(deployments, key=lambda d: d.deployment_id):
+        own = sorted(
+            by_deployment.get(deployment.deployment_id, []), key=lambda f: f.timestamp
+        )
+        if not own:
+            continue
+        # String seeds hash the same way on every run and platform.
+        rng = random.Random(f"{seed}:{deployment.deployment_id}")
+        try:
+            death_time = choose_death_time(own, rng, WARMUP, COVER)
+        except ValueError as error:
+            variant.skipped[deployment.deployment_id] = str(error)
+            continue
+        for regime in REGIMES:
+            new_id = synthetic_id(deployment.deployment_id, regime)
+            event = inject_mortality(
+                own,
+                death_time,
+                random.Random(f"{seed}:{new_id}"),
+                config,
+                sparse=regime == SPARSE,
+            )
+            track = [Fix(new_id, f.timestamp, f.lat, f.lon) for f in event.fixes]
+            variant.deployments.append(
+                Deployment(
+                    new_id,
+                    deployment.tag_id,
+                    deployment.animal_id,
+                    deployment.taxon,
+                    deployment.deploy_on,
+                    track[-1].timestamp,
+                    SYNTHETIC_END,
+                )
+            )
+            variant.fixes.extend(track)
+            variant.deaths.append(
+                InjectedDeath(
+                    new_id,
+                    deployment.deployment_id,
+                    regime,
+                    event.death_time,
+                    event.lat,
+                    event.lon,
+                    len(event.fixes) - sum(
+                        1 for f in event.fixes if f.timestamp <= event.death_time
+                    ),
+                )
+            )
+    return variant

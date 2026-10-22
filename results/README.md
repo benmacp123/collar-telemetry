@@ -7,6 +7,8 @@ runs are seeded and reproduce byte for byte. Do not edit by hand.
 |---|---|---|
 | `replay/<study>/<scenario>/summary.json` | Settings, cleaner and lifecycle drop counts, and incident counts for one replay | `make replay` |
 | `replay/<study>/<scenario>/incidents.jsonl` | Every incident from that replay (not committed; regenerated) | `make replay` |
+| `replay/<variant>/deaths.json` | What was injected into a synthetic variant (`jackals-synthetic`, `elephants-synthetic`): per synthetic deployment, its real source, carcass regime, death time and position, and carcass fix count | `make replay` |
+| `evaluation/<variant>-all.json` | A synthetic variant's deaths scored by carcass regime and pooled, from the computed death start and the injected time | `make evaluate` |
 | `evaluation/<study>-<set>.json` | Detection rate, delay and operator load against known outcomes, per scenario. Vultures are split into `tuning` (thresholds chosen) and `scoring` (held out); mammals are scored as `all` | `make evaluate` |
 | `evaluation/EVALUATION.md` | The evaluation tables, with definitions | `make evaluate` |
 | `sweep/vultures-tuning.json`, `sweep/SWEEP.md` | Mortality window, box and gap margin swept on the vulture tuning set | `make sweep` |

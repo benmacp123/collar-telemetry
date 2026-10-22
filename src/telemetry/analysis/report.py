@@ -14,6 +14,7 @@ SCENARIO_LABELS = {
     "satellite_2day": "Satellite, 2-day",
 }
 DETECTORS = ("mortality", "movement", "gap", "geofence")
+SYNTHETIC_GROUPS = ("pooled", "reporting", "sparse")
 
 
 def _cell(value, digits: int = 2) -> str:
@@ -52,7 +53,8 @@ def markdown(reports: list[dict]) -> str:
         reports: Evaluation reports as written by ``scripts/evaluate.py``.
 
     Returns:
-        str: One section per study and set.
+        str: One section per study and set, synthetic variants after the
+        real studies.
     """
     lines = [
         "# Evaluation",
@@ -63,8 +65,70 @@ def markdown(reports: list[dict]) -> str:
         "",
     ]
     for report in reports:
-        lines += _section(report)
+        if report.get("synthetic"):
+            lines += _synthetic_section(report)
+        else:
+            lines += _section(report)
     return "\n".join(lines).rstrip() + "\n"
+
+
+def _synthetic_section(report: dict) -> list[str]:
+    """Markdown for one synthetic variant: its deaths only.
+
+    Args:
+        report: One synthetic variant's evaluation report.
+
+    Returns:
+        list[str]: The section's lines.
+    """
+    scenarios = report["scenarios"]
+    first = scenarios[SCENARIO_ORDER[0]]["synthetic"]
+    pooled = first["pooled"]
+    lines = [
+        f"## {report['title']}",
+        "",
+        f"{pooled['deaths']} synthetic deaths (seed {report['seed']}), not "
+        "observed ones: each real deployment dies once as a reporting and "
+        "once as a sparse carcass, at the same time (`telemetry.sim.synthetic`; "
+        "injected deaths in `results/replay/<variant>/deaths.json`). Only "
+        "deaths are scored here; load and false alarms are in the real "
+        f"study's section. {pooled['carcass']} of {pooled['deaths']} are long "
+        f"enough to count as carcass deaths. Reference mark {report['mark_hours']} h "
+        f"({report['mark_basis']}).",
+        "",
+        "Delays run from the computed death start, as for real deaths, and "
+        "in brackets from the injected death time.",
+        "",
+        "| Scenario | Carcass | Deaths | Mortality detected | Early | By mark "
+        "| Median delay (h) | Likely death detected | By mark |",
+        "|---|---|---|---|---|---|---|---|---|",
+    ]
+    for name in SCENARIO_ORDER:
+        for group in SYNTHETIC_GROUPS:
+            result = scenarios[name]["synthetic"][group]
+            mortality, likely = result["mortality"], result["likely_death"]
+            lines.append(
+                f"| {SCENARIO_LABELS[name]} | {group.capitalize()} | "
+                f"{result['deaths']} | {mortality['detected']} | "
+                f"{mortality['early']} | {_share(mortality['rate_at_mark'])} "
+                f"({_share(mortality['rate_at_mark_injected'])}) | "
+                f"{_cell(mortality['median_delay_hours'], 1)} "
+                f"({_cell(mortality['median_delay_hours_injected'], 1)}) | "
+                f"{likely['detected']} | {_share(likely['rate_at_mark'])} "
+                f"({_share(likely['rate_at_mark_injected'])}) |"
+            )
+    offset = pooled["death_start_offset_hours"]
+    lines += [
+        "",
+        "Against the injected death time, the computed death start is exact "
+        f"for {offset['exact']}, earlier for {offset['earlier']} (the animal "
+        f"was already still) and later for {offset['later']}; range "
+        f"{_cell(offset['min'], 1)} to {_cell(offset['max'], 1)} h. A later "
+        "start comes from one carcass fix scattered beyond the 100 m radius, "
+        "which moves it to after that fix; an incident open since the death "
+        "then counts as early, with no delay.",
+    ]
+    return lines + [""]
 
 
 def _section(report: dict) -> list[str]:
@@ -240,7 +304,8 @@ def write_figures(reports: list[dict], directory: Path) -> None:
     """Write the evaluation figures as PNG.
 
     One delay-curve figure per study and set that has deaths, and one
-    operator-load figure covering every report.
+    operator-load figure covering every real study (synthetic variants
+    repeat their real study's load).
 
     Args:
         reports: Evaluation reports.
@@ -259,7 +324,7 @@ def write_figures(reports: list[dict], directory: Path) -> None:
             figure = _delay_figure(pyplot, report)
             _save(figure, directory / f"{report['study']}-{report['set']}-delay.png")
             pyplot.close(figure)
-    figure = _load_figure(pyplot, reports)
+    figure = _load_figure(pyplot, [r for r in reports if not r.get("synthetic")])
     _save(figure, directory / "load.png")
     pyplot.close(figure)
 
@@ -305,7 +370,8 @@ def _delay_figure(pyplot, report: dict):
 
     Returns:
         matplotlib.figure.Figure: Mortality detector on carcass deaths and
-        gap detector on the other deaths, side by side.
+        gap detector on the other deaths, side by side; for a synthetic
+        variant, the mortality detector on each carcass regime.
     """
     mark = report["mark_hours"]
     horizon = 2 * mark if mark else 200.0
@@ -313,6 +379,22 @@ def _delay_figure(pyplot, report: dict):
     first = report["scenarios"][SCENARIO_ORDER[0]]
     carcass = [d for d in first["deaths"] if d["carcass"]]
     other = [d for d in first["deaths"] if not d["carcass"]]
+    if report.get("synthetic"):
+        for regime in SYNTHETIC_GROUPS[1:]:
+            count = sum(1 for d in carcass if d["regime"] == regime)
+            panels.append(
+                (
+                    f"{regime.capitalize()} carcasses, mortality detector (n={count})",
+                    "Hours from death start",
+                    True,
+                    lambda r, regime=regime: [
+                        d["mortality_delay_hours"]
+                        for d in r["deaths"]
+                        if d["carcass"] and d["regime"] == regime
+                    ],
+                )
+            )
+        carcass, other = [], []
     if carcass:
         panels.append(
             (
@@ -368,8 +450,9 @@ def _delay_figure(pyplot, report: dict):
         ax.set_xlabel(xlabel)
     axes[0][0].set_ylabel("Share of deaths flagged")
     axes[0][-1].legend(loc="lower right")
+    title = report["title"]
     figure.suptitle(
-        f"{report['title']} ({report['set']} set)",
+        title if report.get("synthetic") else f"{title} ({report['set']} set)",
         x=0.01,
         ha="left",
         color=INK,

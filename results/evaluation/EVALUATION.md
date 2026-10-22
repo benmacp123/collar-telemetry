@@ -186,3 +186,49 @@ Exit fence on Kruger National Park (OpenStreetMap boundary, 100 m edge band, 2 f
 | GSM | 0.69 | 202 | 4 | 15.0 | 17% | west 202 |
 | Satellite, daily | 0.69 | 202 | 4 | 15.0 | 17% | west 202 |
 | Satellite, 2-day | 0.69 | 202 | 4 | 15.0 | 17% | west 202 |
+
+## Black-backed jackal, Etosha, synthetic deaths
+
+44 synthetic deaths (seed 2026), not observed ones: each real deployment dies once as a reporting and once as a sparse carcass, at the same time (`telemetry.sim.synthetic`; injected deaths in `results/replay/<variant>/deaths.json`). Only deaths are scored here; load and false alarms are in the real study's section. 44 of 44 are long enough to count as carcass deaths. Reference mark 92.5 h (own carcass minimum + vulture mark - vulture carcass minimum).
+
+Delays run from the computed death start, as for real deaths, and in brackets from the injected death time.
+
+| Scenario | Carcass | Deaths | Mortality detected | Early | By mark | Median delay (h) | Likely death detected | By mark |
+|---|---|---|---|---|---|---|---|---|
+| Ideal | Pooled | 44 | 44 | 2 | 100% (100%) | 26.0 (25.0) | 43 | 4% (4%) |
+| Ideal | Reporting | 22 | 22 | 2 | 100% (100%) | 24.7 (24.0) | 21 | 0% (0%) |
+| Ideal | Sparse | 22 | 22 | 0 | 100% (100%) | 31.0 (30.5) | 22 | 9% (9%) |
+| GSM | Pooled | 44 | 44 | 2 | 100% (100%) | 31.0 (29.0) | 43 | 7% (7%) |
+| GSM | Reporting | 22 | 22 | 2 | 100% (100%) | 28.5 (28.0) | 21 | 0% (0%) |
+| GSM | Sparse | 22 | 22 | 0 | 100% (100%) | 35.0 (34.5) | 22 | 14% (14%) |
+| Satellite, daily | Pooled | 44 | 44 | 2 | 100% (100%) | 40.1 (41.4) | 43 | 0% (0%) |
+| Satellite, daily | Reporting | 22 | 22 | 2 | 100% (100%) | 34.7 (33.7) | 21 | 0% (0%) |
+| Satellite, daily | Sparse | 22 | 22 | 0 | 100% (100%) | 46.3 (44.0) | 22 | 0% (0%) |
+| Satellite, 2-day | Pooled | 44 | 44 | 2 | 98% (98%) | 48.0 (46.0) | 43 | 0% (0%) |
+| Satellite, 2-day | Reporting | 22 | 22 | 2 | 100% (100%) | 43.6 (42.6) | 21 | 0% (0%) |
+| Satellite, 2-day | Sparse | 22 | 22 | 0 | 96% (96%) | 54.8 (52.8) | 22 | 0% (0%) |
+
+Against the injected death time, the computed death start is exact for 11, earlier for 30 (the animal was already still) and later for 3; range -5.7 to 418.0 h. A later start comes from one carcass fix scattered beyond the 100 m radius, which moves it to after that fix; an incident open since the death then counts as early, with no delay.
+
+## African elephant, Kruger, synthetic deaths
+
+28 synthetic deaths (seed 2026), not observed ones: each real deployment dies once as a reporting and once as a sparse carcass, at the same time (`telemetry.sim.synthetic`; injected deaths in `results/replay/<variant>/deaths.json`). Only deaths are scored here; load and false alarms are in the real study's section. 28 of 28 are long enough to count as carcass deaths. Reference mark 80.5 h (own carcass minimum + vulture mark - vulture carcass minimum).
+
+Delays run from the computed death start, as for real deaths, and in brackets from the injected death time.
+
+| Scenario | Carcass | Deaths | Mortality detected | Early | By mark | Median delay (h) | Likely death detected | By mark |
+|---|---|---|---|---|---|---|---|---|
+| Ideal | Pooled | 28 | 28 | 2 | 100% (100%) | 13.2 (13.2) | 28 | 0% (0%) |
+| Ideal | Reporting | 14 | 14 | 2 | 100% (100%) | 12.0 (12.2) | 14 | 0% (0%) |
+| Ideal | Sparse | 14 | 14 | 0 | 100% (100%) | 16.5 (16.5) | 14 | 0% (0%) |
+| GSM | Pooled | 28 | 28 | 2 | 100% (100%) | 16.2 (16.2) | 28 | 0% (0%) |
+| GSM | Reporting | 14 | 14 | 2 | 100% (100%) | 15.4 (15.5) | 14 | 0% (0%) |
+| GSM | Sparse | 14 | 14 | 0 | 100% (100%) | 20.0 (20.0) | 14 | 0% (0%) |
+| Satellite, daily | Pooled | 28 | 28 | 2 | 100% (100%) | 22.5 (24.5) | 28 | 0% (0%) |
+| Satellite, daily | Reporting | 14 | 14 | 2 | 100% (100%) | 16.6 (22.0) | 14 | 0% (0%) |
+| Satellite, daily | Sparse | 14 | 14 | 0 | 100% (100%) | 27.8 (27.3) | 14 | 0% (0%) |
+| Satellite, 2-day | Pooled | 28 | 28 | 2 | 100% (100%) | 43.2 (43.6) | 28 | 0% (0%) |
+| Satellite, 2-day | Reporting | 14 | 14 | 2 | 100% (100%) | 40.4 (41.3) | 14 | 0% (0%) |
+| Satellite, 2-day | Sparse | 14 | 14 | 0 | 100% (100%) | 48.5 (48.0) | 14 | 0% (0%) |
+
+Against the injected death time, the computed death start is exact for 17, earlier for 9 (the animal was already still) and later for 2; range -2.0 to 635.5 h. A later start comes from one carcass fix scattered beyond the 100 m radius, which moves it to after that fix; an incident open since the death then counts as early, with no delay.

@@ -2,8 +2,11 @@
 
 Run with ``make replay``. Reads only files in data/raw/ and writes, for
 each study and scenario, ``results/replay/<study>/<scenario>/summary.json``
-(committed) and ``incidents.jsonl`` (regenerated, not committed).
-Options narrow the run, e.g. ``--study jackals --scenario ideal``.
+(committed) and ``incidents.jsonl`` (regenerated, not committed). The
+mammals' synthetic-death variants (``telemetry.analysis.variants``) are
+replayed the same way, with what was injected written to
+``results/replay/<variant>/deaths.json``. Options narrow the run, e.g.
+``--study jackals --scenario ideal``.
 """
 
 import argparse
@@ -11,6 +14,7 @@ import json
 import time
 from pathlib import Path
 
+from telemetry.analysis.variants import VARIANTS
 from telemetry.sim.arrival import SCENARIOS
 from telemetry.sim.replay import DEFAULT_SEED, replay
 from telemetry.data.studies import STUDIES
@@ -30,7 +34,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--study",
         action="append",
-        choices=[study.slug for study in STUDIES],
+        choices=[study.slug for study in STUDIES + VARIANTS],
         help="study to replay (repeatable; default all)",
     )
     parser.add_argument(
@@ -43,13 +47,39 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def write_deaths(slug: str, variant, seed: int) -> None:
+    """Write what was injected into a synthetic variant.
+
+    Args:
+        slug: The variant's slug.
+        variant: Its ``SyntheticStudy``.
+        seed: The seed it was built with.
+    """
+    out = RESULTS / "replay" / slug
+    out.mkdir(parents=True, exist_ok=True)
+    manifest = {
+        "study": slug,
+        "seed": seed,
+        "deaths": [death.to_dict() for death in variant.deaths],
+        "skipped": variant.skipped,
+    }
+    (out / "deaths.json").write_text(
+        json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
+    )
+
+
 def main():
     """Replay the chosen studies and scenarios and write their results."""
     args = parse_args()
-    studies = [s for s in STUDIES if not args.study or s.slug in args.study]
+    chosen = [s for s in STUDIES + VARIANTS if not args.study or s.slug in args.study]
     scenarios = [SCENARIOS[name] for name in args.scenario or SCENARIOS]
-    for study in studies:
-        deployments, fixes, _ = study.load(RAW)
+    for study in chosen:
+        if study in VARIANTS:
+            variant = study.build(RAW, args.seed)
+            deployments, fixes = variant.deployments, variant.fixes
+            write_deaths(study.slug, variant, args.seed)
+        else:
+            deployments, fixes, _ = study.load(RAW)
         fence = study.fence(RAW)
         for scenario in scenarios:
             started = time.perf_counter()
