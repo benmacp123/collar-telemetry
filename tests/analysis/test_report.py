@@ -17,7 +17,14 @@ def report():
         "deployments": 2,
         "labels": {"dead": 2},
         "animal_months": 4.0,
-        "load": {"gap": {"incidents": 4, "late_fix": 2, "per_animal_month": 1.0}},
+        "load": {
+            "gap": {
+                "incidents": 4,
+                "late_fix": 2,
+                "per_animal_month": 1.0,
+                "late_fix_per_animal_month": 0.5,
+            }
+        },
         "false_mortality": {"incidents": 0, "per_animal_month": 0.0},
         "mortality": {
             "deaths": 1,
@@ -29,14 +36,20 @@ def report():
         },
         "precision": {
             "mortality": {"true": 1, "false": 9, "ambiguous": 0, "precision": 0.1},
-            "likely_death": {
+            "potential_death": {
                 "true": 1,
                 "false": 1,
                 "ambiguous": 0,
                 "precision": 0.5,
             },
         },
-        "likely_death": {"deaths": 1, "detected": 1, "rate_at_mark": 1.0},
+        "potential_death": {"deaths": 1, "detected": 1, "rate_at_mark": 1.0},
+        "first_alert": {
+            "deaths": 1,
+            "detected": 1,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 30.0,
+        },
         "gap_on_deaths": {"deaths": 1, "detected": 1, "median_delay_hours": 7.0},
         "both_detectors": 1,
         "deaths": [
@@ -71,13 +84,21 @@ def synthetic_report():
             "median_delay_hours": 20.0,
             "median_delay_hours_injected": 21.0,
         },
-        "likely_death": {
+        "potential_death": {
             "detected": 0,
             "detected_injected": 0,
             "rate_at_mark": 0.0,
             "rate_at_mark_injected": 0.0,
             "median_delay_hours": None,
             "median_delay_hours_injected": None,
+        },
+        "first_alert": {
+            "detected": 1,
+            "detected_injected": 1,
+            "rate_at_mark": 1.0,
+            "rate_at_mark_injected": 0.5,
+            "median_delay_hours": 20.0,
+            "median_delay_hours_injected": 21.0,
         },
         "death_start_offset_hours": {
             "exact": 1,
@@ -113,6 +134,7 @@ def test_markdown_synthetic_section_shows_regimes_and_injected_delays():
     text = markdown([report(), synthetic_report()])
     section = text.split("## Jackals, synthetic deaths")[1]
     assert "| Ideal | Sparse | 1 | 1 | 0 | 100% (100%) | 20.0 (21.0) | 0 |" in section
+    assert "| 0% (0%) | 100% (50%) |" in section
     assert "Operator load" not in section
     assert "exact for 1" in section
 
@@ -147,10 +169,11 @@ def test_detection_curve_steps_up_per_detected_death():
 
 
 def test_markdown_has_load_deaths_and_ambiguous_sections():
-    """The tables show every scenario and the possible unrecorded deaths."""
+    """The tables show every scenario, the late-upload gap rate and the
+    possible unrecorded deaths."""
     text = markdown([report()])
     assert "## Jackals (all set)" in text
-    assert "| Ideal | – | 0.00 | – | 1.00 | 50% |" in text
+    assert "| Ideal | – | 0.00 | – | 1.00 | 0.50 | 50% | – |" in text
     assert "| B | 40.0 | – |" in text
     assert "| Ideal | – | 50% | 10% | 1 of 1 | 100% |" in text
 
@@ -216,3 +239,9 @@ def test_write_sweep_writes_tables_and_figure(tmp_path):
     assert "| 24 | 100 | 0.50 | 1 of 2 | 50% | 50% | 50% | 30.0 |" in text
     assert "| Satellite, 2-day | 6 | 1.00 | 25% | 1 of 1 | 12.0 | 12.0 |" in text
     assert (tmp_path / "figures" / "sweep-vultures-tuning.png").exists()
+
+
+def test_markdown_deaths_table_shows_any_alert_rate():
+    """The deaths table carries the first-alert rate beside mortality's."""
+    text = markdown([report()])
+    assert "| Ideal | 1 | 1 | 100% | 100% | 100% | 1 (1 flagged) | 7.0 | 1 |" in text

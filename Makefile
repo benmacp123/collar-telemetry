@@ -91,7 +91,7 @@ lambda-image: ## Build the handlers' Lambda image (needs Docker)
 		-t collar-telemetry-lambda .
 
 # Every jackal, and one vulture so the email path runs (jackals raise no
-# likely_death incidents).
+# potential_death incidents).
 cloud-local: lambda-image ## Jackals + 1 vulture through the Lambda containers (Docker)
 	$(COMPOSE) up -d --wait
 	PYTHONPATH=src python scripts/cloud_local.py --mode docker \
@@ -130,7 +130,7 @@ tf-plan: lambda-zip ## terraform plan against your AWS account (needs Docker, cr
 	$(TF) init -input=false
 	$(TF_AWS) $(TF_IMAGE) plan -out=tfplan
 
-tf-apply: lambda-zip ## Deploy; NOTIFY=true sends likely_death emails (needs Docker, credentials)
+tf-apply: lambda-zip ## Deploy; NOTIFY=true sends potential_death emails (needs Docker, credentials)
 	$(TF) init -input=false
 	$(TF_AWS) -it $(TF_IMAGE) apply -var notify_enabled=$(NOTIFY)
 	$(MAKE) tf-output

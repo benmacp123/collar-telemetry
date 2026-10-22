@@ -27,30 +27,30 @@
   },
   "incidents": {
     "gap": {
-      "incidents": 50,
+      "incidents": 47,
       "open_at_end": 44,
-      "late_fix": 2,
-      "flaps": 0
-    },
-    "likely_death": {
-      "incidents": 43,
-      "open_at_end": 43,
       "late_fix": 0,
       "flaps": 0
     },
     "mortality": {
-      "incidents": 46,
-      "open_at_end": 43,
+      "incidents": 42,
+      "open_at_end": 40,
       "late_fix": 0,
-      "flaps": 24
+      "flaps": 0
     },
     "movement": {
       "incidents": 4,
       "open_at_end": 0,
       "late_fix": 0,
       "flaps": 0
+    },
+    "potential_death": {
+      "incidents": 40,
+      "open_at_end": 40,
+      "late_fix": 0,
+      "flaps": 0
     }
   },
-  "fixes": 109564,
-  "arrivals": 109564
+  "fixes": 107486,
+  "arrivals": 107486
 }

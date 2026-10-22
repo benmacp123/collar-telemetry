@@ -17,7 +17,7 @@ variable "name_prefix" {
 }
 
 variable "alert_email" {
-  description = "Address for likely_death alerts and the budget alarm. Set it in terraform.tfvars (git-ignored)."
+  description = "Address for potential_death alerts and the budget alarm. Set it in terraform.tfvars (git-ignored)."
   type        = string
 }
 

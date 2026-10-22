@@ -58,7 +58,7 @@ def test_overrides_replace_leave_settings_and_merge():
     mortality = overrides.profile(profile_for(JACKAL)).mortality
     assert (mortality.leave_fixes, mortality.leave_radius_m) == (3, 75.0)
     merge = overrides.lifecycle().config.merge_within
-    assert merge["mortality"] == merge["likely_death"] == 96 * HOUR
+    assert merge["mortality"] == merge["potential_death"] == 96 * HOUR
     assert overrides.to_dict()["mortality_merge_hours"] == 96.0
 
 

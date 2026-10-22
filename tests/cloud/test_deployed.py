@@ -78,21 +78,21 @@ def test_wait_for_notified_reports_what_is_missing(aws):
     """Incidents the notifier has marked are found; unknown ones are
     returned as missing once the wait gives up."""
     local.feed(aws["sqs"], aws["resources"], poller(aws), messages("gsm"))
-    likely = {
+    potential = {
         incident_id
         for incident_id, incident in expected("gsm").items()
-        if incident["detector"] == "likely_death"
+        if incident["detector"] == "potential_death"
     }
-    assert likely
+    assert potential
     found = deployed.wait_for_notified(
-        aws["dynamodb"], local.TABLES, RUN, likely, sleep=lambda s: None
+        aws["dynamodb"], local.TABLES, RUN, potential, sleep=lambda s: None
     )
     assert not found
     missing = deployed.wait_for_notified(
         aws["dynamodb"],
         local.TABLES,
         RUN,
-        likely | {"never"},
+        potential | {"never"},
         poll_seconds=10,
         timeout_seconds=30,
         sleep=lambda s: None,

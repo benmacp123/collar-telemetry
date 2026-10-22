@@ -12,66 +12,76 @@
       "labels": {
         "dead": 44
       },
-      "animal_months": 158.5,
+      "animal_months": 141.6,
       "load": {
         "gap": {
-          "incidents": 59,
+          "incidents": 47,
           "late_fix": 0,
-          "per_animal_month": 0.372
-        },
-        "likely_death": {
-          "incidents": 43,
-          "late_fix": 0,
-          "per_animal_month": 0.271
+          "per_animal_month": 0.332,
+          "late_fix_per_animal_month": 0.0
         },
         "mortality": {
-          "incidents": 46,
+          "incidents": 42,
           "late_fix": 0,
-          "per_animal_month": 0.29
+          "per_animal_month": 0.297,
+          "late_fix_per_animal_month": 0.0
         },
         "movement": {
           "incidents": 4,
           "late_fix": 0,
-          "per_animal_month": 0.025
+          "per_animal_month": 0.028,
+          "late_fix_per_animal_month": 0.0
+        },
+        "potential_death": {
+          "incidents": 40,
+          "late_fix": 0,
+          "per_animal_month": 0.282,
+          "late_fix_per_animal_month": 0.0
         }
       },
       "false_mortality": {
         "incidents": 2,
-        "per_animal_month": 0.013
+        "per_animal_month": 0.014
       },
       "mortality": {
-        "deaths": 44,
-        "detected": 44,
+        "deaths": 41,
+        "detected": 40,
         "early": 2,
         "mark_hours": 92.5,
-        "rate_at_mark": 1.0,
-        "rate_at_mark_200m": 1.0
+        "rate_at_mark": 0.976,
+        "rate_at_mark_200m": 0.976
       },
       "precision": {
         "mortality": {
-          "true": 44,
+          "true": 40,
           "false": 2,
           "ambiguous": 0,
-          "precision": 0.957
+          "precision": 0.952
         },
-        "likely_death": {
-          "true": 43,
+        "potential_death": {
+          "true": 40,
           "false": 0,
           "ambiguous": 0,
           "precision": 1.0
         }
       },
-      "likely_death": {
-        "deaths": 44,
-        "detected": 43,
-        "rate_at_mark": 0.045
+      "potential_death": {
+        "deaths": 41,
+        "detected": 40,
+        "rate_at_mark": 0.024
+      },
+      "first_alert": {
+        "deaths": 41,
+        "detected": 41,
+        "rate_at_mark": 1.0,
+        "median_delay_hours": 25.0
       },
       "gap_on_deaths": {
-        "deaths": 0,
-        "detected": 0,
-        "median_delay_hours": null
+        "deaths": 3,
+        "detected": 3,
+        "median_delay_hours": 36.98
       },
-      "both_detectors": 44,
+      "both_detectors": 40,
       "deaths": [
         {
           "deployment_id": "AU200-1-CM05~reporting",
@@ -81,25 +91,29 @@
           "mortality_delay_hours": 24.0,
           "early": false,
           "mortality_delay_hours_200m": 24.0,
-          "likely_death_delay_hours": 597.99,
+          "potential_death_delay_hours": 597.99,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 24.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 24.0,
-          "likely_death_delay_hours_injected": 597.99
+          "potential_death_delay_hours_injected": 597.99,
+          "first_alert_delay_hours_injected": 24.0
         },
         {
           "deployment_id": "AU200-1-CM05~sparse",
           "carcass": true,
-          "still_hours": 718.0,
-          "still_hours_200m": 718.0,
-          "mortality_delay_hours": 36.0,
+          "still_hours": 77.0,
+          "still_hours_200m": 77.0,
+          "mortality_delay_hours": 43.0,
           "early": false,
-          "mortality_delay_hours_200m": 36.0,
-          "likely_death_delay_hours": 597.99,
-          "gap_delay_hours": 36.99,
+          "mortality_delay_hours_200m": 43.0,
+          "potential_death_delay_hours": 113.99,
+          "gap_delay_hours": 36.97,
+          "first_alert_delay_hours": 43.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 36.0,
-          "likely_death_delay_hours_injected": 597.99
+          "mortality_delay_hours_injected": 43.0,
+          "potential_death_delay_hours_injected": 113.99,
+          "first_alert_delay_hours_injected": 43.0
         },
         {
           "deployment_id": "AU200-2-CM62~reporting",
@@ -109,25 +123,29 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 24.0,
-          "likely_death_delay_hours": 338.99,
+          "potential_death_delay_hours": 338.99,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 21.99,
-          "likely_death_delay_hours_injected": 756.97
+          "potential_death_delay_hours_injected": 756.97,
+          "first_alert_delay_hours_injected": 21.99
         },
         {
           "deployment_id": "AU200-2-CM62~sparse",
           "carcass": true,
-          "still_hours": 722.0,
-          "still_hours_200m": 722.0,
-          "mortality_delay_hours": 38.0,
+          "still_hours": 26.0,
+          "still_hours_200m": 26.0,
+          "mortality_delay_hours": 26.0,
           "early": false,
-          "mortality_delay_hours_200m": 38.0,
-          "likely_death_delay_hours": 332.99,
+          "mortality_delay_hours_200m": 26.0,
+          "potential_death_delay_hours": 62.99,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 26.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 35.98,
-          "likely_death_delay_hours_injected": 330.97
+          "mortality_delay_hours_injected": 23.98,
+          "potential_death_delay_hours_injected": 60.97,
+          "first_alert_delay_hours_injected": 23.98
         },
         {
           "deployment_id": "AU205-CM08~reporting",
@@ -137,25 +155,29 @@
           "mortality_delay_hours": 25.0,
           "early": false,
           "mortality_delay_hours_200m": 27.0,
-          "likely_death_delay_hours": 753.99,
+          "potential_death_delay_hours": 753.99,
           "gap_delay_hours": 36.97,
+          "first_alert_delay_hours": 25.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 23.0,
-          "likely_death_delay_hours_injected": 751.99
+          "potential_death_delay_hours_injected": 751.99,
+          "first_alert_delay_hours_injected": 23.0
         },
         {
           "deployment_id": "AU205-CM08~sparse",
-          "carcass": true,
-          "still_hours": 703.0,
-          "still_hours_200m": 705.0,
-          "mortality_delay_hours": 34.0,
+          "carcass": false,
+          "still_hours": 21.0,
+          "still_hours_200m": 23.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 36.0,
-          "likely_death_delay_hours": 185.99,
-          "gap_delay_hours": 36.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
+          "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 57.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 32.0,
-          "likely_death_delay_hours_injected": 183.99
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 55.98
         },
         {
           "deployment_id": "AU206-CM09~reporting",
@@ -165,25 +187,29 @@
           "mortality_delay_hours": 25.0,
           "early": false,
           "mortality_delay_hours_200m": 25.0,
-          "likely_death_delay_hours": 757.99,
+          "potential_death_delay_hours": 757.99,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 25.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 23.0,
-          "likely_death_delay_hours_injected": 755.99
+          "potential_death_delay_hours_injected": 755.99,
+          "first_alert_delay_hours_injected": 23.0
         },
         {
           "deployment_id": "AU206-CM09~sparse",
           "carcass": true,
-          "still_hours": 717.0,
-          "still_hours_200m": 717.0,
-          "mortality_delay_hours": 27.0,
+          "still_hours": 89.0,
+          "still_hours_200m": 89.0,
+          "mortality_delay_hours": 25.0,
           "early": false,
-          "mortality_delay_hours_200m": 27.0,
-          "likely_death_delay_hours": 753.99,
+          "mortality_delay_hours_200m": 25.0,
+          "potential_death_delay_hours": 125.98,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 25.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 25.0,
-          "likely_death_delay_hours_injected": 751.99
+          "mortality_delay_hours_injected": 23.0,
+          "potential_death_delay_hours_injected": 123.99,
+          "first_alert_delay_hours_injected": 23.0
         },
         {
           "deployment_id": "AU207-CM36~reporting",
@@ -193,25 +219,29 @@
           "mortality_delay_hours": 0.0,
           "early": false,
           "mortality_delay_hours_200m": 26.0,
-          "likely_death_delay_hours": 724.99,
+          "potential_death_delay_hours": 724.99,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 25.0,
-          "likely_death_delay_hours_injected": 749.99
+          "potential_death_delay_hours_injected": 749.99,
+          "first_alert_delay_hours_injected": 25.0
         },
         {
           "deployment_id": "AU207-CM36~sparse",
           "carcass": true,
-          "still_hours": 714.0,
-          "still_hours_200m": 714.0,
-          "mortality_delay_hours": 34.0,
+          "still_hours": 79.0,
+          "still_hours_200m": 79.0,
+          "mortality_delay_hours": 32.0,
           "early": false,
-          "mortality_delay_hours_200m": 34.0,
-          "likely_death_delay_hours": 750.99,
+          "mortality_delay_hours_200m": 32.0,
+          "potential_death_delay_hours": 115.98,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 32.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 33.0,
-          "likely_death_delay_hours_injected": 749.99
+          "mortality_delay_hours_injected": 31.0,
+          "potential_death_delay_hours_injected": 114.99,
+          "first_alert_delay_hours_injected": 31.0
         },
         {
           "deployment_id": "AU210-CM11~reporting",
@@ -221,25 +251,29 @@
           "mortality_delay_hours": 25.0,
           "early": false,
           "mortality_delay_hours_200m": 25.0,
-          "likely_death_delay_hours": 755.99,
+          "potential_death_delay_hours": 755.99,
           "gap_delay_hours": 36.97,
+          "first_alert_delay_hours": 25.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 25.0,
-          "likely_death_delay_hours_injected": 755.99
+          "potential_death_delay_hours_injected": 755.99,
+          "first_alert_delay_hours_injected": 25.0
         },
         {
           "deployment_id": "AU210-CM11~sparse",
           "carcass": true,
-          "still_hours": 716.0,
-          "still_hours_200m": 716.0,
-          "mortality_delay_hours": 25.0,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 31.0,
           "early": false,
-          "mortality_delay_hours_200m": 25.0,
-          "likely_death_delay_hours": 752.99,
-          "gap_delay_hours": 36.99,
+          "mortality_delay_hours_200m": 31.0,
+          "potential_death_delay_hours": 129.99,
+          "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 31.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 25.0,
-          "likely_death_delay_hours_injected": 752.99
+          "mortality_delay_hours_injected": 31.0,
+          "potential_death_delay_hours_injected": 129.99,
+          "first_alert_delay_hours_injected": 31.0
         },
         {
           "deployment_id": "AU211-CM15~reporting",
@@ -249,25 +283,29 @@
           "mortality_delay_hours": 24.0,
           "early": false,
           "mortality_delay_hours_200m": 24.0,
-          "likely_death_delay_hours": 756.99,
+          "potential_death_delay_hours": 756.99,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 24.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 24.0,
-          "likely_death_delay_hours_injected": 756.99
+          "potential_death_delay_hours_injected": 756.99,
+          "first_alert_delay_hours_injected": 24.0
         },
         {
           "deployment_id": "AU211-CM15~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 30.0,
+          "still_hours": 88.0,
+          "still_hours_200m": 88.0,
+          "mortality_delay_hours": 32.0,
           "early": false,
-          "mortality_delay_hours_200m": 30.0,
-          "likely_death_delay_hours": 755.99,
-          "gap_delay_hours": 36.98,
+          "mortality_delay_hours_200m": 32.0,
+          "potential_death_delay_hours": 124.99,
+          "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 32.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 30.0,
-          "likely_death_delay_hours_injected": 755.99
+          "mortality_delay_hours_injected": 32.0,
+          "potential_death_delay_hours_injected": 124.99,
+          "first_alert_delay_hours_injected": 32.0
         },
         {
           "deployment_id": "AU212-CM40~reporting",
@@ -277,25 +315,29 @@
           "mortality_delay_hours": 24.33,
           "early": false,
           "mortality_delay_hours_200m": 27.5,
-          "likely_death_delay_hours": 761.99,
+          "potential_death_delay_hours": 761.99,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 24.33,
           "regime": "reporting",
           "mortality_delay_hours_injected": 18.66,
-          "likely_death_delay_hours_injected": 756.32
+          "potential_death_delay_hours_injected": 756.32,
+          "first_alert_delay_hours_injected": 18.66
         },
         {
           "deployment_id": "AU212-CM40~sparse",
           "carcass": true,
-          "still_hours": 724.8,
-          "still_hours_200m": 728.2,
-          "mortality_delay_hours": 24.34,
+          "still_hours": 92.7,
+          "still_hours_200m": 95.8,
+          "mortality_delay_hours": 24.84,
           "early": false,
-          "mortality_delay_hours_200m": 27.67,
-          "likely_death_delay_hours": 761.82,
-          "gap_delay_hours": 36.98,
+          "mortality_delay_hours_200m": 28.0,
+          "potential_death_delay_hours": 128.99,
+          "gap_delay_hours": 36.32,
+          "first_alert_delay_hours": 24.84,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 18.83,
-          "likely_death_delay_hours_injected": 756.32
+          "mortality_delay_hours_injected": 19.16,
+          "potential_death_delay_hours_injected": 123.32,
+          "first_alert_delay_hours_injected": 19.16
         },
         {
           "deployment_id": "AU213-CM42~reporting",
@@ -305,25 +347,29 @@
           "mortality_delay_hours": 24.0,
           "early": false,
           "mortality_delay_hours_200m": 24.33,
-          "likely_death_delay_hours": 292.65,
+          "potential_death_delay_hours": 292.65,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 24.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 23.0,
-          "likely_death_delay_hours_injected": 291.65
+          "potential_death_delay_hours_injected": 291.65,
+          "first_alert_delay_hours_injected": 23.0
         },
         {
           "deployment_id": "AU213-CM42~sparse",
           "carcass": true,
-          "still_hours": 251.3,
-          "still_hours_200m": 251.7,
-          "mortality_delay_hours": 28.0,
+          "still_hours": 87.3,
+          "still_hours_200m": 87.7,
+          "mortality_delay_hours": 26.67,
           "early": false,
-          "mortality_delay_hours_200m": 28.33,
-          "likely_death_delay_hours": 287.65,
+          "mortality_delay_hours_200m": 27.0,
+          "potential_death_delay_hours": 123.65,
           "gap_delay_hours": 36.31,
+          "first_alert_delay_hours": 26.67,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 27.0,
-          "likely_death_delay_hours_injected": 286.65
+          "mortality_delay_hours_injected": 25.67,
+          "potential_death_delay_hours_injected": 122.65,
+          "first_alert_delay_hours_injected": 25.67
         },
         {
           "deployment_id": "AU214-CM44~reporting",
@@ -333,25 +379,29 @@
           "mortality_delay_hours": 24.0,
           "early": false,
           "mortality_delay_hours_200m": 26.0,
-          "likely_death_delay_hours": 756.98,
+          "potential_death_delay_hours": 756.98,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 24.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 23.0,
-          "likely_death_delay_hours_injected": 755.98
+          "potential_death_delay_hours_injected": 755.98,
+          "first_alert_delay_hours_injected": 23.0
         },
         {
           "deployment_id": "AU214-CM44~sparse",
           "carcass": true,
-          "still_hours": 709.0,
-          "still_hours_200m": 711.0,
-          "mortality_delay_hours": 32.0,
+          "still_hours": 87.0,
+          "still_hours_200m": 89.0,
+          "mortality_delay_hours": 30.0,
           "early": false,
-          "mortality_delay_hours_200m": 34.0,
-          "likely_death_delay_hours": 745.98,
+          "mortality_delay_hours_200m": 32.0,
+          "potential_death_delay_hours": 123.98,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 30.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 31.0,
-          "likely_death_delay_hours_injected": 744.98
+          "mortality_delay_hours_injected": 29.0,
+          "potential_death_delay_hours_injected": 122.98,
+          "first_alert_delay_hours_injected": 29.0
         },
         {
           "deployment_id": "AU215-CM10~reporting",
@@ -361,25 +411,29 @@
           "mortality_delay_hours": 31.0,
           "early": false,
           "mortality_delay_hours_200m": 31.0,
-          "likely_death_delay_hours": 514.98,
+          "potential_death_delay_hours": 514.98,
           "gap_delay_hours": 36.94,
+          "first_alert_delay_hours": 31.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 28.0,
-          "likely_death_delay_hours_injected": 511.98
+          "potential_death_delay_hours_injected": 511.98,
+          "first_alert_delay_hours_injected": 28.0
         },
         {
           "deployment_id": "AU215-CM10~sparse",
           "carcass": true,
-          "still_hours": 477.0,
-          "still_hours_200m": 477.0,
-          "mortality_delay_hours": 27.0,
+          "still_hours": 98.0,
+          "still_hours_200m": 98.0,
+          "mortality_delay_hours": 29.0,
           "early": false,
-          "mortality_delay_hours_200m": 27.0,
-          "likely_death_delay_hours": 513.98,
+          "mortality_delay_hours_200m": 29.0,
+          "potential_death_delay_hours": 134.98,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 29.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 24.0,
-          "likely_death_delay_hours_injected": 510.98
+          "mortality_delay_hours_injected": 26.0,
+          "potential_death_delay_hours_injected": 131.98,
+          "first_alert_delay_hours_injected": 26.0
         },
         {
           "deployment_id": "AU216-CM20~reporting",
@@ -389,25 +443,29 @@
           "mortality_delay_hours": 24.0,
           "early": false,
           "mortality_delay_hours_200m": 24.0,
-          "likely_death_delay_hours": 572.99,
+          "potential_death_delay_hours": 572.99,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 24.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 23.0,
-          "likely_death_delay_hours_injected": 571.99
+          "potential_death_delay_hours_injected": 571.99,
+          "first_alert_delay_hours_injected": 23.0
         },
         {
           "deployment_id": "AU216-CM20~sparse",
           "carcass": true,
-          "still_hours": 534.0,
-          "still_hours_200m": 534.0,
-          "mortality_delay_hours": 29.0,
+          "still_hours": 77.0,
+          "still_hours_200m": 77.0,
+          "mortality_delay_hours": 39.0,
           "early": false,
-          "mortality_delay_hours_200m": 29.0,
-          "likely_death_delay_hours": 570.99,
-          "gap_delay_hours": 36.98,
+          "mortality_delay_hours_200m": 39.0,
+          "potential_death_delay_hours": 113.99,
+          "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 39.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 28.0,
-          "likely_death_delay_hours_injected": 569.99
+          "mortality_delay_hours_injected": 38.0,
+          "potential_death_delay_hours_injected": 112.99,
+          "first_alert_delay_hours_injected": 38.0
         },
         {
           "deployment_id": "AU217-CM18~reporting",
@@ -417,25 +475,29 @@
           "mortality_delay_hours": 25.0,
           "early": false,
           "mortality_delay_hours_200m": 25.0,
-          "likely_death_delay_hours": 261.99,
+          "potential_death_delay_hours": 261.99,
           "gap_delay_hours": 36.97,
+          "first_alert_delay_hours": 25.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 23.99,
-          "likely_death_delay_hours_injected": 260.98
+          "potential_death_delay_hours_injected": 260.98,
+          "first_alert_delay_hours_injected": 23.99
         },
         {
           "deployment_id": "AU217-CM18~sparse",
           "carcass": true,
-          "still_hours": 222.0,
-          "still_hours_200m": 222.0,
-          "mortality_delay_hours": 33.0,
+          "still_hours": 82.0,
+          "still_hours_200m": 82.0,
+          "mortality_delay_hours": 25.0,
           "early": false,
-          "mortality_delay_hours_200m": 33.0,
-          "likely_death_delay_hours": 69.99,
-          "gap_delay_hours": 36.97,
+          "mortality_delay_hours_200m": 25.0,
+          "potential_death_delay_hours": 118.99,
+          "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 25.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 32.0,
-          "likely_death_delay_hours_injected": 68.98
+          "mortality_delay_hours_injected": 23.99,
+          "potential_death_delay_hours_injected": 117.98,
+          "first_alert_delay_hours_injected": 23.99
         },
         {
           "deployment_id": "AU218-CM33~reporting",
@@ -445,25 +507,29 @@
           "mortality_delay_hours": 26.02,
           "early": false,
           "mortality_delay_hours_200m": 26.02,
-          "likely_death_delay_hours": 757.99,
+          "potential_death_delay_hours": 757.99,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 26.02,
           "regime": "reporting",
           "mortality_delay_hours_injected": 25.0,
-          "likely_death_delay_hours_injected": 756.97
+          "potential_death_delay_hours_injected": 756.97,
+          "first_alert_delay_hours_injected": 25.0
         },
         {
           "deployment_id": "AU218-CM33~sparse",
-          "carcass": true,
-          "still_hours": 714.0,
-          "still_hours_200m": 714.0,
-          "mortality_delay_hours": 30.0,
+          "carcass": false,
+          "still_hours": 21.0,
+          "still_hours_200m": 21.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 30.0,
-          "likely_death_delay_hours": 750.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 57.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 28.98,
-          "likely_death_delay_hours_injected": 749.97
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 56.97
         },
         {
           "deployment_id": "AU219-2-CM83~reporting",
@@ -473,25 +539,29 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 24.0,
-          "likely_death_delay_hours": 355.99,
+          "potential_death_delay_hours": 355.99,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 24.0,
-          "likely_death_delay_hours_injected": 754.99
+          "potential_death_delay_hours_injected": 754.99,
+          "first_alert_delay_hours_injected": 24.0
         },
         {
           "deployment_id": "AU219-2-CM83~sparse",
           "carcass": true,
-          "still_hours": 707.0,
-          "still_hours_200m": 707.0,
-          "mortality_delay_hours": 32.0,
+          "still_hours": 24.0,
+          "still_hours_200m": 24.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 32.0,
-          "likely_death_delay_hours": 743.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 60.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 32.0,
-          "likely_death_delay_hours_injected": 743.99
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 60.99
         },
         {
           "deployment_id": "AU219-CM23~reporting",
@@ -501,25 +571,29 @@
           "mortality_delay_hours": 24.0,
           "early": false,
           "mortality_delay_hours_200m": 24.0,
-          "likely_death_delay_hours": 333.99,
+          "potential_death_delay_hours": 333.99,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 24.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 24.0,
-          "likely_death_delay_hours_injected": 333.99
+          "potential_death_delay_hours_injected": 333.99,
+          "first_alert_delay_hours_injected": 24.0
         },
         {
           "deployment_id": "AU219-CM23~sparse",
           "carcass": true,
-          "still_hours": 299.0,
-          "still_hours_200m": 299.0,
-          "mortality_delay_hours": 25.0,
+          "still_hours": 94.0,
+          "still_hours_200m": 94.0,
+          "mortality_delay_hours": 35.0,
           "early": false,
-          "mortality_delay_hours_200m": 25.0,
-          "likely_death_delay_hours": 73.99,
-          "gap_delay_hours": 36.98,
+          "mortality_delay_hours_200m": 35.0,
+          "potential_death_delay_hours": 130.99,
+          "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 35.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 25.0,
-          "likely_death_delay_hours_injected": 73.99
+          "mortality_delay_hours_injected": 35.0,
+          "potential_death_delay_hours_injected": 130.99,
+          "first_alert_delay_hours_injected": 35.0
         },
         {
           "deployment_id": "AU220-CM26~reporting",
@@ -529,25 +603,29 @@
           "mortality_delay_hours": 24.98,
           "early": false,
           "mortality_delay_hours_200m": 24.98,
-          "likely_death_delay_hours": 759.98,
+          "potential_death_delay_hours": 759.98,
           "gap_delay_hours": 36.0,
+          "first_alert_delay_hours": 24.98,
           "regime": "reporting",
           "mortality_delay_hours_injected": 19.98,
-          "likely_death_delay_hours_injected": 754.98
+          "potential_death_delay_hours_injected": 754.98,
+          "first_alert_delay_hours_injected": 19.98
         },
         {
           "deployment_id": "AU220-CM26~sparse",
           "carcass": true,
-          "still_hours": 705.0,
-          "still_hours_200m": 705.0,
-          "mortality_delay_hours": 25.98,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 46.0,
           "early": false,
-          "mortality_delay_hours_200m": 25.98,
-          "likely_death_delay_hours": 215.98,
+          "mortality_delay_hours_200m": 46.0,
+          "potential_death_delay_hours": 128.98,
           "gap_delay_hours": 36.0,
+          "first_alert_delay_hours": 46.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 20.98,
-          "likely_death_delay_hours_injected": 210.98
+          "mortality_delay_hours_injected": 41.0,
+          "potential_death_delay_hours_injected": 123.98,
+          "first_alert_delay_hours_injected": 41.0
         },
         {
           "deployment_id": "AU239-CM47~reporting",
@@ -557,25 +635,29 @@
           "mortality_delay_hours": 24.0,
           "early": false,
           "mortality_delay_hours_200m": 24.33,
-          "likely_death_delay_hours": null,
+          "potential_death_delay_hours": 759.65,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 24.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 21.0,
-          "likely_death_delay_hours_injected": null
+          "potential_death_delay_hours_injected": 756.65,
+          "first_alert_delay_hours_injected": 21.0
         },
         {
           "deployment_id": "AU239-CM47~sparse",
           "carcass": true,
-          "still_hours": 712.7,
-          "still_hours_200m": 712.7,
+          "still_hours": 90.3,
+          "still_hours_200m": 90.3,
           "mortality_delay_hours": 24.0,
           "early": false,
           "mortality_delay_hours_200m": 24.0,
-          "likely_death_delay_hours": 749.65,
-          "gap_delay_hours": 36.98,
+          "potential_death_delay_hours": 126.66,
+          "gap_delay_hours": 36.32,
+          "first_alert_delay_hours": 24.0,
           "regime": "sparse",
           "mortality_delay_hours_injected": 21.0,
-          "likely_death_delay_hours_injected": 746.65
+          "potential_death_delay_hours_injected": 123.65,
+          "first_alert_delay_hours_injected": 21.0
         },
         {
           "deployment_id": "AU396-2-CM95~reporting",
@@ -585,25 +667,29 @@
           "mortality_delay_hours": 32.02,
           "early": false,
           "mortality_delay_hours_200m": 32.02,
-          "likely_death_delay_hours": 754.99,
+          "potential_death_delay_hours": 754.99,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 32.02,
           "regime": "reporting",
           "mortality_delay_hours_injected": 31.0,
-          "likely_death_delay_hours_injected": 753.98
+          "potential_death_delay_hours_injected": 753.98,
+          "first_alert_delay_hours_injected": 31.0
         },
         {
           "deployment_id": "AU396-2-CM95~sparse",
-          "carcass": true,
-          "still_hours": 707.0,
-          "still_hours_200m": 707.0,
-          "mortality_delay_hours": 34.0,
+          "carcass": false,
+          "still_hours": 17.0,
+          "still_hours_200m": 17.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 34.0,
-          "likely_death_delay_hours": 174.99,
-          "gap_delay_hours": 36.98,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
+          "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 53.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 32.99,
-          "likely_death_delay_hours_injected": 173.98
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 52.98
         },
         {
           "deployment_id": "AU396-CM70~reporting",
@@ -613,25 +699,29 @@
           "mortality_delay_hours": 30.0,
           "early": false,
           "mortality_delay_hours_200m": 30.0,
-          "likely_death_delay_hours": 755.98,
+          "potential_death_delay_hours": 755.98,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 30.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 29.0,
-          "likely_death_delay_hours_injected": 754.99
+          "potential_death_delay_hours_injected": 754.99,
+          "first_alert_delay_hours_injected": 29.0
         },
         {
           "deployment_id": "AU396-CM70~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 52.99,
+          "still_hours": 84.0,
+          "still_hours_200m": 84.0,
+          "mortality_delay_hours": 27.01,
           "early": false,
-          "mortality_delay_hours_200m": 52.99,
-          "likely_death_delay_hours": 584.98,
+          "mortality_delay_hours_200m": 27.01,
+          "potential_death_delay_hours": 120.98,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 27.01,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 52.0,
-          "likely_death_delay_hours_injected": 583.99
+          "mortality_delay_hours_injected": 26.02,
+          "potential_death_delay_hours_injected": 119.99,
+          "first_alert_delay_hours_injected": 26.02
         },
         {
           "deployment_id": "AU398-CM69~reporting",
@@ -641,25 +731,29 @@
           "mortality_delay_hours": 27.01,
           "early": false,
           "mortality_delay_hours_200m": 28.02,
-          "likely_death_delay_hours": 757.98,
+          "potential_death_delay_hours": 757.98,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 27.01,
           "regime": "reporting",
           "mortality_delay_hours_injected": 25.02,
-          "likely_death_delay_hours_injected": 755.98
+          "potential_death_delay_hours_injected": 755.98,
+          "first_alert_delay_hours_injected": 25.02
         },
         {
           "deployment_id": "AU398-CM69~sparse",
           "carcass": true,
-          "still_hours": 718.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 41.0,
+          "still_hours": 85.0,
+          "still_hours_200m": 86.0,
+          "mortality_delay_hours": 31.99,
           "early": false,
-          "mortality_delay_hours_200m": 42.01,
-          "likely_death_delay_hours": 292.98,
-          "gap_delay_hours": 36.99,
+          "mortality_delay_hours_200m": 33.0,
+          "potential_death_delay_hours": 121.98,
+          "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 31.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 39.01,
-          "likely_death_delay_hours_injected": 290.98
+          "mortality_delay_hours_injected": 30.0,
+          "potential_death_delay_hours_injected": 119.98,
+          "first_alert_delay_hours_injected": 30.0
         },
         {
           "deployment_id": "AU399-CM72~reporting",
@@ -669,48 +763,60 @@
           "mortality_delay_hours": 25.0,
           "early": false,
           "mortality_delay_hours_200m": 25.0,
-          "likely_death_delay_hours": 756.98,
+          "potential_death_delay_hours": 756.98,
           "gap_delay_hours": 36.99,
+          "first_alert_delay_hours": 25.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 25.0,
-          "likely_death_delay_hours_injected": 756.98
+          "potential_death_delay_hours_injected": 756.98,
+          "first_alert_delay_hours_injected": 25.0
         },
         {
           "deployment_id": "AU399-CM72~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 35.0,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 26.0,
           "early": false,
-          "mortality_delay_hours_200m": 35.0,
-          "likely_death_delay_hours": 755.98,
+          "mortality_delay_hours_200m": 26.0,
+          "potential_death_delay_hours": 129.98,
           "gap_delay_hours": 36.98,
+          "first_alert_delay_hours": 26.0,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 35.0,
-          "likely_death_delay_hours_injected": 755.98
+          "mortality_delay_hours_injected": 26.0,
+          "potential_death_delay_hours_injected": 129.98,
+          "first_alert_delay_hours_injected": 26.0
         }
       ],
       "ambiguous": [],
       "synthetic": {
         "pooled": {
           "deaths": 44,
-          "carcass": 44,
+          "carcass": 41,
           "mortality": {
+            "detected": 40,
+            "rate_at_mark": 0.909,
+            "median_delay_hours": 25.0,
+            "detected_injected": 40,
+            "rate_at_mark_injected": 0.909,
+            "median_delay_hours_injected": 25.0,
+            "early": 2
+          },
+          "potential_death": {
+            "detected": 40,
+            "rate_at_mark": 0.023,
+            "median_delay_hours": 313.32,
+            "detected_injected": 40,
+            "rate_at_mark_injected": 0.023,
+            "median_delay_hours_injected": 312.82
+          },
+          "first_alert": {
             "detected": 44,
             "rate_at_mark": 1.0,
             "median_delay_hours": 26.0,
             "detected_injected": 44,
             "rate_at_mark_injected": 1.0,
-            "median_delay_hours_injected": 25.0,
-            "early": 2
-          },
-          "likely_death": {
-            "detected": 43,
-            "rate_at_mark": 0.045,
-            "median_delay_hours": 743.99,
-            "detected_injected": 43,
-            "rate_at_mark_injected": 0.045,
-            "median_delay_hours_injected": 749.97
+            "median_delay_hours_injected": 25.0
           },
           "death_start_offset_hours": {
             "exact": 11,
@@ -733,13 +839,21 @@
             "median_delay_hours_injected": 24.0,
             "early": 2
           },
-          "likely_death": {
-            "detected": 21,
+          "potential_death": {
+            "detected": 22,
             "rate_at_mark": 0.0,
-            "median_delay_hours": 754.99,
-            "detected_injected": 21,
+            "median_delay_hours": 755.49,
+            "detected_injected": 22,
             "rate_at_mark_injected": 0.0,
             "median_delay_hours_injected": 754.99
+          },
+          "first_alert": {
+            "detected": 22,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 24.66,
+            "detected_injected": 22,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 24.0
           },
           "death_start_offset_hours": {
             "exact": 5,
@@ -752,29 +866,37 @@
         },
         "sparse": {
           "deaths": 22,
-          "carcass": 22,
+          "carcass": 19,
           "mortality": {
-            "detected": 22,
-            "rate_at_mark": 1.0,
-            "median_delay_hours": 31.0,
-            "detected_injected": 22,
-            "rate_at_mark_injected": 1.0,
-            "median_delay_hours_injected": 30.5,
+            "detected": 18,
+            "rate_at_mark": 0.818,
+            "median_delay_hours": 29.5,
+            "detected_injected": 18,
+            "rate_at_mark_injected": 0.818,
+            "median_delay_hours_injected": 27.51,
             "early": 0
           },
-          "likely_death": {
+          "potential_death": {
+            "detected": 18,
+            "rate_at_mark": 0.045,
+            "median_delay_hours": 124.48,
+            "detected_injected": 18,
+            "rate_at_mark_injected": 0.045,
+            "median_delay_hours_injected": 123.15
+          },
+          "first_alert": {
             "detected": 22,
-            "rate_at_mark": 0.091,
-            "median_delay_hours": 591.49,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 31.49,
             "detected_injected": 22,
-            "rate_at_mark_injected": 0.091,
-            "median_delay_hours_injected": 590.99
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 30.5
           },
           "death_start_offset_hours": {
             "exact": 6,
             "earlier": 16,
             "later": 0,
-            "min": -5.5,
+            "min": -5.67,
             "median": -1.0,
             "max": 0.0
           }
@@ -786,66 +908,76 @@
       "labels": {
         "dead": 44
       },
-      "animal_months": 158.5,
+      "animal_months": 141.6,
       "load": {
         "gap": {
-          "incidents": 52,
-          "late_fix": 4,
-          "per_animal_month": 0.328
-        },
-        "likely_death": {
-          "incidents": 43,
+          "incidents": 47,
           "late_fix": 0,
-          "per_animal_month": 0.271
+          "per_animal_month": 0.332,
+          "late_fix_per_animal_month": 0.0
         },
         "mortality": {
-          "incidents": 46,
+          "incidents": 42,
           "late_fix": 0,
-          "per_animal_month": 0.29
+          "per_animal_month": 0.297,
+          "late_fix_per_animal_month": 0.0
         },
         "movement": {
           "incidents": 4,
           "late_fix": 0,
-          "per_animal_month": 0.025
+          "per_animal_month": 0.028,
+          "late_fix_per_animal_month": 0.0
+        },
+        "potential_death": {
+          "incidents": 40,
+          "late_fix": 0,
+          "per_animal_month": 0.282,
+          "late_fix_per_animal_month": 0.0
         }
       },
       "false_mortality": {
         "incidents": 2,
-        "per_animal_month": 0.013
+        "per_animal_month": 0.014
       },
       "mortality": {
-        "deaths": 44,
-        "detected": 44,
+        "deaths": 41,
+        "detected": 40,
         "early": 2,
         "mark_hours": 92.5,
-        "rate_at_mark": 1.0,
-        "rate_at_mark_200m": 1.0
+        "rate_at_mark": 0.976,
+        "rate_at_mark_200m": 0.976
       },
       "precision": {
         "mortality": {
-          "true": 44,
+          "true": 40,
           "false": 2,
           "ambiguous": 0,
-          "precision": 0.957
+          "precision": 0.952
         },
-        "likely_death": {
-          "true": 43,
+        "potential_death": {
+          "true": 40,
           "false": 0,
           "ambiguous": 0,
           "precision": 1.0
         }
       },
-      "likely_death": {
-        "deaths": 44,
-        "detected": 43,
-        "rate_at_mark": 0.0
+      "potential_death": {
+        "deaths": 41,
+        "detected": 40,
+        "rate_at_mark": 0.024
+      },
+      "first_alert": {
+        "deaths": 41,
+        "detected": 41,
+        "rate_at_mark": 1.0,
+        "median_delay_hours": 39.6
       },
       "gap_on_deaths": {
-        "deaths": 0,
-        "detected": 0,
-        "median_delay_hours": null
+        "deaths": 3,
+        "detected": 3,
+        "median_delay_hours": 60.98
       },
-      "both_detectors": 44,
+      "both_detectors": 40,
       "deaths": [
         {
           "deployment_id": "AU200-1-CM05~reporting",
@@ -855,25 +987,29 @@
           "mortality_delay_hours": 26.29,
           "early": false,
           "mortality_delay_hours_200m": 26.29,
-          "likely_death_delay_hours": 621.99,
+          "potential_death_delay_hours": 621.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 26.29,
           "regime": "reporting",
           "mortality_delay_hours_injected": 26.29,
-          "likely_death_delay_hours_injected": 621.99
+          "potential_death_delay_hours_injected": 621.99,
+          "first_alert_delay_hours_injected": 26.29
         },
         {
           "deployment_id": "AU200-1-CM05~sparse",
           "carcass": true,
-          "still_hours": 718.0,
-          "still_hours_200m": 718.0,
+          "still_hours": 77.0,
+          "still_hours_200m": 77.0,
           "mortality_delay_hours": 46.66,
           "early": false,
           "mortality_delay_hours_200m": 46.66,
-          "likely_death_delay_hours": 621.99,
-          "gap_delay_hours": 60.99,
+          "potential_death_delay_hours": 137.99,
+          "gap_delay_hours": 60.97,
+          "first_alert_delay_hours": 46.66,
           "regime": "sparse",
           "mortality_delay_hours_injected": 46.66,
-          "likely_death_delay_hours_injected": 621.99
+          "potential_death_delay_hours_injected": 137.99,
+          "first_alert_delay_hours_injected": 46.66
         },
         {
           "deployment_id": "AU200-2-CM62~reporting",
@@ -883,25 +1019,29 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 47.65,
-          "likely_death_delay_hours": 362.99,
+          "potential_death_delay_hours": 362.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 45.64,
-          "likely_death_delay_hours_injected": 780.97
+          "potential_death_delay_hours_injected": 780.97,
+          "first_alert_delay_hours_injected": 45.64
         },
         {
           "deployment_id": "AU200-2-CM62~sparse",
           "carcass": true,
-          "still_hours": 722.0,
-          "still_hours_200m": 722.0,
+          "still_hours": 26.0,
+          "still_hours_200m": 26.0,
           "mortality_delay_hours": 46.07,
           "early": false,
           "mortality_delay_hours_200m": 46.07,
-          "likely_death_delay_hours": 356.99,
+          "potential_death_delay_hours": 86.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 46.07,
           "regime": "sparse",
           "mortality_delay_hours_injected": 44.05,
-          "likely_death_delay_hours_injected": 354.97
+          "potential_death_delay_hours_injected": 84.97,
+          "first_alert_delay_hours_injected": 44.05
         },
         {
           "deployment_id": "AU205-CM08~reporting",
@@ -911,25 +1051,29 @@
           "mortality_delay_hours": 28.97,
           "early": false,
           "mortality_delay_hours_200m": 30.97,
-          "likely_death_delay_hours": 777.99,
+          "potential_death_delay_hours": 777.99,
           "gap_delay_hours": 60.97,
+          "first_alert_delay_hours": 28.97,
           "regime": "reporting",
           "mortality_delay_hours_injected": 26.97,
-          "likely_death_delay_hours_injected": 775.99
+          "potential_death_delay_hours_injected": 775.99,
+          "first_alert_delay_hours_injected": 26.97
         },
         {
           "deployment_id": "AU205-CM08~sparse",
-          "carcass": true,
-          "still_hours": 703.0,
-          "still_hours_200m": 705.0,
-          "mortality_delay_hours": 46.01,
+          "carcass": false,
+          "still_hours": 21.0,
+          "still_hours_200m": 23.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 48.0,
-          "likely_death_delay_hours": 584.99,
-          "gap_delay_hours": 60.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
+          "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 81.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 44.0,
-          "likely_death_delay_hours_injected": 582.99
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 79.98
         },
         {
           "deployment_id": "AU206-CM09~reporting",
@@ -939,25 +1083,29 @@
           "mortality_delay_hours": 39.6,
           "early": false,
           "mortality_delay_hours_200m": 39.6,
-          "likely_death_delay_hours": 781.99,
+          "potential_death_delay_hours": 781.99,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 39.6,
           "regime": "reporting",
           "mortality_delay_hours_injected": 37.6,
-          "likely_death_delay_hours_injected": 779.99
+          "potential_death_delay_hours_injected": 779.99,
+          "first_alert_delay_hours_injected": 37.6
         },
         {
           "deployment_id": "AU206-CM09~sparse",
           "carcass": true,
-          "still_hours": 717.0,
-          "still_hours_200m": 717.0,
+          "still_hours": 89.0,
+          "still_hours_200m": 89.0,
           "mortality_delay_hours": 44.77,
           "early": false,
           "mortality_delay_hours_200m": 44.77,
-          "likely_death_delay_hours": 777.99,
+          "potential_death_delay_hours": 149.99,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 44.77,
           "regime": "sparse",
           "mortality_delay_hours_injected": 42.77,
-          "likely_death_delay_hours_injected": 775.99
+          "potential_death_delay_hours_injected": 147.99,
+          "first_alert_delay_hours_injected": 42.77
         },
         {
           "deployment_id": "AU207-CM36~reporting",
@@ -967,25 +1115,29 @@
           "mortality_delay_hours": 23.92,
           "early": false,
           "mortality_delay_hours_200m": 49.92,
-          "likely_death_delay_hours": 748.99,
+          "potential_death_delay_hours": 748.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 23.92,
           "regime": "reporting",
           "mortality_delay_hours_injected": 48.92,
-          "likely_death_delay_hours_injected": 773.99
+          "potential_death_delay_hours_injected": 773.99,
+          "first_alert_delay_hours_injected": 48.92
         },
         {
           "deployment_id": "AU207-CM36~sparse",
           "carcass": true,
-          "still_hours": 714.0,
-          "still_hours_200m": 714.0,
+          "still_hours": 79.0,
+          "still_hours_200m": 79.0,
           "mortality_delay_hours": 49.09,
           "early": false,
           "mortality_delay_hours_200m": 49.09,
-          "likely_death_delay_hours": 774.99,
+          "potential_death_delay_hours": 139.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 49.09,
           "regime": "sparse",
           "mortality_delay_hours_injected": 48.09,
-          "likely_death_delay_hours_injected": 773.99
+          "potential_death_delay_hours_injected": 138.99,
+          "first_alert_delay_hours_injected": 48.09
         },
         {
           "deployment_id": "AU210-CM11~reporting",
@@ -995,25 +1147,29 @@
           "mortality_delay_hours": 40.7,
           "early": false,
           "mortality_delay_hours_200m": 40.7,
-          "likely_death_delay_hours": 779.99,
+          "potential_death_delay_hours": 779.99,
           "gap_delay_hours": 60.97,
+          "first_alert_delay_hours": 40.7,
           "regime": "reporting",
           "mortality_delay_hours_injected": 40.7,
-          "likely_death_delay_hours_injected": 779.99
+          "potential_death_delay_hours_injected": 779.99,
+          "first_alert_delay_hours_injected": 40.7
         },
         {
           "deployment_id": "AU210-CM11~sparse",
           "carcass": true,
-          "still_hours": 716.0,
-          "still_hours_200m": 716.0,
-          "mortality_delay_hours": 30.62,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 54.62,
           "early": false,
-          "mortality_delay_hours_200m": 30.62,
-          "likely_death_delay_hours": 776.99,
-          "gap_delay_hours": 60.99,
+          "mortality_delay_hours_200m": 54.62,
+          "potential_death_delay_hours": 153.99,
+          "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 54.62,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 30.62,
-          "likely_death_delay_hours_injected": 776.99
+          "mortality_delay_hours_injected": 54.62,
+          "potential_death_delay_hours_injected": 153.99,
+          "first_alert_delay_hours_injected": 54.62
         },
         {
           "deployment_id": "AU211-CM15~reporting",
@@ -1023,25 +1179,29 @@
           "mortality_delay_hours": 31.2,
           "early": false,
           "mortality_delay_hours_200m": 31.2,
-          "likely_death_delay_hours": 780.99,
+          "potential_death_delay_hours": 780.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 31.2,
           "regime": "reporting",
           "mortality_delay_hours_injected": 31.2,
-          "likely_death_delay_hours_injected": 780.99
+          "potential_death_delay_hours_injected": 780.99,
+          "first_alert_delay_hours_injected": 31.2
         },
         {
           "deployment_id": "AU211-CM15~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
+          "still_hours": 88.0,
+          "still_hours_200m": 88.0,
           "mortality_delay_hours": 48.74,
           "early": false,
           "mortality_delay_hours_200m": 48.74,
-          "likely_death_delay_hours": 779.99,
-          "gap_delay_hours": 60.98,
+          "potential_death_delay_hours": 148.99,
+          "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 48.74,
           "regime": "sparse",
           "mortality_delay_hours_injected": 48.74,
-          "likely_death_delay_hours_injected": 779.99
+          "potential_death_delay_hours_injected": 148.99,
+          "first_alert_delay_hours_injected": 48.74
         },
         {
           "deployment_id": "AU212-CM40~reporting",
@@ -1051,25 +1211,29 @@
           "mortality_delay_hours": 35.54,
           "early": false,
           "mortality_delay_hours_200m": 38.7,
-          "likely_death_delay_hours": 785.99,
+          "potential_death_delay_hours": 785.99,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 35.54,
           "regime": "reporting",
           "mortality_delay_hours_injected": 29.87,
-          "likely_death_delay_hours_injected": 780.32
+          "potential_death_delay_hours_injected": 780.32,
+          "first_alert_delay_hours_injected": 29.87
         },
         {
           "deployment_id": "AU212-CM40~sparse",
           "carcass": true,
-          "still_hours": 724.8,
-          "still_hours_200m": 728.2,
-          "mortality_delay_hours": 34.64,
+          "still_hours": 92.7,
+          "still_hours_200m": 95.8,
+          "mortality_delay_hours": 34.8,
           "early": false,
           "mortality_delay_hours_200m": 37.97,
-          "likely_death_delay_hours": 785.82,
-          "gap_delay_hours": 60.98,
+          "potential_death_delay_hours": 152.99,
+          "gap_delay_hours": 60.32,
+          "first_alert_delay_hours": 34.8,
           "regime": "sparse",
           "mortality_delay_hours_injected": 29.13,
-          "likely_death_delay_hours_injected": 780.32
+          "potential_death_delay_hours_injected": 147.32,
+          "first_alert_delay_hours_injected": 29.13
         },
         {
           "deployment_id": "AU213-CM42~reporting",
@@ -1079,25 +1243,29 @@
           "mortality_delay_hours": 26.28,
           "early": false,
           "mortality_delay_hours_200m": 26.61,
-          "likely_death_delay_hours": 316.65,
+          "potential_death_delay_hours": 316.65,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 26.28,
           "regime": "reporting",
           "mortality_delay_hours_injected": 25.28,
-          "likely_death_delay_hours_injected": 315.65
+          "potential_death_delay_hours_injected": 315.65,
+          "first_alert_delay_hours_injected": 25.28
         },
         {
           "deployment_id": "AU213-CM42~sparse",
           "carcass": true,
-          "still_hours": 251.3,
-          "still_hours_200m": 251.7,
+          "still_hours": 87.3,
+          "still_hours_200m": 87.7,
           "mortality_delay_hours": 47.51,
           "early": false,
           "mortality_delay_hours_200m": 47.85,
-          "likely_death_delay_hours": 311.65,
+          "potential_death_delay_hours": 147.65,
           "gap_delay_hours": 60.31,
+          "first_alert_delay_hours": 47.51,
           "regime": "sparse",
           "mortality_delay_hours_injected": 46.51,
-          "likely_death_delay_hours_injected": 310.65
+          "potential_death_delay_hours_injected": 146.65,
+          "first_alert_delay_hours_injected": 46.51
         },
         {
           "deployment_id": "AU214-CM44~reporting",
@@ -1107,25 +1275,29 @@
           "mortality_delay_hours": 39.18,
           "early": false,
           "mortality_delay_hours_200m": 41.18,
-          "likely_death_delay_hours": 780.98,
+          "potential_death_delay_hours": 780.98,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 39.18,
           "regime": "reporting",
           "mortality_delay_hours_injected": 38.18,
-          "likely_death_delay_hours_injected": 779.98
+          "potential_death_delay_hours_injected": 779.98,
+          "first_alert_delay_hours_injected": 38.18
         },
         {
           "deployment_id": "AU214-CM44~sparse",
           "carcass": true,
-          "still_hours": 709.0,
-          "still_hours_200m": 711.0,
+          "still_hours": 87.0,
+          "still_hours_200m": 89.0,
           "mortality_delay_hours": 49.98,
           "early": false,
           "mortality_delay_hours_200m": 51.98,
-          "likely_death_delay_hours": 769.98,
+          "potential_death_delay_hours": 147.98,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 49.98,
           "regime": "sparse",
           "mortality_delay_hours_injected": 48.98,
-          "likely_death_delay_hours_injected": 768.98
+          "potential_death_delay_hours_injected": 146.98,
+          "first_alert_delay_hours_injected": 48.98
         },
         {
           "deployment_id": "AU215-CM10~reporting",
@@ -1135,25 +1307,29 @@
           "mortality_delay_hours": 45.08,
           "early": false,
           "mortality_delay_hours_200m": 45.08,
-          "likely_death_delay_hours": 538.98,
+          "potential_death_delay_hours": 538.98,
           "gap_delay_hours": 60.94,
+          "first_alert_delay_hours": 45.08,
           "regime": "reporting",
           "mortality_delay_hours_injected": 42.08,
-          "likely_death_delay_hours_injected": 535.98
+          "potential_death_delay_hours_injected": 535.98,
+          "first_alert_delay_hours_injected": 42.08
         },
         {
           "deployment_id": "AU215-CM10~sparse",
           "carcass": true,
-          "still_hours": 477.0,
-          "still_hours_200m": 477.0,
+          "still_hours": 98.0,
+          "still_hours_200m": 98.0,
           "mortality_delay_hours": 46.7,
           "early": false,
           "mortality_delay_hours_200m": 46.7,
-          "likely_death_delay_hours": 537.98,
+          "potential_death_delay_hours": 158.98,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 46.7,
           "regime": "sparse",
           "mortality_delay_hours_injected": 43.7,
-          "likely_death_delay_hours_injected": 534.98
+          "potential_death_delay_hours_injected": 155.98,
+          "first_alert_delay_hours_injected": 43.7
         },
         {
           "deployment_id": "AU216-CM20~reporting",
@@ -1163,25 +1339,29 @@
           "mortality_delay_hours": 38.35,
           "early": false,
           "mortality_delay_hours_200m": 38.35,
-          "likely_death_delay_hours": 596.99,
+          "potential_death_delay_hours": 596.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 38.35,
           "regime": "reporting",
           "mortality_delay_hours_injected": 37.35,
-          "likely_death_delay_hours_injected": 595.99
+          "potential_death_delay_hours_injected": 595.99,
+          "first_alert_delay_hours_injected": 37.35
         },
         {
           "deployment_id": "AU216-CM20~sparse",
           "carcass": true,
-          "still_hours": 534.0,
-          "still_hours_200m": 534.0,
+          "still_hours": 77.0,
+          "still_hours_200m": 77.0,
           "mortality_delay_hours": 44.05,
           "early": false,
           "mortality_delay_hours_200m": 44.05,
-          "likely_death_delay_hours": 594.99,
-          "gap_delay_hours": 60.98,
+          "potential_death_delay_hours": 137.99,
+          "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 44.05,
           "regime": "sparse",
           "mortality_delay_hours_injected": 43.05,
-          "likely_death_delay_hours_injected": 593.99
+          "potential_death_delay_hours_injected": 136.99,
+          "first_alert_delay_hours_injected": 43.05
         },
         {
           "deployment_id": "AU217-CM18~reporting",
@@ -1191,25 +1371,29 @@
           "mortality_delay_hours": 30.24,
           "early": false,
           "mortality_delay_hours_200m": 30.24,
-          "likely_death_delay_hours": 285.99,
+          "potential_death_delay_hours": 285.99,
           "gap_delay_hours": 60.97,
+          "first_alert_delay_hours": 30.24,
           "regime": "reporting",
           "mortality_delay_hours_injected": 29.23,
-          "likely_death_delay_hours_injected": 284.98
+          "potential_death_delay_hours_injected": 284.98,
+          "first_alert_delay_hours_injected": 29.23
         },
         {
           "deployment_id": "AU217-CM18~sparse",
           "carcass": true,
-          "still_hours": 222.0,
-          "still_hours_200m": 222.0,
+          "still_hours": 82.0,
+          "still_hours_200m": 82.0,
           "mortality_delay_hours": 34.2,
           "early": false,
           "mortality_delay_hours_200m": 34.2,
-          "likely_death_delay_hours": 282.99,
-          "gap_delay_hours": 60.97,
+          "potential_death_delay_hours": 142.99,
+          "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 34.2,
           "regime": "sparse",
           "mortality_delay_hours_injected": 33.2,
-          "likely_death_delay_hours_injected": 281.98
+          "potential_death_delay_hours_injected": 141.98,
+          "first_alert_delay_hours_injected": 33.2
         },
         {
           "deployment_id": "AU218-CM33~reporting",
@@ -1219,25 +1403,29 @@
           "mortality_delay_hours": 41.29,
           "early": false,
           "mortality_delay_hours_200m": 41.29,
-          "likely_death_delay_hours": 781.99,
+          "potential_death_delay_hours": 781.99,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 41.29,
           "regime": "reporting",
           "mortality_delay_hours_injected": 40.27,
-          "likely_death_delay_hours_injected": 780.97
+          "potential_death_delay_hours_injected": 780.97,
+          "first_alert_delay_hours_injected": 40.27
         },
         {
           "deployment_id": "AU218-CM33~sparse",
-          "carcass": true,
-          "still_hours": 714.0,
-          "still_hours_200m": 714.0,
-          "mortality_delay_hours": 43.32,
+          "carcass": false,
+          "still_hours": 21.0,
+          "still_hours_200m": 21.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 43.32,
-          "likely_death_delay_hours": 774.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 81.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 42.3,
-          "likely_death_delay_hours_injected": 773.97
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 80.97
         },
         {
           "deployment_id": "AU219-2-CM83~reporting",
@@ -1247,25 +1435,29 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 29.54,
-          "likely_death_delay_hours": 379.99,
+          "potential_death_delay_hours": 379.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 29.54,
-          "likely_death_delay_hours_injected": 778.99
+          "potential_death_delay_hours_injected": 778.99,
+          "first_alert_delay_hours_injected": 29.54
         },
         {
           "deployment_id": "AU219-2-CM83~sparse",
           "carcass": true,
-          "still_hours": 707.0,
-          "still_hours_200m": 707.0,
-          "mortality_delay_hours": 52.42,
+          "still_hours": 24.0,
+          "still_hours_200m": 24.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 52.42,
-          "likely_death_delay_hours": 767.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 84.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 52.42,
-          "likely_death_delay_hours_injected": 767.99
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 84.99
         },
         {
           "deployment_id": "AU219-CM23~reporting",
@@ -1275,25 +1467,29 @@
           "mortality_delay_hours": 45.79,
           "early": false,
           "mortality_delay_hours_200m": 45.79,
-          "likely_death_delay_hours": 357.99,
+          "potential_death_delay_hours": 357.99,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 45.79,
           "regime": "reporting",
           "mortality_delay_hours_injected": 45.79,
-          "likely_death_delay_hours_injected": 357.99
+          "potential_death_delay_hours_injected": 357.99,
+          "first_alert_delay_hours_injected": 45.79
         },
         {
           "deployment_id": "AU219-CM23~sparse",
           "carcass": true,
-          "still_hours": 299.0,
-          "still_hours_200m": 299.0,
+          "still_hours": 94.0,
+          "still_hours_200m": 94.0,
           "mortality_delay_hours": 37.1,
           "early": false,
           "mortality_delay_hours_200m": 37.1,
-          "likely_death_delay_hours": 359.99,
-          "gap_delay_hours": 60.98,
+          "potential_death_delay_hours": 154.99,
+          "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 37.1,
           "regime": "sparse",
           "mortality_delay_hours_injected": 37.1,
-          "likely_death_delay_hours_injected": 359.99
+          "potential_death_delay_hours_injected": 154.99,
+          "first_alert_delay_hours_injected": 37.1
         },
         {
           "deployment_id": "AU220-CM26~reporting",
@@ -1303,25 +1499,29 @@
           "mortality_delay_hours": 37.98,
           "early": false,
           "mortality_delay_hours_200m": 37.98,
-          "likely_death_delay_hours": 783.98,
+          "potential_death_delay_hours": 783.98,
           "gap_delay_hours": 60.0,
+          "first_alert_delay_hours": 37.98,
           "regime": "reporting",
           "mortality_delay_hours_injected": 32.98,
-          "likely_death_delay_hours_injected": 778.98
+          "potential_death_delay_hours_injected": 778.98,
+          "first_alert_delay_hours_injected": 32.98
         },
         {
           "deployment_id": "AU220-CM26~sparse",
           "carcass": true,
-          "still_hours": 705.0,
-          "still_hours_200m": 705.0,
-          "mortality_delay_hours": 26.82,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 50.82,
           "early": false,
-          "mortality_delay_hours_200m": 26.82,
-          "likely_death_delay_hours": 239.98,
+          "mortality_delay_hours_200m": 50.82,
+          "potential_death_delay_hours": 152.98,
           "gap_delay_hours": 60.0,
+          "first_alert_delay_hours": 50.82,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 21.82,
-          "likely_death_delay_hours_injected": 234.98
+          "mortality_delay_hours_injected": 45.82,
+          "potential_death_delay_hours_injected": 147.98,
+          "first_alert_delay_hours_injected": 45.82
         },
         {
           "deployment_id": "AU239-CM47~reporting",
@@ -1331,25 +1531,29 @@
           "mortality_delay_hours": 31.74,
           "early": false,
           "mortality_delay_hours_200m": 32.07,
-          "likely_death_delay_hours": null,
+          "potential_death_delay_hours": 783.65,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 31.74,
           "regime": "reporting",
           "mortality_delay_hours_injected": 28.73,
-          "likely_death_delay_hours_injected": null
+          "potential_death_delay_hours_injected": 780.65,
+          "first_alert_delay_hours_injected": 28.73
         },
         {
           "deployment_id": "AU239-CM47~sparse",
           "carcass": true,
-          "still_hours": 712.7,
-          "still_hours_200m": 712.7,
+          "still_hours": 90.3,
+          "still_hours_200m": 90.3,
           "mortality_delay_hours": 47.87,
           "early": false,
           "mortality_delay_hours_200m": 47.87,
-          "likely_death_delay_hours": 773.65,
-          "gap_delay_hours": 60.98,
+          "potential_death_delay_hours": 150.66,
+          "gap_delay_hours": 60.32,
+          "first_alert_delay_hours": 47.87,
           "regime": "sparse",
           "mortality_delay_hours_injected": 44.87,
-          "likely_death_delay_hours_injected": 770.65
+          "potential_death_delay_hours_injected": 147.65,
+          "first_alert_delay_hours_injected": 44.87
         },
         {
           "deployment_id": "AU396-2-CM95~reporting",
@@ -1359,25 +1563,29 @@
           "mortality_delay_hours": 34.05,
           "early": false,
           "mortality_delay_hours_200m": 34.05,
-          "likely_death_delay_hours": 778.99,
+          "potential_death_delay_hours": 778.99,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 34.05,
           "regime": "reporting",
           "mortality_delay_hours_injected": 33.04,
-          "likely_death_delay_hours_injected": 777.98
+          "potential_death_delay_hours_injected": 777.98,
+          "first_alert_delay_hours_injected": 33.04
         },
         {
           "deployment_id": "AU396-2-CM95~sparse",
-          "carcass": true,
-          "still_hours": 707.0,
-          "still_hours_200m": 707.0,
-          "mortality_delay_hours": 46.62,
+          "carcass": false,
+          "still_hours": 17.0,
+          "still_hours_200m": 17.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 46.62,
-          "likely_death_delay_hours": 767.99,
-          "gap_delay_hours": 60.98,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
+          "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 77.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 45.61,
-          "likely_death_delay_hours_injected": 766.98
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 76.98
         },
         {
           "deployment_id": "AU396-CM70~reporting",
@@ -1387,25 +1595,29 @@
           "mortality_delay_hours": 35.43,
           "early": false,
           "mortality_delay_hours_200m": 35.43,
-          "likely_death_delay_hours": 779.98,
+          "potential_death_delay_hours": 779.98,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 35.43,
           "regime": "reporting",
           "mortality_delay_hours_injected": 34.44,
-          "likely_death_delay_hours_injected": 778.99
+          "potential_death_delay_hours_injected": 778.99,
+          "first_alert_delay_hours_injected": 34.44
         },
         {
           "deployment_id": "AU396-CM70~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 66.9,
+          "still_hours": 84.0,
+          "still_hours_200m": 84.0,
+          "mortality_delay_hours": 42.9,
           "early": false,
-          "mortality_delay_hours_200m": 66.9,
-          "likely_death_delay_hours": 779.98,
+          "mortality_delay_hours_200m": 42.9,
+          "potential_death_delay_hours": 144.98,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 42.9,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 65.9,
-          "likely_death_delay_hours_injected": 778.99
+          "mortality_delay_hours_injected": 41.9,
+          "potential_death_delay_hours_injected": 143.99,
+          "first_alert_delay_hours_injected": 41.9
         },
         {
           "deployment_id": "AU398-CM69~reporting",
@@ -1415,25 +1627,29 @@
           "mortality_delay_hours": 30.91,
           "early": false,
           "mortality_delay_hours_200m": 31.92,
-          "likely_death_delay_hours": 781.98,
+          "potential_death_delay_hours": 781.98,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 30.91,
           "regime": "reporting",
           "mortality_delay_hours_injected": 28.92,
-          "likely_death_delay_hours_injected": 779.98
+          "potential_death_delay_hours_injected": 779.98,
+          "first_alert_delay_hours_injected": 28.92
         },
         {
           "deployment_id": "AU398-CM69~sparse",
           "carcass": true,
-          "still_hours": 718.0,
-          "still_hours_200m": 719.0,
+          "still_hours": 85.0,
+          "still_hours_200m": 86.0,
           "mortality_delay_hours": 44.76,
           "early": false,
           "mortality_delay_hours_200m": 45.77,
-          "likely_death_delay_hours": 778.98,
-          "gap_delay_hours": 60.99,
+          "potential_death_delay_hours": 145.98,
+          "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 44.76,
           "regime": "sparse",
           "mortality_delay_hours_injected": 42.77,
-          "likely_death_delay_hours_injected": 776.98
+          "potential_death_delay_hours_injected": 143.98,
+          "first_alert_delay_hours_injected": 42.77
         },
         {
           "deployment_id": "AU399-CM72~reporting",
@@ -1443,48 +1659,60 @@
           "mortality_delay_hours": 43.58,
           "early": false,
           "mortality_delay_hours_200m": 43.58,
-          "likely_death_delay_hours": 780.98,
+          "potential_death_delay_hours": 780.98,
           "gap_delay_hours": 60.99,
+          "first_alert_delay_hours": 43.58,
           "regime": "reporting",
           "mortality_delay_hours_injected": 43.58,
-          "likely_death_delay_hours_injected": 780.98
+          "potential_death_delay_hours_injected": 780.98,
+          "first_alert_delay_hours_injected": 43.58
         },
         {
           "deployment_id": "AU399-CM72~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 51.78,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 27.78,
           "early": false,
-          "mortality_delay_hours_200m": 51.78,
-          "likely_death_delay_hours": 779.98,
+          "mortality_delay_hours_200m": 27.78,
+          "potential_death_delay_hours": 153.98,
           "gap_delay_hours": 60.98,
+          "first_alert_delay_hours": 27.78,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 51.78,
-          "likely_death_delay_hours_injected": 779.98
+          "mortality_delay_hours_injected": 27.78,
+          "potential_death_delay_hours_injected": 153.98,
+          "first_alert_delay_hours_injected": 27.78
         }
       ],
       "ambiguous": [],
       "synthetic": {
         "pooled": {
           "deaths": 44,
-          "carcass": 44,
+          "carcass": 41,
           "mortality": {
-            "detected": 44,
-            "rate_at_mark": 1.0,
-            "median_delay_hours": 40.15,
-            "detected_injected": 44,
-            "rate_at_mark_injected": 1.0,
-            "median_delay_hours_injected": 41.39,
+            "detected": 40,
+            "rate_at_mark": 0.909,
+            "median_delay_hours": 39.39,
+            "detected_injected": 40,
+            "rate_at_mark_injected": 0.909,
+            "median_delay_hours_injected": 40.48,
             "early": 2
           },
-          "likely_death": {
-            "detected": 43,
-            "rate_at_mark": 0.0,
-            "median_delay_hours": 773.65,
-            "detected_injected": 43,
-            "rate_at_mark_injected": 0.0,
-            "median_delay_hours_injected": 773.99
+          "potential_death": {
+            "detected": 40,
+            "rate_at_mark": 0.023,
+            "median_delay_hours": 337.32,
+            "detected_injected": 40,
+            "rate_at_mark_injected": 0.023,
+            "median_delay_hours_injected": 336.82
+          },
+          "first_alert": {
+            "detected": 44,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 41.0,
+            "detected_injected": 44,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 41.99
           },
           "death_start_offset_hours": {
             "exact": 11,
@@ -1507,13 +1735,21 @@
             "median_delay_hours_injected": 33.74,
             "early": 2
           },
-          "likely_death": {
-            "detected": 21,
+          "potential_death": {
+            "detected": 22,
             "rate_at_mark": 0.0,
-            "median_delay_hours": 778.99,
-            "detected_injected": 21,
+            "median_delay_hours": 779.49,
+            "detected_injected": 22,
             "rate_at_mark_injected": 0.0,
             "median_delay_hours_injected": 778.99
+          },
+          "first_alert": {
+            "detected": 22,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 34.74,
+            "detected_injected": 22,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 33.74
           },
           "death_start_offset_hours": {
             "exact": 5,
@@ -1526,29 +1762,37 @@
         },
         "sparse": {
           "deaths": 22,
-          "carcass": 22,
+          "carcass": 19,
           "mortality": {
-            "detected": 22,
-            "rate_at_mark": 1.0,
-            "median_delay_hours": 46.34,
-            "detected_injected": 22,
-            "rate_at_mark_injected": 1.0,
-            "median_delay_hours_injected": 44.02,
+            "detected": 18,
+            "rate_at_mark": 0.818,
+            "median_delay_hours": 46.36,
+            "detected_injected": 18,
+            "rate_at_mark_injected": 0.818,
+            "median_delay_hours_injected": 43.88,
             "early": 0
           },
-          "likely_death": {
+          "potential_death": {
+            "detected": 18,
+            "rate_at_mark": 0.045,
+            "median_delay_hours": 148.49,
+            "detected_injected": 18,
+            "rate_at_mark_injected": 0.045,
+            "median_delay_hours_injected": 147.15
+          },
+          "first_alert": {
             "detected": 22,
-            "rate_at_mark": 0.0,
-            "median_delay_hours": 768.99,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 47.11,
             "detected_injected": 22,
-            "rate_at_mark_injected": 0.0,
-            "median_delay_hours_injected": 768.49
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 45.34
           },
           "death_start_offset_hours": {
             "exact": 6,
             "earlier": 16,
             "later": 0,
-            "min": -5.5,
+            "min": -5.67,
             "median": -1.0,
             "max": 0.0
           }
@@ -1560,66 +1804,76 @@
       "labels": {
         "dead": 44
       },
-      "animal_months": 158.5,
+      "animal_months": 141.6,
       "load": {
         "gap": {
-          "incidents": 50,
-          "late_fix": 2,
-          "per_animal_month": 0.315
-        },
-        "likely_death": {
-          "incidents": 43,
+          "incidents": 47,
           "late_fix": 0,
-          "per_animal_month": 0.271
+          "per_animal_month": 0.332,
+          "late_fix_per_animal_month": 0.0
         },
         "mortality": {
-          "incidents": 46,
+          "incidents": 42,
           "late_fix": 0,
-          "per_animal_month": 0.29
+          "per_animal_month": 0.297,
+          "late_fix_per_animal_month": 0.0
         },
         "movement": {
           "incidents": 4,
           "late_fix": 0,
-          "per_animal_month": 0.025
+          "per_animal_month": 0.028,
+          "late_fix_per_animal_month": 0.0
+        },
+        "potential_death": {
+          "incidents": 40,
+          "late_fix": 0,
+          "per_animal_month": 0.282,
+          "late_fix_per_animal_month": 0.0
         }
       },
       "false_mortality": {
         "incidents": 2,
-        "per_animal_month": 0.013
+        "per_animal_month": 0.014
       },
       "mortality": {
-        "deaths": 44,
-        "detected": 44,
+        "deaths": 41,
+        "detected": 40,
         "early": 2,
         "mark_hours": 92.5,
-        "rate_at_mark": 0.977,
-        "rate_at_mark_200m": 0.977
+        "rate_at_mark": 0.976,
+        "rate_at_mark_200m": 0.976
       },
       "precision": {
         "mortality": {
-          "true": 44,
+          "true": 40,
           "false": 2,
           "ambiguous": 0,
-          "precision": 0.957
+          "precision": 0.952
         },
-        "likely_death": {
-          "true": 43,
+        "potential_death": {
+          "true": 40,
           "false": 0,
           "ambiguous": 0,
           "precision": 1.0
         }
       },
-      "likely_death": {
-        "deaths": 44,
-        "detected": 43,
+      "potential_death": {
+        "deaths": 41,
+        "detected": 40,
         "rate_at_mark": 0.0
       },
-      "gap_on_deaths": {
-        "deaths": 0,
-        "detected": 0,
-        "median_delay_hours": null
+      "first_alert": {
+        "deaths": 41,
+        "detected": 41,
+        "rate_at_mark": 0.976,
+        "median_delay_hours": 48.57
       },
-      "both_detectors": 44,
+      "gap_on_deaths": {
+        "deaths": 3,
+        "detected": 3,
+        "median_delay_hours": 84.98
+      },
+      "both_detectors": 40,
       "deaths": [
         {
           "deployment_id": "AU200-1-CM05~reporting",
@@ -1629,25 +1883,29 @@
           "mortality_delay_hours": 44.46,
           "early": false,
           "mortality_delay_hours_200m": 44.46,
-          "likely_death_delay_hours": 645.99,
+          "potential_death_delay_hours": 645.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 44.46,
           "regime": "reporting",
           "mortality_delay_hours_injected": 44.46,
-          "likely_death_delay_hours_injected": 645.99
+          "potential_death_delay_hours_injected": 645.99,
+          "first_alert_delay_hours_injected": 44.46
         },
         {
           "deployment_id": "AU200-1-CM05~sparse",
           "carcass": true,
-          "still_hours": 718.0,
-          "still_hours_200m": 718.0,
+          "still_hours": 77.0,
+          "still_hours_200m": 77.0,
           "mortality_delay_hours": 57.16,
           "early": false,
           "mortality_delay_hours_200m": 57.16,
-          "likely_death_delay_hours": 645.99,
-          "gap_delay_hours": 84.99,
+          "potential_death_delay_hours": 161.99,
+          "gap_delay_hours": 84.97,
+          "first_alert_delay_hours": 57.16,
           "regime": "sparse",
           "mortality_delay_hours_injected": 57.16,
-          "likely_death_delay_hours_injected": 645.99
+          "potential_death_delay_hours_injected": 161.99,
+          "first_alert_delay_hours_injected": 57.16
         },
         {
           "deployment_id": "AU200-2-CM62~reporting",
@@ -1657,25 +1915,29 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 39.32,
-          "likely_death_delay_hours": 386.99,
+          "potential_death_delay_hours": 386.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 37.3,
-          "likely_death_delay_hours_injected": 804.97
+          "potential_death_delay_hours_injected": 804.97,
+          "first_alert_delay_hours_injected": 37.3
         },
         {
           "deployment_id": "AU200-2-CM62~sparse",
           "carcass": true,
-          "still_hours": 722.0,
-          "still_hours_200m": 722.0,
+          "still_hours": 26.0,
+          "still_hours_200m": 26.0,
           "mortality_delay_hours": 60.8,
           "early": false,
           "mortality_delay_hours_200m": 60.8,
-          "likely_death_delay_hours": 806.99,
+          "potential_death_delay_hours": 110.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 60.8,
           "regime": "sparse",
           "mortality_delay_hours_injected": 58.79,
-          "likely_death_delay_hours_injected": 804.97
+          "potential_death_delay_hours_injected": 108.97,
+          "first_alert_delay_hours_injected": 58.79
         },
         {
           "deployment_id": "AU205-CM08~reporting",
@@ -1685,25 +1947,29 @@
           "mortality_delay_hours": 44.02,
           "early": false,
           "mortality_delay_hours_200m": 46.02,
-          "likely_death_delay_hours": 801.99,
+          "potential_death_delay_hours": 801.99,
           "gap_delay_hours": 84.97,
+          "first_alert_delay_hours": 44.02,
           "regime": "reporting",
           "mortality_delay_hours_injected": 42.02,
-          "likely_death_delay_hours_injected": 799.99
+          "potential_death_delay_hours_injected": 799.99,
+          "first_alert_delay_hours_injected": 42.02
         },
         {
           "deployment_id": "AU205-CM08~sparse",
-          "carcass": true,
-          "still_hours": 703.0,
-          "still_hours_200m": 705.0,
-          "mortality_delay_hours": 34.41,
+          "carcass": false,
+          "still_hours": 21.0,
+          "still_hours_200m": 23.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 36.4,
-          "likely_death_delay_hours": 608.99,
-          "gap_delay_hours": 84.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
+          "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 105.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 32.4,
-          "likely_death_delay_hours_injected": 606.99
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 103.98
         },
         {
           "deployment_id": "AU206-CM09~reporting",
@@ -1713,25 +1979,29 @@
           "mortality_delay_hours": 28.89,
           "early": false,
           "mortality_delay_hours_200m": 28.89,
-          "likely_death_delay_hours": 805.99,
+          "potential_death_delay_hours": 805.99,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 28.89,
           "regime": "reporting",
           "mortality_delay_hours_injected": 26.89,
-          "likely_death_delay_hours_injected": 803.99
+          "potential_death_delay_hours_injected": 803.99,
+          "first_alert_delay_hours_injected": 26.89
         },
         {
           "deployment_id": "AU206-CM09~sparse",
           "carcass": true,
-          "still_hours": 717.0,
-          "still_hours_200m": 717.0,
+          "still_hours": 89.0,
+          "still_hours_200m": 89.0,
           "mortality_delay_hours": 55.55,
           "early": false,
           "mortality_delay_hours_200m": 55.55,
-          "likely_death_delay_hours": 801.99,
+          "potential_death_delay_hours": 173.99,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 55.55,
           "regime": "sparse",
           "mortality_delay_hours_injected": 53.55,
-          "likely_death_delay_hours_injected": 799.99
+          "potential_death_delay_hours_injected": 171.99,
+          "first_alert_delay_hours_injected": 53.55
         },
         {
           "deployment_id": "AU207-CM36~reporting",
@@ -1741,25 +2011,29 @@
           "mortality_delay_hours": 9.22,
           "early": false,
           "mortality_delay_hours_200m": 35.22,
-          "likely_death_delay_hours": 772.99,
+          "potential_death_delay_hours": 772.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 9.22,
           "regime": "reporting",
           "mortality_delay_hours_injected": 34.22,
-          "likely_death_delay_hours_injected": 797.99
+          "potential_death_delay_hours_injected": 797.99,
+          "first_alert_delay_hours_injected": 34.22
         },
         {
           "deployment_id": "AU207-CM36~sparse",
           "carcass": true,
-          "still_hours": 714.0,
-          "still_hours_200m": 714.0,
+          "still_hours": 79.0,
+          "still_hours_200m": 79.0,
           "mortality_delay_hours": 55.97,
           "early": false,
           "mortality_delay_hours_200m": 55.97,
-          "likely_death_delay_hours": 798.99,
+          "potential_death_delay_hours": 163.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 55.97,
           "regime": "sparse",
           "mortality_delay_hours_injected": 54.97,
-          "likely_death_delay_hours_injected": 797.99
+          "potential_death_delay_hours_injected": 162.99,
+          "first_alert_delay_hours_injected": 54.97
         },
         {
           "deployment_id": "AU210-CM11~reporting",
@@ -1769,25 +2043,29 @@
           "mortality_delay_hours": 33.7,
           "early": false,
           "mortality_delay_hours_200m": 33.7,
-          "likely_death_delay_hours": 803.99,
+          "potential_death_delay_hours": 803.99,
           "gap_delay_hours": 84.97,
+          "first_alert_delay_hours": 33.7,
           "regime": "reporting",
           "mortality_delay_hours_injected": 33.7,
-          "likely_death_delay_hours_injected": 803.99
+          "potential_death_delay_hours_injected": 803.99,
+          "first_alert_delay_hours_injected": 33.7
         },
         {
           "deployment_id": "AU210-CM11~sparse",
           "carcass": true,
-          "still_hours": 716.0,
-          "still_hours_200m": 716.0,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
           "mortality_delay_hours": 31.6,
           "early": false,
           "mortality_delay_hours_200m": 31.6,
-          "likely_death_delay_hours": 800.99,
-          "gap_delay_hours": 84.99,
+          "potential_death_delay_hours": 177.99,
+          "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 31.6,
           "regime": "sparse",
           "mortality_delay_hours_injected": 31.6,
-          "likely_death_delay_hours_injected": 800.99
+          "potential_death_delay_hours_injected": 177.99,
+          "first_alert_delay_hours_injected": 31.6
         },
         {
           "deployment_id": "AU211-CM15~reporting",
@@ -1797,25 +2075,29 @@
           "mortality_delay_hours": 59.47,
           "early": false,
           "mortality_delay_hours_200m": 59.47,
-          "likely_death_delay_hours": 804.99,
+          "potential_death_delay_hours": 804.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 59.47,
           "regime": "reporting",
           "mortality_delay_hours_injected": 59.47,
-          "likely_death_delay_hours_injected": 804.99
+          "potential_death_delay_hours_injected": 804.99,
+          "first_alert_delay_hours_injected": 59.47
         },
         {
           "deployment_id": "AU211-CM15~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
+          "still_hours": 88.0,
+          "still_hours_200m": 88.0,
           "mortality_delay_hours": 38.34,
           "early": false,
           "mortality_delay_hours_200m": 38.34,
-          "likely_death_delay_hours": 803.99,
-          "gap_delay_hours": 84.98,
+          "potential_death_delay_hours": 172.99,
+          "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 38.34,
           "regime": "sparse",
           "mortality_delay_hours_injected": 38.34,
-          "likely_death_delay_hours_injected": 803.99
+          "potential_death_delay_hours_injected": 172.99,
+          "first_alert_delay_hours_injected": 38.34
         },
         {
           "deployment_id": "AU212-CM40~reporting",
@@ -1825,25 +2107,29 @@
           "mortality_delay_hours": 48.57,
           "early": false,
           "mortality_delay_hours_200m": 51.74,
-          "likely_death_delay_hours": 809.99,
+          "potential_death_delay_hours": 809.99,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 48.57,
           "regime": "reporting",
           "mortality_delay_hours_injected": 42.9,
-          "likely_death_delay_hours_injected": 804.32
+          "potential_death_delay_hours_injected": 804.32,
+          "first_alert_delay_hours_injected": 42.9
         },
         {
           "deployment_id": "AU212-CM40~sparse",
           "carcass": true,
-          "still_hours": 724.8,
-          "still_hours_200m": 728.2,
-          "mortality_delay_hours": 29.1,
+          "still_hours": 92.7,
+          "still_hours_200m": 95.8,
+          "mortality_delay_hours": 29.27,
           "early": false,
           "mortality_delay_hours_200m": 32.44,
-          "likely_death_delay_hours": 809.82,
-          "gap_delay_hours": 84.98,
+          "potential_death_delay_hours": 176.99,
+          "gap_delay_hours": 84.32,
+          "first_alert_delay_hours": 29.27,
           "regime": "sparse",
           "mortality_delay_hours_injected": 23.6,
-          "likely_death_delay_hours_injected": 804.32
+          "potential_death_delay_hours_injected": 171.32,
+          "first_alert_delay_hours_injected": 23.6
         },
         {
           "deployment_id": "AU213-CM42~reporting",
@@ -1853,25 +2139,29 @@
           "mortality_delay_hours": 62.45,
           "early": false,
           "mortality_delay_hours_200m": 62.78,
-          "likely_death_delay_hours": 340.65,
+          "potential_death_delay_hours": 340.65,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 62.45,
           "regime": "reporting",
           "mortality_delay_hours_injected": 61.45,
-          "likely_death_delay_hours_injected": 339.65
+          "potential_death_delay_hours_injected": 339.65,
+          "first_alert_delay_hours_injected": 61.45
         },
         {
           "deployment_id": "AU213-CM42~sparse",
           "carcass": true,
-          "still_hours": 251.3,
-          "still_hours_200m": 251.7,
+          "still_hours": 87.3,
+          "still_hours_200m": 87.7,
           "mortality_delay_hours": 50.88,
           "early": false,
           "mortality_delay_hours_200m": 51.21,
-          "likely_death_delay_hours": 335.65,
+          "potential_death_delay_hours": 171.65,
           "gap_delay_hours": 84.31,
+          "first_alert_delay_hours": 50.88,
           "regime": "sparse",
           "mortality_delay_hours_injected": 49.88,
-          "likely_death_delay_hours_injected": 334.65
+          "potential_death_delay_hours_injected": 170.65,
+          "first_alert_delay_hours_injected": 49.88
         },
         {
           "deployment_id": "AU214-CM44~reporting",
@@ -1881,25 +2171,29 @@
           "mortality_delay_hours": 37.65,
           "early": false,
           "mortality_delay_hours_200m": 39.65,
-          "likely_death_delay_hours": 804.98,
+          "potential_death_delay_hours": 804.98,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 37.65,
           "regime": "reporting",
           "mortality_delay_hours_injected": 36.65,
-          "likely_death_delay_hours_injected": 803.98
+          "potential_death_delay_hours_injected": 803.98,
+          "first_alert_delay_hours_injected": 36.65
         },
         {
           "deployment_id": "AU214-CM44~sparse",
           "carcass": true,
-          "still_hours": 709.0,
-          "still_hours_200m": 711.0,
+          "still_hours": 87.0,
+          "still_hours_200m": 89.0,
           "mortality_delay_hours": 76.21,
           "early": false,
           "mortality_delay_hours_200m": 78.21,
-          "likely_death_delay_hours": 793.98,
+          "potential_death_delay_hours": 171.98,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 76.21,
           "regime": "sparse",
           "mortality_delay_hours_injected": 75.21,
-          "likely_death_delay_hours_injected": 792.98
+          "potential_death_delay_hours_injected": 170.98,
+          "first_alert_delay_hours_injected": 75.21
         },
         {
           "deployment_id": "AU215-CM10~reporting",
@@ -1909,25 +2203,29 @@
           "mortality_delay_hours": 32.3,
           "early": false,
           "mortality_delay_hours_200m": 32.3,
-          "likely_death_delay_hours": 562.98,
+          "potential_death_delay_hours": 562.98,
           "gap_delay_hours": 84.94,
+          "first_alert_delay_hours": 32.3,
           "regime": "reporting",
           "mortality_delay_hours_injected": 29.3,
-          "likely_death_delay_hours_injected": 559.98
+          "potential_death_delay_hours_injected": 559.98,
+          "first_alert_delay_hours_injected": 29.3
         },
         {
           "deployment_id": "AU215-CM10~sparse",
           "carcass": true,
-          "still_hours": 477.0,
-          "still_hours_200m": 477.0,
+          "still_hours": 98.0,
+          "still_hours_200m": 98.0,
           "mortality_delay_hours": 57.06,
           "early": false,
           "mortality_delay_hours_200m": 57.06,
-          "likely_death_delay_hours": 561.98,
+          "potential_death_delay_hours": 182.98,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 57.06,
           "regime": "sparse",
           "mortality_delay_hours_injected": 54.06,
-          "likely_death_delay_hours_injected": 558.98
+          "potential_death_delay_hours_injected": 179.98,
+          "first_alert_delay_hours_injected": 54.06
         },
         {
           "deployment_id": "AU216-CM20~reporting",
@@ -1937,25 +2235,29 @@
           "mortality_delay_hours": 32.01,
           "early": false,
           "mortality_delay_hours_200m": 32.01,
-          "likely_death_delay_hours": 620.99,
+          "potential_death_delay_hours": 620.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 32.01,
           "regime": "reporting",
           "mortality_delay_hours_injected": 31.0,
-          "likely_death_delay_hours_injected": 619.99
+          "potential_death_delay_hours_injected": 619.99,
+          "first_alert_delay_hours_injected": 31.0
         },
         {
           "deployment_id": "AU216-CM20~sparse",
           "carcass": true,
-          "still_hours": 534.0,
-          "still_hours_200m": 534.0,
+          "still_hours": 77.0,
+          "still_hours_200m": 77.0,
           "mortality_delay_hours": 68.36,
           "early": false,
           "mortality_delay_hours_200m": 68.36,
-          "likely_death_delay_hours": 618.99,
-          "gap_delay_hours": 84.98,
+          "potential_death_delay_hours": 161.99,
+          "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 68.36,
           "regime": "sparse",
           "mortality_delay_hours_injected": 67.35,
-          "likely_death_delay_hours_injected": 617.99
+          "potential_death_delay_hours_injected": 160.99,
+          "first_alert_delay_hours_injected": 67.35
         },
         {
           "deployment_id": "AU217-CM18~reporting",
@@ -1965,25 +2267,29 @@
           "mortality_delay_hours": 43.26,
           "early": false,
           "mortality_delay_hours_200m": 43.26,
-          "likely_death_delay_hours": 309.99,
+          "potential_death_delay_hours": 309.99,
           "gap_delay_hours": 84.97,
+          "first_alert_delay_hours": 43.26,
           "regime": "reporting",
           "mortality_delay_hours_injected": 42.25,
-          "likely_death_delay_hours_injected": 308.98
+          "potential_death_delay_hours_injected": 308.98,
+          "first_alert_delay_hours_injected": 42.25
         },
         {
           "deployment_id": "AU217-CM18~sparse",
           "carcass": true,
-          "still_hours": 222.0,
-          "still_hours_200m": 222.0,
+          "still_hours": 82.0,
+          "still_hours_200m": 82.0,
           "mortality_delay_hours": 34.8,
           "early": false,
           "mortality_delay_hours_200m": 34.8,
-          "likely_death_delay_hours": 306.99,
-          "gap_delay_hours": 84.97,
+          "potential_death_delay_hours": 166.99,
+          "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 34.8,
           "regime": "sparse",
           "mortality_delay_hours_injected": 33.8,
-          "likely_death_delay_hours_injected": 305.98
+          "potential_death_delay_hours_injected": 165.98,
+          "first_alert_delay_hours_injected": 33.8
         },
         {
           "deployment_id": "AU218-CM33~reporting",
@@ -1993,25 +2299,29 @@
           "mortality_delay_hours": 36.77,
           "early": false,
           "mortality_delay_hours_200m": 36.77,
-          "likely_death_delay_hours": 805.99,
+          "potential_death_delay_hours": 805.99,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 36.77,
           "regime": "reporting",
           "mortality_delay_hours_injected": 35.75,
-          "likely_death_delay_hours_injected": 804.97
+          "potential_death_delay_hours_injected": 804.97,
+          "first_alert_delay_hours_injected": 35.75
         },
         {
           "deployment_id": "AU218-CM33~sparse",
-          "carcass": true,
-          "still_hours": 714.0,
-          "still_hours_200m": 714.0,
-          "mortality_delay_hours": 36.14,
+          "carcass": false,
+          "still_hours": 21.0,
+          "still_hours_200m": 21.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 36.14,
-          "likely_death_delay_hours": 798.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 105.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 35.12,
-          "likely_death_delay_hours_injected": 797.97
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 104.97
         },
         {
           "deployment_id": "AU219-2-CM83~reporting",
@@ -2021,25 +2331,29 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 44.59,
-          "likely_death_delay_hours": 403.99,
+          "potential_death_delay_hours": 403.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 44.59,
-          "likely_death_delay_hours_injected": 802.99
+          "potential_death_delay_hours_injected": 802.99,
+          "first_alert_delay_hours_injected": 44.59
         },
         {
           "deployment_id": "AU219-2-CM83~sparse",
           "carcass": true,
-          "still_hours": 707.0,
-          "still_hours_200m": 707.0,
-          "mortality_delay_hours": 42.8,
+          "still_hours": 24.0,
+          "still_hours_200m": 24.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 42.8,
-          "likely_death_delay_hours": 791.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 108.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 42.8,
-          "likely_death_delay_hours_injected": 791.99
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 108.99
         },
         {
           "deployment_id": "AU219-CM23~reporting",
@@ -2049,25 +2363,29 @@
           "mortality_delay_hours": 62.84,
           "early": false,
           "mortality_delay_hours_200m": 62.84,
-          "likely_death_delay_hours": 381.99,
+          "potential_death_delay_hours": 381.99,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 62.84,
           "regime": "reporting",
           "mortality_delay_hours_injected": 62.84,
-          "likely_death_delay_hours_injected": 381.99
+          "potential_death_delay_hours_injected": 381.99,
+          "first_alert_delay_hours_injected": 62.84
         },
         {
           "deployment_id": "AU219-CM23~sparse",
           "carcass": true,
-          "still_hours": 299.0,
-          "still_hours_200m": 299.0,
+          "still_hours": 94.0,
+          "still_hours_200m": 94.0,
           "mortality_delay_hours": 47.39,
           "early": false,
           "mortality_delay_hours_200m": 47.39,
-          "likely_death_delay_hours": 383.99,
-          "gap_delay_hours": 84.98,
+          "potential_death_delay_hours": 178.99,
+          "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 47.39,
           "regime": "sparse",
           "mortality_delay_hours_injected": 47.39,
-          "likely_death_delay_hours_injected": 383.99
+          "potential_death_delay_hours_injected": 178.99,
+          "first_alert_delay_hours_injected": 47.39
         },
         {
           "deployment_id": "AU220-CM26~reporting",
@@ -2077,25 +2395,29 @@
           "mortality_delay_hours": 65.25,
           "early": false,
           "mortality_delay_hours_200m": 65.25,
-          "likely_death_delay_hours": 807.98,
+          "potential_death_delay_hours": 807.98,
           "gap_delay_hours": 84.0,
+          "first_alert_delay_hours": 65.25,
           "regime": "reporting",
           "mortality_delay_hours_injected": 60.25,
-          "likely_death_delay_hours_injected": 802.98
+          "potential_death_delay_hours_injected": 802.98,
+          "first_alert_delay_hours_injected": 60.25
         },
         {
           "deployment_id": "AU220-CM26~sparse",
           "carcass": true,
-          "still_hours": 705.0,
-          "still_hours_200m": 705.0,
-          "mortality_delay_hours": 33.8,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 81.8,
           "early": false,
-          "mortality_delay_hours_200m": 33.8,
-          "likely_death_delay_hours": 788.98,
+          "mortality_delay_hours_200m": 81.8,
+          "potential_death_delay_hours": 176.98,
           "gap_delay_hours": 84.0,
+          "first_alert_delay_hours": 81.8,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 28.8,
-          "likely_death_delay_hours_injected": 783.98
+          "mortality_delay_hours_injected": 76.8,
+          "potential_death_delay_hours_injected": 171.98,
+          "first_alert_delay_hours_injected": 76.8
         },
         {
           "deployment_id": "AU239-CM47~reporting",
@@ -2105,25 +2427,29 @@
           "mortality_delay_hours": 64.61,
           "early": false,
           "mortality_delay_hours_200m": 64.94,
-          "likely_death_delay_hours": null,
+          "potential_death_delay_hours": 807.65,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 64.61,
           "regime": "reporting",
           "mortality_delay_hours_injected": 61.6,
-          "likely_death_delay_hours_injected": null
+          "potential_death_delay_hours_injected": 804.65,
+          "first_alert_delay_hours_injected": 61.6
         },
         {
           "deployment_id": "AU239-CM47~sparse",
           "carcass": true,
-          "still_hours": 712.7,
-          "still_hours_200m": 712.7,
+          "still_hours": 90.3,
+          "still_hours_200m": 90.3,
           "mortality_delay_hours": 59.42,
           "early": false,
           "mortality_delay_hours_200m": 59.42,
-          "likely_death_delay_hours": 797.65,
-          "gap_delay_hours": 84.98,
+          "potential_death_delay_hours": 174.66,
+          "gap_delay_hours": 84.32,
+          "first_alert_delay_hours": 59.42,
           "regime": "sparse",
           "mortality_delay_hours_injected": 56.42,
-          "likely_death_delay_hours_injected": 794.65
+          "potential_death_delay_hours_injected": 171.65,
+          "first_alert_delay_hours_injected": 56.42
         },
         {
           "deployment_id": "AU396-2-CM95~reporting",
@@ -2133,25 +2459,29 @@
           "mortality_delay_hours": 72.6,
           "early": false,
           "mortality_delay_hours_200m": 72.6,
-          "likely_death_delay_hours": 802.99,
+          "potential_death_delay_hours": 802.99,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 72.6,
           "regime": "reporting",
           "mortality_delay_hours_injected": 71.59,
-          "likely_death_delay_hours_injected": 801.98
+          "potential_death_delay_hours_injected": 801.98,
+          "first_alert_delay_hours_injected": 71.59
         },
         {
           "deployment_id": "AU396-2-CM95~sparse",
-          "carcass": true,
-          "still_hours": 707.0,
-          "still_hours_200m": 707.0,
-          "mortality_delay_hours": 73.4,
+          "carcass": false,
+          "still_hours": 17.0,
+          "still_hours_200m": 17.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 73.4,
-          "likely_death_delay_hours": 791.99,
-          "gap_delay_hours": 84.98,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
+          "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 101.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 72.39,
-          "likely_death_delay_hours_injected": 790.98
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 100.98
         },
         {
           "deployment_id": "AU396-CM70~reporting",
@@ -2161,25 +2491,29 @@
           "mortality_delay_hours": 43.0,
           "early": false,
           "mortality_delay_hours_200m": 43.0,
-          "likely_death_delay_hours": 803.98,
+          "potential_death_delay_hours": 803.98,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 43.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 42.0,
-          "likely_death_delay_hours_injected": 802.99
+          "potential_death_delay_hours_injected": 802.99,
+          "first_alert_delay_hours_injected": 42.0
         },
         {
           "deployment_id": "AU396-CM70~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 96.01,
+          "still_hours": 84.0,
+          "still_hours_200m": 84.0,
+          "mortality_delay_hours": 48.01,
           "early": false,
-          "mortality_delay_hours_200m": 96.01,
-          "likely_death_delay_hours": 803.98,
+          "mortality_delay_hours_200m": 48.01,
+          "potential_death_delay_hours": 168.98,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 48.01,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 95.02,
-          "likely_death_delay_hours_injected": 802.99
+          "mortality_delay_hours_injected": 47.02,
+          "potential_death_delay_hours_injected": 167.99,
+          "first_alert_delay_hours_injected": 47.02
         },
         {
           "deployment_id": "AU398-CM69~reporting",
@@ -2189,25 +2523,29 @@
           "mortality_delay_hours": 72.33,
           "early": false,
           "mortality_delay_hours_200m": 73.33,
-          "likely_death_delay_hours": 805.98,
+          "potential_death_delay_hours": 805.98,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 72.33,
           "regime": "reporting",
           "mortality_delay_hours_injected": 70.33,
-          "likely_death_delay_hours_injected": 803.98
+          "potential_death_delay_hours_injected": 803.98,
+          "first_alert_delay_hours_injected": 70.33
         },
         {
           "deployment_id": "AU398-CM69~sparse",
           "carcass": true,
-          "still_hours": 718.0,
-          "still_hours_200m": 719.0,
+          "still_hours": 85.0,
+          "still_hours_200m": 86.0,
           "mortality_delay_hours": 54.01,
           "early": false,
           "mortality_delay_hours_200m": 55.02,
-          "likely_death_delay_hours": 340.98,
-          "gap_delay_hours": 84.99,
+          "potential_death_delay_hours": 169.98,
+          "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 54.01,
           "regime": "sparse",
           "mortality_delay_hours_injected": 52.02,
-          "likely_death_delay_hours_injected": 338.98
+          "potential_death_delay_hours_injected": 167.98,
+          "first_alert_delay_hours_injected": 52.02
         },
         {
           "deployment_id": "AU399-CM72~reporting",
@@ -2217,48 +2555,60 @@
           "mortality_delay_hours": 65.27,
           "early": false,
           "mortality_delay_hours_200m": 65.27,
-          "likely_death_delay_hours": 804.98,
+          "potential_death_delay_hours": 804.98,
           "gap_delay_hours": 84.99,
+          "first_alert_delay_hours": 65.27,
           "regime": "reporting",
           "mortality_delay_hours_injected": 65.27,
-          "likely_death_delay_hours_injected": 804.98
+          "potential_death_delay_hours_injected": 804.98,
+          "first_alert_delay_hours_injected": 65.27
         },
         {
           "deployment_id": "AU399-CM72~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 75.92,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 27.92,
           "early": false,
-          "mortality_delay_hours_200m": 75.92,
-          "likely_death_delay_hours": 803.98,
+          "mortality_delay_hours_200m": 27.92,
+          "potential_death_delay_hours": 177.98,
           "gap_delay_hours": 84.98,
+          "first_alert_delay_hours": 27.92,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 75.92,
-          "likely_death_delay_hours_injected": 803.98
+          "mortality_delay_hours_injected": 27.92,
+          "potential_death_delay_hours_injected": 177.98,
+          "first_alert_delay_hours_injected": 27.92
         }
       ],
       "ambiguous": [],
       "synthetic": {
         "pooled": {
           "deaths": 44,
-          "carcass": 44,
+          "carcass": 41,
           "mortality": {
-            "detected": 44,
-            "rate_at_mark": 0.977,
-            "median_delay_hours": 47.98,
-            "detected_injected": 44,
-            "rate_at_mark_injected": 0.977,
-            "median_delay_hours_injected": 45.99,
+            "detected": 40,
+            "rate_at_mark": 0.909,
+            "median_delay_hours": 48.29,
+            "detected_injected": 40,
+            "rate_at_mark_injected": 0.909,
+            "median_delay_hours_injected": 47.2,
             "early": 2
           },
-          "likely_death": {
-            "detected": 43,
+          "potential_death": {
+            "detected": 40,
             "rate_at_mark": 0.0,
-            "median_delay_hours": 797.65,
-            "detected_injected": 43,
+            "median_delay_hours": 361.32,
+            "detected_injected": 40,
             "rate_at_mark_injected": 0.0,
-            "median_delay_hours_injected": 797.99
+            "median_delay_hours_injected": 360.82
+          },
+          "first_alert": {
+            "detected": 44,
+            "rate_at_mark": 0.909,
+            "median_delay_hours": 52.45,
+            "detected_injected": 44,
+            "rate_at_mark_injected": 0.909,
+            "median_delay_hours_injected": 50.95
           },
           "death_start_offset_hours": {
             "exact": 11,
@@ -2281,13 +2631,21 @@
             "median_delay_hours_injected": 42.58,
             "early": 2
           },
-          "likely_death": {
-            "detected": 21,
+          "potential_death": {
+            "detected": 22,
             "rate_at_mark": 0.0,
-            "median_delay_hours": 802.99,
-            "detected_injected": 21,
+            "median_delay_hours": 803.49,
+            "detected_injected": 22,
             "rate_at_mark_injected": 0.0,
             "median_delay_hours_injected": 802.99
+          },
+          "first_alert": {
+            "detected": 22,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 43.64,
+            "detected_injected": 22,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 42.58
           },
           "death_start_offset_hours": {
             "exact": 5,
@@ -2300,29 +2658,37 @@
         },
         "sparse": {
           "deaths": 22,
-          "carcass": 22,
+          "carcass": 19,
           "mortality": {
-            "detected": 22,
-            "rate_at_mark": 0.955,
+            "detected": 18,
+            "rate_at_mark": 0.818,
             "median_delay_hours": 54.78,
-            "detected_injected": 22,
-            "rate_at_mark_injected": 0.955,
+            "detected_injected": 18,
+            "rate_at_mark_injected": 0.818,
             "median_delay_hours_injected": 52.78,
             "early": 0
           },
-          "likely_death": {
-            "detected": 22,
+          "potential_death": {
+            "detected": 18,
             "rate_at_mark": 0.0,
-            "median_delay_hours": 792.99,
-            "detected_injected": 22,
+            "median_delay_hours": 172.49,
+            "detected_injected": 18,
             "rate_at_mark_injected": 0.0,
-            "median_delay_hours_injected": 792.49
+            "median_delay_hours_injected": 171.15
+          },
+          "first_alert": {
+            "detected": 22,
+            "rate_at_mark": 0.818,
+            "median_delay_hours": 56.52,
+            "detected_injected": 22,
+            "rate_at_mark_injected": 0.818,
+            "median_delay_hours_injected": 54.52
           },
           "death_start_offset_hours": {
             "exact": 6,
             "earlier": 16,
             "later": 0,
-            "min": -5.5,
+            "min": -5.67,
             "median": -1.0,
             "max": 0.0
           }
@@ -2334,66 +2700,76 @@
       "labels": {
         "dead": 44
       },
-      "animal_months": 158.5,
+      "animal_months": 141.6,
       "load": {
         "gap": {
-          "incidents": 118,
-          "late_fix": 60,
-          "per_animal_month": 0.744
-        },
-        "likely_death": {
-          "incidents": 47,
-          "late_fix": 0,
-          "per_animal_month": 0.296
+          "incidents": 93,
+          "late_fix": 46,
+          "per_animal_month": 0.657,
+          "late_fix_per_animal_month": 0.325
         },
         "mortality": {
-          "incidents": 46,
+          "incidents": 42,
           "late_fix": 0,
-          "per_animal_month": 0.29
+          "per_animal_month": 0.297,
+          "late_fix_per_animal_month": 0.0
         },
         "movement": {
           "incidents": 4,
           "late_fix": 0,
-          "per_animal_month": 0.025
+          "per_animal_month": 0.028,
+          "late_fix_per_animal_month": 0.0
+        },
+        "potential_death": {
+          "incidents": 40,
+          "late_fix": 0,
+          "per_animal_month": 0.282,
+          "late_fix_per_animal_month": 0.0
         }
       },
       "false_mortality": {
         "incidents": 2,
-        "per_animal_month": 0.013
+        "per_animal_month": 0.014
       },
       "mortality": {
-        "deaths": 44,
-        "detected": 44,
+        "deaths": 41,
+        "detected": 40,
         "early": 2,
         "mark_hours": 92.5,
-        "rate_at_mark": 1.0,
-        "rate_at_mark_200m": 1.0
+        "rate_at_mark": 0.976,
+        "rate_at_mark_200m": 0.976
       },
       "precision": {
         "mortality": {
-          "true": 44,
+          "true": 40,
           "false": 2,
           "ambiguous": 0,
-          "precision": 0.957
+          "precision": 0.952
         },
-        "likely_death": {
-          "true": 46,
-          "false": 1,
+        "potential_death": {
+          "true": 40,
+          "false": 0,
           "ambiguous": 0,
-          "precision": 0.979
+          "precision": 1.0
         }
       },
-      "likely_death": {
-        "deaths": 44,
-        "detected": 43,
-        "rate_at_mark": 0.068
+      "potential_death": {
+        "deaths": 41,
+        "detected": 40,
+        "rate_at_mark": 0.073
+      },
+      "first_alert": {
+        "deaths": 41,
+        "detected": 41,
+        "rate_at_mark": 1.0,
+        "median_delay_hours": 29.99
       },
       "gap_on_deaths": {
-        "deaths": 0,
-        "detected": 0,
-        "median_delay_hours": null
+        "deaths": 3,
+        "detected": 3,
+        "median_delay_hours": 37.98
       },
-      "both_detectors": 44,
+      "both_detectors": 40,
       "deaths": [
         {
           "deployment_id": "AU200-1-CM05~reporting",
@@ -2403,25 +2779,29 @@
           "mortality_delay_hours": 27.99,
           "early": false,
           "mortality_delay_hours_200m": 27.99,
-          "likely_death_delay_hours": 598.99,
+          "potential_death_delay_hours": 598.99,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 27.99,
           "regime": "reporting",
           "mortality_delay_hours_injected": 27.99,
-          "likely_death_delay_hours_injected": 598.99
+          "potential_death_delay_hours_injected": 598.99,
+          "first_alert_delay_hours_injected": 27.99
         },
         {
           "deployment_id": "AU200-1-CM05~sparse",
           "carcass": true,
-          "still_hours": 718.0,
-          "still_hours_200m": 718.0,
-          "mortality_delay_hours": 40.99,
+          "still_hours": 77.0,
+          "still_hours_200m": 77.0,
+          "mortality_delay_hours": 46.99,
           "early": false,
-          "mortality_delay_hours_200m": 40.99,
-          "likely_death_delay_hours": 598.99,
-          "gap_delay_hours": 37.99,
+          "mortality_delay_hours_200m": 46.99,
+          "potential_death_delay_hours": 114.99,
+          "gap_delay_hours": 37.97,
+          "first_alert_delay_hours": 37.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 40.99,
-          "likely_death_delay_hours_injected": 598.99
+          "mortality_delay_hours_injected": 46.99,
+          "potential_death_delay_hours_injected": 114.99,
+          "first_alert_delay_hours_injected": 37.99
         },
         {
           "deployment_id": "AU200-2-CM62~reporting",
@@ -2431,25 +2811,29 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 27.7,
-          "likely_death_delay_hours": 339.99,
+          "potential_death_delay_hours": 0.0,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 25.69,
-          "likely_death_delay_hours_injected": 259.97
+          "potential_death_delay_hours_injected": 259.97,
+          "first_alert_delay_hours_injected": 25.69
         },
         {
           "deployment_id": "AU200-2-CM62~sparse",
           "carcass": true,
-          "still_hours": 722.0,
-          "still_hours_200m": 722.0,
-          "mortality_delay_hours": 41.99,
+          "still_hours": 26.0,
+          "still_hours_200m": 26.0,
+          "mortality_delay_hours": 29.99,
           "early": false,
-          "mortality_delay_hours_200m": 41.99,
-          "likely_death_delay_hours": 333.99,
+          "mortality_delay_hours_200m": 29.99,
+          "potential_death_delay_hours": 63.99,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 29.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 39.97,
-          "likely_death_delay_hours_injected": 331.97
+          "mortality_delay_hours_injected": 27.97,
+          "potential_death_delay_hours_injected": 61.97,
+          "first_alert_delay_hours_injected": 27.97
         },
         {
           "deployment_id": "AU205-CM08~reporting",
@@ -2459,25 +2843,29 @@
           "mortality_delay_hours": 28.99,
           "early": false,
           "mortality_delay_hours_200m": 30.99,
-          "likely_death_delay_hours": 754.99,
+          "potential_death_delay_hours": 754.99,
           "gap_delay_hours": 37.97,
+          "first_alert_delay_hours": 28.99,
           "regime": "reporting",
           "mortality_delay_hours_injected": 26.98,
-          "likely_death_delay_hours_injected": 752.99
+          "potential_death_delay_hours_injected": 752.99,
+          "first_alert_delay_hours_injected": 26.98
         },
         {
           "deployment_id": "AU205-CM08~sparse",
-          "carcass": true,
-          "still_hours": 703.0,
-          "still_hours_200m": 705.0,
-          "mortality_delay_hours": 37.99,
+          "carcass": false,
+          "still_hours": 21.0,
+          "still_hours_200m": 23.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 39.99,
-          "likely_death_delay_hours": 186.99,
-          "gap_delay_hours": 37.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
+          "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 58.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 35.98,
-          "likely_death_delay_hours_injected": 184.99
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 56.98
         },
         {
           "deployment_id": "AU206-CM09~reporting",
@@ -2487,25 +2875,29 @@
           "mortality_delay_hours": 28.98,
           "early": false,
           "mortality_delay_hours_200m": 28.98,
-          "likely_death_delay_hours": 758.99,
+          "potential_death_delay_hours": 758.99,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 28.98,
           "regime": "reporting",
           "mortality_delay_hours_injected": 26.99,
-          "likely_death_delay_hours_injected": 756.99
+          "potential_death_delay_hours_injected": 756.99,
+          "first_alert_delay_hours_injected": 26.99
         },
         {
           "deployment_id": "AU206-CM09~sparse",
           "carcass": true,
-          "still_hours": 717.0,
-          "still_hours_200m": 717.0,
-          "mortality_delay_hours": 30.98,
+          "still_hours": 89.0,
+          "still_hours_200m": 89.0,
+          "mortality_delay_hours": 28.98,
           "early": false,
-          "mortality_delay_hours_200m": 30.98,
-          "likely_death_delay_hours": 341.99,
+          "mortality_delay_hours_200m": 28.98,
+          "potential_death_delay_hours": 126.98,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 28.98,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 28.99,
-          "likely_death_delay_hours_injected": 339.99
+          "mortality_delay_hours_injected": 26.99,
+          "potential_death_delay_hours_injected": 124.99,
+          "first_alert_delay_hours_injected": 26.99
         },
         {
           "deployment_id": "AU207-CM36~reporting",
@@ -2515,25 +2907,29 @@
           "mortality_delay_hours": 3.31,
           "early": false,
           "mortality_delay_hours_200m": 29.3,
-          "likely_death_delay_hours": 101.99,
+          "potential_death_delay_hours": 101.99,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 3.31,
           "regime": "reporting",
           "mortality_delay_hours_injected": 28.3,
-          "likely_death_delay_hours_injected": 126.99
+          "potential_death_delay_hours_injected": 126.99,
+          "first_alert_delay_hours_injected": 28.3
         },
         {
           "deployment_id": "AU207-CM36~sparse",
           "carcass": true,
-          "still_hours": 714.0,
-          "still_hours_200m": 714.0,
-          "mortality_delay_hours": 37.98,
+          "still_hours": 79.0,
+          "still_hours_200m": 79.0,
+          "mortality_delay_hours": 35.98,
           "early": false,
-          "mortality_delay_hours_200m": 37.98,
-          "likely_death_delay_hours": 171.99,
+          "mortality_delay_hours_200m": 35.98,
+          "potential_death_delay_hours": 116.98,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 35.98,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 36.99,
-          "likely_death_delay_hours_injected": 170.99
+          "mortality_delay_hours_injected": 34.99,
+          "potential_death_delay_hours_injected": 115.99,
+          "first_alert_delay_hours_injected": 34.99
         },
         {
           "deployment_id": "AU210-CM11~reporting",
@@ -2543,25 +2939,29 @@
           "mortality_delay_hours": 28.98,
           "early": false,
           "mortality_delay_hours_200m": 28.98,
-          "likely_death_delay_hours": 539.99,
+          "potential_death_delay_hours": 539.99,
           "gap_delay_hours": 37.97,
+          "first_alert_delay_hours": 28.98,
           "regime": "reporting",
           "mortality_delay_hours_injected": 28.98,
-          "likely_death_delay_hours_injected": 539.99
+          "potential_death_delay_hours_injected": 539.99,
+          "first_alert_delay_hours_injected": 28.98
         },
         {
           "deployment_id": "AU210-CM11~sparse",
           "carcass": true,
-          "still_hours": 716.0,
-          "still_hours_200m": 716.0,
-          "mortality_delay_hours": 28.98,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 34.98,
           "early": false,
-          "mortality_delay_hours_200m": 28.98,
-          "likely_death_delay_hours": 270.99,
-          "gap_delay_hours": 37.99,
+          "mortality_delay_hours_200m": 34.98,
+          "potential_death_delay_hours": 130.99,
+          "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 34.98,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 28.98,
-          "likely_death_delay_hours_injected": 270.99
+          "mortality_delay_hours_injected": 34.98,
+          "potential_death_delay_hours_injected": 130.99,
+          "first_alert_delay_hours_injected": 34.98
         },
         {
           "deployment_id": "AU211-CM15~reporting",
@@ -2571,25 +2971,29 @@
           "mortality_delay_hours": 27.99,
           "early": false,
           "mortality_delay_hours_200m": 27.99,
-          "likely_death_delay_hours": 757.99,
+          "potential_death_delay_hours": 757.99,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 27.99,
           "regime": "reporting",
           "mortality_delay_hours_injected": 27.99,
-          "likely_death_delay_hours_injected": 757.99
+          "potential_death_delay_hours_injected": 757.99,
+          "first_alert_delay_hours_injected": 27.99
         },
         {
           "deployment_id": "AU211-CM15~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 33.99,
+          "still_hours": 88.0,
+          "still_hours_200m": 88.0,
+          "mortality_delay_hours": 35.99,
           "early": false,
-          "mortality_delay_hours_200m": 33.99,
-          "likely_death_delay_hours": 756.99,
-          "gap_delay_hours": 37.98,
+          "mortality_delay_hours_200m": 35.99,
+          "potential_death_delay_hours": 125.99,
+          "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 35.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 33.99,
-          "likely_death_delay_hours_injected": 756.99
+          "mortality_delay_hours_injected": 35.99,
+          "potential_death_delay_hours_injected": 125.99,
+          "first_alert_delay_hours_injected": 35.99
         },
         {
           "deployment_id": "AU212-CM40~reporting",
@@ -2599,25 +3003,29 @@
           "mortality_delay_hours": 27.99,
           "early": false,
           "mortality_delay_hours_200m": 31.15,
-          "likely_death_delay_hours": 762.99,
+          "potential_death_delay_hours": 762.99,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 27.99,
           "regime": "reporting",
           "mortality_delay_hours_injected": 22.32,
-          "likely_death_delay_hours_injected": 757.32
+          "potential_death_delay_hours_injected": 757.32,
+          "first_alert_delay_hours_injected": 22.32
         },
         {
           "deployment_id": "AU212-CM40~sparse",
           "carcass": true,
-          "still_hours": 724.8,
-          "still_hours_200m": 728.2,
-          "mortality_delay_hours": 27.82,
+          "still_hours": 92.7,
+          "still_hours_200m": 95.8,
+          "mortality_delay_hours": 27.99,
           "early": false,
           "mortality_delay_hours_200m": 31.15,
-          "likely_death_delay_hours": 762.82,
-          "gap_delay_hours": 37.98,
+          "potential_death_delay_hours": 129.99,
+          "gap_delay_hours": 37.32,
+          "first_alert_delay_hours": 27.99,
           "regime": "sparse",
           "mortality_delay_hours_injected": 22.32,
-          "likely_death_delay_hours_injected": 757.32
+          "potential_death_delay_hours_injected": 124.32,
+          "first_alert_delay_hours_injected": 22.32
         },
         {
           "deployment_id": "AU213-CM42~reporting",
@@ -2627,25 +3035,29 @@
           "mortality_delay_hours": 40.3,
           "early": false,
           "mortality_delay_hours_200m": 40.63,
-          "likely_death_delay_hours": 123.65,
+          "potential_death_delay_hours": 123.65,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 40.3,
           "regime": "reporting",
           "mortality_delay_hours_injected": 39.3,
-          "likely_death_delay_hours_injected": 122.65
+          "potential_death_delay_hours_injected": 122.65,
+          "first_alert_delay_hours_injected": 39.3
         },
         {
           "deployment_id": "AU213-CM42~sparse",
           "carcass": true,
-          "still_hours": 251.3,
-          "still_hours_200m": 251.7,
-          "mortality_delay_hours": 31.65,
+          "still_hours": 87.3,
+          "still_hours_200m": 87.7,
+          "mortality_delay_hours": 30.65,
           "early": false,
-          "mortality_delay_hours_200m": 31.98,
-          "likely_death_delay_hours": 288.65,
+          "mortality_delay_hours_200m": 30.98,
+          "potential_death_delay_hours": 124.65,
           "gap_delay_hours": 37.31,
+          "first_alert_delay_hours": 30.65,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 30.65,
-          "likely_death_delay_hours_injected": 287.65
+          "mortality_delay_hours_injected": 29.65,
+          "potential_death_delay_hours_injected": 123.65,
+          "first_alert_delay_hours_injected": 29.65
         },
         {
           "deployment_id": "AU214-CM44~reporting",
@@ -2655,25 +3067,29 @@
           "mortality_delay_hours": 27.7,
           "early": false,
           "mortality_delay_hours_200m": 29.7,
-          "likely_death_delay_hours": 501.98,
+          "potential_death_delay_hours": 501.98,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 27.7,
           "regime": "reporting",
           "mortality_delay_hours_injected": 26.7,
-          "likely_death_delay_hours_injected": 500.98
+          "potential_death_delay_hours_injected": 500.98,
+          "first_alert_delay_hours_injected": 26.7
         },
         {
           "deployment_id": "AU214-CM44~sparse",
           "carcass": true,
-          "still_hours": 709.0,
-          "still_hours_200m": 711.0,
-          "mortality_delay_hours": 35.98,
+          "still_hours": 87.0,
+          "still_hours_200m": 89.0,
+          "mortality_delay_hours": 33.78,
           "early": false,
-          "mortality_delay_hours_200m": 37.98,
-          "likely_death_delay_hours": 237.98,
+          "mortality_delay_hours_200m": 35.78,
+          "potential_death_delay_hours": 124.98,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 33.78,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 34.98,
-          "likely_death_delay_hours_injected": 236.98
+          "mortality_delay_hours_injected": 32.78,
+          "potential_death_delay_hours_injected": 123.98,
+          "first_alert_delay_hours_injected": 32.78
         },
         {
           "deployment_id": "AU215-CM10~reporting",
@@ -2683,25 +3099,29 @@
           "mortality_delay_hours": 34.4,
           "early": false,
           "mortality_delay_hours_200m": 34.4,
-          "likely_death_delay_hours": 406.98,
+          "potential_death_delay_hours": 406.98,
           "gap_delay_hours": 37.94,
+          "first_alert_delay_hours": 34.4,
           "regime": "reporting",
           "mortality_delay_hours_injected": 31.4,
-          "likely_death_delay_hours_injected": 403.98
+          "potential_death_delay_hours_injected": 403.98,
+          "first_alert_delay_hours_injected": 31.4
         },
         {
           "deployment_id": "AU215-CM10~sparse",
           "carcass": true,
-          "still_hours": 477.0,
-          "still_hours_200m": 477.0,
-          "mortality_delay_hours": 30.98,
+          "still_hours": 98.0,
+          "still_hours_200m": 98.0,
+          "mortality_delay_hours": 32.98,
           "early": false,
-          "mortality_delay_hours_200m": 30.98,
-          "likely_death_delay_hours": 514.98,
+          "mortality_delay_hours_200m": 32.98,
+          "potential_death_delay_hours": 135.98,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 32.98,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 27.98,
-          "likely_death_delay_hours_injected": 511.98
+          "mortality_delay_hours_injected": 29.98,
+          "potential_death_delay_hours_injected": 132.98,
+          "first_alert_delay_hours_injected": 29.98
         },
         {
           "deployment_id": "AU216-CM20~reporting",
@@ -2711,25 +3131,29 @@
           "mortality_delay_hours": 27.99,
           "early": false,
           "mortality_delay_hours_200m": 27.99,
-          "likely_death_delay_hours": 573.99,
+          "potential_death_delay_hours": 573.99,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 27.99,
           "regime": "reporting",
           "mortality_delay_hours_injected": 26.99,
-          "likely_death_delay_hours_injected": 572.99
+          "potential_death_delay_hours_injected": 572.99,
+          "first_alert_delay_hours_injected": 26.99
         },
         {
           "deployment_id": "AU216-CM20~sparse",
           "carcass": true,
-          "still_hours": 534.0,
-          "still_hours_200m": 534.0,
-          "mortality_delay_hours": 32.99,
+          "still_hours": 77.0,
+          "still_hours_200m": 77.0,
+          "mortality_delay_hours": 42.99,
           "early": false,
-          "mortality_delay_hours_200m": 32.99,
-          "likely_death_delay_hours": 94.99,
-          "gap_delay_hours": 37.98,
+          "mortality_delay_hours_200m": 42.99,
+          "potential_death_delay_hours": 99.99,
+          "gap_delay_hours": 38.99,
+          "first_alert_delay_hours": 42.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 31.99,
-          "likely_death_delay_hours_injected": 93.99
+          "mortality_delay_hours_injected": 41.99,
+          "potential_death_delay_hours_injected": 98.99,
+          "first_alert_delay_hours_injected": 41.99
         },
         {
           "deployment_id": "AU217-CM18~reporting",
@@ -2739,25 +3163,29 @@
           "mortality_delay_hours": 41.69,
           "early": false,
           "mortality_delay_hours_200m": 41.69,
-          "likely_death_delay_hours": 262.99,
+          "potential_death_delay_hours": 262.99,
           "gap_delay_hours": 37.97,
+          "first_alert_delay_hours": 41.69,
           "regime": "reporting",
           "mortality_delay_hours_injected": 40.68,
-          "likely_death_delay_hours_injected": 261.98
+          "potential_death_delay_hours_injected": 261.98,
+          "first_alert_delay_hours_injected": 40.68
         },
         {
           "deployment_id": "AU217-CM18~sparse",
           "carcass": true,
-          "still_hours": 222.0,
-          "still_hours_200m": 222.0,
-          "mortality_delay_hours": 36.99,
+          "still_hours": 82.0,
+          "still_hours_200m": 82.0,
+          "mortality_delay_hours": 28.99,
           "early": false,
-          "mortality_delay_hours_200m": 36.99,
-          "likely_death_delay_hours": 70.99,
-          "gap_delay_hours": 37.97,
+          "mortality_delay_hours_200m": 28.99,
+          "potential_death_delay_hours": 119.99,
+          "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 28.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 35.98,
-          "likely_death_delay_hours_injected": 69.98
+          "mortality_delay_hours_injected": 27.98,
+          "potential_death_delay_hours_injected": 118.98,
+          "first_alert_delay_hours_injected": 27.98
         },
         {
           "deployment_id": "AU218-CM33~reporting",
@@ -2767,25 +3195,29 @@
           "mortality_delay_hours": 29.99,
           "early": false,
           "mortality_delay_hours_200m": 29.99,
-          "likely_death_delay_hours": 758.99,
+          "potential_death_delay_hours": 758.99,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 29.99,
           "regime": "reporting",
           "mortality_delay_hours_injected": 28.97,
-          "likely_death_delay_hours_injected": 757.97
+          "potential_death_delay_hours_injected": 757.97,
+          "first_alert_delay_hours_injected": 28.97
         },
         {
           "deployment_id": "AU218-CM33~sparse",
-          "carcass": true,
-          "still_hours": 714.0,
-          "still_hours_200m": 714.0,
-          "mortality_delay_hours": 33.5,
+          "carcass": false,
+          "still_hours": 21.0,
+          "still_hours_200m": 21.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 33.5,
-          "likely_death_delay_hours": 317.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 58.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 32.49,
-          "likely_death_delay_hours_injected": 316.97
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 57.97
         },
         {
           "deployment_id": "AU219-2-CM83~reporting",
@@ -2795,25 +3227,29 @@
           "mortality_delay_hours": 0.0,
           "early": true,
           "mortality_delay_hours_200m": 27.99,
-          "likely_death_delay_hours": 356.99,
+          "potential_death_delay_hours": 356.99,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 0.0,
           "regime": "reporting",
           "mortality_delay_hours_injected": 27.99,
-          "likely_death_delay_hours_injected": 755.99
+          "potential_death_delay_hours_injected": 755.99,
+          "first_alert_delay_hours_injected": 27.99
         },
         {
           "deployment_id": "AU219-2-CM83~sparse",
           "carcass": true,
-          "still_hours": 707.0,
-          "still_hours_200m": 707.0,
-          "mortality_delay_hours": 35.99,
+          "still_hours": 24.0,
+          "still_hours_200m": 24.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 35.99,
-          "likely_death_delay_hours": 91.99,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 61.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 35.99,
-          "likely_death_delay_hours_injected": 91.99
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 61.99
         },
         {
           "deployment_id": "AU219-CM23~reporting",
@@ -2823,25 +3259,29 @@
           "mortality_delay_hours": 27.99,
           "early": false,
           "mortality_delay_hours_200m": 27.99,
-          "likely_death_delay_hours": 334.99,
+          "potential_death_delay_hours": 334.99,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 27.99,
           "regime": "reporting",
           "mortality_delay_hours_injected": 27.99,
-          "likely_death_delay_hours_injected": 334.99
+          "potential_death_delay_hours_injected": 334.99,
+          "first_alert_delay_hours_injected": 27.99
         },
         {
           "deployment_id": "AU219-CM23~sparse",
           "carcass": true,
-          "still_hours": 299.0,
-          "still_hours_200m": 299.0,
-          "mortality_delay_hours": 28.99,
+          "still_hours": 94.0,
+          "still_hours_200m": 94.0,
+          "mortality_delay_hours": 38.82,
           "early": false,
-          "mortality_delay_hours_200m": 28.99,
-          "likely_death_delay_hours": 74.99,
-          "gap_delay_hours": 37.98,
+          "mortality_delay_hours_200m": 38.82,
+          "potential_death_delay_hours": 131.99,
+          "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 38.82,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 28.99,
-          "likely_death_delay_hours_injected": 74.99
+          "mortality_delay_hours_injected": 38.82,
+          "potential_death_delay_hours_injected": 131.99,
+          "first_alert_delay_hours_injected": 38.82
         },
         {
           "deployment_id": "AU220-CM26~reporting",
@@ -2851,25 +3291,29 @@
           "mortality_delay_hours": 27.98,
           "early": false,
           "mortality_delay_hours_200m": 27.98,
-          "likely_death_delay_hours": 760.98,
+          "potential_death_delay_hours": 760.98,
           "gap_delay_hours": 37.0,
+          "first_alert_delay_hours": 27.98,
           "regime": "reporting",
           "mortality_delay_hours_injected": 22.98,
-          "likely_death_delay_hours_injected": 755.98
+          "potential_death_delay_hours_injected": 755.98,
+          "first_alert_delay_hours_injected": 22.98
         },
         {
           "deployment_id": "AU220-CM26~sparse",
           "carcass": true,
-          "still_hours": 705.0,
-          "still_hours_200m": 705.0,
-          "mortality_delay_hours": 28.98,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 49.98,
           "early": false,
-          "mortality_delay_hours_200m": 28.98,
-          "likely_death_delay_hours": 216.98,
+          "mortality_delay_hours_200m": 49.98,
+          "potential_death_delay_hours": 49.98,
           "gap_delay_hours": 37.0,
+          "first_alert_delay_hours": 48.98,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 23.98,
-          "likely_death_delay_hours_injected": 211.98
+          "mortality_delay_hours_injected": 44.98,
+          "potential_death_delay_hours_injected": 44.98,
+          "first_alert_delay_hours_injected": 43.98
         },
         {
           "deployment_id": "AU239-CM47~reporting",
@@ -2879,25 +3323,29 @@
           "mortality_delay_hours": 27.66,
           "early": false,
           "mortality_delay_hours_200m": 27.99,
-          "likely_death_delay_hours": null,
+          "potential_death_delay_hours": 760.65,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 27.66,
           "regime": "reporting",
           "mortality_delay_hours_injected": 24.65,
-          "likely_death_delay_hours_injected": null
+          "potential_death_delay_hours_injected": 757.65,
+          "first_alert_delay_hours_injected": 24.65
         },
         {
           "deployment_id": "AU239-CM47~sparse",
           "carcass": true,
-          "still_hours": 712.7,
-          "still_hours_200m": 712.7,
+          "still_hours": 90.3,
+          "still_hours_200m": 90.3,
           "mortality_delay_hours": 27.66,
           "early": false,
           "mortality_delay_hours_200m": 27.66,
-          "likely_death_delay_hours": 750.65,
-          "gap_delay_hours": 37.98,
+          "potential_death_delay_hours": 127.66,
+          "gap_delay_hours": 37.32,
+          "first_alert_delay_hours": 27.66,
           "regime": "sparse",
           "mortality_delay_hours_injected": 24.65,
-          "likely_death_delay_hours_injected": 747.65
+          "potential_death_delay_hours_injected": 124.65,
+          "first_alert_delay_hours_injected": 24.65
         },
         {
           "deployment_id": "AU396-2-CM95~reporting",
@@ -2907,25 +3355,29 @@
           "mortality_delay_hours": 35.99,
           "early": false,
           "mortality_delay_hours_200m": 35.99,
-          "likely_death_delay_hours": 755.99,
+          "potential_death_delay_hours": 755.99,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 35.99,
           "regime": "reporting",
           "mortality_delay_hours_injected": 34.98,
-          "likely_death_delay_hours_injected": 754.98
+          "potential_death_delay_hours_injected": 754.98,
+          "first_alert_delay_hours_injected": 34.98
         },
         {
           "deployment_id": "AU396-2-CM95~sparse",
-          "carcass": true,
-          "still_hours": 707.0,
-          "still_hours_200m": 707.0,
-          "mortality_delay_hours": 37.99,
+          "carcass": false,
+          "still_hours": 17.0,
+          "still_hours_200m": 17.0,
+          "mortality_delay_hours": null,
           "early": false,
-          "mortality_delay_hours_200m": 37.99,
-          "likely_death_delay_hours": 175.99,
-          "gap_delay_hours": 37.98,
+          "mortality_delay_hours_200m": null,
+          "potential_death_delay_hours": null,
+          "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 54.99,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 36.98,
-          "likely_death_delay_hours_injected": 174.98
+          "mortality_delay_hours_injected": null,
+          "potential_death_delay_hours_injected": null,
+          "first_alert_delay_hours_injected": 53.98
         },
         {
           "deployment_id": "AU396-CM70~reporting",
@@ -2935,25 +3387,29 @@
           "mortality_delay_hours": 33.45,
           "early": false,
           "mortality_delay_hours_200m": 33.45,
-          "likely_death_delay_hours": 756.98,
+          "potential_death_delay_hours": 756.98,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 33.45,
           "regime": "reporting",
           "mortality_delay_hours_injected": 32.45,
-          "likely_death_delay_hours_injected": 755.99
+          "potential_death_delay_hours_injected": 755.99,
+          "first_alert_delay_hours_injected": 32.45
         },
         {
           "deployment_id": "AU396-CM70~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 56.98,
+          "still_hours": 84.0,
+          "still_hours_200m": 84.0,
+          "mortality_delay_hours": 30.98,
           "early": false,
-          "mortality_delay_hours_200m": 56.98,
-          "likely_death_delay_hours": 455.98,
+          "mortality_delay_hours_200m": 30.98,
+          "potential_death_delay_hours": 121.98,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 30.98,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 55.99,
-          "likely_death_delay_hours_injected": 454.99
+          "mortality_delay_hours_injected": 29.99,
+          "potential_death_delay_hours_injected": 120.99,
+          "first_alert_delay_hours_injected": 29.99
         },
         {
           "deployment_id": "AU398-CM69~reporting",
@@ -2963,25 +3419,29 @@
           "mortality_delay_hours": 47.19,
           "early": false,
           "mortality_delay_hours_200m": 48.2,
-          "likely_death_delay_hours": 758.98,
+          "potential_death_delay_hours": 758.98,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 47.19,
           "regime": "reporting",
           "mortality_delay_hours_injected": 45.2,
-          "likely_death_delay_hours_injected": 756.98
+          "potential_death_delay_hours_injected": 756.98,
+          "first_alert_delay_hours_injected": 45.2
         },
         {
           "deployment_id": "AU398-CM69~sparse",
           "carcass": true,
-          "still_hours": 718.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 44.98,
+          "still_hours": 85.0,
+          "still_hours_200m": 86.0,
+          "mortality_delay_hours": 35.98,
           "early": false,
-          "mortality_delay_hours_200m": 45.98,
-          "likely_death_delay_hours": 293.98,
-          "gap_delay_hours": 37.99,
+          "mortality_delay_hours_200m": 36.98,
+          "potential_death_delay_hours": 122.98,
+          "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 35.98,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 42.98,
-          "likely_death_delay_hours_injected": 291.98
+          "mortality_delay_hours_injected": 33.98,
+          "potential_death_delay_hours_injected": 120.98,
+          "first_alert_delay_hours_injected": 33.98
         },
         {
           "deployment_id": "AU399-CM72~reporting",
@@ -2991,48 +3451,60 @@
           "mortality_delay_hours": 28.98,
           "early": false,
           "mortality_delay_hours_200m": 28.98,
-          "likely_death_delay_hours": 757.98,
+          "potential_death_delay_hours": 757.98,
           "gap_delay_hours": 37.99,
+          "first_alert_delay_hours": 28.98,
           "regime": "reporting",
           "mortality_delay_hours_injected": 28.98,
-          "likely_death_delay_hours_injected": 757.98
+          "potential_death_delay_hours_injected": 757.98,
+          "first_alert_delay_hours_injected": 28.98
         },
         {
           "deployment_id": "AU399-CM72~sparse",
           "carcass": true,
-          "still_hours": 719.0,
-          "still_hours_200m": 719.0,
-          "mortality_delay_hours": 38.98,
+          "still_hours": 93.0,
+          "still_hours_200m": 93.0,
+          "mortality_delay_hours": 29.98,
           "early": false,
-          "mortality_delay_hours_200m": 38.98,
-          "likely_death_delay_hours": 578.98,
+          "mortality_delay_hours_200m": 29.98,
+          "potential_death_delay_hours": 130.98,
           "gap_delay_hours": 37.98,
+          "first_alert_delay_hours": 29.98,
           "regime": "sparse",
-          "mortality_delay_hours_injected": 38.98,
-          "likely_death_delay_hours_injected": 578.98
+          "mortality_delay_hours_injected": 29.98,
+          "potential_death_delay_hours_injected": 130.98,
+          "first_alert_delay_hours_injected": 29.98
         }
       ],
       "ambiguous": [],
       "synthetic": {
         "pooled": {
           "deaths": 44,
-          "carcass": 44,
+          "carcass": 41,
           "mortality": {
-            "detected": 44,
-            "rate_at_mark": 1.0,
-            "median_delay_hours": 30.98,
-            "detected_injected": 44,
-            "rate_at_mark_injected": 1.0,
-            "median_delay_hours_injected": 28.99,
+            "detected": 40,
+            "rate_at_mark": 0.909,
+            "median_delay_hours": 29.98,
+            "detected_injected": 40,
+            "rate_at_mark_injected": 0.909,
+            "median_delay_hours_injected": 28.98,
             "early": 2
           },
-          "likely_death": {
-            "detected": 43,
+          "potential_death": {
+            "detected": 40,
             "rate_at_mark": 0.068,
-            "median_delay_hours": 406.98,
-            "detected_injected": 43,
-            "rate_at_mark_injected": 0.068,
-            "median_delay_hours_injected": 454.99
+            "median_delay_hours": 133.99,
+            "detected_injected": 40,
+            "rate_at_mark_injected": 0.045,
+            "median_delay_hours_injected": 196.48
+          },
+          "first_alert": {
+            "detected": 44,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 30.32,
+            "detected_injected": 44,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 29.81
           },
           "death_start_offset_hours": {
             "exact": 11,
@@ -3055,13 +3527,21 @@
             "median_delay_hours_injected": 27.99,
             "early": 2
           },
-          "likely_death": {
-            "detected": 21,
-            "rate_at_mark": 0.0,
-            "median_delay_hours": 598.99,
-            "detected_injected": 21,
+          "potential_death": {
+            "detected": 22,
+            "rate_at_mark": 0.045,
+            "median_delay_hours": 676.99,
+            "detected_injected": 22,
             "rate_at_mark_injected": 0.0,
-            "median_delay_hours_injected": 752.99
+            "median_delay_hours_injected": 753.99
+          },
+          "first_alert": {
+            "detected": 22,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 28.48,
+            "detected_injected": 22,
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 27.99
           },
           "death_start_offset_hours": {
             "exact": 5,
@@ -3074,29 +3554,37 @@
         },
         "sparse": {
           "deaths": 22,
-          "carcass": 22,
+          "carcass": 19,
           "mortality": {
-            "detected": 22,
-            "rate_at_mark": 1.0,
-            "median_delay_hours": 34.98,
-            "detected_injected": 22,
-            "rate_at_mark_injected": 1.0,
-            "median_delay_hours_injected": 34.48,
+            "detected": 18,
+            "rate_at_mark": 0.818,
+            "median_delay_hours": 33.38,
+            "detected_injected": 18,
+            "rate_at_mark_injected": 0.818,
+            "median_delay_hours_injected": 31.38,
             "early": 0
           },
-          "likely_death": {
+          "potential_death": {
+            "detected": 18,
+            "rate_at_mark": 0.091,
+            "median_delay_hours": 124.81,
+            "detected_injected": 18,
+            "rate_at_mark_injected": 0.091,
+            "median_delay_hours_injected": 123.81
+          },
+          "first_alert": {
             "detected": 22,
-            "rate_at_mark": 0.136,
-            "median_delay_hours": 291.31,
+            "rate_at_mark": 1.0,
+            "median_delay_hours": 35.48,
             "detected_injected": 22,
-            "rate_at_mark_injected": 0.136,
-            "median_delay_hours_injected": 289.81
+            "rate_at_mark_injected": 1.0,
+            "median_delay_hours_injected": 34.48
           },
           "death_start_offset_hours": {
             "exact": 6,
             "earlier": 16,
             "later": 0,
-            "min": -5.5,
+            "min": -5.67,
             "median": -1.0,
             "max": 0.0
           }

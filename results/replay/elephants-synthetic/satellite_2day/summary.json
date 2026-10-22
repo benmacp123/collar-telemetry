@@ -27,9 +27,9 @@
   },
   "incidents": {
     "gap": {
-      "incidents": 83,
+      "incidents": 80,
       "open_at_end": 28,
-      "late_fix": 27,
+      "late_fix": 24,
       "flaps": 0
     },
     "geofence": {
@@ -38,25 +38,25 @@
       "late_fix": 0,
       "flaps": 0
     },
-    "likely_death": {
-      "incidents": 29,
-      "open_at_end": 28,
-      "late_fix": 1,
-      "flaps": 0
-    },
     "mortality": {
-      "incidents": 29,
-      "open_at_end": 28,
+      "incidents": 27,
+      "open_at_end": 27,
       "late_fix": 0,
-      "flaps": 21
+      "flaps": 0
     },
     "movement": {
       "incidents": 8,
       "open_at_end": 0,
       "late_fix": 0,
       "flaps": 0
+    },
+    "potential_death": {
+      "incidents": 27,
+      "open_at_end": 27,
+      "late_fix": 0,
+      "flaps": 0
     }
   },
-  "fixes": 274579,
-  "arrivals": 274579
+  "fixes": 272456,
+  "arrivals": 272456
 }

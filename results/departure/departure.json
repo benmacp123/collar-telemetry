@@ -49,7 +49,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -94,7 +94,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -139,7 +139,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -184,7 +184,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -221,8 +221,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -236,14 +236,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -254,7 +254,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -288,8 +288,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -303,14 +303,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -321,7 +321,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -355,8 +355,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -370,14 +370,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -388,7 +388,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -422,8 +422,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -437,14 +437,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -455,7 +455,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -489,8 +489,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -504,14 +504,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -522,8 +522,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -556,8 +556,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -571,14 +571,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -589,8 +589,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -623,8 +623,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -638,14 +638,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -656,7 +656,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -690,8 +690,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -705,14 +705,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -723,8 +723,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -765,7 +765,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -810,7 +810,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -855,7 +855,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -900,7 +900,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -937,8 +937,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 16,
+          "rate_at_mark": 0.727
         }
       },
       "mortality": {
@@ -952,14 +952,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -970,7 +970,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1004,8 +1004,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 16,
+          "rate_at_mark": 0.727
         }
       },
       "mortality": {
@@ -1019,14 +1019,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -1037,7 +1037,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1071,8 +1071,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
+          "detected": 16,
+          "rate_at_mark": 0.727
         }
       },
       "mortality": {
@@ -1086,14 +1086,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -1104,7 +1104,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1138,8 +1138,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 16,
+          "rate_at_mark": 0.727
         }
       },
       "mortality": {
@@ -1153,14 +1153,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -1171,7 +1171,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1205,8 +1205,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -1220,14 +1220,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -1238,7 +1238,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1272,8 +1272,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -1287,14 +1287,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -1305,7 +1305,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1339,8 +1339,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -1354,14 +1354,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -1372,7 +1372,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1406,8 +1406,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -1421,14 +1421,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -1439,7 +1439,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1481,7 +1481,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -1526,7 +1526,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -1571,7 +1571,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -1616,7 +1616,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -1630,207 +1630,6 @@
     {
       "set": "jackals-synthetic",
       "scenario": "ideal",
-      "setting": "box 200 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": 200.0,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 48,
-        "never_resolved": 0,
-        "flaps": 10,
-        "median_hours_open": 6.0,
-        "p90_hours_open": 27.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 2,
-          "flaps": 2,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 2,
-          "flaps": 2,
-          "ends_resolved": 0
-        }
-      },
-      "likely_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "satellite_daily",
-      "setting": "box 200 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": 200.0,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 48,
-        "never_resolved": 0,
-        "flaps": 10,
-        "median_hours_open": 6.0,
-        "p90_hours_open": 27.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 2,
-          "flaps": 2,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 2,
-          "flaps": 2,
-          "ends_resolved": 0
-        }
-      },
-      "likely_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "satellite_2day",
-      "setting": "box 200 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": 200.0,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 48,
-        "never_resolved": 0,
-        "flaps": 10,
-        "median_hours_open": 6.0,
-        "p90_hours_open": 27.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 2,
-          "flaps": 2,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 2,
-          "flaps": 2,
-          "ends_resolved": 0
-        }
-      },
-      "likely_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "gsm",
       "setting": "box 200 m",
       "mortality_window_hours": null,
       "mortality_box_m": 200.0,
@@ -1854,8 +1653,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 16,
+          "rate_at_mark": 0.727
         }
       },
       "mortality": {
@@ -1869,14 +1668,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 6,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -1887,8 +1686,209 @@
         },
         "sparse": {
           "deaths": 22,
+          "missed": 6,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "satellite_daily",
+      "setting": "box 200 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": 200.0,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 49,
+        "never_resolved": 0,
+        "flaps": 10,
+        "median_hours_open": 6.0,
+        "p90_hours_open": 27.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 16,
+          "rate_at_mark": 0.727
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
           "missed": 0,
-          "split": 1,
+          "split": 0,
+          "flapped": 2,
+          "flaps": 2,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 6,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 6,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "satellite_2day",
+      "setting": "box 200 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": 200.0,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 49,
+        "never_resolved": 0,
+        "flaps": 10,
+        "median_hours_open": 6.0,
+        "p90_hours_open": 27.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 16,
+          "rate_at_mark": 0.727
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 2,
+          "flaps": 2,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 6,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 6,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "gsm",
+      "setting": "box 200 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": 200.0,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 50,
+        "never_resolved": 0,
+        "flaps": 10,
+        "median_hours_open": 6.0,
+        "p90_hours_open": 27.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 16,
+          "rate_at_mark": 0.727
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 2,
+          "flaps": 2,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 6,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 6,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -1921,8 +1921,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 13,
+          "rate_at_mark": 0.929
         }
       },
       "mortality": {
@@ -1936,14 +1936,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 1,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -1954,7 +1954,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 1,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -1988,8 +1988,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 13,
+          "rate_at_mark": 0.929
         }
       },
       "mortality": {
@@ -2003,14 +2003,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 1,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -2021,7 +2021,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 1,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -2055,8 +2055,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 13,
+          "rate_at_mark": 0.929
         }
       },
       "mortality": {
@@ -2070,14 +2070,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 1,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -2088,7 +2088,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 1,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -2122,8 +2122,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 13,
+          "rate_at_mark": 0.929
         }
       },
       "mortality": {
@@ -2137,14 +2137,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 1,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -2155,7 +2155,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 1,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -2197,7 +2197,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -2242,7 +2242,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -2287,7 +2287,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -2332,7 +2332,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -2369,8 +2369,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 13,
+          "rate_at_mark": 0.591
         }
       },
       "mortality": {
@@ -2384,14 +2384,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 9,
           "split": 0,
-          "flapped": 3,
-          "flaps": 3,
+          "flapped": 1,
+          "flaps": 1,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -2402,10 +2402,10 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 9,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       }
@@ -2436,8 +2436,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 13,
+          "rate_at_mark": 0.591
         }
       },
       "mortality": {
@@ -2451,14 +2451,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 9,
           "split": 0,
-          "flapped": 3,
-          "flaps": 3,
+          "flapped": 1,
+          "flaps": 1,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -2469,8 +2469,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
-          "split": 1,
+          "missed": 9,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -2503,8 +2503,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
+          "detected": 13,
+          "rate_at_mark": 0.591
         }
       },
       "mortality": {
@@ -2518,14 +2518,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 9,
           "split": 0,
-          "flapped": 3,
-          "flaps": 3,
+          "flapped": 1,
+          "flaps": 1,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -2536,7 +2536,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 9,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -2570,8 +2570,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 13,
+          "rate_at_mark": 0.591
         }
       },
       "mortality": {
@@ -2585,14 +2585,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 9,
           "split": 0,
-          "flapped": 3,
-          "flaps": 3,
+          "flapped": 1,
+          "flaps": 1,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -2603,8 +2603,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
-          "split": 1,
+          "missed": 9,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -2637,8 +2637,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -2652,14 +2652,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -2670,8 +2670,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -2704,8 +2704,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -2719,14 +2719,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -2737,7 +2737,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -2771,8 +2771,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -2786,14 +2786,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -2804,7 +2804,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -2838,8 +2838,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -2853,14 +2853,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -2871,8 +2871,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -2913,7 +2913,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -2958,7 +2958,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -3003,7 +3003,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -3048,7 +3048,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -3085,8 +3085,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -3100,14 +3100,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -3118,7 +3118,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -3152,8 +3152,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -3167,14 +3167,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -3185,7 +3185,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -3219,8 +3219,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -3234,14 +3234,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -3252,7 +3252,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -3286,8 +3286,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -3301,14 +3301,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -3319,7 +3319,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -3353,8 +3353,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -3368,14 +3368,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -3386,8 +3386,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -3420,8 +3420,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -3435,14 +3435,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -3453,8 +3453,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -3487,8 +3487,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -3502,14 +3502,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -3520,7 +3520,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -3554,8 +3554,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -3569,14 +3569,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -3587,8 +3587,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -3629,7 +3629,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -3674,7 +3674,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -3719,7 +3719,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -3764,7 +3764,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -3801,8 +3801,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -3816,14 +3816,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -3834,7 +3834,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -3868,8 +3868,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -3883,14 +3883,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -3901,7 +3901,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -3935,8 +3935,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -3950,14 +3950,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -3968,7 +3968,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4002,8 +4002,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -4017,14 +4017,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
-          "flapped": 2,
-          "flaps": 2,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -4035,7 +4035,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4069,8 +4069,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -4084,14 +4084,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -4102,8 +4102,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -4136,8 +4136,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -4151,14 +4151,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -4169,8 +4169,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -4203,8 +4203,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -4218,14 +4218,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -4236,7 +4236,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4270,8 +4270,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -4285,14 +4285,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
-          "flapped": 1,
-          "flaps": 1,
+          "flapped": 0,
+          "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -4303,8 +4303,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
-          "split": 1,
+          "missed": 2,
+          "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
@@ -4345,7 +4345,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -4390,7 +4390,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -4435,7 +4435,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -4480,7 +4480,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -4517,8 +4517,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -4532,14 +4532,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -4550,7 +4550,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4584,8 +4584,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -4599,14 +4599,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -4617,7 +4617,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4651,8 +4651,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -4666,14 +4666,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -4684,7 +4684,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4718,8 +4718,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -4733,14 +4733,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -4751,7 +4751,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4785,8 +4785,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -4800,14 +4800,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -4818,7 +4818,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4852,8 +4852,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -4867,14 +4867,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -4885,7 +4885,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4919,8 +4919,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -4934,14 +4934,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -4952,7 +4952,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -4986,8 +4986,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -5001,14 +5001,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -5019,7 +5019,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5061,7 +5061,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -5106,7 +5106,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -5151,7 +5151,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -5196,7 +5196,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -5233,8 +5233,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -5248,14 +5248,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -5266,7 +5266,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5300,8 +5300,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -5315,14 +5315,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -5333,7 +5333,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5367,8 +5367,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -5382,14 +5382,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -5400,7 +5400,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5434,8 +5434,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -5449,14 +5449,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -5467,7 +5467,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5501,8 +5501,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -5516,14 +5516,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -5534,7 +5534,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5568,8 +5568,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -5583,14 +5583,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -5601,7 +5601,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5635,8 +5635,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -5650,14 +5650,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -5668,7 +5668,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5702,8 +5702,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -5717,14 +5717,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -5735,7 +5735,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -5777,7 +5777,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -5822,7 +5822,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -5867,7 +5867,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -5912,7 +5912,7 @@
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "carcass": {
           "deaths": 6,
           "missed": 2,
@@ -5949,8 +5949,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -5964,14 +5964,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -5982,7 +5982,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -6016,8 +6016,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -6031,14 +6031,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -6049,7 +6049,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -6083,8 +6083,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 0.955
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -6098,14 +6098,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -6116,7 +6116,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -6150,8 +6150,8 @@
         },
         "sparse": {
           "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
+          "detected": 14,
+          "rate_at_mark": 0.636
         }
       },
       "mortality": {
@@ -6165,14 +6165,14 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 22,
           "missed": 0,
@@ -6183,7 +6183,7 @@
         },
         "sparse": {
           "deaths": 22,
-          "missed": 0,
+          "missed": 8,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -6217,8 +6217,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -6232,14 +6232,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -6250,7 +6250,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -6284,8 +6284,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -6299,14 +6299,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -6317,7 +6317,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -6351,8 +6351,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -6366,14 +6366,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -6384,7 +6384,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
@@ -6418,8 +6418,8 @@
         },
         "sparse": {
           "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
+          "detected": 12,
+          "rate_at_mark": 0.857
         }
       },
       "mortality": {
@@ -6433,14 +6433,14 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,
           "ends_resolved": 0
         }
       },
-      "likely_death": {
+      "potential_death": {
         "reporting": {
           "deaths": 14,
           "missed": 0,
@@ -6451,7 +6451,7 @@
         },
         "sparse": {
           "deaths": 14,
-          "missed": 0,
+          "missed": 2,
           "split": 0,
           "flapped": 0,
           "flaps": 0,

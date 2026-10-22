@@ -22,15 +22,15 @@ Detection is from the injected death time. False alerts are those on the real tr
 
 | Setting | Reporting: flapped / split / ended resolved | Sparse: flapped / split / ended resolved | Flaps | By mark, ideal | By mark, 2-day | False alerts | Median h open | p90 h open |
 |---|---|---|---|---|---|---|---|---|
-| box only | 10 / 0 / 0 of 22 | 2 / 0 / 0 of 22 | 16 | 100% | 98% | 18 | 8.0 | 56.0 |
-| box 150 m | 1 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 1 | 100% | 98% | 32 | 9.0 | 59.0 |
-| box 200 m | 2 / 0 / 0 of 22 | 2 / 0 / 0 of 22 | 4 | 100% | 98% | 48 | 6.0 | 27.0 |
-| leave 3 fixes | 2 / 0 / 0 of 22 | 3 / 0 / 0 of 22 | 5 | 100% | 98% | 50 | 17.0 | 69.0 |
-| merge 72 h | 10 / 0 / 0 of 22 | 2 / 0 / 0 of 22 | 16 | 100% | 98% | 16 | 4.0 | 166.0 |
-| merge 96 h | 10 / 0 / 0 of 22 | 2 / 0 / 0 of 22 | 16 | 100% | 98% | 16 | 4.0 | 166.0 |
-| radius 50 m | 1 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 1 | 100% | 98% | 18 | 8.0 | 56.0 |
-| radius 75 m (default) | 0 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 0 | 100% | 98% | 18 | 8.0 | 56.0 |
-| radius 100 m | 0 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 0 | 100% | 98% | 18 | 8.0 | 56.0 |
+| box only | 10 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 14 | 82% | 82% | 18 | 8.0 | 56.0 |
+| box 150 m | 1 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 1 | 86% | 86% | 32 | 9.0 | 59.0 |
+| box 200 m | 2 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 2 | 86% | 86% | 49 | 6.0 | 27.0 |
+| leave 3 fixes | 2 / 0 / 0 of 22 | 1 / 0 / 0 of 22 | 3 | 80% | 80% | 50 | 17.0 | 69.0 |
+| merge 72 h | 10 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 14 | 82% | 82% | 16 | 4.0 | 166.0 |
+| merge 96 h | 10 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 14 | 82% | 82% | 16 | 4.0 | 166.0 |
+| radius 50 m | 1 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 1 | 82% | 82% | 18 | 8.0 | 56.0 |
+| radius 75 m (default) | 0 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 0 | 82% | 82% | 18 | 8.0 | 56.0 |
+| radius 100 m | 0 / 0 / 0 of 22 | 0 / 0 / 0 of 22 | 0 | 82% | 82% | 18 | 8.0 | 56.0 |
 
 ## elephants-synthetic, seed 2027 (28 deployments, mark 80.5 h)
 
@@ -38,12 +38,12 @@ Detection is from the injected death time. False alerts are those on the real tr
 
 | Setting | Reporting: flapped / split / ended resolved | Sparse: flapped / split / ended resolved | Flaps | By mark, ideal | By mark, 2-day | False alerts | Median h open | p90 h open |
 |---|---|---|---|---|---|---|---|---|
-| box only | 11 / 0 / 0 of 14 | 1 / 0 / 0 of 14 | 23 | 100% | 100% | 0 | – | – |
-| box 150 m | 1 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 1 | 100% | 100% | 0 | – | – |
-| box 200 m | 2 / 0 / 0 of 14 | 0 / 1 / 0 of 14 | 2 | 100% | 100% | 0 | – | – |
-| leave 3 fixes | 4 / 0 / 0 of 14 | 1 / 0 / 0 of 14 | 5 | 100% | 100% | 0 | – | – |
-| merge 72 h | 11 / 0 / 0 of 14 | 1 / 0 / 0 of 14 | 23 | 100% | 100% | 0 | – | – |
-| merge 96 h | 11 / 0 / 0 of 14 | 1 / 0 / 0 of 14 | 23 | 100% | 100% | 0 | – | – |
-| radius 50 m | 3 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 3 | 100% | 100% | 0 | – | – |
-| radius 75 m (default) | 0 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 0 | 100% | 100% | 0 | – | – |
-| radius 100 m | 0 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 0 | 100% | 100% | 0 | – | – |
+| box only | 11 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 22 | 93% | 93% | 0 | – | – |
+| box 150 m | 1 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 1 | 93% | 93% | 0 | – | – |
+| box 200 m | 2 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 2 | 96% | 96% | 0 | – | – |
+| leave 3 fixes | 4 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 4 | 93% | 93% | 0 | – | – |
+| merge 72 h | 11 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 22 | 93% | 93% | 0 | – | – |
+| merge 96 h | 11 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 22 | 93% | 93% | 0 | – | – |
+| radius 50 m | 3 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 3 | 93% | 93% | 0 | – | – |
+| radius 75 m (default) | 0 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 0 | 93% | 93% | 0 | – | – |
+| radius 100 m | 0 / 0 / 0 of 14 | 0 / 0 / 0 of 14 | 0 | 93% | 93% | 0 | – | – |

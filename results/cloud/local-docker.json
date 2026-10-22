@@ -8,12 +8,12 @@
     "resent_new_dedup_id": 14,
     "received_by_processor": 1338,
     "processor_failures": 0,
-    "stream_records": 215,
+    "stream_records": 216,
     "replay_incidents": 84,
     "stored_incidents": 84,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 3,
+    "potential_death_incidents": 3,
     "notifications": 3,
     "notified_incidents": 3
   },
@@ -26,12 +26,12 @@
     "resent_new_dedup_id": 14,
     "received_by_processor": 1337,
     "processor_failures": 0,
-    "stream_records": 244,
+    "stream_records": 245,
     "replay_incidents": 97,
     "stored_incidents": 97,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 3,
+    "potential_death_incidents": 3,
     "notifications": 3,
     "notified_incidents": 3
   },
@@ -49,7 +49,7 @@
     "stored_incidents": 50,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 0,
+    "potential_death_incidents": 0,
     "notifications": 0,
     "notified_incidents": 0
   },
@@ -67,7 +67,7 @@
     "stored_incidents": 113,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 0,
+    "potential_death_incidents": 0,
     "notifications": 0,
     "notified_incidents": 0
   }

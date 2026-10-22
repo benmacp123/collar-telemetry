@@ -18,7 +18,7 @@ from datetime import timedelta
 from typing import Protocol
 
 from telemetry.core.alerts import (
-    LIKELY_DEATH,
+    POTENTIAL_DEATH,
     MORTALITY,
     AlertLifecycle,
     LifecycleConfig,
@@ -71,7 +71,7 @@ class Overrides:
             confirm a move; None keeps it.
         mortality_leave_radius_m: Replaces the mortality detector's
             radius from the alert's centre once alerted; None keeps it.
-        mortality_merge: Replaces the mortality and ``likely_death`` merge
+        mortality_merge: Replaces the mortality and ``potential_death`` merge
             window, whatever the window; None keeps the default (or the
             one following ``mortality_window``).
         mortality_box_only: Drops the leaving radius, so the box decides
@@ -121,7 +121,9 @@ class Overrides:
             merge = self.mortality_window + MERGE_SLACK
         if merge is None:
             return AlertLifecycle()
-        return AlertLifecycle(LifecycleConfig({MORTALITY: merge, LIKELY_DEATH: merge}))
+        return AlertLifecycle(
+            LifecycleConfig({MORTALITY: merge, POTENTIAL_DEATH: merge})
+        )
 
     def to_dict(self) -> dict:
         """JSON-ready form, in hours and metres.

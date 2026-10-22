@@ -60,6 +60,8 @@ def test_defaults_match_the_committed_carcass_profile():
     assert config.sparse_share == measured["sparse_share"]
     assert config.scatter_median_m == measured["scatter_median_m"]
     assert config.scatter_p95_m == measured["scatter_p95_m"]
+    sparse_hours = sorted(tail["hours"] for tail in measured["tails"] if tail["sparse"])
+    assert [life / HOUR for life in config.sparse_lives] == sparse_hours
 
 
 def test_track_is_real_before_death_and_stationary_after():
@@ -91,9 +93,9 @@ def test_sparse_carcasses_send_far_fewer_fixes():
     """A sparse carcass keeps its regime's share of the schedule, not the other's."""
     fixes = walk(24 * 40)
     death = START + 100 * HOUR
-    config = CarcassConfig()
-    reporting = inject_mortality(fixes, death, random.Random(6), sparse=False)
-    sparse = inject_mortality(fixes, death, random.Random(6), sparse=True)
+    config = CarcassConfig(sparse_lives=())
+    reporting = inject_mortality(fixes, death, random.Random(6), config, sparse=False)
+    sparse = inject_mortality(fixes, death, random.Random(6), config, sparse=True)
     slots = 24 * 30
     assert not reporting.sparse and sparse.sparse
     assert len(reporting.fixes) - 101 == pytest.approx(
@@ -102,6 +104,23 @@ def test_sparse_carcasses_send_far_fewer_fixes():
     assert len(sparse.fixes) - 101 == pytest.approx(
         config.sparse_success * slots, rel=0.3
     )
+
+
+def test_sparse_collar_stops_after_an_observed_life():
+    """A sparse carcass's collar stops after one of the observed sparse lives;
+    a reporting one keeps the full duration."""
+    fixes = walk(24 * 40)
+    death = START + 100 * HOUR
+    config = CarcassConfig()
+    lives = set()
+    for seed in range(30):
+        sparse = inject_mortality(fixes, death, random.Random(seed), sparse=True)
+        assert sparse.life in config.sparse_lives
+        assert sparse.fixes[-1].timestamp <= death + sparse.life
+        lives.add(sparse.life)
+    assert lives == set(config.sparse_lives)
+    reporting = inject_mortality(fixes, death, random.Random(0), sparse=False)
+    assert reporting.life == config.duration
 
 
 def test_regime_is_drawn_at_the_configured_share():

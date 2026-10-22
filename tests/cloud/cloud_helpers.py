@@ -3,7 +3,7 @@ incidents it should produce, and an in-process poller.
 
 The timeline is the slicing tests' track (five days walking 300 m an
 hour, three still, then silent), which opens mortality, gap and
-``likely_death`` incidents within 16 daily slices, so every path the
+``potential_death`` incidents within 16 daily slices, so every path the
 handlers have is exercised.
 """
 

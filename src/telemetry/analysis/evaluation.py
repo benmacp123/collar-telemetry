@@ -26,9 +26,21 @@ project plan:
   and early detections are counted. Deaths with a shorter stationary end
   (shot, struck, electrocuted) are gap-detector cases, scored from the
   last fix to the gap incident still open at the end of the replay.
+- **First alert.** Every death is also scored on the first incident of
+  any kind: mortality and ``potential_death`` as above, and gap incidents
+  that open at or after the death start. A carcass collar that goes
+  quiet before the mortality detector has enough fixes is flagged by the
+  gap detector, and the operator is told either way; scoring carcass
+  deaths on mortality alone counts those as misses. A gap that opened
+  while the animal was alive says nothing about the death and does not
+  count.
 - **Operator load** is incidents per animal-month, where an animal-month
-  is 30.4375 days of track between first and last fix.
-- **Precision** of the mortality and ``likely_death`` incidents: an
+  is 30.4375 days of track between first and last fix. Gap incidents
+  resolved by a fix taken before the alert (``late_fix``: the collar was
+  working, its upload was late) are reported as their own rate. They are
+  load the operator really sees, caused by upload latency, not false
+  alarms about the animal, and ``min_silence`` is not tuned on them.
+- **Precision** of the mortality and ``potential_death`` incidents: an
   incident is true if it is on a dead deployment and still open after the
   death start, ambiguous if the same holds on an ambiguous track, and
   false otherwise.
@@ -54,7 +66,14 @@ from pathlib import Path
 
 from shapely.geometry import LineString
 
-from telemetry.core.alerts import LATE_FIX, LIKELY_DEATH, MORTALITY, OPEN, Incident
+from telemetry.core.alerts import (
+    GAP,
+    LATE_FIX,
+    POTENTIAL_DEATH,
+    MORTALITY,
+    OPEN,
+    Incident,
+)
 from telemetry.core.detectors.geofence import Fence
 from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.geo import haversine_m
@@ -356,6 +375,34 @@ def gap_detection(last_fix: datetime, incidents: list[Incident]) -> float | None
     return _hours(min(i.raised_at for i in final) - last_fix)
 
 
+def first_alert(
+    death_start: datetime,
+    mortality_type: list[Incident],
+    gap: list[Incident],
+) -> float | None:
+    """How quickly a death was flagged by any detector.
+
+    Args:
+        death_start: Start of the final stationary period.
+        mortality_type: The deployment's mortality and ``potential_death``
+            incidents, counted as in ``mortality_detection``.
+        gap: Its gap incidents; only those opened at or after the death
+            start count.
+
+    Returns:
+        float | None: Hours from the death start to the first counted
+        incident (floored at 0), or None if there is none.
+    """
+    found = mortality_detection(death_start, mortality_type)
+    delays = [found[0]] if found else []
+    delays += [
+        max(0.0, _hours(i.raised_at - death_start))
+        for i in gap
+        if i.raised_at is not None and i.opened_at >= death_start
+    ]
+    return min(delays) if delays else None
+
+
 def false_mortality(truth: Truth, incidents: list[Incident]) -> int:
     """Mortality incidents raised while the animal was known or assumed
     alive.
@@ -383,7 +430,7 @@ def classify(truth: Truth, incident: Incident) -> str:
 
     Args:
         truth: The incident's deployment.
-        incident: A mortality or likely-death incident.
+        incident: A mortality or potential-death incident.
 
     Returns:
         str: ``"true"`` if the deployment is dead and the incident was
@@ -406,7 +453,7 @@ def precision(
     Args:
         truths: The deployments scored.
         own: Their incidents by (deployment, detector).
-        detector: ``MORTALITY`` or ``LIKELY_DEATH``.
+        detector: ``MORTALITY`` or ``POTENTIAL_DEATH``.
 
     Returns:
         dict: True, false and ambiguous counts, and the share of true among
@@ -519,7 +566,8 @@ def evaluate(
     carcass = [d for d in deaths if d["carcass"]]
     no_carcass = [d for d in deaths if not d["carcass"]]
     delays = [d["mortality_delay_hours"] for d in carcass]
-    likely = [d["likely_death_delay_hours"] for d in carcass]
+    potential = [d["potential_death_delay_hours"] for d in carcass]
+    first = [d["first_alert_delay_hours"] for d in carcass]
     wide = [d["mortality_delay_hours_200m"] for d in carcass]
     return {
         "deployments": len(truths),
@@ -544,14 +592,24 @@ def evaluate(
         },
         "precision": {
             MORTALITY: precision(truths, own, MORTALITY),
-            LIKELY_DEATH: precision(truths, own, LIKELY_DEATH),
+            POTENTIAL_DEATH: precision(truths, own, POTENTIAL_DEATH),
         },
-        "likely_death": {
+        "potential_death": {
             "deaths": len(carcass),
-            "detected": sum(1 for d in likely if d is not None),
+            "detected": sum(1 for d in potential if d is not None),
             "rate_at_mark": (
-                detection_rate(likely, mark_hours) if mark_hours is not None else None
+                detection_rate(potential, mark_hours)
+                if mark_hours is not None
+                else None
             ),
+        },
+        "first_alert": {
+            "deaths": len(carcass),
+            "detected": sum(1 for d in first if d is not None),
+            "rate_at_mark": (
+                detection_rate(first, mark_hours) if mark_hours is not None else None
+            ),
+            "median_delay_hours": _median(first),
         },
         "gap_on_deaths": {
             "deaths": len(no_carcass),
@@ -580,13 +638,14 @@ def _death_record(
         own: All scored incidents by (deployment, detector).
 
     Returns:
-        dict: Carcass period, mortality delay at both radii and gap delay.
+        dict: Carcass period, mortality delay at both radii, gap delay
+        and the delay to the first alert of any kind.
     """
     found = mortality_detection(truth.still_start, mortality)
     found_wide = mortality_detection(truth.still_start_wide, mortality)
-    likely = mortality_detection(
-        truth.still_start, own.get((truth.deployment_id, LIKELY_DEATH), [])
-    )
+    potential_incidents = own.get((truth.deployment_id, POTENTIAL_DEATH), [])
+    gap = own.get((truth.deployment_id, GAP), [])
+    potential = mortality_detection(truth.still_start, potential_incidents)
     return {
         "deployment_id": truth.deployment_id,
         "carcass": truth.carcass,
@@ -595,9 +654,10 @@ def _death_record(
         "mortality_delay_hours": found[0] if found else None,
         "early": bool(found and found[1]),
         "mortality_delay_hours_200m": found_wide[0] if found_wide else None,
-        "likely_death_delay_hours": likely[0] if likely else None,
-        "gap_delay_hours": gap_detection(
-            truth.last_fix, own.get((truth.deployment_id, "gap"), [])
+        "potential_death_delay_hours": potential[0] if potential else None,
+        "gap_delay_hours": gap_detection(truth.last_fix, gap),
+        "first_alert_delay_hours": first_alert(
+            truth.still_start, mortality + potential_incidents, gap
         ),
     }
 
@@ -610,7 +670,8 @@ def _load(own: dict[tuple[str, str], list[Incident]], months: float) -> dict:
         months: Animal-months tracked.
 
     Returns:
-        dict: Per detector, incident and late-fix counts and the rate.
+        dict: Per detector, incident and late-fix counts, the incident
+        rate and the late-fix rate.
     """
     counts: dict[str, Counter] = {}
     for (_, detector), incidents in own.items():
@@ -622,6 +683,7 @@ def _load(own: dict[tuple[str, str], list[Incident]], months: float) -> dict:
             "incidents": tally["incidents"],
             "late_fix": tally["late_fix"],
             "per_animal_month": _rate(tally["incidents"], months),
+            "late_fix_per_animal_month": _rate(tally["late_fix"], months),
         }
         for detector, tally in sorted(counts.items())
     }
@@ -670,8 +732,8 @@ def score_synthetic(
     Returns:
         dict: ``evaluate``'s result with each death record tagged with its
         regime and its delays from the injected time, plus ``synthetic``:
-        the mortality and ``likely_death`` results pooled and per regime,
-        and the death-start offset.
+        the mortality, ``potential_death`` and first-alert results pooled and
+        per regime, and the death-start offset.
     """
     result = evaluate(truths, incidents, mark_hours)
     by_id = {death.deployment_id: death for death in injected}
@@ -683,12 +745,18 @@ def score_synthetic(
         record["regime"] = death.regime
         for detector, key in (
             (MORTALITY, "mortality_delay_hours_injected"),
-            (LIKELY_DEATH, "likely_death_delay_hours_injected"),
+            (POTENTIAL_DEATH, "potential_death_delay_hours_injected"),
         ):
             found = mortality_detection(
                 death.death_time, own.get((death.deployment_id, detector), [])
             )
             record[key] = found[0] if found else None
+        record["first_alert_delay_hours_injected"] = first_alert(
+            death.death_time,
+            own.get((death.deployment_id, MORTALITY), [])
+            + own.get((death.deployment_id, POTENTIAL_DEATH), []),
+            own.get((death.deployment_id, GAP), []),
+        )
     starts = {t.deployment_id: t.still_start for t in truths}
     groups = {"pooled": result["deaths"]} | {
         regime: [d for d in result["deaths"] if d["regime"] == regime]
@@ -716,9 +784,9 @@ def _synthetic_group(
         by_id: Injected deaths by deployment.
 
     Returns:
-        dict: Death and carcass counts, mortality and ``likely_death``
-        detection from the computed death start and from the injected
-        time, and the offset of the computed death start from the
+        dict: Death and carcass counts, mortality, ``potential_death`` and
+        first-alert detection from the computed death start and from the
+        injected time, and the offset of the computed death start from the
         injected time (positive when the computed start is later).
     """
     offsets = [
@@ -730,8 +798,8 @@ def _synthetic_group(
         """Detection counts, rate and median delay for one detector.
 
         Args:
-            prefix: ``"mortality"`` or ``"likely_death"``, the record
-                keys' prefix.
+            prefix: ``"mortality"``, ``"potential_death"`` or
+                ``"first_alert"``, the record keys' prefix.
 
         Returns:
             dict: Detected count, rate at the mark and median delay, from
@@ -756,7 +824,8 @@ def _synthetic_group(
         "carcass": sum(1 for d in records if d["carcass"]),
         "mortality": detection("mortality")
         | {"early": sum(1 for d in records if d["early"])},
-        "likely_death": detection("likely_death"),
+        "potential_death": detection("potential_death"),
+        "first_alert": detection("first_alert"),
         "death_start_offset_hours": {
             "exact": sum(1 for o in offsets if o == 0),
             "earlier": sum(1 for o in offsets if o < 0),

@@ -30,7 +30,7 @@ from telemetry.analysis.evaluation import (
     evaluate,
     score_synthetic,
 )
-from telemetry.core.alerts import LIKELY_DEATH, MORTALITY, Incident
+from telemetry.core.alerts import POTENTIAL_DEATH, MORTALITY, Incident
 from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.pipeline import Overrides
 from telemetry.sim.arrival import ArrivalScenario
@@ -195,7 +195,7 @@ def score_real(
 
     Returns:
         dict: False mortality load, how long false alerts stay open,
-        carcass detection, and what the mortality and ``likely_death``
+        carcass detection, and what the mortality and ``potential_death``
         incidents did after each carcass death.
     """
     result = replay(deployments, fixes, scenario, DEFAULT_SEED, overrides=overrides)
@@ -241,7 +241,7 @@ def score_variant(
 
     Returns:
         dict: How long false alerts before the deaths stay open,
-        detection by regime, and what the mortality and ``likely_death``
+        detection by regime, and what the mortality and ``potential_death``
         incidents did after each injected death, by regime.
     """
     result = replay(deployments, fixes, scenario, DEFAULT_SEED, overrides=overrides)
@@ -273,7 +273,7 @@ def _outcomes(
     incidents: list[Incident],
     groups: list[str],
 ) -> dict:
-    """Death outcomes for mortality and ``likely_death``, by group.
+    """Death outcomes for mortality and ``potential_death``, by group.
 
     Args:
         deaths: Death time and group by deployment ID.
@@ -281,11 +281,11 @@ def _outcomes(
         groups: Group names, in report order.
 
     Returns:
-        dict: ``mortality`` and ``likely_death``, each mapping every group
+        dict: ``mortality`` and ``potential_death``, each mapping every group
         to ``summarise_outcomes``.
     """
     out = {}
-    for detector in (MORTALITY, LIKELY_DEATH):
+    for detector in (MORTALITY, POTENTIAL_DEATH):
         own = by_deployment(incidents, detector)
         out[detector] = {
             group: summarise_outcomes(

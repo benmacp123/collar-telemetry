@@ -28,11 +28,11 @@ scored once after thresholds were frozen on an earlier set):
 | Deaths with no carcass period (collar stops) flagged by the gap detector | 5 of 5, at 36 h | 5 of 5, at 60 h |
 | All alerts per animal-month | 1.1 | 0.9 |
 | Mortality alerts that were real deaths | 3% | 3% |
-| "Likely death" alerts that were real deaths | 23% | 33% |
+| "Potential death" alerts that were real deaths | 23% | 33% |
 
 For a programme tracking 30 vultures that is about one alert a day. The
 fast mortality alert is mostly vultures sitting still at a roost; the
-"likely death" alert (still, then silent) is about ten times more
+"potential death" alert (still, then silent) is about ten times more
 trustworthy but usually comes once a carcass collar stops reporting, so it
 confirms a death rather than giving the first warning. Ten deaths is a
 small sample, so these rates are indicative, not precise.
@@ -87,7 +87,7 @@ each layer to its own imports.
     does not alert. Built on shapely, projected to metres locally.
 - **Alert lifecycle:** one incident per episode, not one per fix; flaps
   reopen the same incident; resolves based on late fixes are flagged. A
-  `likely_death` incident is raised while a mortality and a gap incident
+  `potential_death` incident is raised while a mortality and a gap incident
   are open together.
 - **Cloud runner:** a publisher cuts each collar's replay timeline into
   daily messages on an SQS FIFO queue (one message group per collar, so
@@ -95,7 +95,7 @@ each layer to its own imports.
   message through the core and saves state and incidents to DynamoDB in
   one conditional transaction, so a retried message changes nothing. A
   notifier Lambda reads the incidents table's stream and emails
-  `likely_death` incidents through SNS: at least once, never lost to a
+  `potential_death` incidents through SNS: at least once, never lost to a
   crash between saving and sending.
 - **Arrival scenarios:** each study is replayed under four seeded upload
   patterns: ideal (every fix arrives as taken), GSM (hourly uploads, 10%
@@ -131,7 +131,7 @@ each layer to its own imports.
 
 - **Small numbers.** 6 tuning and 5 held-out carcasses. The held-out set
   has been scored twice: once for the frozen thresholds and once, declared,
-  for the likely-death alert, which has no tuned parameter.
+  for the potential-death alert, which has no tuned parameter.
 - **Sparse carcass collars are the blind spot.** A collar on a carcass
   often sends few fixes; below six in the window the mortality detector
   cannot fire, and only the gap detector notices.

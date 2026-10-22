@@ -100,13 +100,14 @@ def _synthetic_section(report: dict) -> list[str]:
         "in brackets from the injected death time.",
         "",
         "| Scenario | Carcass | Deaths | Mortality detected | Early | By mark "
-        "| Median delay (h) | Likely death detected | By mark |",
-        "|---|---|---|---|---|---|---|---|---|",
+        "| Median delay (h) | Potential death detected | By mark | Any alert by mark |",
+        "|---|---|---|---|---|---|---|---|---|---|",
     ]
     for name in SCENARIO_ORDER:
         for group in SYNTHETIC_GROUPS:
             result = scenarios[name]["synthetic"][group]
-            mortality, likely = result["mortality"], result["likely_death"]
+            mortality, potential = result["mortality"], result["potential_death"]
+            first = result["first_alert"]
             lines.append(
                 f"| {SCENARIO_LABELS[name]} | {group.capitalize()} | "
                 f"{result['deaths']} | {mortality['detected']} | "
@@ -114,8 +115,10 @@ def _synthetic_section(report: dict) -> list[str]:
                 f"({_share(mortality['rate_at_mark_injected'])}) | "
                 f"{_cell(mortality['median_delay_hours'], 1)} "
                 f"({_cell(mortality['median_delay_hours_injected'], 1)}) | "
-                f"{likely['detected']} | {_share(likely['rate_at_mark'])} "
-                f"({_share(likely['rate_at_mark_injected'])}) |"
+                f"{potential['detected']} | {_share(potential['rate_at_mark'])} "
+                f"({_share(potential['rate_at_mark_injected'])}) | "
+                f"{_share(first['rate_at_mark'])} "
+                f"({_share(first['rate_at_mark_injected'])}) |"
             )
     offset = pooled["death_start_offset_hours"]
     lines += [
@@ -153,9 +156,14 @@ def _section(report: dict) -> list[str]:
         "",
         "### Operator load (incidents per animal-month)",
         "",
-        "| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late "
-        "| Geofence |",
-        "|---|---|---|---|---|---|---|",
+        "*Gap, late upload* counts gap alerts resolved by a fix taken before "
+        "the alert: the collar was working but its upload was late. They are "
+        "load the operator sees, caused by upload latency, not false alarms "
+        "about the animal; the gap threshold is not tuned on them.",
+        "",
+        "| Scenario | Mortality | False mortality | Movement | Gap "
+        "| Gap, late upload | Gap resolved late | Geofence |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for name in SCENARIO_ORDER:
         result = scenarios[name]
@@ -170,7 +178,8 @@ def _section(report: dict) -> list[str]:
         lines.append(
             f"| {SCENARIO_LABELS[name]} | {rate('mortality')} | "
             f"{_cell(result['false_mortality']['per_animal_month'])} | "
-            f"{rate('movement')} | {rate('gap')} | {_share(late)} | "
+            f"{rate('movement')} | {rate('gap')} | "
+            f"{_cell(gap.get('late_fix_per_animal_month'))} | {_share(late)} | "
             f"{rate('geofence')} |"
         )
 
@@ -180,11 +189,15 @@ def _section(report: dict) -> list[str]:
         "",
         "Carcass deaths (final stationary period at least the mortality "
         "window) are scored on the mortality detector; the rest on the gap "
-        "detector, from the last fix.",
+        "detector, from the last fix. *Any alert* scores carcass deaths on "
+        "the first incident of any kind (mortality, potential death, or a gap "
+        "opened after the death start), which is what the operator sees "
+        "first.",
         "",
         "| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) "
-        "| Other deaths | Gap median delay (h) | Both detectors |",
-        "|---|---|---|---|---|---|---|---|",
+        "| Any alert by mark | Other deaths | Gap median delay (h) "
+        "| Both detectors |",
+        "|---|---|---|---|---|---|---|---|---|",
     ]
     for name in SCENARIO_ORDER:
         result = scenarios[name]
@@ -193,7 +206,8 @@ def _section(report: dict) -> list[str]:
         lines.append(
             f"| {SCENARIO_LABELS[name]} | {mortality['deaths']} | "
             f"{mortality['detected']} | {_share(mortality['rate_at_mark'])} | "
-            f"{_share(mortality['rate_at_mark_200m'])} | {gap['deaths']} "
+            f"{_share(mortality['rate_at_mark_200m'])} | "
+            f"{_share(result['first_alert']['rate_at_mark'])} | {gap['deaths']} "
             f"({gap['detected']} flagged) | {_cell(gap['median_delay_hours'], 1)} | "
             f"{result['both_detectors']} |"
         )
@@ -202,24 +216,24 @@ def _section(report: dict) -> list[str]:
         "",
         "### Priority alerts",
         "",
-        "`likely_death` is raised while a mortality and a gap incident are "
+        "`potential_death` is raised while a mortality and a gap incident are "
         "both open. Precision is the share of incidents on real deaths "
         "(ambiguous tracks left out).",
         "",
-        "| Scenario | Likely death per animal-month | Precision | "
+        "| Scenario | Potential death per animal-month | Precision | "
         "Mortality precision | Carcass deaths flagged | By mark |",
         "|---|---|---|---|---|---|",
     ]
     for name in SCENARIO_ORDER:
         result = scenarios[name]
-        likely = result["likely_death"]
-        rate = result["load"].get("likely_death", {}).get("per_animal_month")
+        potential = result["potential_death"]
+        rate = result["load"].get("potential_death", {}).get("per_animal_month")
         lines.append(
             f"| {SCENARIO_LABELS[name]} | {_cell(rate)} | "
-            f"{_share(result['precision']['likely_death']['precision'])} | "
+            f"{_share(result['precision']['potential_death']['precision'])} | "
             f"{_share(result['precision']['mortality']['precision'])} | "
-            f"{likely['detected']} of {likely['deaths']} | "
-            f"{_share(likely['rate_at_mark'])} |"
+            f"{potential['detected']} of {potential['deaths']} | "
+            f"{_share(potential['rate_at_mark'])} |"
         )
 
     geofence = first.get("geofence")

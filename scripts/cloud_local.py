@@ -10,7 +10,7 @@ Two modes, each needing no AWS account:
   containers (``infra/local/compose.yaml``), called through the runtime
   interface emulator. This is the packaged code on the real Lambda
   runtime. ``make cloud-local`` runs every jackal and one vulture with
-  ``likely_death`` incidents (jackals raise none), so the email path runs
+  ``potential_death`` incidents (jackals raise none), so the email path runs
   in the containers too.
 
 For each study and scenario the publisher sends the run's slices,
@@ -19,7 +19,7 @@ them to the processor and the stream to the notifier, and the stored
 incidents are compared with ``replay()`` (and with ``incidents.jsonl``
 when ``make replay`` has written it). Notification is on, and the
 notifications that reach the stand-in inbox are checked: one per
-``likely_death`` incident.
+``potential_death`` incident.
 
 Writes ``results/cloud/local-<mode>.json``; the script stops with an error
 on any difference. Wall-clock latencies are printed, not written: locally
@@ -218,7 +218,7 @@ def run_one(mode, study, deployments, fixes, fence, scenario) -> dict:
     expected = replay(deployments, fixes, scenario, DEFAULT_SEED, fence=fence)
     comparison = local.compare(items, expected.incidents)
     file_matches = _matches_file(study, scenario, deployments, items)
-    likely = sum(i.detector == "likely_death" for i in expected.incidents)
+    potential = sum(i.detector == "potential_death" for i in expected.incidents)
     notified = Counter(_incident_line(body) for body in notifications)
     result = {
         "study": study.slug,
@@ -235,7 +235,7 @@ def run_one(mode, study, deployments, fixes, fence, scenario) -> dict:
             comparison[key] for key in ("missing", "extra", "different")
         ),
         "matches_incidents_jsonl": file_matches,
-        "likely_death_incidents": likely,
+        "potential_death_incidents": potential,
         "notifications": len(notifications),
         "notified_incidents": len(notified),
     }
@@ -250,7 +250,7 @@ def run_one(mode, study, deployments, fixes, fence, scenario) -> dict:
     # The queue drops a resend with the same ID; one with a new ID reaches
     # the processor, which must skip it without changing anything.
     assert counts["received"] == counts["published"] + counts["resent_new_id"]
-    assert len(notified) == likely and len(notifications) == likely, notified
+    assert len(notified) == potential and len(notifications) == potential, notified
     return result
 
 

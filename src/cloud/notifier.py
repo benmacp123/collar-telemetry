@@ -1,4 +1,4 @@
-"""Notifier Lambda: email ``likely_death`` incidents from the incidents
+"""Notifier Lambda: email ``potential_death`` incidents from the incidents
 table's stream.
 
 Notifying from the stream (an outbox), not from the processor, means an
@@ -27,7 +27,7 @@ from cloud.store import Tables, mark_notified, was_notified
 LOG = logging.getLogger(__name__)
 LOG.setLevel(logging.INFO)
 
-NOTIFIED_DETECTOR = "likely_death"
+NOTIFIED_DETECTOR = "potential_death"
 
 
 def handler(event: dict, context) -> dict:
@@ -71,7 +71,7 @@ def _topic() -> str:
 def notify_records(
     records: list[dict], dynamodb, sns, tables: Tables, topic: str, clock=None
 ) -> dict:
-    """Notify each new ``likely_death`` incident in a batch of stream records.
+    """Notify each new ``potential_death`` incident in a batch of stream records.
 
     Args:
         records: DynamoDB stream records, in stream order.
@@ -126,7 +126,7 @@ def notify_record(record: dict, dynamodb, sns, tables: Tables, topic: str, clock
         return False
     sns.publish(
         TopicArn=topic,
-        Subject=f"Likely death: {image['deployment_id']['S']}"[:100],
+        Subject=f"Potential death: {image['deployment_id']['S']}"[:100],
         Message=_body(image),
         MessageAttributes={
             "detector": {"DataType": "String", "StringValue": NOTIFIED_DETECTOR}

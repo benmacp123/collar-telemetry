@@ -10,34 +10,36 @@ Every threshold is still provisional (`docs/ASSUMPTIONS.md`).
 
 ### Operator load (incidents per animal-month)
 
-| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late | Geofence |
-|---|---|---|---|---|---|---|
-| Ideal | 0.41 | 0.39 | 0.19 | 0.42 | 0% | – |
-| GSM | 0.41 | 0.39 | 0.19 | 0.72 | 41% | – |
-| Satellite, daily | 0.41 | 0.39 | 0.19 | 0.22 | 19% | – |
-| Satellite, 2-day | 0.41 | 0.39 | 0.19 | 0.18 | 33% | – |
+*Gap, late upload* counts gap alerts resolved by a fix taken before the alert: the collar was working but its upload was late. They are load the operator sees, caused by upload latency, not false alarms about the animal; the gap threshold is not tuned on them.
+
+| Scenario | Mortality | False mortality | Movement | Gap | Gap, late upload | Gap resolved late | Geofence |
+|---|---|---|---|---|---|---|---|
+| Ideal | 0.40 | 0.38 | 0.19 | 0.42 | 0.00 | 0% | – |
+| GSM | 0.40 | 0.37 | 0.19 | 0.72 | 0.30 | 41% | – |
+| Satellite, daily | 0.40 | 0.38 | 0.19 | 0.22 | 0.04 | 19% | – |
+| Satellite, 2-day | 0.40 | 0.38 | 0.19 | 0.18 | 0.06 | 33% | – |
 
 ### Deaths
 
-Carcass deaths (final stationary period at least the mortality window) are scored on the mortality detector; the rest on the gap detector, from the last fix.
+Carcass deaths (final stationary period at least the mortality window) are scored on the mortality detector; the rest on the gap detector, from the last fix. *Any alert* scores carcass deaths on the first incident of any kind (mortality, potential death, or a gap opened after the death start), which is what the operator sees first.
 
-| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Other deaths | Gap median delay (h) | Both detectors |
-|---|---|---|---|---|---|---|---|
-| Ideal | 5 | 5 | 80% | 60% | 5 (5 flagged) | 36.0 | 5 |
-| GSM | 5 | 5 | 60% | 60% | 5 (5 flagged) | 37.0 | 5 |
-| Satellite, daily | 5 | 5 | 60% | 40% | 5 (5 flagged) | 60.0 | 5 |
-| Satellite, 2-day | 5 | 5 | 60% | 40% | 5 (5 flagged) | 84.0 | 5 |
+| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Any alert by mark | Other deaths | Gap median delay (h) | Both detectors |
+|---|---|---|---|---|---|---|---|---|
+| Ideal | 5 | 5 | 80% | 60% | 80% | 5 (5 flagged) | 36.0 | 6 |
+| GSM | 5 | 5 | 80% | 60% | 80% | 5 (5 flagged) | 37.0 | 6 |
+| Satellite, daily | 5 | 5 | 80% | 40% | 80% | 5 (5 flagged) | 60.0 | 6 |
+| Satellite, 2-day | 5 | 5 | 80% | 40% | 80% | 5 (5 flagged) | 84.0 | 6 |
 
 ### Priority alerts
 
-`likely_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
+`potential_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
 
-| Scenario | Likely death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
+| Scenario | Potential death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
 |---|---|---|---|---|---|
-| Ideal | 0.06 | 23% | 3% | 5 of 5 | 60% |
-| GSM | 0.06 | 21% | 3% | 5 of 5 | 40% |
-| Satellite, daily | 0.04 | 33% | 3% | 5 of 5 | 0% |
-| Satellite, 2-day | 0.04 | 36% | 3% | 5 of 5 | 0% |
+| Ideal | 0.05 | 29% | 3% | 5 of 5 | 60% |
+| GSM | 0.06 | 25% | 3% | 5 of 5 | 60% |
+| Satellite, daily | 0.04 | 43% | 3% | 5 of 5 | 20% |
+| Satellite, 2-day | 0.04 | 46% | 3% | 5 of 5 | 20% |
 
 ### Possible unrecorded deaths
 
@@ -45,7 +47,7 @@ Unplanned ends that finish stationary; not counted as false alarms. Mortality de
 
 | Deployment | Stationary (h) | Mortality delay (h) |
 |---|---|---|
-| JHP_BLVU_121784 | 52.0 | 48.0 |
+| JHP_BLVU_121784 | 52.0 | 0.0 |
 | VAM_TUVU_614 | 99.8 | 33.7 |
 | VJH_BLVU_280 | 132.6 | 39.2 |
 | VJL_BLVU_121789 | 26.0 | – |
@@ -57,31 +59,33 @@ Unplanned ends that finish stationary; not counted as false alarms. Mortality de
 
 ### Operator load (incidents per animal-month)
 
-| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late | Geofence |
-|---|---|---|---|---|---|---|
-| Ideal | 0.60 | 0.59 | 0.14 | 0.88 | 0% | – |
-| GSM | 0.60 | 0.59 | 0.13 | 1.11 | 21% | – |
-| Satellite, daily | 0.60 | 0.59 | 0.14 | 0.56 | 18% | – |
-| Satellite, 2-day | 0.60 | 0.59 | 0.14 | 0.44 | 29% | – |
+*Gap, late upload* counts gap alerts resolved by a fix taken before the alert: the collar was working but its upload was late. They are load the operator sees, caused by upload latency, not false alarms about the animal; the gap threshold is not tuned on them.
+
+| Scenario | Mortality | False mortality | Movement | Gap | Gap, late upload | Gap resolved late | Geofence |
+|---|---|---|---|---|---|---|---|
+| Ideal | 0.59 | 0.58 | 0.14 | 0.88 | 0.00 | 0% | – |
+| GSM | 0.59 | 0.58 | 0.13 | 1.11 | 0.23 | 21% | – |
+| Satellite, daily | 0.59 | 0.58 | 0.14 | 0.56 | 0.10 | 18% | – |
+| Satellite, 2-day | 0.59 | 0.58 | 0.14 | 0.44 | 0.13 | 29% | – |
 
 ### Deaths
 
-Carcass deaths (final stationary period at least the mortality window) are scored on the mortality detector; the rest on the gap detector, from the last fix.
+Carcass deaths (final stationary period at least the mortality window) are scored on the mortality detector; the rest on the gap detector, from the last fix. *Any alert* scores carcass deaths on the first incident of any kind (mortality, potential death, or a gap opened after the death start), which is what the operator sees first.
 
-| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Other deaths | Gap median delay (h) | Both detectors |
-|---|---|---|---|---|---|---|---|
-| Ideal | 6 | 4 | 67% | 67% | 11 (11 flagged) | 36.0 | 5 |
-| GSM | 6 | 4 | 67% | 67% | 11 (11 flagged) | 37.0 | 5 |
-| Satellite, daily | 6 | 4 | 67% | 67% | 11 (11 flagged) | 60.0 | 5 |
-| Satellite, 2-day | 6 | 4 | 67% | 67% | 11 (11 flagged) | 84.0 | 5 |
+| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Any alert by mark | Other deaths | Gap median delay (h) | Both detectors |
+|---|---|---|---|---|---|---|---|---|
+| Ideal | 6 | 4 | 67% | 67% | 100% | 11 (11 flagged) | 36.0 | 5 |
+| GSM | 6 | 4 | 67% | 67% | 100% | 11 (11 flagged) | 37.0 | 5 |
+| Satellite, daily | 6 | 4 | 67% | 67% | 100% | 11 (11 flagged) | 60.0 | 5 |
+| Satellite, 2-day | 6 | 4 | 67% | 67% | 83% | 11 (11 flagged) | 84.0 | 5 |
 
 ### Priority alerts
 
-`likely_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
+`potential_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
 
-| Scenario | Likely death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
+| Scenario | Potential death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
 |---|---|---|---|---|---|
-| Ideal | 0.09 | 8% | 1% | 4 of 6 | 33% |
+| Ideal | 0.09 | 9% | 1% | 4 of 6 | 33% |
 | GSM | 0.09 | 8% | 1% | 4 of 6 | 33% |
 | Satellite, daily | 0.05 | 14% | 1% | 4 of 6 | 0% |
 | Satellite, 2-day | 0.04 | 17% | 1% | 4 of 6 | 0% |
@@ -101,29 +105,31 @@ Unplanned ends that finish stationary; not counted as false alarms. Mortality de
 
 ### Operator load (incidents per animal-month)
 
-| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late | Geofence |
-|---|---|---|---|---|---|---|
-| Ideal | 0.07 | 0.07 | 0.03 | 0.18 | 0% | – |
-| GSM | 0.07 | 0.07 | 0.03 | 0.52 | 65% | – |
-| Satellite, daily | 0.07 | 0.07 | 0.03 | 0.18 | 0% | – |
-| Satellite, 2-day | 0.07 | 0.07 | 0.03 | 0.18 | 6% | – |
+*Gap, late upload* counts gap alerts resolved by a fix taken before the alert: the collar was working but its upload was late. They are load the operator sees, caused by upload latency, not false alarms about the animal; the gap threshold is not tuned on them.
+
+| Scenario | Mortality | False mortality | Movement | Gap | Gap, late upload | Gap resolved late | Geofence |
+|---|---|---|---|---|---|---|---|
+| Ideal | 0.07 | 0.07 | 0.03 | 0.18 | 0.00 | 0% | – |
+| GSM | 0.07 | 0.07 | 0.03 | 0.52 | 0.34 | 65% | – |
+| Satellite, daily | 0.07 | 0.07 | 0.03 | 0.18 | 0.00 | 0% | – |
+| Satellite, 2-day | 0.07 | 0.07 | 0.03 | 0.18 | 0.01 | 6% | – |
 
 ### Deaths
 
-Carcass deaths (final stationary period at least the mortality window) are scored on the mortality detector; the rest on the gap detector, from the last fix.
+Carcass deaths (final stationary period at least the mortality window) are scored on the mortality detector; the rest on the gap detector, from the last fix. *Any alert* scores carcass deaths on the first incident of any kind (mortality, potential death, or a gap opened after the death start), which is what the operator sees first.
 
-| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Other deaths | Gap median delay (h) | Both detectors |
-|---|---|---|---|---|---|---|---|
-| Ideal | 0 | 0 | – | – | 3 (3 flagged) | 37.0 | 0 |
-| GSM | 0 | 0 | – | – | 3 (3 flagged) | 38.0 | 0 |
-| Satellite, daily | 0 | 0 | – | – | 3 (3 flagged) | 61.0 | 0 |
-| Satellite, 2-day | 0 | 0 | – | – | 3 (3 flagged) | 85.0 | 0 |
+| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Any alert by mark | Other deaths | Gap median delay (h) | Both detectors |
+|---|---|---|---|---|---|---|---|---|
+| Ideal | 0 | 0 | – | – | – | 3 (3 flagged) | 37.0 | 0 |
+| GSM | 0 | 0 | – | – | – | 3 (3 flagged) | 38.0 | 0 |
+| Satellite, daily | 0 | 0 | – | – | – | 3 (3 flagged) | 61.0 | 0 |
+| Satellite, 2-day | 0 | 0 | – | – | – | 3 (3 flagged) | 85.0 | 0 |
 
 ### Priority alerts
 
-`likely_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
+`potential_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
 
-| Scenario | Likely death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
+| Scenario | Potential death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
 |---|---|---|---|---|---|
 | Ideal | – | – | 0% | 0 of 0 | – |
 | GSM | – | – | 0% | 0 of 0 | – |
@@ -147,29 +153,31 @@ Exit fence on Etosha National Park (OpenStreetMap boundary, 100 m edge band, 2 f
 
 ### Operator load (incidents per animal-month)
 
-| Scenario | Mortality | False mortality | Movement | Gap | Gap resolved late | Geofence |
-|---|---|---|---|---|---|---|
-| Ideal | – | 0.00 | 0.03 | 0.50 | 0% | 0.69 |
-| GSM | – | 0.00 | 0.04 | 0.74 | 35% | 0.69 |
-| Satellite, daily | – | 0.00 | 0.03 | 0.35 | 16% | 0.69 |
-| Satellite, 2-day | – | 0.00 | 0.03 | 0.29 | 41% | 0.69 |
+*Gap, late upload* counts gap alerts resolved by a fix taken before the alert: the collar was working but its upload was late. They are load the operator sees, caused by upload latency, not false alarms about the animal; the gap threshold is not tuned on them.
+
+| Scenario | Mortality | False mortality | Movement | Gap | Gap, late upload | Gap resolved late | Geofence |
+|---|---|---|---|---|---|---|---|
+| Ideal | – | 0.00 | 0.03 | 0.50 | 0.00 | 0% | 0.69 |
+| GSM | – | 0.00 | 0.04 | 0.74 | 0.26 | 35% | 0.69 |
+| Satellite, daily | – | 0.00 | 0.03 | 0.35 | 0.06 | 16% | 0.69 |
+| Satellite, 2-day | – | 0.00 | 0.03 | 0.29 | 0.12 | 41% | 0.69 |
 
 ### Deaths
 
-Carcass deaths (final stationary period at least the mortality window) are scored on the mortality detector; the rest on the gap detector, from the last fix.
+Carcass deaths (final stationary period at least the mortality window) are scored on the mortality detector; the rest on the gap detector, from the last fix. *Any alert* scores carcass deaths on the first incident of any kind (mortality, potential death, or a gap opened after the death start), which is what the operator sees first.
 
-| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Other deaths | Gap median delay (h) | Both detectors |
-|---|---|---|---|---|---|---|---|
-| Ideal | 0 | 0 | – | – | 0 (0 flagged) | – | 0 |
-| GSM | 0 | 0 | – | – | 0 (0 flagged) | – | 0 |
-| Satellite, daily | 0 | 0 | – | – | 0 (0 flagged) | – | 0 |
-| Satellite, 2-day | 0 | 0 | – | – | 0 (0 flagged) | – | 0 |
+| Scenario | Carcass deaths | Detected | By mark | By mark (200 m) | Any alert by mark | Other deaths | Gap median delay (h) | Both detectors |
+|---|---|---|---|---|---|---|---|---|
+| Ideal | 0 | 0 | – | – | – | 0 (0 flagged) | – | 0 |
+| GSM | 0 | 0 | – | – | – | 0 (0 flagged) | – | 0 |
+| Satellite, daily | 0 | 0 | – | – | – | 0 (0 flagged) | – | 0 |
+| Satellite, 2-day | 0 | 0 | – | – | – | 0 (0 flagged) | – | 0 |
 
 ### Priority alerts
 
-`likely_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
+`potential_death` is raised while a mortality and a gap incident are both open. Precision is the share of incidents on real deaths (ambiguous tracks left out).
 
-| Scenario | Likely death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
+| Scenario | Potential death per animal-month | Precision | Mortality precision | Carcass deaths flagged | By mark |
 |---|---|---|---|---|---|
 | Ideal | – | – | – | 0 of 0 | – |
 | GSM | – | – | – | 0 of 0 | – |
@@ -189,24 +197,24 @@ Exit fence on Kruger National Park (OpenStreetMap boundary, 100 m edge band, 2 f
 
 ## Black-backed jackal, Etosha, synthetic deaths
 
-44 synthetic deaths (seed 2026), not observed ones: each real deployment dies once as a reporting and once as a sparse carcass, at the same time (`telemetry.sim.synthetic`; injected deaths in `results/replay/<variant>/deaths.json`). Only deaths are scored here; load and false alarms are in the real study's section. 44 of 44 are long enough to count as carcass deaths. Reference mark 92.5 h (own carcass minimum + vulture mark - vulture carcass minimum).
+44 synthetic deaths (seed 2026), not observed ones: each real deployment dies once as a reporting and once as a sparse carcass, at the same time (`telemetry.sim.synthetic`; injected deaths in `results/replay/<variant>/deaths.json`). Only deaths are scored here; load and false alarms are in the real study's section. 41 of 44 are long enough to count as carcass deaths. Reference mark 92.5 h (own carcass minimum + vulture mark - vulture carcass minimum).
 
 Delays run from the computed death start, as for real deaths, and in brackets from the injected death time.
 
-| Scenario | Carcass | Deaths | Mortality detected | Early | By mark | Median delay (h) | Likely death detected | By mark |
-|---|---|---|---|---|---|---|---|---|
-| Ideal | Pooled | 44 | 44 | 2 | 100% (100%) | 26.0 (25.0) | 43 | 4% (4%) |
-| Ideal | Reporting | 22 | 22 | 2 | 100% (100%) | 24.7 (24.0) | 21 | 0% (0%) |
-| Ideal | Sparse | 22 | 22 | 0 | 100% (100%) | 31.0 (30.5) | 22 | 9% (9%) |
-| GSM | Pooled | 44 | 44 | 2 | 100% (100%) | 31.0 (29.0) | 43 | 7% (7%) |
-| GSM | Reporting | 22 | 22 | 2 | 100% (100%) | 28.5 (28.0) | 21 | 0% (0%) |
-| GSM | Sparse | 22 | 22 | 0 | 100% (100%) | 35.0 (34.5) | 22 | 14% (14%) |
-| Satellite, daily | Pooled | 44 | 44 | 2 | 100% (100%) | 40.1 (41.4) | 43 | 0% (0%) |
-| Satellite, daily | Reporting | 22 | 22 | 2 | 100% (100%) | 34.7 (33.7) | 21 | 0% (0%) |
-| Satellite, daily | Sparse | 22 | 22 | 0 | 100% (100%) | 46.3 (44.0) | 22 | 0% (0%) |
-| Satellite, 2-day | Pooled | 44 | 44 | 2 | 98% (98%) | 48.0 (46.0) | 43 | 0% (0%) |
-| Satellite, 2-day | Reporting | 22 | 22 | 2 | 100% (100%) | 43.6 (42.6) | 21 | 0% (0%) |
-| Satellite, 2-day | Sparse | 22 | 22 | 0 | 96% (96%) | 54.8 (52.8) | 22 | 0% (0%) |
+| Scenario | Carcass | Deaths | Mortality detected | Early | By mark | Median delay (h) | Potential death detected | By mark | Any alert by mark |
+|---|---|---|---|---|---|---|---|---|---|
+| Ideal | Pooled | 44 | 40 | 2 | 91% (91%) | 25.0 (25.0) | 40 | 2% (2%) | 100% (100%) |
+| Ideal | Reporting | 22 | 22 | 2 | 100% (100%) | 24.7 (24.0) | 22 | 0% (0%) | 100% (100%) |
+| Ideal | Sparse | 22 | 18 | 0 | 82% (82%) | 29.5 (27.5) | 18 | 4% (4%) | 100% (100%) |
+| GSM | Pooled | 44 | 40 | 2 | 91% (91%) | 30.0 (29.0) | 40 | 7% (4%) | 100% (100%) |
+| GSM | Reporting | 22 | 22 | 2 | 100% (100%) | 28.5 (28.0) | 22 | 4% (0%) | 100% (100%) |
+| GSM | Sparse | 22 | 18 | 0 | 82% (82%) | 33.4 (31.4) | 18 | 9% (9%) | 100% (100%) |
+| Satellite, daily | Pooled | 44 | 40 | 2 | 91% (91%) | 39.4 (40.5) | 40 | 2% (2%) | 100% (100%) |
+| Satellite, daily | Reporting | 22 | 22 | 2 | 100% (100%) | 34.7 (33.7) | 22 | 0% (0%) | 100% (100%) |
+| Satellite, daily | Sparse | 22 | 18 | 0 | 82% (82%) | 46.4 (43.9) | 18 | 4% (4%) | 100% (100%) |
+| Satellite, 2-day | Pooled | 44 | 40 | 2 | 91% (91%) | 48.3 (47.2) | 40 | 0% (0%) | 91% (91%) |
+| Satellite, 2-day | Reporting | 22 | 22 | 2 | 100% (100%) | 43.6 (42.6) | 22 | 0% (0%) | 100% (100%) |
+| Satellite, 2-day | Sparse | 22 | 18 | 0 | 82% (82%) | 54.8 (52.8) | 18 | 0% (0%) | 82% (82%) |
 
 Against the injected death time, the computed death start is exact for 11, earlier for 30 (the animal was already still) and later for 3; range -5.7 to 418.0 h. A later start comes from one carcass fix scattered beyond the 100 m radius, which moves it to after that fix; an incident open since the death then counts as early, with no delay.
 
@@ -216,19 +224,19 @@ Against the injected death time, the computed death start is exact for 11, earli
 
 Delays run from the computed death start, as for real deaths, and in brackets from the injected death time.
 
-| Scenario | Carcass | Deaths | Mortality detected | Early | By mark | Median delay (h) | Likely death detected | By mark |
-|---|---|---|---|---|---|---|---|---|
-| Ideal | Pooled | 28 | 28 | 2 | 100% (100%) | 13.2 (13.2) | 28 | 0% (0%) |
-| Ideal | Reporting | 14 | 14 | 2 | 100% (100%) | 12.0 (12.2) | 14 | 0% (0%) |
-| Ideal | Sparse | 14 | 14 | 0 | 100% (100%) | 16.5 (16.5) | 14 | 0% (0%) |
-| GSM | Pooled | 28 | 28 | 2 | 100% (100%) | 16.2 (16.2) | 28 | 0% (0%) |
-| GSM | Reporting | 14 | 14 | 2 | 100% (100%) | 15.4 (15.5) | 14 | 0% (0%) |
-| GSM | Sparse | 14 | 14 | 0 | 100% (100%) | 20.0 (20.0) | 14 | 0% (0%) |
-| Satellite, daily | Pooled | 28 | 28 | 2 | 100% (100%) | 22.5 (24.5) | 28 | 0% (0%) |
-| Satellite, daily | Reporting | 14 | 14 | 2 | 100% (100%) | 16.6 (22.0) | 14 | 0% (0%) |
-| Satellite, daily | Sparse | 14 | 14 | 0 | 100% (100%) | 27.8 (27.3) | 14 | 0% (0%) |
-| Satellite, 2-day | Pooled | 28 | 28 | 2 | 100% (100%) | 43.2 (43.6) | 28 | 0% (0%) |
-| Satellite, 2-day | Reporting | 14 | 14 | 2 | 100% (100%) | 40.4 (41.3) | 14 | 0% (0%) |
-| Satellite, 2-day | Sparse | 14 | 14 | 0 | 100% (100%) | 48.5 (48.0) | 14 | 0% (0%) |
+| Scenario | Carcass | Deaths | Mortality detected | Early | By mark | Median delay (h) | Potential death detected | By mark | Any alert by mark |
+|---|---|---|---|---|---|---|---|---|---|
+| Ideal | Pooled | 28 | 27 | 2 | 96% (96%) | 12.5 (12.5) | 27 | 18% (18%) | 100% (100%) |
+| Ideal | Reporting | 14 | 14 | 2 | 100% (100%) | 12.0 (12.2) | 14 | 0% (0%) | 100% (100%) |
+| Ideal | Sparse | 14 | 13 | 0 | 93% (93%) | 18.5 (18.0) | 13 | 36% (36%) | 100% (100%) |
+| GSM | Pooled | 28 | 27 | 2 | 96% (96%) | 16.0 (16.0) | 27 | 18% (18%) | 100% (100%) |
+| GSM | Reporting | 14 | 14 | 2 | 100% (100%) | 15.4 (15.5) | 14 | 0% (0%) | 100% (100%) |
+| GSM | Sparse | 14 | 13 | 0 | 93% (93%) | 22.0 (21.5) | 13 | 36% (36%) | 100% (100%) |
+| Satellite, daily | Pooled | 28 | 27 | 2 | 96% (96%) | 25.6 (25.6) | 27 | 0% (0%) | 96% (96%) |
+| Satellite, daily | Reporting | 14 | 14 | 2 | 100% (100%) | 16.6 (22.0) | 14 | 0% (0%) | 100% (100%) |
+| Satellite, daily | Sparse | 14 | 13 | 0 | 93% (93%) | 33.8 (33.8) | 13 | 0% (0%) | 93% (93%) |
+| Satellite, 2-day | Pooled | 28 | 27 | 2 | 96% (96%) | 43.6 (43.6) | 27 | 0% (0%) | 96% (96%) |
+| Satellite, 2-day | Reporting | 14 | 14 | 2 | 100% (100%) | 40.4 (41.3) | 14 | 0% (0%) | 100% (100%) |
+| Satellite, 2-day | Sparse | 14 | 13 | 0 | 93% (93%) | 51.6 (51.6) | 13 | 0% (0%) | 93% (93%) |
 
 Against the injected death time, the computed death start is exact for 17, earlier for 9 (the animal was already still) and later for 2; range -2.0 to 635.5 h. A later start comes from one carcass fix scattered beyond the 100 m radius, which moves it to after that fix; an incident open since the death then counts as early, with no delay.

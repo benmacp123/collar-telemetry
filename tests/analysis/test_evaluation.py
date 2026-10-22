@@ -25,6 +25,7 @@ from telemetry.analysis.evaluation import (
     evaluate,
     false_mortality,
     final_still_start,
+    first_alert,
     gap_detection,
     label_for,
     mortality_detection,
@@ -212,6 +213,30 @@ def test_gap_delay_uses_incident_open_at_end():
     assert gap_detection(last, [earlier]) is None
 
 
+def test_first_alert_takes_earliest_of_mortality_and_gap():
+    """A gap that opens after the death start can be the first alert."""
+    death = START + 10 * HOUR
+    mortality = [incident("mortality", death + 40 * HOUR)]
+    gap = [incident("gap", death + 30 * HOUR, resolved=death + 35 * HOUR)]
+    assert first_alert(death, mortality, gap) == 30.0
+    assert first_alert(death, mortality, []) == 40.0
+    assert first_alert(death, [], gap) == 30.0
+
+
+def test_first_alert_gap_delay_uses_processing_clock():
+    """A gap's delay runs to raised_at, not to its evidence time."""
+    death = START + 10 * HOUR
+    gap = [incident("gap", death + 30 * HOUR, raised=death + 48 * HOUR)]
+    assert first_alert(death, [], gap) == 48.0
+
+
+def test_first_alert_ignores_gap_opened_before_death_start():
+    """A silence that began while the animal was alive does not count."""
+    death = START + 10 * HOUR
+    gap = [incident("gap", START + 5 * HOUR, resolved=death + 5 * HOUR)]
+    assert first_alert(death, [], gap) is None
+
+
 def test_false_mortality_alive_counts_every_incident():
     """Every mortality incident on a live animal is a false alarm."""
     incidents = [incident("mortality", START), incident("mortality", START + DAY)]
@@ -264,6 +289,7 @@ def test_evaluate_scores_load_deaths_and_ambiguous_tracks():
         "incidents": 2,
         "late_fix": 1,
         "per_animal_month": round(2 / (2 * 60 / 730.5), 3),
+        "late_fix_per_animal_month": round(1 / (2 * 60 / 730.5), 3),
     }
     assert result["false_mortality"]["incidents"] == 0
     assert result["mortality"]["detected"] == 1
@@ -271,6 +297,13 @@ def test_evaluate_scores_load_deaths_and_ambiguous_tracks():
     assert result["deaths"][0]["mortality_delay_hours"] == 24.0
     assert result["deaths"][0]["gap_delay_hours"] == 6.0
     assert result["both_detectors"] == 1
+    assert result["deaths"][0]["first_alert_delay_hours"] == 24.0
+    assert result["first_alert"] == {
+        "deaths": 1,
+        "detected": 1,
+        "rate_at_mark": 1.0,
+        "median_delay_hours": 24.0,
+    }
     assert result["ambiguous"] == [
         {"deployment_id": "B", "still_hours": 50.0, "mortality_delay_hours": 24.0}
     ]
@@ -314,18 +347,18 @@ def test_precision_leaves_ambiguous_out():
         **{**truth().__dict__, "deployment_id": "B", "label": ALIVE}
     )
     own = {
-        ("A", "likely_death"): [incident("likely_death", START + 30 * HOUR)],
-        ("B", "likely_death"): [
-            Incident("B:x", "B", "likely_death", OPEN, START, "", raised_at=START)
+        ("A", "potential_death"): [incident("potential_death", START + 30 * HOUR)],
+        ("B", "potential_death"): [
+            Incident("B:x", "B", "potential_death", OPEN, START, "", raised_at=START)
         ],
     }
-    assert precision([dead, alive], own, "likely_death") == {
+    assert precision([dead, alive], own, "potential_death") == {
         "true": 1,
         "false": 1,
         "ambiguous": 0,
         "precision": 0.5,
     }
-    assert precision([dead], {}, "likely_death")["precision"] is None
+    assert precision([dead], {}, "potential_death")["precision"] is None
 
 
 def test_score_synthetic_reports_regimes_and_injected_delays():
@@ -335,8 +368,8 @@ def test_score_synthetic_reports_regimes_and_injected_delays():
     dead = [deployment("A", "dead"), deployment("B", "dead")]
     truths = build_truth("jackals-synthetic", dead, fixes, {})
     injected = [
-        InjectedDeath("A", "a", "reporting", death, 0.0, 0.0, 50),
-        InjectedDeath("B", "b", "sparse", death, 0.0, 0.0, 50),
+        InjectedDeath("A", "a", "reporting", death, 0.0, 0.0, 50, DAY),
+        InjectedDeath("B", "b", "sparse", death, 0.0, 0.0, 50, DAY),
     ]
     raised = START + 20 * HOUR
     incidents = [
@@ -361,7 +394,7 @@ def test_score_synthetic_reports_regimes_and_injected_delays():
     assert summary["reporting"]["deaths"] == summary["sparse"]["deaths"] == 1
     assert summary["pooled"]["mortality"]["detected_injected"] == 2
     assert summary["pooled"]["mortality"]["median_delay_hours_injected"] == 10.0
-    assert summary["pooled"]["likely_death"]["detected"] == 0
+    assert summary["pooled"]["potential_death"]["detected"] == 0
     assert summary["pooled"]["death_start_offset_hours"]["exact"] == 2
 
 
@@ -369,7 +402,7 @@ def test_score_synthetic_offset_is_positive_when_computed_start_is_later():
     """A computed death start after the injected time shows as a later offset."""
     fixes = walk_then_still(30, 40)
     truths = build_truth("jackals-synthetic", [deployment("A", "dead")], fixes, {})
-    injected = [InjectedDeath("A", "a", "reporting", START, 0.0, 0.0, 40)]
+    injected = [InjectedDeath("A", "a", "reporting", START, 0.0, 0.0, 40, DAY)]
     result = score_synthetic(truths, [], 90.0, injected)
     offset_hours = result["synthetic"]["reporting"]["death_start_offset_hours"]
     assert offset_hours["later"] == 1

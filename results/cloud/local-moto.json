@@ -8,14 +8,14 @@
     "resent_new_dedup_id": 410,
     "received_by_processor": 37405,
     "processor_failures": 0,
-    "stream_records": 3535,
-    "replay_incidents": 1380,
-    "stored_incidents": 1380,
+    "stream_records": 3503,
+    "replay_incidents": 1363,
+    "stored_incidents": 1363,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 56,
-    "notifications": 56,
-    "notified_incidents": 56
+    "potential_death_incidents": 55,
+    "notifications": 55,
+    "notified_incidents": 55
   },
   {
     "study": "vultures",
@@ -26,14 +26,14 @@
     "resent_new_dedup_id": 410,
     "received_by_processor": 37416,
     "processor_failures": 0,
-    "stream_records": 5318,
-    "replay_incidents": 2051,
-    "stored_incidents": 2051,
+    "stream_records": 5284,
+    "replay_incidents": 2032,
+    "stored_incidents": 2032,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 95,
-    "notifications": 95,
-    "notified_incidents": 95
+    "potential_death_incidents": 94,
+    "notifications": 94,
+    "notified_incidents": 94
   },
   {
     "study": "jackals",
@@ -49,7 +49,7 @@
     "stored_incidents": 50,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 0,
+    "potential_death_incidents": 0,
     "notifications": 0,
     "notified_incidents": 0
   },
@@ -67,7 +67,7 @@
     "stored_incidents": 113,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 0,
+    "potential_death_incidents": 0,
     "notifications": 0,
     "notified_incidents": 0
   },
@@ -85,7 +85,7 @@
     "stored_incidents": 313,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 0,
+    "potential_death_incidents": 0,
     "notifications": 0,
     "notified_incidents": 0
   },
@@ -103,7 +103,7 @@
     "stored_incidents": 430,
     "matches_replay": true,
     "matches_incidents_jsonl": true,
-    "likely_death_incidents": 0,
+    "potential_death_incidents": 0,
     "notifications": 0,
     "notified_incidents": 0
   }

@@ -13,7 +13,7 @@ incidents with ``replay()`` (and ``incidents.jsonl`` when written). With
 deduplication ID, which the queue should drop, and once with a new one,
 which the processor should skip. ``--expect-notify`` (the deliberate email
 test, with ``notify_enabled`` applied) waits for the notifier to mark every
-``likely_death`` incident.
+``potential_death`` incident.
 
 Writes ``results/cloud/aws-<label>.json``, with wall-clock latencies:
 sent-to-stored includes time queued behind the rest of the run, since
@@ -147,11 +147,13 @@ def check_run(aws, stack, study, deployments, fixes, fence, scenario, args) -> d
     """
     run = publisher.run_id(study, scenario)
     expected = replay(deployments, fixes, scenario, DEFAULT_SEED, fence=fence)
-    likely = {i.incident_id for i in expected.incidents if i.detector == "likely_death"}
+    potential = {
+        i.incident_id for i in expected.incidents if i.detector == "potential_death"
+    }
     unnotified = set()
     if args.expect_notify:
         unnotified = deployed.wait_for_notified(
-            aws["dynamodb"], stack.tables, run, likely
+            aws["dynamodb"], stack.tables, run, potential
         )
     ids = {d.deployment_id for d in deployments}
     items = [
@@ -172,7 +174,7 @@ def check_run(aws, stack, study, deployments, fixes, fence, scenario, args) -> d
             key: comparison[key][:20] for key in ("missing", "extra", "different")
         },
         "matches_incidents_jsonl": _matches_file(study, scenario, ids, items),
-        "likely_death_incidents": len(likely),
+        "potential_death_incidents": len(potential),
         "notified_incidents": sum("notified_at" in item for item in items),
         "not_notified": sorted(unnotified),
         "latency_s": local.latencies(items),

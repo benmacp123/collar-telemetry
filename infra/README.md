@@ -12,7 +12,7 @@ incidents matched the replay runner's exactly (`results/cloud/aws-*.json`).
 publisher -> SQS FIFO -> processor Lambda -> DynamoDB (state, incidents)
              (group =                         |
               collar)                         stream -> notifier Lambda -> SNS email
-                                                                           (likely_death only)
+                                                                           (potential_death only)
 ```
 
 - **Messages** (`src/cloud/messages.py`): one collar's slice of simulated
@@ -47,7 +47,7 @@ make cloud-moto    # every study, in-process moto, no Docker
 ```
 
 Both stop with an error unless every stored incident equals the replay
-runner's and each `likely_death` incident sent exactly one notification.
+runner's and each `potential_death` incident sent exactly one notification.
 
 ## Deploy package
 
@@ -74,10 +74,10 @@ emulation only.
   retention, so `destroy` removes them) and the two triggers, both with
   `ReportBatchItemFailures`. The queue trigger is capped at
   `processor_concurrency` instances. The stream trigger passes only
-  `likely_death` items.
+  `potential_death` items.
 - `iam.tf`: one role per handler, allowed only the calls its code makes.
 - `alerts.tf`: the SNS topic, an email subscription filtered to
-  `likely_death`, and an account-wide AWS Budgets alarm (default $5).
+  `potential_death`, and an account-wide AWS Budgets alarm (default $5).
 
 State is local and git-ignored, as are `terraform.tfvars` and plan files.
 Copy `terraform.tfvars.example` to `terraform.tfvars` and set

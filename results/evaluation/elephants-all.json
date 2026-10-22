@@ -16,17 +16,20 @@
         "gap": {
           "incidents": 145,
           "late_fix": 0,
-          "per_animal_month": 0.497
+          "per_animal_month": 0.497,
+          "late_fix_per_animal_month": 0.0
         },
         "geofence": {
           "incidents": 202,
           "late_fix": 0,
-          "per_animal_month": 0.692
+          "per_animal_month": 0.692,
+          "late_fix_per_animal_month": 0.0
         },
         "movement": {
           "incidents": 10,
           "late_fix": 0,
-          "per_animal_month": 0.034
+          "per_animal_month": 0.034,
+          "late_fix_per_animal_month": 0.0
         }
       },
       "false_mortality": {
@@ -48,17 +51,23 @@
           "ambiguous": 0,
           "precision": null
         },
-        "likely_death": {
+        "potential_death": {
           "true": 0,
           "false": 0,
           "ambiguous": 0,
           "precision": null
         }
       },
-      "likely_death": {
+      "potential_death": {
         "deaths": 0,
         "detected": 0,
         "rate_at_mark": null
+      },
+      "first_alert": {
+        "deaths": 0,
+        "detected": 0,
+        "rate_at_mark": null,
+        "median_delay_hours": null
       },
       "gap_on_deaths": {
         "deaths": 0,
@@ -92,17 +101,20 @@
         "gap": {
           "incidents": 101,
           "late_fix": 16,
-          "per_animal_month": 0.346
+          "per_animal_month": 0.346,
+          "late_fix_per_animal_month": 0.055
         },
         "geofence": {
           "incidents": 202,
           "late_fix": 0,
-          "per_animal_month": 0.692
+          "per_animal_month": 0.692,
+          "late_fix_per_animal_month": 0.0
         },
         "movement": {
           "incidents": 10,
           "late_fix": 0,
-          "per_animal_month": 0.034
+          "per_animal_month": 0.034,
+          "late_fix_per_animal_month": 0.0
         }
       },
       "false_mortality": {
@@ -124,17 +136,23 @@
           "ambiguous": 0,
           "precision": null
         },
-        "likely_death": {
+        "potential_death": {
           "true": 0,
           "false": 0,
           "ambiguous": 0,
           "precision": null
         }
       },
-      "likely_death": {
+      "potential_death": {
         "deaths": 0,
         "detected": 0,
         "rate_at_mark": null
+      },
+      "first_alert": {
+        "deaths": 0,
+        "detected": 0,
+        "rate_at_mark": null,
+        "median_delay_hours": null
       },
       "gap_on_deaths": {
         "deaths": 0,
@@ -168,17 +186,20 @@
         "gap": {
           "incidents": 85,
           "late_fix": 35,
-          "per_animal_month": 0.291
+          "per_animal_month": 0.291,
+          "late_fix_per_animal_month": 0.12
         },
         "geofence": {
           "incidents": 202,
           "late_fix": 0,
-          "per_animal_month": 0.692
+          "per_animal_month": 0.692,
+          "late_fix_per_animal_month": 0.0
         },
         "movement": {
           "incidents": 10,
           "late_fix": 0,
-          "per_animal_month": 0.034
+          "per_animal_month": 0.034,
+          "late_fix_per_animal_month": 0.0
         }
       },
       "false_mortality": {
@@ -200,17 +221,23 @@
           "ambiguous": 0,
           "precision": null
         },
-        "likely_death": {
+        "potential_death": {
           "true": 0,
           "false": 0,
           "ambiguous": 0,
           "precision": null
         }
       },
-      "likely_death": {
+      "potential_death": {
         "deaths": 0,
         "detected": 0,
         "rate_at_mark": null
+      },
+      "first_alert": {
+        "deaths": 0,
+        "detected": 0,
+        "rate_at_mark": null,
+        "median_delay_hours": null
       },
       "gap_on_deaths": {
         "deaths": 0,
@@ -244,17 +271,20 @@
         "gap": {
           "incidents": 217,
           "late_fix": 75,
-          "per_animal_month": 0.744
+          "per_animal_month": 0.744,
+          "late_fix_per_animal_month": 0.257
         },
         "geofence": {
           "incidents": 202,
           "late_fix": 0,
-          "per_animal_month": 0.692
+          "per_animal_month": 0.692,
+          "late_fix_per_animal_month": 0.0
         },
         "movement": {
           "incidents": 11,
           "late_fix": 0,
-          "per_animal_month": 0.038
+          "per_animal_month": 0.038,
+          "late_fix_per_animal_month": 0.0
         }
       },
       "false_mortality": {
@@ -276,17 +306,23 @@
           "ambiguous": 0,
           "precision": null
         },
-        "likely_death": {
+        "potential_death": {
           "true": 0,
           "false": 0,
           "ambiguous": 0,
           "precision": null
         }
       },
-      "likely_death": {
+      "potential_death": {
         "deaths": 0,
         "detected": 0,
         "rate_at_mark": null
+      },
+      "first_alert": {
+        "deaths": 0,
+        "detected": 0,
+        "rate_at_mark": null,
+        "median_delay_hours": null
       },
       "gap_on_deaths": {
         "deaths": 0,

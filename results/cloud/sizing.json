@@ -6,7 +6,7 @@
     "slices": 36995,
     "empty_slices": 5353,
     "arrivals": 1311532,
-    "incidents": 1380,
+    "incidents": 1363,
     "matches_replay": true,
     "message_bytes": {
       "median": 1570,
@@ -14,7 +14,7 @@
       "max": 103360
     },
     "state_bytes": {
-      "median": 3831,
+      "median": 3832,
       "p99": 12013,
       "max": 22116
     },
@@ -39,7 +39,7 @@
     "slices": 36991,
     "empty_slices": 8193,
     "arrivals": 1324581,
-    "incidents": 2051,
+    "incidents": 2032,
     "matches_replay": true,
     "message_bytes": {
       "median": 1569,
@@ -47,7 +47,7 @@
       "max": 236479
     },
     "state_bytes": {
-      "median": 4131,
+      "median": 4133,
       "p99": 28548,
       "max": 62210
     },
@@ -114,7 +114,7 @@
       "max": 31150
     },
     "state_bytes": {
-      "median": 3967,
+      "median": 3968,
       "p99": 5475,
       "max": 7031
     },

@@ -1,10 +1,10 @@
 {
   "label": "full",
-  "started_at": "2026-10-22T11:11:27+00:00",
-  "drained_at": "2026-10-22T12:06:16+00:00",
+  "started_at": "2026-10-22T20:13:57+00:00",
+  "drained_at": "2026-10-22T21:38:15+00:00",
   "region": "eu-west-2",
-  "publish_s": 3229,
-  "publish_to_drained_s": 3289,
+  "publish_s": 4998,
+  "publish_to_drained_s": 5058,
   "dead_letters": 0,
   "notify_failures": 0,
   "runs": [
@@ -14,8 +14,8 @@
       "study": "vultures",
       "scenario": "satellite_daily",
       "deployments": 57,
-      "replay_incidents": 1380,
-      "stored_incidents": 1380,
+      "replay_incidents": 1363,
+      "stored_incidents": 1363,
       "matches_replay": true,
       "differences": {
         "missing": [],
@@ -23,17 +23,17 @@
         "different": []
       },
       "matches_incidents_jsonl": true,
-      "likely_death_incidents": 56,
-      "notified_incidents": 1,
+      "potential_death_incidents": 55,
+      "notified_incidents": 3,
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 5.791,
-          "p95": 18.728
+          "median": 5.411,
+          "p95": 19.306
         },
         "stored_to_notified_s": {
-          "median": 2.934,
-          "p95": 2.934
+          "median": 0.262,
+          "p95": 2.645
         }
       }
     },
@@ -43,8 +43,8 @@
       "study": "vultures",
       "scenario": "gsm",
       "deployments": 57,
-      "replay_incidents": 2051,
-      "stored_incidents": 2051,
+      "replay_incidents": 2032,
+      "stored_incidents": 2032,
       "matches_replay": true,
       "differences": {
         "missing": [],
@@ -52,18 +52,15 @@
         "different": []
       },
       "matches_incidents_jsonl": true,
-      "likely_death_incidents": 95,
-      "notified_incidents": 1,
+      "potential_death_incidents": 94,
+      "notified_incidents": 0,
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 6.263,
-          "p95": 20.106
+          "median": 0.821,
+          "p95": 2.938
         },
-        "stored_to_notified_s": {
-          "median": 2.939,
-          "p95": 2.939
-        }
+        "stored_to_notified_s": null
       }
     },
     {
@@ -81,13 +78,13 @@
         "different": []
       },
       "matches_incidents_jsonl": true,
-      "likely_death_incidents": 0,
+      "potential_death_incidents": 0,
       "notified_incidents": 0,
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 1.237,
-          "p95": 3.914
+          "median": 1.704,
+          "p95": 4.894
         },
         "stored_to_notified_s": null
       }
@@ -107,13 +104,13 @@
         "different": []
       },
       "matches_incidents_jsonl": true,
-      "likely_death_incidents": 0,
+      "potential_death_incidents": 0,
       "notified_incidents": 0,
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 1.932,
-          "p95": 4.687
+          "median": 1.609,
+          "p95": 6.155
         },
         "stored_to_notified_s": null
       }
@@ -133,13 +130,13 @@
         "different": []
       },
       "matches_incidents_jsonl": true,
-      "likely_death_incidents": 0,
+      "potential_death_incidents": 0,
       "notified_incidents": 0,
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 1.511,
-          "p95": 3.678
+          "median": 1.161,
+          "p95": 3.445
         },
         "stored_to_notified_s": null
       }
@@ -159,13 +156,13 @@
         "different": []
       },
       "matches_incidents_jsonl": true,
-      "likely_death_incidents": 0,
+      "potential_death_incidents": 0,
       "notified_incidents": 0,
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 2.196,
-          "p95": 6.088
+          "median": 1.692,
+          "p95": 4.64
         },
         "stored_to_notified_s": null
       }

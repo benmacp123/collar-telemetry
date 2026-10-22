@@ -87,7 +87,7 @@ resource "aws_lambda_event_source_mapping" "slices" {
   }
 }
 
-# Only likely_death incidents reach the notifier; the rest of the stream
+# Only potential_death incidents reach the notifier; the rest of the stream
 # (every other detector, and bulk replays) never invokes it. The notifier
 # also skips its own notified_at writes, which match this filter.
 resource "aws_lambda_event_source_mapping" "incidents" {
@@ -101,7 +101,7 @@ resource "aws_lambda_event_source_mapping" "incidents" {
   filter_criteria {
     filter {
       pattern = jsonencode({
-        dynamodb = { NewImage = { detector = { S = ["likely_death"] } } }
+        dynamodb = { NewImage = { detector = { S = ["potential_death"] } } }
       })
     }
   }

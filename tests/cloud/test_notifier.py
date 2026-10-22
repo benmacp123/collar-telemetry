@@ -1,4 +1,4 @@
-"""Tests for the notifier: every ``likely_death`` incident is emailed at
+"""Tests for the notifier: every ``potential_death`` incident is emailed at
 least once, other incidents never, and a crash at any point cannot lose a
 notification."""
 
@@ -21,8 +21,8 @@ def run_all(aws, notify=None) -> list[str]:
     return local.read_notifications(aws["sqs"], aws["resources"])
 
 
-def likely_ids() -> set[str]:
-    """IDs of the ``likely_death`` incidents the track should raise.
+def potential_ids() -> set[str]:
+    """IDs of the ``potential_death`` incidents the track should raise.
 
     Returns:
         set[str]: Incident IDs.
@@ -69,19 +69,19 @@ def real_notifier(aws):
     )
 
 
-def test_track_raises_a_likely_death():
+def test_track_raises_a_potential_death():
     """The fixture track exercises the notified path at all."""
-    assert len(likely_ids()) == 1
+    assert len(potential_ids()) == 1
 
 
-def test_each_likely_death_is_emailed_once(aws):
-    """One email per ``likely_death`` incident; mortality and gap
+def test_each_potential_death_is_emailed_once(aws):
+    """One email per ``potential_death`` incident; mortality and gap
     incidents send none."""
     bodies = run_all(aws)
-    assert sorted(notified_ids(bodies)) == sorted(likely_ids())
+    assert sorted(notified_ids(bodies)) == sorted(potential_ids())
     items = run_incidents(aws["dynamodb"], local.TABLES, RUN)
     marked = {i["incident_id"]["S"] for i in items if "notified_at" in i}
-    assert marked == likely_ids()
+    assert marked == potential_ids()
 
 
 def test_email_carries_the_incident(aws):
@@ -128,7 +128,7 @@ def test_crash_before_publish_still_notifies_on_retry(aws):
 
     bodies = run_all(aws, notify)
     assert calls["n"] == 2
-    assert sorted(notified_ids(bodies)) == sorted(likely_ids())
+    assert sorted(notified_ids(bodies)) == sorted(potential_ids())
 
 
 def test_crash_after_publish_duplicates_rather_than_loses(aws, monkeypatch):
@@ -156,8 +156,8 @@ def test_crash_after_publish_duplicates_rather_than_loses(aws, monkeypatch):
 
     monkeypatch.setattr(notifier, "mark_notified", crash_once)
     bodies = run_all(aws)
-    (likely,) = likely_ids()
-    assert notified_ids(bodies) == [likely, likely]
+    (potential,) = potential_ids()
+    assert notified_ids(bodies) == [potential, potential]
 
 
 def test_marked_incident_is_not_sent_again(aws):
@@ -173,7 +173,7 @@ def test_marked_incident_is_not_sent_again(aws):
 def test_handler_sends_nothing_when_disabled(monkeypatch):
     """Bulk replays run with notification off."""
     monkeypatch.delenv("NOTIFY_ENABLED", raising=False)
-    record = {"dynamodb": {"NewImage": {"detector": {"S": "likely_death"}}}}
+    record = {"dynamodb": {"NewImage": {"detector": {"S": "potential_death"}}}}
     assert notifier.handler({"Records": [record]}, None) == {"batchItemFailures": []}
 
 
@@ -196,9 +196,9 @@ def test_failure_reports_the_failed_record(aws):
             raise ConnectionError(kwargs)
 
     image = {
-        "detector": {"S": "likely_death"},
+        "detector": {"S": "potential_death"},
         "run_id": {"S": RUN},
-        "incident_id": {"S": "A:likely_death:x"},
+        "incident_id": {"S": "A:potential_death:x"},
         "deployment_id": {"S": "A"},
         "incident": {"S": "{}"},
     }

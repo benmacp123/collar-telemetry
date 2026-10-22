@@ -32,21 +32,21 @@
       "late_fix": 0,
       "flaps": 0
     },
-    "likely_death": {
-      "incidents": 88,
-      "open_at_end": 15,
-      "late_fix": 0,
-      "flaps": 0
-    },
     "mortality": {
-      "incidents": 628,
-      "open_at_end": 15,
+      "incidents": 612,
+      "open_at_end": 18,
       "late_fix": 0,
-      "flaps": 51
+      "flaps": 44
     },
     "movement": {
       "incidents": 191,
       "open_at_end": 0,
+      "late_fix": 0,
+      "flaps": 0
+    },
+    "potential_death": {
+      "incidents": 85,
+      "open_at_end": 18,
       "late_fix": 0,
       "flaps": 0
     }

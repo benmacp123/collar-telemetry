@@ -27,11 +27,18 @@ tuning set, 6 carcasses), and ``CarcassConfig``'s defaults must match it:
   percentile 36.5 m, in line with stationary collar tests (median
   6-17 m; Belant 2009; Adams et al. 2013) and with the elephants' stillest
   windows (median 11 m, an upper bound).
-- **Collar life.** The collar reports for ``duration`` after death, or
-  until the real track ends. Provisional: 30 days. The vulture tags are
-  solar powered and most (12 of 17 dead) stop within hours, plausibly
-  with the panel under the body; the mammal collars are assumed to be
-  battery powered and to keep going (not confirmed for these collars).
+- **Collar life.** A reporting carcass's collar reports for
+  ``duration`` after death, or until the real track ends. Provisional:
+  30 days. The vulture tags are solar powered and most (12 of 17 dead)
+  stop within hours, plausibly with the panel under the body; the mammal
+  collars are assumed to be battery powered and to keep going (not
+  confirmed for these collars). A sparse carcass's collar stops after a
+  life drawn from ``sparse_lives``, the observed sparse tails (25, 88 and
+  97 h): the real sparse carcasses that the mortality detector missed
+  also stopped early, and a 30-day sparse tail gives it enough fixes in
+  the end, which real ones never did. The reporting carcasses stopped
+  after 53-337 h too; their life stays at 30 days, since with half their
+  live rate they reach ``min_fixes`` within the window anyway.
 
 No separate dropped-collar case: a collar that falls off lies still like
 a reporting carcass, and one cut off and destroyed goes silent, which is
@@ -90,6 +97,8 @@ class CarcassConfig:
         scatter_p95_m: 95th percentile of that distance.
         duration: How long after death the collar keeps reporting, if the
             real track lasts that long.
+        sparse_lives: Collar lives a sparse carcass draws from, one at
+            random, in place of ``duration``; empty to use ``duration``.
     """
 
     reporting_success: float = 0.538
@@ -98,6 +107,11 @@ class CarcassConfig:
     scatter_median_m: float = 15.9
     scatter_p95_m: float = 36.5
     duration: timedelta = timedelta(days=30)
+    sparse_lives: tuple[timedelta, ...] = (
+        timedelta(hours=25),
+        timedelta(hours=88),
+        timedelta(hours=97),
+    )
 
 
 @dataclass(frozen=True)
@@ -110,6 +124,8 @@ class SyntheticDeath:
         lat: Latitude of the carcass.
         lon: Longitude of the carcass.
         sparse: Whether the carcass is in the sparse regime.
+        life: How long after death the collar was set to keep reporting
+            (the real track may end sooner).
     """
 
     fixes: list[Fix]
@@ -117,6 +133,7 @@ class SyntheticDeath:
     lat: float
     lon: float
     sparse: bool
+    life: timedelta
 
 
 def scatter_distance(config: CarcassConfig, rng: random.Random) -> float:
@@ -216,8 +233,11 @@ def inject_mortality(
     if sparse is None:
         sparse = rng.random() < config.sparse_share
     success = config.sparse_success if sparse else config.reporting_success
+    life = config.duration
+    if sparse and config.sparse_lives:
+        life = rng.choice(config.sparse_lives)
     carcass = before[-1]
-    end = carcass.timestamp + config.duration
+    end = carcass.timestamp + life
     after = []
     for fix in fixes[len(before) :]:
         if fix.timestamp > end:
@@ -232,7 +252,7 @@ def inject_mortality(
         )
         after.append(Fix(fix.deployment_id, fix.timestamp, lat, lon))
     return SyntheticDeath(
-        before + after, carcass.timestamp, carcass.lat, carcass.lon, sparse
+        before + after, carcass.timestamp, carcass.lat, carcass.lon, sparse, life
     )
 
 
@@ -248,6 +268,7 @@ class InjectedDeath:
         lat: Latitude of the carcass.
         lon: Longitude of the carcass.
         carcass_fixes: Synthetic fixes after the death.
+        collar_life: How long after death the collar was set to report.
     """
 
     deployment_id: str
@@ -257,6 +278,7 @@ class InjectedDeath:
     lat: float
     lon: float
     carcass_fixes: int
+    collar_life: timedelta
 
     def to_dict(self) -> dict:
         """The record as JSON-ready values.
@@ -272,6 +294,7 @@ class InjectedDeath:
             "lat": round(self.lat, 6),
             "lon": round(self.lon, 6),
             "carcass_fixes": self.carcass_fixes,
+            "collar_life_hours": self.collar_life / timedelta(hours=1),
         }
 
 
@@ -379,6 +402,7 @@ def synthetic_study(
                     event.lon,
                     len(event.fixes)
                     - sum(1 for f in event.fixes if f.timestamp <= event.death_time),
+                    event.life,
                 )
             )
     return variant
