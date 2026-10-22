@@ -43,19 +43,23 @@ than stoop.
 
 | Setting | Value | Basis | Label |
 |---|---|---|---|
-| Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 5.8 m (open area, [3]) and 16.9 m (open sky, [7]), and about 30 m on average under suburban cover [7]. Dead vultures on the tuning set scatter around their final position with a median of 16 m and a 95th percentile of 59 m. Tuning-set sweep: 150 m and 200 m add false alarms (1.26 and 1.47 against 0.95 per animal-month at 24 h) and flag no extra carcass deaths. | Observed (sweep); splits some deaths into several incidents (see below) |
+| Stationary box (all taxa) | 100 m corner to corner | Stationary GPS collar tests report median errors of 5.8 m (open area, [3]) and 16.9 m (open sky, [7]), and about 30 m on average under suburban cover [7]. Dead vultures on the tuning set scatter around their final position with a median of 15.9 m and a 95th percentile of 36.5 m, leaving out repeated positions (`make carcass`). Tuning-set sweep: 150 m and 200 m add false alarms (1.26 and 1.47 against 0.95 per animal-month at 24 h) and flag no extra carcass deaths. | Observed (sweep); splits some deaths into several incidents (see below) |
 | Window, vultures | 36 h | Must outlast the 12-14 h overnight roost. Tuning-set sweep (`results/sweep/SWEEP.md`): false alarms 0.95 / 0.59 / 0.23 / 0.10 per animal-month at 24 / 36 / 48 / 72 h. Carcass deaths flagged by the 92.5 h mark: 4 of 6 up to 36 h; at 48 h one is flagged after the mark under satellite uploads. | Observed (sweep, 6 carcass deaths) |
 | Window, jackal | 24 h | Jackals lie up through the day and travel a mean of 14.6 km a day [10]. No published lie-up durations for black-backed jackals were found. This study's deaths show at most about 10 h stationary before the track stops (seen while labelling, not used to choose the value). Not checked: whether jackals feeding at large carcasses (the Etosha study's subject) stay within 100 m for a day. | Provisional |
 | Window, elephant | 12 h | Wild elephants sleep about 2 h a day, mostly 02:00-06:00, with no single bout over 142 min [8]. On this Kruger population, continuous stays at water average 2.6 h (wet season) and 3.5 h (dry, s.d. 4.1 h), measured within 200 m of water [12], so a long dry-season stay at water is the most likely false alarm. Collar makers' activity-sensor mortality timers default to 4-24 h [9]; those measure collar motion, not position. | Provisional, literature-informed |
 | Reopen window | 48 h | A reopen cannot come sooner than the detector window after a resolve, so it must exceed the longest window (36 h) with slack. | Provisional |
 
 **Finding: the 100 m box splits one death into several incidents.** On
-synthetic carcasses using the observed scatter, 15% of deaths (hourly
+synthetic carcasses using the earlier scatter (median 16 m, 95th
+percentile 59 m, which did not reproduce; see Synthetic mortality events)
+and one fix rate for every carcass, 15% of deaths (hourly
 fixes) and 42% (30-minute fixes) became more than one incident. Each death
 also produced 1.4-2.0 false "moving again" messages, because two stray
 fixes in a row break the box. A 150 m box cut that to 0-3%, and 200 m to
 0%. A larger box also makes a resting animal look dead sooner, so the box
-size is chosen with that trade-off on the tuning set, not here.
+size is chosen with that trade-off on the tuning set, not here. To be
+redone with the current synthetic model, whose tighter scatter should
+split fewer deaths (follow-up 4).
 
 ## Unusual-movement detector
 
@@ -85,15 +89,20 @@ what drives the alerts.
 
 The jackal and elephant tracks stop at or before death, so the mortality
 detector is scored on synthetic carcasses injected into real tracks. Every
-such event is labelled synthetic in results.
+such event is labelled synthetic in results. Measured values come from
+`make carcass` (`results/carcass/carcass.json`): the 6 carcass deaths in
+the vulture tuning set, and checks on every study's collars. A test holds
+the defaults in `src/telemetry/sim/synthetic.py` to that file.
 
 | Setting | Value | Basis | Label |
 |---|---|---|---|
 | Schedule | The real collar's own timestamps | Keeps duty cycles and fix intervals realistic. | - |
-| Fix success | 0.7 | A collar on a carcass is often tilted or under the body. Tilt cuts fix success sharply: 20-fold from 60° to 30° antenna angle in alder [3], and performance is significantly lower at angles below 90° from vertical [11]. | Provisional |
-| Scatter | Lognormal, median 16 m, 95th percentile 59 m, uniform direction | Dead vultures on the tuning set (5 deployments, 337 fixes); consistent with [3, 7]. | Observed |
-| Collar life after death | 7 days | Dead vultures whose collars keep reporting do so for 53-337 h. Most (12 of 17) stop within hours, which is the gap detector's case. | Provisional, observed range |
-| Death time | Random fix time, at least 7 days after the first fix and 7 days before the last (seeded) | Gives the detectors a baseline and covers the carcass period. | - |
+| Fix success | Two regimes, drawn per carcass: half *reporting* (0.54 of the collar's recorded fixes kept), half *sparse* (0.14) | Dead vultures' rate of new positions on the carcass against their own rate in the 14 days before: 0.43, 0.54 and 0.73 for three, 0.08, 0.14 and 0.15 for the other three, none between (cut at 0.3). The sparse three include both carcass deaths the mortality detector misses. A single rate (0.7 before this review) never produces sparse tails. Tilt and a body over the collar explain the loss: fix success falls 20-fold from 60° to 30° antenna angle in alder [3], and is significantly lower below 90° from vertical [11]. Applied to the real collar's recorded fixes, so it is a ratio to the live rate. | Observed (n = 6) |
+| Repeated positions | Not counted as fixes | About half of the reporting vultures' carcass fixes repeat the previous fix's exact coordinates (72 of 164, 46 of 71), against a median of 10% over whole vulture tracks: the tags resend a position. Counting them would put the reporting ratio at 0.95 and the scatter median at 0 m. The mammal collars rarely do it (elephants 0%, jackals median 4%), so synthetic carcasses have none. | Observed |
+| Scatter | Lognormal, median 15.9 m, 95th percentile 36.5 m, uniform direction | Dead vultures' distances from their carcass's median position, repeated positions left out (156 fixes). Consistent with stationary collar tests (median 5.8 m [3], 16.9 m [7]) and with the elephant collars' stillest 6-fix windows (median 11 m across collars, an upper bound since a resting elephant still shifts). The jackal collars' stillest windows give about 2 m, too tight to take as GPS error, so they are not used. The earlier figures (median 16 m, 95th percentile 59 m, labelled observed) did not reproduce from any committed code. | Observed (vultures), checked on elephants |
+| Collar life after death | 30 days, or until the real track ends | The vulture tags are solar powered (Microwave Telemetry), and most (12 of 17 dead) stop within hours, plausibly with the panel under the body; those whose tags keep going report for 53-337 h. The mammal collars (African Wildlife Tracking) are assumed battery powered and to keep reporting; not confirmed for these collars. Detection comes within a day or two, so the value mainly decides whether the collar falls silent within the replay's watch, which drives the gap and `likely_death` alerts on synthetic deaths. | Provisional |
+| Death time | Random fix time, at least 7 days after the first fix and 7 days before the last, with the real collar recording through those 7 days (no gap over 24 h) (seeded) | Gives the detectors a baseline and a carcass period with fixes in it; without the coverage rule a death just before a long outage (230 days on one elephant collar) would be a silent collar, not a carcass. | - |
+| Dropped collar | No separate case | A collar that falls off lies still like a reporting carcass; one cut off and destroyed goes silent, which the gap detector handles. | - |
 
 ## Replay runner
 

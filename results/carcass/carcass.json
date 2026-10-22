@@ -1,0 +1,106 @@
+{
+  "studies": {
+    "vultures": {
+      "deployments": 57,
+      "repeat_share_median": 0.099,
+      "repeat_share_max": 0.498
+    },
+    "jackals": {
+      "deployments": 22,
+      "repeat_share_median": 0.04,
+      "repeat_share_max": 0.081,
+      "still_window_median_m": {
+        "median": 2.1,
+        "p10": 1.2,
+        "p90": 2.9
+      }
+    },
+    "elephants": {
+      "deployments": 14,
+      "repeat_share_median": 0.0,
+      "repeat_share_max": 0.0,
+      "still_window_median_m": {
+        "median": 11.1,
+        "p10": 9.3,
+        "p90": 14.1
+      }
+    }
+  },
+  "vulture_carcasses": {
+    "carcasses": 6,
+    "sparse_share": 0.5,
+    "reporting_ratio": 0.538,
+    "sparse_ratio": 0.141,
+    "scatter_fixes": 156,
+    "scatter_median_m": 15.9,
+    "scatter_p95_m": 36.5,
+    "tails": [
+      {
+        "deployment_id": "LEP_TUVU_68354",
+        "hours": 337.0,
+        "fixes": 164,
+        "repeats": 72,
+        "live_per_day": 12.04,
+        "tail_per_day": 6.48,
+        "ratio": 0.538,
+        "ratio_with_repeats": 0.905,
+        "sparse": false
+      },
+      {
+        "deployment_id": "LET_TUVU_68355",
+        "hours": 88.0,
+        "fixes": 9,
+        "repeats": 1,
+        "live_per_day": 12.82,
+        "tail_per_day": 1.91,
+        "ratio": 0.149,
+        "ratio_with_repeats": 0.157,
+        "sparse": true
+      },
+      {
+        "deployment_id": "LEV_TUVU_68356",
+        "hours": 53.0,
+        "fixes": 37,
+        "repeats": 14,
+        "live_per_day": 13.65,
+        "tail_per_day": 9.96,
+        "ratio": 0.73,
+        "ratio_with_repeats": 1.1,
+        "sparse": false
+      },
+      {
+        "deployment_id": "LXE_TUVU_68359",
+        "hours": 25.0,
+        "fixes": 3,
+        "repeats": 0,
+        "live_per_day": 13.6,
+        "tail_per_day": 1.92,
+        "ratio": 0.141,
+        "ratio_with_repeats": 0.124,
+        "sparse": true
+      },
+      {
+        "deployment_id": "MEM_BLVU_68361",
+        "hours": 97.0,
+        "fixes": 5,
+        "repeats": 0,
+        "live_per_day": 12.26,
+        "tail_per_day": 0.99,
+        "ratio": 0.081,
+        "ratio_with_repeats": 0.066,
+        "sparse": true
+      },
+      {
+        "deployment_id": "PMH_BLVU_68354",
+        "hours": 130.0,
+        "fixes": 71,
+        "repeats": 46,
+        "live_per_day": 10.24,
+        "tail_per_day": 4.43,
+        "ratio": 0.432,
+        "ratio_with_repeats": 0.954,
+        "sparse": false
+      }
+    ]
+  }
+}

@@ -56,6 +56,9 @@ results: replay evaluate ## replay, then evaluate (about 5 min)
 sweep: ## Threshold sweep on the vulture tuning set -> results/sweep/
 	PYTHONPATH=src python scripts/sweep.py
 
+carcass: ## Measure collars on vulture carcasses -> results/carcass/
+	PYTHONPATH=src python scripts/carcass_profile.py
+
 cloud-sizing: ## Run the cloud slicing locally, check it -> results/cloud/
 	PYTHONPATH=src python scripts/cloud_sizing.py
 

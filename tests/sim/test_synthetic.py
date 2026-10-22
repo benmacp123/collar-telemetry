@@ -1,8 +1,10 @@
 """Tests for synthetic mortality injection."""
 
+import json
 import random
 import statistics
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 import pytest
 
@@ -19,6 +21,7 @@ from telemetry.sim.synthetic import (
 
 START = datetime(2009, 3, 1, tzinfo=timezone.utc)
 HOUR = timedelta(hours=1)
+CARCASS = Path(__file__).resolve().parents[2] / "results" / "carcass" / "carcass.json"
 
 
 def walk(hours):
@@ -39,8 +42,19 @@ def test_scatter_matches_the_configured_quantiles():
     """Drawn distances have the configured median and 95th percentile."""
     rng, config = random.Random(1), CarcassConfig()
     draws = sorted(scatter_distance(config, rng) for _ in range(20_000))
-    assert statistics.median(draws) == pytest.approx(16.0, rel=0.05)
-    assert draws[int(0.95 * len(draws))] == pytest.approx(59.0, rel=0.08)
+    assert statistics.median(draws) == pytest.approx(15.9, rel=0.05)
+    assert draws[int(0.95 * len(draws))] == pytest.approx(36.5, rel=0.08)
+
+
+def test_defaults_match_the_committed_carcass_profile():
+    """The carcass defaults are the values ``make carcass`` measured."""
+    measured = json.loads(CARCASS.read_text(encoding="utf-8"))["vulture_carcasses"]
+    config = CarcassConfig()
+    assert config.reporting_success == measured["reporting_ratio"]
+    assert config.sparse_success == measured["sparse_ratio"]
+    assert config.sparse_share == measured["sparse_share"]
+    assert config.scatter_median_m == measured["scatter_median_m"]
+    assert config.scatter_p95_m == measured["scatter_p95_m"]
 
 
 def test_track_is_real_before_death_and_stationary_after():
@@ -57,13 +71,51 @@ def test_track_is_real_before_death_and_stationary_after():
 def test_collar_keeps_its_schedule_misses_fixes_and_stops():
     """Synthetic fixes reuse real timestamps, drop some, and end after duration."""
     fixes = walk(24 * 20)
-    config = CarcassConfig(fix_success=0.5, duration=timedelta(days=3))
-    event = inject_mortality(fixes, START + 100 * HOUR, random.Random(3), config)
+    config = CarcassConfig(reporting_success=0.5, duration=timedelta(days=3))
+    event = inject_mortality(
+        fixes, START + 100 * HOUR, random.Random(3), config, sparse=False
+    )
     after = event.fixes[101:]
     real_times = {f.timestamp for f in fixes}
     assert all(f.timestamp in real_times for f in after)
     assert 0.3 * 72 < len(after) < 0.7 * 72
     assert after[-1].timestamp <= event.death_time + config.duration
+
+
+def test_sparse_carcasses_send_far_fewer_fixes():
+    """A sparse carcass keeps its regime's share of the schedule, not the other's."""
+    fixes = walk(24 * 40)
+    death = START + 100 * HOUR
+    config = CarcassConfig()
+    reporting = inject_mortality(fixes, death, random.Random(6), sparse=False)
+    sparse = inject_mortality(fixes, death, random.Random(6), sparse=True)
+    slots = 24 * 30
+    assert not reporting.sparse and sparse.sparse
+    assert len(reporting.fixes) - 101 == pytest.approx(
+        config.reporting_success * slots, rel=0.15
+    )
+    assert len(sparse.fixes) - 101 == pytest.approx(
+        config.sparse_success * slots, rel=0.3
+    )
+
+
+def test_regime_is_drawn_at_the_configured_share():
+    """Unforced, about ``sparse_share`` of carcasses come out sparse."""
+    fixes = walk(24 * 10)
+    rng = random.Random(7)
+    drawn = [
+        inject_mortality(fixes, START + 50 * HOUR, rng).sparse for _ in range(2000)
+    ]
+    assert sum(drawn) / len(drawn) == pytest.approx(
+        CarcassConfig().sparse_share, abs=0.04
+    )
+
+
+def test_collar_stops_with_the_real_track():
+    """A carcass period longer than the rest of the track ends with the track."""
+    fixes = walk(24 * 10)
+    event = inject_mortality(fixes, START + 100 * HOUR, random.Random(8), sparse=False)
+    assert event.fixes[-1].timestamp <= fixes[-1].timestamp
 
 
 def test_same_seed_same_event():
@@ -87,6 +139,27 @@ def test_death_time_respects_both_margins():
         )
 
 
+def test_death_is_never_placed_before_a_long_outage():
+    """No death falls where the real collar was silent through the carcass period."""
+    fixes = walk(24 * 30)
+    # Collar off for days 12-15: a death on days 5-12 would lose fixes.
+    gappy = [
+        f
+        for f in fixes
+        if not START + timedelta(days=12) < f.timestamp < START + timedelta(days=15)
+    ]
+    rng = random.Random(10)
+    deaths = {
+        choose_death_time(gappy, rng, timedelta(days=1), timedelta(days=7))
+        for _ in range(300)
+    }
+    off, on = START + timedelta(days=12), START + timedelta(days=15)
+    # Allowed: after the outage, or early enough that the carcass period
+    # runs at most 24 h into it.
+    assert all(d >= on or d + timedelta(days=7) <= off + 24 * HOUR for d in deaths)
+    assert any(d >= on for d in deaths) and any(d < off for d in deaths)
+
+
 def test_short_track_is_rejected():
     """A track too short for both margins is an error, not a bad event."""
     with pytest.raises(ValueError, match="too short"):
@@ -107,7 +180,7 @@ def test_an_injected_death_is_one_incident():
     which is a tuning question, not what this test protects.
     """
     fixes = walk(24 * 20)
-    event = inject_mortality(fixes, START + 100 * HOUR, random.Random(5))
+    event = inject_mortality(fixes, START + 100 * HOUR, random.Random(5), sparse=False)
     stream = FixStream([MortalityDetector(MortalityConfig(max_extent_m=200.0))])
     incidents = [i for f in event.fixes for i in stream.ingest(f)]
     assert len({i.incident_id for i in incidents}) == 1
