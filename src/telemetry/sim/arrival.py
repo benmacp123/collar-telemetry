@@ -34,7 +34,6 @@ specifications: daily or every-other-day uplinks, many fixes per message);
 results are reported for every scenario rather than tuned to one.
 """
 
-import heapq
 import random
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
@@ -210,20 +209,3 @@ def simulate_arrival(
             arrivals.append((again, index, Arrival(again, fix)))
     arrivals.sort(key=lambda item: item[:2])
     return [arrival for _, _, arrival in arrivals]
-
-
-def merge_arrivals(streams: list[list[Arrival]]) -> list[Arrival]:
-    """Interleave several deployments' arrivals into one feed.
-
-    Args:
-        streams: Per-deployment arrivals, each in arrival order.
-
-    Returns:
-        list[Arrival]: All arrivals in arrival order; ties go to the
-        deployment with the lower ID, so the feed is reproducible.
-    """
-    keyed = [
-        [(a.time, a.fix.deployment_id, i, a) for i, a in enumerate(stream)]
-        for stream in streams
-    ]
-    return [item[3] for item in heapq.merge(*keyed, key=lambda item: item[:3])]

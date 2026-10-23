@@ -8,7 +8,6 @@ import pytest
 from telemetry.sim.arrival import (
     SCENARIOS,
     ArrivalScenario,
-    merge_arrivals,
     simulate_arrival,
 )
 from telemetry.core.cleaning import Cleaner, CleaningConfig
@@ -53,15 +52,6 @@ def test_same_seed_same_arrivals_and_other_seeds_differ():
     fixes, gsm = track(24 * 30), SCENARIOS["gsm"]
     assert simulate_arrival(fixes, gsm, 7) == simulate_arrival(fixes, gsm, 7)
     assert simulate_arrival(fixes, gsm, 7) != simulate_arrival(fixes, gsm, 8)
-
-
-def test_deployments_are_independent():
-    """A deployment's arrivals do not depend on which others exist."""
-    a = simulate_arrival(track(24 * 30, "A"), SCENARIOS["gsm"], 7)
-    b = simulate_arrival(track(24 * 30, "B"), SCENARIOS["gsm"], 7)
-    merged = merge_arrivals([a, b])
-    assert [x for x in merged if x.fix.deployment_id == "A"] == a
-    assert [x.time for x in merged] == sorted(x.time for x in merged)
 
 
 def test_outages_do_not_depend_on_retry_rate():
