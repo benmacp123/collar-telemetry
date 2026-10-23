@@ -24,15 +24,15 @@ scored once after thresholds were frozen on an earlier set):
 | | Ideal arrival | Daily satellite upload |
 |---|---|---|
 | Deaths that raised an alert | 10 of 10 | 10 of 10 |
-| Carcasses flagged by the mortality detector within 92.5 h | 4 of 5 | 3 of 5 |
+| Carcasses flagged by the mortality detector within 92.5 h | 4 of 5 | 4 of 5 |
 | Deaths with no carcass period (collar stops) flagged by the gap detector | 5 of 5, at 36 h | 5 of 5, at 60 h |
 | All alerts per animal-month | 1.1 | 0.9 |
 | Mortality alerts that were real deaths | 3% | 3% |
-| "Potential death" alerts that were real deaths | 23% | 33% |
+| "Potential death" alerts that were real deaths | 29% | 43% |
 
 For a programme tracking 30 vultures that is about one alert a day. The
 fast mortality alert is mostly vultures sitting still at a roost; the
-"potential death" alert (still, then silent) is about ten times more
+"potential death" alert (still, then silent) is ten to fifteen times more
 trustworthy but usually comes once a carcass collar stops reporting, so it
 confirms a death rather than giving the first warning. Ten deaths is a
 small sample, so these rates are indicative, not precise.
@@ -55,12 +55,33 @@ never left Etosha and raised no geofence alerts.
 Full tables for every study and arrival scenario are in
 [`results/evaluation/EVALUATION.md`](results/evaluation/EVALUATION.md).
 
+**Running it on AWS costs almost nothing per animal; leaving it switched
+on costs more.** Every study was replayed through the deployed pipeline
+(3,466 animal-months under two upload scenarios), every stored incident
+matched the local replay, and the stack was then destroyed. At list
+prices before the free tier
+([`results/cloud/COST.md`](results/cloud/COST.md)):
+
+| | USD |
+|---|---|
+| The full run | 0.23 |
+| Per 1,000 animal-months, as run | 0.07 |
+| Per 1,000 animal-months, live (projected) | 0.11-0.20 |
+| Hourly live clock, per 1,000 animal-months (estimated) | 0.4-2.6 more |
+| Idle, per month, with nothing to process | 0.33 |
+
+The fixed cost is the queue trigger polling an empty queue; it equals
+the live cost of roughly 1,700 to 2,900 animals, so for a small project
+it is most of the bill. The clock that lets a silent collar raise its gap
+alert in live use is estimated, not measured, and costs more than the
+rest of live mode; ticking less often trades that cost against slower
+gap alerts. Method, latency and the deploy steps are in
+[`infra/README.md`](infra/README.md).
+
 **Status:** detection core (mortality, data gap, unusual movement,
-geofence), local replay and evaluation complete. Cloud handlers built and
-checked end to end against an AWS emulator (moto), with every incident
-matching the replay. Deployed to AWS with Terraform, run against every
-study (every stored incident matched the replay; $0.07 per 1,000
-animal-months as run) and destroyed ([`infra/`](infra/README.md)).
+geofence), local replay and evaluation complete. Cloud handlers checked
+end to end against an AWS emulator (moto) and then on AWS, deployed with
+Terraform and destroyed after the run.
 
 ## How it works
 
@@ -77,7 +98,10 @@ each layer to its own imports.
 - **Detectors**, each with thresholds sourced in
   [`docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md):
   - *mortality*: no movement beyond a 100 m box for a species window
-    (36 h for vultures, past their 12-14 h overnight roost);
+    (36 h for vultures, past their 12-14 h overnight roost). Once it has
+    alerted, the animal counts as moving again only after two fixes in a
+    row more than 75 m from where it lay, so a carcass's scattered fixes
+    do not resolve the alert;
   - *data gap*: a collar silent through hours it is normally on (it
     learns each collar's duty cycle), after allowing for upload delay;
   - *unusual movement*: displacement far outside the animal's own recent
@@ -134,9 +158,17 @@ each layer to its own imports.
 
 ## Limitations
 
-- **Small numbers.** 6 tuning and 5 held-out carcasses. The held-out set
-  has been scored twice: once for the frozen thresholds and once, declared,
-  for the potential-death alert, which has no tuned parameter.
+- **Small numbers.** 6 tuning and 5 held-out carcasses.
+- **The held-out set has been seen more than once.** It was scored once
+  when the thresholds were frozen (2026-10-18). Two later, declared looks
+  followed: one for the potential-death alert, which has no tuned
+  parameter, and one for a candidate "silent while still" alert, rejected
+  partly because it cut potential-death precision on this set (23% to
+  15%). Later changes were chosen on tuning data only and are included in
+  the held-out figures above. The 75 m leaving radius merged alerts that
+  had flapped, which raised held-out carcasses flagged by the mark under
+  satellite uploads from 3 to 4 of 5, and potential-death precision from
+  23% to 29% (ideal).
 - **Sparse carcass collars are the blind spot.** A collar on a carcass
   often sends few fixes; below six in the window the mortality detector
   cannot fire, and only the gap detector notices.
@@ -147,9 +179,12 @@ each layer to its own imports.
   contain no carcass periods (jackal tracks stop at death; the elephants
   died after their collars stopped), so only their false-alarm rates and
   gap alerts are measured. Their mortality detection is scored on
-  synthetic carcasses (`results/evaluation/EVALUATION.md`), which a
-  30-day collar life makes easy to catch: every one is flagged, sparse
-  ones included.
+  synthetic carcasses (`results/evaluation/EVALUATION.md`), half
+  reporting and half sparse, with sparse collars dying after the
+  observed 25-97 h. The mortality detector flags every reporting carcass
+  but misses 4 of 22 sparse jackal and 1 of 14 sparse elephant ones;
+  counting gap alerts, every synthetic death raises an alert by the mark
+  with ideal and GSM arrival, and 91-100% do under satellite uploads.
 
 ## Data
 
