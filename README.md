@@ -195,6 +195,14 @@ flowchart TB
 ## Limitations
 
 - **Small numbers.** 6 tuning and 5 held-out carcasses.
+- **Most settings are still provisional.** Of the 60 settings in
+  [`docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md), 12 were measured on
+  tuning data, including those behind the vulture results (the mortality
+  box and window, the leaving radius, the gap allowance and the
+  reference mark). 2 come straight from the literature, 32 are
+  provisional (4 of them literature-informed) and 14 are design choices.
+  The mammal mortality windows, the movement and geofence settings and
+  the arrival scenarios are all provisional.
 - **The held-out set has been seen more than once.** It was scored once
   when the thresholds were frozen (2026-10-18). Two later, declared looks
   followed: one for the potential-death alert, which has no tuned

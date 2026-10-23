@@ -1,6 +1,7 @@
 # Assumptions and their sources
 
-Every threshold the pipeline uses, with where it came from. Labels:
+Every setting the pipeline and its evaluation use, with where it came
+from. Labels:
 
 - **Observed**: measured on this project's tuning data (vulture
   deployments starting before 2013). The scoring set (2013 on) was not
@@ -10,6 +11,8 @@ Every threshold the pipeline uses, with where it came from. Labels:
 - **Literature**: taken from a cited source.
 - **Provisional**: a reasoned starting point, still to be checked on the
   tuning set.
+- **-**: a design or method choice (a definition, a seed, a structure),
+  not an estimate of anything, so there is nothing to observe or cite.
 
 Code: `src/telemetry/core/species.py` (per-species settings) and
 `src/telemetry/sim/synthetic.py` (synthetic mortality events).
@@ -40,6 +43,15 @@ the flying model is fitted on 55 data points (29 birds), several of them
 raptor stoop speeds (red-tailed hawk 195 km/h), and vultures soar rather
 than stoop.
 
+Other cleaner settings (`src/telemetry/core/cleaning.py`; the hold is set
+per arrival scenario in `src/telemetry/sim/arrival.py`):
+
+| Setting | Value | Basis | Label |
+|---|---|---|---|
+| GPS error allowance | 30 m per fix | Upper end of stationary collar tests: median 5.8 m (open area, [3]) and 16.9 m (open sky, [7]), about 30 m on average under suburban cover [7]. | Provisional, literature-informed |
+| Rejections before a new anchor | 3 in a row | If the fix every later one is judged against was itself wrong, the speed filter would otherwise drop the rest of the track; after three rejections the next fix is taken as the new anchor. | Provisional |
+| Reorder hold | 0 (ideal, satellite), 3 h (GSM) | Satellite delivery is taken as in order. Under GSM a fix retried k times arrives k uploads late with probability 0.05^k, so 3 h reorders nearly every retry; a longer hold would delay every alert by as much. Backlog fixes more than 3 h late are dropped and counted (about 1% under GSM). | Provisional |
+
 ## Mortality detector
 
 | Setting | Value | Basis | Label |
@@ -48,9 +60,11 @@ than stoop.
 | Window, vultures | 36 h | Must outlast the 12-14 h overnight roost. Tuning-set sweep (`results/sweep/SWEEP.md`): false alarms 0.95 / 0.59 / 0.23 / 0.10 per animal-month at 24 / 36 / 48 / 72 h. Carcass deaths flagged by the 92.5 h mark: 4 of 6 up to 36 h; at 48 h one is flagged after the mark under satellite uploads. | Observed (sweep, 6 carcass deaths) |
 | Window, jackal | 24 h | Jackals lie up through the day and travel a mean of 14.6 km a day [10]. No published lie-up durations for black-backed jackals were found. This study's deaths show at most about 10 h stationary before the track stops (seen while labelling, not used to choose the value). Not checked: whether jackals feeding at large carcasses (the Etosha study's subject) stay within 100 m for a day. | Provisional |
 | Window, elephant | 12 h | Wild elephants sleep about 2 h a day, mostly 02:00-06:00, with no single bout over 142 min [8]. On this Kruger population, continuous stays at water average 2.6 h (wet season) and 3.5 h (dry, s.d. 4.1 h), measured within 200 m of water [12], so a long dry-season stay at water is the most likely false alarm. Collar makers' activity-sensor mortality timers default to 4-24 h [9]; those measure collar motion, not position. | Provisional, literature-informed |
+| Minimum fixes in the cluster | 6 | Two fixes a day apart are not enough evidence of a carcass. Tuning-set probe (2026-10-22): 5 or 3 flags one more sparse carcass (MEM_BLVU_68361), but only after the 92.5 h mark, for 0.01-0.05 more false alerts per animal-month; the other missed one (LXE_TUVU_68359, still for 25 h) is shorter than the window, so no value catches it. | Provisional, checked on tuning data |
 | Leaving radius, once alerted (all taxa) | 75 m from the cluster's centre at the alert | The growing box lets scattered carcass fixes read as "moving again" (see below). Smallest radius with no flaps on the tuning-seed synthetic deaths of either mammal (50 m leaves 1 and 3); applies only after an alert, so it changes no open or detection. Twice the carcass scatter's 95th percentile (36.5 m). Cost on the vulture tuning set: false alerts stay open a median 8 h (7 h with the box) and a 90th percentile 89 h (75 h). Chosen by the owner, 2026-10-22. | Observed (tuning data, `make departure`) |
 | Leave fixes | 2 in a row | Three cut flaps less than the radius and add false alerts (0.86 against 0.59 per animal-month on the vulture tuning set), and lose one carcass death by the mark under satellite uploads. | Observed (tuning data, `make departure`) |
 | Reopen window | 48 h | A reopen cannot come sooner than the detector window after a resolve, so it must exceed the longest window (36 h) with slack. 72 h and 96 h change no death outcome with the box and keep merged false alerts open longer. | Provisional; checked on tuning data |
+| Potential death | Raised while a mortality and a gap incident are open together; resolves and reopens with mortality | No parameter of its own. A "silent while still" variant (gap on a collar still for 14 h or more) was tried and rejected: it caught both sparse carcass tails but cut precision on both vulture sets (see the README's limitations). | - |
 
 **Finding: the growing box makes carcasses "move again".** The box
 stretches with every fix, so a carcass reporting hundreds of scattered
@@ -70,6 +84,20 @@ under every setting (PMH_BLVU_68354) really moved: it lay still from
 the two stays. An earlier measurement (15-42% of deaths split, from a
 scatter of 16 / 59 m that did not reproduce) is superseded.
 
+## Data-gap detector
+
+The two settings that depend on the upload plan, `allowance` and
+`min_silence`, are under the replay runner below. The rest
+(`src/telemetry/core/detectors/gap.py`) shape how the detector learns a
+collar's schedule:
+
+| Setting | Value | Basis | Label |
+|---|---|---|---|
+| Warm-up | 3 days from the first fix | Long enough to see a daily duty cycle a few times before alerting on it. | Provisional |
+| Schedule memory | Half-life 14 days | Follows a schedule change within weeks while one quiet day barely moves it. | Provisional |
+| Active hour | At least 25% of the busiest hour's weight | Keeps hours the collar is only occasionally on from counting as hours it should be heard in. | Provisional |
+| Usual interval | Median of the last 50 intervals | A median ignores the overnight gap on duty-cycled tags; 50 covers about two days of hourly fixes. | Provisional |
+
 ## Unusual-movement detector
 
 The detector compares each animal with its own baseline. The floor only
@@ -81,13 +109,24 @@ stops an animal that barely moves from alerting on a short walk.
 | Black-backed jackal | 3 km | 3 km in 3 h is about 1.7 times the mean daily rate of 14.6 km a day (VHF, Botswana) [10]. | Provisional, literature-informed |
 | African savanna elephant | 3 km | 3 km in 3 h is about 2.5 times the mean speed of this Kruger population (0.4 km/h, 30-min fixes) and twice the fastest water-to-water segment average (1.5 km/h) [12]. | Provisional, literature-informed |
 
+Settings shared by every taxon (`src/telemetry/core/detectors/movement.py`):
+
+| Setting | Value | Basis | Label |
+|---|---|---|---|
+| Span | 3 h of net displacement | A fixed span makes hourly and 1-minute tags comparable, and net distance stops GPS jitter on fast tags adding up. | Provisional |
+| Coverage | Fixes must cover 75% of the span | Distance across a gap is not speed. | Provisional |
+| Threshold | 2 x the animal's own 99th percentile | Far enough outside the animal's normal that daily variation does not reach it. | Provisional |
+| Warm-up | 7 days and 50 measurements | Enough of the animal's own movement for a 99th percentile to mean something. | Provisional |
+| Baseline memory | Half-life 14 days | Follows seasonal change in range use. | Provisional |
+| Longest episode | 24 h | Measurements during an alert do not teach the baseline, so a lasting change (a relocation) must not keep it open and blind for good. | Provisional |
+
 ## Geofence detector
 
 | Setting | Value | Basis | Label |
 |---|---|---|---|
 | Edge band | 100 m either side of the boundary | Several times typical GPS error (6-30 m, stationary collar tests [3, 7]); fixes in the band change nothing, so jitter along a fence line does not alert. | Provisional |
 | Fixes to confirm | 2 in a row beyond the band, to open or to resolve | One stray fix should not raise or clear an alert. | Provisional |
-| Boundaries | OpenStreetMap relations for Etosha (2982497) and Kruger (1752987) | Redistributable (ODbL), unlike WDPA. Kruger's relation excludes the unfenced private reserves to its west, so crossings there alert. | Observed (source choice) |
+| Boundaries | OpenStreetMap relations for Etosha (2982497) and Kruger (1752987) | Redistributable (ODbL), unlike WDPA. Kruger's relation excludes the unfenced private reserves to its west, so crossings there alert. | - (source choice) |
 | Projection | Local equirectangular plane centred on each park | Accurate to a few per cent over a park; tested to within 10 m at 5 km. | - |
 
 Not chosen on data: no geofence ground truth exists. On the elephants,
@@ -111,7 +150,7 @@ the defaults in `src/telemetry/sim/synthetic.py` to that file.
 | Scatter | Lognormal, median 15.9 m, 95th percentile 36.5 m, uniform direction | Dead vultures' distances from their carcass's median position, repeated positions left out (156 fixes). Consistent with stationary collar tests (median 5.8 m [3], 16.9 m [7]) and with the elephant collars' stillest 6-fix windows (median 11 m across collars, an upper bound since a resting elephant still shifts). The jackal collars' stillest windows give about 2 m, too tight to take as GPS error, so they are not used. The earlier figures (median 16 m, 95th percentile 59 m, labelled observed) did not reproduce from any committed code. | Observed (vultures), checked on elephants |
 | Collar life after death | Reporting: 30 days; sparse: 25, 88 or 97 h, drawn per carcass; either way, at most until the real track ends | The sparse lives are the three observed sparse tails (`make carcass`): the real sparse carcasses the mortality detector misses stopped early too, while a 30-day sparse tail eventually gives it enough fixes. Chosen by the owner, 2026-10-22. The vulture tags are solar powered (Microwave Telemetry), and most (12 of 17 dead) stop within hours, plausibly with the panel under the body; those whose tags keep going report for 53-337 h. The mammal collars (African Wildlife Tracking) are assumed battery powered and to keep reporting; not confirmed for these collars. Detection comes within a day or two, so the value mainly decides whether the collar falls silent within the replay's watch, which drives the gap and `potential_death` alerts on synthetic deaths. | Observed (sparse, n = 3); provisional (reporting) |
 | Death time | Random fix time, at least 7 days after the first fix and 7 days before the last, with the real collar recording through those 7 days (no gap over 24 h) (seeded) | Gives the detectors a baseline and a carcass period with fixes in it; without the coverage rule a death just before a long outage (230 days on one elephant collar) would be a silent collar, not a carcass. | - |
-| Deaths per deployment | Two, at the same time: one reporting carcass, one sparse (seed 2026, per deployment) | Gives per-regime results on the same tracks, with no sampling noise in the regime mix; pooled results are 50/50, matching the observed share. The two copies share their pre-death track, so they are not independent deaths. Built as separate variants (`jackals-synthetic`, `elephants-synthetic`; `src/telemetry/analysis/variants.py`), scored on deaths only; load stays with the real studies. | Owner's choice |
+| Deaths per deployment | Two, at the same time: one reporting carcass, one sparse (seed 2026, per deployment) | Gives per-regime results on the same tracks, with no sampling noise in the regime mix; pooled results are 50/50, matching the observed share. The two copies share their pre-death track, so they are not independent deaths. Built as separate variants (`jackals-synthetic`, `elephants-synthetic`; `src/telemetry/analysis/variants.py`), scored on deaths only; load stays with the real studies. Chosen by the owner. | - |
 | Synthetic death start | Computed from the fixes as for real deaths; also scored from the injected time | Keeps one definition across studies. One lognormal scatter fix beyond the 100 m radius moves the computed start after it (5 of 72 deaths, 25-636 h later), so both delays are reported. | - |
 | Dropped collar | No separate case | A collar that falls off lies still like a reporting carcass; one cut off and destroyed goes silent, which the gap detector handles. | - |
 
@@ -138,6 +177,39 @@ now runs on the clock and each clock hour with a fix counts once. The
 earlier 24 h margin was chosen under the old rule, where it behaved like
 about 30 h of clock time on the hourly tuning tags; 36 h is the closest
 match under the new rule.
+
+## Arrival scenarios
+
+Upload patterns in `src/telemetry/sim/arrival.py`. They resemble vendor
+upload plans (Telonics and Telemetry Solutions GPS/Iridium
+specifications: daily or every-other-day uplinks, many fixes per
+message) but are not measured on any collar, so every result is reported
+under all four rather than tuned to one.
+
+| Setting | Value | Basis | Label |
+|---|---|---|---|
+| Ideal | Every fix arrives when taken | Baseline with no transmission effects. | - |
+| Satellite uploads | Once a day, or every other day, from a random phase per collar; reliable and in order | The two common uplink tiers. | Provisional |
+| GSM upload interval | Hourly while in coverage | Phone-network collars send as soon as they can. | Provisional |
+| GSM out-of-coverage days | 10% of UTC days | An assumed share, for animals ranging beyond mast coverage; not measured. | Provisional |
+| GSM failed sends | 5% of attempts, retried at the next upload | Puts fixes out of order, which the cleaner must handle. | Provisional |
+| GSM duplicates | 1% of fixes sent again | As when the collar misses an acknowledgement. | Provisional |
+
+## Evaluation definitions
+
+How deaths are timed and scored (`src/telemetry/analysis/evaluation.py`).
+These are fixed before scoring and never move with a detector setting, so
+a threshold change cannot change what it is scored against.
+
+| Setting | Value | Basis | Label |
+|---|---|---|---|
+| Death start radius | 100 m from the median of the last 5 fixes | Dead vultures' fixes scatter a median 15.9 m and a 95th percentile 36.5 m around their carcass (`make carcass`); the median of 5 resists one scattered last fix. | Observed |
+| Sensitivity radius | 200 m | Reported beside 100 m to show how much the death start matters. | - |
+| Carcass minimum | 24 h (vultures, jackals), 12 h (elephants) | The mortality windows in force before the threshold sweep, frozen so labels, the carcass/gap split and the mark stay put while the detector's window is tuned. | - |
+| Reference mark, vultures | 92.5 h | Median time tuning-set carcass collars kept reporting, so half are silent by then. | Observed (n = 6) |
+| Reference mark, mammals | Carcass minimum + 68.5 h (92.5 h jackals, 80.5 h elephants) | No mammal carcass periods exist, so the vulture mark's time after the vulture carcass minimum is carried over. | Provisional |
+| Tuning / scoring split | Vulture deployments before / from 2013 | Separates hourly tags (tuning) from mostly 1-3 min tags (scoring), so scoring also tests whether thresholds carry across fix rates. | - |
+| Animal-month | 30.4375 days of track | A mean calendar month. | - |
 
 ## References
 
