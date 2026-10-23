@@ -1,9 +1,9 @@
 {
   "label": "email",
-  "started_at": "2026-10-22T20:11:45+00:00",
-  "drained_at": "2026-10-22T20:13:06+00:00",
+  "started_at": "2026-10-23T11:12:19+00:00",
+  "drained_at": "2026-10-23T11:13:40+00:00",
   "region": "eu-west-2",
-  "publish_s": 21,
+  "publish_s": 20,
   "publish_to_drained_s": 81,
   "dead_letters": 0,
   "notify_failures": 0,
@@ -28,12 +28,12 @@
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 10.275,
-          "p95": 14.641
+          "median": 6.445,
+          "p95": 9.602
         },
         "stored_to_notified_s": {
-          "median": 0.262,
-          "p95": 2.645
+          "median": 0.265,
+          "p95": 2.634
         }
       }
     }

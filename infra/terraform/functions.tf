@@ -1,6 +1,6 @@
-# Every handler ships in one zip (`make lambda-zip`); the handler setting
-# picks the entry point. Runtime and architecture must match the wheels
-# scripts/lambda_zip.py installs.
+# Every handler ships in one zip (`make lambda-zip`, uploaded once by
+# package.tf); the handler setting picks the entry point. Runtime and
+# architecture must match the wheels scripts/lambda_zip.py installs.
 locals {
   runtime           = "python3.14"
   architecture      = "x86_64"
@@ -29,7 +29,8 @@ resource "aws_cloudwatch_log_group" "notifier" {
 resource "aws_lambda_function" "processor" {
   function_name    = "${var.name_prefix}-processor"
   role             = aws_iam_role.processor.arn
-  filename         = var.lambda_zip
+  s3_bucket        = aws_s3_object.lambda.bucket
+  s3_key           = aws_s3_object.lambda.key
   source_code_hash = local.package_hash
   handler          = "cloud.processor.handler"
   runtime          = local.runtime
@@ -52,7 +53,8 @@ resource "aws_lambda_function" "processor" {
 resource "aws_lambda_function" "notifier" {
   function_name    = "${var.name_prefix}-notifier"
   role             = aws_iam_role.notifier.arn
-  filename         = var.lambda_zip
+  s3_bucket        = aws_s3_object.lambda.bucket
+  s3_key           = aws_s3_object.lambda.key
   source_code_hash = local.package_hash
   handler          = "cloud.notifier.handler"
   runtime          = local.runtime

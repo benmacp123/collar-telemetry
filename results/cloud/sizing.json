@@ -32,8 +32,8 @@
       "fixes_seen": 20
     },
     "state_write_units": {
-      "json_transaction": 343014,
-      "stored": 78707
+      "json_transaction": 357342,
+      "stored": 79947
     }
   },
   {
@@ -69,8 +69,8 @@
       "fixes_seen": 20
     },
     "state_write_units": {
-      "json_transaction": 489186,
-      "stored": 87659
+      "json_transaction": 501166,
+      "stored": 88729
     }
   },
   {
@@ -107,8 +107,8 @@
       "fixes_seen": 19
     },
     "state_write_units": {
-      "json_transaction": 60396,
-      "stored": 13868
+      "json_transaction": 60836,
+      "stored": 13880
     }
   },
   {
@@ -145,8 +145,8 @@
       "fixes_seen": 19
     },
     "state_write_units": {
-      "json_transaction": 63000,
-      "stored": 14108
+      "json_transaction": 65898,
+      "stored": 14119
     }
   },
   {
@@ -183,8 +183,8 @@
       "fixes_seen": 20
     },
     "state_write_units": {
-      "json_transaction": 73066,
-      "stored": 18838
+      "json_transaction": 73720,
+      "stored": 18846
     }
   },
   {
@@ -221,8 +221,8 @@
       "fixes_seen": 20
     },
     "state_write_units": {
-      "json_transaction": 80100,
-      "stored": 19194
+      "json_transaction": 83298,
+      "stored": 19205
     }
   }
 ]

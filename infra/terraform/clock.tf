@@ -12,7 +12,8 @@ resource "aws_cloudwatch_log_group" "clock" {
 resource "aws_lambda_function" "clock" {
   function_name    = "${var.name_prefix}-clock"
   role             = aws_iam_role.clock.arn
-  filename         = var.lambda_zip
+  s3_bucket        = aws_s3_object.lambda.bucket
+  s3_key           = aws_s3_object.lambda.key
   source_code_hash = local.package_hash
   handler          = "cloud.clock.handler"
   runtime          = local.runtime

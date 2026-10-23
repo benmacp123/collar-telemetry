@@ -283,7 +283,10 @@ def idle(usage: dict, busy: Iterable[tuple[str, str]]) -> dict:
     Lambda's pollers keep long-polling an empty queue, and every empty
     receive is a billed request. A minute counts as quiet when the queue
     reported in it, nothing was sent or received, the processor did not
-    run, and it lies outside every known run.
+    run, and it lies outside every known run. Minutes before the first
+    empty receive do not count: until the queue trigger exists (a stack
+    still being created) nothing polls, so the queue reports zero, which
+    is not what an idle deployed stack costs.
 
     Args:
         usage: As written by ``fetch_usage``.
@@ -295,9 +298,13 @@ def idle(usage: dict, busy: Iterable[tuple[str, str]]) -> dict:
     """
     spans = [tuple(datetime.fromisoformat(t) for t in span) for span in busy]
     points = {key: entry["points"] for key, entry in usage["metrics"].items()}
+    empties = points["slices.NumberOfEmptyReceives"]
+    polled = [stamp for stamp, empty in empties.items() if empty > 0]
     quiet = []
-    for stamp, empty in points["slices.NumberOfEmptyReceives"].items():
+    for stamp, empty in empties.items():
         moment = datetime.fromisoformat(stamp)
+        if not polled or moment < datetime.fromisoformat(min(polled)):
+            continue
         if any(start <= moment < end for start, end in spans):
             continue
         if any(

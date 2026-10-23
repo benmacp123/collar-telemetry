@@ -1,8 +1,8 @@
 {
   "label": "full",
   "window": [
-    "2026-10-22T20:13:00+00:00",
-    "2026-10-22T21:40:00+00:00"
+    "2026-10-23T11:17:00+00:00",
+    "2026-10-23T12:20:00+00:00"
   ],
   "prices": {
     "file": "data/prices/aws-eu-west-2.json",
@@ -16,19 +16,19 @@
     "processor_errors": 0.0
   },
   "metered": {
-    "processor_invocations": 10833.0,
-    "processor_ms": 3035484.638649,
+    "processor_invocations": 10836.0,
+    "processor_ms": 2768102.3990189,
     "processor_errors": 0.0,
-    "notifier_invocations": 177.0,
-    "notifier_ms": 486.96999939,
+    "notifier_invocations": 173.0,
+    "notifier_ms": 473.48999968,
     "messages_sent": 105684.0,
     "messages_received": 105684.0,
     "messages_deleted": 105684.0,
-    "empty_receives": 5250.0,
-    "write_request_units": 985900.0,
-    "read_request_units": 173968.0,
-    "state_write_request_units": 972912.0,
-    "log_bytes": 19468202.0,
+    "empty_receives": 6403.0,
+    "write_request_units": 216835.0,
+    "read_request_units": 106953.0,
+    "state_write_request_units": 203847.0,
+    "log_bytes": 19467333.0,
     "sns_published": 0,
     "emails": 0
   },
@@ -93,39 +93,39 @@
   "run_bill": {
     "lines": {
       "lambda_requests": {
-        "quantity": 11010.0,
+        "quantity": 11009.0,
         "unit_usd": 2e-07,
-        "usd": 0.002202,
+        "usd": 0.0022018,
         "basis": "metered"
       },
       "lambda_compute_gb_s": {
-        "quantity": 1517.8640618243473,
+        "quantity": 1384.16957200937,
         "unit_usd": 1.66667e-05,
-        "usd": 0.025297784959207852,
+        "usd": 0.02306953900580857,
         "basis": "metered duration x configured memory"
       },
       "sqs_requests": {
-        "quantity": 42654.0,
+        "quantity": 43813.0,
         "unit_usd": 5e-07,
-        "usd": 0.021327,
+        "usd": 0.0219065,
         "basis": "sends counted from the messages; receives and deletes one per invocation (assumed); empty receives metered"
       },
       "dynamodb_write_units": {
-        "quantity": 985900.0,
+        "quantity": 216835.0,
         "unit_usd": 7.423e-07,
-        "usd": 0.7318335699999999,
+        "usd": 0.16095662049999998,
         "basis": "metered (includes transactions' double writes)"
       },
       "dynamodb_read_units": {
-        "quantity": 173968.0,
+        "quantity": 106953.0,
         "unit_usd": 1.487e-07,
-        "usd": 0.0258690416,
+        "usd": 0.0159039111,
         "basis": "metered"
       },
       "log_ingestion_gb": {
-        "quantity": 0.018131176009774208,
+        "quantity": 0.018130366690456867,
         "unit_usd": 0.5985,
-        "usd": 0.010851508841849863,
+        "usd": 0.010851024464238435,
         "basis": "metered"
       },
       "sns_requests": {
@@ -143,74 +143,74 @@
     },
     "sqs_requests": {
       "send": 13206,
-      "receive": 13365.0,
-      "delete": 10833.0,
-      "empty_receive": 5250.0
+      "receive": 13368.0,
+      "delete": 10836.0,
+      "empty_receive": 6403.0
     },
-    "total_usd": 0.8173809054010577
+    "total_usd": 0.234889395070047
   },
-  "run_usd_per_animal_month": 0.00023581296242806472,
+  "run_usd_per_animal_month": 6.776517989152939e-05,
   "live_projection": {
     "slices_per_animal_month": 30.489649264585502,
     "low": {
       "usage": {
-        "lambda_requests": 30.540713455189863,
-        "lambda_compute_gb_s": 0.43790112861306796,
+        "lambda_requests": 30.53955946218186,
+        "lambda_compute_gb_s": 0.39933050199914,
         "sqs_requests": 91.57453815398925,
-        "dynamodb_write_units": 284.43042664882904,
-        "dynamodb_read_units": 50.18946390429403,
-        "log_ingestion_gb": 5.2308125855615085e-06,
+        "dynamodb_write_units": 62.55651847286625,
+        "dynamodb_read_units": 30.855753546376118,
+        "log_ingestion_gb": 5.230579098353145e-06,
         "sns_requests": 0.0,
         "sns_emails": 0.0
       },
       "usd": {
-        "lambda_requests": 6.1081426910379725e-06,
-        "lambda_compute_gb_s": 7.29836674025542e-06,
+        "lambda_requests": 6.107911892436372e-06,
+        "lambda_compute_gb_s": 6.655521677669067e-06,
         "sqs_requests": 4.578726907699463e-05,
-        "dynamodb_write_units": 0.0002111327057014258,
-        "dynamodb_read_units": 7.463173282568522e-06,
-        "log_ingestion_gb": 3.130641332458563e-06,
+        "dynamodb_write_units": 4.643570366240862e-05,
+        "dynamodb_read_units": 4.588250552346129e-06,
+        "log_ingestion_gb": 3.130501590364357e-06,
         "sns_requests": 0.0,
         "sns_emails": 0.0
       },
-      "total_usd": 0.00028092029882474087
+      "total_usd": 0.00011270515845221917
     },
     "high": {
       "usage": {
-        "lambda_requests": 30.540713455189863,
-        "lambda_compute_gb_s": 4.271744804970711,
+        "lambda_requests": 30.53955946218186,
+        "lambda_compute_gb_s": 3.894389598512541,
         "sqs_requests": 91.57453815398925,
-        "dynamodb_write_units": 284.43042664882904,
-        "dynamodb_read_units": 50.18946390429403,
-        "log_ingestion_gb": 5.103048068794263e-05,
+        "dynamodb_write_units": 62.55651847286625,
+        "dynamodb_read_units": 30.855753546376118,
+        "log_ingestion_gb": 5.1014075436540576e-05,
         "sns_requests": 0.0,
         "sns_emails": 0.0
       },
       "usd": {
-        "lambda_requests": 6.1081426910379725e-06,
-        "lambda_compute_gb_s": 7.119588914100535e-05,
+        "lambda_requests": 6.107911892436372e-06,
+        "lambda_compute_gb_s": 6.490662312152898e-05,
         "sqs_requests": 4.578726907699463e-05,
-        "dynamodb_write_units": 0.0002111327057014258,
-        "dynamodb_read_units": 7.463173282568522e-06,
-        "log_ingestion_gb": 3.0541742691733665e-05,
+        "dynamodb_write_units": 4.643570366240862e-05,
+        "dynamodb_read_units": 4.588250552346129e-06,
+        "log_ingestion_gb": 3.053192414876954e-05,
         "sns_requests": 0.0,
         "sns_emails": 0.0
       },
-      "total_usd": 0.0003722289225847659
+      "total_usd": 0.00019835768245448425
     }
   },
   "idle": {
-    "quiet_minutes": 82,
+    "quiet_minutes": 13,
     "empty_receives_per_minute": 15.0,
     "requests_per_month": 657450.0,
     "usd_per_month": 0.328725
   },
   "free_tier": {
     "animals": {
-      "lambda_requests": 32743.17744630381,
-      "lambda_compute_gb_s": 93638.55245625858,
+      "lambda_requests": 32744.41470704032,
+      "lambda_compute_gb_s": 102711.86019826564,
       "sqs_requests": 3740.6686062011827,
-      "log_ingestion_gb": 97980.65651341963
+      "log_ingestion_gb": 98012.1654114813
     },
     "limit": 3740.6686062011827
   }

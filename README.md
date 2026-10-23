@@ -58,8 +58,9 @@ Full tables for every study and arrival scenario are in
 **Status:** detection core (mortality, data gap, unusual movement,
 geofence), local replay and evaluation complete. Cloud handlers built and
 checked end to end against an AWS emulator (moto), with every incident
-matching the replay. Terraform and the Lambda deployment package written
-and validated in CI ([`infra/`](infra/README.md)); not yet deployed to AWS.
+matching the replay. Deployed to AWS with Terraform, run against every
+study (every stored incident matched the replay; $0.07 per 1,000
+animal-months as run) and destroyed ([`infra/`](infra/README.md)).
 
 ## How it works
 

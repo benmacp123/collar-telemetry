@@ -234,6 +234,22 @@ def test_idle_skips_runs_and_active_minutes():
     assert quiet["requests_per_month"] == pytest.approx(11 * cost.MINUTES_PER_MONTH)
 
 
+def test_idle_starts_when_the_trigger_first_polls():
+    """Minutes before the first empty receive (the stack still being
+    created, nothing polling) are not idle, so they cannot pull the rate
+    to zero."""
+    usage = _usage(
+        {"slices.NumberOfEmptyReceives": {0: 0, 1: 0, 2: 0, 3: 0, 4: 15, 5: 15}}
+    )
+    quiet = cost.idle(usage, [])
+    assert quiet["quiet_minutes"] == 2
+    assert quiet["empty_receives_per_minute"] == 15
+    assert (
+        cost.idle(_usage({"slices.NumberOfEmptyReceives": {0: 0}}), [])["quiet_minutes"]
+        == 0
+    )
+
+
 def test_send_counter_bills_by_64_kb_chunk():
     """A batch is one request per started 64 KB of its payload, and a
     message sent alone is billed by its own chunks."""

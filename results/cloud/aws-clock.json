@@ -1,0 +1,12 @@
+{
+  "label": "clock",
+  "run_id": "jackals-satellite_daily",
+  "until": "2000-01-01T00:00:00Z",
+  "deployments": 22,
+  "function_error": null,
+  "ticks": 22,
+  "dead_letters": 0,
+  "invoke_to_drained_s": 44,
+  "started_at": "2026-10-23T12:22:10+00:00",
+  "drained_at": "2026-10-23T12:22:54+00:00"
+}

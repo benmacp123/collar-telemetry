@@ -1,10 +1,10 @@
 {
   "label": "full",
-  "started_at": "2026-10-22T20:13:57+00:00",
-  "drained_at": "2026-10-22T21:38:15+00:00",
+  "started_at": "2026-10-23T11:17:04+00:00",
+  "drained_at": "2026-10-23T12:18:14+00:00",
   "region": "eu-west-2",
-  "publish_s": 4998,
-  "publish_to_drained_s": 5058,
+  "publish_s": 3609,
+  "publish_to_drained_s": 3670,
   "dead_letters": 0,
   "notify_failures": 0,
   "runs": [
@@ -28,12 +28,12 @@
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 5.411,
-          "p95": 19.306
+          "median": 4.209,
+          "p95": 14.891
         },
         "stored_to_notified_s": {
-          "median": 0.262,
-          "p95": 2.645
+          "median": 0.265,
+          "p95": 2.634
         }
       }
     },
@@ -57,8 +57,8 @@
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 0.821,
-          "p95": 2.938
+          "median": 1.306,
+          "p95": 5.385
         },
         "stored_to_notified_s": null
       }
@@ -83,8 +83,8 @@
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 1.704,
-          "p95": 4.894
+          "median": 1.547,
+          "p95": 4.166
         },
         "stored_to_notified_s": null
       }
@@ -109,8 +109,8 @@
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 1.609,
-          "p95": 6.155
+          "median": 1.131,
+          "p95": 4.67
         },
         "stored_to_notified_s": null
       }
@@ -135,8 +135,8 @@
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 1.161,
-          "p95": 3.445
+          "median": 1.297,
+          "p95": 2.745
         },
         "stored_to_notified_s": null
       }
@@ -161,8 +161,8 @@
       "not_notified": [],
       "latency_s": {
         "sent_to_stored_s": {
-          "median": 1.692,
-          "p95": 4.64
+          "median": 0.944,
+          "p95": 2.839
         },
         "stored_to_notified_s": null
       }

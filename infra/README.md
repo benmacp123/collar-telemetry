@@ -3,8 +3,11 @@
 The serverless deployment (phase 3): Terraform in `terraform/`, the
 deploy package built by `make lambda-zip`, and a local run of the same
 handlers that needs no AWS account. Deployed to eu-west-2 on 2026-10-22,
-run against every study, and destroyed the same day. Every run's stored
-incidents matched the replay runner's exactly (`results/cloud/aws-*.json`).
+and again on 2026-10-23 after the state write cut and the live clock were
+added; each time run against every study and destroyed the same day.
+Every run's stored incidents matched the replay runner's exactly
+(`results/cloud/aws-*.json`). The figures below are from the second
+deploy, with the first's where the change matters.
 
 ## Pipeline
 
@@ -41,12 +44,15 @@ EventBridge Scheduler -> clock Lambda (live mode only; deployed disabled)
   to T2), so a tick that changes no incident is not saved at all, and
   one that does is saved under the stored sequence number. Tests replace
   a silent collar's clock-only slices with ticks through the queue and
-  get the replay's incidents exactly. Cost is an estimate, not metered:
-  hourly ticks add roughly $0.4-2.6 per 1,000 animal-months (SQS FIFO
-  requests, Lambda invocations and one state read per tick; writes only
-  when an incident changes), more than the rest of live mode. A slower
-  rate costs proportionally less and delays a gap alert by up to one
-  interval on top of its 36 h or longer allowance.
+  get the replay's incidents exactly; on AWS, one invocation sent all 22
+  jackal collars a tick that drained through the processor in 44 s with
+  no dead letter (`results/cloud/aws-clock.json`). Cost is an estimate,
+  not metered (the schedule stayed disabled): hourly ticks add roughly
+  $0.4-2.6 per 1,000 animal-months (SQS FIFO requests, Lambda
+  invocations and one state read per tick; writes only when an incident
+  changes), two to twenty times the rest of live mode. A slower rate
+  costs proportionally less and delays a gap alert by up to one interval
+  on top of its 36 h or longer allowance.
 - **Outbox:** the notifier reads the incidents table's stream, publishes,
   then marks the incident `notified_at`. A crash before publishing retries
   the send; a crash after publishing and before marking sends a
@@ -87,6 +93,10 @@ emulation only.
 `terraform/` holds the stack above in eu-west-2, every resource tagged
 `Project = collar-telemetry`:
 
+- `package.tf`: a private S3 bucket holding the deploy zip, from which
+  every function is created. Uploading it inline sends 36 MB per function
+  in one signed request, which Lambda refuses if it takes over 5 minutes
+  to arrive; on a slow uplink with three functions it did.
 - `queue.tf`: the FIFO slices queue (visibility six times the processor
   timeout, five receives, then a FIFO dead-letter queue) and a queue for
   stream batches the notifier gives up on.
@@ -124,10 +134,13 @@ names must match the local run's, the runtime must match the zip's
 wheels, each handler setting must name a real function, and the
 environment variables must be the ones the handlers read.
 
-The deploy proved what the local runs could not: the trigger settings
+The deploys proved what the local runs could not: the trigger settings
 (batch sizes, the stream filter, `ReportBatchItemFailures`), the IAM
-policies, the 60 s timeout on the heaviest slices (over 100 KB) and the
-email subscription. No message reached either failure queue.
+policies (the clock's included), the 60 s timeout on the heaviest slices
+(over 100 KB) and the email subscription. No message reached either
+failure queue. The second deploy's first `apply` failed: three functions
+uploading the 36 MB zip inline over a slow uplink, one arriving after
+the 5-minute signature window; `package.tf` (the zip via S3) fixed it.
 
 ## Deploy, run and destroy
 
@@ -167,11 +180,15 @@ rerun that collar.
 ## Latency
 
 Wall-clock time from publishing a slice to storing the first write of
-each incident, full run: jackals and elephants median 1.2-2.2 s, p95
-3.7-6.1 s; vultures median 5.8-6.3 s, p95 18.7-20.1 s. Everything is
-published up front, so these include time queued behind the rest of the
-run (vultures' heavy slices, at a processor concurrency of 5). Stored to
-notified: 2.9 s (two notifications).
+each incident, full run: jackals and elephants median 0.9-1.5 s, p95
+2.7-4.7 s; vultures median 1.3-4.2 s, p95 5.4-14.9 s (first deploy:
+5.8-6.3 s and 18.7-20.1 s; the smaller state writes are the likely
+reason). Everything is published up front, so these include time queued
+behind the rest of the run (vultures' heavy slices, at a processor
+concurrency of 5). The jackal figures are the smoke run's: the full run
+reuses its run ID, so the processor skipped those slices as already
+applied. Stored to notified: median 0.3 s, p95 2.6 s (three
+notifications).
 
 ## Cost
 
@@ -205,28 +222,36 @@ Cost Explorer, about 48 hours after the session, checks the total.
 
 Results (list prices of 2026-10-22, USD, before free tier):
 
-- **The full run cost $0.79**: 105,684 slices over 3,466 animal-months,
-  so **$0.23 per 1,000 animal-months**. No processor errors; metered sends
-  equal the messages published.
-- **DynamoDB writes are 89% of it.** Each slice rewrites the collar's
-  whole state item (median about 4 KB, at most 62 KB) inside a
-  transaction, which bills every write twice: about 9 write units a
-  slice, 99% of them on the state table. Smaller state, or a plain
-  conditional write when a slice raises no incident, would be the place
-  to save. Lambda time is 3%, SQS 3%.
-- **Live mode, projected: $0.27-0.36 per 1,000 animal-months.** The
-  replay averaged 9.8 slices per invocation (260 ms per invocation,
-  27 ms per slice); live, each slice gets its own, which mostly adds
-  Lambda time and log lines. DynamoDB writes still dominate.
+- **The full run cost $0.23** (first deploy: $0.82): 105,684 slices over
+  3,466 animal-months, so **$0.07 per 1,000 animal-months** ($0.24). No
+  processor errors; metered sends equal the messages published.
+- **The state write cut worked as modelled.** State table writes fell
+  from 972,912 to 203,847 units (21%), about 2 write units a slice
+  instead of 9: most slices (94%) now use a plain conditional put rather
+  than a transaction, and the state is stored compressed. The offline
+  model in `make cloud-sizing` predicted 20.5%; it reads about 15% high
+  on both layouts (cause unknown), so it is a cross-check, not the
+  figure. Reads fell too (173,968 to 106,953 units), as smaller items
+  need fewer 4 KB read units.
+- **DynamoDB writes are still the largest line, 69% of the run**; Lambda
+  is 11%, SQS 9%, reads 7%, logs 5%.
+- **Live mode, projected: $0.11-0.20 per 1,000 animal-months** (first
+  deploy: $0.28-0.37). The replay averaged 9.8 slices per invocation
+  (255 ms per invocation, 26 ms per slice); live, each slice gets its
+  own, which mostly adds Lambda time and log lines. The live clock, if
+  enabled hourly, would add an estimated $0.4-2.6 (see Live clock).
 - **Idle: $0.33 a month.** The queue trigger made a median 15 empty
-  receives a minute in 36 quiet minutes, 657,000 requests a month. That
-  is the live cost of 900 to 1,200 animals, so for a small
-  project the fixed cost of an idle trigger outweighs the per-animal
-  cost.
+  receives a minute in 13 quiet minutes, 657,000 requests a month, the
+  same as the first deploy (36 quiet minutes). Minutes before the
+  trigger existed (the failed first `apply` left the queue up for 18
+  minutes without it) are excluded: nothing polled, so they read zero.
+  That is the live cost of roughly 1,700 to 2,900 animals, so for a
+  small project the fixed cost of an idle trigger outweighs the
+  per-animal cost.
 - **Free tier:** idle polling uses about two thirds of SQS's 1M free
   requests, and the rest covers about 3,700 animals; Lambda's allowances
-  would cover over 30,000. DynamoDB request units have no free tier, so a
-  100-collar project would pay about $0.02 a month, all of it DynamoDB.
+  would cover far more. DynamoDB request units have no free tier, so a
+  100-collar project would pay about half a cent a month for them.
 
 ## Local emulation image
 
