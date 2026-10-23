@@ -993,3 +993,119 @@ def write_geofence_map(fence, fixes: list, incidents: list, path: Path) -> None:
     figure.tight_layout()
     _save(figure, path)
     pyplot.close(figure)
+
+
+# Lanes of the death timeline, top to bottom, with each detector's colour.
+TIMELINE_LANES = (
+    ("mortality", "Mortality", SERIES[0]),
+    ("gap", "Data gap", SERIES[1]),
+    ("potential_death", "Potential death", SERIES[2]),
+)
+
+
+def write_death_timeline(
+    timeline: dict, mark_hours: float, window: tuple[float, float], path: Path
+) -> None:
+    """Draw one death as each arrival scenario saw it.
+
+    The top panel shows how far each fix lay from where the carcass ended
+    up; below it, one panel per scenario shows when fixes arrived and when
+    each incident was open, all in hours from the death start.
+
+    Args:
+        timeline: From ``evaluation.death_timeline``.
+        mark_hours: The reference mark, drawn as a line.
+        window: First and last hour on the axis.
+        path: Output PNG.
+    """
+    import matplotlib  # pylint: disable=import-outside-toplevel
+
+    matplotlib.use("Agg")
+    from matplotlib import pyplot  # pylint: disable=import-outside-toplevel
+
+    pyplot.rcParams.update(STYLE)
+    names = [n for n in SCENARIO_ORDER if n in timeline["scenarios"]]
+    figure, axes = pyplot.subplots(
+        1 + len(names),
+        1,
+        figsize=(7.6, 2.2 + 1.5 * len(names)),
+        sharex=True,
+        gridspec_kw={"height_ratios": [1.6] + [1.0] * len(names)},
+    )
+    first, last = window
+
+    ax = axes[0]
+    # Log scale cannot show 0 m, and anything under a metre is the same
+    # place at GPS accuracy.
+    ax.scatter(
+        [h for h, _ in timeline["fixes"]],
+        [max(m, 1.0) for _, m in timeline["fixes"]],
+        s=10,
+        color=INK_SECONDARY,
+        zorder=3,
+    )
+    ax.set_yscale("log")
+    ax.axhline(100, color=INK_SECONDARY, linewidth=1, linestyle="--")
+    ax.text(first + 1, 120, "100 m", color=INK_SECONDARY, fontsize=8)
+    ax.set_ylabel("Metres from carcass")
+    ax.set_title("Fixes taken: distance from where the carcass lay")
+
+    for ax, name in zip(axes[1:], names):
+        scenario = timeline["scenarios"][name]
+        rows = len(TIMELINE_LANES)
+        ax.scatter(
+            scenario["arrivals"],
+            [rows] * len(scenario["arrivals"]),
+            marker="|",
+            s=60,
+            color=INK_SECONDARY,
+        )
+        for row, (detector, _, colour) in enumerate(TIMELINE_LANES):
+            y = rows - 1 - row
+            for incident in scenario["incidents"]:
+                if incident["detector"] != detector:
+                    continue
+                start = max(incident["raised"], first)
+                end = last if incident["resolved"] is None else incident["resolved"]
+                ax.barh(y, end - start, left=start, height=0.5, color=colour)
+                if incident["raised"] >= first:
+                    ax.text(
+                        incident["raised"] + 1.5,
+                        y + 0.3,
+                        f"{incident['raised']:.0f} h",
+                        color=INK,
+                        fontsize=8,
+                        va="bottom",
+                    )
+        ax.set_yticks(
+            range(rows + 1),
+            [label for _, label, _ in reversed(TIMELINE_LANES)] + ["Fixes arrive"],
+        )
+        ax.set_ylim(-0.6, rows + 0.8)
+        ax.grid(axis="y", visible=False)
+        ax.set_title(f"{SCENARIO_LABELS[name]}: fixes arriving and alerts open")
+
+    for ax in axes:
+        ax.set_axisbelow(True)
+        ax.axvline(0, color=INK, linewidth=1)
+        ax.axvline(mark_hours, color=INK_SECONDARY, linewidth=1, linestyle=":")
+    # After the death every fix is near the carcass, so the space above
+    # the 100 m line is free for the labels.
+    axes[0].text(1.5, 3e3, "Death start", color=INK, fontsize=8)
+    axes[0].text(
+        mark_hours + 1.5, 3e3, f"{mark_hours:g} h mark", color=INK_SECONDARY, fontsize=8
+    )
+    axes[-1].set_xlim(first, last)
+    axes[-1].set_xlabel(
+        f"Hours from death start (last fix at {timeline['still_hours']:.0f} h)"
+    )
+    figure.suptitle(
+        f"One vulture's death under two upload patterns ({timeline['deployment_id']})",
+        x=0.01,
+        ha="left",
+        color=INK,
+        fontsize=12,
+    )
+    figure.tight_layout()
+    _save(figure, path)
+    pyplot.close(figure)

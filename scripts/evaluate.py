@@ -22,11 +22,12 @@ import argparse
 import json
 from pathlib import Path
 
-from telemetry.sim.arrival import SCENARIOS
+from telemetry.sim.arrival import SCENARIOS, simulate_arrival
 from telemetry.analysis.evaluation import (
     SCORING,
     TUNING,
     build_truth,
+    death_timeline,
     evaluate,
     geofence_summary,
     mammal_mark,
@@ -36,7 +37,12 @@ from telemetry.analysis.evaluation import (
     score_synthetic,
 )
 from telemetry.analysis.variants import VARIANTS
-from telemetry.analysis.report import write_figures, write_geofence_map, write_markdown
+from telemetry.analysis.report import (
+    write_death_timeline,
+    write_figures,
+    write_geofence_map,
+    write_markdown,
+)
 from telemetry.data.studies import STUDIES
 from telemetry.sim.replay import DEFAULT_SEED
 
@@ -45,6 +51,12 @@ RAW = ROOT / "data" / "raw"
 LABELS = ROOT / "data" / "labels.csv"
 RESULTS = ROOT / "results"
 EVALUATION = RESULTS / "evaluation"
+# The README's worked example: a tuning-set vulture whose carcass kept
+# reporting, so it shows the mortality, gap and potential-death alerts and
+# how daily uploads delay each one.
+TIMELINE_DEATH = "LET_TUVU_68355"
+TIMELINE_SCENARIOS = ("ideal", "satellite_daily")
+TIMELINE_WINDOW = (-48.0, 168.0)
 
 
 def parse_args() -> argparse.Namespace:
@@ -99,6 +111,34 @@ def score_variant(variant, overrides: dict[str, str], vulture_mark: float) -> di
     return report
 
 
+def write_timeline(fixes: list, mark: float) -> None:
+    """Draw the worked-example death from its replayed incidents.
+
+    Args:
+        fixes: The vulture study's fixes.
+        mark: The reference mark, in hours.
+    """
+    own = sorted(
+        (f for f in fixes if f.deployment_id == TIMELINE_DEATH),
+        key=lambda f: f.timestamp,
+    )
+    arrivals = {
+        name: simulate_arrival(own, SCENARIOS[name], DEFAULT_SEED)
+        for name in TIMELINE_SCENARIOS
+    }
+    incidents = {
+        name: read_incidents(RESULTS / "replay" / "vultures" / name / "incidents.jsonl")
+        for name in TIMELINE_SCENARIOS
+    }
+    timeline = death_timeline(own, arrivals, incidents, TIMELINE_WINDOW)
+    write_death_timeline(
+        timeline,
+        mark,
+        TIMELINE_WINDOW,
+        RESULTS / "figures" / "vultures-death-timeline.png",
+    )
+
+
 def main():
     """Score every study and scenario and write the reports."""
     args = parse_args()
@@ -145,6 +185,8 @@ def main():
                             incidents,
                             RESULTS / "figures" / f"{study.slug}-geofence-map.png",
                         )
+            if TIMELINE_DEATH in {t.deployment_id for t in chosen}:
+                write_timeline(fixes, mark)
             report = {
                 "study": study.slug,
                 "title": study.title,

@@ -5,6 +5,7 @@ scoring set.
 """
 
 import json
+from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 
 import pytest
@@ -21,6 +22,7 @@ from telemetry.analysis.evaluation import (
     Truth,
     build_truth,
     classify,
+    death_timeline,
     detection_rate,
     evaluate,
     false_mortality,
@@ -36,7 +38,7 @@ from telemetry.analysis.evaluation import (
     score_synthetic,
     split_for,
 )
-from telemetry.core.fixes import Deployment, Fix
+from telemetry.core.fixes import Arrival, Deployment, Fix
 from telemetry.core.geo import offset
 from telemetry.sim.synthetic import InjectedDeath
 
@@ -408,3 +410,42 @@ def test_score_synthetic_offset_is_positive_when_computed_start_is_later():
     assert offset_hours["later"] == 1
     assert offset_hours["min"] == pytest.approx((truths[0].still_start - START) / HOUR)
     assert result["synthetic"]["reporting"]["mortality"]["detected"] == 0
+
+
+def test_death_timeline_puts_everything_in_hours_from_death_start():
+    """Fixes, arrivals and incidents share one axis from the death start."""
+    fixes = walk_then_still(10, 50)
+    arrivals = {"ideal": [Arrival(f.timestamp + 2 * HOUR, f) for f in fixes]}
+    gap = replace(
+        incident("gap", START + 30 * HOUR, resolved=START + 35 * HOUR),
+        resolve_raised_at=START + 35 * HOUR,
+    )
+    old = replace(
+        incident("mortality", START, resolved=START + 2 * HOUR),
+        incident_id="A:mortality:old",
+        resolve_raised_at=START + 2 * HOUR,
+    )
+    other = replace(incident("mortality", START + 20 * HOUR), deployment_id="B")
+    incidents = {
+        "ideal": [
+            incident("mortality", START + 50 * HOUR),
+            gap,
+            old,
+            other,
+            incident("movement", START + 12 * HOUR),
+        ]
+    }
+    timeline = death_timeline(fixes, arrivals, incidents, (-5.0, 100.0))
+    assert timeline["deployment_id"] == "A"
+    # The walk's last fix is the carcass spot, so death starts at hour 9.
+    assert timeline["still_hours"] == 50.0
+    assert [h for h, _ in timeline["fixes"]][:6] == [-5.0, -4.0, -3.0, -2.0, -1.0, 0.0]
+    # The final position is one side of the 10 m jitter, so still fixes
+    # lie 0 or 20 m from it.
+    assert all(m <= 20.5 for h, m in timeline["fixes"] if h >= 0)
+    ideal = timeline["scenarios"]["ideal"]
+    assert ideal["arrivals"][0] == -5.0 and ideal["arrivals"][-1] == 52.0
+    assert ideal["incidents"] == [
+        {"detector": "mortality", "raised": 41.0, "resolved": None},
+        {"detector": "gap", "raised": 21.0, "resolved": 26.0},
+    ]

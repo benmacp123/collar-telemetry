@@ -75,7 +75,7 @@ from telemetry.core.alerts import (
     Incident,
 )
 from telemetry.core.detectors.geofence import Fence
-from telemetry.core.fixes import Deployment, Fix
+from telemetry.core.fixes import Arrival, Deployment, Fix
 from telemetry.core.geo import haversine_m
 from telemetry.sim.replay import PLANNED_ENDS
 from telemetry.sim.synthetic import REGIMES, InjectedDeath
@@ -186,6 +186,23 @@ def read_labels(path: Path) -> dict[str, str]:
     return labels
 
 
+def final_position(fixes: list[Fix]) -> tuple[float, float]:
+    """Where a track ends, robust to one scattered last fix.
+
+    Args:
+        fixes: The deployment's fixes in time order; not empty.
+
+    Returns:
+        tuple[float, float]: Median latitude and longitude of the last
+        ``TAIL_FIXES`` fixes.
+    """
+    tail = fixes[-TAIL_FIXES:]
+    return (
+        statistics.median(f.lat for f in tail),
+        statistics.median(f.lon for f in tail),
+    )
+
+
 def final_still_start(fixes: list[Fix], radius_m: float) -> datetime:
     """Start of a track's final stationary period.
 
@@ -199,9 +216,7 @@ def final_still_start(fixes: list[Fix], radius_m: float) -> datetime:
         fixes. The last fix's time if even it lies outside, which only
         happens when the tail is badly scattered.
     """
-    tail = fixes[-TAIL_FIXES:]
-    lat = statistics.median(f.lat for f in tail)
-    lon = statistics.median(f.lon for f in tail)
+    lat, lon = final_position(fixes)
     start = fixes[-1].timestamp
     for fix in reversed(fixes):
         if haversine_m(lat, lon, fix.lat, fix.lon) > radius_m:
@@ -659,6 +674,89 @@ def _death_record(
         "first_alert_delay_hours": first_alert(
             truth.still_start, mortality + potential_incidents, gap
         ),
+    }
+
+
+def death_timeline(
+    fixes: list[Fix],
+    arrivals: dict[str, list[Arrival]],
+    incidents: dict[str, list[Incident]],
+    window: tuple[float, float],
+) -> dict:
+    """One death as each arrival scenario saw it, for the timeline figure.
+
+    Every time is in hours from the death start, so the scenarios share
+    an axis and the delays read straight off it.
+
+    Args:
+        fixes: One dead deployment's fixes in time order; not empty.
+        arrivals: Its arrivals under each scenario, by scenario name.
+        incidents: Each scenario's incidents; other deployments' are
+            ignored.
+        window: First and last hour to keep.
+
+    Returns:
+        dict: ``deployment_id``, ``still_hours``, ``fixes`` (hour taken
+        and metres from the final position), and per scenario its
+        ``arrivals`` (hours) and ``incidents`` (detector, hour raised and
+        hour resolved, None while open). Incidents are the mortality,
+        gap and potential-death ones that overlap the window.
+    """
+    deployment_id = fixes[0].deployment_id
+    start = final_still_start(fixes, STILL_RADIUS_M)
+    lat, lon = final_position(fixes)
+    first, last = window
+
+    def hours(moment: datetime) -> float:
+        """Hours from the death start.
+
+        Args:
+            moment: A time.
+
+        Returns:
+            float: Hours, to 0.01 h.
+        """
+        return _hours(moment - start)
+
+    scenarios = {}
+    for name, own_arrivals in arrivals.items():
+        kept = []
+        for incident in incidents[name]:
+            if incident.deployment_id != deployment_id or incident.detector not in (
+                MORTALITY,
+                GAP,
+                POTENTIAL_DEATH,
+            ):
+                continue
+            raised = hours(incident.raised_at)
+            resolved = (
+                hours(incident.resolve_raised_at)
+                if incident.resolve_raised_at is not None
+                else None
+            )
+            if raised <= last and (resolved is None or resolved >= first):
+                kept.append(
+                    {
+                        "detector": incident.detector,
+                        "raised": raised,
+                        "resolved": resolved,
+                    }
+                )
+        scenarios[name] = {
+            "arrivals": [
+                hours(a.time) for a in own_arrivals if first <= hours(a.time) <= last
+            ],
+            "incidents": kept,
+        }
+    return {
+        "deployment_id": deployment_id,
+        "still_hours": hours(fixes[-1].timestamp),
+        "fixes": [
+            [hours(f.timestamp), round(haversine_m(lat, lon, f.lat, f.lon), 1)]
+            for f in fixes
+            if first <= hours(f.timestamp) <= last
+        ],
+        "scenarios": scenarios,
     }
 
 

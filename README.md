@@ -39,6 +39,17 @@ small sample, so these rates are indicative, not precise.
 
 ![Share of held-out deaths flagged by deadline, by arrival scenario](results/figures/vultures-scoring-delay.png)
 
+One tuning-set death shows how the alerts and the upload pattern combine.
+The turkey vulture's collar kept reporting from the carcass for 88 h. With
+every fix arriving as taken, the mortality alert fired at 39 h, and a
+silence mid-tail opened a gap, raising "potential death" at 75 h, before
+the 92.5 h mark. With one satellite upload a day, mortality waited for the
+next upload (51 h), the mid-tail silence opened no gap, since the gap
+detector allows for a day's upload delay, and "potential death" came only when the collar stopped for good, at
+148 h.
+
+![One vulture death under ideal arrival and daily satellite uploads](results/figures/vultures-death-timeline.png)
+
 **Geofencing shows that the boundary matters as much as the detector.**
 Using Kruger National Park's published boundary, 4 of 14 elephants raised
 202 "left the park" alerts (0.7 per animal-month), every one on the
@@ -92,6 +103,31 @@ Lambda handlers ([`src/cloud/`](src/cloud/), the only code that imports
 boto3). The rest of the package is the replay harness (`sim/`), data
 loading (`data/`) and scoring and reporting (`analysis/`); a test keeps
 each layer to its own imports.
+
+```mermaid
+flowchart TB
+    data[("Movebank tracks<br>data/raw/")] --> arrival["Arrival scenarios<br>ideal, GSM, satellite"]
+    core{{"Detection core<br>cleaning, detectors,<br>alert lifecycle"}}
+
+    subgraph local ["Local replay runner (every result here)"]
+        replay["Replay runner"] --> evaluation["Evaluation<br>tables and figures"]
+    end
+
+    subgraph aws ["AWS, deployed with Terraform"]
+        publisher["Publisher<br>(daily slices)"] --> queue["SQS FIFO<br>one group per collar"]
+        scheduler["EventBridge Scheduler<br>(live only, disabled)"] --> clock["Clock Lambda"] --> queue
+        queue --> processor["Processor Lambda"]
+        queue -. "repeated failures" .-> dlq["Dead-letter queue"]
+        processor --> state[("DynamoDB<br>state")]
+        processor --> incidents[("DynamoDB<br>incidents")]
+        incidents -- stream --> notifier["Notifier Lambda"] --> sns["SNS email<br>potential_death only"]
+    end
+
+    arrival --> replay
+    arrival --> publisher
+    replay -. calls .-> core
+    processor -. calls .-> core
+```
 
 - **Cleaning:** schema checks, de-duplication, a short hold that reorders
   late fixes, and a per-species speed filter for impossible jumps.

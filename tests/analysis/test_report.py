@@ -6,6 +6,7 @@ from telemetry.analysis.report import (
     SYNTHETIC_GROUPS,
     detection_curve,
     markdown,
+    write_death_timeline,
     write_figures,
     write_sweep,
 )
@@ -245,3 +246,25 @@ def test_markdown_deaths_table_shows_any_alert_rate():
     """The deaths table carries the first-alert rate beside mortality's."""
     text = markdown([report()])
     assert "| Ideal | 1 | 1 | 100% | 100% | 100% | 1 (1 flagged) | 7.0 | 1 |" in text
+
+
+def test_write_death_timeline_writes_png(tmp_path):
+    """The death timeline draws a panel per scenario and saves the PNG."""
+    timeline = {
+        "deployment_id": "A",
+        "still_hours": 60.0,
+        "fixes": [[-10.0, 2000.0], [0.0, 0.0], [30.0, 15.0]],
+        "scenarios": {
+            name: {
+                "arrivals": [-10.0, 0.0, 30.0],
+                "incidents": [
+                    {"detector": "mortality", "raised": 36.0, "resolved": None},
+                    {"detector": "gap", "raised": -20.0, "resolved": 5.0},
+                ],
+            }
+            for name in ("satellite_daily", "ideal")
+        },
+    }
+    path = tmp_path / "timeline.png"
+    write_death_timeline(timeline, 92.5, (-48.0, 168.0), path)
+    assert path.stat().st_size > 0

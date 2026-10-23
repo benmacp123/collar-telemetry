@@ -21,7 +21,7 @@ runs are seeded and reproduce byte for byte. Do not edit by hand.
 | `cloud/aws-clock.json` | One invocation of the live clock on the deployed stack: a tick to every jackal collar, drained with no dead letter. Needs an AWS account | `make cloud-clock` |
 | `cloud/usage-aws.json` | Per-minute CloudWatch sums for the deployed stack's functions, queue, tables, log groups and topic over the deploy day: resource names and counts, no account details. Needs an AWS account to fetch; committed so the cost report reproduces without one | `make cloud-usage` |
 | `cloud/cost.json`, `cloud/COST.md` | The full run's bill at the committed list prices (`data/prices/`), cost per animal-month, a provisional live-mode projection, idle polling cost and free-tier headroom | `make cloud-cost` |
-| `figures/` | PNG figures used in the README and reports | `make evaluate`, `make sweep` |
+| `figures/` | PNG figures used in the README and reports; `vultures-death-timeline.png` follows one tuning-set death (LET_TUVU_68355) under ideal arrival and daily satellite uploads | `make evaluate`, `make sweep` |
 
 Scenarios are the simulated upload patterns (`ideal`, `satellite_daily`,
 `satellite_2day`, `gsm`), described in `src/telemetry/sim/arrival.py`.
