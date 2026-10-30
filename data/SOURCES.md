@@ -85,6 +85,128 @@ an OpenStreetMap extract under the ODbL (see the last section).
   periods, so this is the only committed study with mortality events
   inside the tracks.
 
+### Second-sensor check (2026-10-30)
+
+Checked whether any sensor besides GPS that measures the animal's state
+(activity, acceleration, temperature, mortality flag) is available for
+these deployments, through the repository's public DSpace API
+(`/server/api/pid/find?id=hdl:10255/move.3482`) and DataCite
+(`api.datacite.org/dois/10.5441/001/1.666`).
+
+| Source | Sensor types | Licence |
+| --- | --- | --- |
+| Published package (handle 10255/move.3482) | `gps` only; every row of all six committed parts has sensor type `gps`. Its extra columns (HDOP, VDOP, satellite count, ground speed, heading, height) describe fix quality, not the animal. | CC0 1.0 |
+| Live Movebank study 24797204 | `gps` and `accessory-measurements`, the latter with `external_temperature`, `mw_activity_count` and `tag_battery_voltage` (Movebank API with a personal login: `study` and `study_attribute` entities). The live study is larger than the package: 60 deployments and about 3.0 million locations, to 2026-08. | `CUSTOM` licence; a personal account cannot view or download the data (`i_can_see_data` and `i_have_download_access` both false) |
+
+No other repository package comes from study 24797204 (DataCite search on
+the study name, 2026-10-30). So the study does record a body-state sensor
+(activity count and tag temperature), but only the GPS part is published
+under CC0. The rest needs the data owner's permission and a licence that
+allows redistribution before it can be used here.
+
+## Candidate: Vultures Acopian Center USA GPS (not committed)
+
+- **Data package:** Bildstein KL, Barber D, Bechard MJ, Graña Grilli M,
+  Therrien J (2021) Data from: Study "Vultures Acopian Center USA GPS"
+  (2003-2021). Movebank Data Repository.
+  <https://doi.org/10.5441/001/1.f3qt46r2>
+- **Landing page:** <https://datarepository.movebank.org/handle/10255/move.1306>
+- **Movebank study:** "Vultures Acopian Center USA GPS" (study ID 481458)
+- **Licence:** CC BY 4.0 on the repository item (`dc.rights`); DataCite
+  lists the file DOIs as CC0. CC BY is the stricter of the two, so it governs and
+  needs the citation above.
+- **Checked:** 2026-10-30 (file list, the first 4 KB of the accessory file,
+  the reference data and the README; nothing committed).
+- **Sensor types:** `gps` (`..._2003-2021-gps.csv`, 309 MB) and
+  `accessory-measurements` (`..._2003-2021-accessory.csv`, 109 MB): tag
+  external temperature, activity count (`gt:activity-count` for GeoTrak
+  tags, `mw:activity-count` for Microwave Telemetry tags), tag voltage and
+  battery voltage. The README quotes the Microwave Telemetry PTT-100
+  manual: a constant activity counter over two or more transmission
+  periods, with unvarying locations, suggests a detached tag or a bird
+  that is down.
+- **Deployments:** 85 (73 turkey, 12 black vultures). 5 end `dead`; about
+  10 have comments that describe a death, not yet labelled. One of these
+  ("Mandeb") died years after its tag failed, so it is not a death inside
+  the track. No tag ID is shared with study 24797204.
+
+## Candidate: LifeTrack White Stork SW Germany (not committed)
+
+- **Data package:** Data from: Study "LifeTrack White Stork SW Germany"
+  (2013-2023). Movebank Data Repository.
+  <https://doi.org/10.5441/001/1.ck04mn78_2>
+- **Landing page:** <https://datarepository.movebank.org/handle/10255/move.1685>
+- **Movebank study:** "LifeTrack White Stork SW Germany" (study ID 21231406)
+- **Licence:** CC0 1.0 on the repository item; the live study is CC BY.
+- **Checked:** 2026-10-30 (file list and Movebank reference tables only;
+  no GPS or acceleration data viewed or downloaded).
+- **Sensor types:** `gps` and `acceleration` (e-Obs tags). The package
+  files cover 2016-2023: GPS as one 478 MB zip, acceleration as eight zips
+  of about 2.5 GB in all, so only a derived extract could be committed.
+- **Deployments:** 92 in the live study; 72 end `dead`. Of the 92 death
+  comments, 31 describe a carcass, remains or logger found (independent
+  evidence), 13 say only "vanished" (not evidence of death), and at least
+  3 infer the death or its cause from the accelerometer, so would be
+  circular labels for an acceleration cue. Recorded causes include
+  electrocution (16), predation (15) and vehicle collision (6).
+- **Deaths usable for detection** (checked 2026-10-30 against each
+  deployment's track end time in Movebank's deployment table): 38
+  deployments keep transmitting for 3 days or more after the recorded
+  death date. Of these, 13 have a carcass or logger found, 16 have a
+  cause recorded but nothing found, 8 have neither, and 1 infers the
+  death from acceleration. 21 tracks stop on the day of death, so they
+  hold no carcass period.
+- **Package against live study:** only 16 deaths fall inside the
+  package's 2016-2023 files, and only about 10 of those keep
+  transmitting after death; most birds were tagged in 2013-14 and died
+  within a year. The full set needs the live study (CC BY, downloadable
+  with a Movebank account), so a committed derived extract would carry
+  the CC BY attribution.
+- **Animals and schedule:** all 92 tagged as nestlings (first-year
+  migrants, mostly dying in Spain, France and Morocco); 89 record
+  acceleration; GPS and acceleration off from 20:00 to 02:00 GPS time on
+  every tag. About 1,380 animal-months in all.
+
+## Movebank sensor scan (2026-10-30)
+
+Studies listed through the Movebank API with a personal login: 8,835 in
+all, 706 CC0 or CC BY. Of these, 140 record GPS together with an
+acceleration or accessory sensor. Reference tables were read for the 86
+with at least 10 deployments. Only the stork study above has more than
+11 deployments ending `dead`.
+
+53 further studies returned reference data only after the account
+holder accepted their licence terms, which was done through the API on
+2026-10-30. Every one is plain CC0 or CC BY under Movebank's standard
+terms (cite CC BY data; owners encourage contact and offered credit for
+new analyses). Their individual tables (death date, last timestamp,
+cause, comments) were read; no tracks were.
+
+- Bobcat habitat connectivity, central California (study 5175345606,
+  CC0, GPS and ACC): 12 recorded deaths, but every track ends on or
+  before the death date, so none can score a detector.
+- Other white stork studies: "Fall migration of white storks in 2014"
+  (332044860) repeats the SW Germany birds (57 shared rings).
+  "MPIAB white stork lifetime tracking" (74496970) shares 11 birds and
+  records no death dates. Kosova has no dated deaths with a tail.
+- New stork deaths still transmitting 3+ days after death, deduplicated
+  by ring against SW Germany (found / cause only / no evidence /
+  inferred from ACC):
+
+  | Study | Movebank id | Licence | Found | Cause | None | ACC |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | LifeTrack White Stork Rheinland-Pfalz | 76367850 | CC BY | 12 | 14 | 4 | 1 |
+  | LifeTrack White Stork Bavaria | 24442409 | CC BY | 6 | 9 | 5 | 3 |
+  | LifeTrack White Stork Vorarlberg | 173641633 | CC BY | 2 | 1 | 2 | 0 |
+  | LifeTrack White Stork Oberschwaben | 212096177 | CC BY | 1 | 0 | 4 | 0 |
+
+  With SW Germany (14 / 17 / 8 / 1 by the same rules) that is about 35
+  deaths with a found carcass or logger and a post-death tail, across
+  five populations. "Found" is a keyword match on comments and needs a
+  manual check. Most birds are tagged as nestlings; Rheinland-Pfalz
+  includes 7 adults, and Bavaria leaves most life stages blank.
+  Rheinland-Pfalz alone records 32 electrocutions.
+
 ## Label overrides (`data/labels.csv`)
 
 Deaths recorded only in a deployment's comments, not in its

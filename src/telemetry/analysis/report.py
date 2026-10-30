@@ -46,6 +46,60 @@ def _share(value) -> str:
     return "–" if value is None else f"{value:.0%}"
 
 
+def _precision_cell(value) -> str:
+    """A precision as a percentage cell, to one decimal place.
+
+    Args:
+        value: A share between 0 and 1, or None.
+
+    Returns:
+        str: The percentage, or an en dash.
+    """
+    return "–" if value is None else f"{value:.1%}"
+
+
+def look_markdown(report: dict, day: str, commit: str, why: str) -> str:
+    """One held-out look as an entry for ``results/LOOKS.md``.
+
+    Args:
+        report: The vulture scoring set's evaluation report.
+        day: The look's date, ISO format.
+        commit: The commit scored, noting any uncommitted changes.
+        why: What changed since the last look, in the scorer's words.
+
+    Returns:
+        str: A level-two heading, the reason and one row of headline
+        figures per scenario, ending in a newline.
+    """
+    lines = [
+        f"## {day}, {commit}",
+        "",
+        why,
+        "",
+        "| Scenario | Mortality true / false | Mortality precision "
+        "| False mortality per animal-month | Carcasses flagged by the mark "
+        "| Potential death true / false | Potential death precision |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for name in SCENARIO_ORDER:
+        result = report["scenarios"][name]
+        mortality = result["precision"]["mortality"]
+        potential = result["precision"]["potential_death"]
+        carcasses = result["mortality"]
+        rate = carcasses["rate_at_mark"]
+        flagged = "–" if rate is None else str(round(rate * carcasses["deaths"]))
+        lines.append(
+            f"| {SCENARIO_LABELS[name]} "
+            f"| {mortality['true']} / {mortality['false']} "
+            f"| {_precision_cell(mortality['precision'])} "
+            f"| {_cell(result['false_mortality']['per_animal_month'], 3)} "
+            f"| {flagged} of {carcasses['deaths']} "
+            f"| {potential['true']} / {potential['false']} "
+            f"| {_precision_cell(potential['precision'])} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
 def markdown(reports: list[dict]) -> str:
     """The evaluation tables as Markdown.
 
@@ -63,6 +117,8 @@ def markdown(reports: list[dict]) -> str:
         "do not edit by hand. Definitions are in `src/telemetry/analysis/evaluation.py`.",
         "Each setting's source and label (observed, literature or provisional) "
         "are in `docs/ASSUMPTIONS.md`.",
+        "The vulture scoring set's figures come from the last `make score`, "
+        "not from this run; each scoring is logged in `results/LOOKS.md`.",
         "",
     ]
     for report in reports:

@@ -5,6 +5,7 @@ from telemetry.analysis.report import (
     SCENARIO_ORDER,
     SYNTHETIC_GROUPS,
     detection_curve,
+    look_markdown,
     markdown,
     write_death_timeline,
     write_figures,
@@ -177,6 +178,20 @@ def test_markdown_has_load_deaths_and_ambiguous_sections():
     assert "| Ideal | – | 0.00 | – | 1.00 | 0.50 | 50% | – |" in text
     assert "| B | 40.0 | – |" in text
     assert "| Ideal | – | 50% | 10% | 1 of 1 | 100% |" in text
+
+
+def test_look_markdown_is_one_entry_with_a_row_per_scenario():
+    """A look-log entry carries its date, commit and reason, then each
+    scenario's headline figures, so looks compare line by line."""
+    text = look_markdown(report(), "2026-10-30", "abc1234", "Tier field added.")
+    lines = text.splitlines()
+    assert lines[0] == "## 2026-10-30, abc1234"
+    assert sum(line.startswith("## ") for line in lines) == 1
+    assert "Tier field added." in lines
+    assert "| Ideal | 1 / 9 | 10.0% | 0.000 | 1 of 1 | 1 / 1 | 50.0% |" in lines
+    assert len([line for line in lines if line.startswith("| ")]) == 1 + len(
+        SCENARIO_ORDER
+    )
 
 
 def test_write_figures_writes_delay_and_load_pngs(tmp_path):

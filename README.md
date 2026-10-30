@@ -271,10 +271,11 @@ make cloud-moto   # every study through the handlers on in-process moto
 `results/replay/<study>/<scenario>/summary.json`, the evaluation JSON,
 [`results/evaluation/EVALUATION.md`](results/evaluation/EVALUATION.md) and
 the figures; [`results/README.md`](results/README.md) says what each
-output is. The held-out vulture set was first scored with
-`PYTHONPATH=src python scripts/evaluate.py --score`; since then its
-results are kept in every run. Runs are seeded and reproduce byte for
-byte.
+output is. It never rescores the held-out vulture set: its last results
+file is read back unchanged. Only `make score WHY="what changed"`
+rescores it, and each time it appends the date, commit, reason and
+headline figures to [`results/LOOKS.md`](results/LOOKS.md), which also
+lists the earlier looks. Runs are seeded and reproduce byte for byte.
 
 ## Licence
 

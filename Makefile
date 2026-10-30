@@ -4,7 +4,7 @@
 # `make help` lists them.
 
 .PHONY: help install setup test lint format format-check profile replay \
-	evaluate results sweep departure cloud-sizing cloud-moto lambda-requirements \
+	evaluate results score sweep departure cloud-sizing cloud-moto lambda-requirements \
 	lambda-image cloud-local lambda-zip lock tf-check tf-fmt tf-plan \
 	tf-apply tf-output tf-destroy cloud-aws cloud-clock cloud-leftovers prices cloud-usage cloud-cost all
 
@@ -49,10 +49,15 @@ profile: ## Profile each study -> data/PROFILE.md
 replay: ## Replay every study, synthetic variant and scenario -> results/replay/
 	PYTHONPATH=src python scripts/replay.py
 
-evaluate: ## Score the replays -> results/evaluation/, results/figures/
+evaluate: ## Score the replays, held-out set kept as last scored -> results/evaluation/
 	PYTHONPATH=src python scripts/evaluate.py
 
 results: replay evaluate ## replay, then evaluate (about 5 min)
+
+# The only target that rescores the held-out vultures. It replays first so
+# the logged commit is the one that made the incidents scored.
+score: replay ## Score the held-out set and log it -> results/LOOKS.md (WHY="...")
+	PYTHONPATH=src python scripts/evaluate.py --score --why "$(WHY)"
 
 sweep: ## Threshold sweep on the vulture tuning set -> results/sweep/
 	PYTHONPATH=src python scripts/sweep.py
