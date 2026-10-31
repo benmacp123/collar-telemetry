@@ -17,9 +17,11 @@ raised quickly, raised once, and right often enough to act on.
 
 ## The answer so far
 
-**Every recorded death is caught, but most alerts are still false.** On
-held-out vultures (23 deployments, 491 animal-months, 10 recorded deaths,
-scored once after thresholds were frozen on an earlier set):
+**Every recorded death raises an alert, but GPS stillness alone cannot
+say an animal is dead.** On held-out vultures (23 deployments, 491
+animal-months, 10 recorded deaths; thresholds frozen on an earlier set,
+though this set has since been looked at again, see
+[Limitations](#limitations)):
 
 | | Ideal arrival | Daily satellite upload |
 |---|---|---|
@@ -27,17 +29,46 @@ scored once after thresholds were frozen on an earlier set):
 | Carcasses flagged by the mortality detector within 92.5 h | 4 of 5 | 4 of 5 |
 | Deaths with no carcass period (collar stops) flagged by the gap detector | 5 of 5, at 36 h | 5 of 5, at 60 h |
 | All alerts per animal-month | 1.1 | 0.9 |
-| Mortality alerts that were real deaths | 3% | 3% |
-| "Potential death" alerts that were real deaths | 29% | 43% |
+| Mortality alerts that were real deaths | 3.1% (0.9-8.0%) | 3.1% (0.9-8.0%) |
+| Best a stillness alert could do at that false-alert rate (ceiling) | 2.6% | 2.6% |
+| "Potential death" alerts that were real deaths | 29% (8.6-83%) | 43% (15-88%) |
 
-For a programme tracking 30 vultures that is about one alert a day. The
-fast mortality alert is mostly vultures sitting still at a roost; the
-"potential death" alert (still, then silent) is ten to fifteen times more
-trustworthy but usually comes once a carcass collar stops reporting, so it
-confirms a death rather than giving the first warning. Ten deaths is a
-small sample, so these rates are indicative, not precise.
+Brackets are 95% intervals from resampling whole birds. The mortality
+alert's precision is not a tuning failure; it is set by arithmetic. The
+held-out set has one carcass per 98 animal-months and the alert raises
+0.38 false alerts per animal-month, so a detector that fired exactly once
+on every carcass would still be right only 2.6% of the time (the
+*ceiling*). The false alerts are living birds resting: on the tuning set,
+still bouts longer than the 36 h window come about 70 times as often as
+carcasses (0.62 against 0.0085 per animal-month), 20 of them lasted over
+a week, and black vultures sit still for that long four times as often
+as turkey vultures. No window or box in the sweep, up to 120 h and 300 m,
+gets above 6% on the tuning set without losing most carcasses
+([`results/sweep/SWEEP.md`](results/sweep/SWEEP.md)). Even an alert on
+every silent collar does better, at 5.9%.
+
+![Living still bouts against carcasses, by species](results/figures/stillness-tail.png)
+
+For a programme tracking 30 vultures, all alert types together come to
+about one a day; the mortality alert alone is about 0.4 a day, nearly all
+false. The "potential death" alert (still, then silent) is 9 to 15 times
+as precise as the mortality alert on this set (8 times under GSM uploads),
+but that is a point estimate: with five carcasses the intervals allow anything from about 2
+to 35 times. It also catches no death the other alerts miss, and usually
+comes once a carcass collar stops reporting, so it confirms a death
+rather than giving the first warning.
 
 ![Share of held-out deaths flagged by deadline, by arrival scenario](results/figures/vultures-scoring-delay.png)
+
+**What changes next.** The mortality alert will stop claiming a death.
+It becomes a self-clearing "stationary: check" watch, with a longer
+window for black vultures chosen on tuning-set load alone, and a
+separate "possible death" tier fires only on evidence independent of
+stillness: first the collar falling silent (today's potential-death
+alert), then body-state sensors such as activity counters where a study
+has them. Numeric targets for each tier will be fixed before anything is
+scored again, and new rules will be validated once on studies not used
+so far: a second vulture study and five white stork populations.
 
 One tuning-set death shows how the alerts and the upload pattern combine.
 The turkey vulture's collar kept reporting from the carcass for 88 h. With
@@ -92,7 +123,8 @@ gap alerts. Method, latency and the deploy steps are in
 **Status:** detection core (mortality, data gap, unusual movement,
 geofence), local replay and evaluation complete. Cloud handlers checked
 end to end against an AWS emulator (moto) and then on AWS, deployed with
-Terraform and destroyed after the run.
+Terraform and destroyed after the run. Next: the two alert tiers above,
+and the stork and second vulture studies to validate them.
 
 ## How it works
 
@@ -134,7 +166,8 @@ flowchart TB
 - **Detectors**, each with thresholds sourced in
   [`docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md):
   - *mortality*: no movement beyond a 100 m box for a species window
-    (36 h for vultures, past one night's roost). Once it has
+    (36 h for vultures: past one night's roost, but not past the
+    multi-day rests living vultures often take). Once it has
     alerted, the animal counts as moving again only after two fixes in a
     row more than 75 m from where it lay, so a carcass's scattered fixes
     do not resolve the alert;
@@ -172,9 +205,10 @@ flowchart TB
 
 - **Ground truth:** deployment end types from the Movebank reference data,
   plus deaths recorded only in comments ([`data/labels.csv`](data/labels.csv),
-  each row quoting its evidence). Tracks that end stationary with no
-  recorded death are reported apart as possible unrecorded deaths, not
-  counted as false alarms.
+  each row quoting its evidence). On a track that ends stationary with no
+  recorded death, only alerts in that final stationary period are left
+  out, as a possible unrecorded death; earlier alerts on those tracks
+  count, and make up 94 of the 186 held-out false mortality alerts.
 - **Death start** (our definition): the earliest fix from which every
   later fix lies within 100 m of the track's final position. Deaths whose
   stationary period lasts at least 24 h (12 h for elephants) are scored on
@@ -184,9 +218,13 @@ flowchart TB
   starting before 2013 (hourly tags), with a sweep that shows the
   trade-off rather than a single tuned number
   ([`results/sweep/SWEEP.md`](results/sweep/SWEEP.md)). Deployments from 2013 on
-  (mostly 1-3 minute tags) were scored once after the thresholds were
-  frozen, which also tests whether they carry across fix rates. They did:
-  false alarms were lower on the held-out set than on the tuning set.
+  (mostly 1-3 minute tags) were held out and first scored after the
+  thresholds were frozen. False alarms were lower there (0.38 against
+  0.58 per animal-month), but that does not show the thresholds carry
+  across fix rates: the two sets differ in years, sites, species mix and
+  tag type, and held-out turkey vultures raised more false alarms than
+  tuning ones (0.33 against 0.18). Splitting by period mixes all of
+  these, so new rules will be validated on separate studies instead.
 - **Reference mark:** 92.5 h, the median time carcass collars in the
   tuning set kept reporting, so half are silent by then.
 
@@ -203,16 +241,20 @@ flowchart TB
   provisional (4 of them literature-informed) and 14 are design choices.
   The mammal mortality windows, the movement and geofence settings and
   the arrival scenarios are all provisional.
-- **The held-out set has been seen more than once.** It was scored once
-  when the thresholds were frozen (2026-10-18). Two later, declared looks
-  followed: one for the potential-death alert, which has no tuned
-  parameter, and one for a candidate "silent while still" alert, rejected
-  partly because it cut potential-death precision on this set (23% to
-  15%). Later changes were chosen on tuning data only and are included in
-  the held-out figures above. The 75 m leaving radius merged alerts that
-  had flapped, which raised held-out carcasses flagged by the mark under
-  satellite uploads from 3 to 4 of 5, and potential-death precision from
-  23% to 29% (ideal).
+- **The held-out set is no longer untouched.** It was first scored when
+  the thresholds were frozen (2026-10-18) and has been seen five more
+  times since, each logged in [`results/LOOKS.md`](results/LOOKS.md):
+  the potential-death alert, which has no tuned parameter; a candidate
+  "silent while still" alert, rejected partly because it cut
+  potential-death precision on this set (23% to 15%); the 75 m leaving
+  radius, chosen on tuning data, whose rerun raised held-out carcasses
+  flagged by the mark under satellite uploads from 3 to 4 of 5 and
+  potential-death precision from 23% to 29% (ideal); a review of the
+  mortality alert's precision; and a rescore that added intervals with
+  no detector change. The commits cannot show whether held-out figures
+  were seen before the radius was chosen. Its figures are therefore
+  reported as seen, not as an independent test, and new rules will be
+  scored on fresh studies.
 - **Sparse carcass collars are the blind spot.** A collar on a carcass
   often sends few fixes; below six in the window the mortality detector
   cannot fire, and only the gap detector notices.
@@ -263,6 +305,7 @@ source venv/bin/activate
 make test lint format-check
 make results  # replay every study and scenario, then score (about 5 min)
 make sweep    # threshold sweep on the vulture tuning set (about 2 min)
+make stillness  # how often living animals stay still (about 10 s)
 make cloud-local  # handlers in Lambda containers on moto (Docker, ~6 min)
 make cloud-moto   # every study through the handlers on in-process moto
 ```
