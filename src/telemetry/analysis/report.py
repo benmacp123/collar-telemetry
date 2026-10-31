@@ -58,6 +58,43 @@ def _precision_cell(value) -> str:
     return "–" if value is None else f"{value:.1%}"
 
 
+def _interval_cell(bounds) -> str:
+    """A 95% interval as a percentage range, to one decimal place.
+
+    Args:
+        bounds: [lower, upper] shares, or None (also when a report predates
+            intervals).
+
+    Returns:
+        str: For example "1.4-6.6%", or an en dash.
+    """
+    if bounds is None:
+        return "–"
+    low, high = bounds
+    return f"{low * 100:.1f}-{high:.1%}"
+
+
+def _precision_with_intervals(scored: dict | None) -> str:
+    """A precision with its Wilson and bootstrap intervals in one cell.
+
+    Args:
+        scored: One detector's precision record, or None.
+
+    Returns:
+        str: For example "3.1% [1.4-6.6%; by bird 1.0-8.1%]", or the bare
+        precision when the record has no intervals.
+    """
+    if scored is None:
+        return "–"
+    value = _precision_cell(scored["precision"])
+    if scored.get("wilson") is None:
+        return value
+    return (
+        f"{value} [{_interval_cell(scored['wilson'])}; "
+        f"by bird {_interval_cell(scored.get('bootstrap'))}]"
+    )
+
+
 def look_markdown(report: dict, day: str, commit: str, why: str) -> str:
     """One held-out look as an entry for ``results/LOOKS.md``.
 
@@ -76,10 +113,11 @@ def look_markdown(report: dict, day: str, commit: str, why: str) -> str:
         "",
         why,
         "",
-        "| Scenario | Mortality true / false | Mortality precision "
+        "| Scenario | Mortality true / false "
+        "| Mortality precision [Wilson 95%; by bird 95%] | Ceiling "
         "| False mortality per animal-month | Carcasses flagged by the mark "
         "| Potential death true / false | Potential death precision |",
-        "|---|---|---|---|---|---|---|",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for name in SCENARIO_ORDER:
         result = report["scenarios"][name]
@@ -91,7 +129,8 @@ def look_markdown(report: dict, day: str, commit: str, why: str) -> str:
         lines.append(
             f"| {SCENARIO_LABELS[name]} "
             f"| {mortality['true']} / {mortality['false']} "
-            f"| {_precision_cell(mortality['precision'])} "
+            f"| {_precision_with_intervals(mortality)} "
+            f"| {_precision_cell(mortality.get('ceiling'))} "
             f"| {_cell(result['false_mortality']['per_animal_month'], 3)} "
             f"| {flagged} of {carcasses['deaths']} "
             f"| {potential['true']} / {potential['false']} "
@@ -293,6 +332,9 @@ def _section(report: dict) -> list[str]:
             f"{_share(potential['rate_at_mark'])} |"
         )
 
+    lines += _precision_lines(scenarios)
+    lines += _false_alert_lines(first)
+
     geofence = first.get("geofence")
     if geofence:
         lines += [
@@ -336,6 +378,125 @@ def _section(report: dict) -> list[str]:
                 f"{_cell(track['mortality_delay_hours'], 1)} |"
             )
     return lines + [""]
+
+
+PRECISION_ROWS = (
+    ("mortality", "Mortality"),
+    ("potential_death", "Potential death"),
+    ("gap", "Gap only (baseline)"),
+)
+
+
+def _precision_lines(scenarios: dict) -> list[str]:
+    """Precision against the ceiling and baselines, per scenario.
+
+    Args:
+        scenarios: One report's results by scenario.
+
+    Returns:
+        list[str]: The section's lines, or none if the report predates
+        intervals (a held-out set last scored before them).
+    """
+    if "random_precision" not in scenarios[SCENARIO_ORDER[0]]:
+        return []
+    lines = [
+        "",
+        "### Precision against the ceiling and baselines",
+        "",
+        "Precision is true over *judged* incidents (true plus false; "
+        "ambiguous tracks left out), whereas load counts every incident. "
+        "*By bird* resamples whole deployments, so a bird with many false "
+        "alerts counts once; it is the interval to quote. The *ceiling* is "
+        "the precision of a detector firing once on each case (carcass "
+        "deaths; every death for the gap baseline) at the observed false "
+        "count; precision passes it only when one death raises more than "
+        "one true alert. *Gap only* scores gap incidents the same way: the rule "
+        "stillness has to beat. *Random* alerts at uniformly random moments "
+        "score the share of judged time after a death start.",
+        "",
+        "| Scenario | Alert | True / judged (ambiguous) | Precision "
+        "| Wilson 95% | By bird 95% | Cases | Ceiling |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
+    for name in SCENARIO_ORDER:
+        result = scenarios[name]
+        for detector, label in PRECISION_ROWS:
+            scored = result["precision"][detector]
+            lines.append(
+                f"| {SCENARIO_LABELS[name]} | {label} | {scored['true']} / "
+                f"{scored['judged']} ({scored['ambiguous']}) | "
+                f"{_precision_cell(scored['precision'])} | "
+                f"{_interval_cell(scored['wilson'])} | "
+                f"{_interval_cell(scored['bootstrap'])} | {scored['cases']} | "
+                f"{_precision_cell(scored['ceiling'])} |"
+            )
+    random = scenarios[SCENARIO_ORDER[0]]["random_precision"]
+    lines += [
+        "",
+        f"Random baseline (any scenario): {_share_fine(random)}.",
+    ]
+    return lines
+
+
+def _share_fine(value) -> str:
+    """A small share as a percentage, to two decimal places.
+
+    Args:
+        value: A share between 0 and 1, or None.
+
+    Returns:
+        str: The percentage, or an en dash.
+    """
+    return "–" if value is None else f"{value:.2%}"
+
+
+def _false_alert_lines(result: dict) -> list[str]:
+    """False mortality alerts by taxon and by deployment.
+
+    Args:
+        result: One scenario's results; false mortality alerts do not
+            depend on the arrival scenario.
+
+    Returns:
+        list[str]: The section's lines, or none if the report predates
+        the breakdown.
+    """
+    by = result.get("false_mortality_by")
+    if by is None:
+        return []
+    lines = [
+        "",
+        "### False mortality alerts by species and bird",
+        "",
+        "Under ideal arrival. Birds with no false alert are left out of the "
+        "second table.",
+        "",
+        "| Taxon | Animal-months | True | False | False per animal-month |",
+        "|---|---|---|---|---|",
+    ]
+    lines += _false_alert_rows(by["by_taxon"])
+    lines += [
+        "",
+        "| Deployment | Animal-months | True | False | False per animal-month |",
+        "|---|---|---|---|---|",
+    ]
+    return lines + _false_alert_rows(by["by_deployment"])
+
+
+def _false_alert_rows(rows: list[dict]) -> list[str]:
+    """Table rows for ``_false_alert_lines``.
+
+    Args:
+        rows: Rows from ``evaluation.false_alerts``.
+
+    Returns:
+        list[str]: One Markdown row each.
+    """
+    return [
+        f"| {row['name']} | {_cell(row['animal_months'], 1)} | {row['true']} | "
+        f"{row['false']} | {_cell(row['false_per_animal_month'])} |"
+        for row in rows
+    ]
 
 
 def write_markdown(reports: list[dict], path: Path) -> None:
@@ -657,6 +818,38 @@ def sweep_markdown(report: dict) -> str:
             f"{_share(scenarios['satellite_2day']['carcass_rate_at_mark'])} | "
             f"{_cell(scenarios['satellite_2day']['carcass_max_delay_hours'], 1)} |"
         )
+    # Random alerts do not depend on the setting, so any row gives it.
+    random = next(iter(by_setting.values()), {}).get("ideal", {})
+    random = random.get("random_precision")
+    lines += [
+        "",
+        "### Mortality precision",
+        "",
+        "Ideal arrival. True over judged incidents (ambiguous tracks left "
+        "out); *by bird* resamples whole deployments and is the interval to "
+        "quote. The *ceiling* is a detector firing once on each carcass at "
+        "the setting's false count. Potential death and gap-only precision "
+        "at the same setting are beside it for comparison. Random alerts "
+        f"score {_share_fine(random)}.",
+        "",
+        "| Window (h) | Box (m) | True / judged | Precision | Wilson 95% "
+        "| By bird 95% | Ceiling | Potential death | Gap only |",
+        "|---|---|---|---|---|---|---|---|---|",
+    ]
+    for (window, box), scenarios in sorted(
+        by_setting.items(), key=lambda kv: (kv[0][1], kv[0][0])
+    ):
+        ideal = scenarios["ideal"]
+        lines.append(
+            f"| {window:g} | {box:g} | {ideal.get('mortality_true', '–')} / "
+            f"{ideal.get('mortality_judged', '–')} | "
+            f"{_precision_cell(ideal.get('mortality_precision'))} | "
+            f"{_interval_cell(ideal.get('mortality_wilson'))} | "
+            f"{_interval_cell(ideal.get('mortality_bootstrap'))} | "
+            f"{_precision_cell(ideal.get('mortality_ceiling'))} | "
+            f"{_precision_cell(ideal.get('potential_death_precision'))} | "
+            f"{_precision_cell(ideal.get('gap_precision'))} |"
+        )
     lines += [
         "",
         "## Gap detector",
@@ -666,8 +859,9 @@ def sweep_markdown(report: dict) -> str:
         "a carcass period, from the last fix.",
         "",
         "| Scenario | Margin (h) | Gap alerts per animal-month "
-        "| Resolved late | Deaths flagged | Median delay (h) | Slowest (h) |",
-        "|---|---|---|---|---|---|---|",
+        "| Resolved late | Deaths flagged | Median delay (h) | Slowest (h) "
+        "| Precision as a death signal |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     gap = [r for r in rows if r["swept"] == "gap"]
     for name in SCENARIO_ORDER:
@@ -681,7 +875,8 @@ def sweep_markdown(report: dict) -> str:
                 f"{_share(row['gap_late_fix_share'])} | "
                 f"{row['other_deaths_detected']} of {row['other_deaths']} | "
                 f"{_cell(row['other_deaths_median_gap_delay_hours'], 1)} | "
-                f"{_cell(row['other_deaths_max_gap_delay_hours'], 1)} |"
+                f"{_cell(row['other_deaths_max_gap_delay_hours'], 1)} | "
+                f"{_precision_cell(row.get('gap_precision'))} |"
             )
     return "\n".join(lines) + "\n"
 

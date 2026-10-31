@@ -49,14 +49,54 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
-          "precision": null
+          "judged": 0,
+          "precision": null,
+          "wilson": null,
+          "bootstrap": null,
+          "cases": 0,
+          "ceiling": null
         },
         "potential_death": {
           "true": 0,
           "false": 0,
           "ambiguous": 0,
-          "precision": null
+          "judged": 0,
+          "precision": null,
+          "wilson": null,
+          "bootstrap": null,
+          "cases": 0,
+          "ceiling": null
+        },
+        "gap": {
+          "true": 0,
+          "false": 145,
+          "ambiguous": 0,
+          "judged": 145,
+          "precision": 0.0,
+          "wilson": [
+            -0.0,
+            0.02581
+          ],
+          "bootstrap": [
+            0.0,
+            0.0
+          ],
+          "cases": 0,
+          "ceiling": 0.0
         }
+      },
+      "random_precision": 0.0,
+      "false_mortality_by": {
+        "by_deployment": [],
+        "by_taxon": [
+          {
+            "name": "Loxodonta africana",
+            "animal_months": 291.8,
+            "true": 0,
+            "false": 0,
+            "false_per_animal_month": 0.0
+          }
+        ]
       },
       "potential_death": {
         "deaths": 0,
@@ -134,14 +174,54 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
-          "precision": null
+          "judged": 0,
+          "precision": null,
+          "wilson": null,
+          "bootstrap": null,
+          "cases": 0,
+          "ceiling": null
         },
         "potential_death": {
           "true": 0,
           "false": 0,
           "ambiguous": 0,
-          "precision": null
+          "judged": 0,
+          "precision": null,
+          "wilson": null,
+          "bootstrap": null,
+          "cases": 0,
+          "ceiling": null
+        },
+        "gap": {
+          "true": 0,
+          "false": 101,
+          "ambiguous": 0,
+          "judged": 101,
+          "precision": 0.0,
+          "wilson": [
+            -0.0,
+            0.036642
+          ],
+          "bootstrap": [
+            0.0,
+            0.0
+          ],
+          "cases": 0,
+          "ceiling": 0.0
         }
+      },
+      "random_precision": 0.0,
+      "false_mortality_by": {
+        "by_deployment": [],
+        "by_taxon": [
+          {
+            "name": "Loxodonta africana",
+            "animal_months": 291.8,
+            "true": 0,
+            "false": 0,
+            "false_per_animal_month": 0.0
+          }
+        ]
       },
       "potential_death": {
         "deaths": 0,
@@ -219,14 +299,54 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
-          "precision": null
+          "judged": 0,
+          "precision": null,
+          "wilson": null,
+          "bootstrap": null,
+          "cases": 0,
+          "ceiling": null
         },
         "potential_death": {
           "true": 0,
           "false": 0,
           "ambiguous": 0,
-          "precision": null
+          "judged": 0,
+          "precision": null,
+          "wilson": null,
+          "bootstrap": null,
+          "cases": 0,
+          "ceiling": null
+        },
+        "gap": {
+          "true": 0,
+          "false": 85,
+          "ambiguous": 0,
+          "judged": 85,
+          "precision": 0.0,
+          "wilson": [
+            0.0,
+            0.043241
+          ],
+          "bootstrap": [
+            0.0,
+            0.0
+          ],
+          "cases": 0,
+          "ceiling": 0.0
         }
+      },
+      "random_precision": 0.0,
+      "false_mortality_by": {
+        "by_deployment": [],
+        "by_taxon": [
+          {
+            "name": "Loxodonta africana",
+            "animal_months": 291.8,
+            "true": 0,
+            "false": 0,
+            "false_per_animal_month": 0.0
+          }
+        ]
       },
       "potential_death": {
         "deaths": 0,
@@ -304,14 +424,54 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
-          "precision": null
+          "judged": 0,
+          "precision": null,
+          "wilson": null,
+          "bootstrap": null,
+          "cases": 0,
+          "ceiling": null
         },
         "potential_death": {
           "true": 0,
           "false": 0,
           "ambiguous": 0,
-          "precision": null
+          "judged": 0,
+          "precision": null,
+          "wilson": null,
+          "bootstrap": null,
+          "cases": 0,
+          "ceiling": null
+        },
+        "gap": {
+          "true": 0,
+          "false": 217,
+          "ambiguous": 0,
+          "judged": 217,
+          "precision": 0.0,
+          "wilson": [
+            0.0,
+            0.017395
+          ],
+          "bootstrap": [
+            0.0,
+            0.0
+          ],
+          "cases": 0,
+          "ceiling": 0.0
         }
+      },
+      "random_precision": 0.0,
+      "false_mortality_by": {
+        "by_deployment": [],
+        "by_taxon": [
+          {
+            "name": "Loxodonta africana",
+            "animal_months": 291.8,
+            "true": 0,
+            "false": 0,
+            "false_per_animal_month": 0.0
+          }
+        ]
       },
       "potential_death": {
         "deaths": 0,

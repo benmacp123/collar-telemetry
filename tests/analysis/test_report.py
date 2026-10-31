@@ -188,7 +188,7 @@ def test_look_markdown_is_one_entry_with_a_row_per_scenario():
     assert lines[0] == "## 2026-10-30, abc1234"
     assert sum(line.startswith("## ") for line in lines) == 1
     assert "Tier field added." in lines
-    assert "| Ideal | 1 / 9 | 10.0% | 0.000 | 1 of 1 | 1 / 1 | 50.0% |" in lines
+    assert "| Ideal | 1 / 9 | 10.0% | – | 0.000 | 1 of 1 | 1 / 1 | 50.0% |" in lines
     assert len([line for line in lines if line.startswith("| ")]) == 1 + len(
         SCENARIO_ORDER
     )
@@ -220,6 +220,15 @@ def sweep_report():
             "other_deaths_detected": 1,
             "other_deaths_median_gap_delay_hours": 12.0,
             "other_deaths_max_gap_delay_hours": 12.0,
+            "mortality_true": 1,
+            "mortality_judged": 10,
+            "mortality_precision": 0.1,
+            "mortality_wilson": [0.0179, 0.4042],
+            "mortality_bootstrap": [0.0, 0.25],
+            "mortality_ceiling": 0.1818,
+            "potential_death_precision": 0.5,
+            "gap_precision": 0.04,
+            "random_precision": 0.0015,
         }
         rows.append(
             {
@@ -253,7 +262,12 @@ def test_write_sweep_writes_tables_and_figure(tmp_path):
     write_sweep(sweep_report(), tmp_path / "SWEEP.md", tmp_path / "figures")
     text = (tmp_path / "SWEEP.md").read_text(encoding="utf-8")
     assert "| 24 | 100 | 0.50 | 1 of 2 | 50% | 50% | 50% | 30.0 |" in text
-    assert "| Satellite, 2-day | 6 | 1.00 | 25% | 1 of 1 | 12.0 | 12.0 |" in text
+    assert "| Satellite, 2-day | 6 | 1.00 | 25% | 1 of 1 | 12.0 | 12.0 | 4.0% |" in text
+    assert (
+        "| 24 | 100 | 1 / 10 | 10.0% | 1.8-40.4% | 0.0-25.0% | 18.2% | 50.0% "
+        "| 4.0% |" in text
+    )
+    assert "Random alerts score 0.15%." in text
     assert (tmp_path / "figures" / "sweep-vultures-tuning.png").exists()
 
 
@@ -283,3 +297,76 @@ def test_write_death_timeline_writes_png(tmp_path):
     path = tmp_path / "timeline.png"
     write_death_timeline(timeline, 92.5, (-48.0, 168.0), path)
     assert path.stat().st_size > 0
+
+
+def scored_report():
+    """The minimal report with the precision fields ``evaluate`` now adds."""
+    full = report()
+    for result in full["scenarios"].values():
+        for detector, cases in (("mortality", 1), ("potential_death", 1), ("gap", 2)):
+            result["precision"].setdefault(
+                detector, {"true": 1, "false": 1, "ambiguous": 0, "precision": 0.5}
+            )
+            result["precision"][detector].update(
+                judged=result["precision"][detector]["true"]
+                + result["precision"][detector]["false"],
+                wilson=[0.014403, 0.066490],
+                bootstrap=[0.0099, 0.0813],
+                cases=cases,
+                ceiling=0.0262,
+            )
+        result["random_precision"] = 0.0015
+        result["false_mortality_by"] = {
+            "by_taxon": [
+                {
+                    "name": "Canis mesomelas",
+                    "animal_months": 4.0,
+                    "true": 1,
+                    "false": 9,
+                    "false_per_animal_month": 2.25,
+                }
+            ],
+            "by_deployment": [
+                {
+                    "name": "A",
+                    "animal_months": 2.0,
+                    "true": 1,
+                    "false": 9,
+                    "false_per_animal_month": 4.5,
+                }
+            ],
+        }
+    return full
+
+
+def test_markdown_precision_section_shows_intervals_ceiling_and_baselines():
+    """Each scenario lists mortality, potential death and the gap baseline
+    with both intervals and the ceiling, then the random baseline."""
+    text = markdown([scored_report()])
+    assert "### Precision against the ceiling and baselines" in text
+    assert (
+        "| Ideal | Mortality | 1 / 10 (0) | 10.0% | 1.4-6.6% | 1.0-8.1% | 1 "
+        "| 2.6% |" in text
+    )
+    assert "| Ideal | Gap only (baseline) | 1 / 2 (0) | 50.0% |" in text
+    assert "Random baseline (any scenario): 0.15%." in text
+    assert "| Canis mesomelas | 4.0 | 1 | 9 | 2.25 |" in text
+    assert "| A | 2.0 | 1 | 9 | 4.50 |" in text
+
+
+def test_markdown_skips_precision_sections_for_a_report_without_them():
+    """A held-out report scored before intervals existed still renders,
+    without the new sections, so a routine run needs no rescore."""
+    text = markdown([report()])
+    assert "### Precision against the ceiling" not in text
+    assert "### False mortality alerts by species" not in text
+
+
+def test_look_markdown_carries_intervals_and_ceiling():
+    """A look-log row quotes the precision with both intervals and the
+    ceiling, so a look cannot be read without its uncertainty."""
+    text = look_markdown(scored_report(), "2026-10-31", "abc1234", "Intervals.")
+    assert (
+        "| Ideal | 1 / 9 | 10.0% [1.4-6.6%; by bird 1.0-8.1%] | 2.6% | 0.000 "
+        "| 1 of 1 | 1 / 1 | 50.0% |" in text.splitlines()
+    )

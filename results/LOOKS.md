@@ -85,3 +85,14 @@ Fifth look: a review of the mortality alert's precision reproduced the
 set's figures were seen again, and the redesign that followed uses its
 base rate (one carcass per 98 animal-months). The date comes from the
 review's notes, which are not in git.
+
+## 2026-10-31, 6b7dec7 plus uncommitted changes
+
+Step 1.3: add precision intervals (Wilson; bootstrap by bird), the base-rate ceiling, gap-only and random baselines and a per-bird false-alert table; no detector change.
+
+| Scenario | Mortality true / false | Mortality precision [Wilson 95%; by bird 95%] | Ceiling | False mortality per animal-month | Carcasses flagged by the mark | Potential death true / false | Potential death precision |
+|---|---|---|---|---|---|---|---|
+| Ideal | 6 / 186 | 3.1% [1.4-6.6%; by bird 0.9-8.0%] | 2.6% | 0.378 | 4 of 5 | 6 / 15 | 28.6% |
+| GSM | 6 / 184 | 3.2% [1.5-6.7%; by bird 0.9-8.1%] | 2.6% | 0.374 | 4 of 5 | 6 / 18 | 25.0% |
+| Satellite, daily | 6 / 186 | 3.1% [1.4-6.6%; by bird 0.9-8.0%] | 2.6% | 0.378 | 4 of 5 | 6 / 8 | 42.9% |
+| Satellite, 2-day | 6 / 186 | 3.1% [1.4-6.6%; by bird 0.9-8.0%] | 2.6% | 0.378 | 4 of 5 | 6 / 7 | 46.2% |

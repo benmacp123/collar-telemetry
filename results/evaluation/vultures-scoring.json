@@ -56,14 +56,186 @@
           "true": 6,
           "false": 186,
           "ambiguous": 4,
-          "precision": 0.031
+          "judged": 192,
+          "precision": 0.031,
+          "wilson": [
+            0.014399,
+            0.066491
+          ],
+          "bootstrap": [
+            0.009389,
+            0.080007
+          ],
+          "cases": 5,
+          "ceiling": 0.026178
         },
         "potential_death": {
           "true": 6,
           "false": 15,
           "ambiguous": 4,
-          "precision": 0.286
+          "judged": 21,
+          "precision": 0.286,
+          "wilson": [
+            0.138137,
+            0.499568
+          ],
+          "bootstrap": [
+            0.085714,
+            0.833333
+          ],
+          "cases": 5,
+          "ceiling": 0.25
+        },
+        "gap": {
+          "true": 12,
+          "false": 190,
+          "ambiguous": 7,
+          "judged": 202,
+          "precision": 0.059,
+          "wilson": [
+            0.034305,
+            0.100952
+          ],
+          "bootstrap": [
+            0.019867,
+            0.275048
+          ],
+          "cases": 10,
+          "ceiling": 0.05
         }
+      },
+      "random_precision": 0.0018,
+      "false_mortality_by": {
+        "by_deployment": [
+          {
+            "name": "JHP_BLVU_121784",
+            "animal_months": 99.2,
+            "true": 0,
+            "false": 52,
+            "false_per_animal_month": 0.524
+          },
+          {
+            "name": "VJL_BLVU_121789",
+            "animal_months": 50.2,
+            "true": 0,
+            "false": 34,
+            "false_per_animal_month": 0.677
+          },
+          {
+            "name": "JML_TUVU_281",
+            "animal_months": 22.2,
+            "true": 0,
+            "false": 16,
+            "false_per_animal_month": 0.719
+          },
+          {
+            "name": "VJM_BLVU_121788",
+            "animal_months": 55.7,
+            "true": 0,
+            "false": 15,
+            "false_per_animal_month": 0.269
+          },
+          {
+            "name": "HAL_TUVU_121789",
+            "animal_months": 16.3,
+            "true": 1,
+            "false": 14,
+            "false_per_animal_month": 0.857
+          },
+          {
+            "name": "MAT_BLVU_68354",
+            "animal_months": 14.3,
+            "true": 0,
+            "false": 13,
+            "false_per_animal_month": 0.908
+          },
+          {
+            "name": "VLM_BLVU_281",
+            "animal_months": 27.9,
+            "true": 0,
+            "false": 9,
+            "false_per_animal_month": 0.323
+          },
+          {
+            "name": "EMH_TUVU_121788",
+            "animal_months": 20.0,
+            "true": 1,
+            "false": 8,
+            "false_per_animal_month": 0.4
+          },
+          {
+            "name": "JTA_TUVU_111943",
+            "animal_months": 8.1,
+            "true": 0,
+            "false": 6,
+            "false_per_animal_month": 0.741
+          },
+          {
+            "name": "VJH_BLVU_280",
+            "animal_months": 51.7,
+            "true": 0,
+            "false": 5,
+            "false_per_animal_month": 0.097
+          },
+          {
+            "name": "JPM_TUVU_111942",
+            "animal_months": 37.2,
+            "true": 1,
+            "false": 4,
+            "false_per_animal_month": 0.108
+          },
+          {
+            "name": "VAM_TUVU_614",
+            "animal_months": 25.3,
+            "true": 0,
+            "false": 3,
+            "false_per_animal_month": 0.118
+          },
+          {
+            "name": "VLP_TUVU_615",
+            "animal_months": 28.3,
+            "true": 1,
+            "false": 3,
+            "false_per_animal_month": 0.106
+          },
+          {
+            "name": "LCV_TUVU_280",
+            "animal_months": 10.0,
+            "true": 1,
+            "false": 2,
+            "false_per_animal_month": 0.201
+          },
+          {
+            "name": "JMX_TUVU_280",
+            "animal_months": 1.6,
+            "true": 0,
+            "false": 1,
+            "false_per_animal_month": 0.634
+          },
+          {
+            "name": "LTH_TUVU_451",
+            "animal_months": 2.9,
+            "true": 0,
+            "false": 1,
+            "false_per_animal_month": 0.344
+          }
+        ],
+        "by_taxon": [
+          {
+            "name": "Cathartes aura",
+            "animal_months": 178.4,
+            "true": 6,
+            "false": 58,
+            "false_per_animal_month": 0.325
+          },
+          {
+            "name": "Coragyps atratus",
+            "animal_months": 313.0,
+            "true": 0,
+            "false": 128,
+            "false_per_animal_month": 0.409
+          }
+        ]
       },
       "potential_death": {
         "deaths": 5,
@@ -283,14 +455,186 @@
           "true": 6,
           "false": 186,
           "ambiguous": 4,
-          "precision": 0.031
+          "judged": 192,
+          "precision": 0.031,
+          "wilson": [
+            0.014399,
+            0.066491
+          ],
+          "bootstrap": [
+            0.009389,
+            0.080007
+          ],
+          "cases": 5,
+          "ceiling": 0.026178
         },
         "potential_death": {
           "true": 6,
           "false": 8,
           "ambiguous": 4,
-          "precision": 0.429
+          "judged": 14,
+          "precision": 0.429,
+          "wilson": [
+            0.213805,
+            0.674097
+          ],
+          "bootstrap": [
+            0.15,
+            0.875
+          ],
+          "cases": 5,
+          "ceiling": 0.384615
+        },
+        "gap": {
+          "true": 12,
+          "false": 93,
+          "ambiguous": 5,
+          "judged": 105,
+          "precision": 0.114,
+          "wilson": [
+            0.066596,
+            0.189203
+          ],
+          "bootstrap": [
+            0.040534,
+            0.361711
+          ],
+          "cases": 10,
+          "ceiling": 0.097087
         }
+      },
+      "random_precision": 0.0018,
+      "false_mortality_by": {
+        "by_deployment": [
+          {
+            "name": "JHP_BLVU_121784",
+            "animal_months": 99.2,
+            "true": 0,
+            "false": 52,
+            "false_per_animal_month": 0.524
+          },
+          {
+            "name": "VJL_BLVU_121789",
+            "animal_months": 50.2,
+            "true": 0,
+            "false": 34,
+            "false_per_animal_month": 0.677
+          },
+          {
+            "name": "JML_TUVU_281",
+            "animal_months": 22.2,
+            "true": 0,
+            "false": 16,
+            "false_per_animal_month": 0.719
+          },
+          {
+            "name": "VJM_BLVU_121788",
+            "animal_months": 55.7,
+            "true": 0,
+            "false": 15,
+            "false_per_animal_month": 0.269
+          },
+          {
+            "name": "HAL_TUVU_121789",
+            "animal_months": 16.3,
+            "true": 1,
+            "false": 14,
+            "false_per_animal_month": 0.857
+          },
+          {
+            "name": "MAT_BLVU_68354",
+            "animal_months": 14.3,
+            "true": 0,
+            "false": 13,
+            "false_per_animal_month": 0.908
+          },
+          {
+            "name": "VLM_BLVU_281",
+            "animal_months": 27.9,
+            "true": 0,
+            "false": 9,
+            "false_per_animal_month": 0.323
+          },
+          {
+            "name": "EMH_TUVU_121788",
+            "animal_months": 20.0,
+            "true": 1,
+            "false": 8,
+            "false_per_animal_month": 0.4
+          },
+          {
+            "name": "JTA_TUVU_111943",
+            "animal_months": 8.1,
+            "true": 0,
+            "false": 6,
+            "false_per_animal_month": 0.741
+          },
+          {
+            "name": "VJH_BLVU_280",
+            "animal_months": 51.7,
+            "true": 0,
+            "false": 5,
+            "false_per_animal_month": 0.097
+          },
+          {
+            "name": "JPM_TUVU_111942",
+            "animal_months": 37.2,
+            "true": 1,
+            "false": 4,
+            "false_per_animal_month": 0.108
+          },
+          {
+            "name": "VAM_TUVU_614",
+            "animal_months": 25.3,
+            "true": 0,
+            "false": 3,
+            "false_per_animal_month": 0.118
+          },
+          {
+            "name": "VLP_TUVU_615",
+            "animal_months": 28.3,
+            "true": 1,
+            "false": 3,
+            "false_per_animal_month": 0.106
+          },
+          {
+            "name": "LCV_TUVU_280",
+            "animal_months": 10.0,
+            "true": 1,
+            "false": 2,
+            "false_per_animal_month": 0.201
+          },
+          {
+            "name": "JMX_TUVU_280",
+            "animal_months": 1.6,
+            "true": 0,
+            "false": 1,
+            "false_per_animal_month": 0.634
+          },
+          {
+            "name": "LTH_TUVU_451",
+            "animal_months": 2.9,
+            "true": 0,
+            "false": 1,
+            "false_per_animal_month": 0.344
+          }
+        ],
+        "by_taxon": [
+          {
+            "name": "Cathartes aura",
+            "animal_months": 178.4,
+            "true": 6,
+            "false": 58,
+            "false_per_animal_month": 0.325
+          },
+          {
+            "name": "Coragyps atratus",
+            "animal_months": 313.0,
+            "true": 0,
+            "false": 128,
+            "false_per_animal_month": 0.409
+          }
+        ]
       },
       "potential_death": {
         "deaths": 5,
@@ -510,14 +854,186 @@
           "true": 6,
           "false": 186,
           "ambiguous": 4,
-          "precision": 0.031
+          "judged": 192,
+          "precision": 0.031,
+          "wilson": [
+            0.014399,
+            0.066491
+          ],
+          "bootstrap": [
+            0.009389,
+            0.080007
+          ],
+          "cases": 5,
+          "ceiling": 0.026178
         },
         "potential_death": {
           "true": 6,
           "false": 7,
           "ambiguous": 4,
-          "precision": 0.462
+          "judged": 13,
+          "precision": 0.462,
+          "wilson": [
+            0.232058,
+            0.708566
+          ],
+          "bootstrap": [
+            0.173732,
+            0.875
+          ],
+          "cases": 5,
+          "ceiling": 0.416667
+        },
+        "gap": {
+          "true": 12,
+          "false": 70,
+          "ambiguous": 5,
+          "judged": 82,
+          "precision": 0.146,
+          "wilson": [
+            0.085741,
+            0.238596
+          ],
+          "bootstrap": [
+            0.055118,
+            0.4
+          ],
+          "cases": 10,
+          "ceiling": 0.125
         }
+      },
+      "random_precision": 0.0018,
+      "false_mortality_by": {
+        "by_deployment": [
+          {
+            "name": "JHP_BLVU_121784",
+            "animal_months": 99.2,
+            "true": 0,
+            "false": 52,
+            "false_per_animal_month": 0.524
+          },
+          {
+            "name": "VJL_BLVU_121789",
+            "animal_months": 50.2,
+            "true": 0,
+            "false": 34,
+            "false_per_animal_month": 0.677
+          },
+          {
+            "name": "JML_TUVU_281",
+            "animal_months": 22.2,
+            "true": 0,
+            "false": 16,
+            "false_per_animal_month": 0.719
+          },
+          {
+            "name": "VJM_BLVU_121788",
+            "animal_months": 55.7,
+            "true": 0,
+            "false": 15,
+            "false_per_animal_month": 0.269
+          },
+          {
+            "name": "HAL_TUVU_121789",
+            "animal_months": 16.3,
+            "true": 1,
+            "false": 14,
+            "false_per_animal_month": 0.857
+          },
+          {
+            "name": "MAT_BLVU_68354",
+            "animal_months": 14.3,
+            "true": 0,
+            "false": 13,
+            "false_per_animal_month": 0.908
+          },
+          {
+            "name": "VLM_BLVU_281",
+            "animal_months": 27.9,
+            "true": 0,
+            "false": 9,
+            "false_per_animal_month": 0.323
+          },
+          {
+            "name": "EMH_TUVU_121788",
+            "animal_months": 20.0,
+            "true": 1,
+            "false": 8,
+            "false_per_animal_month": 0.4
+          },
+          {
+            "name": "JTA_TUVU_111943",
+            "animal_months": 8.1,
+            "true": 0,
+            "false": 6,
+            "false_per_animal_month": 0.741
+          },
+          {
+            "name": "VJH_BLVU_280",
+            "animal_months": 51.7,
+            "true": 0,
+            "false": 5,
+            "false_per_animal_month": 0.097
+          },
+          {
+            "name": "JPM_TUVU_111942",
+            "animal_months": 37.2,
+            "true": 1,
+            "false": 4,
+            "false_per_animal_month": 0.108
+          },
+          {
+            "name": "VAM_TUVU_614",
+            "animal_months": 25.3,
+            "true": 0,
+            "false": 3,
+            "false_per_animal_month": 0.118
+          },
+          {
+            "name": "VLP_TUVU_615",
+            "animal_months": 28.3,
+            "true": 1,
+            "false": 3,
+            "false_per_animal_month": 0.106
+          },
+          {
+            "name": "LCV_TUVU_280",
+            "animal_months": 10.0,
+            "true": 1,
+            "false": 2,
+            "false_per_animal_month": 0.201
+          },
+          {
+            "name": "JMX_TUVU_280",
+            "animal_months": 1.6,
+            "true": 0,
+            "false": 1,
+            "false_per_animal_month": 0.634
+          },
+          {
+            "name": "LTH_TUVU_451",
+            "animal_months": 2.9,
+            "true": 0,
+            "false": 1,
+            "false_per_animal_month": 0.344
+          }
+        ],
+        "by_taxon": [
+          {
+            "name": "Cathartes aura",
+            "animal_months": 178.4,
+            "true": 6,
+            "false": 58,
+            "false_per_animal_month": 0.325
+          },
+          {
+            "name": "Coragyps atratus",
+            "animal_months": 313.0,
+            "true": 0,
+            "false": 128,
+            "false_per_animal_month": 0.409
+          }
+        ]
       },
       "potential_death": {
         "deaths": 5,
@@ -737,14 +1253,186 @@
           "true": 6,
           "false": 184,
           "ambiguous": 4,
-          "precision": 0.032
+          "judged": 190,
+          "precision": 0.032,
+          "wilson": [
+            0.014551,
+            0.067173
+          ],
+          "bootstrap": [
+            0.009478,
+            0.081485
+          ],
+          "cases": 5,
+          "ceiling": 0.026455
         },
         "potential_death": {
           "true": 6,
           "false": 18,
           "ambiguous": 4,
-          "precision": 0.25
+          "judged": 24,
+          "precision": 0.25,
+          "wilson": [
+            0.119992,
+            0.448998
+          ],
+          "bootstrap": [
+            0.076923,
+            0.714286
+          ],
+          "cases": 5,
+          "ceiling": 0.217391
+        },
+        "gap": {
+          "true": 12,
+          "false": 334,
+          "ambiguous": 7,
+          "judged": 346,
+          "precision": 0.035,
+          "wilson": [
+            0.019949,
+            0.059635
+          ],
+          "bootstrap": [
+            0.013254,
+            0.09196
+          ],
+          "cases": 10,
+          "ceiling": 0.02907
         }
+      },
+      "random_precision": 0.0018,
+      "false_mortality_by": {
+        "by_deployment": [
+          {
+            "name": "JHP_BLVU_121784",
+            "animal_months": 99.2,
+            "true": 0,
+            "false": 52,
+            "false_per_animal_month": 0.524
+          },
+          {
+            "name": "VJL_BLVU_121789",
+            "animal_months": 50.2,
+            "true": 0,
+            "false": 34,
+            "false_per_animal_month": 0.677
+          },
+          {
+            "name": "JML_TUVU_281",
+            "animal_months": 22.2,
+            "true": 0,
+            "false": 15,
+            "false_per_animal_month": 0.674
+          },
+          {
+            "name": "VJM_BLVU_121788",
+            "animal_months": 55.7,
+            "true": 0,
+            "false": 15,
+            "false_per_animal_month": 0.269
+          },
+          {
+            "name": "HAL_TUVU_121789",
+            "animal_months": 16.3,
+            "true": 1,
+            "false": 14,
+            "false_per_animal_month": 0.857
+          },
+          {
+            "name": "MAT_BLVU_68354",
+            "animal_months": 14.3,
+            "true": 0,
+            "false": 13,
+            "false_per_animal_month": 0.908
+          },
+          {
+            "name": "VLM_BLVU_281",
+            "animal_months": 27.9,
+            "true": 0,
+            "false": 9,
+            "false_per_animal_month": 0.323
+          },
+          {
+            "name": "EMH_TUVU_121788",
+            "animal_months": 20.0,
+            "true": 1,
+            "false": 8,
+            "false_per_animal_month": 0.4
+          },
+          {
+            "name": "JTA_TUVU_111943",
+            "animal_months": 8.1,
+            "true": 0,
+            "false": 5,
+            "false_per_animal_month": 0.618
+          },
+          {
+            "name": "VJH_BLVU_280",
+            "animal_months": 51.7,
+            "true": 0,
+            "false": 5,
+            "false_per_animal_month": 0.097
+          },
+          {
+            "name": "JPM_TUVU_111942",
+            "animal_months": 37.2,
+            "true": 1,
+            "false": 4,
+            "false_per_animal_month": 0.108
+          },
+          {
+            "name": "VAM_TUVU_614",
+            "animal_months": 25.3,
+            "true": 0,
+            "false": 3,
+            "false_per_animal_month": 0.118
+          },
+          {
+            "name": "VLP_TUVU_615",
+            "animal_months": 28.3,
+            "true": 1,
+            "false": 3,
+            "false_per_animal_month": 0.106
+          },
+          {
+            "name": "LCV_TUVU_280",
+            "animal_months": 10.0,
+            "true": 1,
+            "false": 2,
+            "false_per_animal_month": 0.201
+          },
+          {
+            "name": "JMX_TUVU_280",
+            "animal_months": 1.6,
+            "true": 0,
+            "false": 1,
+            "false_per_animal_month": 0.634
+          },
+          {
+            "name": "LTH_TUVU_451",
+            "animal_months": 2.9,
+            "true": 0,
+            "false": 1,
+            "false_per_animal_month": 0.344
+          }
+        ],
+        "by_taxon": [
+          {
+            "name": "Cathartes aura",
+            "animal_months": 178.4,
+            "true": 6,
+            "false": 56,
+            "false_per_animal_month": 0.314
+          },
+          {
+            "name": "Coragyps atratus",
+            "animal_months": 313.0,
+            "true": 0,
+            "false": 128,
+            "false_per_animal_month": 0.409
+          }
+        ]
       },
       "potential_death": {
         "deaths": 5,

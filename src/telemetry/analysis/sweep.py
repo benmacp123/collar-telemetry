@@ -5,7 +5,8 @@ keeps one incident stream per detector), so each is swept on its own
 rather than over the full product: the mortality window and box with the
 gap margin at its default, then the gap margin with mortality at its
 defaults. Each setting is scored with ``telemetry.analysis.evaluation`` so its
-false-alarm rate and detection can be set side by side.
+false-alarm rate, detection and precision (with intervals and the
+base-rate ceiling) can be set side by side.
 
 Only tuning-set deployments are passed in, so scoring-set tracks are never
 replayed while thresholds are chosen.
@@ -20,8 +21,10 @@ from telemetry.core.pipeline import Overrides
 from telemetry.sim.replay import DEFAULT_SEED, replay
 
 HOUR = timedelta(hours=1)
-MORTALITY_WINDOWS_H = (24, 36, 48, 72)
-MORTALITY_BOXES_M = (100.0, 150.0, 200.0)
+# Out to 120 h and 300 m so the grid covers the longer windows a precision
+# target might push towards, not only those near the default.
+MORTALITY_WINDOWS_H = (24, 36, 48, 72, 96, 120)
+MORTALITY_BOXES_M = (100.0, 150.0, 200.0, 300.0)
 UPLOAD_MARGINS_H = (6, 12, 24, 36, 48)
 
 
@@ -68,6 +71,7 @@ def sweep_point(
     scores = evaluate(truths, result.incidents, mark_hours)
     gap = scores["load"].get("gap", {})
     mortality = scores["mortality"]
+    judged = scores["precision"]["mortality"]
     delays = [
         d["mortality_delay_hours"]
         for d in scores["deaths"]
@@ -83,6 +87,17 @@ def sweep_point(
         "false_mortality_per_animal_month": scores["false_mortality"][
             "per_animal_month"
         ],
+        "mortality_true": judged["true"],
+        "mortality_judged": judged["judged"],
+        "mortality_precision": judged["precision"],
+        "mortality_wilson": judged["wilson"],
+        "mortality_bootstrap": judged["bootstrap"],
+        "mortality_ceiling": judged["ceiling"],
+        "potential_death_precision": scores["precision"]["potential_death"][
+            "precision"
+        ],
+        "gap_precision": scores["precision"]["gap"]["precision"],
+        "random_precision": scores["random_precision"],
         "carcass_deaths": mortality["deaths"],
         "carcass_detected": mortality["detected"],
         "carcass_rate_at_mark": mortality["rate_at_mark"],

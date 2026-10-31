@@ -56,14 +56,81 @@
           "true": 40,
           "false": 2,
           "ambiguous": 0,
-          "precision": 0.952
+          "judged": 42,
+          "precision": 0.952,
+          "wilson": [
+            0.842099,
+            0.986843
+          ],
+          "bootstrap": [
+            0.886364,
+            1.0
+          ],
+          "cases": 41,
+          "ceiling": 0.953488
         },
         "potential_death": {
           "true": 40,
           "false": 0,
           "ambiguous": 0,
-          "precision": 1.0
+          "judged": 40,
+          "precision": 1.0,
+          "wilson": [
+            0.912375,
+            1.0
+          ],
+          "bootstrap": [
+            1.0,
+            1.0
+          ],
+          "cases": 41,
+          "ceiling": 1.0
+        },
+        "gap": {
+          "true": 45,
+          "false": 2,
+          "ambiguous": 0,
+          "judged": 47,
+          "precision": 0.957,
+          "wilson": [
+            0.857512,
+            0.988252
+          ],
+          "bootstrap": [
+            0.897959,
+            1.0
+          ],
+          "cases": 44,
+          "ceiling": 0.956522
         }
+      },
+      "random_precision": 0.1429,
+      "false_mortality_by": {
+        "by_deployment": [
+          {
+            "name": "AU398-CM69~reporting",
+            "animal_months": 3.0,
+            "true": 1,
+            "false": 1,
+            "false_per_animal_month": 0.334
+          },
+          {
+            "name": "AU398-CM69~sparse",
+            "animal_months": 2.1,
+            "true": 1,
+            "false": 1,
+            "false_per_animal_month": 0.471
+          }
+        ],
+        "by_taxon": [
+          {
+            "name": "Canis mesomelas",
+            "animal_months": 141.6,
+            "true": 40,
+            "false": 2,
+            "false_per_animal_month": 0.014
+          }
+        ]
       },
       "potential_death": {
         "deaths": 41,
@@ -952,14 +1019,81 @@
           "true": 40,
           "false": 2,
           "ambiguous": 0,
-          "precision": 0.952
+          "judged": 42,
+          "precision": 0.952,
+          "wilson": [
+            0.842099,
+            0.986843
+          ],
+          "bootstrap": [
+            0.886364,
+            1.0
+          ],
+          "cases": 41,
+          "ceiling": 0.953488
         },
         "potential_death": {
           "true": 40,
           "false": 0,
           "ambiguous": 0,
-          "precision": 1.0
+          "judged": 40,
+          "precision": 1.0,
+          "wilson": [
+            0.912375,
+            1.0
+          ],
+          "bootstrap": [
+            1.0,
+            1.0
+          ],
+          "cases": 41,
+          "ceiling": 1.0
+        },
+        "gap": {
+          "true": 45,
+          "false": 2,
+          "ambiguous": 0,
+          "judged": 47,
+          "precision": 0.957,
+          "wilson": [
+            0.857512,
+            0.988252
+          ],
+          "bootstrap": [
+            0.897959,
+            1.0
+          ],
+          "cases": 44,
+          "ceiling": 0.956522
         }
+      },
+      "random_precision": 0.1429,
+      "false_mortality_by": {
+        "by_deployment": [
+          {
+            "name": "AU398-CM69~reporting",
+            "animal_months": 3.0,
+            "true": 1,
+            "false": 1,
+            "false_per_animal_month": 0.334
+          },
+          {
+            "name": "AU398-CM69~sparse",
+            "animal_months": 2.1,
+            "true": 1,
+            "false": 1,
+            "false_per_animal_month": 0.471
+          }
+        ],
+        "by_taxon": [
+          {
+            "name": "Canis mesomelas",
+            "animal_months": 141.6,
+            "true": 40,
+            "false": 2,
+            "false_per_animal_month": 0.014
+          }
+        ]
       },
       "potential_death": {
         "deaths": 41,
@@ -1848,14 +1982,81 @@
           "true": 40,
           "false": 2,
           "ambiguous": 0,
-          "precision": 0.952
+          "judged": 42,
+          "precision": 0.952,
+          "wilson": [
+            0.842099,
+            0.986843
+          ],
+          "bootstrap": [
+            0.886364,
+            1.0
+          ],
+          "cases": 41,
+          "ceiling": 0.953488
         },
         "potential_death": {
           "true": 40,
           "false": 0,
           "ambiguous": 0,
-          "precision": 1.0
+          "judged": 40,
+          "precision": 1.0,
+          "wilson": [
+            0.912375,
+            1.0
+          ],
+          "bootstrap": [
+            1.0,
+            1.0
+          ],
+          "cases": 41,
+          "ceiling": 1.0
+        },
+        "gap": {
+          "true": 45,
+          "false": 2,
+          "ambiguous": 0,
+          "judged": 47,
+          "precision": 0.957,
+          "wilson": [
+            0.857512,
+            0.988252
+          ],
+          "bootstrap": [
+            0.897959,
+            1.0
+          ],
+          "cases": 44,
+          "ceiling": 0.956522
         }
+      },
+      "random_precision": 0.1429,
+      "false_mortality_by": {
+        "by_deployment": [
+          {
+            "name": "AU398-CM69~reporting",
+            "animal_months": 3.0,
+            "true": 1,
+            "false": 1,
+            "false_per_animal_month": 0.334
+          },
+          {
+            "name": "AU398-CM69~sparse",
+            "animal_months": 2.1,
+            "true": 1,
+            "false": 1,
+            "false_per_animal_month": 0.471
+          }
+        ],
+        "by_taxon": [
+          {
+            "name": "Canis mesomelas",
+            "animal_months": 141.6,
+            "true": 40,
+            "false": 2,
+            "false_per_animal_month": 0.014
+          }
+        ]
       },
       "potential_death": {
         "deaths": 41,
@@ -2744,14 +2945,81 @@
           "true": 40,
           "false": 2,
           "ambiguous": 0,
-          "precision": 0.952
+          "judged": 42,
+          "precision": 0.952,
+          "wilson": [
+            0.842099,
+            0.986843
+          ],
+          "bootstrap": [
+            0.886364,
+            1.0
+          ],
+          "cases": 41,
+          "ceiling": 0.953488
         },
         "potential_death": {
           "true": 40,
           "false": 0,
           "ambiguous": 0,
-          "precision": 1.0
+          "judged": 40,
+          "precision": 1.0,
+          "wilson": [
+            0.912375,
+            1.0
+          ],
+          "bootstrap": [
+            1.0,
+            1.0
+          ],
+          "cases": 41,
+          "ceiling": 1.0
+        },
+        "gap": {
+          "true": 54,
+          "false": 39,
+          "ambiguous": 0,
+          "judged": 93,
+          "precision": 0.581,
+          "wilson": [
+            0.479113,
+            0.67578
+          ],
+          "bootstrap": [
+            0.49,
+            0.686747
+          ],
+          "cases": 44,
+          "ceiling": 0.53012
         }
+      },
+      "random_precision": 0.1429,
+      "false_mortality_by": {
+        "by_deployment": [
+          {
+            "name": "AU398-CM69~reporting",
+            "animal_months": 3.0,
+            "true": 1,
+            "false": 1,
+            "false_per_animal_month": 0.334
+          },
+          {
+            "name": "AU398-CM69~sparse",
+            "animal_months": 2.1,
+            "true": 1,
+            "false": 1,
+            "false_per_animal_month": 0.471
+          }
+        ],
+        "by_taxon": [
+          {
+            "name": "Canis mesomelas",
+            "animal_months": 141.6,
+            "true": 40,
+            "false": 2,
+            "false_per_animal_month": 0.014
+          }
+        ]
       },
       "potential_death": {
         "deaths": 41,

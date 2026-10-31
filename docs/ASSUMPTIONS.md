@@ -210,6 +210,10 @@ a threshold change cannot change what it is scored against.
 | Reference mark, mammals | Carcass minimum + 68.5 h (92.5 h jackals, 80.5 h elephants) | No mammal carcass periods exist, so the vulture mark's time after the vulture carcass minimum is carried over. | Provisional |
 | Tuning / scoring split | Vulture deployments before / from 2013 | Separates hourly tags (tuning) from mostly 1-3 min tags (scoring), so scoring also tests whether thresholds carry across fix rates. | - |
 | Animal-month | 30.4375 days of track | A mean calendar month. | - |
+| Precision denominator | True plus false incidents; ambiguous ones left out (load counts every incident) | An ambiguous track may be an unrecorded death, so its incidents are neither right nor wrong. | - |
+| Precision intervals | Wilson 95% on incidents; 95% percentile bootstrap resampling whole deployments, 5,000 resamples, seed 0 | Wilson assumes independent alerts. False alerts cluster on a few birds, so the deployment bootstrap is the honest interval to quote. | - |
+| Base-rate ceiling | Cases / (cases + false incidents); cases are carcass deaths for mortality and potential death, every death for gap | The best precision a detector could reach at its own false-alert count if it fired once on every case. | - |
+| Baselines | Gap only: gap incidents scored like mortality ones. Random: alerts at uniformly random moments of tracked time, scoring the share of judged time after a death start | What stillness has to beat: silence alone, and chance. | - |
 
 ## References
 

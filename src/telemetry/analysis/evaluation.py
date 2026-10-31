@@ -43,7 +43,20 @@ project plan:
 - **Precision** of the mortality and ``potential_death`` incidents: an
   incident is true if it is on a dead deployment and still open after the
   death start, ambiguous if the same holds on an ambiguous track, and
-  false otherwise.
+  false otherwise. Load counts every incident; precision is true over
+  true plus false (the *judged* incidents), leaving ambiguous ones out.
+  Each precision carries a Wilson 95% interval on incidents and a 95%
+  bootstrap that resamples whole deployments (seeded), since false
+  alerts cluster on a few birds and incidents are not independent.
+- **Ceiling** is the precision of a detector that fires once on every
+  death it is meant to catch (carcass deaths for mortality and
+  ``potential_death``, all deaths for gap) at its observed false-alert
+  count: the best its false-alert rate allows at this base rate.
+- **Baselines.** Gap incidents are scored like mortality ones, as the
+  "collar went quiet" rule that stillness has to beat. The random
+  baseline is the precision of alerts fired at uniformly random moments
+  of tracked time: the share of judged time that lies after a death
+  start.
 
 - **Synthetic deaths** (``score_synthetic``) are scored exactly like real
   ones, from the computed death start, then broken down by carcass
@@ -77,6 +90,7 @@ from telemetry.core.alerts import (
 from telemetry.core.detectors.geofence import Fence
 from telemetry.core.fixes import Arrival, Deployment, Fix
 from telemetry.core.geo import haversine_m
+from telemetry.analysis.intervals import ceiling, cluster_bootstrap, wilson
 from telemetry.sim.replay import PLANNED_ENDS
 from telemetry.sim.synthetic import REGIMES, InjectedDeath
 
@@ -471,17 +485,108 @@ def precision(
         detector: ``MORTALITY`` or ``POTENTIAL_DEATH``.
 
     Returns:
-        dict: True, false and ambiguous counts, and the share of true among
-        true and false (ambiguous left out), or None with neither.
+        dict: True, false and ambiguous counts; ``judged``, true plus false
+        (ambiguous left out); the share of true among judged, or None with
+        none; and its Wilson and deployment-bootstrap 95% intervals.
     """
     counts = Counter({"true": 0, "false": 0, "ambiguous": 0})
+    per_deployment = []
     for truth in truths:
-        for incident in own.get((truth.deployment_id, detector), []):
-            counts[classify(truth, incident)] += 1
+        own_counts = Counter(
+            classify(truth, incident)
+            for incident in own.get((truth.deployment_id, detector), [])
+        )
+        counts.update(own_counts)
+        per_deployment.append((own_counts["true"], own_counts["false"]))
     judged = counts["true"] + counts["false"]
     return {
         **dict(counts),
+        "judged": judged,
         "precision": round(counts["true"] / judged, 3) if judged else None,
+        "wilson": wilson(counts["true"], judged),
+        "bootstrap": cluster_bootstrap(per_deployment),
+    }
+
+
+def random_precision(truths: list[Truth]) -> float | None:
+    """Precision of alerts fired at uniformly random moments.
+
+    An alert at a random moment of tracked time is true if it falls after
+    a death start, so its expected precision is the share of judged time
+    spent dead. Time after the start of an ambiguous track's final
+    stationary period is left out, as ambiguous incidents are.
+
+    Args:
+        truths: The deployments scored.
+
+    Returns:
+        float | None: The share to 0.0001, or None with no tracked time.
+    """
+    tracked = sum((t.last_fix - t.first_fix for t in truths), timedelta())
+    dead = sum(
+        (t.last_fix - t.still_start for t in truths if t.label == DEAD), timedelta()
+    )
+    unjudged = sum(
+        (t.last_fix - t.still_start for t in truths if t.label == AMBIGUOUS),
+        timedelta(),
+    )
+    judged = tracked - unjudged
+    return round(dead / judged, 4) if judged else None
+
+
+def false_alerts(
+    truths: list[Truth], own: dict[tuple[str, str], list[Incident]], detector: str
+) -> dict:
+    """One detector's false alerts by deployment and by taxon.
+
+    Shows whether false alerts are spread across birds or held by a few,
+    which is why precision also gets a deployment bootstrap.
+
+    Args:
+        truths: The deployments scored.
+        own: Their incidents by (deployment, detector).
+        detector: The detector.
+
+    Returns:
+        dict: ``by_deployment``, the deployments with a false alert, most
+        first, and ``by_taxon``, every taxon scored; each row with its
+        animal-months, true and false counts and false alerts per
+        animal-month.
+    """
+    rows = []
+    for truth in truths:
+        verdicts = Counter(
+            classify(truth, incident)
+            for incident in own.get((truth.deployment_id, detector), [])
+        )
+        months = (truth.last_fix - truth.first_fix) / ANIMAL_MONTH
+        rows.append((truth, months, verdicts["true"], verdicts["false"]))
+
+    def row(name: str, months: float, true: int, false: int) -> dict:
+        """One table row, JSON-ready."""
+        return {
+            "name": name,
+            "animal_months": round(months, 1),
+            "true": true,
+            "false": false,
+            "false_per_animal_month": _rate(false, months),
+        }
+
+    by_taxon: dict[str, list] = {}
+    for truth, months, true, false in rows:
+        tally = by_taxon.setdefault(truth.taxon, [0.0, 0, 0])
+        tally[0] += months
+        tally[1] += true
+        tally[2] += false
+    return {
+        "by_deployment": [
+            row(t.deployment_id, months, true, false)
+            for t, months, true, false in sorted(
+                rows, key=lambda r: (-r[3], r[0].deployment_id)
+            )
+            if false
+        ],
+        "by_taxon": [row(taxon, *tally) for taxon, tally in sorted(by_taxon.items())],
     }
 
 
@@ -546,8 +651,11 @@ def evaluate(
         mark_hours: Reference deadline for the summary rate, or None.
 
     Returns:
-        dict: JSON-ready operator load, false mortality alerts, per-death
-        detection, ambiguous tracks and cross-detector overlap.
+        dict: JSON-ready operator load, false mortality alerts (in all and
+        by deployment and taxon), per-death detection, precision with its
+        intervals and ceiling for mortality, potential death and the gap
+        baseline, the random baseline, ambiguous tracks and cross-detector
+        overlap.
     """
     ids = {t.deployment_id for t in truths}
     own: dict[tuple[str, str], list[Incident]] = {}
@@ -605,10 +713,15 @@ def evaluate(
                 detection_rate(wide, mark_hours) if mark_hours is not None else None
             ),
         },
+        # Gap is scored as the baseline stillness has to beat; its cases
+        # are every death, as any death silences a collar in the end.
         "precision": {
-            MORTALITY: precision(truths, own, MORTALITY),
-            POTENTIAL_DEATH: precision(truths, own, POTENTIAL_DEATH),
+            MORTALITY: _with_ceiling(truths, own, MORTALITY, len(carcass)),
+            POTENTIAL_DEATH: _with_ceiling(truths, own, POTENTIAL_DEATH, len(carcass)),
+            GAP: _with_ceiling(truths, own, GAP, len(deaths)),
         },
+        "random_precision": random_precision(truths),
+        "false_mortality_by": false_alerts(truths, own, MORTALITY),
         "potential_death": {
             "deaths": len(carcass),
             "detected": sum(1 for d in potential if d is not None),
@@ -640,6 +753,27 @@ def evaluate(
         "deaths": deaths,
         "ambiguous": ambiguous,
     }
+
+
+def _with_ceiling(
+    truths: list[Truth],
+    own: dict[tuple[str, str], list[Incident]],
+    detector: str,
+    cases: int,
+) -> dict:
+    """One detector's precision with its base-rate ceiling beside it.
+
+    Args:
+        truths: The deployments scored.
+        own: Their incidents by (deployment, detector).
+        detector: The detector.
+        cases: Deaths it is meant to catch.
+
+    Returns:
+        dict: ``precision``'s result plus ``cases`` and ``ceiling``.
+    """
+    scored = precision(truths, own, detector)
+    return {**scored, "cases": cases, "ceiling": ceiling(cases, scored["false"])}
 
 
 def _death_record(

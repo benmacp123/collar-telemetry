@@ -25,6 +25,7 @@ from telemetry.analysis.evaluation import (
     death_timeline,
     detection_rate,
     evaluate,
+    false_alerts,
     false_mortality,
     final_still_start,
     first_alert,
@@ -32,6 +33,7 @@ from telemetry.analysis.evaluation import (
     label_for,
     mortality_detection,
     precision,
+    random_precision,
     read_incidents,
     read_labels,
     reference_mark,
@@ -358,9 +360,68 @@ def test_precision_leaves_ambiguous_out():
         "true": 1,
         "false": 1,
         "ambiguous": 0,
+        "judged": 2,
         "precision": 0.5,
+        "wilson": [0.094529, 0.905471],
+        "bootstrap": [0.0, 1.0],
     }
-    assert precision([dead], {}, "potential_death")["precision"] is None
+    empty = precision([dead], {}, "potential_death")
+    assert empty["precision"] is None
+    assert empty["wilson"] is None and empty["bootstrap"] is None
+
+
+def test_evaluate_puts_ceiling_and_gap_baseline_beside_precision():
+    """Mortality's ceiling counts carcass deaths, the gap baseline's every
+    death, each against its own false alerts."""
+    dead = truth()
+    alive = Truth(**{**dead.__dict__, "deployment_id": "B", "label": ALIVE})
+    incidents = [
+        incident("mortality", START + 34 * HOUR),
+        incident("gap", START + 66 * HOUR),
+        Incident("B:m", "B", "mortality", OPEN, START, "", raised_at=START),
+        Incident("B:g1", "B", "gap", OPEN, START, "", raised_at=START),
+        Incident("B:g2", "B", "gap", OPEN, START, "", raised_at=START),
+    ]
+    scored = evaluate([dead, alive], incidents, mark_hours=48.0)["precision"]
+    assert (scored["mortality"]["cases"], scored["mortality"]["ceiling"]) == (1, 0.5)
+    assert scored["gap"]["true"] == 1 and scored["gap"]["false"] == 2
+    assert scored["gap"]["ceiling"] == round(1 / 3, 6)
+
+
+def test_random_precision_is_share_of_judged_time_dead():
+    """Dead time over tracked time, with ambiguous tails left out of both."""
+    dead = truth()  # 60 h tracked, 50 h after the death start
+    alive = Truth(**{**dead.__dict__, "deployment_id": "B", "label": ALIVE})
+    ambiguous = Truth(**{**dead.__dict__, "deployment_id": "C", "label": AMBIGUOUS})
+    assert random_precision([dead, alive]) == round(50 / 120, 4)
+    assert random_precision([dead, alive, ambiguous]) == round(50 / 130, 4)
+    assert random_precision([]) is None
+
+
+def test_false_alerts_by_deployment_and_taxon():
+    """Birds are listed most false alerts first, birds without any left
+    out; taxa are always listed."""
+    dead = truth()
+    alive = Truth(**{**dead.__dict__, "deployment_id": "B", "label": ALIVE})
+    own = {
+        ("A", "mortality"): [incident("mortality", START + 30 * HOUR)],
+        ("B", "mortality"): [
+            Incident(f"B:{i}", "B", "mortality", OPEN, START, "", raised_at=START)
+            for i in range(3)
+        ],
+    }
+    by = false_alerts([dead, alive], own, "mortality")
+    assert [r["name"] for r in by["by_deployment"]] == ["B"]
+    assert by["by_deployment"][0]["false"] == 3
+    assert by["by_taxon"] == [
+        {
+            "name": JACKAL,
+            "animal_months": round(120 / 730.5, 1),
+            "true": 1,
+            "false": 3,
+            "false_per_animal_month": round(3 / (120 / 730.5), 3),
+        }
+    ]
 
 
 def test_score_synthetic_reports_regimes_and_injected_delays():

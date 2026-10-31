@@ -72,9 +72,10 @@ def test_box_only_drops_the_leaving_radius():
 
 
 def test_grid_sweeps_each_detector_on_its_own():
-    """Twelve mortality settings and five gap margins."""
+    """Twenty-four mortality settings (36-120 h by 100-300 m plus the old
+    24 h and 150 m points) and five gap margins."""
     points = grid()
-    assert sum(1 for swept, _ in points if swept == "mortality") == 12
+    assert sum(1 for swept, _ in points if swept == "mortality") == 24
     gap = [o for swept, o in points if swept == "gap"]
     assert len(gap) == 5
     assert all(o.mortality_window is None for o in gap)

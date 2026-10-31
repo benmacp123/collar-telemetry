@@ -42,6 +42,55 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | Satellite, daily | 0.04 | 43% | 3% | 5 of 5 | 20% |
 | Satellite, 2-day | 0.04 | 46% | 3% | 5 of 5 | 20% |
 
+### Precision against the ceiling and baselines
+
+Precision is true over *judged* incidents (true plus false; ambiguous tracks left out), whereas load counts every incident. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start.
+
+| Scenario | Alert | True / judged (ambiguous) | Precision | Wilson 95% | By bird 95% | Cases | Ceiling |
+|---|---|---|---|---|---|---|---|
+| Ideal | Mortality | 6 / 192 (4) | 3.1% | 1.4-6.6% | 0.9-8.0% | 5 | 2.6% |
+| Ideal | Potential death | 6 / 21 (4) | 28.6% | 13.8-50.0% | 8.6-83.3% | 5 | 25.0% |
+| Ideal | Gap only (baseline) | 12 / 202 (7) | 5.9% | 3.4-10.1% | 2.0-27.5% | 10 | 5.0% |
+| GSM | Mortality | 6 / 190 (4) | 3.2% | 1.5-6.7% | 0.9-8.1% | 5 | 2.6% |
+| GSM | Potential death | 6 / 24 (4) | 25.0% | 12.0-44.9% | 7.7-71.4% | 5 | 21.7% |
+| GSM | Gap only (baseline) | 12 / 346 (7) | 3.5% | 2.0-6.0% | 1.3-9.2% | 10 | 2.9% |
+| Satellite, daily | Mortality | 6 / 192 (4) | 3.1% | 1.4-6.6% | 0.9-8.0% | 5 | 2.6% |
+| Satellite, daily | Potential death | 6 / 14 (4) | 42.9% | 21.4-67.4% | 15.0-87.5% | 5 | 38.5% |
+| Satellite, daily | Gap only (baseline) | 12 / 105 (5) | 11.4% | 6.7-18.9% | 4.1-36.2% | 10 | 9.7% |
+| Satellite, 2-day | Mortality | 6 / 192 (4) | 3.1% | 1.4-6.6% | 0.9-8.0% | 5 | 2.6% |
+| Satellite, 2-day | Potential death | 6 / 13 (4) | 46.2% | 23.2-70.9% | 17.4-87.5% | 5 | 41.7% |
+| Satellite, 2-day | Gap only (baseline) | 12 / 82 (5) | 14.6% | 8.6-23.9% | 5.5-40.0% | 10 | 12.5% |
+
+Random baseline (any scenario): 0.18%.
+
+### False mortality alerts by species and bird
+
+Under ideal arrival. Birds with no false alert are left out of the second table.
+
+| Taxon | Animal-months | True | False | False per animal-month |
+|---|---|---|---|---|
+| Cathartes aura | 178.4 | 6 | 58 | 0.33 |
+| Coragyps atratus | 313.0 | 0 | 128 | 0.41 |
+
+| Deployment | Animal-months | True | False | False per animal-month |
+|---|---|---|---|---|
+| JHP_BLVU_121784 | 99.2 | 0 | 52 | 0.52 |
+| VJL_BLVU_121789 | 50.2 | 0 | 34 | 0.68 |
+| JML_TUVU_281 | 22.2 | 0 | 16 | 0.72 |
+| VJM_BLVU_121788 | 55.7 | 0 | 15 | 0.27 |
+| HAL_TUVU_121789 | 16.3 | 1 | 14 | 0.86 |
+| MAT_BLVU_68354 | 14.3 | 0 | 13 | 0.91 |
+| VLM_BLVU_281 | 27.9 | 0 | 9 | 0.32 |
+| EMH_TUVU_121788 | 20.0 | 1 | 8 | 0.40 |
+| JTA_TUVU_111943 | 8.1 | 0 | 6 | 0.74 |
+| VJH_BLVU_280 | 51.7 | 0 | 5 | 0.10 |
+| JPM_TUVU_111942 | 37.2 | 1 | 4 | 0.11 |
+| VAM_TUVU_614 | 25.3 | 0 | 3 | 0.12 |
+| VLP_TUVU_615 | 28.3 | 1 | 3 | 0.11 |
+| LCV_TUVU_280 | 10.0 | 1 | 2 | 0.20 |
+| JMX_TUVU_280 | 1.6 | 0 | 1 | 0.63 |
+| LTH_TUVU_451 | 2.9 | 0 | 1 | 0.34 |
+
 ### Possible unrecorded deaths
 
 Unplanned ends that finish stationary; not counted as false alarms. Mortality delay under ideal arrival.
@@ -91,6 +140,69 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | Satellite, daily | 0.05 | 14% | 1% | 4 of 6 | 0% |
 | Satellite, 2-day | 0.04 | 17% | 1% | 4 of 6 | 0% |
 
+### Precision against the ceiling and baselines
+
+Precision is true over *judged* incidents (true plus false; ambiguous tracks left out), whereas load counts every incident. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start.
+
+| Scenario | Alert | True / judged (ambiguous) | Precision | Wilson 95% | By bird 95% | Cases | Ceiling |
+|---|---|---|---|---|---|---|---|
+| Ideal | Mortality | 5 / 414 (2) | 1.2% | 0.5-2.8% | 0.3-2.9% | 6 | 1.4% |
+| Ideal | Potential death | 5 / 58 (2) | 8.6% | 3.7-18.6% | 2.1-25.0% | 6 | 10.2% |
+| Ideal | Gap only (baseline) | 19 / 621 (2) | 3.1% | 2.0-4.7% | 1.4-7.5% | 17 | 2.7% |
+| GSM | Mortality | 5 / 414 (2) | 1.2% | 0.5-2.8% | 0.3-2.9% | 6 | 1.4% |
+| GSM | Potential death | 5 / 64 (2) | 7.8% | 3.4-17.0% | 1.9-22.2% | 6 | 9.2% |
+| GSM | Gap only (baseline) | 20 / 785 (2) | 2.5% | 1.7-3.9% | 1.2-5.5% | 17 | 2.2% |
+| Satellite, daily | Mortality | 5 / 414 (2) | 1.2% | 0.5-2.8% | 0.3-2.9% | 6 | 1.4% |
+| Satellite, daily | Potential death | 5 / 35 (2) | 14.3% | 6.3-29.4% | 3.6-35.0% | 6 | 16.7% |
+| Satellite, daily | Gap only (baseline) | 18 / 393 (2) | 4.6% | 2.9-7.1% | 2.2-10.3% | 17 | 4.3% |
+| Satellite, 2-day | Mortality | 5 / 414 (2) | 1.2% | 0.5-2.8% | 0.3-2.9% | 6 | 1.4% |
+| Satellite, 2-day | Potential death | 5 / 29 (2) | 17.2% | 7.6-34.5% | 4.3-42.9% | 6 | 20.0% |
+| Satellite, 2-day | Gap only (baseline) | 18 / 313 (2) | 5.8% | 3.7-8.9% | 2.7-13.1% | 17 | 5.4% |
+
+Random baseline (any scenario): 0.15%.
+
+### False mortality alerts by species and bird
+
+Under ideal arrival. Birds with no false alert are left out of the second table.
+
+| Taxon | Animal-months | True | False | False per animal-month |
+|---|---|---|---|---|
+| Cathartes aura | 174.4 | 4 | 31 | 0.18 |
+| Coragyps atratus | 535.0 | 1 | 378 | 0.71 |
+
+| Deployment | Animal-months | True | False | False per animal-month |
+|---|---|---|---|---|
+| MHM_BLVU_68349 | 56.1 | 0 | 61 | 1.09 |
+| MHP_BLVU_68353 | 54.0 | 0 | 36 | 0.67 |
+| EAX_BLVU_121786 | 70.3 | 0 | 35 | 0.50 |
+| PMT_BLVU_68359 | 18.6 | 0 | 33 | 1.77 |
+| LAJ_BLVU_68347 | 43.2 | 0 | 26 | 0.60 |
+| LTH_BLVU_68357 | 43.2 | 0 | 24 | 0.56 |
+| LAV_BLVU_68349 | 9.4 | 0 | 21 | 2.24 |
+| PMP_BLVU_68356 | 15.4 | 0 | 20 | 1.30 |
+| MHT_BLVU_68348 | 52.6 | 0 | 18 | 0.34 |
+| CLE_BLVU_121785 | 18.4 | 0 | 16 | 0.87 |
+| PML_BLVU_68361 | 22.4 | 0 | 16 | 0.72 |
+| MEM_BLVU_68361 | 13.3 | 0 | 13 | 0.98 |
+| PMV_BLVU_68350 | 13.3 | 0 | 12 | 0.90 |
+| MHX_BLVU_68351 | 34.4 | 0 | 11 | 0.32 |
+| LEJ_TUVU_68352 | 42.0 | 0 | 10 | 0.24 |
+| LTP_BLVU_68358 | 10.4 | 0 | 9 | 0.87 |
+| MHA_BLVU_68350 | 17.1 | 0 | 7 | 0.41 |
+| LEH_TUVU_68351 | 24.9 | 0 | 6 | 0.24 |
+| LAL_BLVU_68348 | 19.2 | 0 | 5 | 0.26 |
+| PMH_BLVU_68354 | 8.0 | 1 | 4 | 0.50 |
+| ACT_TUVU_111943 | 5.7 | 1 | 3 | 0.53 |
+| CAT_BLVU_121784 | 3.0 | 0 | 3 | 1.00 |
+| LCP_BLVU_68350 | 5.7 | 0 | 3 | 0.53 |
+| LEP_TUVU_68354 | 19.1 | 1 | 3 | 0.16 |
+| LEV_TUVU_68356 | 13.9 | 1 | 3 | 0.21 |
+| MEP_BLVU_68362 | 5.8 | 0 | 3 | 0.52 |
+| MEX_TUVU_68360 | 41.5 | 0 | 3 | 0.07 |
+| ACH_BLVU_111942 | 1.2 | 0 | 2 | 1.63 |
+| MET_TUVU_68359 | 18.7 | 0 | 2 | 0.11 |
+| MEV_TUVU_68355 | 4.9 | 0 | 1 | 0.20 |
+
 ### Possible unrecorded deaths
 
 Unplanned ends that finish stationary; not counted as false alarms. Mortality delay under ideal arrival.
@@ -136,6 +248,43 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | GSM | – | – | 0% | 0 of 0 | – |
 | Satellite, daily | – | – | 0% | 0 of 0 | – |
 | Satellite, 2-day | – | – | 0% | 0 of 0 | – |
+
+### Precision against the ceiling and baselines
+
+Precision is true over *judged* incidents (true plus false; ambiguous tracks left out), whereas load counts every incident. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start.
+
+| Scenario | Alert | True / judged (ambiguous) | Precision | Wilson 95% | By bird 95% | Cases | Ceiling |
+|---|---|---|---|---|---|---|---|
+| Ideal | Mortality | 0 / 13 (0) | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% |
+| Ideal | Potential death | 0 / 0 (0) | – | – | – | 0 | – |
+| Ideal | Gap only (baseline) | 3 / 33 (0) | 9.1% | 3.1-23.6% | 0.0-21.1% | 3 | 9.1% |
+| GSM | Mortality | 0 / 13 (0) | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% |
+| GSM | Potential death | 0 / 0 (0) | – | – | – | 0 | – |
+| GSM | Gap only (baseline) | 3 / 95 (0) | 3.2% | 1.1-8.9% | 0.0-7.7% | 3 | 3.2% |
+| Satellite, daily | Mortality | 0 / 13 (0) | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% |
+| Satellite, daily | Potential death | 0 / 0 (0) | – | – | – | 0 | – |
+| Satellite, daily | Gap only (baseline) | 3 / 32 (0) | 9.4% | 3.2-24.2% | 0.0-21.4% | 3 | 9.4% |
+| Satellite, 2-day | Mortality | 0 / 13 (0) | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% |
+| Satellite, 2-day | Potential death | 0 / 0 (0) | – | – | – | 0 | – |
+| Satellite, 2-day | Gap only (baseline) | 3 / 33 (0) | 9.1% | 3.1-23.6% | 0.0-21.1% | 3 | 9.1% |
+
+Random baseline (any scenario): 0.01%.
+
+### False mortality alerts by species and bird
+
+Under ideal arrival. Birds with no false alert are left out of the second table.
+
+| Taxon | Animal-months | True | False | False per animal-month |
+|---|---|---|---|---|
+| Canis mesomelas | 182.1 | 0 | 13 | 0.07 |
+
+| Deployment | Animal-months | True | False | False per animal-month |
+|---|---|---|---|---|
+| AU398-CM69 | 13.1 | 0 | 5 | 0.38 |
+| AU210-CM11 | 14.2 | 0 | 3 | 0.21 |
+| AU214-CM44 | 15.1 | 0 | 3 | 0.20 |
+| AU211-CM15 | 16.1 | 0 | 1 | 0.06 |
+| AU218-CM33 | 8.2 | 0 | 1 | 0.12 |
 
 ### Geofence
 
@@ -184,6 +333,38 @@ Carcass deaths (final stationary period at least the mortality window) are score
 | GSM | – | – | – | 0 of 0 | – |
 | Satellite, daily | – | – | – | 0 of 0 | – |
 | Satellite, 2-day | – | – | – | 0 of 0 | – |
+
+### Precision against the ceiling and baselines
+
+Precision is true over *judged* incidents (true plus false; ambiguous tracks left out), whereas load counts every incident. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start.
+
+| Scenario | Alert | True / judged (ambiguous) | Precision | Wilson 95% | By bird 95% | Cases | Ceiling |
+|---|---|---|---|---|---|---|---|
+| Ideal | Mortality | 0 / 0 (0) | – | – | – | 0 | – |
+| Ideal | Potential death | 0 / 0 (0) | – | – | – | 0 | – |
+| Ideal | Gap only (baseline) | 0 / 145 (0) | 0.0% | -0.0-2.6% | 0.0-0.0% | 0 | 0.0% |
+| GSM | Mortality | 0 / 0 (0) | – | – | – | 0 | – |
+| GSM | Potential death | 0 / 0 (0) | – | – | – | 0 | – |
+| GSM | Gap only (baseline) | 0 / 217 (0) | 0.0% | 0.0-1.7% | 0.0-0.0% | 0 | 0.0% |
+| Satellite, daily | Mortality | 0 / 0 (0) | – | – | – | 0 | – |
+| Satellite, daily | Potential death | 0 / 0 (0) | – | – | – | 0 | – |
+| Satellite, daily | Gap only (baseline) | 0 / 101 (0) | 0.0% | -0.0-3.7% | 0.0-0.0% | 0 | 0.0% |
+| Satellite, 2-day | Mortality | 0 / 0 (0) | – | – | – | 0 | – |
+| Satellite, 2-day | Potential death | 0 / 0 (0) | – | – | – | 0 | – |
+| Satellite, 2-day | Gap only (baseline) | 0 / 85 (0) | 0.0% | 0.0-4.3% | 0.0-0.0% | 0 | 0.0% |
+
+Random baseline (any scenario): 0.00%.
+
+### False mortality alerts by species and bird
+
+Under ideal arrival. Birds with no false alert are left out of the second table.
+
+| Taxon | Animal-months | True | False | False per animal-month |
+|---|---|---|---|---|
+| Loxodonta africana | 291.8 | 0 | 0 | 0.00 |
+
+| Deployment | Animal-months | True | False | False per animal-month |
+|---|---|---|---|---|
 
 ### Geofence
 
