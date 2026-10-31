@@ -87,6 +87,9 @@ class SpeciesProfile:
 # sweep (results/sweep/SWEEP.md). 36 h cuts false mortality alerts by 38% against
 # 24 h with no loss of carcass deaths flagged by the reference mark; 48 h
 # cuts more but flags one death after the mark under satellite uploads.
+# Living vultures still outlast it 0.62 times per animal-month
+# (results/stillness/STILLNESS.md), so it sets alert load, not a clean
+# split between rest and death.
 # Movement floor, provisional: vultures cover tens of kilometres a day on
 # the wing, so 10 km in 3 h. On the tuning set each bird's own threshold
 # is above it for 32 of 34 birds, so it is a backstop.
@@ -102,7 +105,8 @@ PROFILES: dict[str, SpeciesProfile] = {
         # m/s; Christiansen 2002, Iriarte-Diaz 2002, as listed by Hirt et
         # al. 2017), rounded up to 17 m/s. Mortality window, provisional:
         # jackals lie up through the day and no published lie-up durations
-        # were found, so the default 24 h. Movement floor, provisional: a
+        # were found, so the default 24 h. Living jackals outlast it 0.071
+        # times per animal-month, longest 102 h (make stillness). Movement floor, provisional: a
         # mean of 14.6 km a day (Kaunda 2001, VHF in Botswana), so 3 km in
         # 3 h is about 1.7 times the mean rate.
         SpeciesProfile(
@@ -117,7 +121,8 @@ PROFILES: dict[str, SpeciesProfile] = {
         # 11 m/s is a safe ceiling. Mortality window, provisional with
         # literature support: wild elephants sleep about 2 h a day, mostly
         # 02:00-06:00 (Gravett et al. 2017), and this population's stays at
-        # water average 2.6-3.5 h (Thaker et al. 2019), so 12 h. Movement
+        # water average 2.6-3.5 h (Thaker et al. 2019), so 12 h; no living
+        # elephant here stays still past 10.5 h (make stillness). Movement
         # floor, provisional: 3 km in 3 h is about 2.5 times this
         # population's mean speed of 0.4 km/h (Thaker et al. 2019).
         SpeciesProfile(

@@ -25,9 +25,12 @@ per deployment: the bounding box of the fixes since the animal last moved.
   after the alert. 75 m was chosen on tuning data
   (``results/departure/DEPARTURE.md``).
 
-Roosting, resting and denning look the same as death for a while, so
-``window`` must be longer than the species' longest normal rest (12-14 h
-for roosting vultures). A tag that falls off also looks the same, so the
+Roosting, resting and denning look the same as death for a while, and
+living rest has a long tail: tuning-set vultures stay still past 36 h
+about 0.6 times per animal-month and past a week about 0.03 times, far
+more often than carcasses appear (``results/stillness/STILLNESS.md``).
+No window clears all normal rest, so ``window`` trades false alerts
+against detection delay rather than separating the two. A tag that falls off also looks the same, so the
 alert says "possible mortality or dropped tag".
 
 Distances use the bounding box's corners, so the detector assumes tracks

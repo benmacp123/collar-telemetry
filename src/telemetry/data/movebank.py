@@ -77,6 +77,28 @@ def read_deployments(path: Path) -> list[Deployment]:
     return deployments
 
 
+def read_tag_models(path: Path) -> dict[str, str]:
+    """Read each deployment's tag model from a Movebank reference-data CSV.
+
+    Kept out of ``Deployment`` because only analysis uses it. Studies with
+    one tag type often leave ``tag-model`` out; the manufacturer then
+    stands in, and "unknown" if that is missing too.
+
+    Args:
+        path: Path to the ``*-reference-data.csv`` file.
+
+    Returns:
+        dict[str, str]: Tag model by deployment ID.
+    """
+    with open(path, newline="", encoding="utf-8") as handle:
+        return {
+            row["deployment-id"].strip(): _optional(row.get("tag-model"))
+            or _optional(row.get("tag-manufacturer-name"))
+            or "unknown"
+            for row in csv.DictReader(handle)
+        }
+
+
 @dataclass
 class LoadReport:
     """Counts of event rows that did not become fixes.

@@ -13,6 +13,7 @@ runs are seeded and reproduce byte for byte. Do not edit by hand.
 | `LOOKS.md` | Every time the held-out vulture set has been scored or seen: date, commit, reason and headline figures. Entries up to 2026-10-24 are reconstructed from the commit trail | `make score` appends one entry |
 | `evaluation/EVALUATION.md` | The evaluation tables, with definitions | `make evaluate` |
 | `sweep/vultures-tuning.json`, `sweep/SWEEP.md` | Mortality window, box and gap margin swept on the vulture tuning set | `make sweep` |
+| `stillness/stillness.json`, `stillness/STILLNESS.md` | How often living animals stay still past 12 h to a week, under the mortality detector's own cluster rule: vulture tuning set (by species; every tuning tag is Argos PTT), every jackal and elephant, with the vulture carcass periods beside them | `make stillness` |
 | `departure/departure.json`, `departure/DEPARTURE.md` | How the mortality detector decides a still tag has moved again: the box-only detector against bigger boxes, three leave fixes, longer merge windows and a leaving radius, on the vulture tuning set and on mammal variants drawn with a separate tuning seed (2027); flapped, split and ended-resolved deaths, false-alert load and duration, detection by the mark | `make departure` |
 | `carcass/carcass.json` | How collars behave on the vulture tuning set's carcass deaths (rate of new positions against the live rate, two regimes, scatter without repeated positions), each study's share of repeated positions and the mammals' still-window scatter; the synthetic mortality defaults must match it | `make carcass` |
 | `cloud/sizing.json` | The cloud runner's daily slices run locally: message and state sizes, modelled state table write units for the stored layout and the first deployed one, and a check that the incidents match the replay | `make cloud-sizing` |
@@ -22,7 +23,7 @@ runs are seeded and reproduce byte for byte. Do not edit by hand.
 | `cloud/aws-clock.json` | One invocation of the live clock on the deployed stack: a tick to every jackal collar, drained with no dead letter. Needs an AWS account | `make cloud-clock` |
 | `cloud/usage-aws.json` | Per-minute CloudWatch sums for the deployed stack's functions, queue, tables, log groups and topic over the deploy day: resource names and counts, no account details. Needs an AWS account to fetch; committed so the cost report reproduces without one | `make cloud-usage` |
 | `cloud/cost.json`, `cloud/COST.md` | The full run's bill at the committed list prices (`data/prices/`), cost per animal-month, a provisional live-mode projection, idle polling cost and free-tier headroom | `make cloud-cost` |
-| `figures/` | PNG figures used in the README and reports; `vultures-death-timeline.png` follows one tuning-set death (LET_TUVU_68355) under ideal arrival and daily satellite uploads | `make evaluate`, `make sweep` |
+| `figures/` | PNG figures used in the README and reports; `vultures-death-timeline.png` follows one tuning-set death (LET_TUVU_68355) under ideal arrival and daily satellite uploads | `make evaluate`, `make sweep`, `make stillness` |
 
 Scenarios are the simulated upload patterns (`ideal`, `satellite_daily`,
 `satellite_2day`, `gsm`), described in `src/telemetry/sim/arrival.py`.

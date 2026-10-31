@@ -4,7 +4,12 @@ from datetime import datetime, timezone
 
 import pytest
 
-from telemetry.data.movebank import parse_timestamp, read_deployments, read_fixes
+from telemetry.data.movebank import (
+    parse_timestamp,
+    read_deployments,
+    read_fixes,
+    read_tag_models,
+)
 
 REFERENCE_HEADER = (
     "tag-id,animal-id,animal-taxon,deploy-on-date,deploy-off-date,"
@@ -150,3 +155,17 @@ def test_split_event_files_are_read_in_order(tmp_path, reused_collar):
     fixes, report = read_fixes([first, second], read_deployments(reused_collar))
     assert [fix.deployment_id for fix in fixes] == ["T1-A", "T1-B"]
     assert (report.rows, report.not_visible) == (3, 1)
+
+
+def test_read_tag_models_falls_back_to_manufacturer(tmp_path):
+    """Tag model is used if given, then the manufacturer, then "unknown"."""
+    path = write(
+        tmp_path / "ref.csv",
+        "deployment-id,tag-model,tag-manufacturer-name\n",
+        ["D1,Argos PTT,Microwave", "D2,,Microwave", "D3,,"],
+    )
+    assert read_tag_models(path) == {
+        "D1": "Argos PTT",
+        "D2": "Microwave",
+        "D3": "unknown",
+    }

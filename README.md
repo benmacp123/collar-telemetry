@@ -134,7 +134,7 @@ flowchart TB
 - **Detectors**, each with thresholds sourced in
   [`docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md):
   - *mortality*: no movement beyond a 100 m box for a species window
-    (36 h for vultures, past their 12-14 h overnight roost). Once it has
+    (36 h for vultures, past one night's roost). Once it has
     alerted, the animal counts as moving again only after two fixes in a
     row more than 75 m from where it lay, so a carcass's scattered fixes
     do not resolve the alert;

@@ -1,0 +1,632 @@
+{
+  "sets": [
+    {
+      "study": "vultures",
+      "set": "tuning",
+      "groups": [
+        {
+          "taxon": null,
+          "tag_model": null,
+          "taxa": [
+            "Cathartes aura",
+            "Coragyps atratus"
+          ],
+          "tag_models": [
+            "Argos PTT GPS transmitter"
+          ],
+          "deployments": 34,
+          "animal_months": 709.4,
+          "window_hours": 36.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 6426,
+              "per_animal_month": 9.0585
+            },
+            {
+              "hours": 24,
+              "count": 710,
+              "per_animal_month": 1.0009
+            },
+            {
+              "hours": 36,
+              "count": 437,
+              "per_animal_month": 0.616
+            },
+            {
+              "hours": 48,
+              "count": 170,
+              "per_animal_month": 0.2396
+            },
+            {
+              "hours": 72,
+              "count": 79,
+              "per_animal_month": 0.1114
+            },
+            {
+              "hours": 168,
+              "count": 20,
+              "per_animal_month": 0.0282
+            }
+          ],
+          "beyond_window": {
+            "hours": 36.0,
+            "count": 437,
+            "per_animal_month": 0.616
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 6426,
+              "per_animal_month": 9.0585
+            },
+            {
+              "hours": 18,
+              "count": 1835,
+              "per_animal_month": 2.5867
+            },
+            {
+              "hours": 24,
+              "count": 710,
+              "per_animal_month": 1.0009
+            },
+            {
+              "hours": 36,
+              "count": 437,
+              "per_animal_month": 0.616
+            },
+            {
+              "hours": 48,
+              "count": 170,
+              "per_animal_month": 0.2396
+            },
+            {
+              "hours": 72,
+              "count": 79,
+              "per_animal_month": 0.1114
+            },
+            {
+              "hours": 96,
+              "count": 51,
+              "per_animal_month": 0.0719
+            },
+            {
+              "hours": 120,
+              "count": 38,
+              "per_animal_month": 0.0536
+            },
+            {
+              "hours": 168,
+              "count": 20,
+              "per_animal_month": 0.0282
+            },
+            {
+              "hours": 240,
+              "count": 11,
+              "per_animal_month": 0.0155
+            },
+            {
+              "hours": 336,
+              "count": 3,
+              "per_animal_month": 0.0042
+            },
+            {
+              "hours": 504,
+              "count": 3,
+              "per_animal_month": 0.0042
+            },
+            {
+              "hours": 720,
+              "count": 2,
+              "per_animal_month": 0.0028
+            }
+          ],
+          "longest_hours": 12330.0
+        },
+        {
+          "taxon": "Cathartes aura",
+          "tag_model": null,
+          "taxa": [
+            "Cathartes aura"
+          ],
+          "tag_models": [
+            "Argos PTT GPS transmitter"
+          ],
+          "deployments": 12,
+          "animal_months": 174.4,
+          "window_hours": 36.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 1882,
+              "per_animal_month": 10.7917
+            },
+            {
+              "hours": 24,
+              "count": 53,
+              "per_animal_month": 0.3039
+            },
+            {
+              "hours": 36,
+              "count": 33,
+              "per_animal_month": 0.1892
+            },
+            {
+              "hours": 48,
+              "count": 11,
+              "per_animal_month": 0.0631
+            },
+            {
+              "hours": 72,
+              "count": 5,
+              "per_animal_month": 0.0287
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "beyond_window": {
+            "hours": 36.0,
+            "count": 33,
+            "per_animal_month": 0.1892
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 1882,
+              "per_animal_month": 10.7917
+            },
+            {
+              "hours": 18,
+              "count": 258,
+              "per_animal_month": 1.4794
+            },
+            {
+              "hours": 24,
+              "count": 53,
+              "per_animal_month": 0.3039
+            },
+            {
+              "hours": 36,
+              "count": 33,
+              "per_animal_month": 0.1892
+            },
+            {
+              "hours": 48,
+              "count": 11,
+              "per_animal_month": 0.0631
+            },
+            {
+              "hours": 72,
+              "count": 5,
+              "per_animal_month": 0.0287
+            },
+            {
+              "hours": 96,
+              "count": 2,
+              "per_animal_month": 0.0115
+            },
+            {
+              "hours": 120,
+              "count": 1,
+              "per_animal_month": 0.0057
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 240,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 336,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 504,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 720,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "longest_hours": 167.0
+        },
+        {
+          "taxon": "Coragyps atratus",
+          "tag_model": null,
+          "taxa": [
+            "Coragyps atratus"
+          ],
+          "tag_models": [
+            "Argos PTT GPS transmitter"
+          ],
+          "deployments": 22,
+          "animal_months": 535.0,
+          "window_hours": 36.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 4544,
+              "per_animal_month": 8.4935
+            },
+            {
+              "hours": 24,
+              "count": 657,
+              "per_animal_month": 1.228
+            },
+            {
+              "hours": 36,
+              "count": 404,
+              "per_animal_month": 0.7551
+            },
+            {
+              "hours": 48,
+              "count": 159,
+              "per_animal_month": 0.2972
+            },
+            {
+              "hours": 72,
+              "count": 74,
+              "per_animal_month": 0.1383
+            },
+            {
+              "hours": 168,
+              "count": 20,
+              "per_animal_month": 0.0374
+            }
+          ],
+          "beyond_window": {
+            "hours": 36.0,
+            "count": 404,
+            "per_animal_month": 0.7551
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 4544,
+              "per_animal_month": 8.4935
+            },
+            {
+              "hours": 18,
+              "count": 1577,
+              "per_animal_month": 2.9477
+            },
+            {
+              "hours": 24,
+              "count": 657,
+              "per_animal_month": 1.228
+            },
+            {
+              "hours": 36,
+              "count": 404,
+              "per_animal_month": 0.7551
+            },
+            {
+              "hours": 48,
+              "count": 159,
+              "per_animal_month": 0.2972
+            },
+            {
+              "hours": 72,
+              "count": 74,
+              "per_animal_month": 0.1383
+            },
+            {
+              "hours": 96,
+              "count": 49,
+              "per_animal_month": 0.0916
+            },
+            {
+              "hours": 120,
+              "count": 37,
+              "per_animal_month": 0.0692
+            },
+            {
+              "hours": 168,
+              "count": 20,
+              "per_animal_month": 0.0374
+            },
+            {
+              "hours": 240,
+              "count": 11,
+              "per_animal_month": 0.0206
+            },
+            {
+              "hours": 336,
+              "count": 3,
+              "per_animal_month": 0.0056
+            },
+            {
+              "hours": 504,
+              "count": 3,
+              "per_animal_month": 0.0056
+            },
+            {
+              "hours": 720,
+              "count": 2,
+              "per_animal_month": 0.0037
+            }
+          ],
+          "longest_hours": 12330.0
+        }
+      ],
+      "carcasses": {
+        "hours": [
+          25.0,
+          53.0,
+          88.0,
+          97.0,
+          130.0,
+          337.0
+        ],
+        "per_animal_month": 0.0085
+      }
+    },
+    {
+      "study": "jackals",
+      "set": "all",
+      "groups": [
+        {
+          "taxon": null,
+          "tag_model": null,
+          "taxa": [
+            "Canis mesomelas"
+          ],
+          "tag_models": [
+            "African Wildlife Tracking"
+          ],
+          "deployments": 22,
+          "animal_months": 182.1,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 232,
+              "per_animal_month": 1.2742
+            },
+            {
+              "hours": 24,
+              "count": 13,
+              "per_animal_month": 0.0714
+            },
+            {
+              "hours": 36,
+              "count": 4,
+              "per_animal_month": 0.022
+            },
+            {
+              "hours": 48,
+              "count": 2,
+              "per_animal_month": 0.011
+            },
+            {
+              "hours": 72,
+              "count": 1,
+              "per_animal_month": 0.0055
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 13,
+            "per_animal_month": 0.0714
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 232,
+              "per_animal_month": 1.2742
+            },
+            {
+              "hours": 18,
+              "count": 46,
+              "per_animal_month": 0.2526
+            },
+            {
+              "hours": 24,
+              "count": 13,
+              "per_animal_month": 0.0714
+            },
+            {
+              "hours": 36,
+              "count": 4,
+              "per_animal_month": 0.022
+            },
+            {
+              "hours": 48,
+              "count": 2,
+              "per_animal_month": 0.011
+            },
+            {
+              "hours": 72,
+              "count": 1,
+              "per_animal_month": 0.0055
+            },
+            {
+              "hours": 96,
+              "count": 1,
+              "per_animal_month": 0.0055
+            },
+            {
+              "hours": 120,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 240,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 336,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 504,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 720,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "longest_hours": 101.7
+        }
+      ],
+      "carcasses": {
+        "hours": [],
+        "per_animal_month": 0.0
+      }
+    },
+    {
+      "study": "elephants",
+      "set": "all",
+      "groups": [
+        {
+          "taxon": null,
+          "tag_model": null,
+          "taxa": [
+            "Loxodonta africana"
+          ],
+          "tag_models": [
+            "Africa Wildlife Tracking"
+          ],
+          "deployments": 14,
+          "animal_months": 291.8,
+          "window_hours": 12.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 24,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 36,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 48,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 72,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "beyond_window": {
+            "hours": 12.0,
+            "count": 0,
+            "per_animal_month": 0.0
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 18,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 24,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 36,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 48,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 72,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 96,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 120,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 240,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 336,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 504,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 720,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "longest_hours": 10.5
+        }
+      ],
+      "carcasses": {
+        "hours": [],
+        "per_animal_month": 0.0
+      }
+    }
+  ]
+}
