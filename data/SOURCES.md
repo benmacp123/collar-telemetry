@@ -207,6 +207,60 @@ cause, comments) were read; no tracks were.
   includes 7 adults, and Bavaria leaves most life stages blank.
   Rheinland-Pfalz alone records 32 electrocutions.
 
+## LifeTrack White Stork populations (extract pending)
+
+Licence check, 2026-10-31, for step 3.1 of the stork case study; no
+tracks downloaded yet.
+
+- **Source of the extract:** the five live Movebank studies, not the
+  published packages, which hold too few of the deaths (see the SW
+  Germany entry above). The committed derived extract will be CC BY 4.0
+  with the citations below.
+- **Live-study licence:** `CC_BY` on all five (Movebank `study` table,
+  read through the API with the owner's login), with no custom licence
+  terms. Movebank's CC BY option is CC BY 4.0
+  (<https://creativecommons.org/licenses/by/4.0/>), which allows sharing
+  adapted material with credit, a licence link and a note of changes.
+- **Movebank terms:** the General Movebank Terms of Use
+  (<https://www.movebank.org/cms/movebank-content/general-movebank-terms-of-use>,
+  last updated March 2020) need no owner permission for publicly
+  downloadable CC BY studies but require citation, and strongly
+  encourage contacting the owners about new analyses. The user agreement
+  (<https://www.movebank.org/cms/movebank-content/data-policy>) adds no
+  limit on redistribution.
+- **Published packages:** each study also has a 2024 repository package,
+  licensed CC0 1.0 on DataCite. They are the DOIs to cite.
+
+| Study | Movebank id | Package DOI | Citation (data) |
+| --- | --- | --- | --- |
+| LifeTrack White Stork SW Germany | 21231406 | <https://doi.org/10.5441/001/1.ck04mn78_2> | Fiedler W, Flack A, Schäfle W, Keeves B, Quetting M, Eid B, Schmid H, Wikelski M. 2024. Data from: Study "LifeTrack White Stork SW Germany" (2013-2023). Movebank Data Repository. |
+| LifeTrack White Stork Bavaria | 24442409 | <https://doi.org/10.5441/001/1.v1cs4nn0_2> | Fiedler W, Leppelsack E, Leppelsack H, Stahl T, Wieding O, Wikelski M. 2024. Data from: Study "LifeTrack White Stork Bavaria" (2014-2023). Movebank Data Repository. |
+| LifeTrack White Stork Rheinland-Pfalz | 76367850 | <https://doi.org/10.5441/001/1.4192t2j4_2> | Fiedler W, Hilsendegen C, Reis C, Lehmann J, Hilsendegen P, Schmid H, Wikelski M. 2024. Data from: Study "LifeTrack White Stork Rheinland-Pfalz" (2015-2023). Movebank Data Repository. |
+| LifeTrack White Stork Vorarlberg | 173641633 | <https://doi.org/10.5441/001/1.71r7pp6q_2> | Fiedler W, Niederer W, Schönenberger A, Flack A, Wikelski M. 2024. Data from: Study "LifeTrack White Stork Vorarlberg" (2016-2023). Movebank Data Repository. |
+| LifeTrack White Stork Oberschwaben | 212096177 | <https://doi.org/10.5441/001/1.c42j3js7_2> | Fiedler W, Flack A, Schmid A, Reinhard U, Wikelski M. 2024. Data from: Study "LifeTrack White Stork Oberschwaben" (2014-2023). Movebank Data Repository. |
+
+All five studies name Aikens et al. 2024 (PNAS,
+<https://doi.org/10.1073/pnas.2306389121>) as describing the data, and
+Movebank asks for Kays et al. 2022 (Methods Ecol Evol,
+<https://doi.org/10.1111/2041-210X.13767>) to be cited too.
+
+## Stork split (`data/splits.csv`)
+
+Fixed 2026-10-31, before any stork track was downloaded, from the
+reference-data counts above only. Whole populations are held out:
+SW Germany and Bavaria tune (about 20 found deaths), Rheinland-Pfalz,
+Vorarlberg and Oberschwaben are scored once (about 15). Holding out
+three populations keeps the scored result from resting on one site,
+though Rheinland-Pfalz supplies most of it. "Fall migration of white
+storks in 2014" is excluded as a repeat of SW Germany.
+
+Ring check (2026-10-31, individual tables of all five studies via the
+Movebank API): all 339 individuals carry a ring in one format (country
+code and number, e.g. `DER AY620`), and no ring appears in more than one
+study, so no bird can sit on both sides. Some birds have two individual
+records within one study (SW Germany's `DER A1A26`); they stay on one
+side and are merged when labelling.
+
 ## Label overrides (`data/labels.csv`)
 
 Deaths recorded only in a deployment's comments, not in its

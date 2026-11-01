@@ -1,0 +1,7 @@
+movebank-study-id,study,split,found-deaths-reference,basis
+21231406,LifeTrack White Stork SW Germany,tuning,14,"Largest population; CC0 package"
+24442409,LifeTrack White Stork Bavaria,tuning,6,"Second tuning population"
+76367850,LifeTrack White Stork Rheinland-Pfalz,scoring,12,"Held out whole"
+173641633,LifeTrack White Stork Vorarlberg,scoring,2,"Held out whole"
+212096177,LifeTrack White Stork Oberschwaben,scoring,1,"Held out whole"
+332044860,Fall migration of white storks in 2014,excluded,,"Repeats SW Germany birds (57 shared rings)"
