@@ -1,7 +1,9 @@
 """Tests for the cost report: reading CloudWatch, totalling a run's
 minutes, counting SQS requests, and pricing the run and live mode."""
 
+import json
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from types import SimpleNamespace
 
 import boto3
@@ -12,6 +14,12 @@ from cloud import cost, publisher
 from cloud_helpers import messages
 
 T0 = datetime(2026, 10, 22, 11, 0, tzinfo=timezone.utc)
+RESULTS = Path(__file__).parents[2] / "results" / "cloud"
+# Each billed day and the committed usage file that metered it.
+BILLED_DAYS = {
+    "2026-10-22": "usage-aws-2026-10-22.json",
+    "2026-10-23": "usage-aws.json",
+}
 PRICES = {
     "prices": {
         "lambda_request": {"usd": 0.2e-6},
@@ -335,3 +343,70 @@ def test_watched_days_runs_from_first_arrival_to_end_of_watch():
     timeline = SimpleNamespace(arrivals=arrivals, until=T0 + timedelta(days=3))
     assert cost.watched_days(timeline) == 3
     assert cost.watched_days(SimpleNamespace(arrivals=[], until=T0)) == 0
+
+
+def _billed() -> dict:
+    """The committed Cost Explorer snapshot.
+
+    Returns:
+        dict: The contents of ``billed-aws.json``.
+    """
+    return json.loads((RESULTS / "billed-aws.json").read_text(encoding="utf-8"))
+
+
+def _billed_quantity(day: str, usage_type: str) -> float:
+    """The quantity AWS billed for one usage type on one day.
+
+    Args:
+        day: The UTC date.
+        usage_type: Cost Explorer's usage type.
+
+    Returns:
+        float: The billed quantity.
+    """
+    lines = _billed()["days"][day]
+    return sum(line["quantity"] for line in lines if line["usage_type"] == usage_type)
+
+
+def _metered_day(usage_file: str) -> dict:
+    """Everything a committed usage file metered, over its whole window.
+
+    Args:
+        usage_file: The file's name under ``results/cloud``.
+
+    Returns:
+        dict: As ``cost.metered`` returns it.
+    """
+    usage = json.loads((RESULTS / usage_file).read_text(encoding="utf-8"))
+    return cost.metered(usage, (usage["start"], usage["end"]))
+
+
+@pytest.mark.parametrize("day, usage_file", BILLED_DAYS.items())
+def test_metered_dynamodb_units_equal_the_bill(day, usage_file):
+    """DynamoDB, the largest cost, is metered exactly as AWS billed it."""
+    used = _metered_day(usage_file)
+    assert used["write_request_units"] == _billed_quantity(
+        day, "EUW2-WriteRequestUnits"
+    )
+    assert used["read_request_units"] == _billed_quantity(day, "EUW2-ReadRequestUnits")
+
+
+@pytest.mark.parametrize("day, usage_file", BILLED_DAYS.items())
+def test_metered_lambda_requests_and_emails_match_the_bill(day, usage_file):
+    """Metered Lambda calls miss at most the clock's call; emails are exact."""
+    used = _metered_day(usage_file)
+    calls = used["processor_invocations"] + used["notifier_invocations"]
+    assert 0 <= _billed_quantity(day, "EUW2-Request") - calls <= 1
+    assert used["emails"] == _billed_quantity(day, "EUW2-DeliveryAttempts-SMTP")
+
+
+def test_billed_totals_are_the_reported_figures():
+    """The dollars quoted in the infra README are what the snapshot sums to."""
+    days = _billed()["days"]
+    totals = {day: sum(line["usd"] for line in days[day]) for day in days}
+    assert totals == pytest.approx({"2026-10-22": 1.725, "2026-10-23": 0.203}, abs=5e-4)
+
+
+def test_project_services_cost_nothing_after_destroy():
+    """No charge from the project's services means nothing was left running."""
+    assert _billed()["after_destroy"]["usd"] == 0

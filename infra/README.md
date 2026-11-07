@@ -218,11 +218,9 @@ AWS's public Price List). Results in `results/cloud/COST.md`:
   always-free allowances would cover. DynamoDB on-demand request units
   have none.
 
-Cost Explorer, about 48 hours after the session, checks the total.
-
 Results (list prices of 2026-10-22, USD, before free tier):
 
-- **The full run cost $0.23** (first deploy: $0.82): 105,684 slices over
+- **The full run cost $0.23** (evening of 22 October: $0.82): 105,684 slices over
   3,466 animal-months, so **$0.07 per 1,000 animal-months** ($0.24). No
   processor errors; metered sends equal the messages published.
 - **The state write cut worked as modelled.** State table writes fell
@@ -235,8 +233,8 @@ Results (list prices of 2026-10-22, USD, before free tier):
   need fewer 4 KB read units.
 - **DynamoDB writes are still the largest line, 69% of the run**; Lambda
   is 11%, SQS 9%, reads 7%, logs 5%.
-- **Live mode, projected: $0.11-0.20 per 1,000 animal-months** (first
-  deploy: $0.28-0.37). The replay averaged 9.8 slices per invocation
+- **Live mode, projected: $0.11-0.20 per 1,000 animal-months** (evening
+  of 22 October: $0.28-0.37). The replay averaged 9.8 slices per invocation
   (255 ms per invocation, 26 ms per slice); live, each slice gets its
   own, which mostly adds Lambda time and log lines. The live clock, if
   enabled hourly, would add an estimated $0.4-2.6 (see Live clock).
@@ -252,6 +250,18 @@ Results (list prices of 2026-10-22, USD, before free tier):
   requests, and the rest covers about 3,700 animals; Lambda's allowances
   would cover far more. DynamoDB request units have no free tier, so a
   100-collar project would pay about half a cent a month for them.
+
+**Cost Explorer confirms the metering**
+([`results/cloud/billed-aws.json`](../results/cloud/billed-aws.json), fetched
+2026-11-07; `tests/cloud/test_cost.py` compares it with the committed
+usage). DynamoDB write and read units equal the bill exactly on both days,
+and Lambda requests differ by at most one. AWS billed $1.93 (22 October
+$1.73, two deploy sessions; 23 October $0.20), before credits and after free
+tier, which covered Lambda, SQS, SNS and logs. At list price those days come
+to $1.86 and $0.27, against full runs of $0.79 and $0.82 on 22 October and
+$0.23 on 23 October; the rest is smoke and email runs and idle polling. The
+project's services cost nothing from 24 October to 6 November, after
+`destroy`.
 
 ## Local emulation image
 

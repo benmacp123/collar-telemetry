@@ -1,0 +1,320 @@
+{
+ "source": "AWS Cost Explorer GetCostAndUsage, fetched 2026-11-07. Unblended cost, credits and refunds excluded, after free tier, UTC days. Account-wide: the AWS Glue and some S3 request lines are not this project.",
+ "query": {
+  "time_period": [
+   "2026-10-20",
+   "2026-11-07"
+  ],
+  "granularity": "DAILY",
+  "metrics": [
+   "UnblendedCost",
+   "UsageQuantity"
+  ],
+  "group_by": [
+   "SERVICE",
+   "USAGE_TYPE"
+  ],
+  "exclude_record_types": [
+   "Credit",
+   "Refund"
+  ]
+ },
+ "days": {
+  "2026-10-22": [
+   {
+    "service": "AWS Glue",
+    "usage_type": "EUN1-Catalog-Request",
+    "quantity": 2.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "AWS Glue",
+    "usage_type": "EUW2-Catalog-Request",
+    "quantity": 2.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "AWS Glue",
+    "usage_type": "USE1-Catalog-Request",
+    "quantity": 2.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "AWS Lambda",
+    "usage_type": "EUW2-Lambda-GB-Second",
+    "quantity": 3399.012,
+    "unit": "Lambda-GB-Second",
+    "usd": 0.0
+   },
+   {
+    "service": "AWS Lambda",
+    "usage_type": "EUW2-Request",
+    "quantity": 25408.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon DynamoDB",
+    "usage_type": "EUW2-ReadRequestUnits",
+    "quantity": 398501.0,
+    "unit": "ReadRequestUnits",
+    "usd": 0.0592570987
+   },
+   {
+    "service": "Amazon DynamoDB",
+    "usage_type": "EUW2-Streams-Requests",
+    "quantity": 2.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon DynamoDB",
+    "usage_type": "EUW2-WriteRequestUnits",
+    "quantity": 2243527.0,
+    "unit": "WriteRequestUnits",
+    "usd": 1.6653700921
+   },
+   {
+    "service": "Amazon Simple Notification Service",
+    "usage_type": "EUW2-DataTransfer-Out-Bytes",
+    "quantity": 8.6533e-06,
+    "unit": "GB",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Notification Service",
+    "usage_type": "EUW2-DeliveryAttempts-SMTP",
+    "quantity": 6.0,
+    "unit": "Notifications",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Notification Service",
+    "usage_type": "EUW2-Requests-Tier1",
+    "quantity": 49.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Queue Service",
+    "usage_type": "EUW2-DataTransfer-In-Bytes",
+    "quantity": 0.8453187201,
+    "unit": "GB",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Queue Service",
+    "usage_type": "EUW2-Requests-FIFO-Tier1",
+    "quantity": 100553.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Queue Service",
+    "usage_type": "EUW2-Requests-Tier1",
+    "quantity": 937.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Storage Service",
+    "usage_type": "EUN1-Requests-Tier1",
+    "quantity": 1.0,
+    "unit": "Requests",
+    "usd": 5e-06
+   },
+   {
+    "service": "Amazon Simple Storage Service",
+    "usage_type": "Requests-Tier1",
+    "quantity": 1.0,
+    "unit": "Requests",
+    "usd": 5e-06
+   },
+   {
+    "service": "AmazonCloudWatch",
+    "usage_type": "EUW2-CW:GMD-Metrics",
+    "quantity": 36.0,
+    "unit": "Metrics",
+    "usd": 0.00036
+   },
+   {
+    "service": "AmazonCloudWatch",
+    "usage_type": "EUW2-CW:Requests",
+    "quantity": 36.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "AmazonCloudWatch",
+    "usage_type": "EUW2-VendedLog-Bytes",
+    "quantity": 0.0417888601,
+    "unit": "GB",
+    "usd": 0.0
+   }
+  ],
+  "2026-10-23": [
+   {
+    "service": "AWS Glue",
+    "usage_type": "EUN1-Catalog-Request",
+    "quantity": 2.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "AWS Glue",
+    "usage_type": "EUW2-Catalog-Request",
+    "quantity": 2.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "AWS Glue",
+    "usage_type": "USE1-Catalog-Request",
+    "quantity": 2.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "AWS Lambda",
+    "usage_type": "EUW2-Lambda-GB-Second",
+    "quantity": 1581.02325,
+    "unit": "Lambda-GB-Second",
+    "usd": 0.0
+   },
+   {
+    "service": "AWS Lambda",
+    "usage_type": "EUW2-Request",
+    "quantity": 12625.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon DynamoDB",
+    "usage_type": "EUW2-ReadRequestUnits",
+    "quantity": 122646.0,
+    "unit": "ReadRequestUnits",
+    "usd": 0.0182374602
+   },
+   {
+    "service": "Amazon DynamoDB",
+    "usage_type": "EUW2-Streams-Requests",
+    "quantity": 1.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon DynamoDB",
+    "usage_type": "EUW2-WriteRequestUnits",
+    "quantity": 248493.0,
+    "unit": "WriteRequestUnits",
+    "usd": 0.1844563539
+   },
+   {
+    "service": "Amazon Simple Notification Service",
+    "usage_type": "EUW2-DataTransfer-Out-Bytes",
+    "quantity": 5.7879e-06,
+    "unit": "GB",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Notification Service",
+    "usage_type": "EUW2-DeliveryAttempts-SMTP",
+    "quantity": 4.0,
+    "unit": "Notifications",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Notification Service",
+    "usage_type": "EUW2-Requests-Tier1",
+    "quantity": 26.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Queue Service",
+    "usage_type": "EUW2-DataTransfer-In-Bytes",
+    "quantity": 0.4065873465,
+    "unit": "GB",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Queue Service",
+    "usage_type": "EUW2-Requests-FIFO-Tier1",
+    "quantity": 51009.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Queue Service",
+    "usage_type": "EUW2-Requests-Tier1",
+    "quantity": 420.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Storage Service",
+    "usage_type": "EUW2-DataTransfer-In-Bytes",
+    "quantity": 0.0333210617,
+    "unit": "GB",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Storage Service",
+    "usage_type": "EUW2-DataTransfer-Out-Bytes",
+    "quantity": 1.52485e-05,
+    "unit": "GB",
+    "usd": 0.0
+   },
+   {
+    "service": "Amazon Simple Storage Service",
+    "usage_type": "EUW2-Requests-Tier1",
+    "quantity": 11.0,
+    "unit": "Requests",
+    "usd": 5.83e-05
+   },
+   {
+    "service": "Amazon Simple Storage Service",
+    "usage_type": "EUW2-Requests-Tier2",
+    "quantity": 72.0,
+    "unit": "Requests",
+    "usd": 3.024e-05
+   },
+   {
+    "service": "AmazonCloudWatch",
+    "usage_type": "EUW2-CW:GMD-Metrics",
+    "quantity": 18.0,
+    "unit": "Metrics",
+    "usd": 0.00018
+   },
+   {
+    "service": "AmazonCloudWatch",
+    "usage_type": "EUW2-CW:Requests",
+    "quantity": 18.0,
+    "unit": "Requests",
+    "usd": 0.0
+   },
+   {
+    "service": "AmazonCloudWatch",
+    "usage_type": "EUW2-VendedLog-Bytes",
+    "quantity": 0.0207719601,
+    "unit": "GB",
+    "usd": 0.0
+   }
+  ]
+ },
+ "after_destroy": {
+  "first_day": "2026-10-24",
+  "last_day": "2026-11-06",
+  "services": [
+   "Amazon DynamoDB",
+   "AWS Lambda",
+   "Amazon Simple Queue Service",
+   "Amazon Simple Notification Service"
+  ],
+  "usd": 0.0,
+  "note": "Days from 2026-11-01 were still marked estimated when fetched."
+ }
+}
