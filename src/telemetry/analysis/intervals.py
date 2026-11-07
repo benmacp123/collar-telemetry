@@ -12,9 +12,11 @@ import math
 
 import numpy as np
 
-Z_95 = 1.96
-BOOTSTRAP_RESAMPLES = 5000
-BOOTSTRAP_SEED = 0
+from telemetry.analysis.experiment import experiment
+
+Z_95 = experiment().wilson_z
+BOOTSTRAP_RESAMPLES = experiment().bootstrap_resamples
+BOOTSTRAP_SEED = experiment().bootstrap_seed
 
 
 def wilson(successes: int, trials: int, z: float = Z_95) -> list[float] | None:

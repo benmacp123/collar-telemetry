@@ -44,24 +44,40 @@ Carcass deaths (final stationary period at least the mortality window) are score
 
 ### Precision against the ceiling and baselines
 
-Precision is correct over *judged* incidents (ambiguous tracks left out), whereas load counts every incident. A tag event (dropped, stuck or failing tag; grounded bird) is correct for mortality and the gap baseline, whose alerts it fits, and wrong for potential death, which claims a death. *Death only* is true over judged. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start, or after a death start or tag event for detectors credited with tag events.
+Precision is correct over *judged* incidents (ambiguous tracks left out), whereas load counts every incident. A tag event (dropped, stuck or failing tag; grounded bird) is correct for mortality and the gap baseline, whose alerts it fits, and wrong for potential death, which claims a death. *Death only* is true over judged. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start, or after a death start or tag event for detectors credited with tag events. The *precision target* is on the Wilson lower bound; a detector judged on other measures shows none.
 
-| Scenario | Alert | True + tag event / judged (ambiguous) | Precision | Death only | Wilson 95% | By bird 95% | Cases | Ceiling |
-|---|---|---|---|---|---|---|---|---|
-| Ideal | Mortality | 6 + 2 / 193 (3) | 4.1% | 3.1% | 2.1-8.0% | 1.5-10.0% | 5 | 2.6% |
-| Ideal | Potential death | 6 + 2 / 22 (3) | 27.3% | 27.3% | 13.2-48.2% | 8.1-76.9% | 5 | 23.8% |
-| Ideal | Gap only (baseline) | 12 + 7 / 204 (5) | 9.3% | 5.9% | 6.0-14.1% | 4.5-30.8% | 10 | 5.0% |
-| GSM | Mortality | 6 + 2 / 191 (3) | 4.2% | 3.1% | 2.1-8.0% | 1.5-10.2% | 5 | 2.6% |
-| GSM | Potential death | 6 + 2 / 25 (3) | 24.0% | 24.0% | 11.5-43.4% | 7.3-66.7% | 5 | 20.8% |
-| GSM | Gap only (baseline) | 12 + 7 / 348 (5) | 5.5% | 3.4% | 3.5-8.4% | 2.6-11.2% | 10 | 2.9% |
-| Satellite, daily | Mortality | 6 + 2 / 193 (3) | 4.1% | 3.1% | 2.1-8.0% | 1.5-10.0% | 5 | 2.6% |
-| Satellite, daily | Potential death | 6 + 2 / 15 (3) | 40.0% | 40.0% | 19.8-64.3% | 13.6-80.0% | 5 | 35.7% |
-| Satellite, daily | Gap only (baseline) | 12 + 3 / 106 (4) | 14.2% | 11.3% | 8.8-22.0% | 6.6-38.1% | 10 | 9.6% |
-| Satellite, 2-day | Mortality | 6 + 2 / 193 (3) | 4.1% | 3.1% | 2.1-8.0% | 1.5-10.0% | 5 | 2.6% |
-| Satellite, 2-day | Potential death | 6 + 2 / 14 (3) | 42.9% | 42.9% | 21.4-67.4% | 15.4-81.8% | 5 | 38.5% |
-| Satellite, 2-day | Gap only (baseline) | 12 + 3 / 83 (4) | 18.1% | 14.5% | 11.3-27.7% | 8.9-42.0% | 10 | 12.3% |
+| Scenario | Alert | True + tag event / judged (ambiguous) | Precision | Death only | Wilson 95% | By bird 95% | Cases | Ceiling | Precision target |
+|---|---|---|---|---|---|---|---|---|---|
+| Ideal | Mortality | 6 + 2 / 193 (3) | 4.1% | 3.1% | 2.1-8.0% | 1.5-10.0% | 5 | 2.6% | none |
+| Ideal | Potential death | 6 + 2 / 22 (3) | 27.3% | 27.3% | 13.2-48.2% | 8.1-76.9% | 5 | 23.8% | lower bound above 15% |
+| Ideal | Gap only (baseline) | 12 + 7 / 204 (5) | 9.3% | 5.9% | 6.0-14.1% | 4.5-30.8% | 10 | 5.0% | none |
+| GSM | Mortality | 6 + 2 / 191 (3) | 4.2% | 3.1% | 2.1-8.0% | 1.5-10.2% | 5 | 2.6% | none |
+| GSM | Potential death | 6 + 2 / 25 (3) | 24.0% | 24.0% | 11.5-43.4% | 7.3-66.7% | 5 | 20.8% | lower bound above 15% |
+| GSM | Gap only (baseline) | 12 + 7 / 348 (5) | 5.5% | 3.4% | 3.5-8.4% | 2.6-11.2% | 10 | 2.9% | none |
+| Satellite, daily | Mortality | 6 + 2 / 193 (3) | 4.1% | 3.1% | 2.1-8.0% | 1.5-10.0% | 5 | 2.6% | none |
+| Satellite, daily | Potential death | 6 + 2 / 15 (3) | 40.0% | 40.0% | 19.8-64.3% | 13.6-80.0% | 5 | 35.7% | lower bound above 15% |
+| Satellite, daily | Gap only (baseline) | 12 + 3 / 106 (4) | 14.2% | 11.3% | 8.8-22.0% | 6.6-38.1% | 10 | 9.6% | none |
+| Satellite, 2-day | Mortality | 6 + 2 / 193 (3) | 4.1% | 3.1% | 2.1-8.0% | 1.5-10.0% | 5 | 2.6% | none |
+| Satellite, 2-day | Potential death | 6 + 2 / 14 (3) | 42.9% | 42.9% | 21.4-67.4% | 15.4-81.8% | 5 | 38.5% | lower bound above 15% |
+| Satellite, 2-day | Gap only (baseline) | 12 + 3 / 83 (4) | 18.1% | 14.5% | 11.3-27.7% | 8.9-42.0% | 10 | 12.3% | none |
 
 Random baseline (any scenario): 0.18% for deaths; 0.47% also crediting tag events. The second is weighted by time, so one tag stuck for years dominates it, however few fixes it sent.
+
+### Against the targets
+
+Fixed in advance in `config/experiment.toml`. Judged under satellite, daily uploads only, this study's real pattern. This is a *seen* set, and a target is judged only on the kinds of set it names, so a value here may meet a limit without being judged. The *ceiling* is the alert's, at the same scenario. Load is per animal-month: 7 days for 30 birds is 6.90 animal-months.
+
+At the seen held-out base rate (one carcass per 98 animal-months, 0.376 false alerts per animal-month): 33% precision allows at most 0.021, 18 times fewer than today; 25% precision allows at most 0.031, 12 times fewer than today. About 5 true alerts need 33% measured precision for a Wilson lower bound above 15%.
+
+| Tier | Metric | Target | Measured | Ceiling | Verdict |
+|---|---|---|---|---|---|
+| Stationary: check (watch) | Load | at most 3 per 30 birds per week (0.435 per animal-month) | 0.399 | 2.6% | not judged on seen set |
+| Stationary: check (watch) | Median time to clear on living birds | at most 12 h | – | 2.6% | not judged on seen set |
+| Stationary: check (watch) | Carcasses flagged by the mark | at least 80% | 80.0% | 2.6% | not judged on seen set |
+| Escalated: possible death | Precision, Wilson 95% lower bound | above 15% | 19.8% | 35.7% | not judged on seen set |
+| Escalated: possible death | Carcasses flagged by the mark | at least 50% | 20.0% | 35.7% | not judged on seen set |
+| Escalated: possible death | Load | at most 1 per 30 birds per week (0.145 per animal-month) | 0.037 | 35.7% | not judged on seen set |
+| Fix-rate cue | Precision, keeping at least half the carcasses | at least 10% | – | – | not judged on seen set |
 
 ### False mortality alerts by species and bird
 
@@ -150,24 +166,40 @@ Carcass deaths (final stationary period at least the mortality window) are score
 
 ### Precision against the ceiling and baselines
 
-Precision is correct over *judged* incidents (ambiguous tracks left out), whereas load counts every incident. A tag event (dropped, stuck or failing tag; grounded bird) is correct for mortality and the gap baseline, whose alerts it fits, and wrong for potential death, which claims a death. *Death only* is true over judged. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start, or after a death start or tag event for detectors credited with tag events.
+Precision is correct over *judged* incidents (ambiguous tracks left out), whereas load counts every incident. A tag event (dropped, stuck or failing tag; grounded bird) is correct for mortality and the gap baseline, whose alerts it fits, and wrong for potential death, which claims a death. *Death only* is true over judged. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start, or after a death start or tag event for detectors credited with tag events. The *precision target* is on the Wilson lower bound; a detector judged on other measures shows none.
 
-| Scenario | Alert | True + tag event / judged (ambiguous) | Precision | Death only | Wilson 95% | By bird 95% | Cases | Ceiling |
-|---|---|---|---|---|---|---|---|---|
-| Ideal | Mortality | 5 + 6 / 414 (2) | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 6 | 1.4% |
-| Ideal | Potential death | 5 + 3 / 58 (2) | 8.6% | 8.6% | 3.7-18.6% | 2.1-25.0% | 6 | 10.2% |
-| Ideal | Gap only (baseline) | 19 + 22 / 621 (2) | 6.6% | 3.1% | 4.9-8.8% | 2.3-17.3% | 17 | 2.7% |
-| GSM | Mortality | 5 + 6 / 414 (2) | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 6 | 1.4% |
-| GSM | Potential death | 5 + 3 / 64 (2) | 7.8% | 7.8% | 3.4-17.0% | 1.9-22.2% | 6 | 9.2% |
-| GSM | Gap only (baseline) | 20 + 22 / 785 (2) | 5.4% | 2.5% | 4.0-7.2% | 1.9-12.9% | 17 | 2.2% |
-| Satellite, daily | Mortality | 5 + 6 / 414 (2) | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 6 | 1.4% |
-| Satellite, daily | Potential death | 5 + 3 / 35 (2) | 14.3% | 14.3% | 6.3-29.4% | 3.6-35.0% | 6 | 16.7% |
-| Satellite, daily | Gap only (baseline) | 18 + 16 / 393 (2) | 8.7% | 4.6% | 6.3-11.8% | 3.2-21.0% | 17 | 4.3% |
-| Satellite, 2-day | Mortality | 5 + 6 / 414 (2) | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 6 | 1.4% |
-| Satellite, 2-day | Potential death | 5 + 3 / 29 (2) | 17.2% | 17.2% | 7.6-34.5% | 4.3-42.9% | 6 | 20.0% |
-| Satellite, 2-day | Gap only (baseline) | 18 + 15 / 313 (2) | 10.5% | 5.8% | 7.6-14.4% | 4.0-25.1% | 17 | 5.4% |
+| Scenario | Alert | True + tag event / judged (ambiguous) | Precision | Death only | Wilson 95% | By bird 95% | Cases | Ceiling | Precision target |
+|---|---|---|---|---|---|---|---|---|---|
+| Ideal | Mortality | 5 + 6 / 414 (2) | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 6 | 1.4% | none |
+| Ideal | Potential death | 5 + 3 / 58 (2) | 8.6% | 8.6% | 3.7-18.6% | 2.1-25.0% | 6 | 10.2% | lower bound above 15% |
+| Ideal | Gap only (baseline) | 19 + 22 / 621 (2) | 6.6% | 3.1% | 4.9-8.8% | 2.3-17.3% | 17 | 2.7% | none |
+| GSM | Mortality | 5 + 6 / 414 (2) | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 6 | 1.4% | none |
+| GSM | Potential death | 5 + 3 / 64 (2) | 7.8% | 7.8% | 3.4-17.0% | 1.9-22.2% | 6 | 9.2% | lower bound above 15% |
+| GSM | Gap only (baseline) | 20 + 22 / 785 (2) | 5.4% | 2.5% | 4.0-7.2% | 1.9-12.9% | 17 | 2.2% | none |
+| Satellite, daily | Mortality | 5 + 6 / 414 (2) | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 6 | 1.4% | none |
+| Satellite, daily | Potential death | 5 + 3 / 35 (2) | 14.3% | 14.3% | 6.3-29.4% | 3.6-35.0% | 6 | 16.7% | lower bound above 15% |
+| Satellite, daily | Gap only (baseline) | 18 + 16 / 393 (2) | 8.7% | 4.6% | 6.3-11.8% | 3.2-21.0% | 17 | 4.3% | none |
+| Satellite, 2-day | Mortality | 5 + 6 / 414 (2) | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 6 | 1.4% | none |
+| Satellite, 2-day | Potential death | 5 + 3 / 29 (2) | 17.2% | 17.2% | 7.6-34.5% | 4.3-42.9% | 6 | 20.0% | lower bound above 15% |
+| Satellite, 2-day | Gap only (baseline) | 18 + 15 / 313 (2) | 10.5% | 5.8% | 7.6-14.4% | 4.0-25.1% | 17 | 5.4% | none |
 
 Random baseline (any scenario): 0.15% for deaths; 6.09% also crediting tag events. The second is weighted by time, so one tag stuck for years dominates it, however few fixes it sent.
+
+### Against the targets
+
+Fixed in advance in `config/experiment.toml`. Judged under satellite, daily uploads only, this study's real pattern. This is a *tuning* set, and a target is judged only on the kinds of set it names, so a value here may meet a limit without being judged. The *ceiling* is the alert's, at the same scenario. Load is per animal-month: 7 days for 30 birds is 6.90 animal-months.
+
+At the seen held-out base rate (one carcass per 98 animal-months, 0.376 false alerts per animal-month): 33% precision allows at most 0.021, 18 times fewer than today; 25% precision allows at most 0.031, 12 times fewer than today. About 5 true alerts need 33% measured precision for a Wilson lower bound above 15%.
+
+| Tier | Metric | Target | Measured | Ceiling | Verdict |
+|---|---|---|---|---|---|
+| Stationary: check (watch) | Load | at most 3 per 30 birds per week (0.435 per animal-month) | 0.586 | 1.4% | missed |
+| Stationary: check (watch) | Median time to clear on living birds | at most 12 h | 8.0 h | 1.4% | met |
+| Stationary: check (watch) | Carcasses flagged by the mark | at least 80% | 66.7% | 1.4% | missed |
+| Escalated: possible death | Precision, Wilson 95% lower bound | above 15% | 6.3% | 16.7% | not judged on tuning set |
+| Escalated: possible death | Carcasses flagged by the mark | at least 50% | 0.0% | 16.7% | not judged on tuning set |
+| Escalated: possible death | Load | at most 1 per 30 birds per week (0.145 per animal-month) | 0.052 | 16.7% | not judged on tuning set |
+| Fix-rate cue | Precision, keeping at least half the carcasses | at least 10% | – | – | not judged on tuning set |
 
 ### False mortality alerts by species and bird
 
@@ -268,22 +300,22 @@ Carcass deaths (final stationary period at least the mortality window) are score
 
 ### Precision against the ceiling and baselines
 
-Precision is correct over *judged* incidents (ambiguous tracks left out), whereas load counts every incident. A tag event (dropped, stuck or failing tag; grounded bird) is correct for mortality and the gap baseline, whose alerts it fits, and wrong for potential death, which claims a death. *Death only* is true over judged. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start, or after a death start or tag event for detectors credited with tag events.
+Precision is correct over *judged* incidents (ambiguous tracks left out), whereas load counts every incident. A tag event (dropped, stuck or failing tag; grounded bird) is correct for mortality and the gap baseline, whose alerts it fits, and wrong for potential death, which claims a death. *Death only* is true over judged. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start, or after a death start or tag event for detectors credited with tag events. The *precision target* is on the Wilson lower bound; a detector judged on other measures shows none.
 
-| Scenario | Alert | True + tag event / judged (ambiguous) | Precision | Death only | Wilson 95% | By bird 95% | Cases | Ceiling |
-|---|---|---|---|---|---|---|---|---|
-| Ideal | Mortality | 0 + 0 / 13 (0) | 0.0% | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% |
-| Ideal | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Ideal | Gap only (baseline) | 3 + 0 / 33 (0) | 9.1% | 9.1% | 3.1-23.6% | 0.0-21.1% | 3 | 9.1% |
-| GSM | Mortality | 0 + 0 / 13 (0) | 0.0% | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% |
-| GSM | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| GSM | Gap only (baseline) | 3 + 0 / 95 (0) | 3.2% | 3.2% | 1.1-8.9% | 0.0-7.7% | 3 | 3.2% |
-| Satellite, daily | Mortality | 0 + 0 / 13 (0) | 0.0% | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% |
-| Satellite, daily | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Satellite, daily | Gap only (baseline) | 3 + 0 / 32 (0) | 9.4% | 9.4% | 3.2-24.2% | 0.0-21.4% | 3 | 9.4% |
-| Satellite, 2-day | Mortality | 0 + 0 / 13 (0) | 0.0% | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% |
-| Satellite, 2-day | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Satellite, 2-day | Gap only (baseline) | 3 + 0 / 33 (0) | 9.1% | 9.1% | 3.1-23.6% | 0.0-21.1% | 3 | 9.1% |
+| Scenario | Alert | True + tag event / judged (ambiguous) | Precision | Death only | Wilson 95% | By bird 95% | Cases | Ceiling | Precision target |
+|---|---|---|---|---|---|---|---|---|---|
+| Ideal | Mortality | 0 + 0 / 13 (0) | 0.0% | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% | none |
+| Ideal | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Ideal | Gap only (baseline) | 3 + 0 / 33 (0) | 9.1% | 9.1% | 3.1-23.6% | 0.0-21.1% | 3 | 9.1% | none |
+| GSM | Mortality | 0 + 0 / 13 (0) | 0.0% | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% | none |
+| GSM | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| GSM | Gap only (baseline) | 3 + 0 / 95 (0) | 3.2% | 3.2% | 1.1-8.9% | 0.0-7.7% | 3 | 3.2% | none |
+| Satellite, daily | Mortality | 0 + 0 / 13 (0) | 0.0% | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% | none |
+| Satellite, daily | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Satellite, daily | Gap only (baseline) | 3 + 0 / 32 (0) | 9.4% | 9.4% | 3.2-24.2% | 0.0-21.4% | 3 | 9.4% | none |
+| Satellite, 2-day | Mortality | 0 + 0 / 13 (0) | 0.0% | 0.0% | 0.0-22.8% | 0.0-0.0% | 0 | 0.0% | none |
+| Satellite, 2-day | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Satellite, 2-day | Gap only (baseline) | 3 + 0 / 33 (0) | 9.1% | 9.1% | 3.1-23.6% | 0.0-21.1% | 3 | 9.1% | none |
 
 Random baseline (any scenario): 0.01% for deaths; 0.01% also crediting tag events. The second is weighted by time, so one tag stuck for years dominates it, however few fixes it sent.
 
@@ -353,22 +385,22 @@ Carcass deaths (final stationary period at least the mortality window) are score
 
 ### Precision against the ceiling and baselines
 
-Precision is correct over *judged* incidents (ambiguous tracks left out), whereas load counts every incident. A tag event (dropped, stuck or failing tag; grounded bird) is correct for mortality and the gap baseline, whose alerts it fits, and wrong for potential death, which claims a death. *Death only* is true over judged. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start, or after a death start or tag event for detectors credited with tag events.
+Precision is correct over *judged* incidents (ambiguous tracks left out), whereas load counts every incident. A tag event (dropped, stuck or failing tag; grounded bird) is correct for mortality and the gap baseline, whose alerts it fits, and wrong for potential death, which claims a death. *Death only* is true over judged. *By bird* resamples whole deployments, so a bird with many false alerts counts once; it is the interval to quote. The *ceiling* is the precision of a detector firing once on each case (carcass deaths; every death for the gap baseline) at the observed false count; precision passes it only when one death raises more than one true alert. *Gap only* scores gap incidents the same way: the rule stillness has to beat. *Random* alerts at uniformly random moments score the share of judged time after a death start, or after a death start or tag event for detectors credited with tag events. The *precision target* is on the Wilson lower bound; a detector judged on other measures shows none.
 
-| Scenario | Alert | True + tag event / judged (ambiguous) | Precision | Death only | Wilson 95% | By bird 95% | Cases | Ceiling |
-|---|---|---|---|---|---|---|---|---|
-| Ideal | Mortality | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Ideal | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Ideal | Gap only (baseline) | 0 + 0 / 145 (0) | 0.0% | 0.0% | -0.0-2.6% | 0.0-0.0% | 0 | 0.0% |
-| GSM | Mortality | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| GSM | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| GSM | Gap only (baseline) | 0 + 0 / 217 (0) | 0.0% | 0.0% | 0.0-1.7% | 0.0-0.0% | 0 | 0.0% |
-| Satellite, daily | Mortality | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Satellite, daily | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Satellite, daily | Gap only (baseline) | 0 + 0 / 101 (0) | 0.0% | 0.0% | -0.0-3.7% | 0.0-0.0% | 0 | 0.0% |
-| Satellite, 2-day | Mortality | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Satellite, 2-day | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – |
-| Satellite, 2-day | Gap only (baseline) | 0 + 0 / 85 (0) | 0.0% | 0.0% | 0.0-4.3% | 0.0-0.0% | 0 | 0.0% |
+| Scenario | Alert | True + tag event / judged (ambiguous) | Precision | Death only | Wilson 95% | By bird 95% | Cases | Ceiling | Precision target |
+|---|---|---|---|---|---|---|---|---|---|
+| Ideal | Mortality | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Ideal | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Ideal | Gap only (baseline) | 0 + 0 / 145 (0) | 0.0% | 0.0% | -0.0-2.6% | 0.0-0.0% | 0 | 0.0% | none |
+| GSM | Mortality | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| GSM | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| GSM | Gap only (baseline) | 0 + 0 / 217 (0) | 0.0% | 0.0% | 0.0-1.7% | 0.0-0.0% | 0 | 0.0% | none |
+| Satellite, daily | Mortality | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Satellite, daily | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Satellite, daily | Gap only (baseline) | 0 + 0 / 101 (0) | 0.0% | 0.0% | -0.0-3.7% | 0.0-0.0% | 0 | 0.0% | none |
+| Satellite, 2-day | Mortality | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Satellite, 2-day | Potential death | 0 + 0 / 0 (0) | – | – | – | – | 0 | – | none |
+| Satellite, 2-day | Gap only (baseline) | 0 + 0 / 85 (0) | 0.0% | 0.0% | 0.0-4.3% | 0.0-0.0% | 0 | 0.0% | none |
 
 Random baseline (any scenario): 0.00% for deaths; 0.00% also crediting tag events. The second is weighted by time, so one tag stuck for years dominates it, however few fixes it sent.
 

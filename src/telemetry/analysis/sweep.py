@@ -12,20 +12,12 @@ Only tuning-set deployments are passed in, so scoring-set tracks are never
 replayed while thresholds are chosen.
 """
 
-from datetime import timedelta
-
 from telemetry.sim.arrival import ArrivalScenario
 from telemetry.analysis.evaluation import Truth, evaluate
+from telemetry.analysis.experiment import experiment
 from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.pipeline import Overrides
 from telemetry.sim.replay import DEFAULT_SEED, replay
-
-HOUR = timedelta(hours=1)
-# Out to 120 h and 300 m so the grid covers the longer windows a precision
-# target might push towards, not only those near the default.
-MORTALITY_WINDOWS_H = (24, 36, 48, 72, 96, 120)
-MORTALITY_BOXES_M = (100.0, 150.0, 200.0, 300.0)
-UPLOAD_MARGINS_H = (6, 12, 24, 36, 48)
 
 
 def grid() -> list[tuple[str, Overrides]]:
@@ -35,12 +27,15 @@ def grid() -> list[tuple[str, Overrides]]:
         list[tuple[str, Overrides]]: ("mortality", ...) for every window and
         box, then ("gap", ...) for every upload margin.
     """
+    settings = experiment()
     points = [
-        ("mortality", Overrides(mortality_window=w * HOUR, mortality_box_m=box))
-        for box in MORTALITY_BOXES_M
-        for w in MORTALITY_WINDOWS_H
+        ("mortality", Overrides(mortality_window=window, mortality_box_m=box))
+        for box in settings.mortality_boxes_m
+        for window in settings.mortality_windows
     ]
-    points += [("gap", Overrides(upload_margin=m * HOUR)) for m in UPLOAD_MARGINS_H]
+    points += [
+        ("gap", Overrides(upload_margin=margin)) for margin in settings.upload_margins
+    ]
     return points
 
 
@@ -95,10 +90,12 @@ def sweep_point(
         "mortality_wilson": judged["wilson"],
         "mortality_bootstrap": judged["bootstrap"],
         "mortality_ceiling": judged["ceiling"],
+        "mortality_clear_median_hours": scores["mortality_clear"]["median_hours"],
         "potential_death_precision": scores["precision"]["potential_death"][
             "precision"
         ],
         "gap_precision": scores["precision"]["gap"]["precision"],
+        "gap_ceiling": scores["precision"]["gap"]["ceiling"],
         "random_precision": scores["random_precision"],
         "random_precision_tags": scores["random_precision_tags"],
         "carcass_deaths": mortality["deaths"],

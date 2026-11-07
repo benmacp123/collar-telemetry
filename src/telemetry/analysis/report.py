@@ -7,6 +7,17 @@ dependency, and from the detection core, which the Lambda handlers load.
 from pathlib import Path
 
 from telemetry.analysis.evaluation import TAG_EVENT
+from telemetry.analysis.experiment import (
+    BIRDS,
+    CLEAR_HOURS,
+    LOAD,
+    METRIC_NAMES,
+    RATE_AT_MARK,
+    WEEK_DAYS,
+    WILSON_LOWER,
+    Target,
+    experiment,
+)
 
 SCENARIO_ORDER = ("ideal", "gsm", "satellite_daily", "satellite_2day")
 SCENARIO_LABELS = {
@@ -336,7 +347,8 @@ def _section(report: dict) -> list[str]:
             f"{_share(potential['rate_at_mark'])} |"
         )
 
-    lines += _precision_lines(scenarios)
+    lines += _precision_lines(scenarios, report.get("study"), report.get("set"))
+    lines += _target_lines(report)
     lines += _false_alert_lines(first)
     lines += _tag_event_lines(first)
 
@@ -392,11 +404,36 @@ PRECISION_ROWS = (
 )
 
 
-def _precision_lines(scenarios: dict) -> list[str]:
-    """Precision against the ceiling and baselines, per scenario.
+def _precision_target(study: str | None, name: str | None, detector: str) -> str:
+    """The precision target beside one detector's precision.
+
+    Args:
+        study: Study slug.
+        name: The set's name.
+        detector: The detector.
+
+    Returns:
+        str: The target on its Wilson lower bound, or "none" if the detector
+        has none or the set is not one targets apply to.
+    """
+    settings = experiment()
+    if settings.set_kind(study, name) is None:
+        return "none"
+    for target in settings.targets_for(detector):
+        if target.metric == WILSON_LOWER:
+            return f"lower bound {target.describe()}"
+    return "none"
+
+
+def _precision_lines(
+    scenarios: dict, study: str | None = None, name: str | None = None
+) -> list[str]:
+    """Precision against the ceiling, baselines and target, per scenario.
 
     Args:
         scenarios: One report's results by scenario.
+        study: Study slug, to find the precision targets.
+        name: The set's name.
 
     Returns:
         list[str]: The section's lines, or none if the report predates
@@ -421,25 +458,29 @@ def _precision_lines(scenarios: dict) -> list[str]:
         "one true alert. *Gap only* scores gap incidents the same way: the rule "
         "stillness has to beat. *Random* alerts at uniformly random moments "
         "score the share of judged time after a death start, or after a "
-        "death start or tag event for detectors credited with tag events.",
+        "death start or tag event for detectors credited with tag events. "
+        "The *precision target* is on the Wilson lower bound; a detector "
+        "judged on other measures shows none.",
         "",
         "| Scenario | Alert | True + tag event / judged (ambiguous) | Precision "
-        "| Death only | Wilson 95% | By bird 95% | Cases | Ceiling |",
-        "|---|---|---|---|---|---|---|---|---|",
+        "| Death only | Wilson 95% | By bird 95% | Cases | Ceiling "
+        "| Precision target |",
+        "|---|---|---|---|---|---|---|---|---|---|",
     ]
-    for name in SCENARIO_ORDER:
-        result = scenarios[name]
+    for scenario in SCENARIO_ORDER:
+        result = scenarios[scenario]
         for detector, label in PRECISION_ROWS:
             scored = result["precision"][detector]
             lines.append(
-                f"| {SCENARIO_LABELS[name]} | {label} | {scored['true']} + "
+                f"| {SCENARIO_LABELS[scenario]} | {label} | {scored['true']} + "
                 f"{scored.get(TAG_EVENT, 0)} / "
                 f"{scored['judged']} ({scored['ambiguous']}) | "
                 f"{_precision_cell(scored['precision'])} | "
                 f"{_precision_cell(scored.get('death_precision', scored['precision']))} | "
                 f"{_interval_cell(scored['wilson'])} | "
                 f"{_interval_cell(scored['bootstrap'])} | {scored['cases']} | "
-                f"{_precision_cell(scored['ceiling'])} |"
+                f"{_precision_cell(scored['ceiling'])} | "
+                f"{_precision_target(study, name, detector)} |"
             )
     first = scenarios[SCENARIO_ORDER[0]]
     random = first["random_precision"]
@@ -451,6 +492,124 @@ def _precision_lines(scenarios: dict) -> list[str]:
         "by time, so one tag stuck for years dominates it, however few fixes "
         "it sent.",
     ]
+    return lines
+
+
+def _arithmetic_note() -> str:
+    """How far false alerts must fall for the precision targets to be possible.
+
+    Returns:
+        str: One sentence per precision in the experiment file.
+    """
+    settings = experiment()
+    today = settings.false_per_animal_month
+    parts = []
+    for precision in settings.precisions:
+        allowed = settings.false_rate_allowed(precision)
+        parts.append(
+            f"{precision:.0%} precision allows at most {allowed:.3f}, "
+            f"{today / allowed:.0f} times fewer than today"
+        )
+    return (
+        f"At the seen held-out base rate (one carcass per "
+        f"{settings.animal_months_per_carcass:g} animal-months, {today} false "
+        f"alerts per animal-month): {'; '.join(parts)}. About 5 true alerts "
+        "need 33% measured precision for a Wilson lower bound above 15%."
+    )
+
+
+def _measured(target: Target, result: dict) -> float | None:
+    """What one scenario's evaluation result measured for a target.
+
+    Args:
+        target: The target.
+        result: One scenario's results.
+
+    Returns:
+        float | None: The value in the metric's own unit; None if the result
+        does not hold it, such as a held-out set last scored before the
+        measure existed, or a cue not yet built.
+    """
+    if target.metric == LOAD:
+        # An alert that never fired has no load entry: its load is zero.
+        return result["load"].get(target.alert, {}).get("per_animal_month", 0.0)
+    if target.metric == CLEAR_HOURS:
+        return result.get("mortality_clear", {}).get("median_hours")
+    if target.metric == RATE_AT_MARK:
+        return result[target.alert]["rate_at_mark"]
+    if target.metric == WILSON_LOWER:
+        bounds = result["precision"][target.alert]["wilson"]
+        return None if bounds is None else bounds[0]
+    return None
+
+
+def _measure_cell(target: Target, value: float | None) -> str:
+    """A measured value in the target's unit.
+
+    Args:
+        target: The target.
+        value: The value, or None.
+
+    Returns:
+        str: The formatted value, or an en dash.
+    """
+    if value is None:
+        return "–"
+    if target.metric == LOAD:
+        return f"{value:.3f}"
+    if target.metric == CLEAR_HOURS:
+        return f"{value:.1f} h"
+    return _precision_cell(value)
+
+
+def _target_lines(report: dict) -> list[str]:
+    """One set's measured values against every target.
+
+    Args:
+        report: One evaluation report.
+
+    Returns:
+        list[str]: The section's lines, or none if no target applies to
+        this set (the mammals) or the study's scenario is not named.
+    """
+    settings = experiment()
+    study, name = report.get("study"), report.get("set")
+    kind = settings.set_kind(study, name)
+    scenario = settings.scenario(study)
+    if kind is None or scenario is None:
+        return []
+    result = report["scenarios"][scenario]
+    lines = [
+        "",
+        "### Against the targets",
+        "",
+        "Fixed in advance in `config/experiment.toml`. Judged under "
+        f"{SCENARIO_LABELS[scenario].lower()} uploads only, this study's real "
+        f"pattern. This is a *{kind}* set, and a target is judged only on the "
+        "kinds of set it names, so a value here may meet a limit without "
+        f"being judged. The *ceiling* is the alert's, at the same scenario. "
+        f"Load is per animal-month: {WEEK_DAYS} days for {BIRDS} birds is "
+        f"{WEEK_DAYS * BIRDS / (settings.animal_month.total_seconds() / 86400):.2f} "
+        "animal-months.",
+        "",
+        _arithmetic_note(),
+        "",
+        "| Tier | Metric | Target | Measured | Ceiling | Verdict |",
+        "|---|---|---|---|---|---|",
+    ]
+    for target in settings.targets:
+        value = (
+            None
+            if target.alert not in result["precision"]
+            else (_measured(target, result))
+        )
+        scored = result["precision"].get(target.alert, {})
+        lines.append(
+            f"| {target.tier} | {METRIC_NAMES[target.metric]} | "
+            f"{target.describe()} | {_measure_cell(target, value)} | "
+            f"{_precision_cell(scored.get('ceiling'))} | "
+            f"{target.verdict(value, kind)} |"
+        )
     return lines
 
 
@@ -818,6 +977,72 @@ def _save(figure, path: Path) -> None:
     figure.savefig(path, dpi=150, metadata={"Software": None})
 
 
+def _sweep_measured(target: Target, row: dict) -> float | None:
+    """What one sweep row measured for a watch target.
+
+    Args:
+        target: A target on the mortality alert.
+        row: The sweep row.
+
+    Returns:
+        float | None: The value in the metric's own unit.
+    """
+    return row.get(
+        {
+            LOAD: "mortality_per_animal_month",
+            CLEAR_HOURS: "mortality_clear_median_hours",
+            RATE_AT_MARK: "carcass_rate_at_mark",
+        }[target.metric]
+    )
+
+
+def _sweep_target_lines(report: dict, by_setting: dict) -> list[str]:
+    """Every mortality setting against the watch targets.
+
+    Args:
+        report: The sweep report.
+        by_setting: Sweep rows by (window, box), then by scenario.
+
+    Returns:
+        list[str]: The section's lines, or none if no target applies to the
+        set swept or the study's scenario is not named.
+    """
+    settings = experiment()
+    kind = settings.set_kind(report.get("study"), report.get("set"))
+    scenario = settings.scenario(report.get("study"))
+    if kind is None or scenario is None:
+        return []
+    watch = settings.targets_for("mortality")
+    headers = " | ".join(f"{METRIC_NAMES[t.metric]} (target)" for t in watch)
+    lines = [
+        "",
+        "### Mortality settings against the watch targets",
+        "",
+        f"Fixed in advance in `config/experiment.toml`; judged under "
+        f"{SCENARIO_LABELS[scenario].lower()} uploads. Load is per animal-month. "
+        f"The *ceiling* is at the same scenario. {_arithmetic_note()}",
+        "",
+        f"| Window (h) | Box (m) | {headers} | Ceiling | Verdict |",
+        "|---|---|" + "---|" * (len(watch) + 2),
+    ]
+    for (window, box), scenarios in sorted(
+        by_setting.items(), key=lambda kv: (kv[0][1], kv[0][0])
+    ):
+        row = scenarios[scenario]
+        cells, missed = [], []
+        for target in watch:
+            value = _sweep_measured(target, row)
+            cells.append(f"{_measure_cell(target, value)} ({target.limit_text()})")
+            if target.verdict(value, kind) != "met":
+                missed.append(METRIC_NAMES[target.metric].lower())
+        verdict = f"missed: {', '.join(missed)}" if missed else "met"
+        lines.append(
+            f"| {window:g} | {box:g} | {' | '.join(cells)} | "
+            f"{_precision_cell(row.get('mortality_ceiling'))} | {verdict} |"
+        )
+    return lines
+
+
 def sweep_markdown(report: dict) -> str:
     """The threshold sweep as Markdown tables.
 
@@ -883,9 +1108,13 @@ def sweep_markdown(report: dict) -> str:
         "",
         "| Window (h) | Box (m) | True + tag event / judged | Precision "
         "| Death only | Wilson 95% "
-        "| By bird 95% | Ceiling | Potential death | Gap only |",
-        "|---|---|---|---|---|---|---|---|---|---|",
+        "| By bird 95% | Ceiling | Potential death | Potential death target "
+        "| Gap only |",
+        "|---|---|---|---|---|---|---|---|---|---|---|",
     ]
+    escalated = _precision_target(
+        report.get("study"), report.get("set"), "potential_death"
+    )
     for (window, box), scenarios in sorted(
         by_setting.items(), key=lambda kv: (kv[0][1], kv[0][0])
     ):
@@ -900,20 +1129,23 @@ def sweep_markdown(report: dict) -> str:
             f"{_interval_cell(ideal.get('mortality_bootstrap'))} | "
             f"{_precision_cell(ideal.get('mortality_ceiling'))} | "
             f"{_precision_cell(ideal.get('potential_death_precision'))} | "
+            f"{escalated} | "
             f"{_precision_cell(ideal.get('gap_precision'))} |"
         )
+    lines += _sweep_target_lines(report, by_setting)
     lines += [
         "",
         "## Gap detector",
         "",
         "Silence allowed beyond the upload interval (ideal arrival has none). "
         "Mortality settings at their defaults. Delays are on deaths without "
-        "a carcass period, from the last fix.",
+        "a carcass period, from the last fix. Gap alerts are a baseline, so "
+        "they have no target of their own.",
         "",
         "| Scenario | Margin (h) | Gap alerts per animal-month "
         "| Resolved late | Deaths flagged | Median delay (h) | Slowest (h) "
-        "| Precision as a death signal |",
-        "|---|---|---|---|---|---|---|---|",
+        "| Precision as a death signal | Ceiling | Target |",
+        "|---|---|---|---|---|---|---|---|---|---|",
     ]
     gap = [r for r in rows if r["swept"] == "gap"]
     for name in SCENARIO_ORDER:
@@ -928,7 +1160,8 @@ def sweep_markdown(report: dict) -> str:
                 f"{row['other_deaths_detected']} of {row['other_deaths']} | "
                 f"{_cell(row['other_deaths_median_gap_delay_hours'], 1)} | "
                 f"{_cell(row['other_deaths_max_gap_delay_hours'], 1)} | "
-                f"{_precision_cell(row.get('gap_precision'))} |"
+                f"{_precision_cell(row.get('gap_precision'))} | "
+                f"{_precision_cell(row.get('gap_ceiling'))} | none |"
             )
     return "\n".join(lines) + "\n"
 

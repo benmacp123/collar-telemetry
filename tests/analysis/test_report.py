@@ -268,7 +268,7 @@ def test_write_sweep_writes_tables_and_figure(tmp_path):
     assert "| Satellite, 2-day | 6 | 1.00 | 25% | 1 of 1 | 12.0 | 12.0 | 4.0% |" in text
     assert (
         "| 24 | 100 | 1 + 2 / 10 | 10.0% | 10.0% | 1.8-40.4% | 0.0-25.0% | 18.2% "
-        "| 50.0% "
+        "| 50.0% | lower bound above 15% "
         "| 4.0% |" in text
     )
     assert "Random alerts score 0.15% for deaths, 2.00% also crediting" in text

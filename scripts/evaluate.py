@@ -59,7 +59,7 @@ EVALUATION = RESULTS / "evaluation"
 LOOKS = RESULTS / "LOOKS.md"
 # The inputs whose changes can move the figures; uncommitted edits to them
 # are named in the look log, since the commit alone would not reproduce it.
-SOURCE_PATHS = ("src", "scripts", "data", "Makefile", "pyproject.toml")
+SOURCE_PATHS = ("src", "scripts", "data", "config", "Makefile", "pyproject.toml")
 # The README's worked example: a tuning-set vulture whose carcass kept
 # reporting, so it shows the mortality, gap and potential-death alerts and
 # how daily uploads delay each one.

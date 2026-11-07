@@ -16,7 +16,8 @@ project plan:
 - **Split.** Vulture deployments starting before 2013 are the tuning set
   and those from 2013 on the scoring set; the mammal studies are not
   split. Callers choose which sets to score, so the scoring set can stay
-  unseen until thresholds are frozen.
+  unseen until thresholds are frozen. This date, the truth settings and
+  the targets are in ``config/experiment.toml``.
 - **Death start** is the start of the track's final stationary period:
   the earliest fix from which every later fix lies within ``radius_m``
   of the median of the last ``TAIL_FIXES`` fixes. 100 m matches the
@@ -42,6 +43,9 @@ project plan:
   working, its upload was late) are reported as their own rate. They are
   load the operator really sees, caused by upload latency, not false
   alarms about the animal, and ``min_silence`` is not tuned on them.
+- **Time to clear** is the median from opening to resolving of false
+  mortality alerts (the bird was alive at the time), on evidence times, so
+  upload timing barely moves it. Alerts never resolved are counted apart.
 - **Precision** of the mortality and ``potential_death`` incidents: an
   incident is true if it is on a dead deployment and still open after the
   death start, ambiguous if the same holds on an ambiguous track, a tag
@@ -80,7 +84,7 @@ import json
 import statistics
 from collections import Counter
 from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from pathlib import Path
 
 from shapely.geometry import LineString
@@ -96,6 +100,7 @@ from telemetry.core.alerts import (
 from telemetry.core.detectors.geofence import Fence
 from telemetry.core.fixes import Arrival, Deployment, Fix
 from telemetry.core.geo import haversine_m
+from telemetry.analysis.experiment import experiment
 from telemetry.analysis.intervals import ceiling, cluster_bootstrap, wilson
 from telemetry.sim.replay import PLANNED_ENDS
 from telemetry.sim.synthetic import REGIMES, InjectedDeath
@@ -107,34 +112,21 @@ ALIVE = "alive"
 TAG_EVENT = "tag-event"
 LABELS = (DEAD, DEAD_AFTER_TRACK, AMBIGUOUS, ALIVE, TAG_EVENT)
 DEAD_END_TYPES = frozenset({"dead", "dead/fall-off"})
-# Gap goes with mortality because it is the baseline mortality has to beat:
-# crediting only one of them would flatter stillness.
-TAG_EVENT_CORRECT = frozenset({MORTALITY, GAP})
+TAG_EVENT_CORRECT = experiment().tag_event_correct
 
 TUNING = "tuning"
 SCORING = "scoring"
 ALL = "all"
-SPLIT_STUDIES = frozenset({"vultures"})
-SCORING_FROM = datetime(2013, 1, 1, tzinfo=timezone.utc)
 
-STILL_RADIUS_M = 100.0
-SENSITIVITY_RADIUS_M = 200.0
-TAIL_FIXES = 5
-ANIMAL_MONTH = timedelta(days=30.4375)
+STILL_RADIUS_M = experiment().still_radius_m
+SENSITIVITY_RADIUS_M = experiment().sensitivity_radius_m
+TAIL_FIXES = experiment().tail_fixes
+ANIMAL_MONTH = experiment().animal_month
 HOUR = timedelta(hours=1)
 VULTURE_TAXON = "Cathartes aura"
 
-# Shortest final stationary period that counts as a carcass, by taxon. These
-# are the mortality windows in force before the threshold sweep, frozen here
-# so labels, the case split and the reference mark stay fixed while the
-# detector's own window is tuned; otherwise changing a threshold would
-# change what it is scored against.
-CARCASS_MIN = {
-    "Cathartes aura": timedelta(hours=24),
-    "Coragyps atratus": timedelta(hours=24),
-    "Canis mesomelas": timedelta(hours=24),
-    "Loxodonta africana": timedelta(hours=12),
-}
+# Shortest final stationary period that counts as a carcass, by taxon.
+CARCASS_MIN = experiment().carcass_min
 
 
 @dataclass(frozen=True)
@@ -293,9 +285,10 @@ def split_for(study: str, deployment: Deployment) -> str:
     Returns:
         str: ``TUNING`` or ``SCORING`` for split studies, else ``ALL``.
     """
-    if study not in SPLIT_STUDIES:
+    scoring_from = experiment().scoring_from(study)
+    if scoring_from is None:
         return ALL
-    return TUNING if deployment.deploy_on < SCORING_FROM else SCORING
+    return TUNING if deployment.deploy_on < scoring_from else SCORING
 
 
 def label_for(
@@ -661,6 +654,33 @@ def false_alerts(
     }
 
 
+def clear_times(
+    truths: list[Truth], own: dict[tuple[str, str], list[Incident]]
+) -> dict:
+    """How long false mortality alerts stay open before the bird moves on.
+
+    Args:
+        truths: The deployments scored.
+        own: Their incidents by (deployment, detector).
+
+    Returns:
+        dict: False alerts, how many never resolved, and the median hours
+        from opening to resolving among those resolved.
+    """
+    false = [
+        incident
+        for truth in truths
+        for incident in own.get((truth.deployment_id, MORTALITY), [])
+        if classify(truth, incident) == "false"
+    ]
+    hours = [_hours(i.resolved_at - i.opened_at) for i in false if i.resolved_at]
+    return {
+        "false": len(false),
+        "never_resolved": len(false) - len(hours),
+        "median_hours": _median(hours),
+    }
+
+
 def detection_rate(delays: list[float | None], deadline_hours: float) -> float | None:
     """Share of deaths flagged within a deadline.
 
@@ -725,8 +745,8 @@ def evaluate(
         dict: JSON-ready operator load, false mortality alerts (in all and
         by deployment and taxon), per-death detection, precision with its
         intervals and ceiling for mortality, potential death and the gap
-        baseline, the random baselines, ambiguous tracks, tag events and
-        cross-detector overlap.
+        baseline, the random baselines, time to clear, ambiguous tracks, tag
+        events and cross-detector overlap.
     """
     ids = {t.deployment_id for t in truths}
     own: dict[tuple[str, str], list[Incident]] = {}
@@ -804,6 +824,7 @@ def evaluate(
         "random_precision": random_precision(truths),
         "random_precision_tags": random_precision(truths, tag_events_correct=True),
         "false_mortality_by": false_alerts(truths, own, MORTALITY),
+        "mortality_clear": clear_times(truths, own),
         "potential_death": {
             "deaths": len(carcass),
             "detected": sum(1 for d in potential if d is not None),

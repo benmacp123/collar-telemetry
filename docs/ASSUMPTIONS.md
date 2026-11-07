@@ -6,8 +6,8 @@ from. Labels:
 - **Observed**: measured on this project's tuning data (vulture
   deployments starting before 2013). The scoring set (2013 on) was not
   inspected while choosing values; it was scored on 2026-10-18, after
-  the thresholds were frozen, and its figures are recomputed on every
-  run. Later looks at it are declared in the README's limitations.
+  the thresholds were frozen. Only `make score` rescores it, and every
+  look is logged in `results/LOOKS.md`.
 - **Literature**: taken from a cited source.
 - **Provisional**: a reasoned starting point, still to be checked on the
   tuning set.

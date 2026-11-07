@@ -339,6 +339,11 @@
           }
         ]
       },
+      "mortality_clear": {
+        "false": 403,
+        "never_resolved": 0,
+        "median_hours": 8.0
+      },
       "potential_death": {
         "deaths": 6,
         "detected": 4,
@@ -925,6 +930,11 @@
             "false_per_animal_month": 0.695
           }
         ]
+      },
+      "mortality_clear": {
+        "false": 403,
+        "never_resolved": 0,
+        "median_hours": 8.0
       },
       "potential_death": {
         "deaths": 6,
@@ -1513,6 +1523,11 @@
           }
         ]
       },
+      "mortality_clear": {
+        "false": 403,
+        "never_resolved": 0,
+        "median_hours": 8.0
+      },
       "potential_death": {
         "deaths": 6,
         "detected": 4,
@@ -2099,6 +2114,11 @@
             "false_per_animal_month": 0.695
           }
         ]
+      },
+      "mortality_clear": {
+        "false": 403,
+        "never_resolved": 0,
+        "median_hours": 8.0
       },
       "potential_death": {
         "deaths": 6,

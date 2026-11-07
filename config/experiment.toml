@@ -1,0 +1,173 @@
+# The experiment definition: what is tuned, what it is scored on and what
+# counts as a pass, fixed before the scoring runs that use it. The sweep, the
+# evaluation and the reports all read this file through
+# src/telemetry/analysis/experiment.py.
+#
+# Changing a target or a set after seeing a result is a change to the
+# experiment, not to a setting: say so in the commit and in results/LOOKS.md.
+
+[metrics]
+# Average month, so rates do not depend on which months a track covers.
+animal_month_days = 30.4375
+# Alerts a tag event correctly explains. Gap goes with mortality because it is
+# the baseline mortality has to beat: crediting only one would flatter
+# stillness. potential_death claims a death, so a tag event is wrong for it.
+tag_event_correct = ["mortality", "gap"]
+# Normal quantile for the 95% Wilson interval.
+wilson_z = 1.96
+# The bird-clustered bootstrap, reseeded on every call.
+bootstrap_resamples = 5000
+bootstrap_seed = 0
+
+[truth]
+# Death start is the start of the final stationary period: within this radius
+# of the median of the last few fixes. 100 m matches the observed carcass
+# scatter; 200 m is reported as a sensitivity check.
+still_radius_m = 100.0
+sensitivity_radius_m = 200.0
+tail_fixes = 5
+# The median tuning-set carcass period, measured by reference_mark() and quoted
+# here because the targets name it; a test fails if the two drift apart.
+reference_mark_hours = 92.5
+
+# Shortest final stationary period that counts as a carcass. These are the
+# mortality windows in force before the threshold sweep, frozen so labels, the
+# case split and the reference mark stay fixed while the detector's own window
+# is tuned; otherwise changing a threshold would change what it is scored
+# against.
+[truth.carcass_min_hours]
+"Cathartes aura" = 24.0
+"Coragyps atratus" = 24.0
+"Canis mesomelas" = 24.0
+"Loxodonta africana" = 12.0
+
+# Set membership. Each set is one of three kinds:
+#   tuning: thresholds may be chosen on it.
+#   seen:   a held-out set already looked at; reported, never judged.
+#   fresh:  held out and unseen; scored once with `make score`.
+# `scenario` is the study's real upload pattern, the one targets are judged
+# under; the other scenarios are still reported, but do not decide a target.
+# Studies not listed (jackals, elephants) are not split and have no targets.
+[studies.vultures]
+scenario = "satellite_daily"
+# Tuning set: deployments starting before this date.
+scoring_from = 2013-01-01T00:00:00Z
+
+[studies.vultures.sets]
+tuning = "tuning"
+# Looked at repeatedly after the first freeze (results/LOOKS.md), so spent for
+# any new rule.
+scoring = "seen"
+
+# Added at step 3.1; the split was fixed from reference data before any track
+# was downloaded.
+[studies.storks]
+scenario = "gsm"
+split_file = "data/splits.csv"
+
+[studies.storks.sets]
+tuning = "tuning"
+scoring = "fresh"
+
+# Added once the vulture rule is frozen. The whole study is held out. Its
+# scenario is named from the tag's documentation before the study is loaded.
+[studies.acopian-vultures.sets]
+all = "fresh"
+
+# Quoted from src/telemetry/core/, which stays the source of what the detectors
+# run: the deployed Lambda carries no analysis files, so the core cannot read
+# this one. A test fails if the two drift apart.
+[thresholds]
+mortality_box_m = 100.0
+mortality_min_fixes = 6
+mortality_leave_fixes = 2
+mortality_leave_radius_m = 75.0
+upload_margin_hours = 36.0
+
+[thresholds.mortality_window_hours]
+"Cathartes aura" = 36.0
+"Coragyps atratus" = 36.0
+"Canis mesomelas" = 24.0
+"Loxodonta africana" = 12.0
+
+# The settings `make sweep` tries. The mortality and gap detectors do not affect
+# each other, so each is swept on its own. Out to 120 h and 300 m so the grid
+# covers the longer windows a precision target might push towards.
+[sweep]
+mortality_windows_hours = [24.0, 36.0, 48.0, 72.0, 96.0, 120.0]
+mortality_boxes_m = [100.0, 150.0, 200.0, 300.0]
+upload_margins_hours = [6.0, 12.0, 24.0, 36.0, 48.0]
+
+# How far false alerts must fall for a precision target to be possible. At
+# base rate b and precision p, false alerts per animal-month can be at most
+# b * (1 - p) / p. 33% is the measured precision that about 5 true alerts need
+# for a Wilson lower bound above 15% (5 of 15 gives 15.2%; 5 of 16 gives 13.9%).
+[arithmetic]
+# Seen held-out set: one carcass per 98 animal-months, 0.376 false alerts per
+# animal-month.
+animal_months_per_carcass = 98.0
+false_per_animal_month = 0.376
+precisions = [0.33, 0.25]
+
+# Targets, fixed in advance. `metric` is one of:
+#   load:          incidents per animal-month, written per 30 birds per week
+#   clear_hours:   median hours from opening to resolving, on false alerts (the
+#                  bird was alive at the time); resolved alerts only
+#   rate_at_mark:  share of carcass deaths flagged by the reference mark
+#   wilson_lower:  lower bound of the Wilson 95% interval on precision
+#   cue_precision: precision while keeping at least half the carcasses
+# Each is judged only on the kinds of set in `judged_on`.
+#
+# Wilson treats alerts as independent, so the by-bird interval beside it in the
+# tables is wider; the target stays on Wilson, as decided, and both are shown.
+
+[[targets]]
+tier = "Stationary: check (watch)"
+alert = "mortality"
+metric = "load"
+at_most = 3.0
+judged_on = ["tuning", "fresh"]
+
+[[targets]]
+tier = "Stationary: check (watch)"
+alert = "mortality"
+metric = "clear_hours"
+at_most = 12.0
+judged_on = ["tuning", "fresh"]
+
+# Fixed as "at least 4 of 5"; a share so that it applies to any set size.
+[[targets]]
+tier = "Stationary: check (watch)"
+alert = "mortality"
+metric = "rate_at_mark"
+at_least = 0.8
+judged_on = ["tuning", "fresh"]
+
+[[targets]]
+tier = "Escalated: possible death"
+alert = "potential_death"
+metric = "wilson_lower"
+above = 0.15
+judged_on = ["fresh"]
+
+[[targets]]
+tier = "Escalated: possible death"
+alert = "potential_death"
+metric = "rate_at_mark"
+at_least = 0.5
+judged_on = ["fresh"]
+
+[[targets]]
+tier = "Escalated: possible death"
+alert = "potential_death"
+metric = "load"
+at_most = 1.0
+judged_on = ["fresh"]
+
+# Only if the cue is tested (step 3.3).
+[[targets]]
+tier = "Fix-rate cue"
+alert = "fix_rate"
+metric = "cue_precision"
+at_least = 0.1
+judged_on = ["fresh"]

@@ -67,7 +67,8 @@ window for black vultures chosen on tuning-set load alone, and a
 separate "possible death" tier fires only on evidence independent of
 stillness: first the collar falling silent (today's potential-death
 alert), then body-state sensors such as activity counters where a study
-has them. Numeric targets for each tier will be fixed before anything is
+has them. Numeric targets for each tier are now fixed in
+[`config/experiment.toml`](config/experiment.toml), before anything is
 scored again, and new rules will be validated once on studies not used
 so far: a second vulture study and five white stork populations.
 
@@ -141,9 +142,10 @@ each layer to its own imports.
 flowchart TB
     data[("Movebank tracks<br>data/raw/")] --> arrival["Arrival scenarios<br>ideal, GSM, satellite"]
     core{{"Detection core<br>cleaning, detectors,<br>alert lifecycle"}}
+    experiment[("Experiment definition<br>sets, sweep grid, targets")]
 
     subgraph local ["Local replay runner (every result here)"]
-        replay["Replay runner"] --> evaluation["Evaluation<br>tables and figures"]
+        replay["Replay runner"] --> evaluation["Evaluation and sweep<br>tables and figures"]
     end
 
     subgraph aws ["AWS, deployed with Terraform"]
@@ -156,6 +158,7 @@ flowchart TB
         incidents -- stream --> notifier["Notifier Lambda"] --> sns["SNS email<br>potential_death only"]
     end
 
+    experiment --> evaluation
     arrival --> replay
     arrival --> publisher
     replay -. calls .-> core
@@ -233,6 +236,12 @@ flowchart TB
   these, so new rules will be validated on separate studies instead.
 - **Reference mark:** 92.5 h, the median time carcass collars in the
   tuning set kept reporting, so half are silent by then.
+- **Targets:** fixed in advance in
+  [`config/experiment.toml`](config/experiment.toml), with the sets, the
+  sweep grid and the upload pattern each study is judged under (daily
+  satellite for vultures). The tables print each target beside its measured
+  value, and only a set a target names can pass or miss it: the held-out
+  vultures have been seen, so they are shown but never judged.
 
 ![Threshold sweep on the tuning set](results/figures/sweep-vultures-tuning.png)
 

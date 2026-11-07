@@ -22,6 +22,7 @@ from telemetry.core.alerts import (
     Incident,
 )
 from telemetry.analysis.evaluation import (
+    clear_times,
     ALIVE,
     ALL,
     AMBIGUOUS,
@@ -211,6 +212,27 @@ def test_mortality_incident_resolved_at_death_start_does_not_count():
     death = START + 10 * HOUR
     earlier = incident("mortality", START, resolved=death)
     assert mortality_detection(death, [earlier]) is None
+
+
+def test_clear_times_are_the_median_on_false_alerts_only():
+    """Time to clear measures false alerts; one left open is counted apart,
+    and an alert on the carcass itself does not count."""
+    death = truth(still_start=START + 100 * HOUR, last_fix=START + 200 * HOUR)
+    own = {
+        ("A", "mortality"): [
+            incident("mortality", START, resolved=START + 4 * HOUR),
+            incident("mortality", START + 10 * HOUR, resolved=START + 20 * HOUR),
+            incident("mortality", START + 30 * HOUR, resolved=START + 60 * HOUR),
+            incident("mortality", START + 150 * HOUR),
+        ]
+    }
+    assert clear_times([death], own) == {
+        "false": 3,
+        "never_resolved": 0,
+        "median_hours": 10.0,
+    }
+    alive = truth(label=ALIVE, last_fix=START + 200 * HOUR)
+    assert clear_times([alive], own)["never_resolved"] == 1
 
 
 def test_mortality_delay_uses_processing_clock():

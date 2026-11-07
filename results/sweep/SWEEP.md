@@ -37,56 +37,87 @@ Gap settings at their defaults. False alarms do not depend on the arrival scenar
 
 Ideal arrival. Correct (true plus tag events) over judged incidents (ambiguous tracks left out); *by bird* resamples whole deployments and is the interval to quote. The *ceiling* is a detector firing once on each carcass at the setting's false count. Potential death and gap-only precision at the same setting are beside it for comparison. Random alerts score 0.15% for deaths, 6.09% also crediting tag events.
 
-| Window (h) | Box (m) | True + tag event / judged | Precision | Death only | Wilson 95% | By bird 95% | Ceiling | Potential death | Gap only |
-|---|---|---|---|---|---|---|---|---|---|
-| 24 | 100 | 5 + 5 / 653 | 1.5% | 0.8% | 0.8-2.8% | 0.5-3.3% | 0.9% | 7.6% | 6.6% |
-| 36 | 100 | 5 + 6 / 414 | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 1.4% | 8.6% | 6.6% |
-| 48 | 100 | 4 + 2 / 160 | 3.7% | 2.5% | 1.7-7.9% | 1.2-8.1% | 3.7% | 7.5% | 6.6% |
-| 72 | 100 | 3 + 2 / 71 | 7.0% | 4.2% | 3.0-15.4% | 1.8-16.2% | 8.1% | 7.5% | 6.6% |
-| 96 | 100 | 2 + 2 / 47 | 8.5% | 4.3% | 3.4-19.9% | 1.7-21.2% | 11.8% | 6.9% | 6.6% |
-| 120 | 100 | 2 + 3 / 34 | 14.7% | 5.9% | 6.4-30.1% | 2.6-35.0% | 15.8% | 7.7% | 6.6% |
-| 24 | 150 | 5 + 6 / 902 | 1.2% | 0.6% | 0.7-2.2% | 0.4-2.5% | 0.7% | 6.0% | 6.6% |
-| 36 | 150 | 5 + 6 / 587 | 1.9% | 0.9% | 1.0-3.3% | 0.7-3.9% | 1.0% | 6.9% | 6.6% |
-| 48 | 150 | 4 + 3 / 247 | 2.8% | 1.6% | 1.4-5.7% | 0.9-5.8% | 2.4% | 6.0% | 6.6% |
-| 72 | 150 | 3 + 3 / 121 | 5.0% | 2.5% | 2.3-10.4% | 1.3-10.5% | 4.8% | 6.4% | 6.6% |
-| 96 | 150 | 2 + 3 / 77 | 6.5% | 2.6% | 2.8-14.3% | 1.2-14.3% | 7.4% | 5.7% | 6.6% |
-| 120 | 150 | 2 + 4 / 50 | 12.0% | 4.0% | 5.6-23.8% | 2.0-28.9% | 11.1% | 6.7% | 6.6% |
-| 24 | 200 | 4 + 6 / 1076 | 0.9% | 0.4% | 0.5-1.7% | 0.3-2.0% | 0.6% | 4.1% | 6.6% |
-| 36 | 200 | 4 + 6 / 705 | 1.4% | 0.6% | 0.8-2.6% | 0.5-3.0% | 0.8% | 4.8% | 6.6% |
-| 48 | 200 | 5 + 3 / 313 | 2.6% | 1.6% | 1.3-5.0% | 0.9-5.3% | 1.9% | 6.2% | 6.6% |
-| 72 | 200 | 4 + 3 / 144 | 4.9% | 2.8% | 2.4-9.7% | 1.6-10.1% | 4.1% | 6.6% | 6.6% |
-| 96 | 200 | 2 + 3 / 96 | 5.2% | 2.1% | 2.2-11.6% | 1.0-11.1% | 6.0% | 4.5% | 6.6% |
-| 120 | 200 | 2 + 3 / 69 | 7.2% | 2.9% | 3.1-15.9% | 1.4-15.3% | 8.2% | 5.1% | 6.6% |
-| 24 | 300 | 5 + 7 / 1392 | 0.9% | 0.4% | 0.5-1.5% | 0.3-1.9% | 0.4% | 4.5% | 6.6% |
-| 36 | 300 | 5 + 6 / 935 | 1.2% | 0.5% | 0.7-2.1% | 0.4-2.5% | 0.6% | 5.2% | 6.6% |
-| 48 | 300 | 5 + 3 / 418 | 1.9% | 1.2% | 1.0-3.7% | 0.7-4.0% | 1.4% | 5.4% | 6.6% |
-| 72 | 300 | 4 + 3 / 194 | 3.6% | 2.1% | 1.8-7.3% | 1.2-7.6% | 3.1% | 5.6% | 6.6% |
-| 96 | 300 | 2 + 3 / 121 | 4.1% | 1.7% | 1.8-9.3% | 0.8-9.0% | 4.8% | 3.9% | 6.6% |
-| 120 | 300 | 2 + 4 / 94 | 6.4% | 2.1% | 3.0-13.2% | 1.2-13.6% | 6.1% | 4.7% | 6.6% |
+| Window (h) | Box (m) | True + tag event / judged | Precision | Death only | Wilson 95% | By bird 95% | Ceiling | Potential death | Potential death target | Gap only |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 24 | 100 | 5 + 5 / 653 | 1.5% | 0.8% | 0.8-2.8% | 0.5-3.3% | 0.9% | 7.6% | lower bound above 15% | 6.6% |
+| 36 | 100 | 5 + 6 / 414 | 2.7% | 1.2% | 1.5-4.7% | 0.9-5.7% | 1.4% | 8.6% | lower bound above 15% | 6.6% |
+| 48 | 100 | 4 + 2 / 160 | 3.7% | 2.5% | 1.7-7.9% | 1.2-8.1% | 3.7% | 7.5% | lower bound above 15% | 6.6% |
+| 72 | 100 | 3 + 2 / 71 | 7.0% | 4.2% | 3.0-15.4% | 1.8-16.2% | 8.1% | 7.5% | lower bound above 15% | 6.6% |
+| 96 | 100 | 2 + 2 / 47 | 8.5% | 4.3% | 3.4-19.9% | 1.7-21.2% | 11.8% | 6.9% | lower bound above 15% | 6.6% |
+| 120 | 100 | 2 + 3 / 34 | 14.7% | 5.9% | 6.4-30.1% | 2.6-35.0% | 15.8% | 7.7% | lower bound above 15% | 6.6% |
+| 24 | 150 | 5 + 6 / 902 | 1.2% | 0.6% | 0.7-2.2% | 0.4-2.5% | 0.7% | 6.0% | lower bound above 15% | 6.6% |
+| 36 | 150 | 5 + 6 / 587 | 1.9% | 0.9% | 1.0-3.3% | 0.7-3.9% | 1.0% | 6.9% | lower bound above 15% | 6.6% |
+| 48 | 150 | 4 + 3 / 247 | 2.8% | 1.6% | 1.4-5.7% | 0.9-5.8% | 2.4% | 6.0% | lower bound above 15% | 6.6% |
+| 72 | 150 | 3 + 3 / 121 | 5.0% | 2.5% | 2.3-10.4% | 1.3-10.5% | 4.8% | 6.4% | lower bound above 15% | 6.6% |
+| 96 | 150 | 2 + 3 / 77 | 6.5% | 2.6% | 2.8-14.3% | 1.2-14.3% | 7.4% | 5.7% | lower bound above 15% | 6.6% |
+| 120 | 150 | 2 + 4 / 50 | 12.0% | 4.0% | 5.6-23.8% | 2.0-28.9% | 11.1% | 6.7% | lower bound above 15% | 6.6% |
+| 24 | 200 | 4 + 6 / 1076 | 0.9% | 0.4% | 0.5-1.7% | 0.3-2.0% | 0.6% | 4.1% | lower bound above 15% | 6.6% |
+| 36 | 200 | 4 + 6 / 705 | 1.4% | 0.6% | 0.8-2.6% | 0.5-3.0% | 0.8% | 4.8% | lower bound above 15% | 6.6% |
+| 48 | 200 | 5 + 3 / 313 | 2.6% | 1.6% | 1.3-5.0% | 0.9-5.3% | 1.9% | 6.2% | lower bound above 15% | 6.6% |
+| 72 | 200 | 4 + 3 / 144 | 4.9% | 2.8% | 2.4-9.7% | 1.6-10.1% | 4.1% | 6.6% | lower bound above 15% | 6.6% |
+| 96 | 200 | 2 + 3 / 96 | 5.2% | 2.1% | 2.2-11.6% | 1.0-11.1% | 6.0% | 4.5% | lower bound above 15% | 6.6% |
+| 120 | 200 | 2 + 3 / 69 | 7.2% | 2.9% | 3.1-15.9% | 1.4-15.3% | 8.2% | 5.1% | lower bound above 15% | 6.6% |
+| 24 | 300 | 5 + 7 / 1392 | 0.9% | 0.4% | 0.5-1.5% | 0.3-1.9% | 0.4% | 4.5% | lower bound above 15% | 6.6% |
+| 36 | 300 | 5 + 6 / 935 | 1.2% | 0.5% | 0.7-2.1% | 0.4-2.5% | 0.6% | 5.2% | lower bound above 15% | 6.6% |
+| 48 | 300 | 5 + 3 / 418 | 1.9% | 1.2% | 1.0-3.7% | 0.7-4.0% | 1.4% | 5.4% | lower bound above 15% | 6.6% |
+| 72 | 300 | 4 + 3 / 194 | 3.6% | 2.1% | 1.8-7.3% | 1.2-7.6% | 3.1% | 5.6% | lower bound above 15% | 6.6% |
+| 96 | 300 | 2 + 3 / 121 | 4.1% | 1.7% | 1.8-9.3% | 0.8-9.0% | 4.8% | 3.9% | lower bound above 15% | 6.6% |
+| 120 | 300 | 2 + 4 / 94 | 6.4% | 2.1% | 3.0-13.2% | 1.2-13.6% | 6.1% | 4.7% | lower bound above 15% | 6.6% |
+
+### Mortality settings against the watch targets
+
+Fixed in advance in `config/experiment.toml`; judged under satellite, daily uploads. Load is per animal-month. The *ceiling* is at the same scenario. At the seen held-out base rate (one carcass per 98 animal-months, 0.376 false alerts per animal-month): 33% precision allows at most 0.021, 18 times fewer than today; 25% precision allows at most 0.031, 12 times fewer than today. About 5 true alerts need 33% measured precision for a Wilson lower bound above 15%.
+
+| Window (h) | Box (m) | Load (target) | Median time to clear on living birds (target) | Carcasses flagged by the mark (target) | Ceiling | Verdict |
+|---|---|---|---|---|---|---|
+| 24 | 100 | 0.923 (at most 0.435) | 18.0 h (at most 12 h) | 66.7% (at least 80%) | 0.9% | missed: load, median time to clear on living birds, carcasses flagged by the mark |
+| 36 | 100 | 0.586 (at most 0.435) | 8.0 h (at most 12 h) | 66.7% (at least 80%) | 1.4% | missed: load, carcasses flagged by the mark |
+| 48 | 100 | 0.227 (at most 0.435) | 23.5 h (at most 12 h) | 50.0% (at least 80%) | 3.7% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 72 | 100 | 0.101 (at most 0.435) | 46.0 h (at most 12 h) | 33.3% (at least 80%) | 8.1% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 96 | 100 | 0.068 (at most 0.435) | 41.0 h (at most 12 h) | 16.7% (at least 80%) | 11.8% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 120 | 100 | 0.049 (at most 0.435) | 45.0 h (at most 12 h) | 16.7% (at least 80%) | 15.8% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 24 | 150 | 1.274 (at most 0.435) | 18.0 h (at most 12 h) | 66.7% (at least 80%) | 0.7% | missed: load, median time to clear on living birds, carcasses flagged by the mark |
+| 36 | 150 | 0.830 (at most 0.435) | 7.5 h (at most 12 h) | 66.7% (at least 80%) | 1.0% | missed: load, carcasses flagged by the mark |
+| 48 | 150 | 0.350 (at most 0.435) | 24.0 h (at most 12 h) | 50.0% (at least 80%) | 2.4% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 72 | 150 | 0.172 (at most 0.435) | 39.0 h (at most 12 h) | 33.3% (at least 80%) | 4.8% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 96 | 150 | 0.110 (at most 0.435) | 40.0 h (at most 12 h) | 16.7% (at least 80%) | 7.4% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 120 | 150 | 0.072 (at most 0.435) | 44.5 h (at most 12 h) | 16.7% (at least 80%) | 11.1% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 24 | 200 | 1.520 (at most 0.435) | 18.0 h (at most 12 h) | 66.7% (at least 80%) | 0.6% | missed: load, median time to clear on living birds, carcasses flagged by the mark |
+| 36 | 200 | 0.997 (at most 0.435) | 7.0 h (at most 12 h) | 66.7% (at least 80%) | 0.8% | missed: load, carcasses flagged by the mark |
+| 48 | 200 | 0.443 (at most 0.435) | 23.0 h (at most 12 h) | 50.0% (at least 80%) | 1.9% | missed: load, median time to clear on living birds, carcasses flagged by the mark |
+| 72 | 200 | 0.204 (at most 0.435) | 37.0 h (at most 12 h) | 33.3% (at least 80%) | 4.1% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 96 | 200 | 0.137 (at most 0.435) | 37.0 h (at most 12 h) | 16.7% (at least 80%) | 6.0% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 120 | 200 | 0.099 (at most 0.435) | 36.0 h (at most 12 h) | 16.7% (at least 80%) | 8.2% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 24 | 300 | 1.965 (at most 0.435) | 17.0 h (at most 12 h) | 66.7% (at least 80%) | 0.4% | missed: load, median time to clear on living birds, carcasses flagged by the mark |
+| 36 | 300 | 1.321 (at most 0.435) | 6.0 h (at most 12 h) | 66.7% (at least 80%) | 0.6% | missed: load, carcasses flagged by the mark |
+| 48 | 300 | 0.591 (at most 0.435) | 20.0 h (at most 12 h) | 50.0% (at least 80%) | 1.4% | missed: load, median time to clear on living birds, carcasses flagged by the mark |
+| 72 | 300 | 0.276 (at most 0.435) | 23.0 h (at most 12 h) | 33.3% (at least 80%) | 3.1% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 96 | 300 | 0.173 (at most 0.435) | 38.0 h (at most 12 h) | 16.7% (at least 80%) | 4.8% | missed: median time to clear on living birds, carcasses flagged by the mark |
+| 120 | 300 | 0.134 (at most 0.435) | 43.5 h (at most 12 h) | 16.7% (at least 80%) | 6.1% | missed: median time to clear on living birds, carcasses flagged by the mark |
 
 ## Gap detector
 
-Silence allowed beyond the upload interval (ideal arrival has none). Mortality settings at their defaults. Delays are on deaths without a carcass period, from the last fix.
+Silence allowed beyond the upload interval (ideal arrival has none). Mortality settings at their defaults. Delays are on deaths without a carcass period, from the last fix. Gap alerts are a baseline, so they have no target of their own.
 
-| Scenario | Margin (h) | Gap alerts per animal-month | Resolved late | Deaths flagged | Median delay (h) | Slowest (h) | Precision as a death signal |
-|---|---|---|---|---|---|---|---|
-| Ideal | 6 | 2.89 | 0% | 11 of 11 | 14.0 | 17.0 | 2.6% |
-| Ideal | 12 | 2.54 | 0% | 11 of 11 | 14.0 | 17.0 | 2.9% |
-| Ideal | 24 | 1.08 | 0% | 11 of 11 | 24.0 | 24.0 | 5.4% |
-| Ideal | 36 | 0.88 | 0% | 11 of 11 | 36.0 | 36.0 | 6.6% |
-| Ideal | 48 | 0.50 | 0% | 11 of 11 | 48.0 | 48.0 | 9.0% |
-| GSM | 6 | 7.34 | 59% | 11 of 11 | 14.0 | 17.0 | 1.2% |
-| GSM | 12 | 6.41 | 58% | 11 of 11 | 14.0 | 17.0 | 1.3% |
-| GSM | 24 | 3.36 | 68% | 11 of 11 | 25.0 | 25.0 | 1.9% |
-| GSM | 36 | 1.11 | 21% | 11 of 11 | 37.0 | 37.0 | 5.4% |
-| GSM | 48 | 0.79 | 36% | 11 of 11 | 49.0 | 49.0 | 6.2% |
-| Satellite, daily | 6 | 6.30 | 85% | 11 of 11 | 30.0 | 30.0 | 1.0% |
-| Satellite, daily | 12 | 1.48 | 40% | 11 of 11 | 36.0 | 36.0 | 4.0% |
-| Satellite, daily | 24 | 0.80 | 34% | 11 of 11 | 48.0 | 48.0 | 6.7% |
-| Satellite, daily | 36 | 0.56 | 18% | 11 of 11 | 60.0 | 60.0 | 8.7% |
-| Satellite, daily | 48 | 0.45 | 21% | 11 of 11 | 72.0 | 72.0 | 9.7% |
-| Satellite, 2-day | 6 | 1.43 | 67% | 11 of 11 | 54.0 | 54.0 | 4.3% |
-| Satellite, 2-day | 12 | 0.88 | 48% | 11 of 11 | 60.0 | 60.0 | 6.9% |
-| Satellite, 2-day | 24 | 0.63 | 43% | 11 of 11 | 72.0 | 72.0 | 7.7% |
-| Satellite, 2-day | 36 | 0.44 | 29% | 11 of 11 | 84.0 | 84.0 | 10.5% |
-| Satellite, 2-day | 48 | 0.35 | 27% | 11 of 11 | 96.0 | 96.0 | 12.5% |
+| Scenario | Margin (h) | Gap alerts per animal-month | Resolved late | Deaths flagged | Median delay (h) | Slowest (h) | Precision as a death signal | Ceiling | Target |
+|---|---|---|---|---|---|---|---|---|---|
+| Ideal | 6 | 2.89 | 0% | 11 of 11 | 14.0 | 17.0 | 2.6% | 0.8% | none |
+| Ideal | 12 | 2.54 | 0% | 11 of 11 | 14.0 | 17.0 | 2.9% | 0.9% | none |
+| Ideal | 24 | 1.08 | 0% | 11 of 11 | 24.0 | 24.0 | 5.4% | 2.2% | none |
+| Ideal | 36 | 0.88 | 0% | 11 of 11 | 36.0 | 36.0 | 6.6% | 2.7% | none |
+| Ideal | 48 | 0.50 | 0% | 11 of 11 | 48.0 | 48.0 | 9.0% | 4.8% | none |
+| GSM | 6 | 7.34 | 59% | 11 of 11 | 14.0 | 17.0 | 1.2% | 0.3% | none |
+| GSM | 12 | 6.41 | 58% | 11 of 11 | 14.0 | 17.0 | 1.3% | 0.4% | none |
+| GSM | 24 | 3.36 | 68% | 11 of 11 | 25.0 | 25.0 | 1.9% | 0.7% | none |
+| GSM | 36 | 1.11 | 21% | 11 of 11 | 37.0 | 37.0 | 5.4% | 2.2% | none |
+| GSM | 48 | 0.79 | 36% | 11 of 11 | 49.0 | 49.0 | 6.2% | 3.0% | none |
+| Satellite, daily | 6 | 6.30 | 85% | 11 of 11 | 30.0 | 30.0 | 1.0% | 0.4% | none |
+| Satellite, daily | 12 | 1.48 | 40% | 11 of 11 | 36.0 | 36.0 | 4.0% | 1.6% | none |
+| Satellite, daily | 24 | 0.80 | 34% | 11 of 11 | 48.0 | 48.0 | 6.7% | 3.0% | none |
+| Satellite, daily | 36 | 0.56 | 18% | 11 of 11 | 60.0 | 60.0 | 8.7% | 4.3% | none |
+| Satellite, daily | 48 | 0.45 | 21% | 11 of 11 | 72.0 | 72.0 | 9.7% | 5.3% | none |
+| Satellite, 2-day | 6 | 1.43 | 67% | 11 of 11 | 54.0 | 54.0 | 4.3% | 1.7% | none |
+| Satellite, 2-day | 12 | 0.88 | 48% | 11 of 11 | 60.0 | 60.0 | 6.9% | 2.8% | none |
+| Satellite, 2-day | 24 | 0.63 | 43% | 11 of 11 | 72.0 | 72.0 | 7.7% | 3.8% | none |
+| Satellite, 2-day | 36 | 0.44 | 29% | 11 of 11 | 84.0 | 84.0 | 10.5% | 5.4% | none |
+| Satellite, 2-day | 48 | 0.35 | 27% | 11 of 11 | 96.0 | 96.0 | 12.5% | 6.9% | none |
