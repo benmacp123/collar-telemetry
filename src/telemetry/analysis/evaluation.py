@@ -10,7 +10,9 @@ project plan:
   saw. Other unplanned ends whose track finishes with a stationary period
   at least the species' ``CARCASS_MIN`` long are ``ambiguous``
   (possible unrecorded deaths or dropped tags): they are reported apart
-  and left out of the false-alarm count. Everything else is ``alive``.
+  and left out of the false-alarm count. ``tag-event`` (dropped, stuck or
+  failing tag; grounded bird) comes only from ``data/labels.csv``, which
+  gives the time the event began. Everything else is ``alive``.
 - **Split.** Vulture deployments starting before 2013 are the tuning set
   and those from 2013 on the scoring set; the mammal studies are not
   split. Callers choose which sets to score, so the scoring set can stay
@@ -42,9 +44,13 @@ project plan:
   alarms about the animal, and ``min_silence`` is not tuned on them.
 - **Precision** of the mortality and ``potential_death`` incidents: an
   incident is true if it is on a dead deployment and still open after the
-  death start, ambiguous if the same holds on an ambiguous track, and
-  false otherwise. Load counts every incident; precision is true over
-  true plus false (the *judged* incidents), leaving ambiguous ones out.
+  death start, ambiguous if the same holds on an ambiguous track, a tag
+  event if it is still open after a tag event began, and false otherwise.
+  Load counts every incident; the *judged* incidents are all but the
+  ambiguous ones. Tag events count as correct for mortality, whose alert
+  names dropped tags, and for the gap baseline it is compared with, but as
+  wrong for ``potential_death``, which claims a death. ``death_precision``
+  is true over judged for every detector.
   Each precision carries a Wilson 95% interval on incidents and a 95%
   bootstrap that resamples whole deployments (seeded), since false
   alerts cluster on a few birds and incidents are not independent.
@@ -98,8 +104,12 @@ DEAD = "dead"
 DEAD_AFTER_TRACK = "dead-after-track"
 AMBIGUOUS = "ambiguous"
 ALIVE = "alive"
-LABELS = (DEAD, DEAD_AFTER_TRACK, AMBIGUOUS, ALIVE)
+TAG_EVENT = "tag-event"
+LABELS = (DEAD, DEAD_AFTER_TRACK, AMBIGUOUS, ALIVE, TAG_EVENT)
 DEAD_END_TYPES = frozenset({"dead", "dead/fall-off"})
+# Gap goes with mortality because it is the baseline mortality has to beat:
+# crediting only one of them would flatter stillness.
+TAG_EVENT_CORRECT = frozenset({MORTALITY, GAP})
 
 TUNING = "tuning"
 SCORING = "scoring"
@@ -128,6 +138,19 @@ CARCASS_MIN = {
 
 
 @dataclass(frozen=True)
+class Override:
+    """One row of ``data/labels.csv``.
+
+    Attributes:
+        label: ``DEAD``, ``DEAD_AFTER_TRACK`` or ``TAG_EVENT``.
+        event_from: When a tag event began; None for the other labels.
+    """
+
+    label: str
+    event_from: datetime | None = None
+
+
+@dataclass(frozen=True)
 class Truth:
     """What is known about one deployment, for scoring.
 
@@ -143,6 +166,8 @@ class Truth:
         still_start_wide: The same at ``SENSITIVITY_RADIUS_M``.
         carcass_min: Shortest final stationary period counted as a
             carcass, from ``CARCASS_MIN``.
+        event_from: When a tag event began; None unless ``label`` is
+            ``TAG_EVENT``.
     """
 
     deployment_id: str
@@ -154,6 +179,17 @@ class Truth:
     still_start: datetime
     still_start_wide: datetime
     carcass_min: timedelta
+    event_from: datetime | None = None
+
+    @property
+    def outcome_start(self) -> datetime:
+        """When the event an incident can be credited to began.
+
+        Returns:
+            datetime: ``event_from`` for a tag event, whose still period
+            may end before the track does; otherwise the death start.
+        """
+        return self.event_from or self.still_start
 
     @property
     def still_hours(self) -> float:
@@ -175,28 +211,36 @@ class Truth:
         return self.last_fix - self.still_start >= self.carcass_min
 
 
-def read_labels(path: Path) -> dict[str, str]:
+def read_labels(path: Path) -> dict[str, Override]:
     """Read label overrides.
 
     Args:
         path: ``data/labels.csv``, with ``deployment-id`` and ``label``
-            columns.
+            columns and, for tag events, ``event-from`` as an ISO time.
 
     Returns:
-        dict[str, str]: Label by deployment ID.
+        dict[str, Override]: Override by deployment ID.
 
     Raises:
-        ValueError: If a label is not one of ``DEAD`` or
-            ``DEAD_AFTER_TRACK``, the only overrides the label review
-            produces.
+        ValueError: If a label is not one of ``DEAD``, ``DEAD_AFTER_TRACK``
+            or ``TAG_EVENT``, the only overrides the label review produces,
+            or if a tag event lacks ``event-from`` or another label has one.
     """
     labels = {}
     with open(path, newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
             label = row["label"].strip()
-            if label not in (DEAD, DEAD_AFTER_TRACK):
+            if label not in (DEAD, DEAD_AFTER_TRACK, TAG_EVENT):
                 raise ValueError(f"unexpected label {label!r} in {path}")
-            labels[row["deployment-id"].strip()] = label
+            deployment_id = row["deployment-id"].strip()
+            event_from = (row.get("event-from") or "").strip()
+            if bool(event_from) != (label == TAG_EVENT):
+                raise ValueError(
+                    f"{deployment_id}: event-from goes with {TAG_EVENT} only"
+                )
+            labels[deployment_id] = Override(
+                label, datetime.fromisoformat(event_from) if event_from else None
+            )
     return labels
 
 
@@ -256,7 +300,7 @@ def split_for(study: str, deployment: Deployment) -> str:
 
 def label_for(
     deployment: Deployment,
-    overrides: dict[str, str],
+    overrides: dict[str, Override],
     still: timedelta,
     carcass_min: timedelta,
 ) -> str:
@@ -272,7 +316,7 @@ def label_for(
         str: One of ``LABELS``.
     """
     if deployment.deployment_id in overrides:
-        return overrides[deployment.deployment_id]
+        return overrides[deployment.deployment_id].label
     if deployment.end_type in DEAD_END_TYPES:
         return DEAD
     if deployment.end_type in PLANNED_ENDS:
@@ -284,7 +328,7 @@ def build_truth(
     study: str,
     deployments: list[Deployment],
     fixes: list[Fix],
-    overrides: dict[str, str],
+    overrides: dict[str, Override],
 ) -> list[Truth]:
     """What is known about every deployment that has fixes.
 
@@ -313,6 +357,7 @@ def build_truth(
             continue
         carcass_min = CARCASS_MIN[deployment.taxon]
         still_start = final_still_start(own, STILL_RADIUS_M)
+        override = overrides.get(deployment.deployment_id)
         truths.append(
             Truth(
                 deployment_id=deployment.deployment_id,
@@ -329,6 +374,7 @@ def build_truth(
                 still_start=still_start,
                 still_start_wide=final_still_start(own, SENSITIVITY_RADIUS_M),
                 carcass_min=carcass_min,
+                event_from=override.event_from if override else None,
             )
         )
     return truths
@@ -441,16 +487,16 @@ def false_mortality(truth: Truth, incidents: list[Incident]) -> int:
         incidents: Its mortality incidents.
 
     Returns:
-        int: Every incident for an alive deployment; for dead and
-        ambiguous ones, those resolved by the death start (raised while the
-        animal was still moving about).
+        int: Every incident for an alive deployment; for dead, ambiguous
+        and tag-event ones, those resolved by the start of that outcome
+        (raised while the animal was still moving about).
     """
     if truth.label in (ALIVE, DEAD_AFTER_TRACK):
         return len(incidents)
     return sum(
         1
         for i in incidents
-        if i.resolved_at is not None and i.resolved_at <= truth.still_start
+        if i.resolved_at is not None and i.resolved_at <= truth.outcome_start
     )
 
 
@@ -464,13 +510,16 @@ def classify(truth: Truth, incident: Incident) -> str:
     Returns:
         str: ``"true"`` if the deployment is dead and the incident was
         open after the death start, ``"ambiguous"`` if the same holds on an
-        ambiguous track, otherwise ``"false"``.
+        ambiguous track, ``"tag-event"`` if it was open after a tag event
+        began, otherwise ``"false"``.
     """
-    after = incident.resolved_at is None or incident.resolved_at > truth.still_start
+    after = incident.resolved_at is None or incident.resolved_at > truth.outcome_start
     if after and truth.label == DEAD:
         return "true"
     if after and truth.label == AMBIGUOUS:
         return "ambiguous"
+    if after and truth.label == TAG_EVENT:
+        return TAG_EVENT
     return "false"
 
 
@@ -485,11 +534,15 @@ def precision(
         detector: ``MORTALITY`` or ``POTENTIAL_DEATH``.
 
     Returns:
-        dict: True, false and ambiguous counts; ``judged``, true plus false
-        (ambiguous left out); the share of true among judged, or None with
-        none; and its Wilson and deployment-bootstrap 95% intervals.
+        dict: True, false, tag-event and ambiguous counts; ``judged``, all
+        but the ambiguous; ``correct``, true plus tag events where the
+        detector's alert covers them; ``precision``, correct over judged,
+        and ``death_precision``, true over judged, each None with none
+        judged; and the Wilson and deployment-bootstrap 95% intervals on
+        ``precision``.
     """
-    counts = Counter({"true": 0, "false": 0, "ambiguous": 0})
+    counts = Counter({"true": 0, "false": 0, "ambiguous": 0, TAG_EVENT: 0})
+    credit_tags = detector in TAG_EVENT_CORRECT
     per_deployment = []
     for truth in truths:
         own_counts = Counter(
@@ -497,18 +550,29 @@ def precision(
             for incident in own.get((truth.deployment_id, detector), [])
         )
         counts.update(own_counts)
-        per_deployment.append((own_counts["true"], own_counts["false"]))
-    judged = counts["true"] + counts["false"]
+        tags = own_counts[TAG_EVENT]
+        per_deployment.append(
+            (
+                own_counts["true"] + (tags if credit_tags else 0),
+                own_counts["false"] + (0 if credit_tags else tags),
+            )
+        )
+    judged = counts["true"] + counts["false"] + counts[TAG_EVENT]
+    correct = counts["true"] + (counts[TAG_EVENT] if credit_tags else 0)
     return {
         **dict(counts),
         "judged": judged,
-        "precision": round(counts["true"] / judged, 3) if judged else None,
-        "wilson": wilson(counts["true"], judged),
+        "correct": correct,
+        "precision": round(correct / judged, 3) if judged else None,
+        "death_precision": round(counts["true"] / judged, 3) if judged else None,
+        "wilson": wilson(correct, judged),
         "bootstrap": cluster_bootstrap(per_deployment),
     }
 
 
-def random_precision(truths: list[Truth]) -> float | None:
+def random_precision(
+    truths: list[Truth], tag_events_correct: bool = False
+) -> float | None:
     """Precision of alerts fired at uniformly random moments.
 
     An alert at a random moment of tracked time is true if it falls after
@@ -518,6 +582,8 @@ def random_precision(truths: list[Truth]) -> float | None:
 
     Args:
         truths: The deployments scored.
+        tag_events_correct: Also count time after a tag event began as
+            correct, the baseline for a detector credited with tag events.
 
     Returns:
         float | None: The share to 0.0001, or None with no tracked time.
@@ -531,6 +597,11 @@ def random_precision(truths: list[Truth]) -> float | None:
         timedelta(),
     )
     judged = tracked - unjudged
+    if tag_events_correct:
+        dead += sum(
+            (t.last_fix - t.outcome_start for t in truths if t.label == TAG_EVENT),
+            timedelta(),
+        )
     return round(dead / judged, 4) if judged else None
 
 
@@ -654,8 +725,8 @@ def evaluate(
         dict: JSON-ready operator load, false mortality alerts (in all and
         by deployment and taxon), per-death detection, precision with its
         intervals and ceiling for mortality, potential death and the gap
-        baseline, the random baseline, ambiguous tracks and cross-detector
-        overlap.
+        baseline, the random baselines, ambiguous tracks, tag events and
+        cross-detector overlap.
     """
     ids = {t.deployment_id for t in truths}
     own: dict[tuple[str, str], list[Incident]] = {}
@@ -671,7 +742,7 @@ def evaluate(
         false_mortality(t, own.get((t.deployment_id, "mortality"), [])) for t in truths
     )
 
-    deaths, ambiguous = [], []
+    deaths, ambiguous, tag_events = [], [], []
     for truth in truths:
         mortality = own.get((truth.deployment_id, "mortality"), [])
         if truth.label == DEAD:
@@ -683,6 +754,16 @@ def evaluate(
                     "deployment_id": truth.deployment_id,
                     "still_hours": round(truth.still_hours, 1),
                     "mortality_delay_hours": found[0] if found else None,
+                }
+            )
+        elif truth.label == TAG_EVENT:
+            tag_events.append(
+                {
+                    "deployment_id": truth.deployment_id,
+                    "event_from": truth.event_from.isoformat(),
+                    "mortality_incidents": sum(
+                        1 for i in mortality if classify(truth, i) == TAG_EVENT
+                    ),
                 }
             )
 
@@ -721,6 +802,7 @@ def evaluate(
             GAP: _with_ceiling(truths, own, GAP, len(deaths)),
         },
         "random_precision": random_precision(truths),
+        "random_precision_tags": random_precision(truths, tag_events_correct=True),
         "false_mortality_by": false_alerts(truths, own, MORTALITY),
         "potential_death": {
             "deaths": len(carcass),
@@ -752,6 +834,7 @@ def evaluate(
         ),
         "deaths": deaths,
         "ambiguous": ambiguous,
+        "tag_events": tag_events,
     }
 
 
@@ -773,7 +856,10 @@ def _with_ceiling(
         dict: ``precision``'s result plus ``cases`` and ``ceiling``.
     """
     scored = precision(truths, own, detector)
-    return {**scored, "cases": cases, "ceiling": ceiling(cases, scored["false"])}
+    # The ceiling stays a statement about deaths: a tag event is not one of
+    # the cases, so here it costs precision like any other non-death alert.
+    not_deaths = scored["judged"] - scored["true"]
+    return {**scored, "cases": cases, "ceiling": ceiling(cases, not_deaths)}
 
 
 def _death_record(

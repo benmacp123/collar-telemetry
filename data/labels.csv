@@ -1,6 +1,11 @@
-deployment-id,label,basis,evidence
-ELV_TUVU_121787,dead,animal-death-comments (end type transmission-end),"Dead in water between Key West and Marquesas"
-HAL_TUVU_121789,dead,animal-death-comments (no end type),"Found dead at Key Deer NWR (2014-06-30)"
-AM254,dead-after-track,deployment-end-comments (end type dead),"Animal deceased - collar retrieved. Cow deceased 27 Nov - 2 Dec 09."
-AM110,dead-after-track,deployment-end-comments (end type dead),"Animal deceased; collar recovered 20 May 2012. Carcass est 5-6 months old, death est Feb/March 2012."
-AM308,dead-after-track,deployment-end-comments (end type dead),"animal deceased April 2012, tag recovered"
+deployment-id,label,basis,evidence,event-from
+ELV_TUVU_121787,dead,animal-death-comments (end type transmission-end),"Dead in water between Key West and Marquesas",
+HAL_TUVU_121789,dead,animal-death-comments (no end type),"Found dead at Key Deer NWR (2014-06-30)",
+AM254,dead-after-track,deployment-end-comments (end type dead),"Animal deceased - collar retrieved. Cow deceased 27 Nov - 2 Dec 09.",
+AM110,dead-after-track,deployment-end-comments (end type dead),"Animal deceased; collar recovered 20 May 2012. Carcass est 5-6 months old, death est Feb/March 2012.",
+AM308,dead-after-track,deployment-end-comments (end type dead),"animal deceased April 2012, tag recovered",
+CAT_BLVU_121784,tag-event,deployment-end-comments (end type removal); from its first still bout past 36 h,"(2013-03-05) Bird caught, unable to fly, transmitter removed and bird taken to rehabber in Key Largo",2013-02-03T23:00:00+00:00
+EAX_BLVU_121786,tag-event,track only (still bout over 60 days; end type transmission-end),"Track, not a comment: 12 fixes over 12330 h from 2015-05-31 to 2016-10-26, then 17 more to 2018-10-12, all within 764 m of the first",2015-05-31T21:00:00+00:00
+MAT_BLVU_68354,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"transmission ended 2016-05-06; bird sighted in 2017",2016-04-24T11:00:00+00:00
+PMV_BLVU_68350,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"transmitter not working; seen by M. Avery on 2014-02-12 near Kissimmee, FL",2013-05-05T17:00:00+00:00
+VPC_BLVU_283,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"last transmission 2016-10-31; bird sighted in 2017",2016-09-30T12:56:04+00:00

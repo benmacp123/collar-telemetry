@@ -49,8 +49,11 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 0,
+          "correct": 0,
           "precision": null,
+          "death_precision": null,
           "wilson": null,
           "bootstrap": null,
           "cases": 0,
@@ -60,8 +63,11 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 0,
+          "correct": 0,
           "precision": null,
+          "death_precision": null,
           "wilson": null,
           "bootstrap": null,
           "cases": 0,
@@ -71,8 +77,11 @@
           "true": 0,
           "false": 145,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 145,
+          "correct": 0,
           "precision": 0.0,
+          "death_precision": 0.0,
           "wilson": [
             -0.0,
             0.02581
@@ -86,6 +95,7 @@
         }
       },
       "random_precision": 0.0,
+      "random_precision_tags": 0.0,
       "false_mortality_by": {
         "by_deployment": [],
         "by_taxon": [
@@ -117,6 +127,7 @@
       "both_detectors": 0,
       "deaths": [],
       "ambiguous": [],
+      "tag_events": [],
       "geofence": {
         "fence": "Kruger National Park",
         "incidents": 202,
@@ -174,8 +185,11 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 0,
+          "correct": 0,
           "precision": null,
+          "death_precision": null,
           "wilson": null,
           "bootstrap": null,
           "cases": 0,
@@ -185,8 +199,11 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 0,
+          "correct": 0,
           "precision": null,
+          "death_precision": null,
           "wilson": null,
           "bootstrap": null,
           "cases": 0,
@@ -196,8 +213,11 @@
           "true": 0,
           "false": 101,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 101,
+          "correct": 0,
           "precision": 0.0,
+          "death_precision": 0.0,
           "wilson": [
             -0.0,
             0.036642
@@ -211,6 +231,7 @@
         }
       },
       "random_precision": 0.0,
+      "random_precision_tags": 0.0,
       "false_mortality_by": {
         "by_deployment": [],
         "by_taxon": [
@@ -242,6 +263,7 @@
       "both_detectors": 0,
       "deaths": [],
       "ambiguous": [],
+      "tag_events": [],
       "geofence": {
         "fence": "Kruger National Park",
         "incidents": 202,
@@ -299,8 +321,11 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 0,
+          "correct": 0,
           "precision": null,
+          "death_precision": null,
           "wilson": null,
           "bootstrap": null,
           "cases": 0,
@@ -310,8 +335,11 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 0,
+          "correct": 0,
           "precision": null,
+          "death_precision": null,
           "wilson": null,
           "bootstrap": null,
           "cases": 0,
@@ -321,8 +349,11 @@
           "true": 0,
           "false": 85,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 85,
+          "correct": 0,
           "precision": 0.0,
+          "death_precision": 0.0,
           "wilson": [
             0.0,
             0.043241
@@ -336,6 +367,7 @@
         }
       },
       "random_precision": 0.0,
+      "random_precision_tags": 0.0,
       "false_mortality_by": {
         "by_deployment": [],
         "by_taxon": [
@@ -367,6 +399,7 @@
       "both_detectors": 0,
       "deaths": [],
       "ambiguous": [],
+      "tag_events": [],
       "geofence": {
         "fence": "Kruger National Park",
         "incidents": 202,
@@ -424,8 +457,11 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 0,
+          "correct": 0,
           "precision": null,
+          "death_precision": null,
           "wilson": null,
           "bootstrap": null,
           "cases": 0,
@@ -435,8 +471,11 @@
           "true": 0,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 0,
+          "correct": 0,
           "precision": null,
+          "death_precision": null,
           "wilson": null,
           "bootstrap": null,
           "cases": 0,
@@ -446,8 +485,11 @@
           "true": 0,
           "false": 217,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 217,
+          "correct": 0,
           "precision": 0.0,
+          "death_precision": 0.0,
           "wilson": [
             0.0,
             0.017395
@@ -461,6 +503,7 @@
         }
       },
       "random_precision": 0.0,
+      "random_precision_tags": 0.0,
       "false_mortality_by": {
         "by_deployment": [],
         "by_taxon": [
@@ -492,6 +535,7 @@
       "both_detectors": 0,
       "deaths": [],
       "ambiguous": [],
+      "tag_events": [],
       "geofence": {
         "fence": "Kruger National Park",
         "incidents": 202,

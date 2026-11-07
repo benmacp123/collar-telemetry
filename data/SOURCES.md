@@ -276,6 +276,38 @@ are labelled `dead-after-track`. The animal was alive for every fix the
 pipeline sees, so the final silence is a collar stopping, not a death to
 detect.
 
+### Tag events
+
+`tag-event` marks a dropped, stuck or failing tag or a grounded bird,
+which the mortality alert's "or dropped tag" text covers. Each row has an
+`event-from` time; alerts still open after it are credited to the event.
+Birds and times were chosen from comments and tracks, without viewing
+alert outcomes, except that the post-mortem had already named
+`CAT_BLVU_121784`, `EAX_BLVU_121786` and `VPC_BLVU_283`. Both thresholds
+below are provisional.
+
+- **Comment evidence plus a final still run.** The end comment names a
+  fault, or says the bird was seen alive after the tag stopped, and the
+  track ends in a run of still bouts of at least 7 days each, each
+  starting within 24 h of the last and the run ending within 7 days of
+  the last fix. `event-from` is the start of the run: `MAT_BLVU_68354`,
+  `PMV_BLVU_68350`, `VPC_BLVU_283`.
+- **Grounded bird.** `CAT_BLVU_121784` was caught unable to fly. The
+  comment gives no onset, so `event-from` is its first still bout past
+  the 36 h watch window; its earlier bouts stop at 27 h.
+- **Track only.** A still bout over 60 days, beyond what a living bird
+  plausibly does, counts without a comment: `EAX_BLVU_121786` (515 days;
+  the next longest non-dead bout is 44 days). The row says it is not a
+  quotation.
+
+Reviewed and not labelled, because no still period can be tied to the
+event: `MHM_BLVU_68349` ("questionable xmitter data in later years",
+undated), `MHT_BLVU_68348` ("intermittent readings, low voltage",
+undated) and `MHX_BLVU_68351`, `PMP_BLVU_68356`, `LAL_BLVU_68348`,
+`AJM_BLVU_111944`, `VLM_BLVU_281` (tag failed, fell off or bird seen
+later, but no week-plus bout near the end of the track). They stay
+`alive`.
+
 ## Park boundaries (`raw/boundaries/`)
 
 - **Source:** OpenStreetMap, via the public Overpass API

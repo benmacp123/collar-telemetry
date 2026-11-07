@@ -8,9 +8,10 @@
     "ideal": {
       "deployments": 34,
       "labels": {
-        "alive": 15,
+        "alive": 12,
         "ambiguous": 2,
-        "dead": 17
+        "dead": 17,
+        "tag-event": 3
       },
       "animal_months": 709.4,
       "load": {
@@ -40,8 +41,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 409,
-        "per_animal_month": 0.577
+        "incidents": 403,
+        "per_animal_month": 0.568
       },
       "mortality": {
         "deaths": 6,
@@ -54,27 +55,33 @@
       "precision": {
         "mortality": {
           "true": 5,
-          "false": 409,
+          "false": 403,
           "ambiguous": 2,
+          "tag-event": 6,
           "judged": 414,
-          "precision": 0.012,
+          "correct": 11,
+          "precision": 0.027,
+          "death_precision": 0.012,
           "wilson": [
-            0.005169,
-            0.027957
+            0.0149,
+            0.046946
           ],
           "bootstrap": [
-            0.002512,
-            0.028571
+            0.009215,
+            0.057057
           ],
           "cases": 6,
           "ceiling": 0.014458
         },
         "potential_death": {
           "true": 5,
-          "false": 53,
+          "false": 50,
           "ambiguous": 2,
+          "tag-event": 3,
           "judged": 58,
+          "correct": 5,
           "precision": 0.086,
+          "death_precision": 0.086,
           "wilson": [
             0.037385,
             0.186439
@@ -88,23 +95,27 @@
         },
         "gap": {
           "true": 19,
-          "false": 602,
+          "false": 580,
           "ambiguous": 2,
+          "tag-event": 22,
           "judged": 621,
-          "precision": 0.031,
+          "correct": 41,
+          "precision": 0.066,
+          "death_precision": 0.031,
           "wilson": [
-            0.019673,
-            0.04729
+            0.049038,
+            0.088344
           ],
           "bootstrap": [
-            0.013889,
-            0.074667
+            0.022726,
+            0.172902
           ],
           "cases": 17,
           "ceiling": 0.027464
         }
       },
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "false_mortality_by": {
         "by_deployment": [
           {
@@ -125,8 +136,8 @@
             "name": "EAX_BLVU_121786",
             "animal_months": 70.3,
             "true": 0,
-            "false": 35,
-            "false_per_animal_month": 0.498
+            "false": 34,
+            "false_per_animal_month": 0.484
           },
           {
             "name": "PMT_BLVU_68359",
@@ -192,13 +203,6 @@
             "false_per_animal_month": 0.977
           },
           {
-            "name": "PMV_BLVU_68350",
-            "animal_months": 13.3,
-            "true": 0,
-            "false": 12,
-            "false_per_animal_month": 0.903
-          },
-          {
             "name": "MHX_BLVU_68351",
             "animal_months": 34.4,
             "true": 0,
@@ -211,6 +215,13 @@
             "true": 0,
             "false": 10,
             "false_per_animal_month": 0.238
+          },
+          {
+            "name": "PMV_BLVU_68350",
+            "animal_months": 13.3,
+            "true": 0,
+            "false": 10,
+            "false_per_animal_month": 0.753
           },
           {
             "name": "LTP_BLVU_68358",
@@ -253,13 +264,6 @@
             "true": 1,
             "false": 3,
             "false_per_animal_month": 0.53
-          },
-          {
-            "name": "CAT_BLVU_121784",
-            "animal_months": 3.0,
-            "true": 0,
-            "false": 3,
-            "false_per_animal_month": 0.999
           },
           {
             "name": "LCP_BLVU_68350",
@@ -330,8 +334,8 @@
             "name": "Coragyps atratus",
             "animal_months": 535.0,
             "true": 1,
-            "false": 378,
-            "false_per_animal_month": 0.707
+            "false": 372,
+            "false_per_animal_month": 0.695
           }
         ]
       },
@@ -569,14 +573,32 @@
           "still_hours": 41.0,
           "mortality_delay_hours": 37.0
         }
+      ],
+      "tag_events": [
+        {
+          "deployment_id": "CAT_BLVU_121784",
+          "event_from": "2013-02-03T23:00:00+00:00",
+          "mortality_incidents": 3
+        },
+        {
+          "deployment_id": "EAX_BLVU_121786",
+          "event_from": "2015-05-31T21:00:00+00:00",
+          "mortality_incidents": 1
+        },
+        {
+          "deployment_id": "PMV_BLVU_68350",
+          "event_from": "2013-05-05T17:00:00+00:00",
+          "mortality_incidents": 2
+        }
       ]
     },
     "satellite_daily": {
       "deployments": 34,
       "labels": {
-        "alive": 15,
+        "alive": 12,
         "ambiguous": 2,
-        "dead": 17
+        "dead": 17,
+        "tag-event": 3
       },
       "animal_months": 709.4,
       "load": {
@@ -606,8 +628,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 409,
-        "per_animal_month": 0.577
+        "incidents": 403,
+        "per_animal_month": 0.568
       },
       "mortality": {
         "deaths": 6,
@@ -620,27 +642,33 @@
       "precision": {
         "mortality": {
           "true": 5,
-          "false": 409,
+          "false": 403,
           "ambiguous": 2,
+          "tag-event": 6,
           "judged": 414,
-          "precision": 0.012,
+          "correct": 11,
+          "precision": 0.027,
+          "death_precision": 0.012,
           "wilson": [
-            0.005169,
-            0.027957
+            0.0149,
+            0.046946
           ],
           "bootstrap": [
-            0.002512,
-            0.028571
+            0.009215,
+            0.057057
           ],
           "cases": 6,
           "ceiling": 0.014458
         },
         "potential_death": {
           "true": 5,
-          "false": 30,
+          "false": 27,
           "ambiguous": 2,
+          "tag-event": 3,
           "judged": 35,
+          "correct": 5,
           "precision": 0.143,
+          "death_precision": 0.143,
           "wilson": [
             0.062601,
             0.293759
@@ -654,23 +682,27 @@
         },
         "gap": {
           "true": 18,
-          "false": 375,
+          "false": 359,
           "ambiguous": 2,
+          "tag-event": 16,
           "judged": 393,
-          "precision": 0.046,
+          "correct": 34,
+          "precision": 0.087,
+          "death_precision": 0.046,
           "wilson": [
-            0.029165,
-            0.071232
+            0.062569,
+            0.118464
           ],
           "bootstrap": [
-            0.021566,
-            0.103456
+            0.031835,
+            0.209837
           ],
           "cases": 17,
           "ceiling": 0.043367
         }
       },
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "false_mortality_by": {
         "by_deployment": [
           {
@@ -691,8 +723,8 @@
             "name": "EAX_BLVU_121786",
             "animal_months": 70.3,
             "true": 0,
-            "false": 35,
-            "false_per_animal_month": 0.498
+            "false": 34,
+            "false_per_animal_month": 0.484
           },
           {
             "name": "PMT_BLVU_68359",
@@ -758,13 +790,6 @@
             "false_per_animal_month": 0.977
           },
           {
-            "name": "PMV_BLVU_68350",
-            "animal_months": 13.3,
-            "true": 0,
-            "false": 12,
-            "false_per_animal_month": 0.903
-          },
-          {
             "name": "MHX_BLVU_68351",
             "animal_months": 34.4,
             "true": 0,
@@ -777,6 +802,13 @@
             "true": 0,
             "false": 10,
             "false_per_animal_month": 0.238
+          },
+          {
+            "name": "PMV_BLVU_68350",
+            "animal_months": 13.3,
+            "true": 0,
+            "false": 10,
+            "false_per_animal_month": 0.753
           },
           {
             "name": "LTP_BLVU_68358",
@@ -819,13 +851,6 @@
             "true": 1,
             "false": 3,
             "false_per_animal_month": 0.53
-          },
-          {
-            "name": "CAT_BLVU_121784",
-            "animal_months": 3.0,
-            "true": 0,
-            "false": 3,
-            "false_per_animal_month": 0.999
           },
           {
             "name": "LCP_BLVU_68350",
@@ -896,8 +921,8 @@
             "name": "Coragyps atratus",
             "animal_months": 535.0,
             "true": 1,
-            "false": 378,
-            "false_per_animal_month": 0.707
+            "false": 372,
+            "false_per_animal_month": 0.695
           }
         ]
       },
@@ -1135,14 +1160,32 @@
           "still_hours": 41.0,
           "mortality_delay_hours": 39.93
         }
+      ],
+      "tag_events": [
+        {
+          "deployment_id": "CAT_BLVU_121784",
+          "event_from": "2013-02-03T23:00:00+00:00",
+          "mortality_incidents": 3
+        },
+        {
+          "deployment_id": "EAX_BLVU_121786",
+          "event_from": "2015-05-31T21:00:00+00:00",
+          "mortality_incidents": 1
+        },
+        {
+          "deployment_id": "PMV_BLVU_68350",
+          "event_from": "2013-05-05T17:00:00+00:00",
+          "mortality_incidents": 2
+        }
       ]
     },
     "satellite_2day": {
       "deployments": 34,
       "labels": {
-        "alive": 15,
+        "alive": 12,
         "ambiguous": 2,
-        "dead": 17
+        "dead": 17,
+        "tag-event": 3
       },
       "animal_months": 709.4,
       "load": {
@@ -1172,8 +1215,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 409,
-        "per_animal_month": 0.577
+        "incidents": 403,
+        "per_animal_month": 0.568
       },
       "mortality": {
         "deaths": 6,
@@ -1186,27 +1229,33 @@
       "precision": {
         "mortality": {
           "true": 5,
-          "false": 409,
+          "false": 403,
           "ambiguous": 2,
+          "tag-event": 6,
           "judged": 414,
-          "precision": 0.012,
+          "correct": 11,
+          "precision": 0.027,
+          "death_precision": 0.012,
           "wilson": [
-            0.005169,
-            0.027957
+            0.0149,
+            0.046946
           ],
           "bootstrap": [
-            0.002512,
-            0.028571
+            0.009215,
+            0.057057
           ],
           "cases": 6,
           "ceiling": 0.014458
         },
         "potential_death": {
           "true": 5,
-          "false": 24,
+          "false": 21,
           "ambiguous": 2,
+          "tag-event": 3,
           "judged": 29,
+          "correct": 5,
           "precision": 0.172,
+          "death_precision": 0.172,
           "wilson": [
             0.075977,
             0.345488
@@ -1220,23 +1269,27 @@
         },
         "gap": {
           "true": 18,
-          "false": 295,
+          "false": 280,
           "ambiguous": 2,
+          "tag-event": 15,
           "judged": 313,
-          "precision": 0.058,
+          "correct": 33,
+          "precision": 0.105,
+          "death_precision": 0.058,
           "wilson": [
-            0.036682,
-            0.089064
+            0.076062,
+            0.144368
           ],
           "bootstrap": [
-            0.027024,
-            0.131254
+            0.040302,
+            0.251261
           ],
           "cases": 17,
           "ceiling": 0.054487
         }
       },
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "false_mortality_by": {
         "by_deployment": [
           {
@@ -1257,8 +1310,8 @@
             "name": "EAX_BLVU_121786",
             "animal_months": 70.3,
             "true": 0,
-            "false": 35,
-            "false_per_animal_month": 0.498
+            "false": 34,
+            "false_per_animal_month": 0.484
           },
           {
             "name": "PMT_BLVU_68359",
@@ -1324,13 +1377,6 @@
             "false_per_animal_month": 0.977
           },
           {
-            "name": "PMV_BLVU_68350",
-            "animal_months": 13.3,
-            "true": 0,
-            "false": 12,
-            "false_per_animal_month": 0.903
-          },
-          {
             "name": "MHX_BLVU_68351",
             "animal_months": 34.4,
             "true": 0,
@@ -1343,6 +1389,13 @@
             "true": 0,
             "false": 10,
             "false_per_animal_month": 0.238
+          },
+          {
+            "name": "PMV_BLVU_68350",
+            "animal_months": 13.3,
+            "true": 0,
+            "false": 10,
+            "false_per_animal_month": 0.753
           },
           {
             "name": "LTP_BLVU_68358",
@@ -1385,13 +1438,6 @@
             "true": 1,
             "false": 3,
             "false_per_animal_month": 0.53
-          },
-          {
-            "name": "CAT_BLVU_121784",
-            "animal_months": 3.0,
-            "true": 0,
-            "false": 3,
-            "false_per_animal_month": 0.999
           },
           {
             "name": "LCP_BLVU_68350",
@@ -1462,8 +1508,8 @@
             "name": "Coragyps atratus",
             "animal_months": 535.0,
             "true": 1,
-            "false": 378,
-            "false_per_animal_month": 0.707
+            "false": 372,
+            "false_per_animal_month": 0.695
           }
         ]
       },
@@ -1701,14 +1747,32 @@
           "still_hours": 41.0,
           "mortality_delay_hours": 68.17
         }
+      ],
+      "tag_events": [
+        {
+          "deployment_id": "CAT_BLVU_121784",
+          "event_from": "2013-02-03T23:00:00+00:00",
+          "mortality_incidents": 3
+        },
+        {
+          "deployment_id": "EAX_BLVU_121786",
+          "event_from": "2015-05-31T21:00:00+00:00",
+          "mortality_incidents": 1
+        },
+        {
+          "deployment_id": "PMV_BLVU_68350",
+          "event_from": "2013-05-05T17:00:00+00:00",
+          "mortality_incidents": 2
+        }
       ]
     },
     "gsm": {
       "deployments": 34,
       "labels": {
-        "alive": 15,
+        "alive": 12,
         "ambiguous": 2,
-        "dead": 17
+        "dead": 17,
+        "tag-event": 3
       },
       "animal_months": 709.4,
       "load": {
@@ -1738,8 +1802,8 @@
         }
       },
       "false_mortality": {
-        "incidents": 409,
-        "per_animal_month": 0.577
+        "incidents": 403,
+        "per_animal_month": 0.568
       },
       "mortality": {
         "deaths": 6,
@@ -1752,27 +1816,33 @@
       "precision": {
         "mortality": {
           "true": 5,
-          "false": 409,
+          "false": 403,
           "ambiguous": 2,
+          "tag-event": 6,
           "judged": 414,
-          "precision": 0.012,
+          "correct": 11,
+          "precision": 0.027,
+          "death_precision": 0.012,
           "wilson": [
-            0.005169,
-            0.027957
+            0.0149,
+            0.046946
           ],
           "bootstrap": [
-            0.002512,
-            0.028571
+            0.009193,
+            0.057348
           ],
           "cases": 6,
           "ceiling": 0.014458
         },
         "potential_death": {
           "true": 5,
-          "false": 59,
+          "false": 56,
           "ambiguous": 2,
+          "tag-event": 3,
           "judged": 64,
+          "correct": 5,
           "precision": 0.078,
+          "death_precision": 0.078,
           "wilson": [
             0.033831,
             0.170198
@@ -1786,23 +1856,27 @@
         },
         "gap": {
           "true": 20,
-          "false": 765,
+          "false": 743,
           "ambiguous": 2,
+          "tag-event": 22,
           "judged": 785,
-          "precision": 0.025,
+          "correct": 42,
+          "precision": 0.054,
+          "death_precision": 0.025,
           "wilson": [
-            0.016552,
-            0.039025
+            0.039824,
+            0.071531
           ],
           "bootstrap": [
-            0.012184,
-            0.054969
+            0.019467,
+            0.129032
           ],
           "cases": 17,
           "ceiling": 0.021739
         }
       },
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "false_mortality_by": {
         "by_deployment": [
           {
@@ -1823,8 +1897,8 @@
             "name": "EAX_BLVU_121786",
             "animal_months": 70.3,
             "true": 0,
-            "false": 35,
-            "false_per_animal_month": 0.498
+            "false": 34,
+            "false_per_animal_month": 0.484
           },
           {
             "name": "PMT_BLVU_68359",
@@ -1897,13 +1971,6 @@
             "false_per_animal_month": 0.319
           },
           {
-            "name": "PMV_BLVU_68350",
-            "animal_months": 13.3,
-            "true": 0,
-            "false": 11,
-            "false_per_animal_month": 0.828
-          },
-          {
             "name": "LEJ_TUVU_68352",
             "animal_months": 42.0,
             "true": 0,
@@ -1916,6 +1983,13 @@
             "true": 0,
             "false": 9,
             "false_per_animal_month": 0.868
+          },
+          {
+            "name": "PMV_BLVU_68350",
+            "animal_months": 13.3,
+            "true": 0,
+            "false": 9,
+            "false_per_animal_month": 0.678
           },
           {
             "name": "MHA_BLVU_68350",
@@ -1951,13 +2025,6 @@
             "true": 1,
             "false": 3,
             "false_per_animal_month": 0.53
-          },
-          {
-            "name": "CAT_BLVU_121784",
-            "animal_months": 3.0,
-            "true": 0,
-            "false": 3,
-            "false_per_animal_month": 0.999
           },
           {
             "name": "LCP_BLVU_68350",
@@ -2028,8 +2095,8 @@
             "name": "Coragyps atratus",
             "animal_months": 535.0,
             "true": 1,
-            "false": 378,
-            "false_per_animal_month": 0.707
+            "false": 372,
+            "false_per_animal_month": 0.695
           }
         ]
       },
@@ -2266,6 +2333,23 @@
           "deployment_id": "LTH_BLVU_68357",
           "still_hours": 41.0,
           "mortality_delay_hours": 40.0
+        }
+      ],
+      "tag_events": [
+        {
+          "deployment_id": "CAT_BLVU_121784",
+          "event_from": "2013-02-03T23:00:00+00:00",
+          "mortality_incidents": 3
+        },
+        {
+          "deployment_id": "EAX_BLVU_121786",
+          "event_from": "2015-05-31T21:00:00+00:00",
+          "mortality_incidents": 1
+        },
+        {
+          "deployment_id": "PMV_BLVU_68350",
+          "event_from": "2013-05-05T17:00:00+00:00",
+          "mortality_incidents": 2
         }
       ]
     }

@@ -84,10 +84,10 @@ class SpeciesProfile:
 # speeds. 30 m/s sits above everything observed, and the speed filter's
 # 2 x 30 m GPS allowance keeps jitter on 1-3 min tags far below it.
 # Mortality window, observed: chosen on the tuning-set
-# sweep (results/sweep/SWEEP.md). 36 h cuts false mortality alerts by 38% against
+# sweep (results/sweep/SWEEP.md). 36 h cuts false mortality alerts by 37% against
 # 24 h with no loss of carcass deaths flagged by the reference mark; 48 h
 # cuts more but flags one death after the mark under satellite uploads.
-# Living vultures still outlast it 0.62 times per animal-month
+# Living vultures still outlast it 0.61 times per animal-month
 # (results/stillness/STILLNESS.md), so it sets alert load, not a clean
 # split between rest and death.
 # Movement floor, provisional: vultures cover tens of kilometres a day on

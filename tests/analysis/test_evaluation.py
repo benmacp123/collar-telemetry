@@ -4,13 +4,23 @@ Tracks and incidents are hand-built, so no test looks at the vulture
 scoring set.
 """
 
+import csv
 import json
 from dataclasses import replace
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 import pytest
 
-from telemetry.core.alerts import LATE_FIX, OPEN, RESOLVED, Incident
+from telemetry.core.alerts import (
+    GAP,
+    LATE_FIX,
+    MORTALITY,
+    OPEN,
+    POTENTIAL_DEATH,
+    RESOLVED,
+    Incident,
+)
 from telemetry.analysis.evaluation import (
     ALIVE,
     ALL,
@@ -18,7 +28,9 @@ from telemetry.analysis.evaluation import (
     DEAD,
     DEAD_AFTER_TRACK,
     SCORING,
+    TAG_EVENT,
     TUNING,
+    Override,
     Truth,
     build_truth,
     classify,
@@ -147,7 +159,7 @@ def test_label_from_end_type_and_final_stillness(end_type, still, expected):
 
 def test_label_override_wins_over_end_type():
     """A labels.csv override replaces the end type."""
-    overrides = {"A": DEAD_AFTER_TRACK}
+    overrides = {"A": Override(DEAD_AFTER_TRACK)}
     assert label_for(deployment(end_type="dead"), overrides, DAY, DAY) == (
         DEAD_AFTER_TRACK
     )
@@ -360,8 +372,11 @@ def test_precision_leaves_ambiguous_out():
         "true": 1,
         "false": 1,
         "ambiguous": 0,
+        "tag-event": 0,
         "judged": 2,
+        "correct": 1,
         "precision": 0.5,
+        "death_precision": 0.5,
         "wilson": [0.094529, 0.905471],
         "bootstrap": [0.0, 1.0],
     }
@@ -510,3 +525,162 @@ def test_death_timeline_puts_everything_in_hours_from_death_start():
         {"detector": "mortality", "raised": 41.0, "resolved": None},
         {"detector": "gap", "raised": 21.0, "resolved": 26.0},
     ]
+
+
+EVENT_FROM = START + 30 * HOUR
+
+
+def tag_truth(deployment_id="A"):
+    """A tag-event truth record whose event began at EVENT_FROM."""
+    return Truth(
+        **{
+            **truth().__dict__,
+            "deployment_id": deployment_id,
+            "label": TAG_EVENT,
+            "event_from": EVENT_FROM,
+        }
+    )
+
+
+def test_read_labels_keeps_tag_event_start(tmp_path):
+    """A tag event's start time comes through; other labels carry none."""
+    path = tmp_path / "labels.csv"
+    path.write_text(
+        "deployment-id,label,event-from\n"
+        "A,dead,\n"
+        "B,tag-event,2013-02-03T23:00:00+00:00\n",
+        encoding="utf-8",
+    )
+    labels = read_labels(path)
+    assert labels["A"] == Override(DEAD)
+    assert labels["B"] == Override(
+        TAG_EVENT, datetime(2013, 2, 3, 23, tzinfo=timezone.utc)
+    )
+
+
+@pytest.mark.parametrize(
+    "row",
+    ["A,tag-event,", "A,dead,2013-02-03T23:00:00+00:00"],
+    ids=["missing", "extra"],
+)
+def test_read_labels_ties_event_from_to_tag_events(tmp_path, row):
+    """A tag event without a start, or a start on another label, is refused."""
+    path = tmp_path / "labels.csv"
+    path.write_text(f"deployment-id,label,event-from\n{row}\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="event-from"):
+        read_labels(path)
+
+
+def test_committed_labels_cover_the_named_tag_events():
+    """The stuck, grounded and sighted birds are tag events with evidence."""
+    path = Path(__file__).resolve().parents[2] / "data" / "labels.csv"
+    labels = read_labels(path)
+    assert labels["EAX_BLVU_121786"].event_from == datetime(
+        2015, 5, 31, 21, tzinfo=timezone.utc
+    )
+    assert labels["CAT_BLVU_121784"].event_from == datetime(
+        2013, 2, 3, 23, tzinfo=timezone.utc
+    )
+    assert labels["VPC_BLVU_283"].event_from == datetime(
+        2016, 9, 30, 12, 56, 4, tzinfo=timezone.utc
+    )
+    with open(path, newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            assert row["basis"].strip() and row["evidence"].strip()
+
+
+def test_tag_event_label_overrides_ambiguous_end():
+    """A sighted bird's still tail is a tag event, not a possible death."""
+    overrides = {"A": Override(TAG_EVENT, EVENT_FROM)}
+    ended = deployment(end_type="transmission-end")
+    assert label_for(ended, overrides, 400 * HOUR, DAY) == TAG_EVENT
+
+
+def test_build_truth_carries_the_event_start():
+    """Only an overridden tag event gets a start time."""
+    deployments = [deployment(i) for i in ("A", "B")]
+    fixes = [
+        Fix(i, START + n * HOUR, -19.0, 15.0) for i in ("A", "B") for n in range(3)
+    ]
+    truths = build_truth(
+        "jackals", deployments, fixes, {"A": Override(TAG_EVENT, EVENT_FROM)}
+    )
+    assert [t.event_from for t in truths] == [EVENT_FROM, None]
+    assert truths[0].outcome_start == EVENT_FROM
+    assert truths[1].outcome_start == truths[1].still_start
+
+
+@pytest.mark.parametrize(
+    "resolved, expected",
+    [
+        (None, TAG_EVENT),
+        (EVENT_FROM + HOUR, TAG_EVENT),
+        (EVENT_FROM, "false"),
+        (EVENT_FROM - HOUR, "false"),
+    ],
+)
+def test_classify_credits_tag_events_only_from_their_start(resolved, expected):
+    """An alert that ended before the event began stays false."""
+    alert = incident(MORTALITY, START, resolved=resolved)
+    assert classify(tag_truth(), alert) == expected
+
+
+def test_tag_event_uses_event_start_not_death_start():
+    """An alert open after the final still period but not the event is false."""
+    record = tag_truth()
+    assert record.still_start < EVENT_FROM
+    alert = incident(MORTALITY, START, resolved=record.still_start + HOUR)
+    assert classify(record, alert) == "false"
+    assert false_mortality(record, [alert]) == 1
+
+
+def test_three_outcomes_score_differently_by_tier():
+    """Tag events are correct for the watch and baseline, wrong for death."""
+    dead, tagged = truth(), tag_truth("B")
+    alive = Truth(**{**dead.__dict__, "deployment_id": "C", "label": ALIVE})
+    own = {
+        (i, detector): [
+            replace(
+                incident(detector, START + HOUR),
+                deployment_id=i,
+                incident_id=f"{i}:{detector}",
+            )
+        ]
+        for i in ("A", "B", "C")
+        for detector in (MORTALITY, POTENTIAL_DEATH, GAP)
+    }
+    truths = [dead, tagged, alive]
+    for detector in (MORTALITY, GAP):
+        watch = precision(truths, own, detector)
+        assert (watch["true"], watch[TAG_EVENT], watch["false"]) == (1, 1, 1)
+        assert watch["judged"] == 3
+        assert watch["correct"] == 2
+        assert watch["precision"] == 0.667
+        assert watch["death_precision"] == 0.333
+    escalated = precision(truths, own, POTENTIAL_DEATH)
+    assert escalated[TAG_EVENT] == 1
+    assert escalated["judged"] == 3
+    assert escalated["correct"] == 1
+    assert escalated["precision"] == 0.333
+
+
+def test_ceiling_counts_tag_events_as_not_deaths():
+    """Crediting tag events must not lift the death ceiling."""
+    dead, tagged = truth(), tag_truth("B")
+    incidents = [
+        replace(incident(MORTALITY, START + HOUR), deployment_id=i, incident_id=i)
+        for i in ("A", "B")
+    ]
+    scored = evaluate([dead, tagged], incidents, None)["precision"][MORTALITY]
+    assert scored["precision"] == 1.0
+    assert scored["ceiling"] == 0.5
+
+
+def test_random_baseline_credits_tag_windows_only_on_request():
+    """The tag-crediting baseline adds event time; the death one does not."""
+    alive = Truth(**{**truth().__dict__, "label": ALIVE})
+    tagged = tag_truth("B")
+    assert random_precision([alive, tagged]) == 0.0
+    assert random_precision([alive, tagged], tag_events_correct=True) == round(
+        30 / 120, 4
+    )

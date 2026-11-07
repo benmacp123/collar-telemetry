@@ -62,8 +62,11 @@
           "true": 27,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 27,
+          "correct": 27,
           "precision": 1.0,
+          "death_precision": 1.0,
           "wilson": [
             0.875441,
             1.0
@@ -79,8 +82,11 @@
           "true": 27,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 27,
+          "correct": 27,
           "precision": 1.0,
+          "death_precision": 1.0,
           "wilson": [
             0.875441,
             1.0
@@ -96,8 +102,11 @@
           "true": 30,
           "false": 106,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 136,
+          "correct": 30,
           "precision": 0.221,
+          "death_precision": 0.221,
           "wilson": [
             0.159112,
             0.297416
@@ -111,6 +120,7 @@
         }
       },
       "random_precision": 0.0518,
+      "random_precision_tags": 0.0518,
       "false_mortality_by": {
         "by_deployment": [],
         "by_taxon": [
@@ -591,6 +601,7 @@
         }
       ],
       "ambiguous": [],
+      "tag_events": [],
       "synthetic": {
         "pooled": {
           "deaths": 28,
@@ -760,8 +771,11 @@
           "true": 27,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 27,
+          "correct": 27,
           "precision": 1.0,
+          "death_precision": 1.0,
           "wilson": [
             0.875441,
             1.0
@@ -777,8 +791,11 @@
           "true": 27,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 27,
+          "correct": 27,
           "precision": 1.0,
+          "death_precision": 1.0,
           "wilson": [
             0.875441,
             1.0
@@ -794,8 +811,11 @@
           "true": 29,
           "false": 73,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 102,
+          "correct": 29,
           "precision": 0.284,
+          "death_precision": 0.284,
           "wilson": [
             0.205848,
             0.378437
@@ -809,6 +829,7 @@
         }
       },
       "random_precision": 0.0518,
+      "random_precision_tags": 0.0518,
       "false_mortality_by": {
         "by_deployment": [],
         "by_taxon": [
@@ -1289,6 +1310,7 @@
         }
       ],
       "ambiguous": [],
+      "tag_events": [],
       "synthetic": {
         "pooled": {
           "deaths": 28,
@@ -1458,8 +1480,11 @@
           "true": 27,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 27,
+          "correct": 27,
           "precision": 1.0,
+          "death_precision": 1.0,
           "wilson": [
             0.875441,
             1.0
@@ -1475,8 +1500,11 @@
           "true": 27,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 27,
+          "correct": 27,
           "precision": 1.0,
+          "death_precision": 1.0,
           "wilson": [
             0.875441,
             1.0
@@ -1492,8 +1520,11 @@
           "true": 28,
           "false": 52,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 80,
+          "correct": 28,
           "precision": 0.35,
+          "death_precision": 0.35,
           "wilson": [
             0.254544,
             0.459202
@@ -1507,6 +1538,7 @@
         }
       },
       "random_precision": 0.0518,
+      "random_precision_tags": 0.0518,
       "false_mortality_by": {
         "by_deployment": [],
         "by_taxon": [
@@ -1987,6 +2019,7 @@
         }
       ],
       "ambiguous": [],
+      "tag_events": [],
       "synthetic": {
         "pooled": {
           "deaths": 28,
@@ -2156,8 +2189,11 @@
           "true": 27,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 27,
+          "correct": 27,
           "precision": 1.0,
+          "death_precision": 1.0,
           "wilson": [
             0.875441,
             1.0
@@ -2173,8 +2209,11 @@
           "true": 27,
           "false": 0,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 27,
+          "correct": 27,
           "precision": 1.0,
+          "death_precision": 1.0,
           "wilson": [
             0.875441,
             1.0
@@ -2190,8 +2229,11 @@
           "true": 32,
           "false": 157,
           "ambiguous": 0,
+          "tag-event": 0,
           "judged": 189,
+          "correct": 32,
           "precision": 0.169,
+          "death_precision": 0.169,
           "wilson": [
             0.122559,
             0.22924
@@ -2205,6 +2247,7 @@
         }
       },
       "random_precision": 0.0518,
+      "random_precision_tags": 0.0518,
       "false_mortality_by": {
         "by_deployment": [],
         "by_taxon": [
@@ -2685,6 +2728,7 @@
         }
       ],
       "ambiguous": [],
+      "tag_events": [],
       "synthetic": {
         "pooled": {
           "deaths": 28,

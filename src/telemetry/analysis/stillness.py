@@ -26,6 +26,7 @@ from telemetry.analysis.evaluation import (
     ANIMAL_MONTH,
     DEAD,
     HOUR,
+    TAG_EVENT,
     Truth,
 )
 from telemetry.core.detectors.mortality import MortalityConfig, MortalityDetector
@@ -115,14 +116,18 @@ def living_bouts(truth: Truth, fixes: list[Fix]) -> list[float]:
 
     Returns:
         list[float]: Hours, for every bout with at least the detector's
-        minimum fixes that is not part of a possible carcass period.
+        minimum fixes that is not part of a possible carcass period or a
+        tag event.
     """
     config = profile_for(truth.taxon).mortality
     return [
         bout.hours
         for bout in still_bouts(fixes, config)
         if bout.fixes >= config.min_fixes
-        and not (truth.label in (DEAD, AMBIGUOUS) and bout.end > truth.still_start)
+        and not (
+            truth.label in (DEAD, AMBIGUOUS, TAG_EVENT)
+            and bout.end > truth.outcome_start
+        )
     ]
 
 

@@ -15,22 +15,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.923,
-      "false_mortality_per_animal_month": 0.913,
+      "false_mortality_per_animal_month": 0.906,
       "mortality_true": 5,
+      "mortality_tag_event": 5,
       "mortality_judged": 653,
-      "mortality_precision": 0.008,
+      "mortality_precision": 0.015,
+      "mortality_death_precision": 0.008,
       "mortality_wilson": [
-        0.003275,
-        0.017798
+        0.008339,
+        0.027958
       ],
       "mortality_bootstrap": [
-        0.001592,
-        0.018212
+        0.005325,
+        0.033333
       ],
       "mortality_ceiling": 0.009174,
       "potential_death_precision": 0.076,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -54,22 +57,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.923,
-      "false_mortality_per_animal_month": 0.913,
+      "false_mortality_per_animal_month": 0.906,
       "mortality_true": 5,
+      "mortality_tag_event": 5,
       "mortality_judged": 653,
-      "mortality_precision": 0.008,
+      "mortality_precision": 0.015,
+      "mortality_death_precision": 0.008,
       "mortality_wilson": [
-        0.003275,
-        0.017798
+        0.008339,
+        0.027958
       ],
       "mortality_bootstrap": [
-        0.001592,
-        0.018212
+        0.005325,
+        0.033333
       ],
       "mortality_ceiling": 0.009174,
       "potential_death_precision": 0.125,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -93,22 +99,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.923,
-      "false_mortality_per_animal_month": 0.913,
+      "false_mortality_per_animal_month": 0.906,
       "mortality_true": 5,
+      "mortality_tag_event": 5,
       "mortality_judged": 653,
-      "mortality_precision": 0.008,
+      "mortality_precision": 0.015,
+      "mortality_death_precision": 0.008,
       "mortality_wilson": [
-        0.003275,
-        0.017798
+        0.008339,
+        0.027958
       ],
       "mortality_bootstrap": [
-        0.001592,
-        0.018212
+        0.005325,
+        0.033333
       ],
       "mortality_ceiling": 0.009174,
       "potential_death_precision": 0.156,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -132,22 +141,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.926,
-      "false_mortality_per_animal_month": 0.916,
+      "false_mortality_per_animal_month": 0.909,
       "mortality_true": 5,
+      "mortality_tag_event": 5,
       "mortality_judged": 655,
-      "mortality_precision": 0.008,
+      "mortality_precision": 0.015,
+      "mortality_death_precision": 0.008,
       "mortality_wilson": [
-        0.003265,
-        0.017744
+        0.008313,
+        0.027874
       ],
       "mortality_bootstrap": [
-        0.00159,
-        0.018183
+        0.005308,
+        0.033248
       ],
       "mortality_ceiling": 0.009146,
       "potential_death_precision": 0.067,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -171,22 +183,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.086,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -210,22 +225,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.143,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -249,22 +267,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.172,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -288,22 +309,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009193,
+        0.057348
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.078,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -327,22 +351,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.227,
-      "false_mortality_per_animal_month": 0.22,
+      "false_mortality_per_animal_month": 0.217,
       "mortality_true": 4,
+      "mortality_tag_event": 2,
       "mortality_judged": 160,
-      "mortality_precision": 0.025,
+      "mortality_precision": 0.037,
+      "mortality_death_precision": 0.025,
       "mortality_wilson": [
-        0.009764,
-        0.062511
+        0.017298,
+        0.079391
       ],
       "mortality_bootstrap": [
-        0.005076,
-        0.062937
+        0.011696,
+        0.080645
       ],
       "mortality_ceiling": 0.037037,
       "potential_death_precision": 0.075,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -366,22 +393,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.227,
-      "false_mortality_per_animal_month": 0.22,
+      "false_mortality_per_animal_month": 0.217,
       "mortality_true": 4,
+      "mortality_tag_event": 2,
       "mortality_judged": 160,
-      "mortality_precision": 0.025,
+      "mortality_precision": 0.037,
+      "mortality_death_precision": 0.025,
       "mortality_wilson": [
-        0.009764,
-        0.062511
+        0.017298,
+        0.079391
       ],
       "mortality_bootstrap": [
-        0.005076,
-        0.062937
+        0.011696,
+        0.080645
       ],
       "mortality_ceiling": 0.037037,
       "potential_death_precision": 0.121,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.5,
@@ -405,22 +435,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.227,
-      "false_mortality_per_animal_month": 0.22,
+      "false_mortality_per_animal_month": 0.217,
       "mortality_true": 4,
+      "mortality_tag_event": 2,
       "mortality_judged": 160,
-      "mortality_precision": 0.025,
+      "mortality_precision": 0.037,
+      "mortality_death_precision": 0.025,
       "mortality_wilson": [
-        0.009764,
-        0.062511
+        0.017298,
+        0.079391
       ],
       "mortality_bootstrap": [
-        0.005076,
-        0.062937
+        0.011696,
+        0.080645
       ],
       "mortality_ceiling": 0.037037,
       "potential_death_precision": 0.143,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.5,
@@ -444,22 +477,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.228,
-      "false_mortality_per_animal_month": 0.221,
+      "false_mortality_per_animal_month": 0.218,
       "mortality_true": 4,
+      "mortality_tag_event": 2,
       "mortality_judged": 161,
-      "mortality_precision": 0.025,
+      "mortality_precision": 0.037,
+      "mortality_death_precision": 0.025,
       "mortality_wilson": [
-        0.009703,
-        0.062133
+        0.01719,
+        0.078912
       ],
       "mortality_bootstrap": [
-        0.005051,
-        0.06208
+        0.011628,
+        0.08
       ],
       "mortality_ceiling": 0.03681,
       "potential_death_precision": 0.069,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -483,22 +519,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.101,
-      "false_mortality_per_animal_month": 0.096,
+      "false_mortality_per_animal_month": 0.093,
       "mortality_true": 3,
+      "mortality_tag_event": 2,
       "mortality_judged": 71,
-      "mortality_precision": 0.042,
+      "mortality_precision": 0.07,
+      "mortality_death_precision": 0.042,
       "mortality_wilson": [
-        0.014473,
-        0.117026
+        0.030453,
+        0.154492
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.116279
+        0.017857,
+        0.162162
       ],
       "mortality_ceiling": 0.081081,
       "potential_death_precision": 0.075,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.5,
@@ -522,22 +561,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.101,
-      "false_mortality_per_animal_month": 0.096,
+      "false_mortality_per_animal_month": 0.093,
       "mortality_true": 3,
+      "mortality_tag_event": 2,
       "mortality_judged": 71,
-      "mortality_precision": 0.042,
+      "mortality_precision": 0.07,
+      "mortality_death_precision": 0.042,
       "mortality_wilson": [
-        0.014473,
-        0.117026
+        0.030453,
+        0.154492
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.116279
+        0.017857,
+        0.162162
       ],
       "mortality_ceiling": 0.081081,
       "potential_death_precision": 0.103,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.333,
@@ -561,22 +603,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.101,
-      "false_mortality_per_animal_month": 0.096,
+      "false_mortality_per_animal_month": 0.093,
       "mortality_true": 3,
+      "mortality_tag_event": 2,
       "mortality_judged": 71,
-      "mortality_precision": 0.042,
+      "mortality_precision": 0.07,
+      "mortality_death_precision": 0.042,
       "mortality_wilson": [
-        0.014473,
-        0.117026
+        0.030453,
+        0.154492
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.116279
+        0.017857,
+        0.162162
       ],
       "mortality_ceiling": 0.081081,
       "potential_death_precision": 0.115,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.333,
@@ -600,22 +645,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.101,
-      "false_mortality_per_animal_month": 0.096,
+      "false_mortality_per_animal_month": 0.093,
       "mortality_true": 3,
+      "mortality_tag_event": 2,
       "mortality_judged": 71,
-      "mortality_precision": 0.042,
+      "mortality_precision": 0.07,
+      "mortality_death_precision": 0.042,
       "mortality_wilson": [
-        0.014473,
-        0.117026
+        0.030453,
+        0.154492
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.116279
+        0.017857,
+        0.162162
       ],
       "mortality_ceiling": 0.081081,
       "potential_death_precision": 0.075,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.5,
@@ -639,22 +687,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.068,
-      "false_mortality_per_animal_month": 0.063,
+      "false_mortality_per_animal_month": 0.061,
       "mortality_true": 2,
+      "mortality_tag_event": 2,
       "mortality_judged": 47,
-      "mortality_precision": 0.043,
+      "mortality_precision": 0.085,
+      "mortality_death_precision": 0.043,
       "mortality_wilson": [
-        0.011748,
-        0.142488
+        0.033594,
+        0.199318
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.129032
+        0.016949,
+        0.212121
       ],
       "mortality_ceiling": 0.117647,
       "potential_death_precision": 0.069,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -678,22 +729,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.068,
-      "false_mortality_per_animal_month": 0.063,
+      "false_mortality_per_animal_month": 0.061,
       "mortality_true": 2,
+      "mortality_tag_event": 2,
       "mortality_judged": 47,
-      "mortality_precision": 0.043,
+      "mortality_precision": 0.085,
+      "mortality_death_precision": 0.043,
       "mortality_wilson": [
-        0.011748,
-        0.142488
+        0.033594,
+        0.199318
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.129032
+        0.016949,
+        0.212121
       ],
       "mortality_ceiling": 0.117647,
       "potential_death_precision": 0.087,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -717,22 +771,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.068,
-      "false_mortality_per_animal_month": 0.063,
+      "false_mortality_per_animal_month": 0.061,
       "mortality_true": 2,
+      "mortality_tag_event": 2,
       "mortality_judged": 47,
-      "mortality_precision": 0.043,
+      "mortality_precision": 0.085,
+      "mortality_death_precision": 0.043,
       "mortality_wilson": [
-        0.011748,
-        0.142488
+        0.033594,
+        0.199318
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.129032
+        0.016949,
+        0.212121
       ],
       "mortality_ceiling": 0.117647,
       "potential_death_precision": 0.091,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -756,22 +813,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.068,
-      "false_mortality_per_animal_month": 0.063,
+      "false_mortality_per_animal_month": 0.061,
       "mortality_true": 2,
+      "mortality_tag_event": 2,
       "mortality_judged": 47,
-      "mortality_precision": 0.043,
+      "mortality_precision": 0.085,
+      "mortality_death_precision": 0.043,
       "mortality_wilson": [
-        0.011748,
-        0.142488
+        0.033594,
+        0.199318
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.129032
+        0.016949,
+        0.212121
       ],
       "mortality_ceiling": 0.117647,
       "potential_death_precision": 0.067,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -795,22 +855,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.049,
-      "false_mortality_per_animal_month": 0.045,
+      "false_mortality_per_animal_month": 0.041,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 34,
-      "mortality_precision": 0.059,
+      "mortality_precision": 0.147,
+      "mortality_death_precision": 0.059,
       "mortality_wilson": [
-        0.016282,
-        0.190939
+        0.064493,
+        0.301284
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.173913
+        0.026316,
+        0.35
       ],
       "mortality_ceiling": 0.157895,
       "potential_death_precision": 0.077,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -834,22 +897,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.049,
-      "false_mortality_per_animal_month": 0.045,
+      "false_mortality_per_animal_month": 0.041,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 34,
-      "mortality_precision": 0.059,
+      "mortality_precision": 0.147,
+      "mortality_death_precision": 0.059,
       "mortality_wilson": [
-        0.016282,
-        0.190939
+        0.064493,
+        0.301284
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.173913
+        0.026316,
+        0.35
       ],
       "mortality_ceiling": 0.157895,
       "potential_death_precision": 0.1,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -873,22 +939,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.049,
-      "false_mortality_per_animal_month": 0.045,
+      "false_mortality_per_animal_month": 0.041,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 34,
-      "mortality_precision": 0.059,
+      "mortality_precision": 0.147,
+      "mortality_death_precision": 0.059,
       "mortality_wilson": [
-        0.016282,
-        0.190939
+        0.064493,
+        0.301284
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.173913
+        0.026316,
+        0.35
       ],
       "mortality_ceiling": 0.157895,
       "potential_death_precision": 0.1,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -912,22 +981,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.049,
-      "false_mortality_per_animal_month": 0.045,
+      "false_mortality_per_animal_month": 0.041,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 34,
-      "mortality_precision": 0.059,
+      "mortality_precision": 0.147,
+      "mortality_death_precision": 0.059,
       "mortality_wilson": [
-        0.016282,
-        0.190939
+        0.064493,
+        0.301284
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.173913
+        0.026316,
+        0.35
       ],
       "mortality_ceiling": 0.157895,
       "potential_death_precision": 0.077,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -951,22 +1023,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.274,
-      "false_mortality_per_animal_month": 1.264,
+      "false_mortality_per_animal_month": 1.256,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 902,
-      "mortality_precision": 0.006,
+      "mortality_precision": 0.012,
+      "mortality_death_precision": 0.006,
       "mortality_wilson": [
-        0.00237,
-        0.01291
+        0.006823,
+        0.021705
       ],
       "mortality_bootstrap": [
-        0.001134,
-        0.012854
+        0.004332,
+        0.025122
       ],
       "mortality_ceiling": 0.006645,
       "potential_death_precision": 0.06,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -990,22 +1065,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.274,
-      "false_mortality_per_animal_month": 1.264,
+      "false_mortality_per_animal_month": 1.256,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 902,
-      "mortality_precision": 0.006,
+      "mortality_precision": 0.012,
+      "mortality_death_precision": 0.006,
       "mortality_wilson": [
-        0.00237,
-        0.01291
+        0.006823,
+        0.021705
       ],
       "mortality_bootstrap": [
-        0.001134,
-        0.012854
+        0.004332,
+        0.025122
       ],
       "mortality_ceiling": 0.006645,
       "potential_death_precision": 0.1,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1029,22 +1107,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.274,
-      "false_mortality_per_animal_month": 1.264,
+      "false_mortality_per_animal_month": 1.256,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 902,
-      "mortality_precision": 0.006,
+      "mortality_precision": 0.012,
+      "mortality_death_precision": 0.006,
       "mortality_wilson": [
-        0.00237,
-        0.01291
+        0.006823,
+        0.021705
       ],
       "mortality_bootstrap": [
-        0.001134,
-        0.012854
+        0.004332,
+        0.025122
       ],
       "mortality_ceiling": 0.006645,
       "potential_death_precision": 0.114,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1068,22 +1149,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.273,
-      "false_mortality_per_animal_month": 1.263,
+      "false_mortality_per_animal_month": 1.255,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 901,
-      "mortality_precision": 0.006,
+      "mortality_precision": 0.012,
+      "mortality_death_precision": 0.006,
       "mortality_wilson": [
-        0.002373,
-        0.012925
+        0.006831,
+        0.021729
       ],
       "mortality_bootstrap": [
-        0.001135,
-        0.012871
+        0.004341,
+        0.025133
       ],
       "mortality_ceiling": 0.006652,
       "potential_death_precision": 0.053,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1107,22 +1191,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.83,
-      "false_mortality_per_animal_month": 0.82,
+      "false_mortality_per_animal_month": 0.812,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 587,
-      "mortality_precision": 0.009,
+      "mortality_precision": 0.019,
+      "mortality_death_precision": 0.009,
       "mortality_wilson": [
-        0.003644,
-        0.019783
+        0.010495,
+        0.033242
       ],
       "mortality_bootstrap": [
-        0.001764,
-        0.020352
+        0.006838,
+        0.038761
       ],
       "mortality_ceiling": 0.010204,
       "potential_death_precision": 0.069,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1146,22 +1233,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.83,
-      "false_mortality_per_animal_month": 0.82,
+      "false_mortality_per_animal_month": 0.812,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 587,
-      "mortality_precision": 0.009,
+      "mortality_precision": 0.019,
+      "mortality_death_precision": 0.009,
       "mortality_wilson": [
-        0.003644,
-        0.019783
+        0.010495,
+        0.033242
       ],
       "mortality_bootstrap": [
-        0.001764,
-        0.020352
+        0.006838,
+        0.038761
       ],
       "mortality_ceiling": 0.010204,
       "potential_death_precision": 0.114,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1185,22 +1275,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.83,
-      "false_mortality_per_animal_month": 0.82,
+      "false_mortality_per_animal_month": 0.812,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 587,
-      "mortality_precision": 0.009,
+      "mortality_precision": 0.019,
+      "mortality_death_precision": 0.009,
       "mortality_wilson": [
-        0.003644,
-        0.019783
+        0.010495,
+        0.033242
       ],
       "mortality_bootstrap": [
-        0.001764,
-        0.020352
+        0.006838,
+        0.038761
       ],
       "mortality_ceiling": 0.010204,
       "potential_death_precision": 0.128,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1224,22 +1317,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.835,
-      "false_mortality_per_animal_month": 0.825,
+      "false_mortality_per_animal_month": 0.816,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 590,
-      "mortality_precision": 0.008,
+      "mortality_precision": 0.019,
+      "mortality_death_precision": 0.008,
       "mortality_wilson": [
-        0.003625,
-        0.019684
+        0.010442,
+        0.033074
       ],
       "mortality_bootstrap": [
-        0.001751,
-        0.020271
+        0.006791,
+        0.038464
       ],
       "mortality_ceiling": 0.010152,
       "potential_death_precision": 0.062,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1263,22 +1359,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.35,
-      "false_mortality_per_animal_month": 0.343,
+      "false_mortality_per_animal_month": 0.338,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 247,
-      "mortality_precision": 0.016,
+      "mortality_precision": 0.028,
+      "mortality_death_precision": 0.016,
       "mortality_wilson": [
-        0.006315,
-        0.040892
+        0.013794,
+        0.057333
       ],
       "mortality_bootstrap": [
-        0.003311,
-        0.042105
+        0.008772,
+        0.058396
       ],
       "mortality_ceiling": 0.024096,
       "potential_death_precision": 0.06,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1302,22 +1401,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.35,
-      "false_mortality_per_animal_month": 0.343,
+      "false_mortality_per_animal_month": 0.338,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 247,
-      "mortality_precision": 0.016,
+      "mortality_precision": 0.028,
+      "mortality_death_precision": 0.016,
       "mortality_wilson": [
-        0.006315,
-        0.040892
+        0.013794,
+        0.057333
       ],
       "mortality_bootstrap": [
-        0.003311,
-        0.042105
+        0.008772,
+        0.058396
       ],
       "mortality_ceiling": 0.024096,
       "potential_death_precision": 0.095,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.5,
@@ -1341,22 +1443,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.35,
-      "false_mortality_per_animal_month": 0.343,
+      "false_mortality_per_animal_month": 0.338,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 247,
-      "mortality_precision": 0.016,
+      "mortality_precision": 0.028,
+      "mortality_death_precision": 0.016,
       "mortality_wilson": [
-        0.006315,
-        0.040892
+        0.013794,
+        0.057333
       ],
       "mortality_bootstrap": [
-        0.003311,
-        0.042105
+        0.008772,
+        0.058396
       ],
       "mortality_ceiling": 0.024096,
       "potential_death_precision": 0.108,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.5,
@@ -1380,22 +1485,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.35,
-      "false_mortality_per_animal_month": 0.343,
+      "false_mortality_per_animal_month": 0.338,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 247,
-      "mortality_precision": 0.016,
+      "mortality_precision": 0.028,
+      "mortality_death_precision": 0.016,
       "mortality_wilson": [
-        0.006315,
-        0.040892
+        0.013794,
+        0.057333
       ],
       "mortality_bootstrap": [
-        0.003311,
-        0.042105
+        0.008772,
+        0.058396
       ],
       "mortality_ceiling": 0.024096,
       "potential_death_precision": 0.054,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1419,22 +1527,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.172,
-      "false_mortality_per_animal_month": 0.166,
+      "false_mortality_per_animal_month": 0.162,
       "mortality_true": 3,
+      "mortality_tag_event": 3,
       "mortality_judged": 121,
-      "mortality_precision": 0.025,
+      "mortality_precision": 0.05,
+      "mortality_death_precision": 0.025,
       "mortality_wilson": [
-        0.008467,
-        0.070366
+        0.022921,
+        0.103972
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.068966
+        0.013245,
+        0.105263
       ],
       "mortality_ceiling": 0.048387,
       "potential_death_precision": 0.064,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.5,
@@ -1458,22 +1569,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.172,
-      "false_mortality_per_animal_month": 0.166,
+      "false_mortality_per_animal_month": 0.162,
       "mortality_true": 3,
+      "mortality_tag_event": 3,
       "mortality_judged": 121,
-      "mortality_precision": 0.025,
+      "mortality_precision": 0.05,
+      "mortality_death_precision": 0.025,
       "mortality_wilson": [
-        0.008467,
-        0.070366
+        0.022921,
+        0.103972
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.068966
+        0.013245,
+        0.105263
       ],
       "mortality_ceiling": 0.048387,
       "potential_death_precision": 0.086,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.333,
@@ -1497,22 +1611,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.172,
-      "false_mortality_per_animal_month": 0.166,
+      "false_mortality_per_animal_month": 0.162,
       "mortality_true": 3,
+      "mortality_tag_event": 3,
       "mortality_judged": 121,
-      "mortality_precision": 0.025,
+      "mortality_precision": 0.05,
+      "mortality_death_precision": 0.025,
       "mortality_wilson": [
-        0.008467,
-        0.070366
+        0.022921,
+        0.103972
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.068966
+        0.013245,
+        0.105263
       ],
       "mortality_ceiling": 0.048387,
       "potential_death_precision": 0.094,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.333,
@@ -1536,22 +1653,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.173,
-      "false_mortality_per_animal_month": 0.168,
+      "false_mortality_per_animal_month": 0.164,
       "mortality_true": 3,
+      "mortality_tag_event": 3,
       "mortality_judged": 122,
-      "mortality_precision": 0.025,
+      "mortality_precision": 0.049,
+      "mortality_death_precision": 0.025,
       "mortality_wilson": [
-        0.008397,
-        0.069809
+        0.022732,
+        0.103153
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.068709
+        0.013243,
+        0.103774
       ],
       "mortality_ceiling": 0.048,
       "potential_death_precision": 0.061,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.5,
@@ -1575,22 +1695,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.11,
-      "false_mortality_per_animal_month": 0.106,
+      "false_mortality_per_animal_month": 0.101,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 77,
-      "mortality_precision": 0.026,
+      "mortality_precision": 0.065,
+      "mortality_death_precision": 0.026,
       "mortality_wilson": [
-        0.007152,
-        0.089848
+        0.028053,
+        0.143166
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.080645
+        0.011765,
+        0.142857
       ],
       "mortality_ceiling": 0.074074,
       "potential_death_precision": 0.057,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -1614,22 +1737,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.11,
-      "false_mortality_per_animal_month": 0.106,
+      "false_mortality_per_animal_month": 0.101,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 77,
-      "mortality_precision": 0.026,
+      "mortality_precision": 0.065,
+      "mortality_death_precision": 0.026,
       "mortality_wilson": [
-        0.007152,
-        0.089848
+        0.028053,
+        0.143166
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.080645
+        0.011765,
+        0.142857
       ],
       "mortality_ceiling": 0.074074,
       "potential_death_precision": 0.071,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -1653,22 +1779,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.11,
-      "false_mortality_per_animal_month": 0.106,
+      "false_mortality_per_animal_month": 0.101,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 77,
-      "mortality_precision": 0.026,
+      "mortality_precision": 0.065,
+      "mortality_death_precision": 0.026,
       "mortality_wilson": [
-        0.007152,
-        0.089848
+        0.028053,
+        0.143166
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.080645
+        0.011765,
+        0.142857
       ],
       "mortality_ceiling": 0.074074,
       "potential_death_precision": 0.074,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -1692,22 +1821,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.11,
-      "false_mortality_per_animal_month": 0.106,
+      "false_mortality_per_animal_month": 0.101,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 77,
-      "mortality_precision": 0.026,
+      "mortality_precision": 0.065,
+      "mortality_death_precision": 0.026,
       "mortality_wilson": [
-        0.007152,
-        0.089848
+        0.028053,
+        0.143166
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.080645
+        0.011765,
+        0.142857
       ],
       "mortality_ceiling": 0.074074,
       "potential_death_precision": 0.054,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -1731,22 +1863,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.072,
-      "false_mortality_per_animal_month": 0.068,
+      "false_mortality_per_animal_month": 0.062,
       "mortality_true": 2,
+      "mortality_tag_event": 4,
       "mortality_judged": 50,
-      "mortality_precision": 0.04,
+      "mortality_precision": 0.12,
+      "mortality_death_precision": 0.04,
       "mortality_wilson": [
-        0.011039,
-        0.134603
+        0.056175,
+        0.238051
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.122513
+        0.019608,
+        0.288904
       ],
       "mortality_ceiling": 0.111111,
       "potential_death_precision": 0.067,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -1770,22 +1905,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.072,
-      "false_mortality_per_animal_month": 0.068,
+      "false_mortality_per_animal_month": 0.062,
       "mortality_true": 2,
+      "mortality_tag_event": 4,
       "mortality_judged": 50,
-      "mortality_precision": 0.04,
+      "mortality_precision": 0.12,
+      "mortality_death_precision": 0.04,
       "mortality_wilson": [
-        0.011039,
-        0.134603
+        0.056175,
+        0.238051
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.122513
+        0.019608,
+        0.288904
       ],
       "mortality_ceiling": 0.111111,
       "potential_death_precision": 0.083,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -1809,22 +1947,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.072,
-      "false_mortality_per_animal_month": 0.068,
+      "false_mortality_per_animal_month": 0.062,
       "mortality_true": 2,
+      "mortality_tag_event": 4,
       "mortality_judged": 50,
-      "mortality_precision": 0.04,
+      "mortality_precision": 0.12,
+      "mortality_death_precision": 0.04,
       "mortality_wilson": [
-        0.011039,
-        0.134603
+        0.056175,
+        0.238051
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.122513
+        0.019608,
+        0.288904
       ],
       "mortality_ceiling": 0.111111,
       "potential_death_precision": 0.083,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -1848,22 +1989,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.072,
-      "false_mortality_per_animal_month": 0.068,
+      "false_mortality_per_animal_month": 0.062,
       "mortality_true": 2,
+      "mortality_tag_event": 4,
       "mortality_judged": 50,
-      "mortality_precision": 0.04,
+      "mortality_precision": 0.12,
+      "mortality_death_precision": 0.04,
       "mortality_wilson": [
-        0.011039,
-        0.134603
+        0.056175,
+        0.238051
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.122513
+        0.019608,
+        0.288904
       ],
       "mortality_ceiling": 0.111111,
       "potential_death_precision": 0.067,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -1887,22 +2031,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.52,
-      "false_mortality_per_animal_month": 1.511,
+      "false_mortality_per_animal_month": 1.503,
       "mortality_true": 4,
+      "mortality_tag_event": 6,
       "mortality_judged": 1076,
-      "mortality_precision": 0.004,
+      "mortality_precision": 0.009,
+      "mortality_death_precision": 0.004,
       "mortality_wilson": [
-        0.001447,
-        0.00952
+        0.005056,
+        0.017023
       ],
       "mortality_bootstrap": [
-        0.000788,
-        0.00885
+        0.00293,
+        0.019554
       ],
       "mortality_ceiling": 0.005566,
       "potential_death_precision": 0.041,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1926,22 +2073,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.52,
-      "false_mortality_per_animal_month": 1.511,
+      "false_mortality_per_animal_month": 1.503,
       "mortality_true": 4,
+      "mortality_tag_event": 6,
       "mortality_judged": 1076,
-      "mortality_precision": 0.004,
+      "mortality_precision": 0.009,
+      "mortality_death_precision": 0.004,
       "mortality_wilson": [
-        0.001447,
-        0.00952
+        0.005056,
+        0.017023
       ],
       "mortality_bootstrap": [
-        0.000788,
-        0.00885
+        0.00293,
+        0.019554
       ],
       "mortality_ceiling": 0.005566,
       "potential_death_precision": 0.069,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -1965,22 +2115,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.52,
-      "false_mortality_per_animal_month": 1.511,
+      "false_mortality_per_animal_month": 1.503,
       "mortality_true": 4,
+      "mortality_tag_event": 6,
       "mortality_judged": 1076,
-      "mortality_precision": 0.004,
+      "mortality_precision": 0.009,
+      "mortality_death_precision": 0.004,
       "mortality_wilson": [
-        0.001447,
-        0.00952
+        0.005056,
+        0.017023
       ],
       "mortality_bootstrap": [
-        0.000788,
-        0.00885
+        0.00293,
+        0.019554
       ],
       "mortality_ceiling": 0.005566,
       "potential_death_precision": 0.077,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2004,22 +2157,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.521,
-      "false_mortality_per_animal_month": 1.513,
+      "false_mortality_per_animal_month": 1.504,
       "mortality_true": 4,
+      "mortality_tag_event": 6,
       "mortality_judged": 1077,
-      "mortality_precision": 0.004,
+      "mortality_precision": 0.009,
+      "mortality_death_precision": 0.004,
       "mortality_wilson": [
-        0.001445,
-        0.009511
+        0.005051,
+        0.017007
       ],
       "mortality_bootstrap": [
-        0.000789,
-        0.008827
+        0.002932,
+        0.019583
       ],
       "mortality_ceiling": 0.005561,
       "potential_death_precision": 0.035,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2043,22 +2199,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.997,
-      "false_mortality_per_animal_month": 0.988,
+      "false_mortality_per_animal_month": 0.98,
       "mortality_true": 4,
+      "mortality_tag_event": 6,
       "mortality_judged": 705,
-      "mortality_precision": 0.006,
+      "mortality_precision": 0.014,
+      "mortality_death_precision": 0.006,
       "mortality_wilson": [
-        0.002209,
-        0.014497
+        0.007723,
+        0.025912
       ],
       "mortality_bootstrap": [
-        0.0012,
-        0.013676
+        0.004504,
+        0.02965
       ],
       "mortality_ceiling": 0.008487,
       "potential_death_precision": 0.048,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2082,22 +2241,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.997,
-      "false_mortality_per_animal_month": 0.988,
+      "false_mortality_per_animal_month": 0.98,
       "mortality_true": 4,
+      "mortality_tag_event": 6,
       "mortality_judged": 705,
-      "mortality_precision": 0.006,
+      "mortality_precision": 0.014,
+      "mortality_death_precision": 0.006,
       "mortality_wilson": [
-        0.002209,
-        0.014497
+        0.007723,
+        0.025912
       ],
       "mortality_bootstrap": [
-        0.0012,
-        0.013676
+        0.004504,
+        0.02965
       ],
       "mortality_ceiling": 0.008487,
       "potential_death_precision": 0.075,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2121,22 +2283,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.997,
-      "false_mortality_per_animal_month": 0.988,
+      "false_mortality_per_animal_month": 0.98,
       "mortality_true": 4,
+      "mortality_tag_event": 6,
       "mortality_judged": 705,
-      "mortality_precision": 0.006,
+      "mortality_precision": 0.014,
+      "mortality_death_precision": 0.006,
       "mortality_wilson": [
-        0.002209,
-        0.014497
+        0.007723,
+        0.025912
       ],
       "mortality_bootstrap": [
-        0.0012,
-        0.013676
+        0.004504,
+        0.02965
       ],
       "mortality_ceiling": 0.008487,
       "potential_death_precision": 0.085,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2160,22 +2325,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.998,
-      "false_mortality_per_animal_month": 0.99,
+      "false_mortality_per_animal_month": 0.981,
       "mortality_true": 4,
+      "mortality_tag_event": 6,
       "mortality_judged": 706,
-      "mortality_precision": 0.006,
+      "mortality_precision": 0.014,
+      "mortality_death_precision": 0.006,
       "mortality_wilson": [
-        0.002205,
-        0.014477
+        0.007712,
+        0.025876
       ],
       "mortality_bootstrap": [
-        0.001202,
-        0.01363
+        0.004489,
+        0.029677
       ],
       "mortality_ceiling": 0.008475,
       "potential_death_precision": 0.043,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2199,22 +2367,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.443,
-      "false_mortality_per_animal_month": 0.434,
+      "false_mortality_per_animal_month": 0.43,
       "mortality_true": 5,
+      "mortality_tag_event": 3,
       "mortality_judged": 313,
-      "mortality_precision": 0.016,
+      "mortality_precision": 0.026,
+      "mortality_death_precision": 0.016,
       "mortality_wilson": [
-        0.006842,
-        0.036844
+        0.013007,
+        0.049616
       ],
       "mortality_bootstrap": [
-        0.003496,
-        0.04
+        0.009063,
+        0.052941
       ],
       "mortality_ceiling": 0.019108,
       "potential_death_precision": 0.062,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2238,22 +2409,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.443,
-      "false_mortality_per_animal_month": 0.434,
+      "false_mortality_per_animal_month": 0.43,
       "mortality_true": 5,
+      "mortality_tag_event": 3,
       "mortality_judged": 313,
-      "mortality_precision": 0.016,
+      "mortality_precision": 0.026,
+      "mortality_death_precision": 0.016,
       "mortality_wilson": [
-        0.006842,
-        0.036844
+        0.013007,
+        0.049616
       ],
       "mortality_bootstrap": [
-        0.003496,
-        0.04
+        0.009063,
+        0.052941
       ],
       "mortality_ceiling": 0.019108,
       "potential_death_precision": 0.096,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.5,
@@ -2277,22 +2451,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.443,
-      "false_mortality_per_animal_month": 0.434,
+      "false_mortality_per_animal_month": 0.43,
       "mortality_true": 5,
+      "mortality_tag_event": 3,
       "mortality_judged": 313,
-      "mortality_precision": 0.016,
+      "mortality_precision": 0.026,
+      "mortality_death_precision": 0.016,
       "mortality_wilson": [
-        0.006842,
-        0.036844
+        0.013007,
+        0.049616
       ],
       "mortality_bootstrap": [
-        0.003496,
-        0.04
+        0.009063,
+        0.052941
       ],
       "mortality_ceiling": 0.019108,
       "potential_death_precision": 0.111,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.5,
@@ -2316,22 +2493,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.443,
-      "false_mortality_per_animal_month": 0.434,
+      "false_mortality_per_animal_month": 0.43,
       "mortality_true": 5,
+      "mortality_tag_event": 3,
       "mortality_judged": 313,
-      "mortality_precision": 0.016,
+      "mortality_precision": 0.026,
+      "mortality_death_precision": 0.016,
       "mortality_wilson": [
-        0.006842,
-        0.036844
+        0.013007,
+        0.049616
       ],
       "mortality_bootstrap": [
-        0.003496,
-        0.04
+        0.009063,
+        0.052941
       ],
       "mortality_ceiling": 0.019108,
       "potential_death_precision": 0.057,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2355,22 +2535,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.204,
-      "false_mortality_per_animal_month": 0.197,
+      "false_mortality_per_animal_month": 0.193,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 144,
-      "mortality_precision": 0.028,
+      "mortality_precision": 0.049,
+      "mortality_death_precision": 0.028,
       "mortality_wilson": [
-        0.010854,
-        0.069243
+        0.023744,
+        0.096937
       ],
       "mortality_bootstrap": [
-        0.005587,
-        0.072732
+        0.016393,
+        0.10092
       ],
       "mortality_ceiling": 0.041096,
       "potential_death_precision": 0.066,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.5,
@@ -2394,22 +2577,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.204,
-      "false_mortality_per_animal_month": 0.197,
+      "false_mortality_per_animal_month": 0.193,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 144,
-      "mortality_precision": 0.028,
+      "mortality_precision": 0.049,
+      "mortality_death_precision": 0.028,
       "mortality_wilson": [
-        0.010854,
-        0.069243
+        0.023744,
+        0.096937
       ],
       "mortality_bootstrap": [
-        0.005587,
-        0.072732
+        0.016393,
+        0.10092
       ],
       "mortality_ceiling": 0.041096,
       "potential_death_precision": 0.089,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.333,
@@ -2433,22 +2619,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.204,
-      "false_mortality_per_animal_month": 0.197,
+      "false_mortality_per_animal_month": 0.193,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 144,
-      "mortality_precision": 0.028,
+      "mortality_precision": 0.049,
+      "mortality_death_precision": 0.028,
       "mortality_wilson": [
-        0.010854,
-        0.069243
+        0.023744,
+        0.096937
       ],
       "mortality_bootstrap": [
-        0.005587,
-        0.072732
+        0.016393,
+        0.10092
       ],
       "mortality_ceiling": 0.041096,
       "potential_death_precision": 0.098,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.333,
@@ -2472,22 +2661,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.204,
-      "false_mortality_per_animal_month": 0.197,
+      "false_mortality_per_animal_month": 0.193,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 144,
-      "mortality_precision": 0.028,
+      "mortality_precision": 0.049,
+      "mortality_death_precision": 0.028,
       "mortality_wilson": [
-        0.010854,
-        0.069243
+        0.023744,
+        0.096937
       ],
       "mortality_bootstrap": [
-        0.005587,
-        0.072732
+        0.016393,
+        0.10092
       ],
       "mortality_ceiling": 0.041096,
       "potential_death_precision": 0.062,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.5,
@@ -2511,22 +2703,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.137,
-      "false_mortality_per_animal_month": 0.133,
+      "false_mortality_per_animal_month": 0.128,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 96,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.052,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.005732,
-        0.072809
+        0.022449,
+        0.116186
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.065217
+        0.009706,
+        0.111111
       ],
       "mortality_ceiling": 0.06,
       "potential_death_precision": 0.045,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -2550,22 +2745,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.137,
-      "false_mortality_per_animal_month": 0.133,
+      "false_mortality_per_animal_month": 0.128,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 96,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.052,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.005732,
-        0.072809
+        0.022449,
+        0.116186
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.065217
+        0.009706,
+        0.111111
       ],
       "mortality_ceiling": 0.06,
       "potential_death_precision": 0.059,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -2589,22 +2787,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.137,
-      "false_mortality_per_animal_month": 0.133,
+      "false_mortality_per_animal_month": 0.128,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 96,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.052,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.005732,
-        0.072809
+        0.022449,
+        0.116186
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.065217
+        0.009706,
+        0.111111
       ],
       "mortality_ceiling": 0.06,
       "potential_death_precision": 0.061,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -2628,22 +2829,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.137,
-      "false_mortality_per_animal_month": 0.133,
+      "false_mortality_per_animal_month": 0.128,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 96,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.052,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.005732,
-        0.072809
+        0.022449,
+        0.116186
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.065217
+        0.009706,
+        0.111111
       ],
       "mortality_ceiling": 0.06,
       "potential_death_precision": 0.043,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -2667,22 +2871,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.099,
-      "false_mortality_per_animal_month": 0.094,
+      "false_mortality_per_animal_month": 0.09,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 69,
-      "mortality_precision": 0.029,
+      "mortality_precision": 0.072,
+      "mortality_death_precision": 0.029,
       "mortality_wilson": [
-        0.007985,
-        0.099668
+        0.031347,
+        0.158676
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.087719
+        0.013889,
+        0.152548
       ],
       "mortality_ceiling": 0.082192,
       "potential_death_precision": 0.051,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -2706,22 +2913,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.099,
-      "false_mortality_per_animal_month": 0.094,
+      "false_mortality_per_animal_month": 0.09,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 69,
-      "mortality_precision": 0.029,
+      "mortality_precision": 0.072,
+      "mortality_death_precision": 0.029,
       "mortality_wilson": [
-        0.007985,
-        0.099668
+        0.031347,
+        0.158676
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.087719
+        0.013889,
+        0.152548
       ],
       "mortality_ceiling": 0.082192,
       "potential_death_precision": 0.067,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -2745,22 +2955,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.099,
-      "false_mortality_per_animal_month": 0.094,
+      "false_mortality_per_animal_month": 0.09,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 69,
-      "mortality_precision": 0.029,
+      "mortality_precision": 0.072,
+      "mortality_death_precision": 0.029,
       "mortality_wilson": [
-        0.007985,
-        0.099668
+        0.031347,
+        0.158676
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.087719
+        0.013889,
+        0.152548
       ],
       "mortality_ceiling": 0.082192,
       "potential_death_precision": 0.067,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -2784,22 +2997,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.099,
-      "false_mortality_per_animal_month": 0.094,
+      "false_mortality_per_animal_month": 0.09,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 69,
-      "mortality_precision": 0.029,
+      "mortality_precision": 0.072,
+      "mortality_death_precision": 0.029,
       "mortality_wilson": [
-        0.007985,
-        0.099668
+        0.031347,
+        0.158676
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.087719
+        0.013889,
+        0.152548
       ],
       "mortality_ceiling": 0.082192,
       "potential_death_precision": 0.051,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -2823,22 +3039,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.965,
-      "false_mortality_per_animal_month": 1.955,
+      "false_mortality_per_animal_month": 1.945,
       "mortality_true": 5,
+      "mortality_tag_event": 7,
       "mortality_judged": 1392,
-      "mortality_precision": 0.004,
+      "mortality_precision": 0.009,
+      "mortality_death_precision": 0.004,
       "mortality_wilson": [
-        0.001535,
-        0.008381
+        0.004938,
+        0.015008
       ],
       "mortality_bootstrap": [
-        0.000743,
-        0.008248
+        0.002789,
+        0.018868
       ],
       "mortality_ceiling": 0.004307,
       "potential_death_precision": 0.045,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2862,22 +3081,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.965,
-      "false_mortality_per_animal_month": 1.955,
+      "false_mortality_per_animal_month": 1.945,
       "mortality_true": 5,
+      "mortality_tag_event": 7,
       "mortality_judged": 1392,
-      "mortality_precision": 0.004,
+      "mortality_precision": 0.009,
+      "mortality_death_precision": 0.004,
       "mortality_wilson": [
-        0.001535,
-        0.008381
+        0.004938,
+        0.015008
       ],
       "mortality_bootstrap": [
-        0.000743,
-        0.008248
+        0.002789,
+        0.018868
       ],
       "mortality_ceiling": 0.004307,
       "potential_death_precision": 0.076,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2901,22 +3123,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.965,
-      "false_mortality_per_animal_month": 1.955,
+      "false_mortality_per_animal_month": 1.945,
       "mortality_true": 5,
+      "mortality_tag_event": 7,
       "mortality_judged": 1392,
-      "mortality_precision": 0.004,
+      "mortality_precision": 0.009,
+      "mortality_death_precision": 0.004,
       "mortality_wilson": [
-        0.001535,
-        0.008381
+        0.004938,
+        0.015008
       ],
       "mortality_bootstrap": [
-        0.000743,
-        0.008248
+        0.002789,
+        0.018868
       ],
       "mortality_ceiling": 0.004307,
       "potential_death_precision": 0.086,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2940,22 +3165,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.969,
-      "false_mortality_per_animal_month": 1.959,
+      "false_mortality_per_animal_month": 1.95,
       "mortality_true": 5,
+      "mortality_tag_event": 7,
       "mortality_judged": 1395,
-      "mortality_precision": 0.004,
+      "mortality_precision": 0.009,
+      "mortality_death_precision": 0.004,
       "mortality_wilson": [
-        0.001532,
-        0.008363
+        0.004928,
+        0.014976
       ],
       "mortality_bootstrap": [
-        0.00074,
-        0.008222
+        0.002784,
+        0.018804
       ],
       "mortality_ceiling": 0.004298,
       "potential_death_precision": 0.038,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -2979,22 +3207,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.321,
-      "false_mortality_per_animal_month": 1.311,
+      "false_mortality_per_animal_month": 1.303,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 935,
-      "mortality_precision": 0.005,
+      "mortality_precision": 0.012,
+      "mortality_death_precision": 0.005,
       "mortality_wilson": [
-        0.002286,
-        0.012457
+        0.006582,
+        0.020943
       ],
       "mortality_bootstrap": [
-        0.001123,
-        0.012308
+        0.004155,
+        0.024531
       ],
       "mortality_ceiling": 0.00641,
       "potential_death_precision": 0.052,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3018,22 +3249,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.321,
-      "false_mortality_per_animal_month": 1.311,
+      "false_mortality_per_animal_month": 1.303,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 935,
-      "mortality_precision": 0.005,
+      "mortality_precision": 0.012,
+      "mortality_death_precision": 0.005,
       "mortality_wilson": [
-        0.002286,
-        0.012457
+        0.006582,
+        0.020943
       ],
       "mortality_bootstrap": [
-        0.001123,
-        0.012308
+        0.004155,
+        0.024531
       ],
       "mortality_ceiling": 0.00641,
       "potential_death_precision": 0.088,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3057,22 +3291,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.321,
-      "false_mortality_per_animal_month": 1.311,
+      "false_mortality_per_animal_month": 1.303,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 935,
-      "mortality_precision": 0.005,
+      "mortality_precision": 0.012,
+      "mortality_death_precision": 0.005,
       "mortality_wilson": [
-        0.002286,
-        0.012457
+        0.006582,
+        0.020943
       ],
       "mortality_bootstrap": [
-        0.001123,
-        0.012308
+        0.004155,
+        0.024531
       ],
       "mortality_ceiling": 0.00641,
       "potential_death_precision": 0.1,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3096,22 +3333,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 1.326,
-      "false_mortality_per_animal_month": 1.317,
+      "false_mortality_per_animal_month": 1.308,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 939,
-      "mortality_precision": 0.005,
+      "mortality_precision": 0.012,
+      "mortality_death_precision": 0.005,
       "mortality_wilson": [
-        0.002276,
-        0.012404
+        0.006554,
+        0.020855
       ],
       "mortality_bootstrap": [
-        0.001117,
-        0.012278
+        0.004142,
+        0.024433
       ],
       "mortality_ceiling": 0.006383,
       "potential_death_precision": 0.045,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3135,22 +3375,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.591,
-      "false_mortality_per_animal_month": 0.582,
+      "false_mortality_per_animal_month": 0.578,
       "mortality_true": 5,
+      "mortality_tag_event": 3,
       "mortality_judged": 418,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.019,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.00512,
-        0.027693
+        0.009729,
+        0.037307
       ],
       "mortality_bootstrap": [
-        0.002611,
-        0.029586
+        0.006644,
+        0.039801
       ],
       "mortality_ceiling": 0.01432,
       "potential_death_precision": 0.054,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3174,22 +3417,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.591,
-      "false_mortality_per_animal_month": 0.582,
+      "false_mortality_per_animal_month": 0.578,
       "mortality_true": 5,
+      "mortality_tag_event": 3,
       "mortality_judged": 418,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.019,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.00512,
-        0.027693
+        0.009729,
+        0.037307
       ],
       "mortality_bootstrap": [
-        0.002611,
-        0.029586
+        0.006644,
+        0.039801
       ],
       "mortality_ceiling": 0.01432,
       "potential_death_precision": 0.089,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.5,
@@ -3213,22 +3459,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.591,
-      "false_mortality_per_animal_month": 0.582,
+      "false_mortality_per_animal_month": 0.578,
       "mortality_true": 5,
+      "mortality_tag_event": 3,
       "mortality_judged": 418,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.019,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.00512,
-        0.027693
+        0.009729,
+        0.037307
       ],
       "mortality_bootstrap": [
-        0.002611,
-        0.029586
+        0.006644,
+        0.039801
       ],
       "mortality_ceiling": 0.01432,
       "potential_death_precision": 0.1,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.5,
@@ -3252,22 +3501,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.591,
-      "false_mortality_per_animal_month": 0.582,
+      "false_mortality_per_animal_month": 0.578,
       "mortality_true": 5,
+      "mortality_tag_event": 3,
       "mortality_judged": 418,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.019,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.00512,
-        0.027693
+        0.009729,
+        0.037307
       ],
       "mortality_bootstrap": [
-        0.002611,
-        0.029586
+        0.006644,
+        0.039801
       ],
       "mortality_ceiling": 0.01432,
       "potential_death_precision": 0.05,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3291,22 +3543,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.276,
-      "false_mortality_per_animal_month": 0.268,
+      "false_mortality_per_animal_month": 0.264,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 194,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.036,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.008047,
-        0.051807
+        0.017586,
+        0.072595
       ],
       "mortality_bootstrap": [
-        0.004149,
-        0.053896
+        0.011763,
+        0.07619
       ],
       "mortality_ceiling": 0.030612,
       "potential_death_precision": 0.056,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.5,
@@ -3330,22 +3585,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.276,
-      "false_mortality_per_animal_month": 0.268,
+      "false_mortality_per_animal_month": 0.264,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 194,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.036,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.008047,
-        0.051807
+        0.017586,
+        0.072595
       ],
       "mortality_bootstrap": [
-        0.004149,
-        0.053896
+        0.011763,
+        0.07619
       ],
       "mortality_ceiling": 0.030612,
       "potential_death_precision": 0.08,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.333,
@@ -3369,22 +3627,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.276,
-      "false_mortality_per_animal_month": 0.268,
+      "false_mortality_per_animal_month": 0.264,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 194,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.036,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.008047,
-        0.051807
+        0.017586,
+        0.072595
       ],
       "mortality_bootstrap": [
-        0.004149,
-        0.053896
+        0.011763,
+        0.07619
       ],
       "mortality_ceiling": 0.030612,
       "potential_death_precision": 0.091,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.333,
@@ -3408,22 +3669,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.279,
-      "false_mortality_per_animal_month": 0.271,
+      "false_mortality_per_animal_month": 0.266,
       "mortality_true": 4,
+      "mortality_tag_event": 3,
       "mortality_judged": 196,
-      "mortality_precision": 0.02,
+      "mortality_precision": 0.036,
+      "mortality_death_precision": 0.02,
       "mortality_wilson": [
-        0.007964,
-        0.051291
+        0.017406,
+        0.071873
       ],
       "mortality_bootstrap": [
-        0.004115,
-        0.053571
+        0.011628,
+        0.075
       ],
       "mortality_ceiling": 0.030303,
       "potential_death_precision": 0.055,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 3,
       "carcass_rate_at_mark": 0.5,
@@ -3447,22 +3711,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.173,
-      "false_mortality_per_animal_month": 0.168,
+      "false_mortality_per_animal_month": 0.164,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 121,
-      "mortality_precision": 0.017,
+      "mortality_precision": 0.041,
+      "mortality_death_precision": 0.017,
       "mortality_wilson": [
-        0.004544,
-        0.058268
+        0.017777,
+        0.093096
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.051551
+        0.007519,
+        0.090002
       ],
       "mortality_ceiling": 0.048,
       "potential_death_precision": 0.039,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -3486,22 +3753,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.173,
-      "false_mortality_per_animal_month": 0.168,
+      "false_mortality_per_animal_month": 0.164,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 121,
-      "mortality_precision": 0.017,
+      "mortality_precision": 0.041,
+      "mortality_death_precision": 0.017,
       "mortality_wilson": [
-        0.004544,
-        0.058268
+        0.017777,
+        0.093096
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.051551
+        0.007519,
+        0.090002
       ],
       "mortality_ceiling": 0.048,
       "potential_death_precision": 0.051,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -3525,22 +3795,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.173,
-      "false_mortality_per_animal_month": 0.168,
+      "false_mortality_per_animal_month": 0.164,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 121,
-      "mortality_precision": 0.017,
+      "mortality_precision": 0.041,
+      "mortality_death_precision": 0.017,
       "mortality_wilson": [
-        0.004544,
-        0.058268
+        0.017777,
+        0.093096
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.051551
+        0.007519,
+        0.090002
       ],
       "mortality_ceiling": 0.048,
       "potential_death_precision": 0.056,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -3564,22 +3837,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.172,
-      "false_mortality_per_animal_month": 0.166,
+      "false_mortality_per_animal_month": 0.162,
       "mortality_true": 2,
+      "mortality_tag_event": 3,
       "mortality_judged": 120,
-      "mortality_precision": 0.017,
+      "mortality_precision": 0.042,
+      "mortality_death_precision": 0.017,
       "mortality_wilson": [
-        0.004582,
-        0.058737
+        0.017926,
+        0.093842
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.05173
+        0.007576,
+        0.09009
       ],
       "mortality_ceiling": 0.048387,
       "potential_death_precision": 0.038,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -3603,22 +3879,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.134,
-      "false_mortality_per_animal_month": 0.13,
+      "false_mortality_per_animal_month": 0.124,
       "mortality_true": 2,
+      "mortality_tag_event": 4,
       "mortality_judged": 94,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.064,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.005854,
-        0.074292
+        0.029579,
+        0.132331
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.064942
+        0.011625,
+        0.136379
       ],
       "mortality_ceiling": 0.061224,
       "potential_death_precision": 0.047,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -3642,22 +3921,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.134,
-      "false_mortality_per_animal_month": 0.13,
+      "false_mortality_per_animal_month": 0.124,
       "mortality_true": 2,
+      "mortality_tag_event": 4,
       "mortality_judged": 94,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.064,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.005854,
-        0.074292
+        0.029579,
+        0.132331
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.064942
+        0.011625,
+        0.136379
       ],
       "mortality_ceiling": 0.061224,
       "potential_death_precision": 0.062,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -3681,22 +3963,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.134,
-      "false_mortality_per_animal_month": 0.13,
+      "false_mortality_per_animal_month": 0.124,
       "mortality_true": 2,
+      "mortality_tag_event": 4,
       "mortality_judged": 94,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.064,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.005854,
-        0.074292
+        0.029579,
+        0.132331
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.064942
+        0.011625,
+        0.136379
       ],
       "mortality_ceiling": 0.061224,
       "potential_death_precision": 0.061,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -3720,22 +4005,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.134,
-      "false_mortality_per_animal_month": 0.13,
+      "false_mortality_per_animal_month": 0.124,
       "mortality_true": 2,
+      "mortality_tag_event": 4,
       "mortality_judged": 94,
-      "mortality_precision": 0.021,
+      "mortality_precision": 0.064,
+      "mortality_death_precision": 0.021,
       "mortality_wilson": [
-        0.005854,
-        0.074292
+        0.029579,
+        0.132331
       ],
       "mortality_bootstrap": [
-        0.0,
-        0.064942
+        0.011625,
+        0.136379
       ],
       "mortality_ceiling": 0.061224,
       "potential_death_precision": 0.047,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 2,
       "carcass_rate_at_mark": 0.167,
@@ -3759,22 +4047,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.046,
-      "gap_precision": 0.013,
+      "gap_precision": 0.026,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3798,22 +4089,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.04,
-      "gap_precision": 0.005,
+      "gap_precision": 0.01,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3837,22 +4131,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.069,
-      "gap_precision": 0.021,
+      "gap_precision": 0.043,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3876,22 +4173,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009193,
+        0.057348
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.03,
-      "gap_precision": 0.006,
+      "gap_precision": 0.012,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3915,22 +4215,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.049,
-      "gap_precision": 0.014,
+      "gap_precision": 0.029,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3954,22 +4257,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.068,
-      "gap_precision": 0.019,
+      "gap_precision": 0.04,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -3993,22 +4299,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.104,
-      "gap_precision": 0.032,
+      "gap_precision": 0.069,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4032,22 +4341,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009193,
+        0.057348
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.032,
-      "gap_precision": 0.007,
+      "gap_precision": 0.013,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4071,22 +4383,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.07,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4110,22 +4425,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.098,
-      "gap_precision": 0.033,
+      "gap_precision": 0.067,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4149,22 +4467,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.128,
-      "gap_precision": 0.043,
+      "gap_precision": 0.077,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4188,22 +4509,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009193,
+        0.057348
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.048,
-      "gap_precision": 0.009,
+      "gap_precision": 0.019,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4227,22 +4551,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.086,
-      "gap_precision": 0.031,
+      "gap_precision": 0.066,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4266,22 +4593,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.143,
-      "gap_precision": 0.046,
+      "gap_precision": 0.087,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4305,22 +4635,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.172,
-      "gap_precision": 0.058,
+      "gap_precision": 0.105,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4344,22 +4677,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009193,
+        0.057348
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.078,
-      "gap_precision": 0.025,
+      "gap_precision": 0.054,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4383,22 +4719,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.156,
-      "gap_precision": 0.051,
+      "gap_precision": 0.09,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4422,22 +4761,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.172,
-      "gap_precision": 0.056,
+      "gap_precision": 0.097,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4461,22 +4803,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009215,
+        0.057057
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.2,
-      "gap_precision": 0.069,
+      "gap_precision": 0.125,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,
@@ -4500,22 +4845,25 @@
       "mortality_merge_hours": null,
       "mortality_box_only": false,
       "mortality_per_animal_month": 0.586,
-      "false_mortality_per_animal_month": 0.577,
+      "false_mortality_per_animal_month": 0.568,
       "mortality_true": 5,
+      "mortality_tag_event": 6,
       "mortality_judged": 414,
-      "mortality_precision": 0.012,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
       "mortality_wilson": [
-        0.005169,
-        0.027957
+        0.0149,
+        0.046946
       ],
       "mortality_bootstrap": [
-        0.002512,
-        0.028571
+        0.009193,
+        0.057348
       ],
       "mortality_ceiling": 0.014458,
       "potential_death_precision": 0.125,
-      "gap_precision": 0.034,
+      "gap_precision": 0.062,
       "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
       "carcass_deaths": 6,
       "carcass_detected": 4,
       "carcass_rate_at_mark": 0.667,

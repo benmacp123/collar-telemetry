@@ -88,8 +88,10 @@ def sweep_point(
             "per_animal_month"
         ],
         "mortality_true": judged["true"],
+        "mortality_tag_event": judged["tag-event"],
         "mortality_judged": judged["judged"],
         "mortality_precision": judged["precision"],
+        "mortality_death_precision": judged["death_precision"],
         "mortality_wilson": judged["wilson"],
         "mortality_bootstrap": judged["bootstrap"],
         "mortality_ceiling": judged["ceiling"],
@@ -98,6 +100,7 @@ def sweep_point(
         ],
         "gap_precision": scores["precision"]["gap"]["precision"],
         "random_precision": scores["random_precision"],
+        "random_precision_tags": scores["random_precision_tags"],
         "carcass_deaths": mortality["deaths"],
         "carcass_detected": mortality["detected"],
         "carcass_rate_at_mark": mortality["rate_at_mark"],

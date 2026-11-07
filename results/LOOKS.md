@@ -96,3 +96,14 @@ Step 1.3: add precision intervals (Wilson; bootstrap by bird), the base-rate cei
 | GSM | 6 / 184 | 3.2% [1.5-6.7%; by bird 0.9-8.1%] | 2.6% | 0.374 | 4 of 5 | 6 / 18 | 25.0% |
 | Satellite, daily | 6 / 186 | 3.1% [1.4-6.6%; by bird 0.9-8.0%] | 2.6% | 0.378 | 4 of 5 | 6 / 8 | 42.9% |
 | Satellite, 2-day | 6 / 186 | 3.1% [1.4-6.6%; by bird 0.9-8.0%] | 2.6% | 0.378 | 4 of 5 | 6 / 7 | 46.2% |
+
+## 2026-11-07, 6edb852 plus uncommitted changes
+
+Added the tag-event label and three-way scoring (five birds: three tuning, two here; credited for mortality and gap, wrong for potential death). Run on uncommitted changes on top of the commit shown. The set is already spent: figures are reported as seen, not as validation.
+
+| Scenario | Mortality true + tag event / false | Mortality precision [Wilson 95%; by bird 95%] | Ceiling | False mortality per animal-month | Carcasses flagged by the mark | Potential death true / false | Potential death precision |
+|---|---|---|---|---|---|---|---|
+| Ideal | 6 + 2 / 185 | 4.1% [2.1-8.0%; by bird 1.5-10.0%] | 2.6% | 0.376 | 4 of 5 | 6 / 16 | 27.3% |
+| GSM | 6 + 2 / 183 | 4.2% [2.1-8.0%; by bird 1.5-10.2%] | 2.6% | 0.372 | 4 of 5 | 6 / 19 | 24.0% |
+| Satellite, daily | 6 + 2 / 185 | 4.1% [2.1-8.0%; by bird 1.5-10.0%] | 2.6% | 0.376 | 4 of 5 | 6 / 9 | 40.0% |
+| Satellite, 2-day | 6 + 2 / 185 | 4.1% [2.1-8.0%; by bird 1.5-10.0%] | 2.6% | 0.376 | 4 of 5 | 6 / 8 | 42.9% |

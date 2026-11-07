@@ -6,6 +6,8 @@ dependency, and from the detection core, which the Lambda handlers load.
 
 from pathlib import Path
 
+from telemetry.analysis.evaluation import TAG_EVENT
+
 SCENARIO_ORDER = ("ideal", "gsm", "satellite_daily", "satellite_2day")
 SCENARIO_LABELS = {
     "ideal": "Ideal",
@@ -113,7 +115,7 @@ def look_markdown(report: dict, day: str, commit: str, why: str) -> str:
         "",
         why,
         "",
-        "| Scenario | Mortality true / false "
+        "| Scenario | Mortality true + tag event / false "
         "| Mortality precision [Wilson 95%; by bird 95%] | Ceiling "
         "| False mortality per animal-month | Carcasses flagged by the mark "
         "| Potential death true / false | Potential death precision |",
@@ -128,12 +130,13 @@ def look_markdown(report: dict, day: str, commit: str, why: str) -> str:
         flagged = "–" if rate is None else str(round(rate * carcasses["deaths"]))
         lines.append(
             f"| {SCENARIO_LABELS[name]} "
-            f"| {mortality['true']} / {mortality['false']} "
+            f"| {mortality['true']} + {mortality.get(TAG_EVENT, 0)} "
+            f"/ {mortality['false']} "
             f"| {_precision_with_intervals(mortality)} "
             f"| {_precision_cell(mortality.get('ceiling'))} "
             f"| {_cell(result['false_mortality']['per_animal_month'], 3)} "
             f"| {flagged} of {carcasses['deaths']} "
-            f"| {potential['true']} / {potential['false']} "
+            f"| {potential['true']} / {potential['false'] + potential.get(TAG_EVENT, 0)} "
             f"| {_precision_cell(potential['precision'])} |"
         )
     return "\n".join(lines) + "\n"
@@ -313,8 +316,9 @@ def _section(report: dict) -> list[str]:
         "### Priority alerts",
         "",
         "`potential_death` is raised while a mortality and a gap incident are "
-        "both open. Precision is the share of incidents on real deaths "
-        "(ambiguous tracks left out).",
+        "both open. Its precision is the share of incidents on real deaths "
+        "(ambiguous tracks left out; tag events count as wrong). Mortality "
+        "precision also credits tag events.",
         "",
         "| Scenario | Potential death per animal-month | Precision | "
         "Mortality precision | Carcass deaths flagged | By mark |",
@@ -334,6 +338,7 @@ def _section(report: dict) -> list[str]:
 
     lines += _precision_lines(scenarios)
     lines += _false_alert_lines(first)
+    lines += _tag_event_lines(first)
 
     geofence = first.get("geofence")
     if geofence:
@@ -403,8 +408,11 @@ def _precision_lines(scenarios: dict) -> list[str]:
         "",
         "### Precision against the ceiling and baselines",
         "",
-        "Precision is true over *judged* incidents (true plus false; "
-        "ambiguous tracks left out), whereas load counts every incident. "
+        "Precision is correct over *judged* incidents (ambiguous tracks left "
+        "out), whereas load counts every incident. A tag event (dropped, "
+        "stuck or failing tag; grounded bird) is correct for mortality and "
+        "the gap baseline, whose alerts it fits, and wrong for potential "
+        "death, which claims a death. *Death only* is true over judged. "
         "*By bird* resamples whole deployments, so a bird with many false "
         "alerts counts once; it is the interval to quote. The *ceiling* is "
         "the precision of a detector firing once on each case (carcass "
@@ -412,28 +420,66 @@ def _precision_lines(scenarios: dict) -> list[str]:
         "count; precision passes it only when one death raises more than "
         "one true alert. *Gap only* scores gap incidents the same way: the rule "
         "stillness has to beat. *Random* alerts at uniformly random moments "
-        "score the share of judged time after a death start.",
+        "score the share of judged time after a death start, or after a "
+        "death start or tag event for detectors credited with tag events.",
         "",
-        "| Scenario | Alert | True / judged (ambiguous) | Precision "
-        "| Wilson 95% | By bird 95% | Cases | Ceiling |",
-        "|---|---|---|---|---|---|---|---|",
+        "| Scenario | Alert | True + tag event / judged (ambiguous) | Precision "
+        "| Death only | Wilson 95% | By bird 95% | Cases | Ceiling |",
+        "|---|---|---|---|---|---|---|---|---|",
     ]
     for name in SCENARIO_ORDER:
         result = scenarios[name]
         for detector, label in PRECISION_ROWS:
             scored = result["precision"][detector]
             lines.append(
-                f"| {SCENARIO_LABELS[name]} | {label} | {scored['true']} / "
+                f"| {SCENARIO_LABELS[name]} | {label} | {scored['true']} + "
+                f"{scored.get(TAG_EVENT, 0)} / "
                 f"{scored['judged']} ({scored['ambiguous']}) | "
                 f"{_precision_cell(scored['precision'])} | "
+                f"{_precision_cell(scored.get('death_precision', scored['precision']))} | "
                 f"{_interval_cell(scored['wilson'])} | "
                 f"{_interval_cell(scored['bootstrap'])} | {scored['cases']} | "
                 f"{_precision_cell(scored['ceiling'])} |"
             )
-    random = scenarios[SCENARIO_ORDER[0]]["random_precision"]
+    first = scenarios[SCENARIO_ORDER[0]]
+    random = first["random_precision"]
+    tags = first.get("random_precision_tags", random)
     lines += [
         "",
-        f"Random baseline (any scenario): {_share_fine(random)}.",
+        f"Random baseline (any scenario): {_share_fine(random)} for deaths; "
+        f"{_share_fine(tags)} also crediting tag events. The second is weighted "
+        "by time, so one tag stuck for years dominates it, however few fixes "
+        "it sent.",
+    ]
+    return lines
+
+
+def _tag_event_lines(first: dict) -> list[str]:
+    """The labelled tag events, if the set has any.
+
+    Args:
+        first: One scenario's results; the labels are the same in all.
+
+    Returns:
+        list[str]: The section's lines, or none without tag events.
+    """
+    tag_events = first.get("tag_events")
+    if not tag_events:
+        return []
+    lines = [
+        "",
+        "### Tag events",
+        "",
+        "Evidence and the rule for each start time are in `data/labels.csv` "
+        "and `data/SOURCES.md`.",
+        "",
+        "| Deployment | Event from | Mortality incidents credited |",
+        "|---|---|---|",
+    ]
+    lines += [
+        f"| {t['deployment_id']} | {t['event_from'][:16]} | "
+        f"{t['mortality_incidents']} |"
+        for t in tag_events
     ]
     return lines
 
@@ -820,30 +866,36 @@ def sweep_markdown(report: dict) -> str:
         )
     # Random alerts do not depend on the setting, so any row gives it.
     random = next(iter(by_setting.values()), {}).get("ideal", {})
+    random_tags = random.get("random_precision_tags")
     random = random.get("random_precision")
     lines += [
         "",
         "### Mortality precision",
         "",
-        "Ideal arrival. True over judged incidents (ambiguous tracks left "
-        "out); *by bird* resamples whole deployments and is the interval to "
+        "Ideal arrival. Correct (true plus tag events) over judged incidents "
+        "(ambiguous tracks left out); *by bird* resamples whole deployments "
+        "and is the interval to "
         "quote. The *ceiling* is a detector firing once on each carcass at "
         "the setting's false count. Potential death and gap-only precision "
         "at the same setting are beside it for comparison. Random alerts "
-        f"score {_share_fine(random)}.",
+        f"score {_share_fine(random)} for deaths, {_share_fine(random_tags)} "
+        "also crediting tag events.",
         "",
-        "| Window (h) | Box (m) | True / judged | Precision | Wilson 95% "
+        "| Window (h) | Box (m) | True + tag event / judged | Precision "
+        "| Death only | Wilson 95% "
         "| By bird 95% | Ceiling | Potential death | Gap only |",
-        "|---|---|---|---|---|---|---|---|---|",
+        "|---|---|---|---|---|---|---|---|---|---|",
     ]
     for (window, box), scenarios in sorted(
         by_setting.items(), key=lambda kv: (kv[0][1], kv[0][0])
     ):
         ideal = scenarios["ideal"]
         lines.append(
-            f"| {window:g} | {box:g} | {ideal.get('mortality_true', '–')} / "
+            f"| {window:g} | {box:g} | {ideal.get('mortality_true', '–')} + "
+            f"{ideal.get('mortality_tag_event', '–')} / "
             f"{ideal.get('mortality_judged', '–')} | "
             f"{_precision_cell(ideal.get('mortality_precision'))} | "
+            f"{_precision_cell(ideal.get('mortality_death_precision'))} | "
             f"{_interval_cell(ideal.get('mortality_wilson'))} | "
             f"{_interval_cell(ideal.get('mortality_bootstrap'))} | "
             f"{_precision_cell(ideal.get('mortality_ceiling'))} | "
@@ -1424,7 +1476,8 @@ def stillness_markdown(sets: list[dict]) -> str:
         "one of the mortality detector's own clusters (100 m box, at least 6 "
         "fixes), run with no window so nothing alerts. The final stationary "
         "period of a dead or ambiguous track is left out, as it may be a "
-        "carcass. Each cell is *bouts longer than the column (per "
+        "carcass, and so is everything after a tag event began, as it is "
+        "not an animal resting. Each cell is *bouts longer than the column (per "
         "animal-month)*; animal-months run from first to last fix on every "
         "deployment, as in the evaluation's load. Vultures are the tuning set "
         "only: every tuning bird wears an Argos PTT tag and every solar "

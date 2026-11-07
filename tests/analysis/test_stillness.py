@@ -2,7 +2,12 @@
 
 from datetime import datetime, timedelta, timezone
 
-from telemetry.analysis.evaluation import ANIMAL_MONTH, build_truth
+from telemetry.analysis.evaluation import (
+    ANIMAL_MONTH,
+    TAG_EVENT,
+    Override,
+    build_truth,
+)
 from telemetry.analysis.report import stillness_markdown
 from telemetry.analysis.stillness import (
     THRESHOLDS_H,
@@ -43,9 +48,9 @@ def track(deployment_id, pattern, taxon=JACKAL, end_type=None):
     return deployment, fixes
 
 
-def truth_for(deployment, fixes, label=None):
+def truth_for(deployment, fixes, label=None, event_from=None):
     """The deployment's Truth, with an optional label override."""
-    overrides = {deployment.deployment_id: label} if label else {}
+    overrides = {deployment.deployment_id: Override(label, event_from)} if label else {}
     return build_truth("jackals", [deployment], fixes, overrides)[0]
 
 
@@ -68,6 +73,14 @@ def test_living_bouts_drop_a_dead_tracks_final_period():
     pattern = [("walk", 20), ("sit", 30), ("walk", 20), ("sit", 100)]
     deployment, fixes = track("A", pattern, end_type="dead")
     truth = truth_for(deployment, fixes, label="dead")
+    assert living_bouts(truth, fixes) == [30.0]
+
+
+def test_living_bouts_drop_everything_after_a_tag_event_began():
+    """A stuck tag's stillness, even mid-track, is not an animal resting."""
+    pattern = [("walk", 20), ("sit", 30), ("walk", 20), ("sit", 500), ("walk", 20)]
+    deployment, fixes = track("A", pattern)
+    truth = truth_for(deployment, fixes, TAG_EVENT, START + 70 * HOUR)
     assert living_bouts(truth, fixes) == [30.0]
 
 

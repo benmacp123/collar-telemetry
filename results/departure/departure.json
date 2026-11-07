@@ -26,13 +26,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.593,
+      "false_mortality_per_animal_month": 0.584,
       "false_alarms": {
-        "incidents": 421,
+        "incidents": 414,
         "never_resolved": 0,
-        "flaps": 31,
+        "flaps": 30,
         "median_hours_open": 7.0,
-        "p90_hours_open": 75.0
+        "p90_hours_open": 73.0
       },
       "carcass": {
         "deaths": 6,
@@ -71,13 +71,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.593,
+      "false_mortality_per_animal_month": 0.584,
       "false_alarms": {
-        "incidents": 421,
+        "incidents": 414,
         "never_resolved": 0,
-        "flaps": 31,
+        "flaps": 30,
         "median_hours_open": 7.0,
-        "p90_hours_open": 75.0
+        "p90_hours_open": 73.0
       },
       "carcass": {
         "deaths": 6,
@@ -116,13 +116,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.593,
+      "false_mortality_per_animal_month": 0.584,
       "false_alarms": {
-        "incidents": 421,
+        "incidents": 414,
         "never_resolved": 0,
-        "flaps": 31,
+        "flaps": 30,
         "median_hours_open": 7.0,
-        "p90_hours_open": 75.0
+        "p90_hours_open": 73.0
       },
       "carcass": {
         "deaths": 6,
@@ -161,13 +161,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.595,
+      "false_mortality_per_animal_month": 0.585,
       "false_alarms": {
-        "incidents": 422,
+        "incidents": 415,
         "never_resolved": 0,
-        "flaps": 32,
+        "flaps": 31,
         "median_hours_open": 7.0,
-        "p90_hours_open": 75.0
+        "p90_hours_open": 73.0
       },
       "carcass": {
         "deaths": 6,
@@ -742,11 +742,11 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.806,
+      "false_mortality_per_animal_month": 0.799,
       "false_alarms": {
-        "incidents": 572,
+        "incidents": 567,
         "never_resolved": 0,
-        "flaps": 93,
+        "flaps": 91,
         "median_hours_open": 8.0,
         "p90_hours_open": 96.0
       },
@@ -787,11 +787,11 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.806,
+      "false_mortality_per_animal_month": 0.799,
       "false_alarms": {
-        "incidents": 572,
+        "incidents": 567,
         "never_resolved": 0,
-        "flaps": 93,
+        "flaps": 91,
         "median_hours_open": 8.0,
         "p90_hours_open": 96.0
       },
@@ -832,11 +832,11 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.806,
+      "false_mortality_per_animal_month": 0.799,
       "false_alarms": {
-        "incidents": 572,
+        "incidents": 567,
         "never_resolved": 0,
-        "flaps": 93,
+        "flaps": 91,
         "median_hours_open": 8.0,
         "p90_hours_open": 96.0
       },
@@ -877,11 +877,11 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.809,
+      "false_mortality_per_animal_month": 0.802,
       "false_alarms": {
-        "incidents": 574,
+        "incidents": 569,
         "never_resolved": 0,
-        "flaps": 93,
+        "flaps": 91,
         "median_hours_open": 8.0,
         "p90_hours_open": 96.0
       },
@@ -1458,13 +1458,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.97,
+      "false_mortality_per_animal_month": 0.963,
       "false_alarms": {
-        "incidents": 688,
+        "incidents": 683,
         "never_resolved": 0,
-        "flaps": 123,
+        "flaps": 121,
         "median_hours_open": 9.0,
-        "p90_hours_open": 99.0
+        "p90_hours_open": 98.0
       },
       "carcass": {
         "deaths": 6,
@@ -1503,13 +1503,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.97,
+      "false_mortality_per_animal_month": 0.963,
       "false_alarms": {
-        "incidents": 688,
+        "incidents": 683,
         "never_resolved": 0,
-        "flaps": 123,
+        "flaps": 121,
         "median_hours_open": 9.0,
-        "p90_hours_open": 99.0
+        "p90_hours_open": 98.0
       },
       "carcass": {
         "deaths": 6,
@@ -1548,13 +1548,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.97,
+      "false_mortality_per_animal_month": 0.963,
       "false_alarms": {
-        "incidents": 688,
+        "incidents": 683,
         "never_resolved": 0,
-        "flaps": 123,
+        "flaps": 121,
         "median_hours_open": 9.0,
-        "p90_hours_open": 99.0
+        "p90_hours_open": 98.0
       },
       "carcass": {
         "deaths": 6,
@@ -1593,13 +1593,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.971,
+      "false_mortality_per_animal_month": 0.964,
       "false_alarms": {
-        "incidents": 689,
+        "incidents": 684,
         "never_resolved": 0,
-        "flaps": 125,
+        "flaps": 123,
         "median_hours_open": 8.0,
-        "p90_hours_open": 99.0
+        "p90_hours_open": 98.0
       },
       "carcass": {
         "deaths": 6,
@@ -2174,13 +2174,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.863,
+      "false_mortality_per_animal_month": 0.853,
       "false_alarms": {
-        "incidents": 612,
+        "incidents": 605,
         "never_resolved": 0,
-        "flaps": 77,
+        "flaps": 75,
         "median_hours_open": 9.0,
-        "p90_hours_open": 94.0
+        "p90_hours_open": 90.0
       },
       "carcass": {
         "deaths": 6,
@@ -2219,13 +2219,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.863,
+      "false_mortality_per_animal_month": 0.853,
       "false_alarms": {
-        "incidents": 612,
+        "incidents": 605,
         "never_resolved": 0,
-        "flaps": 77,
+        "flaps": 75,
         "median_hours_open": 9.0,
-        "p90_hours_open": 94.0
+        "p90_hours_open": 90.0
       },
       "carcass": {
         "deaths": 6,
@@ -2264,13 +2264,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.863,
+      "false_mortality_per_animal_month": 0.853,
       "false_alarms": {
-        "incidents": 612,
+        "incidents": 605,
         "never_resolved": 0,
-        "flaps": 77,
+        "flaps": 75,
         "median_hours_open": 9.0,
-        "p90_hours_open": 94.0
+        "p90_hours_open": 90.0
       },
       "carcass": {
         "deaths": 6,
@@ -2309,13 +2309,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": null,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.86,
+      "false_mortality_per_animal_month": 0.85,
       "false_alarms": {
-        "incidents": 610,
+        "incidents": 603,
         "never_resolved": 0,
-        "flaps": 80,
+        "flaps": 78,
         "median_hours_open": 9.0,
-        "p90_hours_open": 94.0
+        "p90_hours_open": 90.0
       },
       "carcass": {
         "deaths": 6,
@@ -2890,13 +2890,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": 72.0,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.553,
+      "false_mortality_per_animal_month": 0.544,
       "false_alarms": {
-        "incidents": 392,
+        "incidents": 386,
         "never_resolved": 0,
-        "flaps": 60,
+        "flaps": 58,
         "median_hours_open": 7.0,
-        "p90_hours_open": 99.0
+        "p90_hours_open": 93.0
       },
       "carcass": {
         "deaths": 6,
@@ -2935,13 +2935,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": 72.0,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.553,
+      "false_mortality_per_animal_month": 0.544,
       "false_alarms": {
-        "incidents": 392,
+        "incidents": 386,
         "never_resolved": 0,
-        "flaps": 60,
+        "flaps": 58,
         "median_hours_open": 7.0,
-        "p90_hours_open": 99.0
+        "p90_hours_open": 93.0
       },
       "carcass": {
         "deaths": 6,
@@ -2980,13 +2980,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": 72.0,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.553,
+      "false_mortality_per_animal_month": 0.544,
       "false_alarms": {
-        "incidents": 392,
+        "incidents": 386,
         "never_resolved": 0,
-        "flaps": 60,
+        "flaps": 58,
         "median_hours_open": 7.0,
-        "p90_hours_open": 99.0
+        "p90_hours_open": 93.0
       },
       "carcass": {
         "deaths": 6,
@@ -3025,13 +3025,13 @@
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": 72.0,
       "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.55,
+      "false_mortality_per_animal_month": 0.541,
       "false_alarms": {
-        "incidents": 390,
+        "incidents": 384,
         "never_resolved": 0,
-        "flaps": 64,
+        "flaps": 62,
         "median_hours_open": 7.0,
-        "p90_hours_open": 98.0
+        "p90_hours_open": 90.0
       },
       "carcass": {
         "deaths": 6,
@@ -3270,722 +3270,6 @@
       "mortality_leave_fixes": null,
       "mortality_leave_radius_m": null,
       "mortality_merge_hours": 72.0,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 16,
-        "never_resolved": 0,
-        "flaps": 4,
-        "median_hours_open": 4.0,
-        "p90_hours_open": 166.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 10,
-          "flaps": 14,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 2,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "ideal",
-      "setting": "merge 72 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 72.0,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 11,
-          "flaps": 22,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "satellite_daily",
-      "setting": "merge 72 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 72.0,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 11,
-          "flaps": 22,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "satellite_2day",
-      "setting": "merge 72 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 72.0,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 11,
-          "flaps": 22,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "gsm",
-      "setting": "merge 72 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 72.0,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 11,
-          "flaps": 22,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "ideal",
-      "setting": "merge 96 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 96.0,
-      "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.519,
-      "false_alarms": {
-        "incidents": 368,
-        "never_resolved": 0,
-        "flaps": 83,
-        "median_hours_open": 7.0,
-        "p90_hours_open": 125.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "satellite_daily",
-      "setting": "merge 96 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 96.0,
-      "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.519,
-      "false_alarms": {
-        "incidents": 368,
-        "never_resolved": 0,
-        "flaps": 83,
-        "median_hours_open": 7.0,
-        "p90_hours_open": 125.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "satellite_2day",
-      "setting": "merge 96 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 96.0,
-      "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.519,
-      "false_alarms": {
-        "incidents": 368,
-        "never_resolved": 0,
-        "flaps": 83,
-        "median_hours_open": 7.0,
-        "p90_hours_open": 125.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "gsm",
-      "setting": "merge 96 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 96.0,
-      "mortality_box_only": true,
-      "false_mortality_per_animal_month": 0.515,
-      "false_alarms": {
-        "incidents": 365,
-        "never_resolved": 0,
-        "flaps": 88,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 124.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "ideal",
-      "setting": "merge 96 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 96.0,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 16,
-        "never_resolved": 0,
-        "flaps": 4,
-        "median_hours_open": 4.0,
-        "p90_hours_open": 166.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 10,
-          "flaps": 14,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "satellite_daily",
-      "setting": "merge 96 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 96.0,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 16,
-        "never_resolved": 0,
-        "flaps": 4,
-        "median_hours_open": 4.0,
-        "p90_hours_open": 166.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 10,
-          "flaps": 14,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "satellite_2day",
-      "setting": "merge 96 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 96.0,
-      "mortality_box_only": true,
-      "false_alarms": {
-        "incidents": 16,
-        "never_resolved": 0,
-        "flaps": 4,
-        "median_hours_open": 4.0,
-        "p90_hours_open": 166.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 10,
-          "flaps": 14,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "gsm",
-      "setting": "merge 96 h",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": 96.0,
       "mortality_box_only": true,
       "false_alarms": {
         "incidents": 16,
@@ -4046,6 +3330,722 @@
     {
       "set": "elephants-synthetic",
       "scenario": "ideal",
+      "setting": "merge 72 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 72.0,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 11,
+          "flaps": 22,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "satellite_daily",
+      "setting": "merge 72 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 72.0,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 11,
+          "flaps": 22,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 1,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "satellite_2day",
+      "setting": "merge 72 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 72.0,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 11,
+          "flaps": 22,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 1,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "gsm",
+      "setting": "merge 72 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 72.0,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 11,
+          "flaps": 22,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "ideal",
+      "setting": "merge 96 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 96.0,
+      "mortality_box_only": true,
+      "false_mortality_per_animal_month": 0.513,
+      "false_alarms": {
+        "incidents": 364,
+        "never_resolved": 0,
+        "flaps": 79,
+        "median_hours_open": 7.0,
+        "p90_hours_open": 121.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "satellite_daily",
+      "setting": "merge 96 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 96.0,
+      "mortality_box_only": true,
+      "false_mortality_per_animal_month": 0.513,
+      "false_alarms": {
+        "incidents": 364,
+        "never_resolved": 0,
+        "flaps": 79,
+        "median_hours_open": 7.0,
+        "p90_hours_open": 121.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "satellite_2day",
+      "setting": "merge 96 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 96.0,
+      "mortality_box_only": true,
+      "false_mortality_per_animal_month": 0.513,
+      "false_alarms": {
+        "incidents": 364,
+        "never_resolved": 0,
+        "flaps": 79,
+        "median_hours_open": 7.0,
+        "p90_hours_open": 121.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "gsm",
+      "setting": "merge 96 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 96.0,
+      "mortality_box_only": true,
+      "false_mortality_per_animal_month": 0.509,
+      "false_alarms": {
+        "incidents": 361,
+        "never_resolved": 0,
+        "flaps": 84,
+        "median_hours_open": 7.0,
+        "p90_hours_open": 121.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "ideal",
+      "setting": "merge 96 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 96.0,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 16,
+        "never_resolved": 0,
+        "flaps": 4,
+        "median_hours_open": 4.0,
+        "p90_hours_open": 166.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 10,
+          "flaps": 14,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "satellite_daily",
+      "setting": "merge 96 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 96.0,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 16,
+        "never_resolved": 0,
+        "flaps": 4,
+        "median_hours_open": 4.0,
+        "p90_hours_open": 166.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 10,
+          "flaps": 14,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "satellite_2day",
+      "setting": "merge 96 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 96.0,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 16,
+        "never_resolved": 0,
+        "flaps": 4,
+        "median_hours_open": 4.0,
+        "p90_hours_open": 166.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 10,
+          "flaps": 14,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "gsm",
+      "setting": "merge 96 h",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": 96.0,
+      "mortality_box_only": true,
+      "false_alarms": {
+        "incidents": 16,
+        "never_resolved": 0,
+        "flaps": 4,
+        "median_hours_open": 4.0,
+        "p90_hours_open": 166.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 10,
+          "flaps": 14,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 2,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "ideal",
       "setting": "merge 96 h",
       "mortality_window_hours": null,
       "mortality_box_m": null,
@@ -4322,1580 +4322,1580 @@
       "mortality_leave_radius_m": 50.0,
       "mortality_merge_hours": null,
       "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.592,
+      "false_mortality_per_animal_month": 0.581,
       "false_alarms": {
-        "incidents": 420,
-        "never_resolved": 0,
-        "flaps": 32,
-        "median_hours_open": 7.0,
-        "p90_hours_open": 76.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "satellite_daily",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.592,
-      "false_alarms": {
-        "incidents": 420,
-        "never_resolved": 0,
-        "flaps": 32,
-        "median_hours_open": 7.0,
-        "p90_hours_open": 76.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "satellite_2day",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.592,
-      "false_alarms": {
-        "incidents": 420,
-        "never_resolved": 0,
-        "flaps": 32,
-        "median_hours_open": 7.0,
-        "p90_hours_open": 76.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "gsm",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.593,
-      "false_alarms": {
-        "incidents": 421,
-        "never_resolved": 0,
-        "flaps": 33,
-        "median_hours_open": 7.0,
-        "p90_hours_open": 76.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "ideal",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 18,
-        "never_resolved": 0,
-        "flaps": 2,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 56.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "satellite_daily",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 18,
-        "never_resolved": 0,
-        "flaps": 2,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 56.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "satellite_2day",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 18,
-        "never_resolved": 0,
-        "flaps": 2,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 56.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "gsm",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 18,
-        "never_resolved": 0,
-        "flaps": 2,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 56.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "ideal",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 3,
-          "flaps": 3,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "satellite_daily",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 3,
-          "flaps": 3,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "satellite_2day",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 3,
-          "flaps": 3,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "gsm",
-      "setting": "radius 50 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 50.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 3,
-          "flaps": 3,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 1,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "ideal",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.577,
-      "false_alarms": {
-        "incidents": 409,
-        "never_resolved": 0,
-        "flaps": 28,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 89.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "satellite_daily",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.577,
-      "false_alarms": {
-        "incidents": 409,
-        "never_resolved": 0,
-        "flaps": 28,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 89.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "satellite_2day",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.577,
-      "false_alarms": {
-        "incidents": 409,
-        "never_resolved": 0,
-        "flaps": 28,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 89.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "gsm",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.577,
-      "false_alarms": {
-        "incidents": 409,
-        "never_resolved": 0,
-        "flaps": 30,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 92.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "ideal",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 18,
-        "never_resolved": 0,
-        "flaps": 2,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 56.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "satellite_daily",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 18,
-        "never_resolved": 0,
-        "flaps": 2,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 56.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "satellite_2day",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 18,
-        "never_resolved": 0,
-        "flaps": 2,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 56.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "jackals-synthetic",
-      "scenario": "gsm",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 18,
-        "never_resolved": 0,
-        "flaps": 2,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 56.0
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 22,
-          "detected": 22,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 22,
-          "detected": 14,
-          "rate_at_mark": 0.636
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 22,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 22,
-          "missed": 8,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "ideal",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "satellite_daily",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "satellite_2day",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "elephants-synthetic",
-      "scenario": "gsm",
-      "setting": "radius 75 m (default)",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": null,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_alarms": {
-        "incidents": 0,
-        "never_resolved": 0,
-        "flaps": 0,
-        "median_hours_open": null,
-        "p90_hours_open": null
-      },
-      "detection": {
-        "reporting": {
-          "deaths": 14,
-          "detected": 14,
-          "rate_at_mark": 1.0
-        },
-        "sparse": {
-          "deaths": 14,
-          "detected": 12,
-          "rate_at_mark": 0.857
-        }
-      },
-      "mortality": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "reporting": {
-          "deaths": 14,
-          "missed": 0,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        },
-        "sparse": {
-          "deaths": 14,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "ideal",
-      "setting": "radius 100 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 100.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.56,
-      "false_alarms": {
-        "incidents": 397,
-        "never_resolved": 0,
-        "flaps": 28,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 103.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "satellite_daily",
-      "setting": "radius 100 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 100.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.56,
-      "false_alarms": {
-        "incidents": 397,
-        "never_resolved": 0,
-        "flaps": 28,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 103.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "satellite_2day",
-      "setting": "radius 100 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 100.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.56,
-      "false_alarms": {
-        "incidents": 397,
-        "never_resolved": 0,
-        "flaps": 28,
-        "median_hours_open": 8.0,
-        "p90_hours_open": 103.0
-      },
-      "carcass": {
-        "deaths": 6,
-        "detected": 4,
-        "rate_at_mark": 0.667
-      },
-      "mortality": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 1,
-          "flaps": 1,
-          "ends_resolved": 0
-        }
-      },
-      "potential_death": {
-        "carcass": {
-          "deaths": 6,
-          "missed": 2,
-          "split": 0,
-          "flapped": 0,
-          "flaps": 0,
-          "ends_resolved": 0
-        }
-      }
-    },
-    {
-      "set": "vultures",
-      "scenario": "gsm",
-      "setting": "radius 100 m",
-      "mortality_window_hours": null,
-      "mortality_box_m": null,
-      "upload_margin_hours": 36.0,
-      "mortality_leave_fixes": null,
-      "mortality_leave_radius_m": 100.0,
-      "mortality_merge_hours": null,
-      "mortality_box_only": false,
-      "false_mortality_per_animal_month": 0.558,
-      "false_alarms": {
-        "incidents": 396,
+        "incidents": 412,
         "never_resolved": 0,
         "flaps": 31,
+        "median_hours_open": 7.0,
+        "p90_hours_open": 72.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "satellite_daily",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.581,
+      "false_alarms": {
+        "incidents": 412,
+        "never_resolved": 0,
+        "flaps": 31,
+        "median_hours_open": 7.0,
+        "p90_hours_open": 72.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "satellite_2day",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.581,
+      "false_alarms": {
+        "incidents": 412,
+        "never_resolved": 0,
+        "flaps": 31,
+        "median_hours_open": 7.0,
+        "p90_hours_open": 72.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "gsm",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.582,
+      "false_alarms": {
+        "incidents": 413,
+        "never_resolved": 0,
+        "flaps": 32,
+        "median_hours_open": 7.0,
+        "p90_hours_open": 72.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "ideal",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 18,
+        "never_resolved": 0,
+        "flaps": 2,
         "median_hours_open": 8.0,
-        "p90_hours_open": 104.0
+        "p90_hours_open": 56.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "satellite_daily",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 18,
+        "never_resolved": 0,
+        "flaps": 2,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 56.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "satellite_2day",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 18,
+        "never_resolved": 0,
+        "flaps": 2,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 56.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "gsm",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 18,
+        "never_resolved": 0,
+        "flaps": 2,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 56.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "ideal",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 3,
+          "flaps": 3,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 1,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "satellite_daily",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 3,
+          "flaps": 3,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 1,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "satellite_2day",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 3,
+          "flaps": 3,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 1,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "gsm",
+      "setting": "radius 50 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 50.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 3,
+          "flaps": 3,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 1,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "ideal",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.568,
+      "false_alarms": {
+        "incidents": 403,
+        "never_resolved": 0,
+        "flaps": 27,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 81.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "satellite_daily",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.568,
+      "false_alarms": {
+        "incidents": 403,
+        "never_resolved": 0,
+        "flaps": 27,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 81.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "satellite_2day",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.568,
+      "false_alarms": {
+        "incidents": 403,
+        "never_resolved": 0,
+        "flaps": 27,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 81.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "gsm",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.568,
+      "false_alarms": {
+        "incidents": 403,
+        "never_resolved": 0,
+        "flaps": 29,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 88.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "ideal",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 18,
+        "never_resolved": 0,
+        "flaps": 2,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 56.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "satellite_daily",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 18,
+        "never_resolved": 0,
+        "flaps": 2,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 56.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "satellite_2day",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 18,
+        "never_resolved": 0,
+        "flaps": 2,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 56.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "jackals-synthetic",
+      "scenario": "gsm",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 18,
+        "never_resolved": 0,
+        "flaps": 2,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 56.0
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 22,
+          "detected": 22,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 22,
+          "detected": 14,
+          "rate_at_mark": 0.636
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 22,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 22,
+          "missed": 8,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "ideal",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "satellite_daily",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "satellite_2day",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "elephants-synthetic",
+      "scenario": "gsm",
+      "setting": "radius 75 m (default)",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_alarms": {
+        "incidents": 0,
+        "never_resolved": 0,
+        "flaps": 0,
+        "median_hours_open": null,
+        "p90_hours_open": null
+      },
+      "detection": {
+        "reporting": {
+          "deaths": 14,
+          "detected": 14,
+          "rate_at_mark": 1.0
+        },
+        "sparse": {
+          "deaths": 14,
+          "detected": 12,
+          "rate_at_mark": 0.857
+        }
+      },
+      "mortality": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "reporting": {
+          "deaths": 14,
+          "missed": 0,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        },
+        "sparse": {
+          "deaths": 14,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "ideal",
+      "setting": "radius 100 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 100.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.553,
+      "false_alarms": {
+        "incidents": 392,
+        "never_resolved": 0,
+        "flaps": 26,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 101.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "satellite_daily",
+      "setting": "radius 100 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 100.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.553,
+      "false_alarms": {
+        "incidents": 392,
+        "never_resolved": 0,
+        "flaps": 26,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 101.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "satellite_2day",
+      "setting": "radius 100 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 100.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.553,
+      "false_alarms": {
+        "incidents": 392,
+        "never_resolved": 0,
+        "flaps": 26,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 101.0
+      },
+      "carcass": {
+        "deaths": 6,
+        "detected": 4,
+        "rate_at_mark": 0.667
+      },
+      "mortality": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 1,
+          "flaps": 1,
+          "ends_resolved": 0
+        }
+      },
+      "potential_death": {
+        "carcass": {
+          "deaths": 6,
+          "missed": 2,
+          "split": 0,
+          "flapped": 0,
+          "flaps": 0,
+          "ends_resolved": 0
+        }
+      }
+    },
+    {
+      "set": "vultures",
+      "scenario": "gsm",
+      "setting": "radius 100 m",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": 100.0,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "false_mortality_per_animal_month": 0.551,
+      "false_alarms": {
+        "incidents": 391,
+        "never_resolved": 0,
+        "flaps": 29,
+        "median_hours_open": 8.0,
+        "p90_hours_open": 101.0
       },
       "carcass": {
         "deaths": 6,

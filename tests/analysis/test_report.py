@@ -188,7 +188,7 @@ def test_look_markdown_is_one_entry_with_a_row_per_scenario():
     assert lines[0] == "## 2026-10-30, abc1234"
     assert sum(line.startswith("## ") for line in lines) == 1
     assert "Tier field added." in lines
-    assert "| Ideal | 1 / 9 | 10.0% | – | 0.000 | 1 of 1 | 1 / 1 | 50.0% |" in lines
+    assert "| Ideal | 1 + 0 / 9 | 10.0% | – | 0.000 | 1 of 1 | 1 / 1 | 50.0% |" in lines
     assert len([line for line in lines if line.startswith("| ")]) == 1 + len(
         SCENARIO_ORDER
     )
@@ -221,6 +221,9 @@ def sweep_report():
             "other_deaths_median_gap_delay_hours": 12.0,
             "other_deaths_max_gap_delay_hours": 12.0,
             "mortality_true": 1,
+            "mortality_tag_event": 2,
+            "mortality_death_precision": 0.1,
+            "random_precision_tags": 0.02,
             "mortality_judged": 10,
             "mortality_precision": 0.1,
             "mortality_wilson": [0.0179, 0.4042],
@@ -264,10 +267,11 @@ def test_write_sweep_writes_tables_and_figure(tmp_path):
     assert "| 24 | 100 | 0.50 | 1 of 2 | 50% | 50% | 50% | 30.0 |" in text
     assert "| Satellite, 2-day | 6 | 1.00 | 25% | 1 of 1 | 12.0 | 12.0 | 4.0% |" in text
     assert (
-        "| 24 | 100 | 1 / 10 | 10.0% | 1.8-40.4% | 0.0-25.0% | 18.2% | 50.0% "
+        "| 24 | 100 | 1 + 2 / 10 | 10.0% | 10.0% | 1.8-40.4% | 0.0-25.0% | 18.2% "
+        "| 50.0% "
         "| 4.0% |" in text
     )
-    assert "Random alerts score 0.15%." in text
+    assert "Random alerts score 0.15% for deaths, 2.00% also crediting" in text
     assert (tmp_path / "figures" / "sweep-vultures-tuning.png").exists()
 
 
@@ -345,11 +349,11 @@ def test_markdown_precision_section_shows_intervals_ceiling_and_baselines():
     text = markdown([scored_report()])
     assert "### Precision against the ceiling and baselines" in text
     assert (
-        "| Ideal | Mortality | 1 / 10 (0) | 10.0% | 1.4-6.6% | 1.0-8.1% | 1 "
+        "| Ideal | Mortality | 1 + 0 / 10 (0) | 10.0% | 10.0% | 1.4-6.6% | 1.0-8.1% | 1 "
         "| 2.6% |" in text
     )
-    assert "| Ideal | Gap only (baseline) | 1 / 2 (0) | 50.0% |" in text
-    assert "Random baseline (any scenario): 0.15%." in text
+    assert "| Ideal | Gap only (baseline) | 1 + 0 / 2 (0) | 50.0% |" in text
+    assert "Random baseline (any scenario): 0.15% for deaths" in text
     assert "| Canis mesomelas | 4.0 | 1 | 9 | 2.25 |" in text
     assert "| A | 2.0 | 1 | 9 | 4.50 |" in text
 
@@ -367,6 +371,31 @@ def test_look_markdown_carries_intervals_and_ceiling():
     ceiling, so a look cannot be read without its uncertainty."""
     text = look_markdown(scored_report(), "2026-10-31", "abc1234", "Intervals.")
     assert (
-        "| Ideal | 1 / 9 | 10.0% [1.4-6.6%; by bird 1.0-8.1%] | 2.6% | 0.000 "
+        "| Ideal | 1 + 0 / 9 | 10.0% [1.4-6.6%; by bird 1.0-8.1%] | 2.6% | 0.000 "
         "| 1 of 1 | 1 / 1 | 50.0% |" in text.splitlines()
     )
+
+
+def test_markdown_lists_tag_events_and_their_credit():
+    """A set with tag events shows each one's start and credited alerts."""
+    report = scored_report()
+    for result in report["scenarios"].values():
+        result["tag_events"] = [
+            {
+                "deployment_id": "EAX",
+                "event_from": "2015-05-31T21:00:00+00:00",
+                "mortality_incidents": 4,
+            }
+        ]
+    text = markdown([report])
+    assert "### Tag events" in text
+    assert "| EAX | 2015-05-31T21:00 | 4 |" in text
+
+
+def test_look_shows_escalated_tag_events_as_wrong():
+    """A tag event on the escalated tier is logged among its wrong alerts."""
+    scored = scored_report()
+    for result in scored["scenarios"].values():
+        result["precision"]["potential_death"]["tag-event"] = 2
+    text = look_markdown(scored, "2026-11-07", "abc1234", "Tag events.")
+    assert "| 1 of 1 | 1 / 3 | 50.0% |" in text
