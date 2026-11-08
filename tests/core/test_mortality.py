@@ -76,7 +76,8 @@ def test_stationary_tag_alerts_once_after_the_window():
     alerts = feed(detector, state, still(range(48)))
     assert len(alerts) == 1
     assert alerts[0].time == at(24)
-    assert "Possible mortality or dropped tag" in alerts[0].message
+    assert alerts[0].message.startswith("Stationary: check. ")
+    assert "could be a death or a dropped tag" in alerts[0].message
     assert "near 30.5" in alerts[0].message
 
 

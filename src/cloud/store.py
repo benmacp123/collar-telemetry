@@ -7,7 +7,7 @@ settings (taxon, upload plan, boundary), from which the clock builds its
 ticks. The
 incidents table holds one item per incident, keyed by run and incident ID,
 with the incident's newest form as JSON plus the fields the notifier and
-the comparison filter on. Its stream feeds the notifier.
+the comparison filter on (``tier`` among them). Its stream feeds the notifier.
 
 The state put is conditional on the stored sequence number being the one
 before the message's, so a message that was already applied cannot be
@@ -305,17 +305,21 @@ def _incident_update(
         },
         "UpdateExpression": (
             "SET deployment_id = :deployment, detector = :detector, "
-            "#status = :status, incident = :incident, seq = :seq, "
+            "#tier = :tier, #status = :status, incident = :incident, seq = :seq, "
             "first_seq = if_not_exists(first_seq, :seq), "
             "first_sent_at = if_not_exists(first_sent_at, :sent), "
             "first_processed_at = if_not_exists(first_processed_at, :processed), "
             "first_stored_at = if_not_exists(first_stored_at, :stored)"
         ),
-        # "status" is a DynamoDB reserved word.
-        "ExpressionAttributeNames": {"#status": "status"},
+        # "status" is a DynamoDB reserved word; "tier" is named the same way
+        # so a reserved-word clash cannot reach a deploy (moto does not check).
+        "ExpressionAttributeNames": {"#status": "status", "#tier": "tier"},
         "ExpressionAttributeValues": {
             ":deployment": {"S": incident.deployment_id},
             ":detector": {"S": incident.detector},
+            # Top level, not only inside the JSON, so the stream filter in
+            # front of the notifier can match it.
+            ":tier": {"S": incident.tier},
             ":status": {"S": incident.status},
             ":incident": {"S": json.dumps(incident.to_dict(), separators=(",", ":"))},
             ":seq": {"N": str(seq)},

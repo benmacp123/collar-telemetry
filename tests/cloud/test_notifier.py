@@ -1,4 +1,4 @@
-"""Tests for the notifier: every ``potential_death`` incident is emailed at
+"""Tests for the notifier: every escalated incident is emailed at
 least once, other incidents never, and a crash at any point cannot lose a
 notification."""
 
@@ -22,7 +22,7 @@ def run_all(aws, notify=None) -> list[str]:
 
 
 def potential_ids() -> set[str]:
-    """IDs of the ``potential_death`` incidents the track should raise.
+    """IDs of the escalated incidents the track should raise.
 
     Returns:
         set[str]: Incident IDs.
@@ -30,7 +30,7 @@ def potential_ids() -> set[str]:
     return {
         key
         for key, incident in expected().items()
-        if incident["detector"] == notifier.NOTIFIED_DETECTOR
+        if incident["tier"] == notifier.NOTIFIED_TIER
     }
 
 
@@ -75,7 +75,7 @@ def test_track_raises_a_potential_death():
 
 
 def test_each_potential_death_is_emailed_once(aws):
-    """One email per ``potential_death`` incident; mortality and gap
+    """One email per escalated incident; watch-tier mortality and gap
     incidents send none."""
     bodies = run_all(aws)
     assert sorted(notified_ids(bodies)) == sorted(potential_ids())
@@ -173,7 +173,7 @@ def test_marked_incident_is_not_sent_again(aws):
 def test_handler_sends_nothing_when_disabled(monkeypatch):
     """Bulk replays run with notification off."""
     monkeypatch.delenv("NOTIFY_ENABLED", raising=False)
-    record = {"dynamodb": {"NewImage": {"detector": {"S": "potential_death"}}}}
+    record = {"dynamodb": {"NewImage": {"tier": {"S": "escalated"}}}}
     assert notifier.handler({"Records": [record]}, None) == {"batchItemFailures": []}
 
 
@@ -197,13 +197,46 @@ def test_failure_reports_the_failed_record(aws):
 
     image = {
         "detector": {"S": "potential_death"},
+        "tier": {"S": "escalated"},
         "run_id": {"S": RUN},
         "incident_id": {"S": "A:potential_death:x"},
         "deployment_id": {"S": "A"},
-        "incident": {"S": "{}"},
+        "incident": {"S": '{"message": "Potential death. x", "detector": "x"}'},
     }
     records = [{"eventID": "1", "dynamodb": {"SequenceNumber": "7", "NewImage": image}}]
     response = notifier.notify_records(
         records, aws["dynamodb"], Broken(), local.TABLES, "arn"
     )
     assert response == {"batchItemFailures": [{"itemIdentifier": "7"}]}
+
+
+def test_subject_is_the_message_headline():
+    """The email subject names the rule from the message's first sentence,
+    so a new escalated rule needs no notifier change."""
+    incident = {"message": "Potential death. Stationary: check. No movement"}
+    assert (
+        notifier._headline(incident) == "Potential death"
+    )  # pylint: disable=protected-access
+
+
+def test_watch_tier_record_is_not_sent():
+    """A watch-tier incident, such as "Stationary: check", never reaches
+    SNS, even with no stream filter in front of the notifier."""
+
+    class NoSend:
+        """SNS client that fails the test if called."""
+
+        def publish(self, **kwargs):
+            """Fail on any publish.
+
+            Args:
+                **kwargs: Ignored.
+
+            Raises:
+                AssertionError: Always.
+            """
+            raise AssertionError(kwargs)
+
+    image = {"detector": {"S": "mortality"}, "tier": {"S": "watch"}}
+    record = {"dynamodb": {"NewImage": image}}
+    assert not notifier.notify_record(record, None, NoSend(), local.TABLES, "arn", None)

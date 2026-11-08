@@ -1,5 +1,11 @@
-"""Notifier Lambda: email ``potential_death`` incidents from the incidents
+"""Notifier Lambda: email escalated-tier incidents from the incidents
 table's stream.
+
+Only the escalated tier is emailed (today that is ``potential_death``);
+watch-tier incidents, such as the "Stationary: check" mortality alert, stay
+in the table for a person to look at. The tier is read from the item, so a
+new escalated rule in the core is emailed with no change here or in the
+Terraform filters.
 
 Notifying from the stream (an outbox), not from the processor, means an
 alert cannot be lost by a crash between saving it and sending it: the
@@ -23,11 +29,12 @@ from functools import lru_cache
 import boto3
 
 from cloud.store import Tables, mark_notified, was_notified
+from telemetry.core.alerts import ESCALATED
 
 LOG = logging.getLogger(__name__)
 LOG.setLevel(logging.INFO)
 
-NOTIFIED_DETECTOR = "potential_death"
+NOTIFIED_TIER = ESCALATED
 
 
 def handler(event: dict, context) -> dict:
@@ -71,7 +78,7 @@ def _topic() -> str:
 def notify_records(
     records: list[dict], dynamodb, sns, tables: Tables, topic: str, clock=None
 ) -> dict:
-    """Notify each new ``potential_death`` incident in a batch of stream records.
+    """Notify each new escalated incident in a batch of stream records.
 
     Args:
         records: DynamoDB stream records, in stream order.
@@ -114,7 +121,7 @@ def notify_record(record: dict, dynamodb, sns, tables: Tables, topic: str, clock
         bool: True if a notification was published.
     """
     image = record["dynamodb"].get("NewImage")
-    if image is None or image.get("detector", {}).get("S") != NOTIFIED_DETECTOR:
+    if image is None or image.get("tier", {}).get("S") != NOTIFIED_TIER:
         return False
     # The mark's own write comes back through the stream with notified_at
     # set; skip it without a read.
@@ -124,16 +131,30 @@ def notify_record(record: dict, dynamodb, sns, tables: Tables, topic: str, clock
     incident_id = image["incident_id"]["S"]
     if was_notified(dynamodb, tables, run_id, incident_id):
         return False
+    incident = json.loads(image["incident"]["S"])
     sns.publish(
         TopicArn=topic,
-        Subject=f"Potential death: {image['deployment_id']['S']}"[:100],
+        Subject=f"{_headline(incident)}: {image['deployment_id']['S']}"[:100],
         Message=_body(image),
         MessageAttributes={
-            "detector": {"DataType": "String", "StringValue": NOTIFIED_DETECTOR}
+            "tier": {"DataType": "String", "StringValue": NOTIFIED_TIER},
+            "detector": {"DataType": "String", "StringValue": incident["detector"]},
         },
     )
     mark_notified(dynamodb, tables, run_id, incident_id, clock())
     return True
+
+
+def _headline(incident: dict) -> str:
+    """The first sentence of an incident's message, for the email subject.
+
+    Args:
+        incident: The incident, as ``Incident.to_dict`` gives it.
+
+    Returns:
+        str: The text before the first full stop, such as "Potential death".
+    """
+    return incident["message"].split(".", 1)[0]
 
 
 def _body(image: dict) -> str:

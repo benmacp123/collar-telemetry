@@ -35,9 +35,20 @@ and whose collar then went quiet (or the other way round). On the vulture
 tuning set 8-17% of potential-death incidents were on real carcasses, against
 1% of mortality incidents (held-out set: 21-36% against 3%). It usually
 comes late, once a carcass collar stops, so it confirms a death rather
-than giving the first warning. It opens when the second of the two opens, and resolves only when the mortality incident does (the animal
-moved): a collar that starts reporting again from the same spot is still
+than giving the first warning. It opens when the second of the two opens,
+and resolves only when the mortality incident does (the animal moved): a collar that starts reporting again from the same spot is still
 a probable carcass.
+
+Every incident belongs to a **tier**, which is what decides who is told.
+The **watch** tier is for a person to look at when convenient: the
+mortality detector's alert is shown as "Stationary: check", since living
+rest is far more common than death and the alert clears itself when the
+animal moves; gap, geofence and movement incidents are watch-tier too.
+The **escalated** tier is emailed, and holds only rules that need evidence
+independent of stillness (so far ``potential_death``, which also needs the
+collar to go quiet). The tier follows from the detector, so stored
+incidents cannot disagree with the rule. The detector keeps the id
+``mortality`` so recorded outputs stay comparable.
 
 Incidents carry two clocks. ``opened_at`` and ``resolved_at`` are evidence
 times (the fix or tick behind the transition); ``raised_at`` and
@@ -61,6 +72,23 @@ GAP = "gap"
 POTENTIAL_DEATH = "potential_death"
 RESOLVED = "resolved"
 LATE_FIX = "late_fix"
+WATCH = "watch"
+ESCALATED = "escalated"
+# Only rules backed by evidence beyond stillness belong here: stillness
+# alone tops out at a few per cent precision on the vulture data.
+ESCALATED_DETECTORS = frozenset({POTENTIAL_DEATH})
+
+
+def tier_of(detector: str) -> str:
+    """The tier a detector's incidents belong to.
+
+    Args:
+        detector: Detector name.
+
+    Returns:
+        str: ``ESCALATED`` for the escalated rules, otherwise ``WATCH``.
+    """
+    return ESCALATED if detector in ESCALATED_DETECTORS else WATCH
 
 
 @dataclass(frozen=True)
@@ -137,16 +165,27 @@ class Incident:
     raised_at: datetime | None = None
     resolve_raised_at: datetime | None = None
 
+    @property
+    def tier(self) -> str:
+        """The incident's tier, from its detector.
+
+        Returns:
+            str: ``WATCH`` or ``ESCALATED``.
+        """
+        return tier_of(self.detector)
+
     def to_dict(self) -> dict:
         """JSON-ready form, for alert files, queues and state.
 
         Returns:
-            dict: The incident's fields, with times as ISO 8601 text.
+            dict: The incident's fields, with times as ISO 8601 text, and
+            its tier.
         """
         return {
             "incident_id": self.incident_id,
             "deployment_id": self.deployment_id,
             "detector": self.detector,
+            "tier": self.tier,
             "status": self.status,
             "opened_at": self.opened_at.isoformat(),
             "message": self.message,
@@ -163,8 +202,8 @@ class Incident:
         """Rebuild an incident saved with ``to_dict``.
 
         Args:
-            data: A dict produced by ``Incident.to_dict``; extra keys are
-                ignored.
+            data: A dict produced by ``Incident.to_dict``; extra keys
+                (``tier``, which is derived) are ignored.
 
         Returns:
             Incident: The equivalent incident.

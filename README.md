@@ -61,13 +61,13 @@ rather than giving the first warning.
 
 ![Share of held-out deaths flagged by deadline, by arrival scenario](results/figures/vultures-scoring-delay.png)
 
-**What changes next.** The mortality alert will stop claiming a death.
-It becomes a self-clearing "stationary: check" watch, with a longer
-window for black vultures chosen on tuning-set load alone, and a
-separate "possible death" tier fires only on evidence independent of
-stillness: first the collar falling silent (today's potential-death
-alert), then body-state sensors such as activity counters where a study
-has them. Numeric targets for each tier are now fixed in
+**What changes next.** The mortality alert no longer claims a death:
+it is now a self-clearing "stationary: check" watch, and only an
+escalated tier, which fires on evidence independent of stillness, is
+emailed. Its first rule is the collar falling silent (the potential-death
+alert); body-state sensors such as activity counters follow where a study
+has them. Next, the watch gets a longer window for black vultures, chosen
+on tuning-set load alone. Numeric targets for each tier are now fixed in
 [`config/experiment.toml`](config/experiment.toml), before anything is
 scored again, and new rules will be validated once on studies not used
 so far: a second vulture study and five white stork populations.
@@ -125,8 +125,9 @@ gap alerts. Method, latency and the deploy steps are in
 **Status:** detection core (mortality, data gap, unusual movement,
 geofence), local replay and evaluation complete. Cloud handlers checked
 end to end against an AWS emulator (moto) and then on AWS, deployed with
-Terraform and destroyed after the run. Next: the two alert tiers above,
-and the stork and second vulture studies to validate them.
+Terraform and destroyed after the run. The two alert tiers are in place;
+next: the black-vulture watch window, and the stork and second vulture
+studies to validate the tiers.
 
 ## How it works
 
@@ -141,7 +142,7 @@ each layer to its own imports.
 ```mermaid
 flowchart TB
     data[("Movebank tracks<br>data/raw/")] --> arrival["Arrival scenarios<br>ideal, GSM, satellite"]
-    core{{"Detection core<br>cleaning, detectors,<br>alert lifecycle"}}
+    core{{"Detection core<br>cleaning, detectors,<br>alert lifecycle and tiers"}}
     experiment[("Experiment definition<br>sets, sweep grid, targets")]
 
     subgraph local ["Local replay runner (every result here)"]
@@ -155,7 +156,7 @@ flowchart TB
         queue -. "repeated failures" .-> dlq["Dead-letter queue"]
         processor --> state[("DynamoDB<br>state")]
         processor --> incidents[("DynamoDB<br>incidents")]
-        incidents -- stream --> notifier["Notifier Lambda"] --> sns["SNS email<br>potential_death only"]
+        incidents -- stream --> notifier["Notifier Lambda"] --> sns["SNS email<br>escalated tier only"]
     end
 
     experiment --> evaluation
@@ -169,12 +170,14 @@ flowchart TB
   late fixes, and a per-species speed filter for impossible jumps.
 - **Detectors**, each with thresholds sourced in
   [`docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md):
-  - *mortality*: no movement beyond a 100 m box for a species window
+  - *mortality*, shown as "Stationary: check": no movement beyond a 100 m
+    box for a species window
     (36 h for vultures: past one night's roost, but not past the
     multi-day rests living vultures often take). Once it has
     alerted, the animal counts as moving again only after two fixes in a
     row more than 75 m from where it lay, so a carcass's scattered fixes
-    do not resolve the alert;
+    do not resolve the alert. It claims only stillness, names rest as the
+    likely reason, and clears itself when the animal moves;
   - *data gap*: a collar silent through hours it is normally on (it
     learns each collar's duty cycle), after allowing for upload delay;
   - *unusual movement*: displacement far outside the animal's own recent
@@ -183,10 +186,13 @@ flowchart TB
     or a keep-out zone. Fixes within 100 m of the boundary are ignored and
     two fixes in a row confirm a crossing, so jitter along a fence line
     does not alert. Built on shapely, projected to metres locally.
-- **Alert lifecycle:** one incident per episode, not one per fix; flaps
-  reopen the same incident; resolves based on late fixes are flagged. A
-  `potential_death` incident is raised while a mortality and a gap incident
-  are open together.
+- **Alert lifecycle and tiers:** one incident per episode, not one per
+  fix; flaps reopen the same incident; resolves based on late fixes are
+  flagged. Every incident has a tier. The *watch* tier (stationary: check,
+  gap, movement, geofence) is for a person to look at; the *escalated*
+  tier is emailed and holds only rules with evidence beyond stillness. Its
+  first rule, `potential_death`, is raised while a mortality and a gap
+  incident are open together.
 - **Cloud runner:** a publisher cuts each collar's replay timeline into
   daily messages on an SQS FIFO queue (one message group per collar, so
   each collar's messages stay in order). A processor Lambda runs each
@@ -195,7 +201,7 @@ flowchart TB
   retried message changes nothing; a message that changes incidents saves
   them in the same transaction. A
   notifier Lambda reads the incidents table's stream and emails
-  `potential_death` incidents through SNS: at least once, never lost to a
+  escalated-tier incidents through SNS: at least once, never lost to a
   crash between saving and sending. For live use, a scheduled clock
   Lambda (deployed disabled) ticks every collar so a silent one still
   raises its gap alert.

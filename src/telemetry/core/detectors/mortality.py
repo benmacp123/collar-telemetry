@@ -30,8 +30,12 @@ living rest has a long tail: tuning-set vultures stay still past 36 h
 about 0.6 times per animal-month and past a week about 0.03 times, far
 more often than carcasses appear (``results/stillness/STILLNESS.md``).
 No window clears all normal rest, so ``window`` trades false alerts
-against detection delay rather than separating the two. A tag that falls off also looks the same, so the
-alert says "possible mortality or dropped tag".
+against detection delay rather than separating the two. A tag that falls
+off also looks the same. So the alert claims only what it saw: it is the
+watch tier's "Stationary: check", naming rest as the likely reason and
+death or a dropped tag as the ones to rule out, and it clears itself when
+the animal moves. Escalation needs independent evidence and lives in the
+alert lifecycle (``potential_death``), not here.
 
 Distances use the bounding box's corners, so the detector assumes tracks
 do not cross the antimeridian.
@@ -274,10 +278,13 @@ class MortalityDetector:
         lon = cluster["sum_lon"] / cluster["n"]
         if self.config.leave_radius_m is not None:
             state["anchor"] = [lat, lon]
+        # No closing full stop: potential_death joins this message to the
+        # gap's with ". ".
         message = (
-            f"Possible mortality or dropped tag: no movement beyond "
+            f"Stationary: check. No movement beyond "
             f"{self.config.max_extent_m:.0f} m for "
             f"{(last - start) / timedelta(hours=1):.0f} h ({cluster['n']} fixes) "
-            f"near {lat:.5f}, {lon:.5f}; still since {start:%Y-%m-%d %H:%M} UTC"
+            f"near {lat:.5f}, {lon:.5f}; still since {start:%Y-%m-%d %H:%M} UTC. "
+            f"Often rest; could be a death or a dropped tag"
         )
         return [Alert(deployment_id, self.name, last, message)]

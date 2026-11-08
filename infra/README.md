@@ -15,7 +15,7 @@ deploy, with the first's where the change matters.
 publisher -> SQS FIFO -> processor Lambda -> DynamoDB (state, incidents)
              (group =                         |
               collar)                         stream -> notifier Lambda -> SNS email
-                ^                                                          (potential_death only)
+                ^                                                          (escalated tier only)
                 |
 EventBridge Scheduler -> clock Lambda (live mode only; deployed disabled)
 ```
@@ -106,14 +106,16 @@ emulation only.
   retention, so `destroy` removes them) and the two triggers, both with
   `ReportBatchItemFailures`. The queue trigger is capped at
   `processor_concurrency` instances. The stream trigger passes only
-  `potential_death` items.
+  escalated-tier items (`tier = escalated`, today `potential_death`); the
+  deployed runs above predate the tier and filtered on
+  `detector = potential_death`, which passed the same items.
 - `clock.tf`: the clock Lambda, its role (scan state, send to the
   queue), the scheduler's role (invoke the clock only) and the schedule,
   disabled unless `clock_enabled = true`. Schedules take no tags, so
   `cloud-leftovers` checks for it by name.
 - `iam.tf`: one role per handler, allowed only the calls its code makes.
 - `alerts.tf`: the SNS topic, an email subscription filtered to
-  `potential_death`, and an account-wide AWS Budgets alarm (default $5).
+  the escalated tier, and an account-wide AWS Budgets alarm (default $5).
 
 State is local and git-ignored, as are `terraform.tfvars` and plan files.
 Copy `terraform.tfvars.example` to `terraform.tfvars` and set

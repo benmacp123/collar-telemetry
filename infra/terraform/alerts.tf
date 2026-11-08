@@ -4,13 +4,13 @@ resource "aws_sns_topic" "alerts" {
   name = "${var.name_prefix}-alerts"
 }
 
-# The notifier only publishes potential_death, but the filter keeps the email
-# to that detector even if it later publishes more.
+# The notifier only publishes the escalated tier; the filter keeps the email
+# to it even if the notifier later publishes more.
 resource "aws_sns_topic_subscription" "email" {
   topic_arn     = aws_sns_topic.alerts.arn
   protocol      = "email"
   endpoint      = var.alert_email
-  filter_policy = jsonencode({ detector = ["potential_death"] })
+  filter_policy = jsonencode({ tier = ["escalated"] })
 }
 
 # Account-wide rather than filtered by tag, so it also catches anything

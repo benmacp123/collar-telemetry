@@ -83,12 +83,14 @@ def test_environment_matches_what_the_handlers_read():
     assert boundaries == f"/var/task/{_lambda_zip().SOURCES['data/raw/boundaries']}"
 
 
-def test_filters_pass_the_notified_detector():
+def test_filters_pass_the_notified_tier():
     """The stream trigger and the email subscription both filter on the
-    detector the notifier publishes."""
+    tier the notifier publishes, not on a detector name."""
     text = _terraform()
-    assert f'S = ["{notifier.NOTIFIED_DETECTOR}"]' in text
-    assert f'detector = ["{notifier.NOTIFIED_DETECTOR}"]' in text
+    assert f'tier = {{ S = ["{notifier.NOTIFIED_TIER}"] }}' in text
+    assert f'jsonencode({{ tier = ["{notifier.NOTIFIED_TIER}"] }})' in text
+    assert "detector = {" not in text
+    assert 'detector = ["' not in text
 
 
 def test_cost_report_uses_the_deployed_memory_and_names():

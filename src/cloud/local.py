@@ -21,7 +21,7 @@ from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from datetime import datetime
 
-from telemetry.core.alerts import Incident
+from telemetry.core.alerts import ESCALATED, Incident
 
 from cloud.messages import Message
 from cloud.publisher import publish
@@ -62,7 +62,7 @@ def create_resources(sqs, dynamodb, sns, visibility_seconds: int = 5) -> Resourc
     Mirrors the Terraform: a FIFO queue without content-based
     deduplication (the publisher sets IDs), on-demand tables, a
     ``NEW_AND_OLD_IMAGES`` stream on the incidents table, and a topic with
-    a ``potential_death`` filter on its subscription.
+    an escalated-tier filter on its subscription.
 
     Args:
         sqs: A boto3 SQS client.
@@ -115,7 +115,7 @@ def create_resources(sqs, dynamodb, sns, visibility_seconds: int = 5) -> Resourc
         Endpoint=notifications_arn,
         Attributes={
             "RawMessageDelivery": "true",
-            "FilterPolicy": json.dumps({"detector": ["potential_death"]}),
+            "FilterPolicy": json.dumps({"tier": [ESCALATED]}),
         },
     )
     return Resources(queue_url, stream_arn, topic_arn, notifications_url)

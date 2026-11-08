@@ -139,7 +139,7 @@ tf-plan: lambda-zip ## terraform plan against your AWS account (needs Docker, cr
 	$(TF) init -input=false
 	$(TF_AWS) $(TF_IMAGE) plan -out=tfplan
 
-tf-apply: lambda-zip ## Deploy; NOTIFY=true sends potential_death emails (needs Docker, credentials)
+tf-apply: lambda-zip ## Deploy; NOTIFY=true emails escalated alerts (needs Docker, credentials)
 	$(TF) init -input=false
 	$(TF_AWS) -it $(TF_IMAGE) apply -var notify_enabled=$(NOTIFY)
 	$(MAKE) tf-output

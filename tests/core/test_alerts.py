@@ -4,8 +4,10 @@ import json
 from datetime import datetime, timedelta, timezone
 
 from telemetry.core.alerts import (
+    ESCALATED,
     POTENTIAL_DEATH,
     LATE_FIX,
+    WATCH,
     OPEN,
     RESOLVED,
     Alert,
@@ -13,7 +15,12 @@ from telemetry.core.alerts import (
     Incident,
     LifecycleConfig,
     open_incidents,
+    tier_of,
 )
+from telemetry.core.detectors.gap import GapDetector
+from telemetry.core.detectors.geofence import GeofenceDetector
+from telemetry.core.detectors.mortality import MortalityDetector
+from telemetry.core.detectors.movement import MovementDetector
 
 START = datetime(2016, 4, 19, tzinfo=timezone.utc)
 HOUR = timedelta(hours=1)
@@ -194,3 +201,66 @@ def test_raised_times_are_empty_without_a_clock():
     """Without ``now`` the raised times stay unrecorded, not guessed."""
     [incident] = lifecycle().apply({}, [opened(0)])
     assert incident.raised_at is None
+
+
+def test_watch_tier_clears_on_movement():
+    """The stationary watch opens and resolves as watch tier, clearing
+    itself when the animal moves."""
+    life, state = lifecycle(), {}
+    (opening,) = life.apply(state, [opened(0)])
+    (closing,) = life.apply(state, [resolved(40)])
+    assert (opening.tier, opening.status) == (WATCH, OPEN)
+    assert (closing.tier, closing.status, closing.resolution) == (
+        WATCH,
+        RESOLVED,
+        "moved",
+    )
+    assert not open_incidents(state)
+
+
+def test_stillness_alone_never_escalates():
+    """However long or often an animal is still, with no gap there is no
+    escalated incident."""
+    life, state = lifecycle(mortality=48), {}
+    events = []
+    for start in range(0, 2000, 100):
+        events += life.apply(state, [opened(start), resolved(start + 90)])
+    events += life.apply(state, [opened(5000)])
+    assert events
+    assert {e.tier for e in events} == {WATCH}
+
+
+def test_escalation_needs_the_independent_gap():
+    """Stillness plus a silent collar raises one escalated incident, and it
+    is the potential-death rule."""
+    life, state = lifecycle(), {}
+    events = life.apply(state, [opened(0), opened(5, "gap")])
+    assert [(e.detector, e.tier) for e in events] == [
+        ("mortality", WATCH),
+        ("gap", WATCH),
+        (POTENTIAL_DEATH, ESCALATED),
+    ]
+
+
+def test_only_potential_death_is_escalated():
+    """Every detector's own alerts are watch tier; only the linked rule is
+    escalated."""
+    for detector in (
+        MortalityDetector,
+        GapDetector,
+        MovementDetector,
+        GeofenceDetector,
+    ):
+        assert tier_of(detector.name) == WATCH
+    assert tier_of(POTENTIAL_DEATH) == ESCALATED
+
+
+def test_tier_is_saved_and_derived_on_load():
+    """The saved form carries the tier, and a reloaded incident derives the
+    same tier from its detector."""
+    life, state = lifecycle(), {}
+    events = life.apply(state, [opened(0), opened(5, "gap")])
+    for event in events:
+        saved = json.loads(json.dumps(event.to_dict()))
+        assert saved["tier"] == event.tier
+        assert Incident.from_dict(saved).tier == event.tier
