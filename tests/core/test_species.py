@@ -5,6 +5,7 @@ from datetime import timedelta
 import pytest
 
 from telemetry.core.alerts import default_merge_within
+from telemetry.core.pipeline import Overrides
 from telemetry.core.species import PROFILES, profile_for
 
 
@@ -29,6 +30,23 @@ def test_cleaning_config_carries_species_limits():
 
 
 def test_mortality_merge_window_exceeds_every_species_window():
-    """A reopen can only merge if the merge window outlasts the detector window."""
-    merge = default_merge_within()["mortality"]
-    assert all(p.mortality.window < merge for p in PROFILES.values())
+    """A reopen can only merge if each species' merge window outlasts its
+    detector window, a longer black-vulture window included."""
+    for profile in PROFILES.values():
+        merge = Overrides().lifecycle(profile).config.merge_within["mortality"]
+        assert profile.mortality.window < merge
+        assert merge >= default_merge_within()["mortality"]
+
+
+def test_each_species_window_is_pinned():
+    """Each species' mortality window, black vultures kept at 36 h by step 2.4."""
+    hours = {
+        taxon: profile.mortality.window / timedelta(hours=1)
+        for taxon, profile in PROFILES.items()
+    }
+    assert hours == {
+        "Cathartes aura": 36.0,
+        "Coragyps atratus": 36.0,
+        "Canis mesomelas": 24.0,
+        "Loxodonta africana": 12.0,
+    }

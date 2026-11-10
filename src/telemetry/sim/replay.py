@@ -161,14 +161,15 @@ def replay(
         KeyError: If a deployment's taxon has no species profile.
     """
     overrides = overrides or Overrides()
-    lifecycle = overrides.lifecycle()
     streams: dict[str, FixStream] = {}
     latest: dict[str, Incident] = {}
     arrived = 0
     for timeline in timelines(deployments, fixes, scenario, seed):
         deployment = timeline.deployment
         arrived += len(timeline.arrivals)
-        stream = stream_for(deployment.taxon, scenario, overrides, fence, lifecycle)
+        # Each stream builds its own lifecycle, since the merge window
+        # follows the species' mortality window.
+        stream = stream_for(deployment.taxon, scenario, overrides, fence)
         streams[deployment.deployment_id] = stream
         # Keep only the newest state of each incident.
         for incident in stream.advance(

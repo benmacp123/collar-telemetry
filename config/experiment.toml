@@ -98,6 +98,21 @@ mortality_windows_hours = [24.0, 36.0, 48.0, 72.0, 96.0, 120.0]
 mortality_boxes_m = [100.0, 150.0, 200.0, 300.0]
 upload_margins_hours = [6.0, 12.0, 24.0, 36.0, 48.0]
 
+# Step 2.4: one species' window swept on its own, every other species at its
+# own window (turkey vultures 36 h). Black vultures raise 378 of 409 tuning
+# false alerts. The points between 36 and 48 h were added after the uniform
+# rows above showed load meeting its target only past 36 h and clear time
+# missing its target by 48 h, so that a window between them can be found.
+#
+# Decision rule, fixed before this sweep was first run: the shortest window at
+# which the whole tuning set meets both the watch load and the clear-time
+# targets under the study's scenario. Carcass detection is reported beside it
+# but not chosen on (too few carcasses per species). If no window meets both,
+# the window stays 36 h and the miss is reported; no target is relaxed.
+[sweep.species]
+taxon = "Coragyps atratus"
+windows_hours = [36.0, 39.0, 42.0, 45.0, 48.0, 60.0, 72.0, 96.0, 120.0]
+
 # How far false alerts must fall for a precision target to be possible. At
 # base rate b and precision p, false alerts per animal-month can be at most
 # b * (1 - p) / p. 33% is the measured precision that about 5 true alerts need

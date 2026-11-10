@@ -72,6 +72,10 @@ def test_every_analysis_reads_the_same_file(tmp_path):
             "mortality_boxes_m = [100.0, 150.0, 200.0, 300.0]",
             "mortality_boxes_m = [100.0]",
         ),
+        (
+            "windows_hours = [36.0, 39.0, 42.0, 45.0, 48.0, 60.0, 72.0, 96.0, 120.0]",
+            "windows_hours = [36.0, 48.0]",
+        ),
         ('"Cathartes aura" = 24.0', '"Cathartes aura" = 30.0'),
         ("bootstrap_resamples = 5000", "bootstrap_resamples = 7"),
         ("at_most = 3.0", "at_most = 4.0"),
@@ -88,7 +92,7 @@ def test_every_analysis_reads_the_same_file(tmp_path):
         text=True,
         env=env,
     ).stdout.split()
-    assert output == ["11", "scoring", "30.0", "7", "4.0"]
+    assert output == ["13", "scoring", "30.0", "7", "4.0"]
 
 
 def test_committed_values_are_the_settled_targets():

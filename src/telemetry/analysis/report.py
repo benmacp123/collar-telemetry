@@ -7,6 +7,13 @@ dependency, and from the detection core, which the Lambda handlers load.
 from pathlib import Path
 
 from telemetry.analysis.evaluation import TAG_EVENT
+from telemetry.analysis.sweep import (
+    CHOSEN_ON,
+    WATCH_FIELDS,
+    meets_chosen_on,
+    species_choice,
+    species_rows,
+)
 from telemetry.analysis.experiment import (
     BIRDS,
     CLEAR_HOURS,
@@ -987,13 +994,7 @@ def _sweep_measured(target: Target, row: dict) -> float | None:
     Returns:
         float | None: The value in the metric's own unit.
     """
-    return row.get(
-        {
-            LOAD: "mortality_per_animal_month",
-            CLEAR_HOURS: "mortality_clear_median_hours",
-            RATE_AT_MARK: "carcass_rate_at_mark",
-        }[target.metric]
-    )
+    return row.get(WATCH_FIELDS[target.metric])
 
 
 def _sweep_target_lines(report: dict, by_setting: dict) -> list[str]:
@@ -1040,6 +1041,102 @@ def _sweep_target_lines(report: dict, by_setting: dict) -> list[str]:
             f"| {window:g} | {box:g} | {' | '.join(cells)} | "
             f"{_precision_cell(row.get('mortality_ceiling'))} | {verdict} |"
         )
+    return lines
+
+
+def _carcasses_at_mark(scores: dict) -> str:
+    """Carcass deaths flagged by the mark, as a count.
+
+    Args:
+        scores: A sweep row or one taxon's part of it.
+
+    Returns:
+        str: ``n of m``, or an en dash if there are no carcass deaths.
+    """
+    deaths, rate = scores["carcass_deaths"], scores["carcass_rate_at_mark"]
+    if not deaths or rate is None:
+        return "–"
+    return f"{round(rate * deaths)} of {deaths}"
+
+
+def _species_lines(report: dict) -> list[str]:
+    """One species' window swept on its own, against the watch targets.
+
+    Args:
+        report: The sweep report.
+
+    Returns:
+        list[str]: The section's lines, or none if the sweep has no species
+        rows or the study's scenario is not named.
+    """
+    settings = experiment()
+    kind = settings.set_kind(report.get("study"), report.get("set"))
+    scenario = settings.scenario(report.get("study"))
+    pairs = species_rows(report["rows"], scenario) if scenario else []
+    if kind is None or not pairs:
+        return []
+    taxon = settings.species_taxon
+    watch = settings.targets_for("mortality")
+    headers = " | ".join(f"{METRIC_NAMES[t.metric]} (target)" for t in watch)
+    chosen_on = " and ".join(
+        METRIC_NAMES[t.metric].lower() for t in watch if t.metric in CHOSEN_ON
+    )
+    others = sorted(set(pairs[0][1]["by_taxon"]) - {taxon})
+    lines = [
+        "",
+        f"## *{taxon}* window on its own",
+        "",
+        f"Every other species keeps its own window ({', '.join(f'*{o}*' for o in others)}). "
+        "Each deployment runs on its own, so a species' columns depend only "
+        "on its own window. The whole-set columns are the ones the watch "
+        f"targets judge, under {SCENARIO_LABELS[scenario].lower()} uploads. "
+        "The rule, fixed in `config/experiment.toml` before this sweep was "
+        f"first run: the shortest window meeting {chosen_on}. Carcasses "
+        "flagged by the mark are reported, not chosen on: there are too few "
+        "per species.",
+        "",
+        f"| Window (h) | {headers} | Meets {chosen_on} "
+        f"| *{taxon}* load | *{taxon}* clear (h) | *{taxon}* false alerts "
+        f"| *{taxon}* carcasses by the mark | Others' load | Others' clear (h) |",
+        "|---|" + "---|" * (len(watch) + 7),
+    ]
+    for window, row in pairs:
+        cells = [
+            f"{_measure_cell(t, _sweep_measured(t, row))} ({t.limit_text()})"
+            for t in watch
+        ]
+        own = row["by_taxon"][taxon]
+        rest = [row["by_taxon"][o] for o in others]
+        rest_months = sum(r["animal_months"] for r in rest)
+        rest_load = (
+            sum(r["mortality_per_animal_month"] * r["animal_months"] for r in rest)
+            / rest_months
+            if rest_months
+            else None
+        )
+        # Medians cannot be pooled, so with several other species only
+        # each one's own is meaningful; one other species is the usual case.
+        rest_clear = (
+            _cell(rest[0]["mortality_clear_median_hours"], 1) if len(rest) == 1 else "–"
+        )
+        lines.append(
+            f"| {window:g} | {' | '.join(cells)} | "
+            f"{'yes' if meets_chosen_on(row) else 'no'} | "
+            f"{_cell(own['mortality_per_animal_month'], 3)} | "
+            f"{_cell(own['mortality_clear_median_hours'], 1)} | "
+            f"{own['mortality_false']} | {_carcasses_at_mark(own)} | "
+            f"{_cell(rest_load, 3)} | {rest_clear} |"
+        )
+    choice = species_choice(report["rows"], scenario)
+    lines += [
+        "",
+        (
+            f"**Chosen by the rule: {choice:g} h.**"
+            if choice is not None
+            else f"**No window meets {chosen_on} together**, so by the rule "
+            "the window stays at 36 h. No target is relaxed."
+        ),
+    ]
     return lines
 
 
@@ -1133,6 +1230,7 @@ def sweep_markdown(report: dict) -> str:
             f"{_precision_cell(ideal.get('gap_precision'))} |"
         )
     lines += _sweep_target_lines(report, by_setting)
+    lines += _species_lines(report)
     lines += [
         "",
         "## Gap detector",
@@ -1185,6 +1283,10 @@ def write_sweep(report: dict, markdown_path: Path, figures: Path) -> None:
     figure = _sweep_figure(pyplot, report)
     _save(figure, figures / f"sweep-{report['study']}-{report['set']}.png")
     pyplot.close(figure)
+    figure = _species_figure(pyplot, report)
+    if figure is not None:
+        _save(figure, figures / f"sweep-{report['study']}-{report['set']}-species.png")
+        pyplot.close(figure)
 
 
 def departure_markdown(report: dict) -> str:
@@ -1329,6 +1431,78 @@ def write_departure(report: dict, markdown_path: Path) -> None:
         markdown_path: Output Markdown file.
     """
     markdown_path.write_text(departure_markdown(report), encoding="utf-8")
+
+
+def _species_figure(pyplot, report: dict):
+    """The species window against each watch target, one panel per target.
+
+    Args:
+        pyplot: ``matplotlib.pyplot``.
+        report: Sweep report.
+
+    Returns:
+        matplotlib.figure.Figure | None: Whole-set load, clear time and
+        carcasses flagged by the mark against the swept species' window,
+        each with its target as a dashed line and the species' own value
+        beside the whole set's; None if the sweep has no species rows.
+    """
+    settings = experiment()
+    scenario = settings.scenario(report.get("study"))
+    pairs = species_rows(report["rows"], scenario) if scenario else []
+    if not pairs:
+        return None
+    taxon = settings.species_taxon
+    windows = [w for w, _ in pairs]
+    watch = settings.targets_for("mortality")
+    figure, axes = pyplot.subplots(1, len(watch), figsize=(13, 3.8))
+    for ax, target in zip(axes, watch):
+        field = WATCH_FIELDS[target.metric]
+        series = (
+            ("Whole tuning set", [row.get(field) for _, row in pairs]),
+            (
+                f"{taxon} only",
+                [row["by_taxon"][taxon].get(field) for _, row in pairs],
+            ),
+        )
+        for index, (label, ys) in enumerate(series):
+            ax.plot(
+                windows,
+                [float("nan") if y is None else y for y in ys],
+                color=SERIES[index],
+                linestyle=LINE_STYLES[index],
+                linewidth=2,
+                marker="o",
+                markersize=5,
+                label=label,
+            )
+        ax.axhline(
+            target.limit,
+            color=INK_SECONDARY,
+            linestyle="--",
+            linewidth=1,
+            label=f"Target: {target.limit_text()}",
+        )
+        ax.set_title(METRIC_NAMES[target.metric])
+        ax.set_xlabel(f"{taxon} window (h)")
+        if target.metric == RATE_AT_MARK:
+            ax.yaxis.set_major_formatter(matplotlib_percent())
+        # The detection lines are flat, so "best" can land on the target line.
+        ax.legend(
+            loc="center right" if target.metric == RATE_AT_MARK else "best",
+            fontsize=8,
+        )
+    axes[0].set_ylabel("Per animal-month")
+    axes[1].set_ylabel("Median hours, living birds")
+    axes[2].set_ylabel("Share of carcasses")
+    figure.suptitle(
+        f"Watch targets by {taxon} window, others at their own; "
+        f"{SCENARIO_LABELS[scenario].lower()} uploads",
+        x=0.01,
+        ha="left",
+        fontsize=11,
+    )
+    figure.tight_layout()
+    return figure
 
 
 def _sweep_figure(pyplot, report: dict):

@@ -8,16 +8,36 @@ defaults. Each setting is scored with ``telemetry.analysis.evaluation`` so its
 false-alarm rate, detection and precision (with intervals and the
 base-rate ceiling) can be set side by side.
 
+A third sweep varies one species' window with every other species at its
+own (step 2.4, black vultures). Each deployment runs its own stream, so
+a species' rows depend only on its own window; the whole-set rows are what
+the watch targets judge. Mortality rows are also broken down by species.
+
 Only tuning-set deployments are passed in, so scoring-set tracks are never
 replayed while thresholds are chosen.
 """
 
 from telemetry.sim.arrival import ArrivalScenario
 from telemetry.analysis.evaluation import Truth, evaluate
-from telemetry.analysis.experiment import experiment
+from telemetry.analysis.experiment import (
+    CLEAR_HOURS,
+    LOAD,
+    RATE_AT_MARK,
+    experiment,
+)
 from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.pipeline import Overrides
 from telemetry.sim.replay import DEFAULT_SEED, replay
+
+# The sweep row field holding each watch target's measure.
+WATCH_FIELDS = {
+    LOAD: "mortality_per_animal_month",
+    CLEAR_HOURS: "mortality_clear_median_hours",
+    RATE_AT_MARK: "carcass_rate_at_mark",
+}
+# The watch targets the species window is chosen on; carcass detection is
+# reported beside them, not chosen on.
+CHOSEN_ON = (LOAD, CLEAR_HOURS)
 
 
 def grid() -> list[tuple[str, Overrides]]:
@@ -25,7 +45,8 @@ def grid() -> list[tuple[str, Overrides]]:
 
     Returns:
         list[tuple[str, Overrides]]: ("mortality", ...) for every window and
-        box, then ("gap", ...) for every upload margin.
+        box, then ("gap", ...) for every upload margin, then ("species",
+        ...) for every window of the species swept on its own.
     """
     settings = experiment()
     points = [
@@ -36,7 +57,46 @@ def grid() -> list[tuple[str, Overrides]]:
     points += [
         ("gap", Overrides(upload_margin=margin)) for margin in settings.upload_margins
     ]
+    points += [
+        ("species", Overrides(species_windows=((settings.species_taxon, window),)))
+        for window in settings.species_windows
+    ]
     return points
+
+
+def by_taxon(
+    truths: list[Truth], incidents: list, mark_hours: float
+) -> dict[str, dict]:
+    """The watch measures for each species on its own.
+
+    Args:
+        truths: The deployments scored.
+        incidents: Every incident the replay raised.
+        mark_hours: Reference deadline for the detection rate.
+
+    Returns:
+        dict[str, dict]: By taxon: deployments, animal-months, mortality
+        load, false alerts, median clear time and carcass detection.
+    """
+    out = {}
+    for taxon in sorted({t.taxon for t in truths}):
+        scores = evaluate(
+            [t for t in truths if t.taxon == taxon], incidents, mark_hours
+        )
+        mortality = scores["mortality"]
+        out[taxon] = {
+            "deployments": scores["deployments"],
+            "animal_months": scores["animal_months"],
+            "mortality_per_animal_month": scores["load"]
+            .get("mortality", {})
+            .get("per_animal_month", 0.0),
+            "mortality_false": scores["mortality_clear"]["false"],
+            "mortality_clear_median_hours": scores["mortality_clear"]["median_hours"],
+            "carcass_deaths": mortality["deaths"],
+            "carcass_detected": mortality["detected"],
+            "carcass_rate_at_mark": mortality["rate_at_mark"],
+        }
+    return out
 
 
 def sweep_point(
@@ -55,12 +115,13 @@ def sweep_point(
         fixes: Their fixes.
         truths: Their truth records.
         scenario: The upload pattern.
-        swept: Which detector the setting varies, "mortality" or "gap".
+        swept: What the setting varies: "mortality", "gap" or "species".
         overrides: The setting.
         mark_hours: Reference deadline for the mortality detection rate.
 
     Returns:
-        dict: The setting and its headline scores, JSON-ready.
+        dict: The setting and its headline scores, JSON-ready; mortality
+        and species rows also carry them by taxon.
     """
     result = replay(deployments, fixes, scenario, DEFAULT_SEED, overrides=overrides)
     scores = evaluate(truths, result.incidents, mark_hours)
@@ -122,4 +183,70 @@ def sweep_point(
             ),
             default=None,
         ),
+        **(
+            {"by_taxon": by_taxon(truths, result.incidents, mark_hours)}
+            if swept != "gap"
+            else {}
+        ),
     }
+
+
+def species_rows(rows: list[dict], scenario: str) -> list[tuple[float, dict]]:
+    """The species sweep's rows under one scenario, shortest window first.
+
+    Args:
+        rows: Every sweep row.
+        scenario: The scenario name.
+
+    Returns:
+        list[tuple[float, dict]]: (window in hours, row) pairs.
+    """
+    taxon = experiment().species_taxon
+    return sorted(
+        (
+            (row["species_windows_hours"][taxon], row)
+            for row in rows
+            if row["swept"] == "species" and row["scenario"] == scenario
+        ),
+        key=lambda pair: pair[0],
+    )
+
+
+def meets_chosen_on(row: dict) -> bool:
+    """Whether a row meets every watch target the window is chosen on.
+
+    Args:
+        row: A sweep row, scored on the whole set.
+
+    Returns:
+        bool: True if load and clear time both meet their targets.
+    """
+    targets = [
+        t for t in experiment().targets_for("mortality") if t.metric in CHOSEN_ON
+    ]
+    values = [row.get(WATCH_FIELDS[t.metric]) for t in targets]
+    return all(v is not None and t.met(v) for t, v in zip(targets, values))
+
+
+def species_choice(rows: list[dict], scenario: str) -> float | None:
+    """The species window chosen by the rule in the experiment file.
+
+    The shortest window at which the whole set meets the load and clear-time
+    watch targets, since a shorter window flags carcasses sooner.
+
+    Args:
+        rows: Every sweep row.
+        scenario: The study's scenario, the one targets are judged under.
+
+    Returns:
+        float | None: The window in hours, or None if no window meets both
+        (the rule then keeps 36 h).
+    """
+    return next(
+        (
+            window
+            for window, row in species_rows(rows, scenario)
+            if meets_chosen_on(row)
+        ),
+        None,
+    )

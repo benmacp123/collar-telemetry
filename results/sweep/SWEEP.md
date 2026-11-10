@@ -95,6 +95,24 @@ Fixed in advance in `config/experiment.toml`; judged under satellite, daily uplo
 | 96 | 300 | 0.173 (at most 0.435) | 38.0 h (at most 12 h) | 16.7% (at least 80%) | 4.8% | missed: median time to clear on living birds, carcasses flagged by the mark |
 | 120 | 300 | 0.134 (at most 0.435) | 43.5 h (at most 12 h) | 16.7% (at least 80%) | 6.1% | missed: median time to clear on living birds, carcasses flagged by the mark |
 
+## *Coragyps atratus* window on its own
+
+Every other species keeps its own window (*Cathartes aura*). Each deployment runs on its own, so a species' columns depend only on its own window. The whole-set columns are the ones the watch targets judge, under satellite, daily uploads. The rule, fixed in `config/experiment.toml` before this sweep was first run: the shortest window meeting load and median time to clear on living birds. Carcasses flagged by the mark are reported, not chosen on: there are too few per species.
+
+| Window (h) | Load (target) | Median time to clear on living birds (target) | Carcasses flagged by the mark (target) | Meets load and median time to clear on living birds | *Coragyps atratus* load | *Coragyps atratus* clear (h) | *Coragyps atratus* false alerts | *Coragyps atratus* carcasses by the mark | Others' load | Others' clear (h) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 36 | 0.586 (at most 0.435) | 8.0 h (at most 12 h) | 66.7% (at least 80%) | no | 0.712 | 8.0 | 372 | 1 of 2 | 0.201 | 5.0 |
+| 39 | 0.500 (at most 0.435) | 8.0 h (at most 12 h) | 66.7% (at least 80%) | no | 0.598 | 8.0 | 313 | 1 of 2 | 0.201 | 5.0 |
+| 42 | 0.400 (at most 0.435) | 17.0 h (at most 12 h) | 66.7% (at least 80%) | no | 0.465 | 20.0 | 243 | 1 of 2 | 0.201 | 5.0 |
+| 45 | 0.316 (at most 0.435) | 22.0 h (at most 12 h) | 66.7% (at least 80%) | no | 0.353 | 23.0 | 184 | 1 of 2 | 0.201 | 5.0 |
+| 48 | 0.258 (at most 0.435) | 21.0 h (at most 12 h) | 66.7% (at least 80%) | no | 0.277 | 23.5 | 144 | 1 of 2 | 0.201 | 5.0 |
+| 60 | 0.211 (at most 0.435) | 13.5 h (at most 12 h) | 66.7% (at least 80%) | no | 0.215 | 25.0 | 111 | 1 of 2 | 0.201 | 5.0 |
+| 72 | 0.141 (at most 0.435) | 28.0 h (at most 12 h) | 66.7% (at least 80%) | no | 0.121 | 46.0 | 61 | 1 of 2 | 0.201 | 5.0 |
+| 96 | 0.113 (at most 0.435) | 19.0 h (at most 12 h) | 66.7% (at least 80%) | no | 0.084 | 41.0 | 41 | 1 of 2 | 0.201 | 5.0 |
+| 120 | 0.096 (at most 0.435) | 14.0 h (at most 12 h) | 66.7% (at least 80%) | no | 0.062 | 44.5 | 28 | 1 of 2 | 0.201 | 5.0 |
+
+**No window meets load and median time to clear on living birds together**, so by the rule the window stays at 36 h. No target is relaxed.
+
 ## Gap detector
 
 Silence allowed beyond the upload interval (ideal arrival has none). Mortality settings at their defaults. Delays are on deaths without a carcass period, from the last fix. Gap alerts are a baseline, so they have no target of their own.

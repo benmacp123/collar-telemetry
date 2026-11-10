@@ -46,7 +46,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.31,
+          "mortality_false": 50,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.123,
+          "mortality_false": 593,
+          "mortality_clear_median_hours": 18.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -90,7 +112,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.31,
+          "mortality_false": 50,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.123,
+          "mortality_false": 593,
+          "mortality_clear_median_hours": 18.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -134,7 +178,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.31,
+          "mortality_false": 50,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.123,
+          "mortality_false": 593,
+          "mortality_clear_median_hours": 18.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -178,7 +244,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.31,
+          "mortality_false": 50,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.127,
+          "mortality_false": 595,
+          "mortality_clear_median_hours": 19.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -222,7 +310,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.712,
+          "mortality_false": 372,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -266,7 +376,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.712,
+          "mortality_false": 372,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -310,7 +442,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.712,
+          "mortality_false": 372,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -354,7 +508,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.712,
+          "mortality_false": 372,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -398,7 +574,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.075,
+          "mortality_false": 10,
+          "mortality_clear_median_hours": 40.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.277,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 23.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -442,7 +640,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.075,
+          "mortality_false": 10,
+          "mortality_clear_median_hours": 40.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.277,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 23.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -486,7 +706,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.075,
+          "mortality_false": 10,
+          "mortality_clear_median_hours": 40.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.277,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 23.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -530,7 +772,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.075,
+          "mortality_false": 10,
+          "mortality_clear_median_hours": 40.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.279,
+          "mortality_false": 145,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -574,7 +838,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 5,
+          "mortality_clear_median_hours": 48.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.121,
+          "mortality_false": 61,
+          "mortality_clear_median_hours": 46.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -618,7 +904,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 5,
+          "mortality_clear_median_hours": 48.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.25
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.121,
+          "mortality_false": 61,
+          "mortality_clear_median_hours": 46.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -662,7 +970,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 5,
+          "mortality_clear_median_hours": 48.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.25
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.121,
+          "mortality_false": 61,
+          "mortality_clear_median_hours": 46.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -706,7 +1036,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 5,
+          "mortality_clear_median_hours": 48.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.121,
+          "mortality_false": 61,
+          "mortality_clear_median_hours": 46.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -750,7 +1102,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.017,
+          "mortality_false": 2,
+          "mortality_clear_median_hours": 26.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.084,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -794,7 +1168,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.017,
+          "mortality_false": 2,
+          "mortality_clear_median_hours": 26.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.084,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -838,7 +1234,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.017,
+          "mortality_false": 2,
+          "mortality_clear_median_hours": 26.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.084,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -882,7 +1300,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.017,
+          "mortality_false": 2,
+          "mortality_clear_median_hours": 26.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.084,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -926,7 +1366,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.011,
+          "mortality_false": 1,
+          "mortality_clear_median_hours": 47.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.062,
+          "mortality_false": 28,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -970,7 +1432,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.011,
+          "mortality_false": 1,
+          "mortality_clear_median_hours": 47.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.062,
+          "mortality_false": 28,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1014,7 +1498,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.011,
+          "mortality_false": 1,
+          "mortality_clear_median_hours": 47.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.062,
+          "mortality_false": 28,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1058,7 +1564,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.011,
+          "mortality_false": 1,
+          "mortality_clear_median_hours": 47.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.062,
+          "mortality_false": 28,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1102,7 +1630,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.631,
+          "mortality_false": 106,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.484,
+          "mortality_false": 785,
+          "mortality_clear_median_hours": 19.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1146,7 +1696,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.631,
+          "mortality_false": 106,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.484,
+          "mortality_false": 785,
+          "mortality_clear_median_hours": 19.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1190,7 +1762,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.631,
+          "mortality_false": 106,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.484,
+          "mortality_false": 785,
+          "mortality_clear_median_hours": 19.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1234,7 +1828,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.625,
+          "mortality_false": 105,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.484,
+          "mortality_false": 785,
+          "mortality_clear_median_hours": 19.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1278,7 +1894,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.321,
+          "mortality_false": 52,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.996,
+          "mortality_false": 524,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1322,7 +1960,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.321,
+          "mortality_false": 52,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.996,
+          "mortality_false": 524,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1366,7 +2026,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.321,
+          "mortality_false": 52,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.996,
+          "mortality_false": 524,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1410,7 +2092,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.321,
+          "mortality_false": 52,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.002,
+          "mortality_false": 527,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1454,7 +2158,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.103,
+          "mortality_false": 15,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.43,
+          "mortality_false": 225,
+          "mortality_clear_median_hours": 24.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1498,7 +2224,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.103,
+          "mortality_false": 15,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.43,
+          "mortality_false": 225,
+          "mortality_clear_median_hours": 24.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1542,7 +2290,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.103,
+          "mortality_false": 15,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.43,
+          "mortality_false": 225,
+          "mortality_clear_median_hours": 24.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1586,7 +2356,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.103,
+          "mortality_false": 15,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.43,
+          "mortality_false": 225,
+          "mortality_clear_median_hours": 24.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1630,7 +2422,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.046,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 58.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.213,
+          "mortality_false": 109,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1674,7 +2488,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.046,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 58.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.25
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.213,
+          "mortality_false": 109,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1718,7 +2554,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.046,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 58.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.25
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.213,
+          "mortality_false": 109,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1762,7 +2620,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.046,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 58.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.215,
+          "mortality_false": 110,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1806,7 +2686,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.029,
+          "mortality_false": 4,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.136,
+          "mortality_false": 68,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1850,7 +2752,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.029,
+          "mortality_false": 4,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.136,
+          "mortality_false": 68,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1894,7 +2818,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.029,
+          "mortality_false": 4,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.136,
+          "mortality_false": 68,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1938,7 +2884,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.029,
+          "mortality_false": 4,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.136,
+          "mortality_false": 68,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -1982,7 +2950,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.023,
+          "mortality_false": 3,
+          "mortality_clear_median_hours": 21.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.088,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 45.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2026,7 +3016,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.023,
+          "mortality_false": 3,
+          "mortality_clear_median_hours": 21.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.088,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 45.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2070,7 +3082,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.023,
+          "mortality_false": 3,
+          "mortality_clear_median_hours": 21.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.088,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 45.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2114,7 +3148,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.023,
+          "mortality_false": 3,
+          "mortality_clear_median_hours": 21.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.088,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 45.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2158,7 +3214,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.843,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.74,
+          "mortality_false": 922,
+          "mortality_clear_median_hours": 18.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2202,7 +3280,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.843,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.74,
+          "mortality_false": 922,
+          "mortality_clear_median_hours": 18.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2246,7 +3346,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.843,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.74,
+          "mortality_false": 922,
+          "mortality_clear_median_hours": 18.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2290,7 +3412,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.837,
+          "mortality_false": 143,
+          "mortality_clear_median_hours": 14.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.744,
+          "mortality_false": 924,
+          "mortality_clear_median_hours": 18.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2334,7 +3478,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.51,
+          "mortality_false": 86,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.155,
+          "mortality_false": 609,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2378,7 +3544,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.51,
+          "mortality_false": 86,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.155,
+          "mortality_false": 609,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2422,7 +3610,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.51,
+          "mortality_false": 86,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.155,
+          "mortality_false": 609,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2466,7 +3676,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.51,
+          "mortality_false": 86,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.157,
+          "mortality_false": 610,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2510,7 +3742,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.143,
+          "mortality_false": 21,
+          "mortality_clear_median_hours": 22.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.54,
+          "mortality_false": 284,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2554,7 +3808,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.143,
+          "mortality_false": 21,
+          "mortality_clear_median_hours": 22.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.54,
+          "mortality_false": 284,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2598,7 +3874,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.143,
+          "mortality_false": 21,
+          "mortality_clear_median_hours": 22.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.54,
+          "mortality_false": 284,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2642,7 +3940,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.143,
+          "mortality_false": 21,
+          "mortality_clear_median_hours": 22.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.54,
+          "mortality_false": 284,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2686,7 +4006,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.063,
+          "mortality_false": 8,
+          "mortality_clear_median_hours": 40.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.25,
+          "mortality_false": 129,
+          "mortality_clear_median_hours": 37.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2730,7 +4072,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.063,
+          "mortality_false": 8,
+          "mortality_clear_median_hours": 40.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.25
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.25,
+          "mortality_false": 129,
+          "mortality_clear_median_hours": 37.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2774,7 +4138,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.063,
+          "mortality_false": 8,
+          "mortality_clear_median_hours": 40.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.25
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.25,
+          "mortality_false": 129,
+          "mortality_clear_median_hours": 37.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2818,7 +4204,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.063,
+          "mortality_false": 8,
+          "mortality_clear_median_hours": 40.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.25,
+          "mortality_false": 129,
+          "mortality_clear_median_hours": 37.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2862,7 +4270,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.046,
+          "mortality_false": 7,
+          "mortality_clear_median_hours": 35.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.166,
+          "mortality_false": 84,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2906,7 +4336,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.046,
+          "mortality_false": 7,
+          "mortality_clear_median_hours": 35.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.166,
+          "mortality_false": 84,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2950,7 +4402,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.046,
+          "mortality_false": 7,
+          "mortality_clear_median_hours": 35.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.166,
+          "mortality_false": 84,
+          "mortality_clear_median_hours": 38.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -2994,7 +4468,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.046,
+          "mortality_false": 7,
+          "mortality_clear_median_hours": 35.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.166,
+          "mortality_false": 84,
+          "mortality_clear_median_hours": 40.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3038,7 +4534,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 37.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.118,
+          "mortality_false": 58,
+          "mortality_clear_median_hours": 34.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3082,7 +4600,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 37.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.118,
+          "mortality_false": 58,
+          "mortality_clear_median_hours": 34.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3126,7 +4666,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 37.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.118,
+          "mortality_false": 58,
+          "mortality_clear_median_hours": 34.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3170,7 +4732,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 37.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.118,
+          "mortality_false": 58,
+          "mortality_clear_median_hours": 34.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3214,7 +4798,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 1.221,
+          "mortality_false": 209,
+          "mortality_clear_median_hours": 13.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 2.207,
+          "mortality_false": 1171,
+          "mortality_clear_median_hours": 17.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3258,7 +4864,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 1.221,
+          "mortality_false": 209,
+          "mortality_clear_median_hours": 13.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 2.207,
+          "mortality_false": 1171,
+          "mortality_clear_median_hours": 17.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3302,7 +4930,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 1.221,
+          "mortality_false": 209,
+          "mortality_clear_median_hours": 13.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 2.207,
+          "mortality_false": 1171,
+          "mortality_clear_median_hours": 17.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3346,7 +4996,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 1.221,
+          "mortality_false": 209,
+          "mortality_clear_median_hours": 13.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 2.213,
+          "mortality_false": 1174,
+          "mortality_clear_median_hours": 17.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3390,7 +5062,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.717,
+          "mortality_false": 121,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.518,
+          "mortality_false": 803,
+          "mortality_clear_median_hours": 7.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3434,7 +5128,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.717,
+          "mortality_false": 121,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.518,
+          "mortality_false": 803,
+          "mortality_clear_median_hours": 7.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3478,7 +5194,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.717,
+          "mortality_false": 121,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.518,
+          "mortality_false": 803,
+          "mortality_clear_median_hours": 7.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3522,7 +5260,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.717,
+          "mortality_false": 121,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 1.525,
+          "mortality_false": 807,
+          "mortality_clear_median_hours": 7.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3566,7 +5326,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.195,
+          "mortality_false": 30,
+          "mortality_clear_median_hours": 10.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.72,
+          "mortality_false": 380,
+          "mortality_clear_median_hours": 20.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3610,7 +5392,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.195,
+          "mortality_false": 30,
+          "mortality_clear_median_hours": 10.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.72,
+          "mortality_false": 380,
+          "mortality_clear_median_hours": 20.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3654,7 +5458,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.195,
+          "mortality_false": 30,
+          "mortality_clear_median_hours": 10.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.72,
+          "mortality_false": 380,
+          "mortality_clear_median_hours": 20.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3698,7 +5524,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.195,
+          "mortality_false": 30,
+          "mortality_clear_median_hours": 10.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.72,
+          "mortality_false": 380,
+          "mortality_clear_median_hours": 20.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3742,7 +5590,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.08,
+          "mortality_false": 11,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.34,
+          "mortality_false": 176,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3786,7 +5656,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.08,
+          "mortality_false": 11,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.25
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.34,
+          "mortality_false": 176,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3830,7 +5722,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.08,
+          "mortality_false": 11,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.25
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.34,
+          "mortality_false": 176,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3874,7 +5788,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.08,
+          "mortality_false": 11,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 2,
+          "carcass_rate_at_mark": 0.5
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.344,
+          "mortality_false": 178,
+          "mortality_clear_median_hours": 23.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3918,7 +5854,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 60.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.217,
+          "mortality_false": 110,
+          "mortality_clear_median_hours": 34.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -3962,7 +5920,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 60.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.217,
+          "mortality_false": 110,
+          "mortality_clear_median_hours": 34.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -4006,7 +5986,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 60.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.217,
+          "mortality_false": 110,
+          "mortality_clear_median_hours": 34.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -4050,7 +6052,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 60.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.215,
+          "mortality_false": 109,
+          "mortality_clear_median_hours": 39.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -4094,7 +6118,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 36.0,
-      "other_deaths_max_gap_delay_hours": 36.0
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 42.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.164,
+          "mortality_false": 82,
+          "mortality_clear_median_hours": 43.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -4138,7 +6184,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 60.0,
-      "other_deaths_max_gap_delay_hours": 60.0
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 42.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.164,
+          "mortality_false": 82,
+          "mortality_clear_median_hours": 43.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -4182,7 +6250,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 84.0,
-      "other_deaths_max_gap_delay_hours": 84.0
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 42.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.164,
+          "mortality_false": 82,
+          "mortality_clear_median_hours": 43.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "mortality",
@@ -4226,7 +6316,29 @@
       "other_deaths": 11,
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 37.0,
-      "other_deaths_max_gap_delay_hours": 37.0
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.04,
+          "mortality_false": 6,
+          "mortality_clear_median_hours": 42.5,
+          "carcass_deaths": 4,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.0
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.164,
+          "mortality_false": 82,
+          "mortality_clear_median_hours": 43.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     },
     {
       "swept": "gap",
@@ -5107,6 +7219,2490 @@
       "other_deaths_detected": 11,
       "other_deaths_median_gap_delay_hours": 49.0,
       "other_deaths_max_gap_delay_hours": 49.0
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 36.0
+      },
+      "mortality_per_animal_month": 0.586,
+      "false_mortality_per_animal_month": 0.568,
+      "mortality_true": 5,
+      "mortality_tag_event": 6,
+      "mortality_judged": 414,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
+      "mortality_wilson": [
+        0.0149,
+        0.046946
+      ],
+      "mortality_bootstrap": [
+        0.009215,
+        0.057057
+      ],
+      "mortality_ceiling": 0.014458,
+      "mortality_clear_median_hours": 8.0,
+      "potential_death_precision": 0.086,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.712,
+          "mortality_false": 372,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 36.0
+      },
+      "mortality_per_animal_month": 0.586,
+      "false_mortality_per_animal_month": 0.568,
+      "mortality_true": 5,
+      "mortality_tag_event": 6,
+      "mortality_judged": 414,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
+      "mortality_wilson": [
+        0.0149,
+        0.046946
+      ],
+      "mortality_bootstrap": [
+        0.009215,
+        0.057057
+      ],
+      "mortality_ceiling": 0.014458,
+      "mortality_clear_median_hours": 8.0,
+      "potential_death_precision": 0.143,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.712,
+          "mortality_false": 372,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 36.0
+      },
+      "mortality_per_animal_month": 0.586,
+      "false_mortality_per_animal_month": 0.568,
+      "mortality_true": 5,
+      "mortality_tag_event": 6,
+      "mortality_judged": 414,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
+      "mortality_wilson": [
+        0.0149,
+        0.046946
+      ],
+      "mortality_bootstrap": [
+        0.009215,
+        0.057057
+      ],
+      "mortality_ceiling": 0.014458,
+      "mortality_clear_median_hours": 8.0,
+      "potential_death_precision": 0.172,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.712,
+          "mortality_false": 372,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 36.0
+      },
+      "mortality_per_animal_month": 0.586,
+      "false_mortality_per_animal_month": 0.568,
+      "mortality_true": 5,
+      "mortality_tag_event": 6,
+      "mortality_judged": 414,
+      "mortality_precision": 0.027,
+      "mortality_death_precision": 0.012,
+      "mortality_wilson": [
+        0.0149,
+        0.046946
+      ],
+      "mortality_bootstrap": [
+        0.009193,
+        0.057348
+      ],
+      "mortality_ceiling": 0.014458,
+      "mortality_clear_median_hours": 8.0,
+      "potential_death_precision": 0.078,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.712,
+          "mortality_false": 372,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 39.0
+      },
+      "mortality_per_animal_month": 0.5,
+      "false_mortality_per_animal_month": 0.485,
+      "mortality_true": 5,
+      "mortality_tag_event": 4,
+      "mortality_judged": 353,
+      "mortality_precision": 0.025,
+      "mortality_death_precision": 0.014,
+      "mortality_wilson": [
+        0.01347,
+        0.047738
+      ],
+      "mortality_bootstrap": [
+        0.009727,
+        0.052806
+      ],
+      "mortality_ceiling": 0.016949,
+      "mortality_clear_median_hours": 8.0,
+      "potential_death_precision": 0.088,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.598,
+          "mortality_false": 313,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 39.0
+      },
+      "mortality_per_animal_month": 0.5,
+      "false_mortality_per_animal_month": 0.485,
+      "mortality_true": 5,
+      "mortality_tag_event": 4,
+      "mortality_judged": 353,
+      "mortality_precision": 0.025,
+      "mortality_death_precision": 0.014,
+      "mortality_wilson": [
+        0.01347,
+        0.047738
+      ],
+      "mortality_bootstrap": [
+        0.009727,
+        0.052806
+      ],
+      "mortality_ceiling": 0.016949,
+      "mortality_clear_median_hours": 8.0,
+      "potential_death_precision": 0.147,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.598,
+          "mortality_false": 313,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 39.0
+      },
+      "mortality_per_animal_month": 0.5,
+      "false_mortality_per_animal_month": 0.485,
+      "mortality_true": 5,
+      "mortality_tag_event": 4,
+      "mortality_judged": 353,
+      "mortality_precision": 0.025,
+      "mortality_death_precision": 0.014,
+      "mortality_wilson": [
+        0.01347,
+        0.047738
+      ],
+      "mortality_bootstrap": [
+        0.009727,
+        0.052806
+      ],
+      "mortality_ceiling": 0.016949,
+      "mortality_clear_median_hours": 8.0,
+      "potential_death_precision": 0.172,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.598,
+          "mortality_false": 313,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 39.0
+      },
+      "mortality_per_animal_month": 0.5,
+      "false_mortality_per_animal_month": 0.485,
+      "mortality_true": 5,
+      "mortality_tag_event": 4,
+      "mortality_judged": 353,
+      "mortality_precision": 0.025,
+      "mortality_death_precision": 0.014,
+      "mortality_wilson": [
+        0.01347,
+        0.047738
+      ],
+      "mortality_bootstrap": [
+        0.009731,
+        0.053061
+      ],
+      "mortality_ceiling": 0.016949,
+      "mortality_clear_median_hours": 8.0,
+      "potential_death_precision": 0.081,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.598,
+          "mortality_false": 313,
+          "mortality_clear_median_hours": 8.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 42.0
+      },
+      "mortality_per_animal_month": 0.4,
+      "false_mortality_per_animal_month": 0.386,
+      "mortality_true": 5,
+      "mortality_tag_event": 3,
+      "mortality_judged": 282,
+      "mortality_precision": 0.028,
+      "mortality_death_precision": 0.018,
+      "mortality_wilson": [
+        0.014443,
+        0.054971
+      ],
+      "mortality_bootstrap": [
+        0.011494,
+        0.055971
+      ],
+      "mortality_ceiling": 0.021201,
+      "mortality_clear_median_hours": 17.0,
+      "potential_death_precision": 0.089,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.465,
+          "mortality_false": 243,
+          "mortality_clear_median_hours": 20.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 42.0
+      },
+      "mortality_per_animal_month": 0.4,
+      "false_mortality_per_animal_month": 0.386,
+      "mortality_true": 5,
+      "mortality_tag_event": 3,
+      "mortality_judged": 282,
+      "mortality_precision": 0.028,
+      "mortality_death_precision": 0.018,
+      "mortality_wilson": [
+        0.014443,
+        0.054971
+      ],
+      "mortality_bootstrap": [
+        0.011494,
+        0.055971
+      ],
+      "mortality_ceiling": 0.021201,
+      "mortality_clear_median_hours": 17.0,
+      "potential_death_precision": 0.147,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.465,
+          "mortality_false": 243,
+          "mortality_clear_median_hours": 20.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 42.0
+      },
+      "mortality_per_animal_month": 0.4,
+      "false_mortality_per_animal_month": 0.386,
+      "mortality_true": 5,
+      "mortality_tag_event": 3,
+      "mortality_judged": 282,
+      "mortality_precision": 0.028,
+      "mortality_death_precision": 0.018,
+      "mortality_wilson": [
+        0.014443,
+        0.054971
+      ],
+      "mortality_bootstrap": [
+        0.011494,
+        0.055971
+      ],
+      "mortality_ceiling": 0.021201,
+      "mortality_clear_median_hours": 17.0,
+      "potential_death_precision": 0.172,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.465,
+          "mortality_false": 243,
+          "mortality_clear_median_hours": 20.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 42.0
+      },
+      "mortality_per_animal_month": 0.402,
+      "false_mortality_per_animal_month": 0.388,
+      "mortality_true": 5,
+      "mortality_tag_event": 3,
+      "mortality_judged": 283,
+      "mortality_precision": 0.028,
+      "mortality_death_precision": 0.018,
+      "mortality_wilson": [
+        0.014392,
+        0.054781
+      ],
+      "mortality_bootstrap": [
+        0.011364,
+        0.056124
+      ],
+      "mortality_ceiling": 0.021127,
+      "mortality_clear_median_hours": 17.0,
+      "potential_death_precision": 0.082,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.467,
+          "mortality_false": 244,
+          "mortality_clear_median_hours": 19.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 45.0
+      },
+      "mortality_per_animal_month": 0.316,
+      "false_mortality_per_animal_month": 0.303,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 222,
+      "mortality_precision": 0.032,
+      "mortality_death_precision": 0.023,
+      "mortality_wilson": [
+        0.015356,
+        0.063644
+      ],
+      "mortality_bootstrap": [
+        0.01145,
+        0.06383
+      ],
+      "mortality_ceiling": 0.026906,
+      "mortality_clear_median_hours": 22.0,
+      "potential_death_precision": 0.091,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.353,
+          "mortality_false": 184,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 45.0
+      },
+      "mortality_per_animal_month": 0.316,
+      "false_mortality_per_animal_month": 0.303,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 222,
+      "mortality_precision": 0.032,
+      "mortality_death_precision": 0.023,
+      "mortality_wilson": [
+        0.015356,
+        0.063644
+      ],
+      "mortality_bootstrap": [
+        0.01145,
+        0.06383
+      ],
+      "mortality_ceiling": 0.026906,
+      "mortality_clear_median_hours": 22.0,
+      "potential_death_precision": 0.147,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.353,
+          "mortality_false": 184,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 45.0
+      },
+      "mortality_per_animal_month": 0.316,
+      "false_mortality_per_animal_month": 0.303,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 222,
+      "mortality_precision": 0.032,
+      "mortality_death_precision": 0.023,
+      "mortality_wilson": [
+        0.015356,
+        0.063644
+      ],
+      "mortality_bootstrap": [
+        0.01145,
+        0.06383
+      ],
+      "mortality_ceiling": 0.026906,
+      "mortality_clear_median_hours": 22.0,
+      "potential_death_precision": 0.172,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.353,
+          "mortality_false": 184,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 45.0
+      },
+      "mortality_per_animal_month": 0.314,
+      "false_mortality_per_animal_month": 0.302,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 221,
+      "mortality_precision": 0.032,
+      "mortality_death_precision": 0.023,
+      "mortality_wilson": [
+        0.015426,
+        0.063926
+      ],
+      "mortality_bootstrap": [
+        0.011364,
+        0.064748
+      ],
+      "mortality_ceiling": 0.027027,
+      "mortality_clear_median_hours": 22.0,
+      "potential_death_precision": 0.083,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.351,
+          "mortality_false": 183,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 48.0
+      },
+      "mortality_per_animal_month": 0.258,
+      "false_mortality_per_animal_month": 0.247,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 182,
+      "mortality_precision": 0.038,
+      "mortality_death_precision": 0.027,
+      "mortality_wilson": [
+        0.018753,
+        0.077251
+      ],
+      "mortality_bootstrap": [
+        0.013889,
+        0.076923
+      ],
+      "mortality_ceiling": 0.032787,
+      "mortality_clear_median_hours": 21.0,
+      "potential_death_precision": 0.091,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.277,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 23.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 48.0
+      },
+      "mortality_per_animal_month": 0.258,
+      "false_mortality_per_animal_month": 0.247,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 182,
+      "mortality_precision": 0.038,
+      "mortality_death_precision": 0.027,
+      "mortality_wilson": [
+        0.018753,
+        0.077251
+      ],
+      "mortality_bootstrap": [
+        0.013889,
+        0.076923
+      ],
+      "mortality_ceiling": 0.032787,
+      "mortality_clear_median_hours": 21.0,
+      "potential_death_precision": 0.147,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.277,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 23.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 48.0
+      },
+      "mortality_per_animal_month": 0.258,
+      "false_mortality_per_animal_month": 0.247,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 182,
+      "mortality_precision": 0.038,
+      "mortality_death_precision": 0.027,
+      "mortality_wilson": [
+        0.018753,
+        0.077251
+      ],
+      "mortality_bootstrap": [
+        0.013889,
+        0.076923
+      ],
+      "mortality_ceiling": 0.032787,
+      "mortality_clear_median_hours": 21.0,
+      "potential_death_precision": 0.172,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.277,
+          "mortality_false": 144,
+          "mortality_clear_median_hours": 23.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 48.0
+      },
+      "mortality_per_animal_month": 0.259,
+      "false_mortality_per_animal_month": 0.248,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 183,
+      "mortality_precision": 0.038,
+      "mortality_death_precision": 0.027,
+      "mortality_wilson": [
+        0.01865,
+        0.07684
+      ],
+      "mortality_bootstrap": [
+        0.013792,
+        0.076482
+      ],
+      "mortality_ceiling": 0.032609,
+      "mortality_clear_median_hours": 21.0,
+      "potential_death_precision": 0.083,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.279,
+          "mortality_false": 145,
+          "mortality_clear_median_hours": 23.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 60.0
+      },
+      "mortality_per_animal_month": 0.211,
+      "false_mortality_per_animal_month": 0.2,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 149,
+      "mortality_precision": 0.047,
+      "mortality_death_precision": 0.034,
+      "mortality_wilson": [
+        0.02294,
+        0.093792
+      ],
+      "mortality_bootstrap": [
+        0.017143,
+        0.093458
+      ],
+      "mortality_ceiling": 0.04,
+      "mortality_clear_median_hours": 13.5,
+      "potential_death_precision": 0.102,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.215,
+          "mortality_false": 111,
+          "mortality_clear_median_hours": 25.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 60.0
+      },
+      "mortality_per_animal_month": 0.211,
+      "false_mortality_per_animal_month": 0.2,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 149,
+      "mortality_precision": 0.047,
+      "mortality_death_precision": 0.034,
+      "mortality_wilson": [
+        0.02294,
+        0.093792
+      ],
+      "mortality_bootstrap": [
+        0.017143,
+        0.093458
+      ],
+      "mortality_ceiling": 0.04,
+      "mortality_clear_median_hours": 13.5,
+      "potential_death_precision": 0.147,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.215,
+          "mortality_false": 111,
+          "mortality_clear_median_hours": 25.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 60.0
+      },
+      "mortality_per_animal_month": 0.211,
+      "false_mortality_per_animal_month": 0.2,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 149,
+      "mortality_precision": 0.047,
+      "mortality_death_precision": 0.034,
+      "mortality_wilson": [
+        0.02294,
+        0.093792
+      ],
+      "mortality_bootstrap": [
+        0.017143,
+        0.093458
+      ],
+      "mortality_ceiling": 0.04,
+      "mortality_clear_median_hours": 13.5,
+      "potential_death_precision": 0.167,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.215,
+          "mortality_false": 111,
+          "mortality_clear_median_hours": 25.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 60.0
+      },
+      "mortality_per_animal_month": 0.211,
+      "false_mortality_per_animal_month": 0.2,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 149,
+      "mortality_precision": 0.047,
+      "mortality_death_precision": 0.034,
+      "mortality_wilson": [
+        0.02294,
+        0.093792
+      ],
+      "mortality_bootstrap": [
+        0.017143,
+        0.093458
+      ],
+      "mortality_ceiling": 0.04,
+      "mortality_clear_median_hours": 13.5,
+      "potential_death_precision": 0.102,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.215,
+          "mortality_false": 111,
+          "mortality_clear_median_hours": 25.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 72.0
+      },
+      "mortality_per_animal_month": 0.141,
+      "false_mortality_per_animal_month": 0.13,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 99,
+      "mortality_precision": 0.071,
+      "mortality_death_precision": 0.051,
+      "mortality_wilson": [
+        0.03467,
+        0.138816
+      ],
+      "mortality_bootstrap": [
+        0.026087,
+        0.1375
+      ],
+      "mortality_ceiling": 0.06,
+      "mortality_clear_median_hours": 28.0,
+      "potential_death_precision": 0.114,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.121,
+          "mortality_false": 61,
+          "mortality_clear_median_hours": 46.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 72.0
+      },
+      "mortality_per_animal_month": 0.141,
+      "false_mortality_per_animal_month": 0.13,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 99,
+      "mortality_precision": 0.071,
+      "mortality_death_precision": 0.051,
+      "mortality_wilson": [
+        0.03467,
+        0.138816
+      ],
+      "mortality_bootstrap": [
+        0.026087,
+        0.1375
+      ],
+      "mortality_ceiling": 0.06,
+      "mortality_clear_median_hours": 28.0,
+      "potential_death_precision": 0.156,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.121,
+          "mortality_false": 61,
+          "mortality_clear_median_hours": 46.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 72.0
+      },
+      "mortality_per_animal_month": 0.141,
+      "false_mortality_per_animal_month": 0.13,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 99,
+      "mortality_precision": 0.071,
+      "mortality_death_precision": 0.051,
+      "mortality_wilson": [
+        0.03467,
+        0.138816
+      ],
+      "mortality_bootstrap": [
+        0.026087,
+        0.1375
+      ],
+      "mortality_ceiling": 0.06,
+      "mortality_clear_median_hours": 28.0,
+      "potential_death_precision": 0.179,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.121,
+          "mortality_false": 61,
+          "mortality_clear_median_hours": 46.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 72.0
+      },
+      "mortality_per_animal_month": 0.141,
+      "false_mortality_per_animal_month": 0.13,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 99,
+      "mortality_precision": 0.071,
+      "mortality_death_precision": 0.051,
+      "mortality_wilson": [
+        0.03467,
+        0.138816
+      ],
+      "mortality_bootstrap": [
+        0.026087,
+        0.1375
+      ],
+      "mortality_ceiling": 0.06,
+      "mortality_clear_median_hours": 28.0,
+      "potential_death_precision": 0.114,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.121,
+          "mortality_false": 61,
+          "mortality_clear_median_hours": 46.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 96.0
+      },
+      "mortality_per_animal_month": 0.113,
+      "false_mortality_per_animal_month": 0.101,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 79,
+      "mortality_precision": 0.089,
+      "mortality_death_precision": 0.063,
+      "mortality_wilson": [
+        0.043585,
+        0.171785
+      ],
+      "mortality_bootstrap": [
+        0.033324,
+        0.172414
+      ],
+      "mortality_ceiling": 0.075,
+      "mortality_clear_median_hours": 19.0,
+      "potential_death_precision": 0.147,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.084,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 96.0
+      },
+      "mortality_per_animal_month": 0.113,
+      "false_mortality_per_animal_month": 0.101,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 79,
+      "mortality_precision": 0.089,
+      "mortality_death_precision": 0.063,
+      "mortality_wilson": [
+        0.043585,
+        0.171785
+      ],
+      "mortality_bootstrap": [
+        0.033324,
+        0.172414
+      ],
+      "mortality_ceiling": 0.075,
+      "mortality_clear_median_hours": 19.0,
+      "potential_death_precision": 0.185,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.084,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 96.0
+      },
+      "mortality_per_animal_month": 0.113,
+      "false_mortality_per_animal_month": 0.101,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 79,
+      "mortality_precision": 0.089,
+      "mortality_death_precision": 0.063,
+      "mortality_wilson": [
+        0.043585,
+        0.171785
+      ],
+      "mortality_bootstrap": [
+        0.033324,
+        0.172414
+      ],
+      "mortality_ceiling": 0.075,
+      "mortality_clear_median_hours": 19.0,
+      "potential_death_precision": 0.2,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.084,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 96.0
+      },
+      "mortality_per_animal_month": 0.113,
+      "false_mortality_per_animal_month": 0.101,
+      "mortality_true": 5,
+      "mortality_tag_event": 2,
+      "mortality_judged": 79,
+      "mortality_precision": 0.089,
+      "mortality_death_precision": 0.063,
+      "mortality_wilson": [
+        0.043585,
+        0.171785
+      ],
+      "mortality_bootstrap": [
+        0.033324,
+        0.172414
+      ],
+      "mortality_ceiling": 0.075,
+      "mortality_clear_median_hours": 19.0,
+      "potential_death_precision": 0.143,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.084,
+          "mortality_false": 41,
+          "mortality_clear_median_hours": 41.0,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "ideal",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 120.0
+      },
+      "mortality_per_animal_month": 0.096,
+      "false_mortality_per_animal_month": 0.083,
+      "mortality_true": 5,
+      "mortality_tag_event": 3,
+      "mortality_judged": 67,
+      "mortality_precision": 0.119,
+      "mortality_death_precision": 0.075,
+      "mortality_wilson": [
+        0.061762,
+        0.218322
+      ],
+      "mortality_bootstrap": [
+        0.044114,
+        0.229167
+      ],
+      "mortality_ceiling": 0.088235,
+      "mortality_clear_median_hours": 14.0,
+      "potential_death_precision": 0.161,
+      "gap_precision": 0.066,
+      "gap_ceiling": 0.027464,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 40.0,
+      "gap_per_animal_month": 0.878,
+      "gap_late_fix_share": 0.0,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 36.0,
+      "other_deaths_max_gap_delay_hours": 36.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.062,
+          "mortality_false": 28,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_daily",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 120.0
+      },
+      "mortality_per_animal_month": 0.096,
+      "false_mortality_per_animal_month": 0.083,
+      "mortality_true": 5,
+      "mortality_tag_event": 3,
+      "mortality_judged": 67,
+      "mortality_precision": 0.119,
+      "mortality_death_precision": 0.075,
+      "mortality_wilson": [
+        0.061762,
+        0.218322
+      ],
+      "mortality_bootstrap": [
+        0.044114,
+        0.229167
+      ],
+      "mortality_ceiling": 0.088235,
+      "mortality_clear_median_hours": 14.0,
+      "potential_death_precision": 0.208,
+      "gap_precision": 0.087,
+      "gap_ceiling": 0.043367,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 62.23,
+      "gap_per_animal_month": 0.557,
+      "gap_late_fix_share": 0.185,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 60.0,
+      "other_deaths_max_gap_delay_hours": 60.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.062,
+          "mortality_false": 28,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "satellite_2day",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 120.0
+      },
+      "mortality_per_animal_month": 0.096,
+      "false_mortality_per_animal_month": 0.083,
+      "mortality_true": 5,
+      "mortality_tag_event": 3,
+      "mortality_judged": 67,
+      "mortality_precision": 0.119,
+      "mortality_death_precision": 0.075,
+      "mortality_wilson": [
+        0.061762,
+        0.218322
+      ],
+      "mortality_bootstrap": [
+        0.044114,
+        0.229167
+      ],
+      "mortality_ceiling": 0.088235,
+      "mortality_clear_median_hours": 14.0,
+      "potential_death_precision": 0.217,
+      "gap_precision": 0.105,
+      "gap_ceiling": 0.054487,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 71.05,
+      "gap_per_animal_month": 0.444,
+      "gap_late_fix_share": 0.286,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 84.0,
+      "other_deaths_max_gap_delay_hours": 84.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.062,
+          "mortality_false": 28,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
+    },
+    {
+      "swept": "species",
+      "scenario": "gsm",
+      "mortality_window_hours": null,
+      "mortality_box_m": null,
+      "upload_margin_hours": 36.0,
+      "mortality_leave_fixes": null,
+      "mortality_leave_radius_m": null,
+      "mortality_merge_hours": null,
+      "mortality_box_only": false,
+      "species_windows_hours": {
+        "Coragyps atratus": 120.0
+      },
+      "mortality_per_animal_month": 0.096,
+      "false_mortality_per_animal_month": 0.083,
+      "mortality_true": 5,
+      "mortality_tag_event": 3,
+      "mortality_judged": 67,
+      "mortality_precision": 0.119,
+      "mortality_death_precision": 0.075,
+      "mortality_wilson": [
+        0.061762,
+        0.218322
+      ],
+      "mortality_bootstrap": [
+        0.044114,
+        0.229167
+      ],
+      "mortality_ceiling": 0.088235,
+      "mortality_clear_median_hours": 14.0,
+      "potential_death_precision": 0.161,
+      "gap_precision": 0.054,
+      "gap_ceiling": 0.021739,
+      "random_precision": 0.0015,
+      "random_precision_tags": 0.0609,
+      "carcass_deaths": 6,
+      "carcass_detected": 4,
+      "carcass_rate_at_mark": 0.667,
+      "carcass_rate_at_mark_200m": 0.667,
+      "carcass_max_delay_hours": 43.0,
+      "gap_per_animal_month": 1.109,
+      "gap_late_fix_share": 0.21,
+      "other_deaths": 11,
+      "other_deaths_detected": 11,
+      "other_deaths_median_gap_delay_hours": 37.0,
+      "other_deaths_max_gap_delay_hours": 37.0,
+      "by_taxon": {
+        "Cathartes aura": {
+          "deployments": 12,
+          "animal_months": 174.4,
+          "mortality_per_animal_month": 0.201,
+          "mortality_false": 31,
+          "mortality_clear_median_hours": 5.0,
+          "carcass_deaths": 4,
+          "carcass_detected": 3,
+          "carcass_rate_at_mark": 0.75
+        },
+        "Coragyps atratus": {
+          "deployments": 22,
+          "animal_months": 535.0,
+          "mortality_per_animal_month": 0.062,
+          "mortality_false": 28,
+          "mortality_clear_median_hours": 44.5,
+          "carcass_deaths": 2,
+          "carcass_detected": 1,
+          "carcass_rate_at_mark": 0.5
+        }
+      }
     }
   ]
 }

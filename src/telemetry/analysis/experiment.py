@@ -143,6 +143,9 @@ class Experiment:
         mortality_windows: Windows the sweep tries.
         mortality_boxes_m: Boxes the sweep tries.
         upload_margins: Upload margins the sweep tries.
+        species_taxon: The species whose window is swept on its own.
+        species_windows: Windows tried for it, every other species at its
+            own window.
         animal_months_per_carcass: Base rate for the arithmetic note.
         false_per_animal_month: Current false rate for the arithmetic note.
         precisions: Precisions the arithmetic note works through.
@@ -164,6 +167,8 @@ class Experiment:
     mortality_windows: tuple[timedelta, ...]
     mortality_boxes_m: tuple[float, ...]
     upload_margins: tuple[timedelta, ...]
+    species_taxon: str
+    species_windows: tuple[timedelta, ...]
     animal_months_per_carcass: float
     false_per_animal_month: float
     precisions: tuple[float, ...]
@@ -313,6 +318,8 @@ def experiment() -> Experiment:
         mortality_windows=_hours(sweep["mortality_windows_hours"]),
         mortality_boxes_m=tuple(sweep["mortality_boxes_m"]),
         upload_margins=_hours(sweep["upload_margins_hours"]),
+        species_taxon=sweep["species"]["taxon"],
+        species_windows=_hours(sweep["species"]["windows_hours"]),
         animal_months_per_carcass=arithmetic["animal_months_per_carcass"],
         false_per_animal_month=arithmetic["false_per_animal_month"],
         precisions=tuple(arithmetic["precisions"]),

@@ -255,8 +255,10 @@ def default_merge_within() -> dict[str, timedelta]:
     GPS fix wandering past the cluster edge, would otherwise split one death
     into several incidents. A mortality reopen cannot come sooner than the
     detector's own ``window`` after the resolve, since the new cluster has
-    to last that long, so the merge window must exceed the longest species
-    window (36 h, vultures); 48 h leaves 12 h of slack. ``potential_death``
+    to last that long, so the merge window must exceed the species window;
+    48 h leaves at least 12 h of slack over every window up to 36 h, and
+    ``telemetry.core.pipeline.merge_for`` lengthens it for a species with a
+    longer window. ``potential_death``
     follows mortality, since it resolves and reopens with it. Gap and
     movement resolves are taken as final.
 

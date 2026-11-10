@@ -22,6 +22,7 @@ from telemetry.core.alerts import (
     MORTALITY,
     AlertLifecycle,
     LifecycleConfig,
+    default_merge_within,
 )
 from telemetry.core.cleaning import Cleaner
 from telemetry.core.detectors.gap import GapConfig, GapDetector
@@ -76,6 +77,11 @@ class Overrides:
             one following ``mortality_window``).
         mortality_box_only: Drops the leaving radius, so the box decides
             after the alert too, as before the radius was added.
+        species_windows: (taxon, window) pairs replacing those species'
+            mortality windows only, applied after ``mortality_window``; the
+            merge window then follows each deployment's own window, as in
+            ``merge_for``. A tuple, not a dict, so the overrides stay
+            hashable.
     """
 
     mortality_window: timedelta | None = None
@@ -85,6 +91,7 @@ class Overrides:
     mortality_leave_radius_m: float | None = None
     mortality_merge: timedelta | None = None
     mortality_box_only: bool = False
+    species_windows: tuple[tuple[str, timedelta], ...] = ()
 
     def profile(self, profile: SpeciesProfile) -> SpeciesProfile:
         """A species profile with these overrides applied.
@@ -99,6 +106,9 @@ class Overrides:
         mortality = profile.mortality
         if self.mortality_window is not None:
             mortality = replace(mortality, window=self.mortality_window)
+        species_window = dict(self.species_windows).get(profile.taxon)
+        if species_window is not None:
+            mortality = replace(mortality, window=species_window)
         if self.mortality_box_m is not None:
             mortality = replace(mortality, max_extent_m=self.mortality_box_m)
         if self.mortality_leave_fixes is not None:
@@ -109,16 +119,24 @@ class Overrides:
             mortality = replace(mortality, leave_radius_m=None)
         return replace(profile, mortality=mortality)
 
-    def lifecycle(self) -> AlertLifecycle:
+    def lifecycle(self, profile: SpeciesProfile | None = None) -> AlertLifecycle:
         """The alert lifecycle for these overrides.
+
+        Args:
+            profile: The deployment's species settings, overrides applied;
+                its window sets the merge window when nothing else does.
+                None keeps the default merge window.
 
         Returns:
             AlertLifecycle: Default merge windows, or a mortality merge
-            window that is overridden or follows an overridden window.
+            window that is overridden, follows an overridden window or
+            follows the species' own window.
         """
         merge = self.mortality_merge
         if merge is None and self.mortality_window is not None:
             merge = self.mortality_window + MERGE_SLACK
+        if merge is None and profile is not None:
+            merge = merge_for(profile.mortality.window)
         if merge is None:
             return AlertLifecycle()
         return AlertLifecycle(
@@ -148,7 +166,36 @@ class Overrides:
                 else None
             ),
             "mortality_box_only": self.mortality_box_only,
+            # Only when set, so outputs written before the field existed
+            # stay byte-identical.
+            **(
+                {
+                    "species_windows_hours": {
+                        taxon: window / hours for taxon, window in self.species_windows
+                    }
+                }
+                if self.species_windows
+                else {}
+            ),
         }
+
+
+def merge_for(window: timedelta) -> timedelta | None:
+    """The mortality merge window a species' own window needs.
+
+    A reopen cannot come sooner than the window after a resolve, so the
+    merge window must outlast it. The default (48 h) already does for every
+    window up to 36 h, so those keep it unchanged; a longer window gets the
+    window plus ``MERGE_SLACK``, as a swept window does.
+
+    Args:
+        window: The species' mortality window.
+
+    Returns:
+        timedelta | None: The merge window, or None to keep the default.
+    """
+    needed = window + MERGE_SLACK
+    return needed if needed > default_merge_within()[MORTALITY] else None
 
 
 def gap_config(uploads: UploadPlan, margin: timedelta = UPLOAD_MARGIN) -> GapConfig:
@@ -215,8 +262,8 @@ def stream_for(
         overrides: Settings replacing the defaults, for sweeps; None keeps
             the defaults.
         fence: The study's geofence, or None.
-        lifecycle: A lifecycle to share between streams; built from
-            ``overrides`` if omitted.
+        lifecycle: A lifecycle to use instead; built from ``overrides``
+            and the species' window if omitted.
 
     Returns:
         FixStream: A stream with no state yet.
@@ -229,5 +276,5 @@ def stream_for(
     return FixStream(
         detectors_for(profile, uploads, overrides.upload_margin, fence),
         Cleaner(profile.cleaning(uploads.max_lateness)),
-        lifecycle or overrides.lifecycle(),
+        lifecycle or overrides.lifecycle(profile),
     )
