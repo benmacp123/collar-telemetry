@@ -142,6 +142,7 @@ each layer to its own imports.
 ```mermaid
 flowchart TB
     data[("Movebank tracks<br>data/raw/")] --> arrival["Arrival scenarios<br>ideal, GSM, satellite"]
+    storks[("Stork extract, hourly<br>GPS and acceleration")] -. "planned" .-> arrival
     core{{"Detection core<br>cleaning, detectors,<br>alert lifecycle and tiers"}}
     experiment[("Experiment definition<br>sets, sweep grid, targets")]
 

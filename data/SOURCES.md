@@ -207,10 +207,11 @@ cause, comments) were read; no tracks were.
   includes 7 adults, and Bavaria leaves most life stages blank.
   Rheinland-Pfalz alone records 32 electrocutions.
 
-## LifeTrack White Stork populations (extract pending)
+## LifeTrack White Stork populations (`raw/storks/`)
 
-Licence check, 2026-10-31, for step 3.1 of the stork case study; no
-tracks downloaded yet.
+Licence check, 2026-10-31, for the stork case study, made before any
+track was downloaded. The extract itself is described under "Stork
+extract" below.
 
 - **Source of the extract:** the five live Movebank studies, not the
   published packages, which hold too few of the deaths (see the SW
@@ -243,6 +244,55 @@ All five studies name Aikens et al. 2024 (PNAS,
 <https://doi.org/10.1073/pnas.2306389121>) as describing the data, and
 Movebank asks for Kays et al. 2022 (Methods Ecol Evol,
 <https://doi.org/10.1111/2041-210X.13767>) to be cited too.
+
+### Stork extract
+
+Fetched 2026-11-11 from the five live studies through Movebank's REST
+API by `scripts/fetch_movebank.py` (`make fetch-storks`; optional, needs
+a Movebank account). It is **adapted material under CC BY 4.0**: cite the
+packages above, and note that the rows below are reduced from the
+studies' events, not copies of them.
+
+The studies hold tens of millions of events (GPS fixes every 5 to 20
+minutes with 1 Hz bursts, and an acceleration burst every 2 to 10
+minutes), so the events are reduced to one row per UTC clock hour.
+Events from 2026-11-01 00:00 UTC on are left out, so a rerun gives the
+same rows for birds still transmitting.
+
+- `<study>-gps-N.csv.gz`: the first fix of each hour that Movebank does
+  not flag as an outlier (`visible`) and that has a position, with its
+  height, ground speed, accuracy estimate, temperature, battery voltage
+  and on-board activity count where the tag reports them, text unchanged.
+  `fixes_in_hour` counts the usable fixes the hour held.
+- `<study>-acc-N.csv.gz`: one row per hour, axis set-up and sampling
+  rate, from the raw e-obs bursts, in raw tag units (uncalibrated).
+  `bursts` and `burst_samples` (readings per axis in a burst, median);
+  `mean_x/y/z`, the mean of the bursts' per-axis means (posture);
+  `between_x/y/z`, the standard deviation of those means across the
+  hour's bursts (posture change); `spread_min/median/max`, the smallest,
+  median and largest within-burst spread, where a burst's spread is the
+  square root of its summed per-axis variances (movement). The raw
+  readings are not kept: a cue needing burst-level timing needs a
+  re-fetch.
+- `<study>-individuals.csv`, `-deployments.csv`, `-tags.csv`: Movebank's
+  reference tables with the columns named in the script (no names of
+  people, tag owners or IMEI numbers), as returned on the fetch date.
+- `extract.json`: the cut-off, the attributes requested per study, the
+  part files, and per animal the events read, dropped and kept.
+
+Each `.csv.gz` is a gzip file of joined members (the header, then one
+per animal in ascending Movebank ID), which any gzip reader opens as one
+CSV. Rows carry Movebank's numeric `individual_id`, `deployment_id` and
+`tag_id`, which key into the reference tables.
+
+Completeness check: Movebank's own `number_of_events` per animal counts
+its visible fixes with a position, which is what the GPS reduction
+counts before thinning; `extract.json` lists under `incomplete` any
+animal (ended before the cut-off) where the two differ.
+
+The held-out populations (`data/splits.csv`) were fetched by the same
+run under the same rules; the script prints row counts only, and none of
+their tracks has been viewed.
 
 ## Stork split (`data/splits.csv`)
 

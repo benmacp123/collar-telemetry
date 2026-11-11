@@ -1,12 +1,12 @@
 # Every target runs from committed files; only the tf-plan, tf-apply,
 # tf-destroy, cloud-aws, cloud-clock and cloud-leftovers targets need an
-# AWS account.
+# AWS account, and only fetch-storks needs a (free) Movebank account.
 # `make help` lists them.
 
 .PHONY: help install setup test lint format format-check profile replay \
 	evaluate results score sweep stillness departure cloud-sizing cloud-moto lambda-requirements \
 	lambda-image cloud-local lambda-zip lock tf-check tf-fmt tf-plan \
-	tf-apply tf-output tf-destroy cloud-aws cloud-clock cloud-leftovers prices cloud-usage cloud-cost all
+	tf-apply tf-output tf-destroy cloud-aws cloud-clock cloud-leftovers prices fetch-storks cloud-usage cloud-cost all
 
 help: ## List the targets and what each writes
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | \
@@ -165,6 +165,12 @@ cloud-leftovers: ## After tf-destroy: list anything of the project still in AWS
 # Optional: the snapshot is committed. Public price files, no account needed.
 prices: ## Fetch AWS list prices -> data/prices/aws-eu-west-2.json
 	python scripts/fetch_prices.py
+
+# Optional: the extract is committed. Needs a Movebank login in ~/.netrc
+# that has accepted the studies' terms; takes hours (one request at a
+# time) and resumes from build/movebank/ if interrupted.
+fetch-storks: ## Rebuild the hourly stork extract from Movebank -> data/raw/storks/ (account)
+	PYTHONPATH=src python scripts/fetch_movebank.py $(ARGS)
 
 cloud-usage: ## After a deployed run: CloudWatch usage -> results/cloud/usage-aws.json (credentials)
 	PYTHONPATH=src python scripts/cloud_cost.py fetch
