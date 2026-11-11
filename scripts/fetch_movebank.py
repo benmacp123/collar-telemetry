@@ -28,6 +28,7 @@ Usage:
 import argparse
 import base64
 import csv
+import http.client
 import io
 import json
 import netrc
@@ -218,14 +219,16 @@ def with_retries(action: Callable[[], object], label: str) -> object:
         object: Whatever ``action`` returns.
 
     Raises:
-        OSError: If the step still fails after ``ATTEMPTS`` tries.
+        OSError: If the network still fails after ``ATTEMPTS`` tries.
+        http.client.HTTPException: If a response is still cut short then.
     """
     for attempt in range(1, ATTEMPTS + 1):
         try:
             return action()
-        # URLError, timeouts and dropped connections are all OSError; a
+        # URLError, timeouts and dropped connections are all OSError, and
+        # a response cut short mid-stream is an HTTPException; a
         # RuntimeError (licence terms, missing column) is not retried.
-        except OSError as error:
+        except (OSError, http.client.HTTPException) as error:
             if attempt == ATTEMPTS:
                 raise
             wait = BACKOFF_S * attempt

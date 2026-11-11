@@ -268,6 +268,20 @@ def test_with_retries_retries_network_errors_only(script, monkeypatch):
     assert script.with_retries(flaky, "step") == "done"
     assert len(calls) == 2
 
+    def truncated():
+        """Fail once as a response cut short does, then succeed.
+
+        Returns:
+            str: A marker value.
+        """
+        calls.append(1)
+        if len(calls) == 3:
+            raise script.http.client.IncompleteRead(b"")
+        return "whole"
+
+    assert script.with_retries(truncated, "step") == "whole"
+    assert len(calls) == 4
+
     def refused():
         """Fail as a licence refusal does.
 
@@ -279,7 +293,7 @@ def test_with_retries_retries_network_errors_only(script, monkeypatch):
 
     with pytest.raises(RuntimeError):
         script.with_retries(refused, "step")
-    assert len(calls) == 3
+    assert len(calls) == 5
 
 
 def test_assemble_writes_readable_parts_in_animal_order(script):
