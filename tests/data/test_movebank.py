@@ -1,5 +1,6 @@
 """Tests for reading Movebank reference-data and event CSVs."""
 
+import gzip
 from datetime import datetime, timezone
 
 import pytest
@@ -7,6 +8,9 @@ import pytest
 from telemetry.data.movebank import (
     parse_timestamp,
     read_deployments,
+    read_extract_deployments,
+    read_extract_fixes,
+    read_extract_tag_models,
     read_fixes,
     read_tag_models,
 )
@@ -169,3 +173,97 @@ def test_read_tag_models_falls_back_to_manufacturer(tmp_path):
         "D2": "Microwave",
         "D3": "unknown",
     }
+
+
+DEPLOYMENT_HEADER = (
+    "id,local_identifier,individual_id,tag_id,deploy_on_timestamp,"
+    "deploy_off_timestamp,deployment_end_type\n"
+)
+INDIVIDUAL_HEADER = "id,local_identifier,taxon_canonical_name\n"
+TAG_HEADER = "id,local_identifier,manufacturer_name,model\n"
+GPS_HEADER = "individual_id,deployment_id,tag_id,timestamp,location_long,location_lat\n"
+
+
+@pytest.fixture
+def extract(tmp_path):
+    """An extract's reference tables: animal 1 with two deployments of
+    tags 7 and 8, and animal 2 with no deployment."""
+    write(
+        tmp_path / "individuals.csv",
+        INDIVIDUAL_HEADER,
+        ['1,"A + / DER X1",Ciconia ciconia', '2,"B",Ciconia ciconia'],
+    )
+    write(
+        tmp_path / "deployments.csv",
+        DEPLOYMENT_HEADER,
+        [
+            '100,"7 on X1",1,7,2014-06-01 00:00:00.000,' "2014-06-30 00:00:00.000,dead",
+            '101,"8 on X1",1,8,2015-06-01 00:00:00.000,,',
+        ],
+    )
+    write(
+        tmp_path / "tags.csv",
+        TAG_HEADER,
+        ['7,"7",e-obs GmbH,Solar GSM', '8,"8",e-obs GmbH,'],
+    )
+    return tmp_path
+
+
+def gps_part(path, rows):
+    """Write a gzip GPS part with ``rows`` and return the path."""
+    with gzip.open(path, "wt", newline="", encoding="utf-8") as handle:
+        handle.write(GPS_HEADER + "".join(row + "\n" for row in rows))
+    return path
+
+
+def test_extract_deployments_take_the_taxon_from_the_individual_table(extract):
+    """Deployments carry Movebank's numeric IDs and the animal's taxon."""
+    first, second = read_extract_deployments(
+        extract / "deployments.csv", extract / "individuals.csv"
+    )
+    assert (first.deployment_id, first.tag_id, first.animal_id) == ("100", "7", "1")
+    assert first.taxon == "Ciconia ciconia"
+    assert first.end_type == "dead"
+    assert first.deploy_off == datetime(2014, 6, 30, tzinfo=timezone.utc)
+    assert second.deploy_off is None and second.end_type is None
+
+
+def test_extract_deployment_of_an_unknown_animal_is_refused(extract):
+    """A deployment whose animal is missing stops the load, as its taxon
+    would otherwise have to be guessed."""
+    write(extract / "individuals.csv", INDIVIDUAL_HEADER, ['2,"B",Ciconia ciconia'])
+    with pytest.raises(ValueError, match="unknown animal"):
+        read_extract_deployments(
+            extract / "deployments.csv", extract / "individuals.csv"
+        )
+
+
+def test_extract_fixes_join_on_the_deployment_id(extract):
+    """A fix goes to the deployment its row names; a row naming none, or
+    timed outside it, is counted as unmatched."""
+    deployments = read_extract_deployments(
+        extract / "deployments.csv", extract / "individuals.csv"
+    )
+    part = gps_part(
+        extract / "x-gps-1.csv.gz",
+        [
+            "1,100,7,2014-06-02 08:40:47.000,8.93,47.75",
+            "1,101,8,2015-06-02 09:00:10.000,8.94,47.76",
+            "1,999,7,2014-06-02 10:00:00.000,8.93,47.75",
+            "1,100,7,2014-07-02 10:00:00.000,8.93,47.75",
+        ],
+    )
+    fixes, report = read_extract_fixes([part], deployments)
+    assert [(f.deployment_id, f.lat, f.lon) for f in fixes] == [
+        ("100", 47.75, 8.93),
+        ("101", 47.76, 8.94),
+    ]
+    assert fixes[0].timestamp == datetime(2014, 6, 2, 8, 40, 47, tzinfo=timezone.utc)
+    assert (report.rows, report.unmatched) == (4, 2)
+
+
+def test_extract_tag_models_fall_back_to_the_manufacturer(extract):
+    """Tag model by deployment, the manufacturer standing in when blank."""
+    assert read_extract_tag_models(
+        extract / "deployments.csv", extract / "tags.csv"
+    ) == {"100": "Solar GSM", "101": "e-obs GmbH"}

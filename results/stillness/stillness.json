@@ -2,6 +2,7 @@
   "sets": [
     {
       "study": "vultures",
+      "title": "Vultures, southeastern United States",
       "set": "tuning",
       "groups": [
         {
@@ -374,6 +375,7 @@
     },
     {
       "study": "jackals",
+      "title": "Black-backed jackal, Etosha",
       "set": "all",
       "groups": [
         {
@@ -502,6 +504,7 @@
     },
     {
       "study": "elephants",
+      "title": "African elephant, Kruger",
       "set": "all",
       "groups": [
         {
@@ -621,6 +624,2096 @@
             }
           ],
           "longest_hours": 10.5
+        }
+      ],
+      "carcasses": {
+        "hours": [],
+        "per_animal_month": 0.0
+      }
+    },
+    {
+      "study": "storks-sw-germany",
+      "title": "White stork, SW Germany",
+      "set": "tuning",
+      "groups": [
+        {
+          "taxon": null,
+          "tag_model": null,
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS Logger",
+            "GPRS Solar",
+            "GPRS Solar Bird",
+            "GPRS Solar Logger (Superburst)",
+            "Solar Bird",
+            "Solar GSM",
+            "e-obs GmbH"
+          ],
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 9561,
+              "per_animal_month": 6.9368
+            },
+            {
+              "hours": 24,
+              "count": 1102,
+              "per_animal_month": 0.7995
+            },
+            {
+              "hours": 36,
+              "count": 823,
+              "per_animal_month": 0.5971
+            },
+            {
+              "hours": 48,
+              "count": 544,
+              "per_animal_month": 0.3947
+            },
+            {
+              "hours": 72,
+              "count": 368,
+              "per_animal_month": 0.267
+            },
+            {
+              "hours": 168,
+              "count": 189,
+              "per_animal_month": 0.1371
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 1102,
+            "per_animal_month": 0.7995
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 9561,
+              "per_animal_month": 6.9368
+            },
+            {
+              "hours": 18,
+              "count": 2198,
+              "per_animal_month": 1.5947
+            },
+            {
+              "hours": 24,
+              "count": 1102,
+              "per_animal_month": 0.7995
+            },
+            {
+              "hours": 36,
+              "count": 823,
+              "per_animal_month": 0.5971
+            },
+            {
+              "hours": 48,
+              "count": 544,
+              "per_animal_month": 0.3947
+            },
+            {
+              "hours": 72,
+              "count": 368,
+              "per_animal_month": 0.267
+            },
+            {
+              "hours": 96,
+              "count": 283,
+              "per_animal_month": 0.2053
+            },
+            {
+              "hours": 120,
+              "count": 248,
+              "per_animal_month": 0.1799
+            },
+            {
+              "hours": 168,
+              "count": 189,
+              "per_animal_month": 0.1371
+            },
+            {
+              "hours": 240,
+              "count": 128,
+              "per_animal_month": 0.0929
+            },
+            {
+              "hours": 336,
+              "count": 86,
+              "per_animal_month": 0.0624
+            },
+            {
+              "hours": 504,
+              "count": 41,
+              "per_animal_month": 0.0297
+            },
+            {
+              "hours": 720,
+              "count": 18,
+              "per_animal_month": 0.0131
+            }
+          ],
+          "longest_hours": 2520.0
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GPRS Logger",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS Logger"
+          ],
+          "deployments": 6,
+          "animal_months": 40.3,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 230,
+              "per_animal_month": 5.7097
+            },
+            {
+              "hours": 24,
+              "count": 28,
+              "per_animal_month": 0.6951
+            },
+            {
+              "hours": 36,
+              "count": 26,
+              "per_animal_month": 0.6454
+            },
+            {
+              "hours": 48,
+              "count": 25,
+              "per_animal_month": 0.6206
+            },
+            {
+              "hours": 72,
+              "count": 22,
+              "per_animal_month": 0.5461
+            },
+            {
+              "hours": 168,
+              "count": 11,
+              "per_animal_month": 0.2731
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 28,
+            "per_animal_month": 0.6951
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 230,
+              "per_animal_month": 5.7097
+            },
+            {
+              "hours": 18,
+              "count": 54,
+              "per_animal_month": 1.3405
+            },
+            {
+              "hours": 24,
+              "count": 28,
+              "per_animal_month": 0.6951
+            },
+            {
+              "hours": 36,
+              "count": 26,
+              "per_animal_month": 0.6454
+            },
+            {
+              "hours": 48,
+              "count": 25,
+              "per_animal_month": 0.6206
+            },
+            {
+              "hours": 72,
+              "count": 22,
+              "per_animal_month": 0.5461
+            },
+            {
+              "hours": 96,
+              "count": 18,
+              "per_animal_month": 0.4468
+            },
+            {
+              "hours": 120,
+              "count": 17,
+              "per_animal_month": 0.422
+            },
+            {
+              "hours": 168,
+              "count": 11,
+              "per_animal_month": 0.2731
+            },
+            {
+              "hours": 240,
+              "count": 9,
+              "per_animal_month": 0.2234
+            },
+            {
+              "hours": 336,
+              "count": 5,
+              "per_animal_month": 0.1241
+            },
+            {
+              "hours": 504,
+              "count": 3,
+              "per_animal_month": 0.0745
+            },
+            {
+              "hours": 720,
+              "count": 1,
+              "per_animal_month": 0.0248
+            }
+          ],
+          "longest_hours": 796.0
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GPRS Solar",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS Solar"
+          ],
+          "deployments": 5,
+          "animal_months": 226.6,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 1495,
+              "per_animal_month": 6.5967
+            },
+            {
+              "hours": 24,
+              "count": 156,
+              "per_animal_month": 0.6883
+            },
+            {
+              "hours": 36,
+              "count": 94,
+              "per_animal_month": 0.4148
+            },
+            {
+              "hours": 48,
+              "count": 52,
+              "per_animal_month": 0.2294
+            },
+            {
+              "hours": 72,
+              "count": 28,
+              "per_animal_month": 0.1235
+            },
+            {
+              "hours": 168,
+              "count": 19,
+              "per_animal_month": 0.0838
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 156,
+            "per_animal_month": 0.6883
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 1495,
+              "per_animal_month": 6.5967
+            },
+            {
+              "hours": 18,
+              "count": 403,
+              "per_animal_month": 1.7782
+            },
+            {
+              "hours": 24,
+              "count": 156,
+              "per_animal_month": 0.6883
+            },
+            {
+              "hours": 36,
+              "count": 94,
+              "per_animal_month": 0.4148
+            },
+            {
+              "hours": 48,
+              "count": 52,
+              "per_animal_month": 0.2294
+            },
+            {
+              "hours": 72,
+              "count": 28,
+              "per_animal_month": 0.1235
+            },
+            {
+              "hours": 96,
+              "count": 23,
+              "per_animal_month": 0.1015
+            },
+            {
+              "hours": 120,
+              "count": 21,
+              "per_animal_month": 0.0927
+            },
+            {
+              "hours": 168,
+              "count": 19,
+              "per_animal_month": 0.0838
+            },
+            {
+              "hours": 240,
+              "count": 10,
+              "per_animal_month": 0.0441
+            },
+            {
+              "hours": 336,
+              "count": 7,
+              "per_animal_month": 0.0309
+            },
+            {
+              "hours": 504,
+              "count": 4,
+              "per_animal_month": 0.0176
+            },
+            {
+              "hours": 720,
+              "count": 2,
+              "per_animal_month": 0.0088
+            }
+          ],
+          "longest_hours": 2520.0
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GPRS Solar Bird",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS Solar Bird"
+          ],
+          "deployments": 2,
+          "animal_months": 4.6,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 22,
+              "per_animal_month": 4.7548
+            },
+            {
+              "hours": 24,
+              "count": 8,
+              "per_animal_month": 1.729
+            },
+            {
+              "hours": 36,
+              "count": 8,
+              "per_animal_month": 1.729
+            },
+            {
+              "hours": 48,
+              "count": 7,
+              "per_animal_month": 1.5129
+            },
+            {
+              "hours": 72,
+              "count": 4,
+              "per_animal_month": 0.8645
+            },
+            {
+              "hours": 168,
+              "count": 2,
+              "per_animal_month": 0.4323
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 8,
+            "per_animal_month": 1.729
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 22,
+              "per_animal_month": 4.7548
+            },
+            {
+              "hours": 18,
+              "count": 12,
+              "per_animal_month": 2.5935
+            },
+            {
+              "hours": 24,
+              "count": 8,
+              "per_animal_month": 1.729
+            },
+            {
+              "hours": 36,
+              "count": 8,
+              "per_animal_month": 1.729
+            },
+            {
+              "hours": 48,
+              "count": 7,
+              "per_animal_month": 1.5129
+            },
+            {
+              "hours": 72,
+              "count": 4,
+              "per_animal_month": 0.8645
+            },
+            {
+              "hours": 96,
+              "count": 4,
+              "per_animal_month": 0.8645
+            },
+            {
+              "hours": 120,
+              "count": 3,
+              "per_animal_month": 0.6484
+            },
+            {
+              "hours": 168,
+              "count": 2,
+              "per_animal_month": 0.4323
+            },
+            {
+              "hours": 240,
+              "count": 2,
+              "per_animal_month": 0.4323
+            },
+            {
+              "hours": 336,
+              "count": 1,
+              "per_animal_month": 0.2161
+            },
+            {
+              "hours": 504,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 720,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "longest_hours": 504.0
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GPRS Solar Logger (Superburst)",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS Solar Logger (Superburst)"
+          ],
+          "deployments": 39,
+          "animal_months": 523.9,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 2897,
+              "per_animal_month": 5.5301
+            },
+            {
+              "hours": 24,
+              "count": 318,
+              "per_animal_month": 0.607
+            },
+            {
+              "hours": 36,
+              "count": 257,
+              "per_animal_month": 0.4906
+            },
+            {
+              "hours": 48,
+              "count": 185,
+              "per_animal_month": 0.3531
+            },
+            {
+              "hours": 72,
+              "count": 129,
+              "per_animal_month": 0.2462
+            },
+            {
+              "hours": 168,
+              "count": 77,
+              "per_animal_month": 0.147
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 318,
+            "per_animal_month": 0.607
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 2897,
+              "per_animal_month": 5.5301
+            },
+            {
+              "hours": 18,
+              "count": 573,
+              "per_animal_month": 1.0938
+            },
+            {
+              "hours": 24,
+              "count": 318,
+              "per_animal_month": 0.607
+            },
+            {
+              "hours": 36,
+              "count": 257,
+              "per_animal_month": 0.4906
+            },
+            {
+              "hours": 48,
+              "count": 185,
+              "per_animal_month": 0.3531
+            },
+            {
+              "hours": 72,
+              "count": 129,
+              "per_animal_month": 0.2462
+            },
+            {
+              "hours": 96,
+              "count": 99,
+              "per_animal_month": 0.189
+            },
+            {
+              "hours": 120,
+              "count": 90,
+              "per_animal_month": 0.1718
+            },
+            {
+              "hours": 168,
+              "count": 77,
+              "per_animal_month": 0.147
+            },
+            {
+              "hours": 240,
+              "count": 57,
+              "per_animal_month": 0.1088
+            },
+            {
+              "hours": 336,
+              "count": 38,
+              "per_animal_month": 0.0725
+            },
+            {
+              "hours": 504,
+              "count": 22,
+              "per_animal_month": 0.042
+            },
+            {
+              "hours": 720,
+              "count": 6,
+              "per_animal_month": 0.0115
+            }
+          ],
+          "longest_hours": 1004.0
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "Solar Bird",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "Solar Bird"
+          ],
+          "deployments": 4,
+          "animal_months": 13.9,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 101,
+              "per_animal_month": 7.2785
+            },
+            {
+              "hours": 24,
+              "count": 29,
+              "per_animal_month": 2.0899
+            },
+            {
+              "hours": 36,
+              "count": 26,
+              "per_animal_month": 1.8737
+            },
+            {
+              "hours": 48,
+              "count": 20,
+              "per_animal_month": 1.4413
+            },
+            {
+              "hours": 72,
+              "count": 17,
+              "per_animal_month": 1.2251
+            },
+            {
+              "hours": 168,
+              "count": 8,
+              "per_animal_month": 0.5765
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 29,
+            "per_animal_month": 2.0899
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 101,
+              "per_animal_month": 7.2785
+            },
+            {
+              "hours": 18,
+              "count": 47,
+              "per_animal_month": 3.387
+            },
+            {
+              "hours": 24,
+              "count": 29,
+              "per_animal_month": 2.0899
+            },
+            {
+              "hours": 36,
+              "count": 26,
+              "per_animal_month": 1.8737
+            },
+            {
+              "hours": 48,
+              "count": 20,
+              "per_animal_month": 1.4413
+            },
+            {
+              "hours": 72,
+              "count": 17,
+              "per_animal_month": 1.2251
+            },
+            {
+              "hours": 96,
+              "count": 16,
+              "per_animal_month": 1.153
+            },
+            {
+              "hours": 120,
+              "count": 13,
+              "per_animal_month": 0.9368
+            },
+            {
+              "hours": 168,
+              "count": 8,
+              "per_animal_month": 0.5765
+            },
+            {
+              "hours": 240,
+              "count": 4,
+              "per_animal_month": 0.2883
+            },
+            {
+              "hours": 336,
+              "count": 1,
+              "per_animal_month": 0.0721
+            },
+            {
+              "hours": 504,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 720,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "longest_hours": 466.0
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "Solar GSM",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "Solar GSM"
+          ],
+          "deployments": 30,
+          "animal_months": 549.6,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 4700,
+              "per_animal_month": 8.5519
+            },
+            {
+              "hours": 24,
+              "count": 539,
+              "per_animal_month": 0.9807
+            },
+            {
+              "hours": 36,
+              "count": 391,
+              "per_animal_month": 0.7114
+            },
+            {
+              "hours": 48,
+              "count": 236,
+              "per_animal_month": 0.4294
+            },
+            {
+              "hours": 72,
+              "count": 154,
+              "per_animal_month": 0.2802
+            },
+            {
+              "hours": 168,
+              "count": 63,
+              "per_animal_month": 0.1146
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 539,
+            "per_animal_month": 0.9807
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 4700,
+              "per_animal_month": 8.5519
+            },
+            {
+              "hours": 18,
+              "count": 1075,
+              "per_animal_month": 1.956
+            },
+            {
+              "hours": 24,
+              "count": 539,
+              "per_animal_month": 0.9807
+            },
+            {
+              "hours": 36,
+              "count": 391,
+              "per_animal_month": 0.7114
+            },
+            {
+              "hours": 48,
+              "count": 236,
+              "per_animal_month": 0.4294
+            },
+            {
+              "hours": 72,
+              "count": 154,
+              "per_animal_month": 0.2802
+            },
+            {
+              "hours": 96,
+              "count": 110,
+              "per_animal_month": 0.2002
+            },
+            {
+              "hours": 120,
+              "count": 92,
+              "per_animal_month": 0.1674
+            },
+            {
+              "hours": 168,
+              "count": 63,
+              "per_animal_month": 0.1146
+            },
+            {
+              "hours": 240,
+              "count": 40,
+              "per_animal_month": 0.0728
+            },
+            {
+              "hours": 336,
+              "count": 28,
+              "per_animal_month": 0.0509
+            },
+            {
+              "hours": 504,
+              "count": 10,
+              "per_animal_month": 0.0182
+            },
+            {
+              "hours": 720,
+              "count": 7,
+              "per_animal_month": 0.0127
+            }
+          ],
+          "longest_hours": 1608.7
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "e-obs GmbH",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "e-obs GmbH"
+          ],
+          "deployments": 6,
+          "animal_months": 19.4,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 116,
+              "per_animal_month": 5.9696
+            },
+            {
+              "hours": 24,
+              "count": 24,
+              "per_animal_month": 1.2351
+            },
+            {
+              "hours": 36,
+              "count": 21,
+              "per_animal_month": 1.0807
+            },
+            {
+              "hours": 48,
+              "count": 19,
+              "per_animal_month": 0.9778
+            },
+            {
+              "hours": 72,
+              "count": 14,
+              "per_animal_month": 0.7205
+            },
+            {
+              "hours": 168,
+              "count": 9,
+              "per_animal_month": 0.4632
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 24,
+            "per_animal_month": 1.2351
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 116,
+              "per_animal_month": 5.9696
+            },
+            {
+              "hours": 18,
+              "count": 34,
+              "per_animal_month": 1.7497
+            },
+            {
+              "hours": 24,
+              "count": 24,
+              "per_animal_month": 1.2351
+            },
+            {
+              "hours": 36,
+              "count": 21,
+              "per_animal_month": 1.0807
+            },
+            {
+              "hours": 48,
+              "count": 19,
+              "per_animal_month": 0.9778
+            },
+            {
+              "hours": 72,
+              "count": 14,
+              "per_animal_month": 0.7205
+            },
+            {
+              "hours": 96,
+              "count": 13,
+              "per_animal_month": 0.669
+            },
+            {
+              "hours": 120,
+              "count": 12,
+              "per_animal_month": 0.6175
+            },
+            {
+              "hours": 168,
+              "count": 9,
+              "per_animal_month": 0.4632
+            },
+            {
+              "hours": 240,
+              "count": 6,
+              "per_animal_month": 0.3088
+            },
+            {
+              "hours": 336,
+              "count": 6,
+              "per_animal_month": 0.3088
+            },
+            {
+              "hours": 504,
+              "count": 2,
+              "per_animal_month": 0.1029
+            },
+            {
+              "hours": 720,
+              "count": 2,
+              "per_animal_month": 0.1029
+            }
+          ],
+          "longest_hours": 803.0
+        }
+      ],
+      "carcasses": {
+        "hours": [
+          25.0,
+          26.0,
+          29.0,
+          30.0,
+          30.7,
+          31.0,
+          33.0,
+          36.0,
+          40.0,
+          41.0,
+          42.0,
+          54.0,
+          60.0,
+          66.0,
+          66.0,
+          73.0,
+          73.0,
+          77.7,
+          78.3,
+          81.0,
+          84.0,
+          85.5,
+          91.0,
+          92.0,
+          103.0,
+          105.0,
+          108.0,
+          114.0,
+          134.7,
+          150.0,
+          152.0,
+          170.3,
+          173.0,
+          173.0,
+          190.0,
+          199.4,
+          205.3,
+          206.0,
+          223.0,
+          235.7,
+          251.0,
+          270.6,
+          279.8,
+          282.0,
+          318.8,
+          384.0,
+          700.0,
+          3101.0
+        ],
+        "per_animal_month": 0.0348
+      }
+    },
+    {
+      "study": "storks-bavaria",
+      "title": "White stork, Bavaria",
+      "set": "tuning",
+      "groups": [
+        {
+          "taxon": null,
+          "tag_model": null,
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS Bird Solar",
+            "GPRS Solar",
+            "GPRS solar",
+            "GPS GSM solar bird",
+            "GSM Bird Solar",
+            "GSM Solar",
+            "e-obs GmbH",
+            "unknown"
+          ],
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 9487,
+              "per_animal_month": 6.4265
+            },
+            {
+              "hours": 24,
+              "count": 914,
+              "per_animal_month": 0.6191
+            },
+            {
+              "hours": 36,
+              "count": 678,
+              "per_animal_month": 0.4593
+            },
+            {
+              "hours": 48,
+              "count": 464,
+              "per_animal_month": 0.3143
+            },
+            {
+              "hours": 72,
+              "count": 335,
+              "per_animal_month": 0.2269
+            },
+            {
+              "hours": 168,
+              "count": 149,
+              "per_animal_month": 0.1009
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 914,
+            "per_animal_month": 0.6191
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 9487,
+              "per_animal_month": 6.4265
+            },
+            {
+              "hours": 18,
+              "count": 1723,
+              "per_animal_month": 1.1672
+            },
+            {
+              "hours": 24,
+              "count": 914,
+              "per_animal_month": 0.6191
+            },
+            {
+              "hours": 36,
+              "count": 678,
+              "per_animal_month": 0.4593
+            },
+            {
+              "hours": 48,
+              "count": 464,
+              "per_animal_month": 0.3143
+            },
+            {
+              "hours": 72,
+              "count": 335,
+              "per_animal_month": 0.2269
+            },
+            {
+              "hours": 96,
+              "count": 264,
+              "per_animal_month": 0.1788
+            },
+            {
+              "hours": 120,
+              "count": 212,
+              "per_animal_month": 0.1436
+            },
+            {
+              "hours": 168,
+              "count": 149,
+              "per_animal_month": 0.1009
+            },
+            {
+              "hours": 240,
+              "count": 99,
+              "per_animal_month": 0.0671
+            },
+            {
+              "hours": 336,
+              "count": 59,
+              "per_animal_month": 0.04
+            },
+            {
+              "hours": 504,
+              "count": 21,
+              "per_animal_month": 0.0142
+            },
+            {
+              "hours": 720,
+              "count": 5,
+              "per_animal_month": 0.0034
+            }
+          ],
+          "longest_hours": 2678.9
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GPRS Bird Solar",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS Bird Solar"
+          ],
+          "deployments": 1,
+          "animal_months": 2.2,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 14,
+              "per_animal_month": 6.343
+            },
+            {
+              "hours": 24,
+              "count": 4,
+              "per_animal_month": 1.8123
+            },
+            {
+              "hours": 36,
+              "count": 3,
+              "per_animal_month": 1.3592
+            },
+            {
+              "hours": 48,
+              "count": 3,
+              "per_animal_month": 1.3592
+            },
+            {
+              "hours": 72,
+              "count": 1,
+              "per_animal_month": 0.4531
+            },
+            {
+              "hours": 168,
+              "count": 1,
+              "per_animal_month": 0.4531
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 4,
+            "per_animal_month": 1.8123
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 14,
+              "per_animal_month": 6.343
+            },
+            {
+              "hours": 18,
+              "count": 9,
+              "per_animal_month": 4.0777
+            },
+            {
+              "hours": 24,
+              "count": 4,
+              "per_animal_month": 1.8123
+            },
+            {
+              "hours": 36,
+              "count": 3,
+              "per_animal_month": 1.3592
+            },
+            {
+              "hours": 48,
+              "count": 3,
+              "per_animal_month": 1.3592
+            },
+            {
+              "hours": 72,
+              "count": 1,
+              "per_animal_month": 0.4531
+            },
+            {
+              "hours": 96,
+              "count": 1,
+              "per_animal_month": 0.4531
+            },
+            {
+              "hours": 120,
+              "count": 1,
+              "per_animal_month": 0.4531
+            },
+            {
+              "hours": 168,
+              "count": 1,
+              "per_animal_month": 0.4531
+            },
+            {
+              "hours": 240,
+              "count": 1,
+              "per_animal_month": 0.4531
+            },
+            {
+              "hours": 336,
+              "count": 1,
+              "per_animal_month": 0.4531
+            },
+            {
+              "hours": 504,
+              "count": 0,
+              "per_animal_month": 0.0
+            },
+            {
+              "hours": 720,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "longest_hours": 431.3
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GPRS Solar",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS Solar"
+          ],
+          "deployments": 15,
+          "animal_months": 166.8,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 1193,
+              "per_animal_month": 7.1521
+            },
+            {
+              "hours": 24,
+              "count": 99,
+              "per_animal_month": 0.5935
+            },
+            {
+              "hours": 36,
+              "count": 79,
+              "per_animal_month": 0.4736
+            },
+            {
+              "hours": 48,
+              "count": 54,
+              "per_animal_month": 0.3237
+            },
+            {
+              "hours": 72,
+              "count": 46,
+              "per_animal_month": 0.2758
+            },
+            {
+              "hours": 168,
+              "count": 27,
+              "per_animal_month": 0.1619
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 99,
+            "per_animal_month": 0.5935
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 1193,
+              "per_animal_month": 7.1521
+            },
+            {
+              "hours": 18,
+              "count": 191,
+              "per_animal_month": 1.1451
+            },
+            {
+              "hours": 24,
+              "count": 99,
+              "per_animal_month": 0.5935
+            },
+            {
+              "hours": 36,
+              "count": 79,
+              "per_animal_month": 0.4736
+            },
+            {
+              "hours": 48,
+              "count": 54,
+              "per_animal_month": 0.3237
+            },
+            {
+              "hours": 72,
+              "count": 46,
+              "per_animal_month": 0.2758
+            },
+            {
+              "hours": 96,
+              "count": 43,
+              "per_animal_month": 0.2578
+            },
+            {
+              "hours": 120,
+              "count": 38,
+              "per_animal_month": 0.2278
+            },
+            {
+              "hours": 168,
+              "count": 27,
+              "per_animal_month": 0.1619
+            },
+            {
+              "hours": 240,
+              "count": 18,
+              "per_animal_month": 0.1079
+            },
+            {
+              "hours": 336,
+              "count": 12,
+              "per_animal_month": 0.0719
+            },
+            {
+              "hours": 504,
+              "count": 5,
+              "per_animal_month": 0.03
+            },
+            {
+              "hours": 720,
+              "count": 1,
+              "per_animal_month": 0.006
+            }
+          ],
+          "longest_hours": 932.8
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GPRS solar",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPRS solar"
+          ],
+          "deployments": 2,
+          "animal_months": 97.9,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 838,
+              "per_animal_month": 8.5636
+            },
+            {
+              "hours": 24,
+              "count": 80,
+              "per_animal_month": 0.8175
+            },
+            {
+              "hours": 36,
+              "count": 48,
+              "per_animal_month": 0.4905
+            },
+            {
+              "hours": 48,
+              "count": 31,
+              "per_animal_month": 0.3168
+            },
+            {
+              "hours": 72,
+              "count": 19,
+              "per_animal_month": 0.1942
+            },
+            {
+              "hours": 168,
+              "count": 4,
+              "per_animal_month": 0.0409
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 80,
+            "per_animal_month": 0.8175
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 838,
+              "per_animal_month": 8.5636
+            },
+            {
+              "hours": 18,
+              "count": 152,
+              "per_animal_month": 1.5533
+            },
+            {
+              "hours": 24,
+              "count": 80,
+              "per_animal_month": 0.8175
+            },
+            {
+              "hours": 36,
+              "count": 48,
+              "per_animal_month": 0.4905
+            },
+            {
+              "hours": 48,
+              "count": 31,
+              "per_animal_month": 0.3168
+            },
+            {
+              "hours": 72,
+              "count": 19,
+              "per_animal_month": 0.1942
+            },
+            {
+              "hours": 96,
+              "count": 11,
+              "per_animal_month": 0.1124
+            },
+            {
+              "hours": 120,
+              "count": 6,
+              "per_animal_month": 0.0613
+            },
+            {
+              "hours": 168,
+              "count": 4,
+              "per_animal_month": 0.0409
+            },
+            {
+              "hours": 240,
+              "count": 4,
+              "per_animal_month": 0.0409
+            },
+            {
+              "hours": 336,
+              "count": 4,
+              "per_animal_month": 0.0409
+            },
+            {
+              "hours": 504,
+              "count": 2,
+              "per_animal_month": 0.0204
+            },
+            {
+              "hours": 720,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "longest_hours": 696.0
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GPS GSM solar bird",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GPS GSM solar bird"
+          ],
+          "deployments": 22,
+          "animal_months": 316.7,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 2223,
+              "per_animal_month": 7.019
+            },
+            {
+              "hours": 24,
+              "count": 116,
+              "per_animal_month": 0.3663
+            },
+            {
+              "hours": 36,
+              "count": 84,
+              "per_animal_month": 0.2652
+            },
+            {
+              "hours": 48,
+              "count": 55,
+              "per_animal_month": 0.1737
+            },
+            {
+              "hours": 72,
+              "count": 42,
+              "per_animal_month": 0.1326
+            },
+            {
+              "hours": 168,
+              "count": 23,
+              "per_animal_month": 0.0726
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 116,
+            "per_animal_month": 0.3663
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 2223,
+              "per_animal_month": 7.019
+            },
+            {
+              "hours": 18,
+              "count": 246,
+              "per_animal_month": 0.7767
+            },
+            {
+              "hours": 24,
+              "count": 116,
+              "per_animal_month": 0.3663
+            },
+            {
+              "hours": 36,
+              "count": 84,
+              "per_animal_month": 0.2652
+            },
+            {
+              "hours": 48,
+              "count": 55,
+              "per_animal_month": 0.1737
+            },
+            {
+              "hours": 72,
+              "count": 42,
+              "per_animal_month": 0.1326
+            },
+            {
+              "hours": 96,
+              "count": 41,
+              "per_animal_month": 0.1295
+            },
+            {
+              "hours": 120,
+              "count": 34,
+              "per_animal_month": 0.1074
+            },
+            {
+              "hours": 168,
+              "count": 23,
+              "per_animal_month": 0.0726
+            },
+            {
+              "hours": 240,
+              "count": 15,
+              "per_animal_month": 0.0474
+            },
+            {
+              "hours": 336,
+              "count": 7,
+              "per_animal_month": 0.0221
+            },
+            {
+              "hours": 504,
+              "count": 1,
+              "per_animal_month": 0.0032
+            },
+            {
+              "hours": 720,
+              "count": 1,
+              "per_animal_month": 0.0032
+            }
+          ],
+          "longest_hours": 865.8
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GSM Bird Solar",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GSM Bird Solar"
+          ],
+          "deployments": 2,
+          "animal_months": 92.5,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 263,
+              "per_animal_month": 2.8425
+            },
+            {
+              "hours": 24,
+              "count": 35,
+              "per_animal_month": 0.3783
+            },
+            {
+              "hours": 36,
+              "count": 16,
+              "per_animal_month": 0.1729
+            },
+            {
+              "hours": 48,
+              "count": 9,
+              "per_animal_month": 0.0973
+            },
+            {
+              "hours": 72,
+              "count": 5,
+              "per_animal_month": 0.054
+            },
+            {
+              "hours": 168,
+              "count": 3,
+              "per_animal_month": 0.0324
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 35,
+            "per_animal_month": 0.3783
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 263,
+              "per_animal_month": 2.8425
+            },
+            {
+              "hours": 18,
+              "count": 74,
+              "per_animal_month": 0.7998
+            },
+            {
+              "hours": 24,
+              "count": 35,
+              "per_animal_month": 0.3783
+            },
+            {
+              "hours": 36,
+              "count": 16,
+              "per_animal_month": 0.1729
+            },
+            {
+              "hours": 48,
+              "count": 9,
+              "per_animal_month": 0.0973
+            },
+            {
+              "hours": 72,
+              "count": 5,
+              "per_animal_month": 0.054
+            },
+            {
+              "hours": 96,
+              "count": 3,
+              "per_animal_month": 0.0324
+            },
+            {
+              "hours": 120,
+              "count": 3,
+              "per_animal_month": 0.0324
+            },
+            {
+              "hours": 168,
+              "count": 3,
+              "per_animal_month": 0.0324
+            },
+            {
+              "hours": 240,
+              "count": 3,
+              "per_animal_month": 0.0324
+            },
+            {
+              "hours": 336,
+              "count": 3,
+              "per_animal_month": 0.0324
+            },
+            {
+              "hours": 504,
+              "count": 1,
+              "per_animal_month": 0.0108
+            },
+            {
+              "hours": 720,
+              "count": 1,
+              "per_animal_month": 0.0108
+            }
+          ],
+          "longest_hours": 764.5
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "GSM Solar",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "GSM Solar"
+          ],
+          "deployments": 11,
+          "animal_months": 277.6,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 955,
+              "per_animal_month": 3.4405
+            },
+            {
+              "hours": 24,
+              "count": 194,
+              "per_animal_month": 0.6989
+            },
+            {
+              "hours": 36,
+              "count": 163,
+              "per_animal_month": 0.5872
+            },
+            {
+              "hours": 48,
+              "count": 126,
+              "per_animal_month": 0.4539
+            },
+            {
+              "hours": 72,
+              "count": 105,
+              "per_animal_month": 0.3783
+            },
+            {
+              "hours": 168,
+              "count": 45,
+              "per_animal_month": 0.1621
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 194,
+            "per_animal_month": 0.6989
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 955,
+              "per_animal_month": 3.4405
+            },
+            {
+              "hours": 18,
+              "count": 332,
+              "per_animal_month": 1.1961
+            },
+            {
+              "hours": 24,
+              "count": 194,
+              "per_animal_month": 0.6989
+            },
+            {
+              "hours": 36,
+              "count": 163,
+              "per_animal_month": 0.5872
+            },
+            {
+              "hours": 48,
+              "count": 126,
+              "per_animal_month": 0.4539
+            },
+            {
+              "hours": 72,
+              "count": 105,
+              "per_animal_month": 0.3783
+            },
+            {
+              "hours": 96,
+              "count": 79,
+              "per_animal_month": 0.2846
+            },
+            {
+              "hours": 120,
+              "count": 66,
+              "per_animal_month": 0.2378
+            },
+            {
+              "hours": 168,
+              "count": 45,
+              "per_animal_month": 0.1621
+            },
+            {
+              "hours": 240,
+              "count": 31,
+              "per_animal_month": 0.1117
+            },
+            {
+              "hours": 336,
+              "count": 18,
+              "per_animal_month": 0.0648
+            },
+            {
+              "hours": 504,
+              "count": 9,
+              "per_animal_month": 0.0324
+            },
+            {
+              "hours": 720,
+              "count": 1,
+              "per_animal_month": 0.0036
+            }
+          ],
+          "longest_hours": 984.0
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "e-obs GmbH",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "e-obs GmbH"
+          ],
+          "deployments": 33,
+          "animal_months": 490.0,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 3932,
+              "per_animal_month": 8.0238
+            },
+            {
+              "hours": 24,
+              "count": 330,
+              "per_animal_month": 0.6734
+            },
+            {
+              "hours": 36,
+              "count": 245,
+              "per_animal_month": 0.5
+            },
+            {
+              "hours": 48,
+              "count": 153,
+              "per_animal_month": 0.3122
+            },
+            {
+              "hours": 72,
+              "count": 101,
+              "per_animal_month": 0.2061
+            },
+            {
+              "hours": 168,
+              "count": 44,
+              "per_animal_month": 0.0898
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 330,
+            "per_animal_month": 0.6734
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 3932,
+              "per_animal_month": 8.0238
+            },
+            {
+              "hours": 18,
+              "count": 659,
+              "per_animal_month": 1.3448
+            },
+            {
+              "hours": 24,
+              "count": 330,
+              "per_animal_month": 0.6734
+            },
+            {
+              "hours": 36,
+              "count": 245,
+              "per_animal_month": 0.5
+            },
+            {
+              "hours": 48,
+              "count": 153,
+              "per_animal_month": 0.3122
+            },
+            {
+              "hours": 72,
+              "count": 101,
+              "per_animal_month": 0.2061
+            },
+            {
+              "hours": 96,
+              "count": 77,
+              "per_animal_month": 0.1571
+            },
+            {
+              "hours": 120,
+              "count": 59,
+              "per_animal_month": 0.1204
+            },
+            {
+              "hours": 168,
+              "count": 44,
+              "per_animal_month": 0.0898
+            },
+            {
+              "hours": 240,
+              "count": 26,
+              "per_animal_month": 0.0531
+            },
+            {
+              "hours": 336,
+              "count": 13,
+              "per_animal_month": 0.0265
+            },
+            {
+              "hours": 504,
+              "count": 2,
+              "per_animal_month": 0.0041
+            },
+            {
+              "hours": 720,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "longest_hours": 637.5
+        },
+        {
+          "taxon": "Ciconia ciconia",
+          "tag_model": "unknown",
+          "taxa": [
+            "Ciconia ciconia"
+          ],
+          "tag_models": [
+            "unknown"
+          ],
+          "deployments": 4,
+          "animal_months": 32.5,
+          "window_hours": 24.0,
+          "beyond": [
+            {
+              "hours": 12,
+              "count": 69,
+              "per_animal_month": 2.1234
+            },
+            {
+              "hours": 24,
+              "count": 56,
+              "per_animal_month": 1.7234
+            },
+            {
+              "hours": 36,
+              "count": 40,
+              "per_animal_month": 1.231
+            },
+            {
+              "hours": 48,
+              "count": 33,
+              "per_animal_month": 1.0156
+            },
+            {
+              "hours": 72,
+              "count": 16,
+              "per_animal_month": 0.4924
+            },
+            {
+              "hours": 168,
+              "count": 2,
+              "per_animal_month": 0.0615
+            }
+          ],
+          "beyond_window": {
+            "hours": 24.0,
+            "count": 56,
+            "per_animal_month": 1.7234
+          },
+          "curve": [
+            {
+              "hours": 12,
+              "count": 69,
+              "per_animal_month": 2.1234
+            },
+            {
+              "hours": 18,
+              "count": 60,
+              "per_animal_month": 1.8465
+            },
+            {
+              "hours": 24,
+              "count": 56,
+              "per_animal_month": 1.7234
+            },
+            {
+              "hours": 36,
+              "count": 40,
+              "per_animal_month": 1.231
+            },
+            {
+              "hours": 48,
+              "count": 33,
+              "per_animal_month": 1.0156
+            },
+            {
+              "hours": 72,
+              "count": 16,
+              "per_animal_month": 0.4924
+            },
+            {
+              "hours": 96,
+              "count": 9,
+              "per_animal_month": 0.277
+            },
+            {
+              "hours": 120,
+              "count": 5,
+              "per_animal_month": 0.1539
+            },
+            {
+              "hours": 168,
+              "count": 2,
+              "per_animal_month": 0.0615
+            },
+            {
+              "hours": 240,
+              "count": 1,
+              "per_animal_month": 0.0308
+            },
+            {
+              "hours": 336,
+              "count": 1,
+              "per_animal_month": 0.0308
+            },
+            {
+              "hours": 504,
+              "count": 1,
+              "per_animal_month": 0.0308
+            },
+            {
+              "hours": 720,
+              "count": 1,
+              "per_animal_month": 0.0308
+            }
+          ],
+          "longest_hours": 2678.9
         }
       ],
       "carcasses": {

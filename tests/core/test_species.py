@@ -11,7 +11,12 @@ from telemetry.core.species import PROFILES, profile_for
 
 def test_every_study_taxon_has_a_profile():
     """Each taxon in the committed studies has settings."""
-    for taxon in ("Cathartes aura", "Coragyps atratus", "Canis mesomelas"):
+    for taxon in (
+        "Cathartes aura",
+        "Coragyps atratus",
+        "Canis mesomelas",
+        "Ciconia ciconia",
+    ):
         assert profile_for(taxon).taxon == taxon
     assert profile_for("Loxodonta africana").max_speed_mps == 11.0
 
@@ -49,4 +54,5 @@ def test_each_species_window_is_pinned():
         "Coragyps atratus": 36.0,
         "Canis mesomelas": 24.0,
         "Loxodonta africana": 12.0,
+        "Ciconia ciconia": 24.0,
     }

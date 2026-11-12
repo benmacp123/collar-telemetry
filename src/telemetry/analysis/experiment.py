@@ -33,6 +33,7 @@ METRIC_NAMES = {
     CUE_PRECISION: "Precision, keeping at least half the carcasses",
 }
 BOUNDS = ("at_most", "at_least", "above")
+FRESH = "fresh"
 BIRDS = 30
 WEEK_DAYS = 7
 
@@ -198,6 +199,21 @@ class Experiment:
             is not in the file, in which case no target applies to it.
         """
         return self.studies.get(study, {}).get("sets", {}).get(name)
+
+    def is_fresh(self, study: str, name: str | None) -> bool:
+        """Whether a set is held out and still unseen.
+
+        Nothing but the scoring run may replay or score a fresh set, so
+        every routine script asks this before loading one.
+
+        Args:
+            study: Study slug, or the group its populations share.
+            name: The set's name; None for a study that is not split.
+
+        Returns:
+            bool: True if the file marks the set ``fresh``.
+        """
+        return name is not None and self.set_kind(study, name) == FRESH
 
     def scenario(self, study: str) -> str | None:
         """The upload scenario a study's targets are judged under.

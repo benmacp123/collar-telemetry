@@ -102,6 +102,7 @@ from telemetry.core.fixes import Arrival, Deployment, Fix
 from telemetry.core.geo import haversine_m
 from telemetry.analysis.experiment import experiment
 from telemetry.analysis.intervals import ceiling, cluster_bootstrap, wilson
+from telemetry.data.studies import STORKS
 from telemetry.sim.replay import PLANNED_ENDS
 from telemetry.sim.synthetic import REGIMES, InjectedDeath
 
@@ -127,6 +128,9 @@ VULTURE_TAXON = "Cathartes aura"
 
 # Shortest final stationary period that counts as a carcass, by taxon.
 CARCASS_MIN = experiment().carcass_min
+
+# Studies held on one side of the split whole, by slug.
+WHOLE_STUDY_SPLITS = {study.slug: study for study in STORKS}
 
 
 @dataclass(frozen=True)
@@ -283,8 +287,12 @@ def split_for(study: str, deployment: Deployment) -> str:
         deployment: The deployment.
 
     Returns:
-        str: ``TUNING`` or ``SCORING`` for split studies, else ``ALL``.
+        str: ``TUNING`` or ``SCORING`` for split studies, else ``ALL``. A
+        stork population is on one side whole, as the split file says;
+        the vultures are split by deploy-on date.
     """
+    if study in WHOLE_STUDY_SPLITS:
+        return WHOLE_STUDY_SPLITS[study].split
     scoring_from = experiment().scoring_from(study)
     if scoring_from is None:
         return ALL

@@ -1,7 +1,8 @@
 """Per-species settings for the cleaner and detectors, with their sources.
 
 Each value is labelled **observed** (measured on this project's tuning
-data: vulture deployments starting before 2013), **literature** (from a
+data: vulture deployments starting before 2013, and the two white stork
+tuning populations, SW Germany and Bavaria), **literature** (from a
 cited source) or **provisional** (a reasoned starting point, to be checked
 on the tuning set). The full table with references is in
 ``docs/ASSUMPTIONS.md``.
@@ -130,6 +131,25 @@ PROFILES: dict[str, SpeciesProfile] = {
             11.0,
             MortalityConfig(window=timedelta(hours=12)),
             MovementConfig(min_displacement_m=3_000.0),
+        ),
+        # White stork. Speed, observed: tag-recorded ground speed on the
+        # two tuning populations (1.25 million hourly fixes) has a 99.9th
+        # percentile of 22 m/s and a 99.99th of 30-34 m/s, with a few
+        # impossible readings above (up to 478 m/s). 35 m/s sits just
+        # over the 99.99th percentile; the fixes are an hour apart, so
+        # implied speeds average far below any real top speed.
+        # Mortality window, provisional: the 24 h default, not yet chosen.
+        # Almost every SW Germany bird was tagged as a nestling and sits in
+        # the nest for weeks, so the window and the handling of that period
+        # are to be set on the tuning populations (make stillness, make
+        # fledging) before any held-out population is scored.
+        # Movement floor, provisional: the vultures' 10 km in 3 h, as
+        # storks also travel on the wing and migrate; unchecked.
+        SpeciesProfile(
+            "Ciconia ciconia",
+            35.0,
+            MortalityConfig(window=timedelta(hours=24)),
+            MovementConfig(min_displacement_m=10_000.0),
         ),
     )
 }

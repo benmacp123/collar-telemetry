@@ -142,7 +142,7 @@ each layer to its own imports.
 ```mermaid
 flowchart TB
     data[("Movebank tracks<br>data/raw/")] --> arrival["Arrival scenarios<br>ideal, GSM, satellite"]
-    storks[("Stork extract, hourly<br>GPS and acceleration")] -. "planned" .-> arrival
+    storks[("Stork extract, hourly GPS<br>(acceleration not read yet)")] --> arrival
     core{{"Detection core<br>cleaning, detectors,<br>alert lifecycle and tiers"}}
     experiment[("Experiment definition<br>sets, sweep grid, targets")]
 
@@ -313,7 +313,9 @@ Repository; full citations, file details and retrieval dates are in
   [`data/SOURCES.md`](data/SOURCES.md)): an hourly extract of GPS fixes
   and accelerometer summaries for 339 birds, in
   [`data/raw/storks/`](data/raw/storks/). Committed for the second case
-  study; no detector reads it yet. Rebuilt only by the optional
+  study. The two tuning populations' GPS fixes are replayed; the three
+  held-out populations are not opened by any routine target, and the
+  accelerometer summaries are not read yet. Rebuilt only by the optional
   `make fetch-storks`, which needs a Movebank account.
 - Park boundaries for Etosha and Kruger: © OpenStreetMap contributors,
   under the Open Database Licence (ODbL 1.0), relations 2982497 and
@@ -334,7 +336,8 @@ source venv/bin/activate
 make test lint format-check
 make results  # replay every study and scenario, then score (about 5 min)
 make sweep    # threshold sweep on the vulture tuning set (about 2 min)
-make stillness  # how often living animals stay still (about 10 s)
+make stillness  # how often living animals stay still (about 30 s)
+make fledging   # stork alerts before and after leaving the nest
 make cloud-local  # handlers in Lambda containers on moto (Docker, ~6 min)
 make cloud-moto   # every study through the handlers on in-process moto
 ```

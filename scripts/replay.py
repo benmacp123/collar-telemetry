@@ -2,7 +2,10 @@
 
 Run with ``make replay``. Reads only files in data/raw/ and writes, for
 each study and scenario, ``results/replay/<study>/<scenario>/summary.json``
-(committed) and ``incidents.jsonl`` (regenerated, not committed). The
+(committed) and ``incidents.jsonl`` (regenerated, not committed). Stork
+populations the experiment file holds out unseen (``fresh``) are never
+replayed here, and cannot be named with ``--study``: replaying one writes
+its alert counts to a committed summary, which would be a look. The
 mammals' synthetic-death variants (``telemetry.analysis.variants``) are
 replayed the same way, with what was injected written to
 ``results/replay/<variant>/deaths.json``. Options narrow the run, e.g.
@@ -14,14 +17,23 @@ import json
 import time
 from pathlib import Path
 
+from telemetry.analysis.experiment import experiment
 from telemetry.analysis.variants import VARIANTS
 from telemetry.sim.arrival import SCENARIOS
 from telemetry.sim.replay import DEFAULT_SEED, replay
-from telemetry.data.studies import STUDIES
+from telemetry.data.studies import STORKS, STUDIES
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 RESULTS = ROOT / "results"
+
+# Everything a routine run may replay: held-out, unseen populations are
+# left out here rather than filtered later, so no option can reach them.
+REPLAYED = (
+    STUDIES
+    + [s for s in STORKS if not experiment().is_fresh(s.group, s.split)]
+    + VARIANTS
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -34,7 +46,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--study",
         action="append",
-        choices=[study.slug for study in STUDIES + VARIANTS],
+        choices=[study.slug for study in REPLAYED],
         help="study to replay (repeatable; default all)",
     )
     parser.add_argument(
@@ -71,7 +83,7 @@ def write_deaths(slug: str, variant, seed: int) -> None:
 def main():
     """Replay the chosen studies and scenarios and write their results."""
     args = parse_args()
-    chosen = [s for s in STUDIES + VARIANTS if not args.study or s.slug in args.study]
+    chosen = [s for s in REPLAYED if not args.study or s.slug in args.study]
     scenarios = [SCENARIOS[name] for name in args.scenario or SCENARIOS]
     for study in chosen:
         if study in VARIANTS:

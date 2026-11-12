@@ -1,0 +1,161 @@
+{
+  "scenario": "gsm",
+  "sets": [
+    {
+      "study": "storks-sw-germany",
+      "title": "White stork, SW Germany",
+      "radii": [
+        {
+          "radius_m": 500.0,
+          "birds": 92,
+          "never_left": 3,
+          "days_to_leave": {
+            "median": 23.8,
+            "p90": 40.7,
+            "max": 52.9
+          },
+          "animal_months_before": 72.8,
+          "animal_months_after": 1305.5,
+          "share_of_time_before": 0.053,
+          "detectors": {
+            "mortality": {
+              "before": 102,
+              "after": 640,
+              "per_animal_month_before": 1.401,
+              "per_animal_month_after": 0.49,
+              "share_before": 0.137
+            },
+            "potential_death": {
+              "before": 20,
+              "after": 103,
+              "per_animal_month_before": 0.275,
+              "per_animal_month_after": 0.079,
+              "share_before": 0.163
+            },
+            "gap": {
+              "before": 23,
+              "after": 864,
+              "per_animal_month_before": 0.316,
+              "per_animal_month_after": 0.662,
+              "share_before": 0.026
+            }
+          }
+        },
+        {
+          "radius_m": 2000.0,
+          "birds": 92,
+          "never_left": 6,
+          "days_to_leave": {
+            "median": 37.4,
+            "p90": 47.3,
+            "max": 61.0
+          },
+          "animal_months_before": 107.9,
+          "animal_months_after": 1270.4,
+          "share_of_time_before": 0.078,
+          "detectors": {
+            "mortality": {
+              "before": 144,
+              "after": 598,
+              "per_animal_month_before": 1.335,
+              "per_animal_month_after": 0.471,
+              "share_before": 0.194
+            },
+            "potential_death": {
+              "before": 28,
+              "after": 95,
+              "per_animal_month_before": 0.26,
+              "per_animal_month_after": 0.075,
+              "share_before": 0.228
+            },
+            "gap": {
+              "before": 37,
+              "after": 850,
+              "per_animal_month_before": 0.343,
+              "per_animal_month_after": 0.669,
+              "share_before": 0.042
+            }
+          }
+        }
+      ]
+    },
+    {
+      "study": "storks-bavaria",
+      "title": "White stork, Bavaria",
+      "radii": [
+        {
+          "radius_m": 500.0,
+          "birds": 90,
+          "never_left": 2,
+          "days_to_leave": {
+            "median": 20.9,
+            "p90": 34.9,
+            "max": 42.0
+          },
+          "animal_months_before": 64.1,
+          "animal_months_after": 1412.1,
+          "share_of_time_before": 0.043,
+          "detectors": {
+            "mortality": {
+              "before": 102,
+              "after": 465,
+              "per_animal_month_before": 1.591,
+              "per_animal_month_after": 0.329,
+              "share_before": 0.18
+            },
+            "potential_death": {
+              "before": 18,
+              "after": 53,
+              "per_animal_month_before": 0.281,
+              "per_animal_month_after": 0.038,
+              "share_before": 0.254
+            },
+            "gap": {
+              "before": 20,
+              "after": 587,
+              "per_animal_month_before": 0.312,
+              "per_animal_month_after": 0.416,
+              "share_before": 0.033
+            }
+          }
+        },
+        {
+          "radius_m": 2000.0,
+          "birds": 90,
+          "never_left": 3,
+          "days_to_leave": {
+            "median": 33.7,
+            "p90": 45.7,
+            "max": 55.9
+          },
+          "animal_months_before": 92.4,
+          "animal_months_after": 1383.8,
+          "share_of_time_before": 0.063,
+          "detectors": {
+            "mortality": {
+              "before": 136,
+              "after": 431,
+              "per_animal_month_before": 1.472,
+              "per_animal_month_after": 0.311,
+              "share_before": 0.24
+            },
+            "potential_death": {
+              "before": 23,
+              "after": 48,
+              "per_animal_month_before": 0.249,
+              "per_animal_month_after": 0.035,
+              "share_before": 0.324
+            },
+            "gap": {
+              "before": 27,
+              "after": 580,
+              "per_animal_month_before": 0.292,
+              "per_animal_month_after": 0.419,
+              "share_before": 0.044
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

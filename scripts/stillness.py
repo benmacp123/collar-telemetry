@@ -2,7 +2,8 @@
 
 Run with ``make stillness``. Uses the vulture tuning set only (every
 tuning bird wears an Argos PTT tag, so tag types cannot be told apart
-without the held-out set) and every jackal and elephant, and writes
+without the held-out set), the stork tuning populations and every jackal
+and elephant, and writes
 ``results/stillness/stillness.json``, ``results/stillness/STILLNESS.md``
 and ``results/figures/stillness-tail.png``.
 """
@@ -19,8 +20,7 @@ from telemetry.analysis.evaluation import (
 )
 from telemetry.analysis.report import write_stillness
 from telemetry.analysis.stillness import measure
-from telemetry.data.movebank import read_tag_models
-from telemetry.data.studies import STUDIES
+from telemetry.data.studies import STUDIES, tuning_storks
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
@@ -32,7 +32,9 @@ def main():
     """Measure every study's living still-bout tail and write the results."""
     labels = read_labels(LABELS)
     sets = []
-    for study in STUDIES:
+    # Held-out stork populations are not in this list, so their files are
+    # never opened.
+    for study in STUDIES + tuning_storks():
         deployments, fixes, _ = study.load(RAW)
         # Held-out vultures are never loaded past this point, so choosing
         # a window from this output does not look at them.
@@ -47,8 +49,9 @@ def main():
         sets.append(
             {
                 "study": study.slug,
+                "title": study.title,
                 "set": truths[0].split,
-                **measure(truths, fixes, read_tag_models(study.reference_path(RAW))),
+                **measure(truths, fixes, study.tag_models(RAW)),
             }
         )
     out = RESULTS / "stillness"

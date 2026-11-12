@@ -4,7 +4,7 @@
 # `make help` lists them.
 
 .PHONY: help install setup test lint format format-check profile replay \
-	evaluate results score sweep stillness departure cloud-sizing cloud-moto lambda-requirements \
+	evaluate results score sweep stillness fledging departure cloud-sizing cloud-moto lambda-requirements \
 	lambda-image cloud-local lambda-zip lock tf-check tf-fmt tf-plan \
 	tf-apply tf-output tf-destroy cloud-aws cloud-clock cloud-leftovers prices fetch-storks cloud-usage cloud-cost all
 
@@ -64,6 +64,9 @@ sweep: ## Threshold sweep on the vulture tuning set -> results/sweep/
 
 stillness: ## Living still-bout tails by species and tag -> results/stillness/
 	PYTHONPATH=src python scripts/stillness.py
+
+fledging: ## Stork alerts before and after leaving the nest -> results/fledging/
+	PYTHONPATH=src python scripts/fledging.py
 
 carcass: ## Measure collars on vulture carcasses -> results/carcass/
 	PYTHONPATH=src python scripts/carcass_profile.py

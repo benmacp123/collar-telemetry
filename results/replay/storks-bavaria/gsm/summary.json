@@ -1,0 +1,56 @@
+{
+  "study": "storks-bavaria",
+  "scenario": "gsm",
+  "seed": 2026,
+  "settings": {
+    "tick_hours": 1.0,
+    "max_lateness_hours": 3.0,
+    "gap_min_silence_hours": 6.0,
+    "gap_allowance_hours": 37.0,
+    "silent_horizon_days": 7.0,
+    "planned_ends": [
+      "captured",
+      "released",
+      "removal"
+    ]
+  },
+  "deployments": 90,
+  "cleaner_dropped": {
+    "duplicate": 6326,
+    "invalid": 0,
+    "late": 3930,
+    "speed": 43
+  },
+  "lifecycle_dropped": {
+    "duplicate_open": 0,
+    "orphan_resolve": 0
+  },
+  "incidents": {
+    "gap": {
+      "incidents": 607,
+      "open_at_end": 84,
+      "late_fix": 384,
+      "flaps": 0
+    },
+    "mortality": {
+      "incidents": 567,
+      "open_at_end": 35,
+      "late_fix": 0,
+      "flaps": 253
+    },
+    "movement": {
+      "incidents": 1465,
+      "open_at_end": 2,
+      "late_fix": 0,
+      "flaps": 0
+    },
+    "potential_death": {
+      "incidents": 71,
+      "open_at_end": 33,
+      "late_fix": 5,
+      "flaps": 0
+    }
+  },
+  "fixes": 698640,
+  "arrivals": 705630
+}

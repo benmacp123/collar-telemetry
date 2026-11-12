@@ -9,7 +9,7 @@ from pathlib import Path
 
 from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.geo import haversine_m
-from telemetry.data.studies import STUDIES
+from telemetry.data.studies import STUDIES, tuning_storks
 
 RAW = Path(__file__).resolve().parent.parent / "data" / "raw"
 OUTPUT = RAW.parent / "PROFILE.md"
@@ -75,7 +75,8 @@ def profile_deployment(deployment: Deployment, fixes: list[Fix]) -> dict:
         "fixes": len(fixes),
         "first": ordered[0].timestamp.date() if ordered else "-",
         "last": last.date() if last else "-",
-        "median interval (min)": round(median),
+        # A deployment with fewer than two fixes has no interval to report.
+        "median interval (min)": round(median) if positive else "-",
         "gaps": sum(minutes > GAP_FACTOR * median for minutes in intervals),
         "longest gap (days)": round(max(intervals, default=0) / 1440, 1),
         "duplicate times": intervals.count(0),
@@ -112,7 +113,8 @@ def main():
         "Max speed is the fastest implied speed between consecutive fixes, for",
         "screening only; it is not an outlier threshold.",
     ]
-    for study in STUDIES:
+    # Held-out stork populations are not profiled: their files stay unopened.
+    for study in STUDIES + tuning_storks():
         deployments, fixes, report = study.load(RAW)
         by_deployment = defaultdict(list)
 

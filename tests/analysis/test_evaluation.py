@@ -175,6 +175,15 @@ def test_split_by_deployment_start_for_vultures_only():
     assert split_for("jackals", late) == ALL
 
 
+def test_stork_populations_split_whole_by_the_split_file():
+    """A stork population is on one side whatever its deployment dates."""
+    early = deployment(deploy_on=datetime(2012, 12, 31, tzinfo=timezone.utc))
+    late = deployment(deploy_on=datetime(2024, 1, 1, tzinfo=timezone.utc))
+    for bird in (early, late):
+        assert split_for("storks-sw-germany", bird) == TUNING
+        assert split_for("storks-rheinland-pfalz", bird) == SCORING
+
+
 def test_read_labels_rejects_unknown_label(tmp_path):
     """Only the labels the review produces are accepted."""
     path = tmp_path / "labels.csv"

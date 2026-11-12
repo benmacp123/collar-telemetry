@@ -40,6 +40,9 @@ reference_mark_hours = 92.5
 "Coragyps atratus" = 24.0
 "Canis mesomelas" = 24.0
 "Loxodonta africana" = 12.0
+# White storks start on the 24 h default; set when the studies were added
+# (step 3.1), before any stork alert was scored.
+"Ciconia ciconia" = 24.0
 
 # Set membership. Each set is one of three kinds:
 #   tuning: thresholds may be chosen on it.
@@ -60,7 +63,9 @@ tuning = "tuning"
 scoring = "seen"
 
 # Added at step 3.1; the split was fixed from reference data before any track
-# was downloaded.
+# was downloaded. Five populations (storks-<name>), each wholly on one side:
+# the split file says which, so a population is in the `tuning` set or the
+# `scoring` set below.
 [studies.storks]
 scenario = "gsm"
 split_file = "data/splits.csv"
@@ -89,6 +94,7 @@ upload_margin_hours = 36.0
 "Coragyps atratus" = 36.0
 "Canis mesomelas" = 24.0
 "Loxodonta africana" = 12.0
+"Ciconia ciconia" = 24.0
 
 # The settings `make sweep` tries. The mortality and gap detectors do not affect
 # each other, so each is swept on its own. Out to 120 h and 300 m so the grid

@@ -1,0 +1,56 @@
+{
+  "study": "storks-sw-germany",
+  "scenario": "gsm",
+  "seed": 2026,
+  "settings": {
+    "tick_hours": 1.0,
+    "max_lateness_hours": 3.0,
+    "gap_min_silence_hours": 6.0,
+    "gap_allowance_hours": 37.0,
+    "silent_horizon_days": 7.0,
+    "planned_ends": [
+      "captured",
+      "released",
+      "removal"
+    ]
+  },
+  "deployments": 92,
+  "cleaner_dropped": {
+    "duplicate": 5576,
+    "invalid": 0,
+    "late": 3456,
+    "speed": 1
+  },
+  "lifecycle_dropped": {
+    "duplicate_open": 0,
+    "orphan_resolve": 0
+  },
+  "incidents": {
+    "gap": {
+      "incidents": 887,
+      "open_at_end": 89,
+      "late_fix": 319,
+      "flaps": 0
+    },
+    "mortality": {
+      "incidents": 742,
+      "open_at_end": 54,
+      "late_fix": 0,
+      "flaps": 336
+    },
+    "movement": {
+      "incidents": 1494,
+      "open_at_end": 2,
+      "late_fix": 0,
+      "flaps": 0
+    },
+    "potential_death": {
+      "incidents": 123,
+      "open_at_end": 52,
+      "late_fix": 8,
+      "flaps": 0
+    }
+  },
+  "fixes": 618838,
+  "arrivals": 624976
+}

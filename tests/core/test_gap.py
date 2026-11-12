@@ -272,3 +272,23 @@ def test_no_alert_within_allowance_even_if_active_hours_silent():
     feed(detector, state, fixes(range(24 * 5)))
     assert ticks(detector, state, 24 * 5, 24 * 5 + 28) == []
     assert len(ticks(detector, state, 24 * 5 + 29, 24 * 5 + 31)) == 1
+
+
+def test_nightly_switch_off_is_learned_not_alerted():
+    """A stork tag off 20:00-02:00 every night raises no gap alert, even
+    with no upload allowance, but a silent morning does."""
+    detector = GapDetector(GapConfig(allowance=timedelta(0)))
+    state = {}
+    days = 10
+    alerts = []
+    # Fed night by night, ticking through each switch-off, as a live
+    # pipeline would see it.
+    for day in range(days):
+        alerts += feed(detector, state, fixes([day * 24 + h for h in range(2, 20)]))
+        alerts += ticks(detector, state, day * 24 + 20, day * 24 + 25)
+    assert not alerts
+    # The tag then stays silent. Six of its normal hours have passed by
+    # 07:00: 19:00-20:00 the evening before, then 02:00-07:00.
+    silent = ticks(detector, state, days * 24 + 2, days * 24 + 12)
+    assert [a.detector for a in silent] == ["gap"]
+    assert silent[0].time == at(days * 24 + 7)

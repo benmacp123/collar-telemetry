@@ -15,7 +15,7 @@ from telemetry.analysis.experiment import EXPERIMENT_PATH, _target, experiment
 from telemetry.analysis.intervals import wilson
 from telemetry.analysis.report import _sweep_target_lines, _target_lines
 from telemetry.core.pipeline import UPLOAD_MARGIN
-from telemetry.core.species import profile_for
+from telemetry.core.species import PROFILES, profile_for
 
 ROOT = Path(__file__).resolve().parents[2]
 WATCH = "Stationary: check (watch)"
@@ -168,6 +168,23 @@ def test_quoted_thresholds_match_what_the_detectors_run():
         assert mortality.leave_fixes == quoted["mortality_leave_fixes"]
         assert mortality.leave_radius_m == quoted["mortality_leave_radius_m"]
     assert UPLOAD_MARGIN == timedelta(hours=quoted["upload_margin_hours"])
+
+
+def test_only_unseen_held_out_sets_are_fresh():
+    """Stork scoring populations are fresh; tuning, seen and unsplit sets
+    are not."""
+    settings = experiment()
+    assert settings.is_fresh("storks", "scoring")
+    assert not settings.is_fresh("storks", "tuning")
+    assert not settings.is_fresh("vultures", "scoring")
+    assert not settings.is_fresh("jackals", None)
+
+
+def test_every_profiled_taxon_has_a_carcass_minimum_and_quoted_window():
+    """A species added to the core is added to the experiment file too."""
+    settings = experiment()
+    assert set(settings.carcass_min) == set(PROFILES)
+    assert set(settings.thresholds["mortality_window_hours"]) == set(PROFILES)
 
 
 def test_quoted_mark_matches_the_committed_evaluation():

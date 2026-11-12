@@ -4,7 +4,9 @@ Every setting the pipeline and its evaluation use, with where it came
 from. Labels:
 
 - **Observed**: measured on this project's tuning data (vulture
-  deployments starting before 2013). The scoring set (2013 on) was not
+  deployments starting before 2013, and the white stork tuning
+  populations, SW Germany and Bavaria; the three held-out stork
+  populations are not opened by any routine target). The vulture scoring set (2013 on) was not
   inspected while choosing values; it was scored on 2026-10-18, after
   the thresholds were frozen. Only `make score` rescores it, and every
   look is logged in `results/LOOKS.md`.
@@ -27,6 +29,7 @@ minutes or hours, which leaves a wide margin for real movement.
 |---|---|---|---|
 | Turkey vulture, black vulture | 30 m/s | Tag-recorded ground speed on the tuning set: 99.9th percentile 18-19 m/s, maximum 23 m/s (one black vulture reading of 65 m/s treated as a GPS error). California condor listed at 90 km/h (25 m/s) in [4], whose source for it is a website (speedofanimals.com), so it is supporting only. | Observed |
 | Black-backed jackal | 17 m/s | 59.98 km/h from [1] and 58.29 km/h from [6] (16.2-16.7 m/s), as listed in [4]'s speed database; the primary papers were not read. | Literature (secondary) |
+| White stork | 35 m/s | Tag-recorded ground speed on the two tuning populations (1.25 million hourly fixes): 99.9th percentile 22 m/s, 99.99th 30-34 m/s, with a few impossible readings above (up to 478 m/s). The extract's fixes are an hour apart, so implied speeds average well below any real top speed. | Observed |
 | African savanna elephant | 11 m/s | 35 km/h from [2], as listed in [4] (which also lists 34 and 40 km/h from other sources); the fastest gait measured, on 42 Asian elephants, was about 15 mph (6.7 m/s) [5]. | Literature (secondary) |
 
 The speed filter subtracts twice `gps_error_m` (30 m) from each step
@@ -60,6 +63,7 @@ per arrival scenario in `src/telemetry/sim/arrival.py`):
 | Window, vultures | 36 h | Outlasts one night's roost, but not living rest: on the tuning set (all Argos PTT tags), living still bouts last longer than 36 / 48 / 72 / 168 h 0.61 / 0.24 / 0.11 / 0.024 times per animal-month, against 0.0085 carcasses; black vultures 0.74 past 36 h, turkey vultures 0.19 (`results/stillness/STILLNESS.md`). No source was found for the 12-14 h roost figure this once cited. Tuning-set sweep (`results/sweep/SWEEP.md`): false alarms 0.91 / 0.57 / 0.22 / 0.09 per animal-month at 24 / 36 / 48 / 72 h. Carcass deaths flagged by the 92.5 h mark: 4 of 6 up to 36 h; at 48 h one is flagged after the mark under satellite uploads. Black vultures swept on their own (turkey vultures at 36 h; rule fixed in `config/experiment.toml` before the sweep: the shortest window meeting the watch load and clear-time targets under daily satellite uploads): no window meets both. 39 h gives load 0.500 (limit 0.435) with an 8 h clear time; 42 h gives 0.400 but 17 h (limit 12 h). So black vultures keep 36 h. Clear time follows the window's phase, not its length: living birds leave the roost mostly 12:00-21:00 UTC, so a window ending just before that departure clears within hours and one ending after it waits a whole day. | Observed (sweep, 6 carcass deaths) |
 | Window, jackal | 24 h | Jackals lie up through the day and travel a mean of 14.6 km a day [10]. No published lie-up durations for black-backed jackals were found. This study's deaths show at most about 10 h stationary before the track stops (seen while labelling, not used to choose the value). Measured on all 22 tracks (`make stillness`): living still bouts outlast 24 h 0.071 times per animal-month (13 bouts) and 36 h 0.022 (4), the longest 102 h; a ninth of the vultures' rate past their own window, so the jackal alert does not share the vultures' ceiling on this evidence. | Provisional, checked on tracks |
 | Window, elephant | 12 h | Wild elephants sleep about 2 h a day, mostly 02:00-06:00, with no single bout over 142 min [8]. On this Kruger population, continuous stays at water average 2.6 h (wet season) and 3.5 h (dry, s.d. 4.1 h), measured within 200 m of water [12], so a long dry-season stay at water is the most likely false alarm. Collar makers' activity-sensor mortality timers default to 4-24 h [9]; those measure collar motion, not position. Measured on all 14 tracks (`make stillness`): no living still bout outlasts 12 h, the longest 10.5 h. | Provisional, literature-informed, checked on tracks |
+| Window, white stork | 24 h | The default, not yet chosen. On the two tuning populations (hourly fixes, GSM uploads) it raises 0.54 (SW Germany) and 0.38 (Bavaria) stationary alerts per animal-month, against the watch limit of 0.435. Living still bouts outlast 24 / 36 / 48 / 72 / 168 h 0.80 / 0.60 / 0.40 / 0.27 / 0.14 times per animal-month in SW Germany and 0.62 / 0.46 / 0.31 / 0.23 / 0.10 in Bavaria (`results/stillness/STILLNESS.md`): a far longer tail than the vultures', so a longer window alone will not clear it. Part of it is the nest: most birds were tagged as nestlings and first move 500 m from the tagging place after a median of 21-24 days, and that period holds 14-18% of the stationary alerts in 4-5% of the tracked time, three to five times the later rate (`results/fledging/FLEDGING.md`). The other four-fifths come after the bird has left. No rule for the nest period has been chosen. | Provisional |
 | Minimum fixes in the cluster | 6 | Two fixes a day apart are not enough evidence of a carcass. Tuning-set probe (2026-10-22): 5 or 3 flags one more sparse carcass (MEM_BLVU_68361), but only after the 92.5 h mark, for 0.01-0.05 more false alerts per animal-month; the other missed one (LXE_TUVU_68359, still for 25 h) is shorter than the window, so no value catches it. | Provisional, checked on tuning data |
 | Leaving radius, once alerted (all taxa) | 75 m from the cluster's centre at the alert | The growing box lets scattered carcass fixes read as "moving again" (see below). Smallest radius with no flaps on the tuning-seed synthetic deaths of either mammal (50 m leaves 1 and 3); applies only after an alert, so it changes no open or detection. Twice the carcass scatter's 95th percentile (36.5 m). Cost on the vulture tuning set: false alerts stay open a median 8 h (7 h with the box) and a 90th percentile 89 h (75 h). Chosen by the owner, 2026-10-22. | Observed (tuning data, `make departure`) |
 | Leave fixes | 2 in a row | Three cut flaps less than the radius and add false alerts (0.85 against 0.57 per animal-month on the vulture tuning set), and lose one carcass death by the mark under satellite uploads. | Observed (tuning data, `make departure`) |
@@ -98,6 +102,16 @@ collar's schedule:
 | Active hour | At least 25% of the busiest hour's weight | Keeps hours the collar is only occasionally on from counting as hours it should be heard in. | Provisional |
 | Usual interval | Median of the last 50 intervals | A median ignores the overnight gap on duty-cycled tags; 50 covers about two days of hourly fixes. | Provisional |
 
+The stork tags switch off from 20:00 to 02:00 GPS time every night. The
+detector needs no setting for this: it learns the hours a tag is heard in
+and counts silence only in those, and a test feeds it that schedule with
+no upload allowance and gets no alert. On the two tuning populations the
+shortest silence behind any gap alert is 37 h, the GSM allowance, so none
+comes from a single night. The alerts that do fire (0.64 per animal-month
+in SW Germany, 0.41 in Bavaria) are silences of days, most often in
+December and January in SW Germany, which fits solar tags short of power;
+that reading is not checked.
+
 ## Unusual-movement detector
 
 The detector compares each animal with its own baseline. The floor only
@@ -107,6 +121,7 @@ stops an animal that barely moves from alerting on a short walk.
 |---|---|---|---|
 | Vultures | 10 km | Cover tens of kilometres a day on the wing. On the tuning set the bird's own threshold (2 x its 99th percentile) is above 10 km for 32 of 34 birds (median 33 km), so the floor is a backstop; it binds for two black vultures (7.7 and 9.3 km). | Provisional, checked on the tuning set |
 | Black-backed jackal | 3 km | 3 km in 3 h is about 1.7 times the mean daily rate of 14.6 km a day (VHF, Botswana) [10]. | Provisional, literature-informed |
+| White stork | 10 km | The vultures' floor, as storks also travel on the wing and migrate. Not checked against the birds' own thresholds. | Provisional |
 | African savanna elephant | 3 km | 3 km in 3 h is about 2.5 times the mean speed of this Kruger population (0.4 km/h, 30-min fixes) and twice the fastest water-to-water segment average (1.5 km/h) [12]. | Provisional, literature-informed |
 
 Settings shared by every taxon (`src/telemetry/core/detectors/movement.py`):

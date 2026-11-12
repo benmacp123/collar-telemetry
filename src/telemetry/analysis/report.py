@@ -4,6 +4,7 @@ Kept apart from ``telemetry.analysis.evaluation`` so the scoring has no plotting
 dependency, and from the detection core, which the Lambda handlers load.
 """
 
+from collections import Counter
 from pathlib import Path
 
 from telemetry.analysis.evaluation import TAG_EVENT
@@ -781,8 +782,9 @@ SURFACE = "#fcfcfb"
 INK = "#0b0b0b"
 INK_SECONDARY = "#52514e"
 GRID = "#e4e3df"
-SERIES = ("#2a78d6", "#eb6834", "#1baf7a", "#eda100")
-LINE_STYLES = ("-", "--", ":", "-.")
+# Six, since the stillness figure draws one line per species or population.
+SERIES = ("#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#8a5cd6", "#d6457a")
+LINE_STYLES = ("-", "--", ":", "-.", (0, (5, 1)), (0, (3, 1, 1, 1, 1, 1)))
 STYLE = {
     "figure.facecolor": SURFACE,
     "axes.facecolor": SURFACE,
@@ -1827,6 +1829,7 @@ SPECIES_NAMES = {
     "Coragyps atratus": "Black vulture",
     "Canis mesomelas": "Black-backed jackal",
     "Loxodonta africana": "African elephant",
+    "Ciconia ciconia": "White stork",
 }
 TAG_NAMES = {
     "Argos PTT GPS transmitter": "Argos PTT",
@@ -1856,14 +1859,20 @@ def _tail_series(sets: list[dict]) -> list[tuple[str, dict]]:
 
     Returns:
         list[tuple[str, dict]]: Species name and its group, in set order.
+        A species measured in several sets (the stork populations) is
+        named by each set's title instead, so no two lines share a name.
     """
     series = []
     for result in sets:
         groups = result["groups"]
         taxa = [g for g in groups if g["taxon"] is not None and g["tag_model"] is None]
         for group in taxa or groups[:1]:
-            series.append((_group_name(group), group))
-    return series
+            series.append((_group_name(group), group, result))
+    counts = Counter(name for name, _, _ in series)
+    return [
+        (result.get("title", name) if counts[name] > 1 else name, group)
+        for name, group, result in series
+    ]
 
 
 def stillness_markdown(sets: list[dict]) -> str:
@@ -1889,7 +1898,9 @@ def stillness_markdown(sets: list[dict]) -> str:
         "deployment, as in the evaluation's load. Vultures are the tuning set "
         "only: every tuning bird wears an Argos PTT tag and every solar "
         "GPS/GSM tag is in the held-out set, so tag types cannot be compared "
-        "here.",
+        "here. Storks are the two tuning populations, from hourly fixes; their "
+        "deaths are taken from the deployment end type alone until the label "
+        "review, so their carcass periods are provisional.",
         "",
         "| Set | Group | Tag | Deployments | Animal-months | Window | "
         + " | ".join(f"> {h:g} h" for h in thresholds)
