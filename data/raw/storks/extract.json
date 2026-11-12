@@ -1428,6 +1428,3757 @@
         }
       },
       "fetched": "2026-11-11"
+    },
+    "bavaria": {
+      "study_id": 24442409,
+      "incomplete": [],
+      "requested": {
+        "gps": "individual_id,deployment_id,tag_id,timestamp,location_long,location_lat,height_above_ellipsoid,ground_speed,gps_dop,gps_satellite_count,eobs_horizontal_accuracy_estimate,eobs_temperature,eobs_battery_voltage,eobs_activity,eobs_activity_samples,visible",
+        "acc": "individual_id,deployment_id,tag_id,timestamp,eobs_acceleration_axes,eobs_acceleration_sampling_frequency_per_axis,eobs_accelerations_raw,visible"
+      },
+      "files": {
+        "gps": [
+          "bavaria-gps-1.csv.gz"
+        ],
+        "acc": [
+          "bavaria-acc-1.csv.gz"
+        ]
+      },
+      "individuals": {
+        "173659690": {
+          "gps": {
+            "rows": 134588,
+            "not_visible": 5665,
+            "no_location": 866,
+            "kept": 12684
+          },
+          "acc": {
+            "rows": 317783,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 11166
+          },
+          "number_of_events": 128057
+        },
+        "24443372": {
+          "gps": {
+            "rows": 29607,
+            "not_visible": 18,
+            "no_location": 365,
+            "kept": 3223
+          },
+          "acc": {
+            "rows": 90024,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3164
+          },
+          "number_of_events": 29224
+        },
+        "6546999746": {
+          "gps": {
+            "rows": 3615,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 1113
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 3615
+        },
+        "24443411": {
+          "gps": {
+            "rows": 9333,
+            "not_visible": 0,
+            "no_location": 112,
+            "kept": 815
+          },
+          "acc": {
+            "rows": 23156,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 815
+          },
+          "number_of_events": 9221
+        },
+        "4003322810": {
+          "gps": {
+            "rows": 21840,
+            "not_visible": 0,
+            "no_location": 45,
+            "kept": 6033
+          },
+          "acc": {
+            "rows": 65704,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 6067
+          },
+          "number_of_events": 21795
+        },
+        "891813705": {
+          "gps": {
+            "rows": 13208,
+            "not_visible": 0,
+            "no_location": 46,
+            "kept": 1151
+          },
+          "acc": {
+            "rows": 42886,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1446
+          },
+          "number_of_events": 13162
+        },
+        "1173985363": {
+          "gps": {
+            "rows": 17659,
+            "not_visible": 20,
+            "no_location": 835,
+            "kept": 531
+          },
+          "acc": {
+            "rows": 11156,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 539
+          },
+          "number_of_events": 16804
+        },
+        "1173989698": {
+          "gps": {
+            "rows": 439164,
+            "not_visible": 320,
+            "no_location": 735,
+            "kept": 1666
+          },
+          "acc": {
+            "rows": 7232,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1714
+          },
+          "number_of_events": 438109
+        },
+        "4003322811": {
+          "gps": {
+            "rows": 462,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 441
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 462
+        },
+        "2847785247": {
+          "gps": {
+            "rows": 85483,
+            "not_visible": 26,
+            "no_location": 11119,
+            "kept": 21022
+          },
+          "acc": {
+            "rows": 256719,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 23348
+          },
+          "number_of_events": 75104
+        },
+        "4003322812": {
+          "gps": {
+            "rows": 4833,
+            "not_visible": 0,
+            "no_location": 153,
+            "kept": 1288
+          },
+          "acc": {
+            "rows": 14424,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1316
+          },
+          "number_of_events": 4680
+        },
+        "2847786188": {
+          "gps": {
+            "rows": 11780,
+            "not_visible": 20,
+            "no_location": 434,
+            "kept": 3018
+          },
+          "acc": {
+            "rows": 34792,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3064
+          },
+          "number_of_events": 11326
+        },
+        "4003322813": {
+          "gps": {
+            "rows": 361612,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 1361
+          },
+          "acc": {
+            "rows": 5218,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1361
+          },
+          "number_of_events": 361612
+        },
+        "2847787950": {
+          "gps": {
+            "rows": 9101,
+            "not_visible": 18,
+            "no_location": 55,
+            "kept": 2397
+          },
+          "acc": {
+            "rows": 26871,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2400
+          },
+          "number_of_events": 9028
+        },
+        "911000235": {
+          "gps": {
+            "rows": 21532,
+            "not_visible": 5,
+            "no_location": 263,
+            "kept": 1875
+          },
+          "acc": {
+            "rows": 54628,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1926
+          },
+          "number_of_events": 21264
+        },
+        "911000236": {
+          "gps": {
+            "rows": 71165,
+            "not_visible": 18,
+            "no_location": 442,
+            "kept": 6229
+          },
+          "acc": {
+            "rows": 235980,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 7895
+          },
+          "number_of_events": 70705
+        },
+        "173659608": {
+          "gps": {
+            "rows": 233972,
+            "not_visible": 9419,
+            "no_location": 1199,
+            "kept": 25676
+          },
+          "acc": {
+            "rows": 530971,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 18649
+          },
+          "number_of_events": 223354
+        },
+        "24451033": {
+          "gps": {
+            "rows": 60895,
+            "not_visible": 31,
+            "no_location": 482,
+            "kept": 5616
+          },
+          "acc": {
+            "rows": 159639,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5620
+          },
+          "number_of_events": 60382
+        },
+        "1573118020": {
+          "gps": {
+            "rows": 14220,
+            "not_visible": 330,
+            "no_location": 48,
+            "kept": 1089
+          },
+          "acc": {
+            "rows": 12296,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1089
+          },
+          "number_of_events": 13842
+        },
+        "6546969445": {
+          "gps": {
+            "rows": 3683,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 1044
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 3683
+        },
+        "6547015559": {
+          "gps": {
+            "rows": 1382,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 747
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 1382
+        },
+        "6547024331": {
+          "gps": {
+            "rows": 3119,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 990
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 3119
+        },
+        "78031713": {
+          "gps": {
+            "rows": 478589,
+            "not_visible": 10491,
+            "no_location": 860,
+            "kept": 44021
+          },
+          "acc": {
+            "rows": 1190823,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 41970
+          },
+          "number_of_events": 467238
+        },
+        "2847789601": {
+          "gps": {
+            "rows": 7272,
+            "not_visible": 14,
+            "no_location": 55,
+            "kept": 1919
+          },
+          "acc": {
+            "rows": 21404,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1921
+          },
+          "number_of_events": 7203
+        },
+        "2847791000": {
+          "gps": {
+            "rows": 3218,
+            "not_visible": 5,
+            "no_location": 101,
+            "kept": 851
+          },
+          "acc": {
+            "rows": 9503,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 900
+          },
+          "number_of_events": 3112
+        },
+        "2847792043": {
+          "gps": {
+            "rows": 7371,
+            "not_visible": 23,
+            "no_location": 62,
+            "kept": 1943
+          },
+          "acc": {
+            "rows": 21706,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1945
+          },
+          "number_of_events": 7286
+        },
+        "4003322814": {
+          "gps": {
+            "rows": 9001,
+            "not_visible": 0,
+            "no_location": 11,
+            "kept": 2341
+          },
+          "acc": {
+            "rows": 26573,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2342
+          },
+          "number_of_events": 8990
+        },
+        "4003322815": {
+          "gps": {
+            "rows": 63073,
+            "not_visible": 0,
+            "no_location": 62,
+            "kept": 16430
+          },
+          "acc": {
+            "rows": 185183,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16458
+          },
+          "number_of_events": 63578
+        },
+        "4003322816": {
+          "gps": {
+            "rows": 63509,
+            "not_visible": 0,
+            "no_location": 20,
+            "kept": 16510
+          },
+          "acc": {
+            "rows": 187525,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16509
+          },
+          "number_of_events": 64272
+        },
+        "4003322817": {
+          "gps": {
+            "rows": 63457,
+            "not_visible": 0,
+            "no_location": 31,
+            "kept": 16497
+          },
+          "acc": {
+            "rows": 187435,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16500
+          },
+          "number_of_events": 64209
+        },
+        "4003322819": {
+          "gps": {
+            "rows": 208427,
+            "not_visible": 0,
+            "no_location": 4,
+            "kept": 1263
+          },
+          "acc": {
+            "rows": 4852,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1264
+          },
+          "number_of_events": 208423
+        },
+        "1573159590": {
+          "gps": {
+            "rows": 27707,
+            "not_visible": 621,
+            "no_location": 96,
+            "kept": 2363
+          },
+          "acc": {
+            "rows": 26831,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2362
+          },
+          "number_of_events": 26990
+        },
+        "4003322820": {
+          "gps": {
+            "rows": 39587,
+            "not_visible": 3,
+            "no_location": 77,
+            "kept": 10454
+          },
+          "acc": {
+            "rows": 117657,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 10554
+          },
+          "number_of_events": 39507
+        },
+        "504454414": {
+          "gps": {
+            "rows": 5433,
+            "not_visible": 16,
+            "no_location": 25,
+            "kept": 442
+          },
+          "acc": {
+            "rows": 33523,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1180
+          },
+          "number_of_events": 5392
+        },
+        "78031333": {
+          "gps": {
+            "rows": 78070,
+            "not_visible": 1863,
+            "no_location": 155,
+            "kept": 8053
+          },
+          "acc": {
+            "rows": 226953,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 8052
+          },
+          "number_of_events": 76052
+        },
+        "504453870": {
+          "gps": {
+            "rows": 16827,
+            "not_visible": 354,
+            "no_location": 44,
+            "kept": 1430
+          },
+          "acc": {
+            "rows": 40684,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1430
+          },
+          "number_of_events": 16429
+        },
+        "80437256": {
+          "gps": {
+            "rows": 1189,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 1185
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 1189
+        },
+        "24450491": {
+          "gps": {
+            "rows": 152687,
+            "not_visible": 80,
+            "no_location": 189,
+            "kept": 5936
+          },
+          "acc": {
+            "rows": 167949,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5940
+          },
+          "number_of_events": 152418
+        },
+        "891814014": {
+          "gps": {
+            "rows": 24176,
+            "not_visible": 5,
+            "no_location": 116,
+            "kept": 2102
+          },
+          "acc": {
+            "rows": 78281,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2645
+          },
+          "number_of_events": 24055
+        },
+        "504458975": {
+          "gps": {
+            "rows": 25801,
+            "not_visible": 860,
+            "no_location": 217,
+            "kept": 7140
+          },
+          "acc": {
+            "rows": 19299,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1690
+          },
+          "number_of_events": 24724
+        },
+        "504458727": {
+          "gps": {
+            "rows": 357304,
+            "not_visible": 11,
+            "no_location": 22321,
+            "kept": 38581
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 334972
+        },
+        "1173978476": {
+          "gps": {
+            "rows": 87353,
+            "not_visible": 203,
+            "no_location": 21,
+            "kept": 1103
+          },
+          "acc": {
+            "rows": 6491,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 943
+          },
+          "number_of_events": 87129
+        },
+        "80440964": {
+          "gps": {
+            "rows": 19459,
+            "not_visible": 213,
+            "no_location": 460,
+            "kept": 1641
+          },
+          "acc": {
+            "rows": 46410,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1641
+          },
+          "number_of_events": 18786
+        },
+        "1573153892": {
+          "gps": {
+            "rows": 95182,
+            "not_visible": 794,
+            "no_location": 325,
+            "kept": 8054
+          },
+          "acc": {
+            "rows": 91955,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 8064
+          },
+          "number_of_events": 94063
+        },
+        "4003322821": {
+          "gps": {
+            "rows": 24967,
+            "not_visible": 0,
+            "no_location": 76,
+            "kept": 2199
+          },
+          "acc": {
+            "rows": 14545,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2426
+          },
+          "number_of_events": 24891
+        },
+        "891813394": {
+          "gps": {
+            "rows": 15171,
+            "not_visible": 0,
+            "no_location": 49,
+            "kept": 1322
+          },
+          "acc": {
+            "rows": 49366,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1662
+          },
+          "number_of_events": 15122
+        },
+        "4003322822": {
+          "gps": {
+            "rows": 45227,
+            "not_visible": 0,
+            "no_location": 135,
+            "kept": 15624
+          },
+          "acc": {
+            "rows": 149072,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16478
+          },
+          "number_of_events": 45303
+        },
+        "2847804450": {
+          "gps": {
+            "rows": 1718,
+            "not_visible": 0,
+            "no_location": 14,
+            "kept": 479
+          },
+          "acc": {
+            "rows": 5067,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 479
+          },
+          "number_of_events": 1704
+        },
+        "2847805876": {
+          "gps": {
+            "rows": 24792,
+            "not_visible": 38,
+            "no_location": 103,
+            "kept": 6471
+          },
+          "acc": {
+            "rows": 73184,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 6493
+          },
+          "number_of_events": 24651
+        },
+        "2847807546": {
+          "gps": {
+            "rows": 2803,
+            "not_visible": 10,
+            "no_location": 17,
+            "kept": 768
+          },
+          "acc": {
+            "rows": 8232,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 768
+          },
+          "number_of_events": 2776
+        },
+        "2847809326": {
+          "gps": {
+            "rows": 89758,
+            "not_visible": 39,
+            "no_location": 72,
+            "kept": 23364
+          },
+          "acc": {
+            "rows": 265057,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 23366
+          },
+          "number_of_events": 89919
+        },
+        "4003322823": {
+          "gps": {
+            "rows": 62129,
+            "not_visible": 0,
+            "no_location": 115,
+            "kept": 16481
+          },
+          "acc": {
+            "rows": 184391,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16518
+          },
+          "number_of_events": 62796
+        },
+        "1174005664": {
+          "gps": {
+            "rows": 805116,
+            "not_visible": 387,
+            "no_location": 569,
+            "kept": 2885
+          },
+          "acc": {
+            "rows": 10472,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2570
+          },
+          "number_of_events": 804160
+        },
+        "1173983772": {
+          "gps": {
+            "rows": 534038,
+            "not_visible": 338,
+            "no_location": 31,
+            "kept": 1821
+          },
+          "acc": {
+            "rows": 16368,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1807
+          },
+          "number_of_events": 533669
+        },
+        "29852215": {
+          "gps": {
+            "rows": 18124,
+            "not_visible": 15,
+            "no_location": 204,
+            "kept": 2436
+          },
+          "acc": {
+            "rows": 27977,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2509
+          },
+          "number_of_events": 17905
+        },
+        "29852238": {
+          "gps": {
+            "rows": 63535,
+            "not_visible": 65,
+            "no_location": 505,
+            "kept": 6685
+          },
+          "acc": {
+            "rows": 79351,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 7030
+          },
+          "number_of_events": 62965
+        },
+        "4003322824": {
+          "gps": {
+            "rows": 57038,
+            "not_visible": 0,
+            "no_location": 873,
+            "kept": 14763
+          },
+          "acc": {
+            "rows": 168391,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 14833
+          },
+          "number_of_events": 56165
+        },
+        "4003322825": {
+          "gps": {
+            "rows": 63489,
+            "not_visible": 0,
+            "no_location": 126,
+            "kept": 16498
+          },
+          "acc": {
+            "rows": 187417,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16501
+          },
+          "number_of_events": 64146
+        },
+        "4003322826": {
+          "gps": {
+            "rows": 0,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 0
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 0
+        },
+        "1173982416": {
+          "gps": {
+            "rows": 101703,
+            "not_visible": 308,
+            "no_location": 168,
+            "kept": 1542
+          },
+          "acc": {
+            "rows": 6645,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1547
+          },
+          "number_of_events": 101227
+        },
+        "89349490": {
+          "gps": {
+            "rows": 75996,
+            "not_visible": 45,
+            "no_location": 756,
+            "kept": 7755
+          },
+          "acc": {
+            "rows": 226146,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 8663
+          },
+          "number_of_events": 75195
+        },
+        "24443630": {
+          "gps": {
+            "rows": 121470,
+            "not_visible": 379,
+            "no_location": 319,
+            "kept": 5791
+          },
+          "acc": {
+            "rows": 164057,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5792
+          },
+          "number_of_events": 120772
+        },
+        "4003322827": {
+          "gps": {
+            "rows": 56813,
+            "not_visible": 0,
+            "no_location": 37,
+            "kept": 1933
+          },
+          "acc": {
+            "rows": 85246,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2750
+          },
+          "number_of_events": 56776
+        },
+        "911000237": {
+          "gps": {
+            "rows": 567392,
+            "not_visible": 59,
+            "no_location": 814,
+            "kept": 49911
+          },
+          "acc": {
+            "rows": 1889916,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 63032
+          },
+          "number_of_events": 566519
+        },
+        "1573164387": {
+          "gps": {
+            "rows": 28006,
+            "not_visible": 134,
+            "no_location": 85,
+            "kept": 2498
+          },
+          "acc": {
+            "rows": 9545,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2496
+          },
+          "number_of_events": 27787
+        },
+        "24450227": {
+          "gps": {
+            "rows": 116712,
+            "not_visible": 345,
+            "no_location": 721,
+            "kept": 7794
+          },
+          "acc": {
+            "rows": 221676,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 7826
+          },
+          "number_of_events": 115646
+        },
+        "80441496": {
+          "gps": {
+            "rows": 10892,
+            "not_visible": 126,
+            "no_location": 216,
+            "kept": 961
+          },
+          "acc": {
+            "rows": 27144,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 961
+          },
+          "number_of_events": 10550
+        },
+        "80438008": {
+          "gps": {
+            "rows": 1525,
+            "not_visible": 0,
+            "no_location": 2,
+            "kept": 1317
+          },
+          "acc": {
+            "rows": 175,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 6
+          },
+          "number_of_events": 1523
+        },
+        "80438400": {
+          "gps": {
+            "rows": 133536,
+            "not_visible": 1354,
+            "no_location": 5379,
+            "kept": 14328
+          },
+          "acc": {
+            "rows": 308235,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 10916
+          },
+          "number_of_events": 126803
+        },
+        "80437375": {
+          "gps": {
+            "rows": 7011,
+            "not_visible": 306,
+            "no_location": 55,
+            "kept": 582
+          },
+          "acc": {
+            "rows": 16549,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 582
+          },
+          "number_of_events": 6650
+        },
+        "2847798977": {
+          "gps": {
+            "rows": 7259,
+            "not_visible": 16,
+            "no_location": 60,
+            "kept": 2056
+          },
+          "acc": {
+            "rows": 21609,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2076
+          },
+          "number_of_events": 7183
+        },
+        "2847800243": {
+          "gps": {
+            "rows": 227332,
+            "not_visible": 49,
+            "no_location": 136,
+            "kept": 12613
+          },
+          "acc": {
+            "rows": 379920,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 12548
+          },
+          "number_of_events": 227147
+        },
+        "2847802024": {
+          "gps": {
+            "rows": 60513,
+            "not_visible": 33,
+            "no_location": 86,
+            "kept": 15776
+          },
+          "acc": {
+            "rows": 178055,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 15713
+          },
+          "number_of_events": 60394
+        },
+        "2847811067": {
+          "gps": {
+            "rows": 5808,
+            "not_visible": 27,
+            "no_location": 18,
+            "kept": 1543
+          },
+          "acc": {
+            "rows": 17045,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1543
+          },
+          "number_of_events": 5763
+        },
+        "2847812832": {
+          "gps": {
+            "rows": 20657,
+            "not_visible": 33,
+            "no_location": 48,
+            "kept": 5398
+          },
+          "acc": {
+            "rows": 60961,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5402
+          },
+          "number_of_events": 20576
+        },
+        "2847814120": {
+          "gps": {
+            "rows": 73760,
+            "not_visible": 60,
+            "no_location": 81,
+            "kept": 19254
+          },
+          "acc": {
+            "rows": 217459,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 19265
+          },
+          "number_of_events": 73619
+        },
+        "2847815527": {
+          "gps": {
+            "rows": 5937,
+            "not_visible": 10,
+            "no_location": 10,
+            "kept": 1575
+          },
+          "acc": {
+            "rows": 17521,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1575
+          },
+          "number_of_events": 5917
+        },
+        "504457302": {
+          "gps": {
+            "rows": 61283,
+            "not_visible": 10,
+            "no_location": 282,
+            "kept": 1284
+          },
+          "acc": {
+            "rows": 35983,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1285
+          },
+          "number_of_events": 60991
+        },
+        "24451284": {
+          "gps": {
+            "rows": 154976,
+            "not_visible": 70,
+            "no_location": 1587,
+            "kept": 13645
+          },
+          "acc": {
+            "rows": 389332,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 13692
+          },
+          "number_of_events": 153319
+        },
+        "80436240": {
+          "gps": {
+            "rows": 1148,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 997
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 1148
+        },
+        "4003322828": {
+          "gps": {
+            "rows": 63151,
+            "not_visible": 0,
+            "no_location": 36,
+            "kept": 16438
+          },
+          "acc": {
+            "rows": 186242,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16439
+          },
+          "number_of_events": 63898
+        },
+        "4003322829": {
+          "gps": {
+            "rows": 7094,
+            "not_visible": 0,
+            "no_location": 56,
+            "kept": 1848
+          },
+          "acc": {
+            "rows": 21006,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1864
+          },
+          "number_of_events": 7038
+        },
+        "4003322830": {
+          "gps": {
+            "rows": 57079,
+            "not_visible": 4,
+            "no_location": 140,
+            "kept": 15574
+          },
+          "acc": {
+            "rows": 170633,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 15701
+          },
+          "number_of_events": 56935
+        },
+        "80439771": {
+          "gps": {
+            "rows": 33628,
+            "not_visible": 367,
+            "no_location": 733,
+            "kept": 4352
+          },
+          "acc": {
+            "rows": 77265,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2727
+          },
+          "number_of_events": 32528
+        },
+        "2847793884": {
+          "gps": {
+            "rows": 58018,
+            "not_visible": 37,
+            "no_location": 45,
+            "kept": 21267
+          },
+          "acc": {
+            "rows": 193347,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 23384
+          },
+          "number_of_events": 58143
+        },
+        "2847795719": {
+          "gps": {
+            "rows": 83501,
+            "not_visible": 88,
+            "no_location": 466,
+            "kept": 22982
+          },
+          "acc": {
+            "rows": 250735,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 23169
+          },
+          "number_of_events": 82947
+        },
+        "2847797561": {
+          "gps": {
+            "rows": 88795,
+            "not_visible": 37,
+            "no_location": 262,
+            "kept": 23351
+          },
+          "acc": {
+            "rows": 263314,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 23370
+          },
+          "number_of_events": 89273
+        },
+        "78032151": {
+          "gps": {
+            "rows": 19794,
+            "not_visible": 159,
+            "no_location": 89,
+            "kept": 1705
+          },
+          "acc": {
+            "rows": 46283,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1705
+          },
+          "number_of_events": 19546
+        },
+        "173659684": {
+          "gps": {
+            "rows": 17140,
+            "not_visible": 10,
+            "no_location": 152,
+            "kept": 1516
+          },
+          "acc": {
+            "rows": 42459,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1514
+          },
+          "number_of_events": 16978
+        },
+        "173659446": {
+          "gps": {
+            "rows": 942,
+            "not_visible": 2,
+            "no_location": 0,
+            "kept": 856
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 940
+        },
+        "24450590": {
+          "gps": {
+            "rows": 199810,
+            "not_visible": 353,
+            "no_location": 1299,
+            "kept": 18134
+          },
+          "acc": {
+            "rows": 514204,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 18094
+          },
+          "number_of_events": 198158
+        }
+      },
+      "fetched": "2026-11-12"
+    },
+    "rheinland-pfalz": {
+      "study_id": 76367850,
+      "incomplete": [],
+      "requested": {
+        "gps": "individual_id,deployment_id,tag_id,timestamp,location_long,location_lat,height_above_ellipsoid,ground_speed,gps_dop,gps_satellite_count,eobs_horizontal_accuracy_estimate,eobs_temperature,eobs_battery_voltage,eobs_activity,eobs_activity_samples,visible",
+        "acc": "individual_id,deployment_id,tag_id,timestamp,eobs_acceleration_axes,eobs_acceleration_sampling_frequency_per_axis,eobs_accelerations_raw,visible"
+      },
+      "files": {
+        "gps": [
+          "rheinland-pfalz-gps-1.csv.gz"
+        ],
+        "acc": [
+          "rheinland-pfalz-acc-1.csv.gz"
+        ]
+      },
+      "individuals": {
+        "173200159": {
+          "gps": {
+            "rows": 715466,
+            "not_visible": 7114,
+            "no_location": 1758,
+            "kept": 68244
+          },
+          "acc": {
+            "rows": 262991,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 55736
+          },
+          "number_of_events": 706608
+        },
+        "80656308": {
+          "gps": {
+            "rows": 15604,
+            "not_visible": 573,
+            "no_location": 73,
+            "kept": 3565
+          },
+          "acc": {
+            "rows": 6589,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1149
+          },
+          "number_of_events": 14958
+        },
+        "293984192": {
+          "gps": {
+            "rows": 37541,
+            "not_visible": 887,
+            "no_location": 83,
+            "kept": 3446
+          },
+          "acc": {
+            "rows": 97872,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3446
+          },
+          "number_of_events": 36571
+        },
+        "77145901": {
+          "gps": {
+            "rows": 3729,
+            "not_visible": 0,
+            "no_location": 14,
+            "kept": 326
+          },
+          "acc": {
+            "rows": 9249,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 326
+          },
+          "number_of_events": 3715
+        },
+        "173214295": {
+          "gps": {
+            "rows": 21366,
+            "not_visible": 479,
+            "no_location": 87,
+            "kept": 1814
+          },
+          "acc": {
+            "rows": 51565,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1813
+          },
+          "number_of_events": 20800
+        },
+        "891806535": {
+          "gps": {
+            "rows": 35544,
+            "not_visible": 15,
+            "no_location": 109,
+            "kept": 3967
+          },
+          "acc": {
+            "rows": 105711,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3880
+          },
+          "number_of_events": 35420
+        },
+        "891791333": {
+          "gps": {
+            "rows": 288274,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 1849
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 288274
+        },
+        "891802981": {
+          "gps": {
+            "rows": 25270,
+            "not_visible": 6,
+            "no_location": 65,
+            "kept": 2283
+          },
+          "acc": {
+            "rows": 64024,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2263
+          },
+          "number_of_events": 25199
+        },
+        "504447400": {
+          "gps": {
+            "rows": 33047,
+            "not_visible": 818,
+            "no_location": 52,
+            "kept": 3257
+          },
+          "acc": {
+            "rows": 92598,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3257
+          },
+          "number_of_events": 32177
+        },
+        "77142697": {
+          "gps": {
+            "rows": 58130,
+            "not_visible": 754,
+            "no_location": 71,
+            "kept": 5108
+          },
+          "acc": {
+            "rows": 143727,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5107
+          },
+          "number_of_events": 57305
+        },
+        "173672178": {
+          "gps": {
+            "rows": 74581,
+            "not_visible": 3050,
+            "no_location": 276,
+            "kept": 7029
+          },
+          "acc": {
+            "rows": 171772,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 6035
+          },
+          "number_of_events": 71255
+        },
+        "293980804": {
+          "gps": {
+            "rows": 21540,
+            "not_visible": 494,
+            "no_location": 41,
+            "kept": 1852
+          },
+          "acc": {
+            "rows": 52674,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1852
+          },
+          "number_of_events": 21005
+        },
+        "891802305": {
+          "gps": {
+            "rows": 13837,
+            "not_visible": 15,
+            "no_location": 116,
+            "kept": 1231
+          },
+          "acc": {
+            "rows": 34515,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1235
+          },
+          "number_of_events": 13706
+        },
+        "173667855": {
+          "gps": {
+            "rows": 20837,
+            "not_visible": 438,
+            "no_location": 48,
+            "kept": 1769
+          },
+          "acc": {
+            "rows": 49260,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1768
+          },
+          "number_of_events": 20351
+        },
+        "80670428": {
+          "gps": {
+            "rows": 19539,
+            "not_visible": 225,
+            "no_location": 104,
+            "kept": 1727
+          },
+          "acc": {
+            "rows": 49192,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1732
+          },
+          "number_of_events": 19210
+        },
+        "173671679": {
+          "gps": {
+            "rows": 31051,
+            "not_visible": 707,
+            "no_location": 98,
+            "kept": 2683
+          },
+          "acc": {
+            "rows": 74707,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2638
+          },
+          "number_of_events": 30246
+        },
+        "80670982": {
+          "gps": {
+            "rows": 26368,
+            "not_visible": 375,
+            "no_location": 72,
+            "kept": 2268
+          },
+          "acc": {
+            "rows": 64287,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2262
+          },
+          "number_of_events": 25921
+        },
+        "930966389": {
+          "gps": {
+            "rows": 97736,
+            "not_visible": 5,
+            "no_location": 244,
+            "kept": 8529
+          },
+          "acc": {
+            "rows": 242728,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 8529
+          },
+          "number_of_events": 97487
+        },
+        "891799400": {
+          "gps": {
+            "rows": 11223,
+            "not_visible": 5,
+            "no_location": 32,
+            "kept": 977
+          },
+          "acc": {
+            "rows": 27445,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 977
+          },
+          "number_of_events": 11186
+        },
+        "504437891": {
+          "gps": {
+            "rows": 1046,
+            "not_visible": 0,
+            "no_location": 4,
+            "kept": 91
+          },
+          "acc": {
+            "rows": 2057,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 91
+          },
+          "number_of_events": 1042
+        },
+        "77141235": {
+          "gps": {
+            "rows": 16777,
+            "not_visible": 175,
+            "no_location": 26,
+            "kept": 1464
+          },
+          "acc": {
+            "rows": 41042,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1449
+          },
+          "number_of_events": 16576
+        },
+        "504433012": {
+          "gps": {
+            "rows": 16296,
+            "not_visible": 5,
+            "no_location": 138,
+            "kept": 1422
+          },
+          "acc": {
+            "rows": 39743,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1423
+          },
+          "number_of_events": 16153
+        },
+        "80671851": {
+          "gps": {
+            "rows": 12468,
+            "not_visible": 75,
+            "no_location": 40,
+            "kept": 1087
+          },
+          "acc": {
+            "rows": 30885,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1086
+          },
+          "number_of_events": 12353
+        },
+        "173664371": {
+          "gps": {
+            "rows": 470440,
+            "not_visible": 6826,
+            "no_location": 965,
+            "kept": 61444
+          },
+          "acc": {
+            "rows": 820070,
+            "not_visible": 1,
+            "malformed": 0,
+            "kept": 71018
+          },
+          "number_of_events": 462660
+        },
+        "80651114": {
+          "gps": {
+            "rows": 98859,
+            "not_visible": 2266,
+            "no_location": 210,
+            "kept": 8411
+          },
+          "acc": {
+            "rows": 238614,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 8411
+          },
+          "number_of_events": 96383
+        },
+        "504440981": {
+          "gps": {
+            "rows": 19537,
+            "not_visible": 15,
+            "no_location": 176,
+            "kept": 1704
+          },
+          "acc": {
+            "rows": 47466,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1706
+          },
+          "number_of_events": 19346
+        },
+        "930964404": {
+          "gps": {
+            "rows": 96882,
+            "not_visible": 178,
+            "no_location": 1557,
+            "kept": 17070
+          },
+          "acc": {
+            "rows": 480124,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 22654
+          },
+          "number_of_events": 95147
+        },
+        "504445828": {
+          "gps": {
+            "rows": 18667,
+            "not_visible": 783,
+            "no_location": 113,
+            "kept": 1552
+          },
+          "acc": {
+            "rows": 17716,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1552
+          },
+          "number_of_events": 17771
+        },
+        "77144935": {
+          "gps": {
+            "rows": 19347,
+            "not_visible": 220,
+            "no_location": 73,
+            "kept": 1671
+          },
+          "acc": {
+            "rows": 47342,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1665
+          },
+          "number_of_events": 19054
+        },
+        "930964561": {
+          "gps": {
+            "rows": 22002,
+            "not_visible": 20,
+            "no_location": 45,
+            "kept": 1945
+          },
+          "acc": {
+            "rows": 55253,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1946
+          },
+          "number_of_events": 21937
+        },
+        "929589084": {
+          "gps": {
+            "rows": 79580,
+            "not_visible": 30,
+            "no_location": 214,
+            "kept": 6938
+          },
+          "acc": {
+            "rows": 197366,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 6942
+          },
+          "number_of_events": 79336
+        },
+        "293981783": {
+          "gps": {
+            "rows": 67186,
+            "not_visible": 366,
+            "no_location": 301,
+            "kept": 1376
+          },
+          "acc": {
+            "rows": 38667,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1377
+          },
+          "number_of_events": 66519
+        },
+        "92741590": {
+          "gps": {
+            "rows": 1236,
+            "not_visible": 0,
+            "no_location": 2,
+            "kept": 108
+          },
+          "acc": {
+            "rows": 3064,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 108
+          },
+          "number_of_events": 1234
+        },
+        "293982972": {
+          "gps": {
+            "rows": 20767,
+            "not_visible": 477,
+            "no_location": 320,
+            "kept": 1836
+          },
+          "acc": {
+            "rows": 66214,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2379
+          },
+          "number_of_events": 19970
+        },
+        "504441157": {
+          "gps": {
+            "rows": 184895,
+            "not_visible": 37,
+            "no_location": 2027,
+            "kept": 16283
+          },
+          "acc": {
+            "rows": 463770,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16351
+          },
+          "number_of_events": 182831
+        },
+        "504434278": {
+          "gps": {
+            "rows": 15764,
+            "not_visible": 424,
+            "no_location": 37,
+            "kept": 1340
+          },
+          "acc": {
+            "rows": 38091,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1340
+          },
+          "number_of_events": 15303
+        },
+        "293974910": {
+          "gps": {
+            "rows": 12749,
+            "not_visible": 283,
+            "no_location": 136,
+            "kept": 1089
+          },
+          "acc": {
+            "rows": 30930,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1087
+          },
+          "number_of_events": 12330
+        },
+        "173662278": {
+          "gps": {
+            "rows": 31158,
+            "not_visible": 701,
+            "no_location": 88,
+            "kept": 2742
+          },
+          "acc": {
+            "rows": 73144,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2634
+          },
+          "number_of_events": 30369
+        },
+        "929589085": {
+          "gps": {
+            "rows": 8409,
+            "not_visible": 5,
+            "no_location": 27,
+            "kept": 957
+          },
+          "acc": {
+            "rows": 35670,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1203
+          },
+          "number_of_events": 8377
+        },
+        "504422231": {
+          "gps": {
+            "rows": 87266,
+            "not_visible": 2204,
+            "no_location": 281,
+            "kept": 8467
+          },
+          "acc": {
+            "rows": 240169,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 8453
+          },
+          "number_of_events": 84781
+        },
+        "92739696": {
+          "gps": {
+            "rows": 2501,
+            "not_visible": 0,
+            "no_location": 5,
+            "kept": 220
+          },
+          "acc": {
+            "rows": 6241,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 220
+          },
+          "number_of_events": 2496
+        },
+        "80671714": {
+          "gps": {
+            "rows": 61956,
+            "not_visible": 331,
+            "no_location": 150,
+            "kept": 5541
+          },
+          "acc": {
+            "rows": 155193,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5542
+          },
+          "number_of_events": 61475
+        },
+        "293983313": {
+          "gps": {
+            "rows": 135464,
+            "not_visible": 4155,
+            "no_location": 292,
+            "kept": 12510
+          },
+          "acc": {
+            "rows": 481311,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16957
+          },
+          "number_of_events": 131017
+        },
+        "77146717": {
+          "gps": {
+            "rows": 19872,
+            "not_visible": 232,
+            "no_location": 41,
+            "kept": 1714
+          },
+          "acc": {
+            "rows": 48614,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1713
+          },
+          "number_of_events": 19599
+        },
+        "173213053": {
+          "gps": {
+            "rows": 568,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 562
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 568
+        },
+        "929589086": {
+          "gps": {
+            "rows": 16160,
+            "not_visible": 174,
+            "no_location": 72,
+            "kept": 1406
+          },
+          "acc": {
+            "rows": 39932,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1409
+          },
+          "number_of_events": 15914
+        },
+        "504432463": {
+          "gps": {
+            "rows": 14798,
+            "not_visible": 14,
+            "no_location": 30,
+            "kept": 1295
+          },
+          "acc": {
+            "rows": 36645,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1290
+          },
+          "number_of_events": 14754
+        },
+        "173663494": {
+          "gps": {
+            "rows": 23432,
+            "not_visible": 489,
+            "no_location": 70,
+            "kept": 2020
+          },
+          "acc": {
+            "rows": 56505,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1993
+          },
+          "number_of_events": 22873
+        },
+        "80672303": {
+          "gps": {
+            "rows": 33657,
+            "not_visible": 613,
+            "no_location": 120,
+            "kept": 3023
+          },
+          "acc": {
+            "rows": 86505,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3044
+          },
+          "number_of_events": 32924
+        },
+        "293975719": {
+          "gps": {
+            "rows": 393,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 307
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 393
+        },
+        "891795400": {
+          "gps": {
+            "rows": 50569,
+            "not_visible": 249,
+            "no_location": 1689,
+            "kept": 15603
+          },
+          "acc": {
+            "rows": 113065,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 19152
+          },
+          "number_of_events": 48631
+        },
+        "891807920": {
+          "gps": {
+            "rows": 227014,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 1484
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 227014
+        },
+        "173199826": {
+          "gps": {
+            "rows": 129648,
+            "not_visible": 3758,
+            "no_location": 230,
+            "kept": 14651
+          },
+          "acc": {
+            "rows": 399459,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 14050
+          },
+          "number_of_events": 125660
+        },
+        "891807379": {
+          "gps": {
+            "rows": 100666,
+            "not_visible": 66,
+            "no_location": 1089,
+            "kept": 9768
+          },
+          "acc": {
+            "rows": 279716,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 9845
+          },
+          "number_of_events": 99511
+        },
+        "293978743": {
+          "gps": {
+            "rows": 77128,
+            "not_visible": 2074,
+            "no_location": 108,
+            "kept": 6519
+          },
+          "acc": {
+            "rows": 184162,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 6520
+          },
+          "number_of_events": 74946
+        },
+        "537489937": {
+          "gps": {
+            "rows": 65006,
+            "not_visible": 25,
+            "no_location": 429,
+            "kept": 5696
+          },
+          "acc": {
+            "rows": 162405,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5726
+          },
+          "number_of_events": 64552
+        },
+        "173199926": {
+          "gps": {
+            "rows": 81889,
+            "not_visible": 1801,
+            "no_location": 201,
+            "kept": 7134
+          },
+          "acc": {
+            "rows": 202977,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 7134
+          },
+          "number_of_events": 79887
+        },
+        "80654993": {
+          "gps": {
+            "rows": 35956,
+            "not_visible": 582,
+            "no_location": 89,
+            "kept": 3160
+          },
+          "acc": {
+            "rows": 88408,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3117
+          },
+          "number_of_events": 35285
+        },
+        "504446531": {
+          "gps": {
+            "rows": 451397,
+            "not_visible": 373,
+            "no_location": 22677,
+            "kept": 50892
+          },
+          "acc": {
+            "rows": 1545652,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 54966
+          },
+          "number_of_events": 429001
+        },
+        "504446237": {
+          "gps": {
+            "rows": 7719,
+            "not_visible": 0,
+            "no_location": 43,
+            "kept": 676
+          },
+          "acc": {
+            "rows": 19010,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 676
+          },
+          "number_of_events": 7676
+        },
+        "293986322": {
+          "gps": {
+            "rows": 63963,
+            "not_visible": 1407,
+            "no_location": 280,
+            "kept": 5982
+          },
+          "acc": {
+            "rows": 153705,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5399
+          },
+          "number_of_events": 62276
+        },
+        "891793609": {
+          "gps": {
+            "rows": 56554,
+            "not_visible": 50,
+            "no_location": 645,
+            "kept": 5121
+          },
+          "acc": {
+            "rows": 143983,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5133
+          },
+          "number_of_events": 55859
+        },
+        "891795902": {
+          "gps": {
+            "rows": 26033,
+            "not_visible": 15,
+            "no_location": 483,
+            "kept": 3116
+          },
+          "acc": {
+            "rows": 116286,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3977
+          },
+          "number_of_events": 25535
+        },
+        "173665601": {
+          "gps": {
+            "rows": 581240,
+            "not_visible": 7118,
+            "no_location": 1264,
+            "kept": 64645
+          },
+          "acc": {
+            "rows": 1260375,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 68355
+          },
+          "number_of_events": 573936
+        },
+        "77147359": {
+          "gps": {
+            "rows": 310599,
+            "not_visible": 7106,
+            "no_location": 1294,
+            "kept": 28579
+          },
+          "acc": {
+            "rows": 815050,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 28658
+          },
+          "number_of_events": 302199
+        },
+        "504439767": {
+          "gps": {
+            "rows": 529621,
+            "not_visible": 546,
+            "no_location": 57575,
+            "kept": 52697
+          },
+          "acc": {
+            "rows": 1595156,
+            "not_visible": 1,
+            "malformed": 0,
+            "kept": 57596
+          },
+          "number_of_events": 471760
+        },
+        "891636260": {
+          "gps": {
+            "rows": 31760,
+            "not_visible": 723,
+            "no_location": 66,
+            "kept": 2946
+          },
+          "acc": {
+            "rows": 81848,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2877
+          },
+          "number_of_events": 30971
+        },
+        "504433266": {
+          "gps": {
+            "rows": 12633,
+            "not_visible": 5,
+            "no_location": 147,
+            "kept": 1101
+          },
+          "acc": {
+            "rows": 31711,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1120
+          },
+          "number_of_events": 12481
+        },
+        "80652597": {
+          "gps": {
+            "rows": 8521,
+            "not_visible": 21,
+            "no_location": 42,
+            "kept": 744
+          },
+          "acc": {
+            "rows": 21150,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 744
+          },
+          "number_of_events": 8458
+        },
+        "173666977": {
+          "gps": {
+            "rows": 13690,
+            "not_visible": 315,
+            "no_location": 51,
+            "kept": 1167
+          },
+          "acc": {
+            "rows": 3,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2
+          },
+          "number_of_events": 13324
+        },
+        "80668118": {
+          "gps": {
+            "rows": 14968,
+            "not_visible": 115,
+            "no_location": 41,
+            "kept": 1296
+          },
+          "acc": {
+            "rows": 36787,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1295
+          },
+          "number_of_events": 14812
+        },
+        "173669267": {
+          "gps": {
+            "rows": 2795,
+            "not_visible": 68,
+            "no_location": 5,
+            "kept": 238
+          },
+          "acc": {
+            "rows": 6751,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 238
+          },
+          "number_of_events": 2722
+        },
+        "177671500": {
+          "gps": {
+            "rows": 1006,
+            "not_visible": 86,
+            "no_location": 2,
+            "kept": 330
+          },
+          "acc": {
+            "rows": 10524,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 408
+          },
+          "number_of_events": 918
+        },
+        "173666935": {
+          "gps": {
+            "rows": 86024,
+            "not_visible": 1910,
+            "no_location": 146,
+            "kept": 7331
+          },
+          "acc": {
+            "rows": 206437,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 7299
+          },
+          "number_of_events": 83968
+        },
+        "80655343": {
+          "gps": {
+            "rows": 18089,
+            "not_visible": 175,
+            "no_location": 41,
+            "kept": 1562
+          },
+          "acc": {
+            "rows": 44361,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1561
+          },
+          "number_of_events": 17873
+        },
+        "504440736": {
+          "gps": {
+            "rows": 556173,
+            "not_visible": 123,
+            "no_location": 27168,
+            "kept": 55100
+          },
+          "acc": {
+            "rows": 1636075,
+            "not_visible": 2,
+            "malformed": 0,
+            "kept": 58122
+          },
+          "number_of_events": 530490
+        },
+        "173213564": {
+          "gps": {
+            "rows": 223805,
+            "not_visible": 4357,
+            "no_location": 566,
+            "kept": 16970
+          },
+          "acc": {
+            "rows": 481356,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16969
+          },
+          "number_of_events": 218882
+        },
+        "80669585": {
+          "gps": {
+            "rows": 14702,
+            "not_visible": 121,
+            "no_location": 50,
+            "kept": 1277
+          },
+          "acc": {
+            "rows": 36274,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1276
+          },
+          "number_of_events": 14531
+        },
+        "930962485": {
+          "gps": {
+            "rows": 8743771,
+            "not_visible": 249,
+            "no_location": 1511,
+            "kept": 45412
+          },
+          "acc": {
+            "rows": 448323,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 48888
+          },
+          "number_of_events": 8803387
+        },
+        "173667185": {
+          "gps": {
+            "rows": 9882,
+            "not_visible": 251,
+            "no_location": 46,
+            "kept": 903
+          },
+          "acc": {
+            "rows": 25409,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 897
+          },
+          "number_of_events": 9585
+        },
+        "504431447": {
+          "gps": {
+            "rows": 21446,
+            "not_visible": 5,
+            "no_location": 294,
+            "kept": 1907
+          },
+          "acc": {
+            "rows": 54213,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1914
+          },
+          "number_of_events": 21147
+        },
+        "891801446": {
+          "gps": {
+            "rows": 17145,
+            "not_visible": 0,
+            "no_location": 344,
+            "kept": 1495
+          },
+          "acc": {
+            "rows": 42580,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1503
+          },
+          "number_of_events": 16801
+        },
+        "891800806": {
+          "gps": {
+            "rows": 12083,
+            "not_visible": 5,
+            "no_location": 99,
+            "kept": 1458
+          },
+          "acc": {
+            "rows": 54794,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1847
+          },
+          "number_of_events": 11979
+        },
+        "929589090": {
+          "gps": {
+            "rows": 11713,
+            "not_visible": 50,
+            "no_location": 92,
+            "kept": 1016
+          },
+          "acc": {
+            "rows": 29048,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1023
+          },
+          "number_of_events": 11571
+        },
+        "929589087": {
+          "gps": {
+            "rows": 44893,
+            "not_visible": 973,
+            "no_location": 138,
+            "kept": 3823
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 43782
+        },
+        "929589091": {
+          "gps": {
+            "rows": 22100,
+            "not_visible": 542,
+            "no_location": 80,
+            "kept": 2036
+          },
+          "acc": {
+            "rows": 1362,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 125
+          },
+          "number_of_events": 21478
+        },
+        "929589088": {
+          "gps": {
+            "rows": 19547,
+            "not_visible": 487,
+            "no_location": 70,
+            "kept": 1819
+          },
+          "acc": {
+            "rows": 20755,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1820
+          },
+          "number_of_events": 18990
+        },
+        "929589089": {
+          "gps": {
+            "rows": 19044,
+            "not_visible": 444,
+            "no_location": 152,
+            "kept": 1641
+          },
+          "acc": {
+            "rows": 18872,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1654
+          },
+          "number_of_events": 18448
+        },
+        "173662659": {
+          "gps": {
+            "rows": 45909,
+            "not_visible": 904,
+            "no_location": 155,
+            "kept": 3974
+          },
+          "acc": {
+            "rows": 112051,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3974
+          },
+          "number_of_events": 44850
+        },
+        "537487927": {
+          "gps": {
+            "rows": 201467,
+            "not_visible": 616,
+            "no_location": 2464,
+            "kept": 23247
+          },
+          "acc": {
+            "rows": 505329,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 28759
+          },
+          "number_of_events": 198387
+        },
+        "173667116": {
+          "gps": {
+            "rows": 145707,
+            "not_visible": 3983,
+            "no_location": 378,
+            "kept": 15211
+          },
+          "acc": {
+            "rows": 432150,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 15211
+          },
+          "number_of_events": 141346
+        },
+        "891794318": {
+          "gps": {
+            "rows": 89538,
+            "not_visible": 12,
+            "no_location": 4561,
+            "kept": 8406
+          },
+          "acc": {
+            "rows": 312430,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 11164
+          },
+          "number_of_events": 84965
+        },
+        "293972849": {
+          "gps": {
+            "rows": 51969,
+            "not_visible": 1132,
+            "no_location": 160,
+            "kept": 4487
+          },
+          "acc": {
+            "rows": 125321,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 4422
+          },
+          "number_of_events": 50677
+        },
+        "504432202": {
+          "gps": {
+            "rows": 29190,
+            "not_visible": 50,
+            "no_location": 379,
+            "kept": 2611
+          },
+          "acc": {
+            "rows": 74506,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2644
+          },
+          "number_of_events": 28761
+        },
+        "80655974": {
+          "gps": {
+            "rows": 8706,
+            "not_visible": 376,
+            "no_location": 110,
+            "kept": 723
+          },
+          "acc": {
+            "rows": 8247,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 723
+          },
+          "number_of_events": 8220
+        },
+        "173662039": {
+          "gps": {
+            "rows": 19685,
+            "not_visible": 414,
+            "no_location": 108,
+            "kept": 1677
+          },
+          "acc": {
+            "rows": 47584,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1672
+          },
+          "number_of_events": 19163
+        },
+        "77137906": {
+          "gps": {
+            "rows": 14060,
+            "not_visible": 122,
+            "no_location": 144,
+            "kept": 1210
+          },
+          "acc": {
+            "rows": 34828,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1227
+          },
+          "number_of_events": 13794
+        },
+        "173198760": {
+          "gps": {
+            "rows": 12808,
+            "not_visible": 306,
+            "no_location": 33,
+            "kept": 1086
+          },
+          "acc": {
+            "rows": 30864,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1086
+          },
+          "number_of_events": 12469
+        },
+        "293984457": {
+          "gps": {
+            "rows": 24525,
+            "not_visible": 542,
+            "no_location": 65,
+            "kept": 2107
+          },
+          "acc": {
+            "rows": 58843,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2107
+          },
+          "number_of_events": 23918
+        },
+        "504424734": {
+          "gps": {
+            "rows": 17181,
+            "not_visible": 385,
+            "no_location": 39,
+            "kept": 1459
+          },
+          "acc": {
+            "rows": 41476,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1459
+          },
+          "number_of_events": 16757
+        },
+        "77139271": {
+          "gps": {
+            "rows": 58693,
+            "not_visible": 1404,
+            "no_location": 223,
+            "kept": 6089
+          },
+          "acc": {
+            "rows": 176186,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 6195
+          },
+          "number_of_events": 57066
+        },
+        "173199625": {
+          "gps": {
+            "rows": 50479,
+            "not_visible": 625,
+            "no_location": 90,
+            "kept": 4481
+          },
+          "acc": {
+            "rows": 126225,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 4476
+          },
+          "number_of_events": 49764
+        },
+        "77144110": {
+          "gps": {
+            "rows": 61386,
+            "not_visible": 1373,
+            "no_location": 144,
+            "kept": 5571
+          },
+          "acc": {
+            "rows": 158382,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5569
+          },
+          "number_of_events": 59869
+        },
+        "891808524": {
+          "gps": {
+            "rows": 488552,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 5014
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 488552
+        },
+        "891633728": {
+          "gps": {
+            "rows": 7252,
+            "not_visible": 0,
+            "no_location": 21,
+            "kept": 743
+          },
+          "acc": {
+            "rows": 28104,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 937
+          },
+          "number_of_events": 7231
+        },
+        "891791968": {
+          "gps": {
+            "rows": 4198,
+            "not_visible": 1,
+            "no_location": 7,
+            "kept": 417
+          },
+          "acc": {
+            "rows": 10274,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 361
+          },
+          "number_of_events": 4190
+        },
+        "181946775": {
+          "gps": {
+            "rows": 6031,
+            "not_visible": 142,
+            "no_location": 8,
+            "kept": 520
+          },
+          "acc": {
+            "rows": 14731,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 520
+          },
+          "number_of_events": 5881
+        },
+        "860436608": {
+          "gps": {
+            "rows": 2460233,
+            "not_visible": 140,
+            "no_location": 0,
+            "kept": 37065
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 2460624
+        }
+      },
+      "fetched": "2026-11-12"
+    },
+    "vorarlberg": {
+      "study_id": 173641633,
+      "incomplete": [],
+      "requested": {
+        "gps": "individual_id,deployment_id,tag_id,timestamp,location_long,location_lat,height_above_ellipsoid,ground_speed,gps_dop,gps_satellite_count,eobs_horizontal_accuracy_estimate,eobs_temperature,eobs_battery_voltage,eobs_activity,eobs_activity_samples,visible",
+        "acc": "individual_id,deployment_id,tag_id,timestamp,eobs_acceleration_axes,eobs_acceleration_sampling_frequency_per_axis,eobs_accelerations_raw,visible"
+      },
+      "files": {
+        "gps": [
+          "vorarlberg-gps-1.csv.gz"
+        ],
+        "acc": [
+          "vorarlberg-acc-1.csv.gz"
+        ]
+      },
+      "individuals": {
+        "1585123983": {
+          "gps": {
+            "rows": 3479324,
+            "not_visible": 269,
+            "no_location": 243,
+            "kept": 16338
+          },
+          "acc": {
+            "rows": 62571,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 16334
+          },
+          "number_of_events": 3478812
+        },
+        "2847722347": {
+          "gps": {
+            "rows": 35986,
+            "not_visible": 38,
+            "no_location": 572,
+            "kept": 2349
+          },
+          "acc": {
+            "rows": 50239,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2467
+          },
+          "number_of_events": 35376
+        },
+        "2165003489": {
+          "gps": {
+            "rows": 35969,
+            "not_visible": 48,
+            "no_location": 638,
+            "kept": 9303
+          },
+          "acc": {
+            "rows": 106167,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 9374
+          },
+          "number_of_events": 35283
+        },
+        "2165003488": {
+          "gps": {
+            "rows": 2573,
+            "not_visible": 0,
+            "no_location": 19,
+            "kept": 677
+          },
+          "acc": {
+            "rows": 7589,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 678
+          },
+          "number_of_events": 2554
+        },
+        "1585118492": {
+          "gps": {
+            "rows": 3055,
+            "not_visible": 38,
+            "no_location": 12,
+            "kept": 188
+          },
+          "acc": {
+            "rows": 1831,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 188
+          },
+          "number_of_events": 3005
+        },
+        "2847771628": {
+          "gps": {
+            "rows": 21110,
+            "not_visible": 146,
+            "no_location": 324,
+            "kept": 5191
+          },
+          "acc": {
+            "rows": 59258,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5240
+          },
+          "number_of_events": 20640
+        },
+        "2847778764": {
+          "gps": {
+            "rows": 32690,
+            "not_visible": 40,
+            "no_location": 265,
+            "kept": 8459
+          },
+          "acc": {
+            "rows": 96853,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 8622
+          },
+          "number_of_events": 32385
+        },
+        "1585112955": {
+          "gps": {
+            "rows": 155461,
+            "not_visible": 20,
+            "no_location": 34,
+            "kept": 1276
+          },
+          "acc": {
+            "rows": 4839,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1275
+          },
+          "number_of_events": 155407
+        },
+        "4000652300": {
+          "gps": {
+            "rows": 24920,
+            "not_visible": 0,
+            "no_location": 7,
+            "kept": 2272
+          },
+          "acc": {
+            "rows": 25947,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 2275
+          },
+          "number_of_events": 24913
+        },
+        "1585122670": {
+          "gps": {
+            "rows": 45941,
+            "not_visible": 5,
+            "no_location": 25,
+            "kept": 600
+          },
+          "acc": {
+            "rows": 2473,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 656
+          },
+          "number_of_events": 45911
+        },
+        "2165003491": {
+          "gps": {
+            "rows": 34929,
+            "not_visible": 29,
+            "no_location": 3451,
+            "kept": 8607
+          },
+          "acc": {
+            "rows": 104692,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 9582
+          },
+          "number_of_events": 31449
+        },
+        "2165003484": {
+          "gps": {
+            "rows": 66690,
+            "not_visible": 176,
+            "no_location": 1646,
+            "kept": 17213
+          },
+          "acc": {
+            "rows": 196204,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 17495
+          },
+          "number_of_events": 64868
+        },
+        "2847777258": {
+          "gps": {
+            "rows": 86875,
+            "not_visible": 34,
+            "no_location": 4931,
+            "kept": 22640
+          },
+          "acc": {
+            "rows": 258654,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 23381
+          },
+          "number_of_events": 82645
+        },
+        "2847773588": {
+          "gps": {
+            "rows": 13360,
+            "not_visible": 16,
+            "no_location": 672,
+            "kept": 3121
+          },
+          "acc": {
+            "rows": 36979,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3263
+          },
+          "number_of_events": 12672
+        },
+        "2847736968": {
+          "gps": {
+            "rows": 0,
+            "not_visible": 0,
+            "no_location": 0,
+            "kept": 0
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 0
+        },
+        "1585116571": {
+          "gps": {
+            "rows": 5367896,
+            "not_visible": 177,
+            "no_location": 478,
+            "kept": 25920
+          },
+          "acc": {
+            "rows": 99871,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 25918
+          },
+          "number_of_events": 5367241
+        },
+        "2847780559": {
+          "gps": {
+            "rows": 14556,
+            "not_visible": 44,
+            "no_location": 1042,
+            "kept": 3693
+          },
+          "acc": {
+            "rows": 42926,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 3855
+          },
+          "number_of_events": 13470
+        },
+        "2165003486": {
+          "gps": {
+            "rows": 19372,
+            "not_visible": 47,
+            "no_location": 688,
+            "kept": 4906
+          },
+          "acc": {
+            "rows": 56974,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5041
+          },
+          "number_of_events": 18637
+        },
+        "2847733225": {
+          "gps": {
+            "rows": 7371,
+            "not_visible": 22,
+            "no_location": 131,
+            "kept": 1921
+          },
+          "acc": {
+            "rows": 21686,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1931
+          },
+          "number_of_events": 7218
+        },
+        "2847728163": {
+          "gps": {
+            "rows": 4572,
+            "not_visible": 11,
+            "no_location": 317,
+            "kept": 1155
+          },
+          "acc": {
+            "rows": 13424,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1185
+          },
+          "number_of_events": 4244
+        },
+        "173673348": {
+          "gps": {
+            "rows": 452665,
+            "not_visible": 11455,
+            "no_location": 3597,
+            "kept": 57721
+          },
+          "acc": {
+            "rows": 1905219,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 67353
+          },
+          "number_of_events": 438232
+        },
+        "173673531": {
+          "gps": {
+            "rows": 380454,
+            "not_visible": 7743,
+            "no_location": 1882,
+            "kept": 52513
+          },
+          "acc": {
+            "rows": 946752,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 61060
+          },
+          "number_of_events": 371112
+        },
+        "173673958": {
+          "gps": {
+            "rows": 64553,
+            "not_visible": 492,
+            "no_location": 305,
+            "kept": 1798
+          },
+          "acc": {
+            "rows": 50754,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1800
+          },
+          "number_of_events": 63756
+        },
+        "173673996": {
+          "gps": {
+            "rows": 537,
+            "not_visible": 19,
+            "no_location": 2,
+            "kept": 46
+          },
+          "acc": {
+            "rows": 1293,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 46
+          },
+          "number_of_events": 516
+        },
+        "2165003485": {
+          "gps": {
+            "rows": 87522,
+            "not_visible": 87,
+            "no_location": 5527,
+            "kept": 23376
+          },
+          "acc": {
+            "rows": 261711,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 24731
+          },
+          "number_of_events": 81908
+        },
+        "2847775263": {
+          "gps": {
+            "rows": 5830,
+            "not_visible": 17,
+            "no_location": 297,
+            "kept": 1472
+          },
+          "acc": {
+            "rows": 17130,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1522
+          },
+          "number_of_events": 5516
+        },
+        "2165003490": {
+          "gps": {
+            "rows": 4953,
+            "not_visible": 25,
+            "no_location": 48,
+            "kept": 1382
+          },
+          "acc": {
+            "rows": 14474,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1358
+          },
+          "number_of_events": 4880
+        },
+        "2165003487": {
+          "gps": {
+            "rows": 23256,
+            "not_visible": 35,
+            "no_location": 806,
+            "kept": 5965
+          },
+          "acc": {
+            "rows": 68671,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 6069
+          },
+          "number_of_events": 22415
+        }
+      },
+      "fetched": "2026-11-12"
+    },
+    "oberschwaben": {
+      "study_id": 212096177,
+      "incomplete": [],
+      "requested": {
+        "gps": "individual_id,deployment_id,tag_id,timestamp,location_long,location_lat,height_above_ellipsoid,ground_speed,gps_dop,gps_satellite_count,eobs_horizontal_accuracy_estimate,eobs_temperature,eobs_battery_voltage,eobs_activity,eobs_activity_samples,visible",
+        "acc": "individual_id,deployment_id,tag_id,timestamp,eobs_acceleration_axes,eobs_acceleration_sampling_frequency_per_axis,eobs_accelerations_raw,visible"
+      },
+      "files": {
+        "gps": [
+          "oberschwaben-gps-1.csv.gz"
+        ],
+        "acc": [
+          "oberschwaben-acc-1.csv.gz"
+        ]
+      },
+      "individuals": {
+        "212097469": {
+          "gps": {
+            "rows": 208618,
+            "not_visible": 10,
+            "no_location": 782,
+            "kept": 1331
+          },
+          "acc": {
+            "rows": 3660,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 322
+          },
+          "number_of_events": 207826
+        },
+        "218607543": {
+          "gps": {
+            "rows": 28139,
+            "not_visible": 0,
+            "no_location": 133,
+            "kept": 2894
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 28006
+        },
+        "218609200": {
+          "gps": {
+            "rows": 15542,
+            "not_visible": 8,
+            "no_location": 150,
+            "kept": 4497
+          },
+          "acc": {
+            "rows": 3663,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 321
+          },
+          "number_of_events": 15384
+        },
+        "218611295": {
+          "gps": {
+            "rows": 5694,
+            "not_visible": 0,
+            "no_location": 20,
+            "kept": 497
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 5674
+        },
+        "219393322": {
+          "gps": {
+            "rows": 96335,
+            "not_visible": 1893,
+            "no_location": 744,
+            "kept": 9046
+          },
+          "acc": {
+            "rows": 212932,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 7480
+          },
+          "number_of_events": 93698
+        },
+        "219395575": {
+          "gps": {
+            "rows": 325040,
+            "not_visible": 2619,
+            "no_location": 7342,
+            "kept": 34091
+          },
+          "acc": {
+            "rows": 117329,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 20191
+          },
+          "number_of_events": 315079
+        },
+        "219396293": {
+          "gps": {
+            "rows": 15013,
+            "not_visible": 8,
+            "no_location": 150,
+            "kept": 1391
+          },
+          "acc": {
+            "rows": 5580,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 657
+          },
+          "number_of_events": 14855
+        },
+        "219397407": {
+          "gps": {
+            "rows": 4213,
+            "not_visible": 0,
+            "no_location": 20,
+            "kept": 367
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 4193
+        },
+        "219397733": {
+          "gps": {
+            "rows": 17843,
+            "not_visible": 0,
+            "no_location": 139,
+            "kept": 1561
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 17704
+        },
+        "219392149": {
+          "gps": {
+            "rows": 324214,
+            "not_visible": 6113,
+            "no_location": 2069,
+            "kept": 33642
+          },
+          "acc": {
+            "rows": 684372,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 24040
+          },
+          "number_of_events": 316054
+        },
+        "219398178": {
+          "gps": {
+            "rows": 47127,
+            "not_visible": 11,
+            "no_location": 2113,
+            "kept": 6495
+          },
+          "acc": {
+            "rows": 12850,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 1231
+          },
+          "number_of_events": 45003
+        },
+        "219398556": {
+          "gps": {
+            "rows": 17873,
+            "not_visible": 10,
+            "no_location": 124,
+            "kept": 1575
+          },
+          "acc": {
+            "rows": 4420,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 455
+          },
+          "number_of_events": 17739
+        },
+        "219391895": {
+          "gps": {
+            "rows": 287400,
+            "not_visible": 0,
+            "no_location": 1,
+            "kept": 372
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 287399
+        },
+        "219398869": {
+          "gps": {
+            "rows": 20027,
+            "not_visible": 10,
+            "no_location": 124,
+            "kept": 2036
+          },
+          "acc": {
+            "rows": 5238,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 597
+          },
+          "number_of_events": 19893
+        },
+        "219399990": {
+          "gps": {
+            "rows": 7125,
+            "not_visible": 1,
+            "no_location": 41,
+            "kept": 621
+          },
+          "acc": {
+            "rows": 0,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 0
+          },
+          "number_of_events": 7083
+        },
+        "219402175": {
+          "gps": {
+            "rows": 71203,
+            "not_visible": 1392,
+            "no_location": 369,
+            "kept": 6267
+          },
+          "acc": {
+            "rows": 153683,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 5400
+          },
+          "number_of_events": 69442
+        },
+        "219402518": {
+          "gps": {
+            "rows": 596323,
+            "not_visible": 10588,
+            "no_location": 3422,
+            "kept": 43232
+          },
+          "acc": {
+            "rows": 123390,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 21193
+          },
+          "number_of_events": 582313
+        },
+        "219402564": {
+          "gps": {
+            "rows": 557532,
+            "not_visible": 17109,
+            "no_location": 6956,
+            "kept": 62851
+          },
+          "acc": {
+            "rows": 447430,
+            "not_visible": 0,
+            "malformed": 0,
+            "kept": 53425
+          },
+          "number_of_events": 533498
+        }
+      },
+      "fetched": "2026-11-12"
     }
   },
   "source": "https://www.movebank.org/movebank/service/direct-read",

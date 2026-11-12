@@ -308,6 +308,13 @@ Repository; full citations, file details and retrieval dates are in
 - African elephant, Kruger National Park: Slotow R, Thaker M, Vanak AT
   (2019), <https://doi.org/10.5441/001/1.403h24q5>. 14 deployments,
   2007-2009.
+- White storks, five LifeTrack populations in Germany and Austria
+  (Fiedler W et al. 2024, CC BY 4.0, DOIs in
+  [`data/SOURCES.md`](data/SOURCES.md)): an hourly extract of GPS fixes
+  and accelerometer summaries for 339 birds, in
+  [`data/raw/storks/`](data/raw/storks/). Committed for the second case
+  study; no detector reads it yet. Rebuilt only by the optional
+  `make fetch-storks`, which needs a Movebank account.
 - Park boundaries for Etosha and Kruger: © OpenStreetMap contributors,
   under the Open Database Licence (ODbL 1.0), relations 2982497 and
   1752987, in [`data/raw/boundaries/`](data/raw/boundaries/). Refreshed

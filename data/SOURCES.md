@@ -285,10 +285,30 @@ per animal in ascending Movebank ID), which any gzip reader opens as one
 CSV. Rows carry Movebank's numeric `individual_id`, `deployment_id` and
 `tag_id`, which key into the reference tables.
 
-Completeness check: Movebank's own `number_of_events` per animal counts
-its visible fixes with a position, which is what the GPS reduction
-counts before thinning; `extract.json` lists under `incomplete` any
-animal (ended before the cut-off) where the two differ.
+| Study | Movebank id | Animals | Fixes read | GPS rows | Bursts read | Acceleration rows | Parts, MB |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| SW Germany | 21231406 | 94 | 13,487,188 | 618,838 | 14,763,226 | 663,902 | 29.3 |
+| Bavaria | 24442409 | 91 | 7,663,531 | 698,640 | 11,858,113 | 654,966 | 32.1 |
+| Rheinland-Pfalz | 76367850 | 108 | 19,659,176 | 842,912 | 18,184,822 | 825,440 | 38.7 |
+| Vorarlberg | 173641633 | 28 | 10,472,420 | 280,102 | 4,515,181 | 302,699 | 13.8 |
+| Oberschwaben | 212096177 | 18 | 2,645,261 | 212,766 | 1,774,547 | 135,312 | 7.5 |
+| All | | 339 | 53,927,576 | 2,653,258 | 51,095,889 | 2,582,319 | 121.4 |
+
+"Animals" counts rows of each individual table, including the few with
+no events. No burst was unreadable; five were flagged as outliers.
+
+Completeness checks (2026-11-12):
+
+- GPS: Movebank's own `number_of_events` per animal counts its visible
+  fixes with a position, which is what the GPS reduction counts before
+  thinning; `extract.json` lists under `incomplete` any animal (ended
+  before the cut-off) where the two differ. All five lists are empty.
+  The check caught one animal whose response Movebank had ended early
+  without an error (1,248 of 44,850 fixes); it was fetched again and
+  now matches.
+- Acceleration: Movebank publishes no burst count, so each animal and
+  calendar year was probed for any burst later than the last hour held
+  (540 requests, by hand, not part of the script). None was found.
 
 The held-out populations (`data/splits.csv`) were fetched by the same
 run under the same rules; the script prints row counts only, and none of
