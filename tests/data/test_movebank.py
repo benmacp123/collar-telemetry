@@ -262,6 +262,43 @@ def test_extract_fixes_join_on_the_deployment_id(extract):
     assert (report.rows, report.unmatched) == (4, 2)
 
 
+def test_extract_sensors_are_read_only_when_asked(extract):
+    """With ``sensors`` the tag readings reach the fix, blank cells stay
+    None and a zero is kept; without it the fixes carry none."""
+    deployments = read_extract_deployments(
+        extract / "deployments.csv", extract / "individuals.csv"
+    )
+    part = extract / "x-gps-1.csv.gz"
+    with gzip.open(part, "wt", newline="", encoding="utf-8") as handle:
+        handle.write(
+            "individual_id,deployment_id,tag_id,timestamp,location_long,"
+            "location_lat,gps_dop,eobs_temperature,eobs_battery_voltage,"
+            "eobs_activity\n"
+            "1,100,7,2014-06-02 08:40:47.000,8.93,47.75,1.5,21,3923,0\n"
+            "1,100,7,2014-06-02 09:40:47.000,8.93,47.75,,,,\n"
+        )
+    plain, _ = read_extract_fixes([part], deployments)
+    assert all(
+        (f.activity, f.temperature, f.hdop, f.voltage) == (None,) * 4 for f in plain
+    )
+    full, _ = read_extract_fixes([part], deployments, sensors=True)
+    assert (full[0].activity, full[0].temperature) == (0.0, 21.0)
+    assert (full[0].hdop, full[0].voltage) == (1.5, 3923.0)
+    assert (full[1].activity, full[1].voltage) == (None, None)
+
+
+def test_export_hdop_is_read_only_when_asked(reused_collar, tmp_path):
+    """An export's ``gps:hdop`` column becomes the fix's hdop on request."""
+    events = write(
+        tmp_path / "events.csv",
+        EVENT_HEADER.rstrip("\n") + ",gps:hdop\n",
+        ["1,true,2009-03-01 00:00:00.000,16.0,-19.0,T1,A,0.8"],
+    )
+    deployments = read_deployments(reused_collar)
+    assert read_fixes(events, deployments)[0][0].hdop is None
+    assert read_fixes(events, deployments, sensors=True)[0][0].hdop == 0.8
+
+
 def test_extract_tag_models_fall_back_to_the_manufacturer(extract):
     """Tag model by deployment, the manufacturer standing in when blank."""
     assert read_extract_tag_models(

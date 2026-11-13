@@ -20,6 +20,19 @@ from pathlib import Path
 from telemetry.core.fixes import Deployment, Fix
 
 
+def _number(value: str | None) -> float | None:
+    """Parse a numeric CSV cell, treating blank as missing.
+
+    Args:
+        value: The cell text, or None.
+
+    Returns:
+        float | None: The number, or None if the cell was empty.
+    """
+    value = _optional(value)
+    return None if value is None else float(value)
+
+
 def parse_timestamp(value: str) -> datetime:
     """Parse a Movebank timestamp (``yyyy-MM-dd HH:mm:ss.SSS``, UTC).
 
@@ -123,7 +136,9 @@ class LoadReport:
 
 
 def read_fixes(
-    paths: Path | Iterable[Path], deployments: list[Deployment]
+    paths: Path | Iterable[Path],
+    deployments: list[Deployment],
+    sensors: bool = False,
 ) -> tuple[list[Fix], LoadReport]:
     """Read Movebank event CSVs and attach each fix to its deployment.
 
@@ -136,6 +151,9 @@ def read_fixes(
         paths: The event CSV, or the parts of one split to fit GitHub's
             file size limit.
         deployments: Deployments from the matching reference-data file.
+        sensors: Also read the export's ``gps:hdop`` column, the only tag
+            reading these exports carry. Off by default so replays that
+            do not use it are unchanged.
 
     Returns:
         The fixes, and a report of the rows that were dropped.
@@ -147,11 +165,13 @@ def read_fixes(
     fixes = []
     report = LoadReport()
     for path in [paths] if isinstance(paths, Path) else paths:
-        _read_event_file(path, by_key, fixes, report)
+        _read_event_file(path, by_key, fixes, report, sensors)
     return fixes, report
 
 
-def _read_event_file(path, by_key: defaultdict[list], fixes: list, report: LoadReport):
+def _read_event_file(
+    path, by_key: defaultdict[list], fixes: list, report: LoadReport, sensors: bool
+):
     """Append one event file's fixes to ``fixes``, counting drops in ``report``.
 
     Args:
@@ -159,6 +179,7 @@ def _read_event_file(path, by_key: defaultdict[list], fixes: list, report: LoadR
         by_key: Deployments keyed by (tag, animal), for matching rows.
         fixes: A list to which the parsed fixes will be appended.
         report: A LoadReport instance to which drop counts will be added.
+        sensors: Whether to read ``gps:hdop`` into each fix.
     """
     with open(path, newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
@@ -180,7 +201,10 @@ def _read_event_file(path, by_key: defaultdict[list], fixes: list, report: LoadR
             if match is None:
                 report.unmatched += 1
                 continue
-            fixes.append(Fix(match.deployment_id, timestamp, float(lat), float(lon)))
+            hdop = _number(row.get("gps:hdop")) if sensors else None
+            fixes.append(
+                Fix(match.deployment_id, timestamp, float(lat), float(lon), hdop=hdop)
+            )
 
 
 def read_extract_deployments(
@@ -268,7 +292,7 @@ def read_extract_tag_models(deployments_path: Path, tags_path: Path) -> dict[str
 
 
 def read_extract_fixes(
-    paths: Iterable[Path], deployments: list[Deployment]
+    paths: Iterable[Path], deployments: list[Deployment], sensors: bool = False
 ) -> tuple[list[Fix], LoadReport]:
     """Read an extract's hourly GPS parts.
 
@@ -280,6 +304,9 @@ def read_extract_fixes(
     Args:
         paths: The ``*-gps-N.csv.gz`` parts, in order.
         deployments: Deployments from the matching reference tables.
+        sensors: Also read the tag's activity count, temperature, HDOP
+            (``gps_dop``) and battery voltage; a blank cell stays None.
+            Off by default so replays that do not use them are unchanged.
 
     Returns:
         The fixes in file order, and a report of the rows that were
@@ -297,12 +324,21 @@ def read_extract_fixes(
                 if match is None or not match.covers(timestamp):
                     report.unmatched += 1
                     continue
+                readings = {}
+                if sensors:
+                    readings = {
+                        "activity": _number(row.get("eobs_activity")),
+                        "temperature": _number(row.get("eobs_temperature")),
+                        "hdop": _number(row.get("gps_dop")),
+                        "voltage": _number(row.get("eobs_battery_voltage")),
+                    }
                 fixes.append(
                     Fix(
                         match.deployment_id,
                         timestamp,
                         float(row["location_lat"]),
                         float(row["location_long"]),
+                        **readings,
                     )
                 )
     return fixes, report

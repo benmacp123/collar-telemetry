@@ -64,7 +64,7 @@ References:
 import math
 import random
 from collections import defaultdict
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import datetime, timedelta
 
 from telemetry.core.fixes import Deployment, Fix
@@ -379,7 +379,8 @@ def synthetic_study(
                 config,
                 sparse=regime == SPARSE,
             )
-            track = [Fix(new_id, f.timestamp, f.lat, f.lon) for f in event.fixes]
+            # replace() keeps any sensor readings on the real pre-death fixes.
+            track = [replace(f, deployment_id=new_id) for f in event.fixes]
             variant.deployments.append(
                 Deployment(
                     new_id,

@@ -47,6 +47,10 @@ class Deployment:
         return self.deploy_off is None or timestamp <= self.deploy_off
 
 
+# Optional per-fix tag readings, in the order ``Fix`` declares them.
+SENSOR_FIELDS = ("activity", "temperature", "hdop", "voltage")
+
+
 @dataclass(frozen=True)
 class Fix:
     """A single GPS position report.
@@ -56,25 +60,42 @@ class Fix:
         timestamp: Time the fix was taken (UTC).
         lat: Latitude in decimal degrees (WGS84).
         lon: Longitude in decimal degrees (WGS84).
+        activity: The tag's activity count for the fix's interval, or None.
+        temperature: Tag temperature in degrees Celsius, or None.
+        hdop: Horizontal dilution of precision, or None.
+        voltage: Tag battery voltage (millivolts on e-obs tags), or None.
     """
 
     deployment_id: str
     timestamp: datetime
     lat: float
     lon: float
+    activity: float | None = None
+    temperature: float | None = None
+    hdop: float | None = None
+    voltage: float | None = None
 
     def to_dict(self) -> dict:
         """JSON-ready form, for state saved between invocations.
 
+        Sensor fields are written only when set, so a fix without sensor
+        data serialises exactly as it did before they existed and saved
+        state stays byte-identical.
+
         Returns:
             dict: The fix's fields, with the timestamp as ISO 8601 text.
         """
-        return {
+        data = {
             "deployment_id": self.deployment_id,
             "timestamp": self.timestamp.isoformat(),
             "lat": self.lat,
             "lon": self.lon,
         }
+        for name in SENSOR_FIELDS:
+            value = getattr(self, name)
+            if value is not None:
+                data[name] = value
+        return data
 
     @classmethod
     def from_dict(cls, data: dict) -> "Fix":
@@ -91,6 +112,7 @@ class Fix:
             datetime.fromisoformat(data["timestamp"]),
             data["lat"],
             data["lon"],
+            **{name: data[name] for name in SENSOR_FIELDS if name in data},
         )
 
 
