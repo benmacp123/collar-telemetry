@@ -342,3 +342,36 @@ def read_extract_fixes(
                     )
                 )
     return fixes, report
+
+
+def read_extract_acceleration(
+    paths: Iterable[Path], deployments: list[Deployment], column: str = "spread_median"
+) -> dict[str, dict[datetime, float]]:
+    """Read an extract's hourly acceleration summaries.
+
+    Each row summarises the bursts the tag took in one UTC hour (see
+    ``telemetry.data.extract``). Only one summary column is kept, because
+    the cue that uses it is frozen on that column alone.
+
+    Args:
+        paths: The ``*-acc-N.csv.gz`` parts, in order.
+        deployments: Deployments from the matching reference tables; rows
+            for others, or outside a deployment's dates, are left out.
+        column: The summary to keep, by its header in the file.
+
+    Returns:
+        dict[str, dict[datetime, float]]: For each deployment ID, the
+        value by the start of its hour; a blank cell is left out.
+    """
+    by_id = {deployment.deployment_id: deployment for deployment in deployments}
+    readings: dict[str, dict[datetime, float]] = defaultdict(dict)
+    for path in paths:
+        with gzip.open(path, "rt", newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                match = by_id.get(row["deployment_id"].strip())
+                value = _number(row[column])
+                hour = parse_timestamp(row["hour"])
+                if match is None or value is None or not match.covers(hour):
+                    continue
+                readings[match.deployment_id][hour] = value
+    return dict(readings)

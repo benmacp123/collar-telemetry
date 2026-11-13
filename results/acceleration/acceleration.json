@@ -1,0 +1,367 @@
+{
+  "scenario": "gsm",
+  "rows": [
+    {
+      "threshold": 1.0,
+      "true": {
+        "passing": 12,
+        "total": 66,
+        "share": 0.181818,
+        "wilson": [
+          0.107185,
+          0.291454
+        ]
+      },
+      "false": {
+        "passing": 3,
+        "total": 838,
+        "share": 0.00358,
+        "wilson": [
+          0.001218,
+          0.010472
+        ]
+      },
+      "ratio": 50.787,
+      "ratio_lower": 10.235
+    },
+    {
+      "threshold": 1.5,
+      "true": {
+        "passing": 13,
+        "total": 66,
+        "share": 0.19697,
+        "wilson": [
+          0.118885,
+          0.30839
+        ]
+      },
+      "false": {
+        "passing": 3,
+        "total": 838,
+        "share": 0.00358,
+        "wilson": [
+          0.001218,
+          0.010472
+        ]
+      },
+      "ratio": 55.02,
+      "ratio_lower": 11.353
+    },
+    {
+      "threshold": 2.0,
+      "true": {
+        "passing": 14,
+        "total": 66,
+        "share": 0.212121,
+        "wilson": [
+          0.130779,
+          0.325133
+        ]
+      },
+      "false": {
+        "passing": 3,
+        "total": 838,
+        "share": 0.00358,
+        "wilson": [
+          0.001218,
+          0.010472
+        ]
+      },
+      "ratio": 59.252,
+      "ratio_lower": 12.488
+    },
+    {
+      "threshold": 2.5,
+      "true": {
+        "passing": 14,
+        "total": 66,
+        "share": 0.212121,
+        "wilson": [
+          0.130779,
+          0.325133
+        ]
+      },
+      "false": {
+        "passing": 5,
+        "total": 838,
+        "share": 0.005967,
+        "wilson": [
+          0.002551,
+          0.013891
+        ]
+      },
+      "ratio": 35.549,
+      "ratio_lower": 9.415
+    },
+    {
+      "threshold": 3.0,
+      "true": {
+        "passing": 14,
+        "total": 66,
+        "share": 0.212121,
+        "wilson": [
+          0.130779,
+          0.325133
+        ]
+      },
+      "false": {
+        "passing": 8,
+        "total": 838,
+        "share": 0.009547,
+        "wilson": [
+          0.004845,
+          0.018724
+        ]
+      },
+      "ratio": 22.219,
+      "ratio_lower": 6.985
+    },
+    {
+      "threshold": 4.0,
+      "true": {
+        "passing": 14,
+        "total": 66,
+        "share": 0.212121,
+        "wilson": [
+          0.130779,
+          0.325133
+        ]
+      },
+      "false": {
+        "passing": 16,
+        "total": 838,
+        "share": 0.019093,
+        "wilson": [
+          0.011786,
+          0.030789
+        ]
+      },
+      "ratio": 11.11,
+      "ratio_lower": 4.248
+    },
+    {
+      "threshold": 5.0,
+      "true": {
+        "passing": 14,
+        "total": 66,
+        "share": 0.212121,
+        "wilson": [
+          0.130779,
+          0.325133
+        ]
+      },
+      "false": {
+        "passing": 30,
+        "total": 838,
+        "share": 0.0358,
+        "wilson": [
+          0.02519,
+          0.050646
+        ]
+      },
+      "ratio": 5.925,
+      "ratio_lower": 2.582
+    },
+    {
+      "threshold": 6.0,
+      "true": {
+        "passing": 16,
+        "total": 66,
+        "share": 0.242424,
+        "wilson": [
+          0.155091,
+          0.358094
+        ]
+      },
+      "false": {
+        "passing": 45,
+        "total": 838,
+        "share": 0.053699,
+        "wilson": [
+          0.040372,
+          0.071099
+        ]
+      },
+      "ratio": 4.514,
+      "ratio_lower": 2.181
+    },
+    {
+      "threshold": 8.0,
+      "true": {
+        "passing": 28,
+        "total": 66,
+        "share": 0.424242,
+        "wilson": [
+          0.312423,
+          0.544396
+        ]
+      },
+      "false": {
+        "passing": 100,
+        "total": 838,
+        "share": 0.119332,
+        "wilson": [
+          0.099101,
+          0.143037
+        ]
+      },
+      "ratio": 3.555,
+      "ratio_lower": 2.184
+    },
+    {
+      "threshold": 10.0,
+      "true": {
+        "passing": 50,
+        "total": 66,
+        "share": 0.757576,
+        "wilson": [
+          0.641906,
+          0.844909
+        ]
+      },
+      "false": {
+        "passing": 207,
+        "total": 838,
+        "share": 0.247017,
+        "wilson": [
+          0.219015,
+          0.277328
+        ]
+      },
+      "ratio": 3.067,
+      "ratio_lower": 2.315
+    },
+    {
+      "threshold": 12.0,
+      "true": {
+        "passing": 54,
+        "total": 66,
+        "share": 0.818182,
+        "wilson": [
+          0.708546,
+          0.892815
+        ]
+      },
+      "false": {
+        "passing": 348,
+        "total": 838,
+        "share": 0.415274,
+        "wilson": [
+          0.382371,
+          0.448951
+        ]
+      },
+      "ratio": 1.97,
+      "ratio_lower": 1.578
+    },
+    {
+      "threshold": 15.0,
+      "true": {
+        "passing": 58,
+        "total": 66,
+        "share": 0.878788,
+        "wilson": [
+          0.778623,
+          0.937282
+        ]
+      },
+      "false": {
+        "passing": 518,
+        "total": 838,
+        "share": 0.618138,
+        "wilson": [
+          0.584775,
+          0.650424
+        ]
+      },
+      "ratio": 1.422,
+      "ratio_lower": 1.197
+    },
+    {
+      "threshold": 20.0,
+      "true": {
+        "passing": 62,
+        "total": 66,
+        "share": 0.939394,
+        "wilson": [
+          0.854269,
+          0.976182
+        ]
+      },
+      "false": {
+        "passing": 676,
+        "total": 838,
+        "share": 0.806683,
+        "wilson": [
+          0.77857,
+          0.831996
+        ]
+      },
+      "ratio": 1.165,
+      "ratio_lower": 1.027
+    },
+    {
+      "threshold": 30.0,
+      "true": {
+        "passing": 64,
+        "total": 66,
+        "share": 0.969697,
+        "wilson": [
+          0.896073,
+          0.99165
+        ]
+      },
+      "false": {
+        "passing": 784,
+        "total": 838,
+        "share": 0.935561,
+        "wilson": [
+          0.916868,
+          0.950278
+        ]
+      },
+      "ratio": 1.036,
+      "ratio_lower": 0.943
+    }
+  ],
+  "operating_point": {
+    "threshold": 10.0,
+    "true": {
+      "passing": 50,
+      "total": 66,
+      "share": 0.757576,
+      "wilson": [
+        0.641906,
+        0.844909
+      ]
+    },
+    "false": {
+      "passing": 207,
+      "total": 838,
+      "share": 0.247017,
+      "wilson": [
+        0.219015,
+        0.277328
+      ]
+    },
+    "ratio": 3.067,
+    "ratio_lower": 2.315
+  },
+  "precision": {
+    "passing": 50,
+    "total": 257,
+    "share": 0.194553,
+    "wilson": [
+      0.150801,
+      0.247301
+    ]
+  },
+  "animal_months": 2854.5,
+  "alerts": {
+    "true": 80,
+    "false": 1161,
+    "true_without_value": 14,
+    "false_without_value": 323,
+    "false_birds": 164
+  }
+}

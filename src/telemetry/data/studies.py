@@ -13,6 +13,7 @@ list an ordinary run should use.
 
 import csv
 from dataclasses import dataclass
+from datetime import datetime
 from functools import cache
 from pathlib import Path
 
@@ -21,6 +22,7 @@ from telemetry.core.fixes import Deployment, Fix
 from telemetry.data.movebank import (
     LoadReport,
     read_deployments,
+    read_extract_acceleration,
     read_extract_deployments,
     read_extract_fixes,
     read_extract_tag_models,
@@ -218,6 +220,27 @@ class ExtractStudy(Study):
         )
         fixes, report = read_extract_fixes(self.event_paths(raw), deployments)
         return deployments, fixes, report
+
+    def load_acceleration(
+        self, raw: Path, deployments: list[Deployment]
+    ) -> dict[str, dict[datetime, float]]:
+        """Read the population's hourly acceleration summaries.
+
+        Kept apart from ``load`` so replays, which do not use them, never
+        open the files.
+
+        Args:
+            raw: The raw data directory.
+            deployments: The population's deployments, from ``load``.
+
+        Returns:
+            dict[str, dict[datetime, float]]: Median burst spread by hour
+            start, for each deployment ID.
+        """
+        paths = sorted(
+            raw.glob(f"{STORK_GROUP}/{self.stem}-acc-*.csv.gz"), key=part_number
+        )
+        return read_extract_acceleration(paths, deployments)
 
     def tag_models(self, raw: Path) -> dict[str, str]:
         """Each deployment's tag model, from the tag table.

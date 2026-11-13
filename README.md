@@ -338,6 +338,7 @@ make results  # replay every study and scenario, then score (about 5 min)
 make sweep    # threshold sweep on the vulture tuning set (about 2 min)
 make stillness  # how often living animals stay still (about 30 s)
 make fledging   # stork alerts before and after leaving the nest
+make acceleration   # stork acceleration cue: likelihood ratios at the watch alert
 make cloud-local  # handlers in Lambda containers on moto (Docker, ~6 min)
 make cloud-moto   # every study through the handlers on in-process moto
 ```

@@ -130,6 +130,30 @@ animal_months_per_carcass = 98.0
 false_per_animal_month = 0.376
 precisions = [0.33, 0.25]
 
+# Escalation cues (step 3.2), fixed before the stork cue was first fitted.
+#
+# Stork acceleration cue. Signal: the hourly `spread_median` from the acc
+# extract (the median burst spread, a movement intensity). Value at a watch
+# alert: the median of that signal over the `window_hours` complete hours
+# before the alert opened, needing at least `min_hours` of them. The cue
+# fires when the value is at or below a threshold; a lower value means a
+# stiller body.
+# Decision rule, fixed before the first fit: of the thresholds in `grid`, take
+# the lowest at which at least `keep_share` of the true watch alerts pass
+# (the escalated tier must keep half the carcasses). The ratio reported is
+# the share of true alerts passing over the share of false alerts passing.
+# Alerts on birds graded in `excluded_grades` are left out of the fit and the
+# counts, because their death was inferred from the accelerometer itself.
+# Fitted on the stork tuning populations only.
+[cues.stork_acceleration]
+signal = "spread_median"
+statistic = "median"
+window_hours = 24
+min_hours = 12
+keep_share = 0.5
+excluded_grades = ["acc-inferred"]
+grid = [1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0, 8.0, 10.0, 12.0, 15.0, 20.0, 30.0]
+
 # Targets, fixed in advance. `metric` is one of:
 #   load:          incidents per animal-month, written per 30 birds per week
 #   clear_hours:   median hours from opening to resolving, on false alerts (the

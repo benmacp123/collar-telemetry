@@ -8,6 +8,7 @@ import pytest
 from telemetry.data.movebank import (
     parse_timestamp,
     read_deployments,
+    read_extract_acceleration,
     read_extract_deployments,
     read_extract_fixes,
     read_extract_tag_models,
@@ -285,6 +286,24 @@ def test_extract_sensors_are_read_only_when_asked(extract):
     assert (full[0].activity, full[0].temperature) == (0.0, 21.0)
     assert (full[0].hdop, full[0].voltage) == (1.5, 3923.0)
     assert (full[1].activity, full[1].voltage) == (None, None)
+
+
+def test_extract_acceleration_is_read_by_hour(extract):
+    """Hourly spreads are keyed by deployment and hour start; blank cells
+    and rows outside the deployment are left out."""
+    deployments = read_extract_deployments(
+        extract / "deployments.csv", extract / "individuals.csv"
+    )
+    part = extract / "x-acc-1.csv.gz"
+    with gzip.open(part, "wt", newline="", encoding="utf-8") as handle:
+        handle.write(
+            "individual_id,deployment_id,tag_id,hour,spread_median\n"
+            "1,100,7,2014-06-02 08:00:00,7.5\n"
+            "1,100,7,2014-06-02 09:00:00,\n"
+            "1,999,7,2014-06-02 08:00:00,3.0\n"
+        )
+    readings = read_extract_acceleration([part], deployments)
+    assert readings == {"100": {datetime(2014, 6, 2, 8, tzinfo=timezone.utc): 7.5}}
 
 
 def test_export_hdop_is_read_only_when_asked(reused_collar, tmp_path):
