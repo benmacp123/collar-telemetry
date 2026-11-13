@@ -1,0 +1,3961 @@
+{
+  "table": [
+    {
+      "variant": {
+        "baseline_days": 7,
+        "repeats": "count",
+        "hour_matched": false
+      },
+      "rows": [
+        {
+          "cut": 0.1,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 3,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.009524,
+                "wilson": [
+                  0.003244,
+                  0.027623
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 0,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.0,
+                "wilson": [
+                  0.0,
+                  0.05133
+                ]
+              },
+              "false": {
+                "passing": 6,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.006042,
+                "wilson": [
+                  0.002772,
+                  0.01312
+                ]
+              }
+            }
+          },
+          "true": 0.0,
+          "false": 0.007783,
+          "ratio": 0.0
+        },
+        {
+          "cut": 0.2,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 5,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.015873,
+                "wilson": [
+                  0.006798,
+                  0.036614
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 1,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.014085,
+                "wilson": [
+                  0.002491,
+                  0.075562
+                ]
+              },
+              "false": {
+                "passing": 15,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.015106,
+                "wilson": [
+                  0.009175,
+                  0.024774
+                ]
+              }
+            }
+          },
+          "true": 0.0070425,
+          "false": 0.0154895,
+          "ratio": 0.455
+        },
+        {
+          "cut": 0.3,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 13,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.04127,
+                "wilson": [
+                  0.024274,
+                  0.06932
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 26,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.026183,
+                "wilson": [
+                  0.01793,
+                  0.038089
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.0337265,
+          "ratio": 3.383
+        },
+        {
+          "cut": 0.4,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 27,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.085714,
+                "wilson": [
+                  0.059575,
+                  0.121837
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 41,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.041289,
+                "wilson": [
+                  0.03058,
+                  0.055534
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.0635015,
+          "ratio": 1.797
+        },
+        {
+          "cut": 0.5,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 42,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.133333,
+                "wilson": [
+                  0.100177,
+                  0.175325
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 53,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.053374,
+                "wilson": [
+                  0.041035,
+                  0.069154
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.0933535,
+          "ratio": 1.222
+        },
+        {
+          "cut": 0.7,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 82,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.260317,
+                "wilson": [
+                  0.214953,
+                  0.311458
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.042254,
+                "wilson": [
+                  0.014473,
+                  0.117026
+                ]
+              },
+              "false": {
+                "passing": 93,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.093656,
+                "wilson": [
+                  0.077067,
+                  0.113376
+                ]
+              }
+            }
+          },
+          "true": 0.12112700000000001,
+          "false": 0.17698650000000002,
+          "ratio": 0.684
+        },
+        {
+          "cut": 1.0,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 2,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.4,
+                "wilson": [
+                  0.117618,
+                  0.76928
+                ]
+              },
+              "false": {
+                "passing": 241,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.765079,
+                "wilson": [
+                  0.715241,
+                  0.80853
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 9,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.126761,
+                "wilson": [
+                  0.068145,
+                  0.223693
+                ]
+              },
+              "false": {
+                "passing": 167,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.168177,
+                "wilson": [
+                  0.146202,
+                  0.19271
+                ]
+              }
+            }
+          },
+          "true": 0.2633805,
+          "false": 0.466628,
+          "ratio": 0.564
+        }
+      ],
+      "point": null
+    },
+    {
+      "variant": {
+        "baseline_days": 7,
+        "repeats": "count",
+        "hour_matched": true
+      },
+      "rows": [
+        {
+          "cut": 0.1,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 5,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.015873,
+                "wilson": [
+                  0.006798,
+                  0.036614
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 0,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.0,
+                "wilson": [
+                  0.0,
+                  0.05133
+                ]
+              },
+              "false": {
+                "passing": 8,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.008056,
+                "wilson": [
+                  0.004088,
+                  0.015817
+                ]
+              }
+            }
+          },
+          "true": 0.0,
+          "false": 0.011964500000000001,
+          "ratio": 0.0
+        },
+        {
+          "cut": 0.2,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 6,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.019048,
+                "wilson": [
+                  0.008758,
+                  0.040927
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 1,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.014085,
+                "wilson": [
+                  0.002491,
+                  0.075562
+                ]
+              },
+              "false": {
+                "passing": 20,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.020141,
+                "wilson": [
+                  0.013075,
+                  0.030905
+                ]
+              }
+            }
+          },
+          "true": 0.0070425,
+          "false": 0.0195945,
+          "ratio": 0.359
+        },
+        {
+          "cut": 0.3,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 15,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.047619,
+                "wilson": [
+                  0.029067,
+                  0.077072
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 32,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.032226,
+                "wilson": [
+                  0.022918,
+                  0.045139
+                ]
+              }
+            }
+          },
+          "true": 0.0140845,
+          "false": 0.0399225,
+          "ratio": 0.353
+        },
+        {
+          "cut": 0.4,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 28,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.088889,
+                "wilson": [
+                  0.062214,
+                  0.12547
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 45,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.045317,
+                "wilson": [
+                  0.034039,
+                  0.0601
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.067103,
+          "ratio": 1.7
+        },
+        {
+          "cut": 0.5,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 42,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.133333,
+                "wilson": [
+                  0.100177,
+                  0.175325
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.042254,
+                "wilson": [
+                  0.014473,
+                  0.117026
+                ]
+              },
+              "false": {
+                "passing": 61,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.06143,
+                "wilson": [
+                  0.048118,
+                  0.078122
+                ]
+              }
+            }
+          },
+          "true": 0.12112700000000001,
+          "false": 0.09738150000000001,
+          "ratio": 1.244
+        },
+        {
+          "cut": 0.7,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 69,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.219048,
+                "wilson": [
+                  0.176907,
+                  0.267958
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.042254,
+                "wilson": [
+                  0.014473,
+                  0.117026
+                ]
+              },
+              "false": {
+                "passing": 101,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.101712,
+                "wilson": [
+                  0.08442,
+                  0.122074
+                ]
+              }
+            }
+          },
+          "true": 0.12112700000000001,
+          "false": 0.16038,
+          "ratio": 0.755
+        },
+        {
+          "cut": 1.0,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 165,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.52381,
+                "wilson": [
+                  0.468701,
+                  0.578344
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 49,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.690141,
+                "wilson": [
+                  0.575158,
+                  0.785604
+                ]
+              },
+              "false": {
+                "passing": 724,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.729104,
+                "wilson": [
+                  0.700617,
+                  0.755824
+                ]
+              }
+            }
+          },
+          "true": 0.44507050000000004,
+          "false": 0.626457,
+          "ratio": 0.71
+        }
+      ],
+      "point": null
+    },
+    {
+      "variant": {
+        "baseline_days": 7,
+        "repeats": "drop",
+        "hour_matched": false
+      },
+      "rows": [
+        {
+          "cut": 0.1,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 3,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.009524,
+                "wilson": [
+                  0.003244,
+                  0.027623
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 0,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.0,
+                "wilson": [
+                  0.0,
+                  0.05133
+                ]
+              },
+              "false": {
+                "passing": 6,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.006042,
+                "wilson": [
+                  0.002772,
+                  0.01312
+                ]
+              }
+            }
+          },
+          "true": 0.0,
+          "false": 0.007783,
+          "ratio": 0.0
+        },
+        {
+          "cut": 0.2,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 8,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.025397,
+                "wilson": [
+                  0.012924,
+                  0.049306
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 1,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.014085,
+                "wilson": [
+                  0.002491,
+                  0.075562
+                ]
+              },
+              "false": {
+                "passing": 15,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.015106,
+                "wilson": [
+                  0.009175,
+                  0.024774
+                ]
+              }
+            }
+          },
+          "true": 0.0070425,
+          "false": 0.0202515,
+          "ratio": 0.348
+        },
+        {
+          "cut": 0.3,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 17,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.053968,
+                "wilson": [
+                  0.033965,
+                  0.08472
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 26,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.026183,
+                "wilson": [
+                  0.01793,
+                  0.038089
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.0400755,
+          "ratio": 2.847
+        },
+        {
+          "cut": 0.4,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 33,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.104762,
+                "wilson": [
+                  0.075573,
+                  0.143475
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 41,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.041289,
+                "wilson": [
+                  0.03058,
+                  0.055534
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.0730255,
+          "ratio": 1.562
+        },
+        {
+          "cut": 0.5,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 53,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.168254,
+                "wilson": [
+                  0.130994,
+                  0.213508
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 53,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.053374,
+                "wilson": [
+                  0.041035,
+                  0.069154
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.110814,
+          "ratio": 1.03
+        },
+        {
+          "cut": 0.7,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 3,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.6,
+                "wilson": [
+                  0.23072,
+                  0.882382
+                ]
+              },
+              "false": {
+                "passing": 123,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.390476,
+                "wilson": [
+                  0.338229,
+                  0.445362
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.042254,
+                "wilson": [
+                  0.014473,
+                  0.117026
+                ]
+              },
+              "false": {
+                "passing": 93,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.093656,
+                "wilson": [
+                  0.077067,
+                  0.113376
+                ]
+              }
+            }
+          },
+          "true": 0.321127,
+          "false": 0.242066,
+          "ratio": 1.327
+        },
+        {
+          "cut": 1.0,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 4,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.8,
+                "wilson": [
+                  0.375528,
+                  0.963777
+                ]
+              },
+              "false": {
+                "passing": 253,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.803175,
+                "wilson": [
+                  0.755726,
+                  0.843317
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 9,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.126761,
+                "wilson": [
+                  0.068145,
+                  0.223693
+                ]
+              },
+              "false": {
+                "passing": 167,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.168177,
+                "wilson": [
+                  0.146202,
+                  0.19271
+                ]
+              }
+            }
+          },
+          "true": 0.46338050000000003,
+          "false": 0.485676,
+          "ratio": 0.954
+        }
+      ],
+      "point": null
+    },
+    {
+      "variant": {
+        "baseline_days": 7,
+        "repeats": "drop",
+        "hour_matched": true
+      },
+      "rows": [
+        {
+          "cut": 0.1,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 5,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.015873,
+                "wilson": [
+                  0.006798,
+                  0.036614
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 0,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.0,
+                "wilson": [
+                  0.0,
+                  0.05133
+                ]
+              },
+              "false": {
+                "passing": 8,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.008056,
+                "wilson": [
+                  0.004088,
+                  0.015817
+                ]
+              }
+            }
+          },
+          "true": 0.0,
+          "false": 0.011964500000000001,
+          "ratio": 0.0
+        },
+        {
+          "cut": 0.2,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 10,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.031746,
+                "wilson": [
+                  0.017333,
+                  0.057442
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 1,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.014085,
+                "wilson": [
+                  0.002491,
+                  0.075562
+                ]
+              },
+              "false": {
+                "passing": 20,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.020141,
+                "wilson": [
+                  0.013075,
+                  0.030905
+                ]
+              }
+            }
+          },
+          "true": 0.0070425,
+          "false": 0.0259435,
+          "ratio": 0.271
+        },
+        {
+          "cut": 0.3,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 17,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.053968,
+                "wilson": [
+                  0.033965,
+                  0.08472
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 32,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.032226,
+                "wilson": [
+                  0.022918,
+                  0.045139
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.043096999999999996,
+          "ratio": 2.647
+        },
+        {
+          "cut": 0.4,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 34,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.107937,
+                "wilson": [
+                  0.078274,
+                  0.147047
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.028169,
+                "wilson": [
+                  0.007759,
+                  0.097017
+                ]
+              },
+              "false": {
+                "passing": 45,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.045317,
+                "wilson": [
+                  0.034039,
+                  0.0601
+                ]
+              }
+            }
+          },
+          "true": 0.1140845,
+          "false": 0.076627,
+          "ratio": 1.489
+        },
+        {
+          "cut": 0.5,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 50,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.15873,
+                "wilson": [
+                  0.122521,
+                  0.203163
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.042254,
+                "wilson": [
+                  0.014473,
+                  0.117026
+                ]
+              },
+              "false": {
+                "passing": 61,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.06143,
+                "wilson": [
+                  0.048118,
+                  0.078122
+                ]
+              }
+            }
+          },
+          "true": 0.12112700000000001,
+          "false": 0.11008000000000001,
+          "ratio": 1.1
+        },
+        {
+          "cut": 0.7,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 2,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.4,
+                "wilson": [
+                  0.117618,
+                  0.76928
+                ]
+              },
+              "false": {
+                "passing": 90,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.285714,
+                "wilson": [
+                  0.238642,
+                  0.337951
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.042254,
+                "wilson": [
+                  0.014473,
+                  0.117026
+                ]
+              },
+              "false": {
+                "passing": 101,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.101712,
+                "wilson": [
+                  0.08442,
+                  0.122074
+                ]
+              }
+            }
+          },
+          "true": 0.22112700000000002,
+          "false": 0.19371300000000002,
+          "ratio": 1.142
+        },
+        {
+          "cut": 1.0,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 4,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.8,
+                "wilson": [
+                  0.375528,
+                  0.963777
+                ]
+              },
+              "false": {
+                "passing": 212,
+                "total": 315,
+                "undefined": 4,
+                "share": 0.673016,
+                "wilson": [
+                  0.619397,
+                  0.722466
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 49,
+                "total": 71,
+                "undefined": 9,
+                "share": 0.690141,
+                "wilson": [
+                  0.575158,
+                  0.785604
+                ]
+              },
+              "false": {
+                "passing": 724,
+                "total": 993,
+                "undefined": 168,
+                "share": 0.729104,
+                "wilson": [
+                  0.700617,
+                  0.755824
+                ]
+              }
+            }
+          },
+          "true": 0.7450705,
+          "false": 0.70106,
+          "ratio": 1.063
+        }
+      ],
+      "point": {
+        "cut": 1.0,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 4,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.8,
+              "wilson": [
+                0.375528,
+                0.963777
+              ]
+            },
+            "false": {
+              "passing": 212,
+              "total": 315,
+              "undefined": 4,
+              "share": 0.673016,
+              "wilson": [
+                0.619397,
+                0.722466
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 49,
+              "total": 71,
+              "undefined": 9,
+              "share": 0.690141,
+              "wilson": [
+                0.575158,
+                0.785604
+              ]
+            },
+            "false": {
+              "passing": 724,
+              "total": 993,
+              "undefined": 168,
+              "share": 0.729104,
+              "wilson": [
+                0.700617,
+                0.755824
+              ]
+            }
+          }
+        },
+        "true": 0.7450705,
+        "false": 0.70106,
+        "ratio": 1.063
+      }
+    },
+    {
+      "variant": {
+        "baseline_days": 14,
+        "repeats": "count",
+        "hour_matched": false
+      },
+      "rows": [
+        {
+          "cut": 0.1,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 3,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.009494,
+                "wilson": [
+                  0.003234,
+                  0.027536
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 0,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.0,
+                "wilson": [
+                  0.0,
+                  0.050653
+                ]
+              },
+              "false": {
+                "passing": 9,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.009045,
+                "wilson": [
+                  0.004766,
+                  0.017101
+                ]
+              }
+            }
+          },
+          "true": 0.0,
+          "false": 0.0092695,
+          "ratio": 0.0
+        },
+        {
+          "cut": 0.2,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 7,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.022152,
+                "wilson": [
+                  0.010771,
+                  0.045012
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 1,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.013889,
+                "wilson": [
+                  0.002456,
+                  0.074568
+                ]
+              },
+              "false": {
+                "passing": 20,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.020101,
+                "wilson": [
+                  0.013049,
+                  0.030843
+                ]
+              }
+            }
+          },
+          "true": 0.0069445,
+          "false": 0.0211265,
+          "ratio": 0.329
+        },
+        {
+          "cut": 0.3,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 17,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.053797,
+                "wilson": [
+                  0.033856,
+                  0.084457
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.027778,
+                "wilson": [
+                  0.007651,
+                  0.095744
+                ]
+              },
+              "false": {
+                "passing": 30,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.030151,
+                "wilson": [
+                  0.0212,
+                  0.042716
+                ]
+              }
+            }
+          },
+          "true": 0.113889,
+          "false": 0.041974,
+          "ratio": 2.713
+        },
+        {
+          "cut": 0.4,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 30,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.094937,
+                "wilson": [
+                  0.06731,
+                  0.132293
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.041667,
+                "wilson": [
+                  0.014271,
+                  0.115495
+                ]
+              },
+              "false": {
+                "passing": 45,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.045226,
+                "wilson": [
+                  0.03397,
+                  0.05998
+                ]
+              }
+            }
+          },
+          "true": 0.12083350000000001,
+          "false": 0.07008149999999999,
+          "ratio": 1.724
+        },
+        {
+          "cut": 0.5,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 45,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.142405,
+                "wilson": [
+                  0.108161,
+                  0.18524
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.041667,
+                "wilson": [
+                  0.014271,
+                  0.115495
+                ]
+              },
+              "false": {
+                "passing": 57,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.057286,
+                "wilson": [
+                  0.044477,
+                  0.073501
+                ]
+              }
+            }
+          },
+          "true": 0.12083350000000001,
+          "false": 0.0998455,
+          "ratio": 1.21
+        },
+        {
+          "cut": 0.7,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 89,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.281646,
+                "wilson": [
+                  0.234903,
+                  0.333634
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 5,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.069444,
+                "wilson": [
+                  0.030025,
+                  0.152482
+                ]
+              },
+              "false": {
+                "passing": 98,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.098492,
+                "wilson": [
+                  0.081493,
+                  0.118581
+                ]
+              }
+            }
+          },
+          "true": 0.134722,
+          "false": 0.190069,
+          "ratio": 0.709
+        },
+        {
+          "cut": 1.0,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 4,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.8,
+                "wilson": [
+                  0.375528,
+                  0.963777
+                ]
+              },
+              "false": {
+                "passing": 239,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.756329,
+                "wilson": [
+                  0.706101,
+                  0.800399
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 12,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.166667,
+                "wilson": [
+                  0.097993,
+                  0.269109
+                ]
+              },
+              "false": {
+                "passing": 166,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.166834,
+                "wilson": [
+                  0.144959,
+                  0.191273
+                ]
+              }
+            }
+          },
+          "true": 0.4833335,
+          "false": 0.46158150000000003,
+          "ratio": 1.047
+        }
+      ],
+      "point": null
+    },
+    {
+      "variant": {
+        "baseline_days": 14,
+        "repeats": "count",
+        "hour_matched": true
+      },
+      "rows": [
+        {
+          "cut": 0.1,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 4,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.012658,
+                "wilson": [
+                  0.004933,
+                  0.03209
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 0,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.0,
+                "wilson": [
+                  0.0,
+                  0.050653
+                ]
+              },
+              "false": {
+                "passing": 11,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.011055,
+                "wilson": [
+                  0.006184,
+                  0.019687
+                ]
+              }
+            }
+          },
+          "true": 0.0,
+          "false": 0.0118565,
+          "ratio": 0.0
+        },
+        {
+          "cut": 0.2,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 7,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.022152,
+                "wilson": [
+                  0.010771,
+                  0.045012
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 1,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.013889,
+                "wilson": [
+                  0.002456,
+                  0.074568
+                ]
+              },
+              "false": {
+                "passing": 23,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.023116,
+                "wilson": [
+                  0.015452,
+                  0.034448
+                ]
+              }
+            }
+          },
+          "true": 0.0069445,
+          "false": 0.022634,
+          "ratio": 0.307
+        },
+        {
+          "cut": 0.3,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 16,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.050633,
+                "wilson": [
+                  0.031403,
+                  0.080657
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.027778,
+                "wilson": [
+                  0.007651,
+                  0.095744
+                ]
+              },
+              "false": {
+                "passing": 34,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.034171,
+                "wilson": [
+                  0.024554,
+                  0.04737
+                ]
+              }
+            }
+          },
+          "true": 0.013889,
+          "false": 0.042401999999999995,
+          "ratio": 0.328
+        },
+        {
+          "cut": 0.4,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 29,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.091772,
+                "wilson": [
+                  0.064657,
+                  0.128693
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.041667,
+                "wilson": [
+                  0.014271,
+                  0.115495
+                ]
+              },
+              "false": {
+                "passing": 49,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.049246,
+                "wilson": [
+                  0.037449,
+                  0.064511
+                ]
+              }
+            }
+          },
+          "true": 0.12083350000000001,
+          "false": 0.070509,
+          "ratio": 1.714
+        },
+        {
+          "cut": 0.5,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 41,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.129747,
+                "wilson": [
+                  0.0971,
+                  0.171288
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 4,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.055556,
+                "wilson": [
+                  0.021814,
+                  0.134322
+                ]
+              },
+              "false": {
+                "passing": 60,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.060302,
+                "wilson": [
+                  0.047133,
+                  0.076852
+                ]
+              }
+            }
+          },
+          "true": 0.127778,
+          "false": 0.0950245,
+          "ratio": 1.345
+        },
+        {
+          "cut": 0.7,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 73,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.231013,
+                "wilson": [
+                  0.187939,
+                  0.280548
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 5,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.069444,
+                "wilson": [
+                  0.030025,
+                  0.152482
+                ]
+              },
+              "false": {
+                "passing": 103,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.103518,
+                "wilson": [
+                  0.086089,
+                  0.123996
+                ]
+              }
+            }
+          },
+          "true": 0.134722,
+          "false": 0.1672655,
+          "ratio": 0.805
+        },
+        {
+          "cut": 1.0,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 161,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.509494,
+                "wilson": [
+                  0.454592,
+                  0.564167
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 47,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.652778,
+                "wilson": [
+                  0.537611,
+                  0.752467
+                ]
+              },
+              "false": {
+                "passing": 650,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.653266,
+                "wilson": [
+                  0.623155,
+                  0.682198
+                ]
+              }
+            }
+          },
+          "true": 0.426389,
+          "false": 0.58138,
+          "ratio": 0.733
+        }
+      ],
+      "point": null
+    },
+    {
+      "variant": {
+        "baseline_days": 14,
+        "repeats": "drop",
+        "hour_matched": false
+      },
+      "rows": [
+        {
+          "cut": 0.1,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 3,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.009494,
+                "wilson": [
+                  0.003234,
+                  0.027536
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 0,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.0,
+                "wilson": [
+                  0.0,
+                  0.050653
+                ]
+              },
+              "false": {
+                "passing": 9,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.009045,
+                "wilson": [
+                  0.004766,
+                  0.017101
+                ]
+              }
+            }
+          },
+          "true": 0.0,
+          "false": 0.0092695,
+          "ratio": 0.0
+        },
+        {
+          "cut": 0.2,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 8,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.025316,
+                "wilson": [
+                  0.012883,
+                  0.049153
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 1,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.013889,
+                "wilson": [
+                  0.002456,
+                  0.074568
+                ]
+              },
+              "false": {
+                "passing": 20,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.020101,
+                "wilson": [
+                  0.013049,
+                  0.030843
+                ]
+              }
+            }
+          },
+          "true": 0.0069445,
+          "false": 0.0227085,
+          "ratio": 0.306
+        },
+        {
+          "cut": 0.3,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 22,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.06962,
+                "wilson": [
+                  0.046422,
+                  0.103157
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.027778,
+                "wilson": [
+                  0.007651,
+                  0.095744
+                ]
+              },
+              "false": {
+                "passing": 30,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.030151,
+                "wilson": [
+                  0.0212,
+                  0.042716
+                ]
+              }
+            }
+          },
+          "true": 0.113889,
+          "false": 0.0498855,
+          "ratio": 2.283
+        },
+        {
+          "cut": 0.4,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 35,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.110759,
+                "wilson": [
+                  0.080724,
+                  0.150145
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.041667,
+                "wilson": [
+                  0.014271,
+                  0.115495
+                ]
+              },
+              "false": {
+                "passing": 45,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.045226,
+                "wilson": [
+                  0.03397,
+                  0.05998
+                ]
+              }
+            }
+          },
+          "true": 0.12083350000000001,
+          "false": 0.07799249999999999,
+          "ratio": 1.549
+        },
+        {
+          "cut": 0.5,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 2,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.4,
+                "wilson": [
+                  0.117618,
+                  0.76928
+                ]
+              },
+              "false": {
+                "passing": 53,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.167722,
+                "wilson": [
+                  0.130572,
+                  0.212853
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.041667,
+                "wilson": [
+                  0.014271,
+                  0.115495
+                ]
+              },
+              "false": {
+                "passing": 57,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.057286,
+                "wilson": [
+                  0.044477,
+                  0.073501
+                ]
+              }
+            }
+          },
+          "true": 0.22083350000000002,
+          "false": 0.112504,
+          "ratio": 1.963
+        },
+        {
+          "cut": 0.7,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 3,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.6,
+                "wilson": [
+                  0.23072,
+                  0.882382
+                ]
+              },
+              "false": {
+                "passing": 127,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.401899,
+                "wilson": [
+                  0.349332,
+                  0.456822
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 5,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.069444,
+                "wilson": [
+                  0.030025,
+                  0.152482
+                ]
+              },
+              "false": {
+                "passing": 98,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.098492,
+                "wilson": [
+                  0.081493,
+                  0.118581
+                ]
+              }
+            }
+          },
+          "true": 0.33472199999999996,
+          "false": 0.2501955,
+          "ratio": 1.338
+        },
+        {
+          "cut": 1.0,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 4,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.8,
+                "wilson": [
+                  0.375528,
+                  0.963777
+                ]
+              },
+              "false": {
+                "passing": 247,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.781646,
+                "wilson": [
+                  0.73286,
+                  0.823666
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 12,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.166667,
+                "wilson": [
+                  0.097993,
+                  0.269109
+                ]
+              },
+              "false": {
+                "passing": 166,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.166834,
+                "wilson": [
+                  0.144959,
+                  0.191273
+                ]
+              }
+            }
+          },
+          "true": 0.4833335,
+          "false": 0.47424,
+          "ratio": 1.019
+        }
+      ],
+      "point": null
+    },
+    {
+      "variant": {
+        "baseline_days": 14,
+        "repeats": "drop",
+        "hour_matched": true
+      },
+      "rows": [
+        {
+          "cut": 0.1,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 4,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.012658,
+                "wilson": [
+                  0.004933,
+                  0.03209
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 0,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.0,
+                "wilson": [
+                  0.0,
+                  0.050653
+                ]
+              },
+              "false": {
+                "passing": 11,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.011055,
+                "wilson": [
+                  0.006184,
+                  0.019687
+                ]
+              }
+            }
+          },
+          "true": 0.0,
+          "false": 0.0118565,
+          "ratio": 0.0
+        },
+        {
+          "cut": 0.2,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 0,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.0,
+                "wilson": [
+                  -0.0,
+                  0.434491
+                ]
+              },
+              "false": {
+                "passing": 9,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.028481,
+                "wilson": [
+                  0.015055,
+                  0.053234
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 1,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.013889,
+                "wilson": [
+                  0.002456,
+                  0.074568
+                ]
+              },
+              "false": {
+                "passing": 23,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.023116,
+                "wilson": [
+                  0.015452,
+                  0.034448
+                ]
+              }
+            }
+          },
+          "true": 0.0069445,
+          "false": 0.025798500000000002,
+          "ratio": 0.269
+        },
+        {
+          "cut": 0.3,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 22,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.06962,
+                "wilson": [
+                  0.046422,
+                  0.103157
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 2,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.027778,
+                "wilson": [
+                  0.007651,
+                  0.095744
+                ]
+              },
+              "false": {
+                "passing": 34,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.034171,
+                "wilson": [
+                  0.024554,
+                  0.04737
+                ]
+              }
+            }
+          },
+          "true": 0.113889,
+          "false": 0.0518955,
+          "ratio": 2.195
+        },
+        {
+          "cut": 0.4,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 34,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.107595,
+                "wilson": [
+                  0.078023,
+                  0.146593
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 3,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.041667,
+                "wilson": [
+                  0.014271,
+                  0.115495
+                ]
+              },
+              "false": {
+                "passing": 49,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.049246,
+                "wilson": [
+                  0.037449,
+                  0.064511
+                ]
+              }
+            }
+          },
+          "true": 0.12083350000000001,
+          "false": 0.0784205,
+          "ratio": 1.541
+        },
+        {
+          "cut": 0.5,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 1,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.2,
+                "wilson": [
+                  0.036223,
+                  0.624472
+                ]
+              },
+              "false": {
+                "passing": 46,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.14557,
+                "wilson": [
+                  0.110942,
+                  0.188712
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 4,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.055556,
+                "wilson": [
+                  0.021814,
+                  0.134322
+                ]
+              },
+              "false": {
+                "passing": 60,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.060302,
+                "wilson": [
+                  0.047133,
+                  0.076852
+                ]
+              }
+            }
+          },
+          "true": 0.127778,
+          "false": 0.102936,
+          "ratio": 1.241
+        },
+        {
+          "cut": 0.7,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 2,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.4,
+                "wilson": [
+                  0.117618,
+                  0.76928
+                ]
+              },
+              "false": {
+                "passing": 92,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.291139,
+                "wilson": [
+                  0.243797,
+                  0.343498
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 5,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.069444,
+                "wilson": [
+                  0.030025,
+                  0.152482
+                ]
+              },
+              "false": {
+                "passing": 103,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.103518,
+                "wilson": [
+                  0.086089,
+                  0.123996
+                ]
+              }
+            }
+          },
+          "true": 0.23472200000000001,
+          "false": 0.1973285,
+          "ratio": 1.189
+        },
+        {
+          "cut": 1.0,
+          "groups": {
+            "vultures": {
+              "true": {
+                "passing": 4,
+                "total": 5,
+                "undefined": 0,
+                "share": 0.8,
+                "wilson": [
+                  0.375528,
+                  0.963777
+                ]
+              },
+              "false": {
+                "passing": 204,
+                "total": 316,
+                "undefined": 3,
+                "share": 0.64557,
+                "wilson": [
+                  0.591369,
+                  0.696274
+                ]
+              }
+            },
+            "storks": {
+              "true": {
+                "passing": 47,
+                "total": 72,
+                "undefined": 8,
+                "share": 0.652778,
+                "wilson": [
+                  0.537611,
+                  0.752467
+                ]
+              },
+              "false": {
+                "passing": 650,
+                "total": 995,
+                "undefined": 166,
+                "share": 0.653266,
+                "wilson": [
+                  0.623155,
+                  0.682198
+                ]
+              }
+            }
+          },
+          "true": 0.726389,
+          "false": 0.649418,
+          "ratio": 1.119
+        }
+      ],
+      "point": {
+        "cut": 1.0,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 4,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.8,
+              "wilson": [
+                0.375528,
+                0.963777
+              ]
+            },
+            "false": {
+              "passing": 204,
+              "total": 316,
+              "undefined": 3,
+              "share": 0.64557,
+              "wilson": [
+                0.591369,
+                0.696274
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 47,
+              "total": 72,
+              "undefined": 8,
+              "share": 0.652778,
+              "wilson": [
+                0.537611,
+                0.752467
+              ]
+            },
+            "false": {
+              "passing": 650,
+              "total": 995,
+              "undefined": 166,
+              "share": 0.653266,
+              "wilson": [
+                0.623155,
+                0.682198
+              ]
+            }
+          }
+        },
+        "true": 0.726389,
+        "false": 0.649418,
+        "ratio": 1.119
+      }
+    }
+  ],
+  "chosen": {
+    "variant": {
+      "baseline_days": 14,
+      "repeats": "drop",
+      "hour_matched": true
+    },
+    "rows": [
+      {
+        "cut": 0.1,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 0,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.0,
+              "wilson": [
+                -0.0,
+                0.434491
+              ]
+            },
+            "false": {
+              "passing": 4,
+              "total": 316,
+              "undefined": 3,
+              "share": 0.012658,
+              "wilson": [
+                0.004933,
+                0.03209
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 0,
+              "total": 72,
+              "undefined": 8,
+              "share": 0.0,
+              "wilson": [
+                0.0,
+                0.050653
+              ]
+            },
+            "false": {
+              "passing": 11,
+              "total": 995,
+              "undefined": 166,
+              "share": 0.011055,
+              "wilson": [
+                0.006184,
+                0.019687
+              ]
+            }
+          }
+        },
+        "true": 0.0,
+        "false": 0.0118565,
+        "ratio": 0.0
+      },
+      {
+        "cut": 0.2,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 0,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.0,
+              "wilson": [
+                -0.0,
+                0.434491
+              ]
+            },
+            "false": {
+              "passing": 9,
+              "total": 316,
+              "undefined": 3,
+              "share": 0.028481,
+              "wilson": [
+                0.015055,
+                0.053234
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 1,
+              "total": 72,
+              "undefined": 8,
+              "share": 0.013889,
+              "wilson": [
+                0.002456,
+                0.074568
+              ]
+            },
+            "false": {
+              "passing": 23,
+              "total": 995,
+              "undefined": 166,
+              "share": 0.023116,
+              "wilson": [
+                0.015452,
+                0.034448
+              ]
+            }
+          }
+        },
+        "true": 0.0069445,
+        "false": 0.025798500000000002,
+        "ratio": 0.269
+      },
+      {
+        "cut": 0.3,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 1,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.2,
+              "wilson": [
+                0.036223,
+                0.624472
+              ]
+            },
+            "false": {
+              "passing": 22,
+              "total": 316,
+              "undefined": 3,
+              "share": 0.06962,
+              "wilson": [
+                0.046422,
+                0.103157
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 2,
+              "total": 72,
+              "undefined": 8,
+              "share": 0.027778,
+              "wilson": [
+                0.007651,
+                0.095744
+              ]
+            },
+            "false": {
+              "passing": 34,
+              "total": 995,
+              "undefined": 166,
+              "share": 0.034171,
+              "wilson": [
+                0.024554,
+                0.04737
+              ]
+            }
+          }
+        },
+        "true": 0.113889,
+        "false": 0.0518955,
+        "ratio": 2.195
+      },
+      {
+        "cut": 0.4,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 1,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.2,
+              "wilson": [
+                0.036223,
+                0.624472
+              ]
+            },
+            "false": {
+              "passing": 34,
+              "total": 316,
+              "undefined": 3,
+              "share": 0.107595,
+              "wilson": [
+                0.078023,
+                0.146593
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 3,
+              "total": 72,
+              "undefined": 8,
+              "share": 0.041667,
+              "wilson": [
+                0.014271,
+                0.115495
+              ]
+            },
+            "false": {
+              "passing": 49,
+              "total": 995,
+              "undefined": 166,
+              "share": 0.049246,
+              "wilson": [
+                0.037449,
+                0.064511
+              ]
+            }
+          }
+        },
+        "true": 0.12083350000000001,
+        "false": 0.0784205,
+        "ratio": 1.541
+      },
+      {
+        "cut": 0.5,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 1,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.2,
+              "wilson": [
+                0.036223,
+                0.624472
+              ]
+            },
+            "false": {
+              "passing": 46,
+              "total": 316,
+              "undefined": 3,
+              "share": 0.14557,
+              "wilson": [
+                0.110942,
+                0.188712
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 4,
+              "total": 72,
+              "undefined": 8,
+              "share": 0.055556,
+              "wilson": [
+                0.021814,
+                0.134322
+              ]
+            },
+            "false": {
+              "passing": 60,
+              "total": 995,
+              "undefined": 166,
+              "share": 0.060302,
+              "wilson": [
+                0.047133,
+                0.076852
+              ]
+            }
+          }
+        },
+        "true": 0.127778,
+        "false": 0.102936,
+        "ratio": 1.241
+      },
+      {
+        "cut": 0.7,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 2,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.4,
+              "wilson": [
+                0.117618,
+                0.76928
+              ]
+            },
+            "false": {
+              "passing": 92,
+              "total": 316,
+              "undefined": 3,
+              "share": 0.291139,
+              "wilson": [
+                0.243797,
+                0.343498
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 5,
+              "total": 72,
+              "undefined": 8,
+              "share": 0.069444,
+              "wilson": [
+                0.030025,
+                0.152482
+              ]
+            },
+            "false": {
+              "passing": 103,
+              "total": 995,
+              "undefined": 166,
+              "share": 0.103518,
+              "wilson": [
+                0.086089,
+                0.123996
+              ]
+            }
+          }
+        },
+        "true": 0.23472200000000001,
+        "false": 0.1973285,
+        "ratio": 1.189
+      },
+      {
+        "cut": 1.0,
+        "groups": {
+          "vultures": {
+            "true": {
+              "passing": 4,
+              "total": 5,
+              "undefined": 0,
+              "share": 0.8,
+              "wilson": [
+                0.375528,
+                0.963777
+              ]
+            },
+            "false": {
+              "passing": 204,
+              "total": 316,
+              "undefined": 3,
+              "share": 0.64557,
+              "wilson": [
+                0.591369,
+                0.696274
+              ]
+            }
+          },
+          "storks": {
+            "true": {
+              "passing": 47,
+              "total": 72,
+              "undefined": 8,
+              "share": 0.652778,
+              "wilson": [
+                0.537611,
+                0.752467
+              ]
+            },
+            "false": {
+              "passing": 650,
+              "total": 995,
+              "undefined": 166,
+              "share": 0.653266,
+              "wilson": [
+                0.623155,
+                0.682198
+              ]
+            }
+          }
+        },
+        "true": 0.726389,
+        "false": 0.649418,
+        "ratio": 1.119
+      }
+    ],
+    "point": {
+      "cut": 1.0,
+      "groups": {
+        "vultures": {
+          "true": {
+            "passing": 4,
+            "total": 5,
+            "undefined": 0,
+            "share": 0.8,
+            "wilson": [
+              0.375528,
+              0.963777
+            ]
+          },
+          "false": {
+            "passing": 204,
+            "total": 316,
+            "undefined": 3,
+            "share": 0.64557,
+            "wilson": [
+              0.591369,
+              0.696274
+            ]
+          }
+        },
+        "storks": {
+          "true": {
+            "passing": 47,
+            "total": 72,
+            "undefined": 8,
+            "share": 0.652778,
+            "wilson": [
+              0.537611,
+              0.752467
+            ]
+          },
+          "false": {
+            "passing": 650,
+            "total": 995,
+            "undefined": 166,
+            "share": 0.653266,
+            "wilson": [
+              0.623155,
+              0.682198
+            ]
+          }
+        }
+      },
+      "true": 0.726389,
+      "false": 0.649418,
+      "ratio": 1.119
+    }
+  },
+  "true_alerts": [
+    {
+      "group": "vultures",
+      "deployment_id": "LET_TUVU_68355",
+      "ratio": 0.2814777582307112
+    },
+    {
+      "group": "vultures",
+      "deployment_id": "LEV_TUVU_68356",
+      "ratio": 0.8332945826551964
+    },
+    {
+      "group": "vultures",
+      "deployment_id": "LEP_TUVU_68354",
+      "ratio": 0.7538461538461538
+    },
+    {
+      "group": "vultures",
+      "deployment_id": "PMH_BLVU_68354",
+      "ratio": 0.5490196078431373
+    },
+    {
+      "group": "vultures",
+      "deployment_id": "ACT_TUVU_111943",
+      "ratio": 1.7468805704099823
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045884",
+      "ratio": null
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045489",
+      "ratio": 1.3517241379310345
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045739",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045730",
+      "ratio": 0.95
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045918",
+      "ratio": 7.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045556",
+      "ratio": null
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045566",
+      "ratio": null
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045762",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045839",
+      "ratio": 0.9886363636363635
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045615",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045785",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045633",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045927",
+      "ratio": 1.25
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045804",
+      "ratio": 1.051383399209486
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045754",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045481",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045558",
+      "ratio": 0.806060606060606
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045563",
+      "ratio": 1.0037735849056604
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045743",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045553",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045636",
+      "ratio": 1.0230769230769232
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045843",
+      "ratio": null
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045613",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045608",
+      "ratio": 1.1067193675889329
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045845",
+      "ratio": 1.015267175572519
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045667",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045548",
+      "ratio": 2.25
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045796",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045662",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045538",
+      "ratio": 1.061977186311787
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045646",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045938",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045780",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045591",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045732",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045535",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045589",
+      "ratio": 1.0539622641509434
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045532",
+      "ratio": 0.47619047619047616
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045541",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045777",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045858",
+      "ratio": 0.95
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045640",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045814",
+      "ratio": 1.0191570881226053
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045545",
+      "ratio": 1.0539622641509434
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045894",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045542",
+      "ratio": 1.1846153846153846
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045834",
+      "ratio": 1.015267175572519
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045655",
+      "ratio": 1.2570145903479235
+    },
+    {
+      "group": "storks",
+      "deployment_id": "8854045499",
+      "ratio": 0.932156368221942
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4055914954",
+      "ratio": null
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4055890020",
+      "ratio": 1.0075757575757576
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058297857",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058223114",
+      "ratio": 0.8030188679245284
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058088974",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058376326",
+      "ratio": 1.4035175879396984
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058312515",
+      "ratio": 1.0037735849056604
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4055858082",
+      "ratio": 1.0191570881226053
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058369358",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4055884087",
+      "ratio": 1.339712918660287
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4057950847",
+      "ratio": 0.1645021645021645
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058341332",
+      "ratio": 0.358974358974359
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058341332",
+      "ratio": 0.6593406593406594
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4057964536",
+      "ratio": 0.9033962264150944
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4057920733",
+      "ratio": null
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058279447",
+      "ratio": null
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4057971865",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058229540",
+      "ratio": 1.0390625
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4057974736",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058248128",
+      "ratio": null
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058037995",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4058257293",
+      "ratio": 0.23076923076923078
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4003339708",
+      "ratio": 1.0555555555555556
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4003339706",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4003339693",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4003339701",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4055820684",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4003339716",
+      "ratio": 1.0037735849056604
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4055824520",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4055824520",
+      "ratio": 1.0
+    },
+    {
+      "group": "storks",
+      "deployment_id": "4003339721",
+      "ratio": 1.015267175572519
+    }
+  ],
+  "meets_keep_share": true,
+  "alerts": {
+    "vultures": {
+      "true": 5,
+      "false": 319
+    },
+    "storks": {
+      "true": 80,
+      "false": 1161
+    }
+  }
+}

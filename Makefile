@@ -71,6 +71,9 @@ fledging: ## Stork alerts before and after leaving the nest -> results/fledging/
 acceleration: ## Stork acceleration cue, likelihood ratios -> results/acceleration/
 	PYTHONPATH=src python scripts/acceleration.py
 
+fixrate: ## Fix-rate cue, frozen on tuning birds -> results/fixrate/
+	PYTHONPATH=src python scripts/fixrate.py
+
 carcass: ## Measure collars on vulture carcasses -> results/carcass/
 	PYTHONPATH=src python scripts/carcass_profile.py
 

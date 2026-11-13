@@ -175,6 +175,67 @@ fitted = false
 min_transmissions = 2
 max_range = 0
 
+# Fix-rate cue (step 3.3), fixed before the first run. Two earlier checks
+# defined "fix rate" differently and disagreed on MEM_BLVU_68361 (0.13 against
+# 1.96): one divided the fixes in the first 36 h of the stationary run by the
+# window, the other divided non-repeat fixes by the span of the fixes inside
+# it. This freezes one definition that an online alert could compute.
+#
+# Value at a watch alert: the fix rate from the start of the stationary run
+# (read from the alert's "still since" text) to the alert's evidence time,
+# over the fix rate in the `baseline_days` before the run. A rate is fixes
+# per elapsed hour, never per fix span, so a run with two fixes is not
+# credited with a high rate for them being close together. The baseline
+# shrinks to the bird's own track if that is shorter and is undefined below
+# `min_baseline_hours` of it, or when it holds no fixes. The cue fires when
+# the ratio is at or below a cut; a lower ratio means the collar reports less.
+#
+# Variants tried, 2 x 2 x 2: `baseline_days`; `repeats` ("count" keeps fixes
+# that resend the previous fix's exact coordinates, "drop" leaves them out of
+# both rates); `hour_matched` (false uses every hour, true uses only the
+# hours of the day in which the bird had a fix in the baseline, so a collar
+# that never fixes at night, as the stork tags do, is not read as a drop).
+#
+# Decision rule, fixed before the first run. Each variant is scored on the
+# tuning alerts of both groups, each group weighted equally: the true and the
+# false shares passing a cut are the mean of the two groups' shares. For each
+# variant take the lowest cut in `cuts` at which the balanced true share is at
+# least `keep_share`; the chosen variant has the highest balanced likelihood
+# ratio there (true share over false share). Ties within `tie_tolerance` go to
+# the variant with fewer options switched on (the first value of each list).
+# If no variant keeps `keep_share` at any cut, the cue is reported as failing
+# and the variant with the best ratio at the cut 0.5 is frozen anyway, so that
+# Phase 4 has one definition to score; it is not then an escalation rule.
+# Groups: vulture tuning birds (before the study's `scoring_from` date) and
+# the stork tuning populations; alerts on birds graded in `excluded_grades`
+# are left out as for the stork acceleration cue. Held-out birds are never
+# read. Solar tags are all held out, so whether they differ is recorded from
+# the already-seen checks, not fitted.
+[cues.fix_rate]
+baseline_days = [7, 14]
+repeats = ["count", "drop"]
+hour_matched = [false, true]
+min_baseline_hours = 48
+cuts = [0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 1.0]
+keep_share = 0.5
+tie_tolerance = 0.05
+excluded_grades = ["acc-inferred"]
+
+# Result of the rule above, run once on 2026-11-13 (`make fixrate`,
+# results/fixrate/FIXRATE.md), then frozen. The cue has no useful cut: no
+# variant keeps half the tuning true alerts below a cut of 1.0, which only
+# says "the rate did not rise", and there it passes 65% of false alerts for a
+# likelihood ratio of 1.1. Storks resend a fix every hour on carcasses too
+# (their true alerts sit at 1.0), and the vultures give 1 of 5 at 0.5 for 15%
+# of false alerts. It is frozen as written so Phase 4 scores one definition,
+# and is not an escalation rule.
+[cues.fix_rate.frozen]
+baseline_days = 14
+repeats = "drop"
+hour_matched = true
+cut = 1.0
+useful = false
+
 # Targets, fixed in advance. `metric` is one of:
 #   load:          incidents per animal-month, written per 30 birds per week
 #   clear_hours:   median hours from opening to resolving, on false alerts (the
