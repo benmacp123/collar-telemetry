@@ -1,11 +1,212 @@
-deployment-id,label,basis,evidence,event-from
-ELV_TUVU_121787,dead,animal-death-comments (end type transmission-end),"Dead in water between Key West and Marquesas",
-HAL_TUVU_121789,dead,animal-death-comments (no end type),"Found dead at Key Deer NWR (2014-06-30)",
-AM254,dead-after-track,deployment-end-comments (end type dead),"Animal deceased - collar retrieved. Cow deceased 27 Nov - 2 Dec 09.",
-AM110,dead-after-track,deployment-end-comments (end type dead),"Animal deceased; collar recovered 20 May 2012. Carcass est 5-6 months old, death est Feb/March 2012.",
-AM308,dead-after-track,deployment-end-comments (end type dead),"animal deceased April 2012, tag recovered",
-CAT_BLVU_121784,tag-event,deployment-end-comments (end type removal); from its first still bout past 36 h,"(2013-03-05) Bird caught, unable to fly, transmitter removed and bird taken to rehabber in Key Largo",2013-02-03T23:00:00+00:00
-EAX_BLVU_121786,tag-event,track only (still bout over 60 days; end type transmission-end),"Track, not a comment: 12 fixes over 12330 h from 2015-05-31 to 2016-10-26, then 17 more to 2018-10-12, all within 764 m of the first",2015-05-31T21:00:00+00:00
-MAT_BLVU_68354,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"transmission ended 2016-05-06; bird sighted in 2017",2016-04-24T11:00:00+00:00
-PMV_BLVU_68350,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"transmitter not working; seen by M. Avery on 2014-02-12 near Kissimmee, FL",2013-05-05T17:00:00+00:00
-VPC_BLVU_283,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"last transmission 2016-10-31; bird sighted in 2017",2016-09-30T12:56:04+00:00
+deployment-id,label,basis,evidence,event-from,grade
+ELV_TUVU_121787,dead,animal-death-comments (end type transmission-end),"Dead in water between Key West and Marquesas",,
+HAL_TUVU_121789,dead,animal-death-comments (no end type),"Found dead at Key Deer NWR (2014-06-30)",,
+AM254,dead-after-track,deployment-end-comments (end type dead),"Animal deceased - collar retrieved. Cow deceased 27 Nov - 2 Dec 09.",,
+AM110,dead-after-track,deployment-end-comments (end type dead),"Animal deceased; collar recovered 20 May 2012. Carcass est 5-6 months old, death est Feb/March 2012.",,
+AM308,dead-after-track,deployment-end-comments (end type dead),"animal deceased April 2012, tag recovered",,
+CAT_BLVU_121784,tag-event,deployment-end-comments (end type removal); from its first still bout past 36 h,"(2013-03-05) Bird caught, unable to fly, transmitter removed and bird taken to rehabber in Key Largo",2013-02-03T23:00:00+00:00,
+EAX_BLVU_121786,tag-event,track only (still bout over 60 days; end type transmission-end),"Track, not a comment: 12 fixes over 12330 h from 2015-05-31 to 2016-10-26, then 17 more to 2018-10-12, all within 764 m of the first",2015-05-31T21:00:00+00:00,
+MAT_BLVU_68354,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"transmission ended 2016-05-06; bird sighted in 2017",2016-04-24T11:00:00+00:00,
+PMV_BLVU_68350,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"transmitter not working; seen by M. Avery on 2014-02-12 near Kissimmee, FL",2013-05-05T17:00:00+00:00,
+VPC_BLVU_283,tag-event,deployment-end-comments (end type transmission-end); from its final week-plus still run,"last transmission 2016-10-31; bird sighted in 2017",2016-09-30T12:56:04+00:00,
+8854045839,dead,"individual death-comments, stork sw-germany",Died in the area where it was marked with the transmitter near Singen (Hohentwiel) on 2014-07-06,,reported
+8854045586,dead,"individual death-comments, stork sw-germany",Died 2015-07-14 due to collision with a car (Highway A8),,reported
+8854045845,dead,"individual death-comments, stork sw-germany","Transmitter was found in Parque Natural Serrania de Cuenca, Spain. But no dead stork was found. Likely predated. Last position on 2014-09-25. lat: 40.159; long: -1.930",,found
+8854045561,dead,"individual death-comments, stork sw-germany",Died 2014-08-11 in a very stormy night near Volkertshausen not far from place of birth. Possibly insured and then predated by fox. Fox was at least at carcass.,,reported
+8854045880,dead,"individual death-comments, stork sw-germany","17-10-2014; did not fly for the last three days, presumably insured in agricultural land, 2 voltage lines. Then ACC indicate predation and movement of carcass. lat:36.381; long: -5.814",,acc-inferred
+8854045646,dead,"individual death-comments, stork sw-germany","Died 2015-01-18 on landfill Dos Hermanas / S-Spain. Carcass found, no external injuries. Poisoned? lat: 37.2198845; long: -5.8800427",,found
+8854045739,dead,"individual death-comments, stork sw-germany","Died near Tierzo, Spain on 2013-08-27.",,reported
+8854045503,dead,"individual death-comments, stork sw-germany","Injured after collision and treated in rehab centre, then released. Died through electrocution, 8.9.2015 near Cadiz, Spain; lat: 36.1668221; long: -5.7211949",,reported
+8854045532,dead,"individual death-comments, stork sw-germany","Dead; vanished 2015-07-18 in military base near Frauenfeld, Switzerland. Skeleton with ring found 2018 in ventilation shaft.",,found
+8854045684,dead,"individual death-comments, stork sw-germany",Died close to landfill 23.12.2021 after visiting in regularly in the days before. Lat:37.594; long-6.009,,reported
+8854045780,dead,"individual death-comments, stork sw-germany",Died 24. January 2015 in central Mali; lat: 14.476; long: -5.010,,reported
+8854045558,dead,"individual death-comments, stork sw-germany",Died in mountains in Morocco 2014-09-01. Cause of death unknown. lat: 31.1126272 ; long: -8.264193,,reported
+8854045499,dead,"individual death-comments, stork sw-germany",died 2021-08-28 near Malaga by electrocution.,,reported
+8854045777,dead,"individual death-comments, stork sw-germany","Died Nov 2015 near Montoliu de Lleida (Spain). Leg broken and in bad condition, no predator, no electrocution.",,reported
+8854045640,dead,"individual death-comments, stork sw-germany","unknown reason of death, died near Saragossa Spain",,reported
+8854045633,dead,"individual death-comments, stork sw-germany","2014-08-24 electrocuted under a pole near Ballobar, Spain. Found together with six other electrocuted storks.",,found
+8854045548,dead,"individual death-comments, stork sw-germany","Died 10/25/2014 in S-Mauretania; cause of death not known. Tag sent location from roads/villages, likely hunted; lat: 16.394; long:-7.850",,reported
+8854045573,dead,"individual death-comments, stork sw-germany",died 2021-08-30 around noon near Molina de Aragon. Predation very likely.,,reported
+8854045613,dead,"individual death-comments, stork sw-germany","Likely died by electrocution on 2014-09-28 in Zaragoza, Spain. lat: 41.1333998;long: -1.3795147",,reported
+8854045545,dead,"individual death-comments, stork sw-germany","Died 2018-09-20 15km south of Andorra, likely due to predation.",,reported
+8854045481,dead,"individual death-comments, stork sw-germany","Died on 2014-08-30 near Banyoles, Spain. Drowned in wastewater tank on landfill. lat: 42.133; long: 2.796",,reported
+8854045627,dead,"individual death-comments, stork sw-germany",Died 31 May / 1 June 2015 due to electrocution; lat: 40.1248692; long: -5.3378223,,reported
+8854045927,dead,"individual death-comments, stork sw-germany","Found dead near Clermont, France on 2014-09-06. Probably killed by bird of prey on 2014-08-27. lat: 45.952; long: 5.913",,found
+8854045730,dead,"individual death-comments, stork sw-germany","Died near Rumilly, France on 2013-12-14.",,reported
+8854045762,dead,"individual death-comments, stork sw-germany","Died in Elsass, France on 2014-06-24.",,reported
+8854045722,dead,"individual death-comments, stork sw-germany","Died near Lleida, Spain probably on 2014-09-18. Transmitter found in a field; ring and legs not found. Cause of death unknown. lat: 41.617; long: 0.622",,found
+8854045796,dead,"individual death-comments, stork sw-germany","Died in a landfill near Marrakesch, Morocco on 2014-10-13. Reason not known. lat: 31.703; long: -8.063",,reported
+8854045563,dead,"individual death-comments, stork sw-germany","Died on 2014-09-01 near Ciudad Real, Spain. Presumably preyed by an eagle. lat: 38.704; long: -3.867",,reported
+8854045566,dead,"individual death-comments, stork sw-germany",Kremchen died near the nest where it was born on 2014-07-04. Presumably eaten by fox.,,reported
+8854045508,dead,"individual death-comments, stork sw-germany","Was shot near Falou, Region Koulikoro, Mali on 2014-12-23. lat: 14.633; long: -8.111",,reported
+8854045814,dead,"individual death-comments, stork sw-germany","Dead since 2018-08-28 on bank of river Guadalete in S-Spain. Reason not yet known, second (unmarked) dead stork nearby. Logger found.",,found
+8854045894,dead,"individual death-comments, stork sw-germany",Dead since the night 2018-09-26 to 2018-09-27 near Oulad Berhil (100 km east of Agadir). Electrocuted not far from Landfill.,,reported
+8854045589,dead,"individual death-comments, stork sw-germany","Drowned 2015-07-15 in a sewage plant near Colmar / France. Other corpses found there, but not this one. lat:48.041; long:7.345",,reported
+8854045710,dead,"individual death-comments, stork sw-germany",Died 2016-09-14 through collision with vehicle on a Highway in central Switzerland. Found and euthanized by police.,,found
+8854045541,dead,"individual death-comments, stork sw-germany",Dead since 2015-09-27 near Saragossa / Spain. Logger without any traces of bird found near landfill.,,found
+8854045604,dead,"individual death-comments, stork sw-germany",died south of Ciudad Real 2020-09-22 around noon. ACC and location suggest predation.,,acc-inferred
+8854045608,dead,"individual death-comments, stork sw-germany","Died by electrocution on 2014-9-13 south of Lleida, Spain. lat: 41.538; long: 0.613",,reported
+8854045591,dead,"individual death-comments, stork sw-germany",Died near Lake Murtensee in Switzerland 03 Febuary 2015. lat: 46.9757402; long: 7.1288951,,reported
+8854045540,dead,"individual death-comments, stork sw-germany","Died on 2014-09-05 in Cuenca, Spain. Reason not known. Rather neither electrocution nor collision with traffic. lat: 40.078; long: -2.139",,reported
+8854045745,dead,"individual death-comments, stork sw-germany","Died on 2014-08-31 near Motril, Spain. Reason unknown. lat: 36.726; long: -3.567. bird was moving around locally for a long time before tag stopped.",,reported
+8854045489,dead,"individual death-comments, stork sw-germany","death date: 13-08-2023; Found dead in corn field under powerline pole (but a bird protected one, probably not reason of death) 2013-08-28 by local stork specialist Gustav Bickel.",,found
+8854045829,dead,"individual death-comments, stork sw-germany","Pjotre died by electrocution near Ben Mansour, Morocco on 2014-10-13, but the caracass was not found.",,reported
+8854045542,dead,"individual death-comments, stork sw-germany","Died 2019-03-27 near Serignan du Comtat, S-France. Very likely due to electrocution (lies under pole).",,reported
+8854045938,dead,"individual death-comments, stork sw-germany","Died 2015-01-20 near Mirabell, Spain, reason unknown",,reported
+8854045834,dead,"individual death-comments, stork sw-germany","died 2020-04-02 at noon close to stork nests south of Gro�� Gerau (Hessen), no electric wires or masts around. Likely stork fight.",,reported
+8854045556,dead,"individual death-comments, stork sw-germany",Found dead in nest on 2014-08-16,,found
+8854045492,dead,"individual death-comments, stork sw-germany","Died 12.9.2016 near Almazan, Spain; probably shot, harness still there, logger removed; hunter's hide nearby.",,reported
+8854045754,dead,"individual death-comments, stork sw-germany","Died on 2014-08-29 near Moratalla, Spain. Predated by Golden Eagle. lat: 38.272; long: -1.921",,reported
+8854045884,dead,"individual death-comments, stork sw-germany","Found with broken leg outside nest. Vet treatment unsuccessful, necrosis, euthanized 10.7.2013.",,found
+8854045594,dead,"individual death-comments, stork sw-germany",Died on landfill in Morocco 2015-03-22. Reason unknown. Logger was in house until April 2015.,,reported
+8854045662,dead,"individual death-comments, stork sw-germany","Died on 2014-11-09 in France. Found dead, cause of death not known. lat: 43.587; long: 4.376",,found
+8854045623,dead,"individual death-comments, stork sw-germany","Dead since 2018-08-26 in E Guadalajara, Spain. ACC data suggests predation. Logger not yet found.",,acc-inferred
+8854045553,dead,"individual death-comments, stork sw-germany","Died in a landfill south of Lleida, Spain on 2014-09-06. The carcass could not be found. lat: 41.540; long: 0.617",,reported
+8854045535,dead,"individual death-comments, stork sw-germany",Found dead near Figueres 17-06-2015; lat: 42.290; long: 3.105,,found
+8854045636,dead,"individual death-comments, stork sw-germany","Died near Lleida, Spain on 2014-09-13. Found into a pond of leachate organic matter; probably drowned. lat: 41.540; long: 0.617",,found
+8854045699,dead,"individual death-comments, stork sw-germany",Found seriously injured (bites); euthanized 09 Aug 2013,,found
+8854045538,dead,"individual death-comments, stork sw-germany","Yolo was shot near Falou, Region Koulikoro in Mali on 2014-12-14",,reported
+8854045732,dead,"individual death-comments, stork sw-germany",Found dead under electric poll 19.4.2015; died 31-03-2015; lat: 42.0005567; long: 2.2414752,,found
+8854045655,dead,"individual death-comments, stork sw-germany",Died by electrocution near Lleida 2021-01-15. Logger found.,,found
+4055884087,dead,"individual death-comments, stork bavaria","Died 2019-09-21 near Solsona (Province Lleida, Spain). Electrocution (lies under end pole). Logger not found.",,reported
+4055890020,dead,"individual death-comments, stork bavaria",Died 2014-11-13 for unknown reason in fields north of Saragossa N-Spain. Carcass not found.,,reported
+4055914954,dead,"individual death-comments, stork bavaria",The stork died in the area where it was bred (Abtsdorf) on 2014-08-06.,,reported
+4003339716,dead,"individual death-comments, stork bavaria","died in night 19 to 20 April 2025 near Altstätten in Alpine Rhine Valley. Predation likely, carcass and logger found.",,found
+4057920733,dead,"individual death-comments, stork bavaria",died 2020-07-12 at railway track not far from nest. Logger found,,found
+4057925654,dead,"individual death-comments, stork bavaria",dead since 12 September evening near sevage plant 3km W of Scharm-el-Scheik. Persumably poisoning after drinking the water. Logger found.,,found
+4003339708,dead,"individual death-comments, stork bavaria",died 2024-08-16 late afternoon near St Gilles by electrocution. Logger found by unknown person and not yet sent.,,found
+4057935682,dead,"individual death-comments, stork bavaria","died in the night 2023-11-30 to 2023-12-01 at a landfill in S Spain. Logger found (mechanically destroyed), but reason unclear.",,found
+4057943007,dead,"individual death-comments, stork bavaria",died through electrocution 2023-10-23 late afternoon near Malaga.,,reported
+4057950847,dead,"individual death-comments, stork bavaria",died 2019-09-20 near Sigüenza (Spain). Vet statement: the stork had an injury in de coxal area of unknown origin that caused intestinal perforation and probably sepsis.,,found
+4057964536,dead,"individual death-comments, stork bavaria","died 2020-04-30 at 17:57 local time near Manlleu, Catalonia. Most likely electrocution (lies under large e-pylon)",,reported
+4057968573,dead,"individual death-comments, stork bavaria",Dead since 2015-04-17 near Tanger. reason unknown.,,reported
+4057971865,dead,"individual death-comments, stork bavaria","found dead in harvested wheat field, reason not yet clear.",,found
+4057974736,dead,"individual death-comments, stork bavaria",died 2023-06-07 on nest in Turingia due to lightning strike (observed),,found
+4058034908,dead,"individual death-comments, stork bavaria",died 28.07.2023 close to its nest. Could be collision?,,reported
+4058037995,dead,"individual death-comments, stork bavaria","died 2023-09-28 late evening in North Morocco. Logger found, reason not yet clear.",,found
+4003339696,dead,"individual death-comments, stork bavaria","Died 2026-11-02 around noon in NW Mali at the border to Mauretania in a river bed. Reason of death likely animal or human, cannot be decided from data. Logger not found.",,reported
+4003339706,dead,"individual death-comments, stork bavaria",died during the night 2024-08-16/17 near Mindelheim Bavaria. Reason not known.,,reported
+4003339721,dead,"individual death-comments, stork bavaria","died 2025-12-14 late morning in Spain, likely through Avian Influenza (see ACC pattern). Carcass and logger found.",,found
+4058054561,dead,"individual death-comments, stork bavaria",Died by electrocution 2018-08-17 at 12:30 local time near Lausanne. Logger and carcass found.,,found
+4058066196,dead,"individual death-comments, stork bavaria",Died from visceral gout and chronical kidney failure 2016-08-08.,,found
+4058088974,dead,"individual death-comments, stork bavaria","Dead since 2015-10-15 near Soria, N-Spain. No electric pole in 2 km surrounding, wind power plant ca. 2 km away. Likely predated, see archive material.",,reported
+4058200341,dead,"individual death-comments, stork bavaria","Died 2015-05-02 very early in the morning; presumably electrocution, found under power line pole. Dead under electric power mast.",,found
+4058207179,dead,"individual death-comments, stork bavaria",died 2019-09-29 evening UTC. Fell into water basin near Banyoles.,,reported
+4058223114,dead,"individual death-comments, stork bavaria","Died 2015-09-12 afternoon in Aragon, N-Spain. Presumably predation.",,reported
+4058229540,dead,"individual death-comments, stork bavaria","died in night 2022-07-29 to 30 close to Emmering / SE Bavaria. Roosted on trees in the evening, after night break of logger dead on a meadow 250m south. Probably accident after disturbance at night (no electric line but road nearby). Logger found.",,found
+4003339693,dead,"individual death-comments, stork bavaria",died 2024-09-07 in North Morocco for unknown reason,,reported
+4058237467,dead,"individual death-comments, stork bavaria",died in the night 2019-08-18 to 19. Drowned in wastewater basin at farm. Logger found.,,found
+4058248128,dead,"individual death-comments, stork bavaria",died 2023-07-10 for unknown reason still in nest. Never fledged.,,reported
+4058257293,dead,"individual death-comments, stork bavaria","died 2024-05-24 at noon in central Spain (30km SE of Soria). Was on the grounf at that time, carcass moved; predation presumed. Logger not yet found.",,reported
+4058266416,dead,"individual death-comments, stork bavaria",died 2023-07-29 through collision with car.,,reported
+4058279447,dead,"individual death-comments, stork bavaria","died for unknown reason in N Libya. last ACC data from 2020-10-26, at that time bird was still alive. Moved to final point 2021-04-16 late afternoon.",,reported
+4058297857,dead,"individual death-comments, stork bavaria",Died 2015-06-27 east of Lleida / Catalonia; most probably due to electrocution (lies under dangerously built end mast of power line).,,reported
+4003339689,dead,"individual death-comments, stork bavaria",drowned 2026-08-04 in the evening in the sewage plant of Bamberg. Carcass and logger found.,,found
+4058312515,dead,"individual death-comments, stork bavaria","2016-08-04 at start of logger activity at 2:00 UTC on sandbank in wetland near Alcázar de San Juan / Spain, no power line or other obvious reason. Logger shaken and displaced until morning, then unmoved until it was found in December.",,found
+4058317576,dead,"individual death-comments, stork bavaria",2015-04-24 18:22 to end of logger activity at 20:00 untypical movement (ACC) of logger. Next morning 2.00 logger unmoved until it's end of activity weeks later. Location: river bank near Rivas Vaciamadrid. Logger not retrieved.,,acc-inferred
+4003339702,dead,"individual death-comments, stork bavaria","died 2024-09-07 in S Aragon (Spain), very liekly by predation (raptor).",,reported
+4058323064,dead,"individual death-comments, stork bavaria",died during the night 2021-10-05/06 on an open field with no visible e-pylons. Rather predation.,,reported
+4058326264,dead,"individual death-comments, stork bavaria","dead between 2015-08-14 and 2015-08-20 on circular field in al-Dschauf, western Libya.",,reported
+4058329952,dead,"individual death-comments, stork bavaria",Found dead near village of birth.Accident during one of the first flights.,,found
+4058341332,dead,"individual death-comments, stork bavaria",Died after collision with car ca. 2020-04-21 near breeding place in Chenevieres - St Clement (NE France). Logger found.,,found
+4055817978,dead,"individual death-comments, stork bavaria",died Sept.19 near Madrid. Might have flown into powerlines,,reported
+4055820684,dead,"individual death-comments, stork bavaria",died during night 2025-03-30 near Cordoba. Likely predation.,,reported
+4055824520,dead,"individual death-comments, stork bavaria","died for unknown reason in the evening of 2025-09-20 in or near water pool at landfill Les Borges Blanques. ACC fairly calm in days before - sickness, poison?",,reported
+4058356176,dead,"individual death-comments, stork bavaria",died 2023-09-08 early morning south of Linz (Austria) due to collision with a vehicle on freeway A1. Bird and logger found.,,found
+4055832221,dead,"individual death-comments, stork bavaria","died 2024-03-29 in Morocca, died in little pond, reason unknown",,reported
+4058363563,dead,"individual death-comments, stork bavaria",Died 2023-09-10 close to a dangerously built terminating e-pole close to a landfill near Toledo (Spain). Most likely electrocuted.,,reported
+4058369358,dead,"individual death-comments, stork bavaria",Died from electrocution end of 2018-08-18 evening in S France. Logger and carcass found.,,found
+4058376326,dead,"individual death-comments, stork bavaria","Died of electrocution. Found dead at Gellenoncourt 48.674079, 6.388004 on 2016-06-23.",,found
+4003339701,dead,"individual death-comments, stork bavaria","reason unknown; died in fields south of Linyola, Spain.",,reported
+4058386052,dead,"individual death-comments, stork bavaria",Died ca. 2017-01-21 in Togo (!). Presumably shot or predated in bushland.,,reported
+4058402319,dead,"individual death-comments, stork bavaria",Dead since 8 Sept 2016 early afternoon. ACC data gives evidence for predator.,,acc-inferred
+4055858082,dead,"individual death-comments, stork bavaria",Died 2017-01-22 in Tansania (Dodoma). Presumably poisoned; see report of finder in document repository.,,reported
+929589187,dead,"individual death-comments, stork rheinland-pfalz","Died 2017-12-15 in Catalonia in a wineyard close to a house, no e-pylon around",,reported
+929589103,dead,"individual death-comments, stork rheinland-pfalz",Dead in nest 2015-06-27 at night,,reported
+929589143,dead,"individual death-comments, stork rheinland-pfalz","Died 2016-09-14 in Spain (Aragon), predated or probably shot? Hunter's hide nearby.",,reported
+929589252,dead,"individual death-comments, stork rheinland-pfalz",died 2019-10-25 in the evening near Germainvilliers (60km W Epinal). Reason not yet clear.,,reported
+929589111,dead,"individual death-comments, stork rheinland-pfalz","Died 8 March 2016 70km west of Mopti (Mali). Died around noon, in an area with small fields nearby; logger was then moved all afternoon at the site but not brought to any (visible) human settlement",,reported
+929589158,dead,"individual death-comments, stork rheinland-pfalz",Dead since 2018-09-19 in pond near Villars les Dombes. Logger and carcass found. Lab examination of carcass indicates botulism as reason of death.,,found
+929589268,dead,"individual death-comments, stork rheinland-pfalz","died 2019-08-12 late afternoon in Courgenay / Switzerland. Reported by ringer as electrocution. Logger not seen, was presumably burnt with carcass.",,reported
+929589173,dead,"individual death-comments, stork rheinland-pfalz",Presumably killed by predator 2016-09-12 in the late afternoon in Central Spain,,reported
+929589132,dead,"individual death-comments, stork rheinland-pfalz",Died 2015-09-09 from electrocution in S Spain,,reported
+930966506,dead,"individual death-comments, stork rheinland-pfalz",died north of Kenitra (Morocco) during the night 2020-11-04 to 2020-11-05. reason unknown.,,reported
+929589256,dead,"individual death-comments, stork rheinland-pfalz","died 2019-07-25 not far from place of birth. Most likely electrocution. Stork with ring found under e pole, but logger fpound 150m away in bushes with cut harness.",,found
+929589215,dead,"individual death-comments, stork rheinland-pfalz",Dead in nest (Trichomonas?),,found
+929589212,dead,"individual death-comments, stork rheinland-pfalz","Died 2018-08-29 in the evening near castellnou de Seana, Catalonia. Vet investigation confirmed electrocution.",,found
+929589136,dead,"individual death-comments, stork rheinland-pfalz",Died 2015-08-07 in the evening by by electrocution along a railway track in Lothringen,,reported
+929589118,dead,"individual death-comments, stork rheinland-pfalz",Killed by eagle (observed by Nomads) in S Morocco 2016-08-29,,reported
+929589222,dead,"individual death-comments, stork rheinland-pfalz","Died 2018-09-02 on landfill near Narbonne (see Vitus!). Reason of death unclear, probably accident/poisoning due to waste.",,found
+938737579,dead,"individual death-comments, stork rheinland-pfalz","died 2019-11-22 in the late evening near Alvalade, S Portugal. Electrocution confirmed by finder.",,found
+929589200,dead,"individual death-comments, stork rheinland-pfalz","swallowed toy baloons, found almost dead 2019-06-18 near Bruchsal / SW Germay. Euthanized by vet.",,found
+929589122,dead,"individual death-comments, stork rheinland-pfalz","Died already in nest, most likely from Aspergillosis, Trichomonas gallinae infection.",,reported
+929589199,dead,"individual death-comments, stork rheinland-pfalz",Died from electrocution 2018-08-25 near Lleida. Carcass and logger found.,,found
+929589260,dead,"individual death-comments, stork rheinland-pfalz",died 2019-07-28 at 4:40 local time. Probably collision with low voltage line.,,reported
+929589138,dead,"individual death-comments, stork rheinland-pfalz",Died close to nest; fungus infection presumed,,reported
+929589194,dead,"individual death-comments, stork rheinland-pfalz","died 2019-12-01 10:20 on a field 30km west of Lleida, Spain. reason unknown, no e-pylon or power line around. 2019-12-16 logger transported to a park/castle near Saragossa. No contact with finder.",,reported
+929589114,dead,"individual death-comments, stork rheinland-pfalz",Died 10 Sept 2015 at landfill south of Lleida. Acceleration data indicates rather sickness/poisoning than accident or predator.,,reported
+929589203,dead,"individual death-comments, stork rheinland-pfalz",Died through electrocution in the morning of 2018-08-18 near Lleida,,found
+929589137,dead,"individual death-comments, stork rheinland-pfalz",Died 2015-11-18 presumably by electrocution near Lleida,,reported
+929589180,dead,"individual death-comments, stork rheinland-pfalz",Presumably shot 2017-11-12 in S Mauretania,,reported
+929589269,dead,"individual death-comments, stork rheinland-pfalz","died 2020-11-08 10:30 in NE Morocco. Reason unknown, 2 minutes of strong movement in unnatural position, then flat ACC line. Also possible: logger could be removed and thrown away by a hunter.",,acc-inferred
+929589190,dead,"individual death-comments, stork rheinland-pfalz",Died 2018-03-31 in Tanger (Morocco) close to settlement for unknown reason. Logger found 3 months later with some remains of stork.,,found
+929589227,dead,"individual death-comments, stork rheinland-pfalz","died in the night 2019-05-18 very early in the morning near Ejea de los Caballeros / Spain; likely predated, no e-pylon around.",,reported
+929589120,dead,"individual death-comments, stork rheinland-pfalz",Died 7.11.2015 in Mauretania at water hole. See Acc data: weak condition?,,acc-inferred
+929589178,dead,"individual death-comments, stork rheinland-pfalz","Died 2018-10-29 near Villar les Dombes. See Borni II, Botulism cannot be excluded. Carcass without logger found deep in mud.",,found
+929589266,dead,"individual death-comments, stork rheinland-pfalz","died 2019-09-23 mid afternoon on an open field near Molina de Aragon, Spain. Was flying at that time - could be predation, but carcass not moved for 3 days.",,reported
+929589214,dead,"individual death-comments, stork rheinland-pfalz",Died by electrocution 2018-08-12 south of Narbonne/S-France. Logger and carcass found.,,found
+929589119,dead,"individual death-comments, stork rheinland-pfalz","Died close to village of birth. Reason unknown, not insured.",,reported
+929589126,dead,"individual death-comments, stork rheinland-pfalz",Died 21 Aug 2015 near Figueres in Spain due to electrocution,,reported
+929589168,dead,"individual death-comments, stork rheinland-pfalz",Died presumably during (observed) nest fight between parents and foreign storks 20 June 2016 late evening,,reported
+929589175,dead,"individual death-comments, stork rheinland-pfalz","Died 2016-08-16, most probably due to collision with something (broken neck)",,reported
+929589174,dead,"individual death-comments, stork rheinland-pfalz",Died 29 June 2017 in Catalonia; presumably electrocuted (electric pole nearby) and moved ca. 80m. Logger found,,found
+929589121,dead,"individual death-comments, stork rheinland-pfalz","Died 2015-08-29 noon in Aragon / Spain. Carcass instantly moved, presumably by animal. Likely predation.",,reported
+929589157,dead,"individual death-comments, stork rheinland-pfalz","2018-11-20 dead on landfill in Katalonia, presumably insured or poisoned/sick",,reported
+929589128,dead,"individual death-comments, stork rheinland-pfalz","Died 2015-08-20 S of Zaragoza/Spain most likely predated, see ACC and pictures from recovery place",,found
+929589164,dead,"individual death-comments, stork rheinland-pfalz",Died 2016-07-25 11:15 local time west of Baden-Baden by electrocution. Carcass and logger found.,,found
+929589206,dead,"individual death-comments, stork rheinland-pfalz","Electrocuted 2018-09-14 8km W of Malaga. Logger, carcass and two more electrocution victims found.",,found
+929589251,dead,"individual death-comments, stork rheinland-pfalz","died 2019-08-25 in the evening by electrocution in Valls, Tarragona, Spain. Logger found.",,found
+929589261,dead,"individual death-comments, stork rheinland-pfalz","died 2019-08-23 late morning near Thuir, France. Presumably exhaustion (reported by finder).",,reported
+929589107,dead,"individual death-comments, stork rheinland-pfalz",Found dead in French Pyrenees; electrocuted 2015-08-06,,found
+929589161,dead,"individual death-comments, stork rheinland-pfalz",Died in Gambia/Senegal 01. Jan 2017; presumably shot,,reported
+929589184,dead,"individual death-comments, stork rheinland-pfalz","Died 2017-09-22 for unknown reason in Sauer delta near Munchhausen, N-Alsace",,reported
+929589196,dead,"individual death-comments, stork rheinland-pfalz","Dead since 2018-09-07 in in northern part of village Tamanar (66 km north of Agadir) on roof of a water tower. Reason of death unclear, carcass and logger found. Possibly poisoned.",,found
+929589249,dead,"individual death-comments, stork rheinland-pfalz","electrocuted 2019-08-29 in the evening near Salmeron (100km WNW from Madrid, Spain). Logger found.",,found
+929589165,dead,"individual death-comments, stork rheinland-pfalz",Died by electrocution 2018-08-21 near Ivars d'Urgell in Northern Spain.,,reported
+929589262,dead,"individual death-comments, stork rheinland-pfalz",died by electrocution 2020-09-04 20:10 local time in central Spain.,,reported
+929589188,dead,"individual death-comments, stork rheinland-pfalz",Died for unknown reason in SW Guinea. Logger sent for weeks near road.,,reported
+929589099,dead,"individual death-comments, stork rheinland-pfalz",Electrocuted; found dead under electric pole close to Leimersheim,,found
+929589105,dead,"individual death-comments, stork rheinland-pfalz",Found dead with heavy wound presumably due to harness. See pictures in archive.,,found
+929589191,dead,"individual death-comments, stork rheinland-pfalz",Shot 2017-10-06 central Senegal. Logger then moved by man,,reported
+929589198,dead,"individual death-comments, stork rheinland-pfalz","Died 2018-08-31 on landfill near Narbonne / S-France. Reduced movements (measured by ACC) suggest poisoning or injury, presumably in connection with waste.",,acc-inferred
+929589112,dead,"individual death-comments, stork rheinland-pfalz",Died close to electric pole (presumably electrocuted) near Marrakesh 2016-03-24 at 14:00 UTC,,reported
+929589263,dead,"individual death-comments, stork rheinland-pfalz","died 2020-04-21 north of Llerida.Reason not known, no electric pole around, possibly predated. Logger lied on open field. Not retrieved.",,reported
+929589270,dead,"individual death-comments, stork rheinland-pfalz",died not far from nest due to electrocution 2019-07-17.,,reported
+1585124269,dead,"individual death-comments, stork vorarlberg","died with unknown reason on 2023-11-01 afternoon in western Sicily.Logger found, carcass under investigation.",,found
+2165009543,dead,"individual death-comments, stork vorarlberg","Bruno died on October 26, 2023 in the late morning in Senegal, according to the data available to us, it is very likely to be predation. Track cut, because logger was found and carried by human on 2023-10-29 noon.",,found
+2165008604,dead,"individual death-comments, stork vorarlberg",found electrocuted 2022-07-27 in Höchst / Vorarlberg,,found
+2847772261,dead,"individual death-comments, stork vorarlberg","died 2024-03-20 around noon north of Kaolack (Senegal); most likely shot, logger transported to small village.",,reported
+2847779390,dead,"individual death-comments, stork vorarlberg",dead for unknown reason in River Rhone (then moved) since 2024-09-05,,reported
+1585113621,dead,"individual death-comments, stork vorarlberg",died 2021-08-26 in Ne Switzerland due to electrocution or wire collision.,,reported
+2165010917,dead,"individual death-comments, stork vorarlberg","Judy died on a freeway in N Spain in the evening of 2023-11-07, most likely by collision with a vehicle.",,reported
+2165005882,dead,"individual death-comments, stork vorarlberg","died 2024-12-31 late morning in Senegal, likely hunted, logger was transported afterwards by car and dropped 18 km SE.",,reported
+3234728229,dead,"individual death-comments, stork vorarlberg",died during night of 2023-12-05 to 06. Carcass and ring number were reported to AUW ringing centre. logger not mentioned.reported reason of death: electrocution.,,found
+1585117198,dead-after-track,"individual death-comments, stork vorarlberg","died in Rio Escabas, Cuenca, Spain by electroction (biopsy made)",,found
+3234728232,dead,"individual death-comments, stork vorarlberg",died 2024-01-03 near Jerez de la Fronteira in S Spain. Strange logger position since 2024-01-02 late afternoon. reason of death unclear.,,reported
+2165007151,dead,"individual death-comments, stork vorarlberg","died 2023-3-12 in kenitra; reason unknown yet, logger found",,found
+3234728227,dead,"individual death-comments, stork vorarlberg",died 2023-10-01 late afternoon near Rabat (Morocco). Reason uncelar.,,reported
+173673968,dead,"individual death-comments, stork vorarlberg",Dead at old river bridge in Girona 2016-09-14. Reason unknown.,,reported
+173674041,dead,"individual death-comments, stork vorarlberg",died in nest,,reported
+2165006605,dead,"individual death-comments, stork vorarlberg",died 2026-01-10 in the morning (ca 7:00 UTC) near Murten / Switzerland. Likely collision with wire and carcass found by scavenger. Logger was not found.,,reported
+2165010477,dead,"individual death-comments, stork vorarlberg","died in field, reason unknown",,reported
+2165008013,dead,"individual death-comments, stork vorarlberg","Died 2023-05-06 late morning on landfill Banyoles (Catalonia). Instantly transported another 100m on landfill, then no movement of logger for the next days. Cause of death unknown.",,reported
+218608860,dead,"individual death-comments, stork oberschwaben",Died 2015-09-21 50 km SW of Lleida / Spain. Predation possible.,,reported
+218612733,dead,"individual death-comments, stork oberschwaben","Found with with broken wing, euthanized.",,found
+219394244,dead,"individual death-comments, stork oberschwaben",Died in Safari Park Sigean in S France ca 30.08.2017. Reason not yet reported.,,reported
+219396112,dead,"individual death-comments, stork oberschwaben",died 2019-10-08 in the afternoon in rice fields near Sevilla. Reason not known.,,reported
+219396769,dead,"individual death-comments, stork oberschwaben",Died by electrocution 2014-08-28 NW of Valencia / Spain. lat: 40.316; long: -1.421,,reported
+219397778,dead,"individual death-comments, stork oberschwaben",Died 2015-09-06 near Lleida / N-Spain. Predation possible; no electric pole nearby.,,reported
+219398195,dead,"individual death-comments, stork oberschwaben","2015-06-15; July 2015 found dead near Mulhouse, France; lat: 47.550; long: 7.091; No obvious reason, probably carcass moved.",,found
+219391942,dead,"individual death-comments, stork oberschwaben","Found with broken wing, euthanized.",,found
+219398904,dead,"individual death-comments, stork oberschwaben",Died in the Spanish province Guadalajara on 2014-09-07; lat: 40.643; long: -2.627,,reported
+219402359,dead,"individual death-comments, stork oberschwaben",Dead in central Spain.,,reported

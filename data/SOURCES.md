@@ -378,6 +378,50 @@ undated) and `MHX_BLVU_68351`, `PMP_BLVU_68356`, `LAL_BLVU_68348`,
 later, but no week-plus bout near the end of the track). They stay
 `alive`.
 
+### Stork deaths
+
+Labelled 2026-11-13 from the five populations' individual tables
+(`death_comments`, CC BY as above); no track was read to choose a row
+and no held-out alert has been seen. The stork deployments' own end
+types are unreliable (all of Bavaria's are blank, 73 of Rheinland-Pfalz's
+109 say `equipment-failure`), so deaths come from the comments. A row's
+`evidence` is the animal's comment, unedited (a test checks this); a
+bird with two deployments is labelled on its last. The `grade` column
+(stork rows only) says how well the death is evidenced:
+
+- **found**: the comment or the deployment's end comment says the
+  carcass, bird or logger was recovered ("Logger found", "Found dead").
+  A negated phrase ("carcass not found") does not count.
+- **reported**: a death with place and date, but nothing recovered.
+- **acc-inferred**: an accelerometer reading is cited as evidence and
+  nothing was recovered. These are left out when an acceleration cue is
+  scored, as they would be circular. The rule is deliberately wide: it
+  also catches comments that cite the accelerometer only for the cause,
+  so it gives 8 rows where the 2026-10-31 reference scan counted 5.
+
+Not labelled (21 animals, because the comments do not confirm a death at
+the tag): "vanished", "disappeared", "seemingly" or "probably dead", and
+a logger removed from a living bird (Crisps, Klappi, Baunach1). A bird
+the researchers already ended as `dead` stays dead through its end type.
+`dead-after-track` is used once: Vorarlberg's Maximilian, whose collar
+stopped on 2025-03-10 against a recorded death on 2026-02-16.
+
+| Population | Split | found | reported | acc-inferred | Not labelled |
+| --- | --- | --- | --- | --- | --- |
+| SW Germany | tuning | 18 | 38 | 3 | 6 |
+| Bavaria | tuning | 22 | 29 | 2 | 10 |
+| Rheinland-Pfalz | held out | 22 | 36 | 3 | 4 |
+| Vorarlberg | held out | 6 | 12 | 0 | 0 |
+| Oberschwaben | held out | 3 | 7 | 0 | 1 |
+
+The held-out rows are counted from comments alone; their tracks were not
+loaded, so their tails are unchecked. On the tuning populations, the
+evaluator's own tail rule (final stationary period of at least the
+provisional 24 h carcass minimum) leaves **24 `found` deaths with a tail
+(14 SW Germany, 10 Bavaria)** and 74 deaths of any grade, so the plan's
+floor of about 10 is met. Labels judge what happened to the bird; the
+tail decides whether the mortality or the gap detector is scored on it.
+
 ## Park boundaries (`raw/boundaries/`)
 
 - **Source:** OpenStreetMap, via the public Overpass API
