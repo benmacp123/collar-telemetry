@@ -154,6 +154,27 @@ keep_share = 0.5
 excluded_grades = ["acc-inferred"]
 grid = [1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0, 8.0, 10.0, 12.0, 15.0, 20.0, 30.0]
 
+# Vulture flat-activity cue (step 3.2, decision 6 (c)). Frozen on 2026-11-13
+# from the tag documentation alone, before any Acopian file was loaded and
+# without fitting anything: it has no grid and no threshold to choose. The
+# source is the Microwave Telemetry PTT-100 manual as quoted in the Acopian
+# study's README (data/SOURCES.md): a constant activity counter over two or
+# more transmission periods, with unvarying locations, suggests a detached tag
+# or a bird that is down. The "unvarying locations" half is the watch alert
+# itself. Value at a watch alert: the activity counts (`gt:activity-count` or
+# `mw:activity-count`, whichever the tag reports) on the transmissions inside
+# the alert's stationary run; blank counts are not readings. The cue fires
+# when at least `min_transmissions` readings exist and their spread (largest
+# minus smallest) is at most `max_range`; with fewer readings it is undefined,
+# which is reported apart and never counted as firing. Scored once, on the
+# Acopian vultures, in Phase 4; changing any value here afterwards spends them.
+[cues.vulture_flat_activity]
+signal = "activity_count"
+source = "Microwave Telemetry PTT-100 manual, quoted in the Acopian README"
+fitted = false
+min_transmissions = 2
+max_range = 0
+
 # Targets, fixed in advance. `metric` is one of:
 #   load:          incidents per animal-month, written per 30 birds per week
 #   clear_hours:   median hours from opening to resolving, on false alerts (the
