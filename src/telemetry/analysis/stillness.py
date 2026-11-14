@@ -115,13 +115,26 @@ def living_bouts(truth: Truth, fixes: list[Fix]) -> list[float]:
         fixes: Its fixes, in time order.
 
     Returns:
-        list[float]: Hours, for every bout with at least the detector's
-        minimum fixes that is not part of a possible carcass period or a
-        tag event.
+        list[float]: Hours of each bout ``living_still_bouts`` keeps.
+    """
+    return [bout.hours for bout in living_still_bouts(truth, fixes)]
+
+
+def living_still_bouts(truth: Truth, fixes: list[Fix]) -> list[Bout]:
+    """One deployment's living still bouts, with their times.
+
+    Args:
+        truth: What is known about the deployment.
+        fixes: Its fixes, in time order.
+
+    Returns:
+        list[Bout]: Every bout with at least the detector's minimum fixes
+        that is not part of a possible carcass period or a tag event, in
+        time order.
     """
     config = profile_for(truth.taxon).mortality
     return [
-        bout.hours
+        bout
         for bout in still_bouts(fixes, config)
         if bout.fixes >= config.min_fixes
         and not (

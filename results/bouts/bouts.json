@@ -1,0 +1,624 @@
+{
+  "sets": [
+    {
+      "study": "storks-sw-germany",
+      "title": "White stork, SW Germany",
+      "animal_months": 1378.3,
+      "window_hours": 24.0,
+      "all": {
+        "bouts": 1102,
+        "per_animal_month": 0.7995,
+        "birds": 90,
+        "top_bird_share": 0.166,
+        "beyond": [
+          {
+            "hours": 72,
+            "count": 368,
+            "per_animal_month": 0.267
+          },
+          {
+            "hours": 168,
+            "count": 189,
+            "per_animal_month": 0.1371
+          }
+        ],
+        "median_hours": 47.9,
+        "median_fixes_per_day": 17.1,
+        "median_spread": 13.1,
+        "without_spread": 191,
+        "by_month": [
+          45,
+          65,
+          171,
+          151,
+          87,
+          160,
+          261,
+          47,
+          27,
+          16,
+          21,
+          51
+        ]
+      },
+      "classes": [
+        {
+          "class": "nestling",
+          "share": 0.197,
+          "bouts": 217,
+          "per_animal_month": 0.1574,
+          "birds": 89,
+          "top_bird_share": 0.032,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 154,
+              "per_animal_month": 0.1117
+            },
+            {
+              "hours": 168,
+              "count": 109,
+              "per_animal_month": 0.0791
+            }
+          ],
+          "median_hours": 171.0,
+          "median_fixes_per_day": 18.9,
+          "median_spread": 13.1,
+          "without_spread": 13,
+          "by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            110,
+            101,
+            6,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "class": "sparse",
+          "share": 0.115,
+          "bouts": 127,
+          "per_animal_month": 0.0921,
+          "birds": 18,
+          "top_bird_share": 0.236,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 64,
+              "per_animal_month": 0.0464
+            },
+            {
+              "hours": 168,
+              "count": 38,
+              "per_animal_month": 0.0276
+            }
+          ],
+          "median_hours": 72.0,
+          "median_fixes_per_day": 3.1,
+          "median_spread": 16.9,
+          "without_spread": 45,
+          "by_month": [
+            13,
+            15,
+            14,
+            16,
+            19,
+            4,
+            3,
+            8,
+            2,
+            6,
+            8,
+            19
+          ]
+        },
+        {
+          "class": "natal_return",
+          "share": 0.165,
+          "bouts": 182,
+          "per_animal_month": 0.132,
+          "birds": 58,
+          "top_bird_share": 0.049,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 68,
+              "per_animal_month": 0.0493
+            },
+            {
+              "hours": 168,
+              "count": 25,
+              "per_animal_month": 0.0181
+            }
+          ],
+          "median_hours": 59.5,
+          "median_fixes_per_day": 18.4,
+          "median_spread": 12.7,
+          "without_spread": 5,
+          "by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            13,
+            148,
+            21,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "class": "breeding_site",
+          "share": 0.32,
+          "bouts": 353,
+          "per_animal_month": 0.2561,
+          "birds": 10,
+          "top_bird_share": 0.414,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 53,
+              "per_animal_month": 0.0385
+            },
+            {
+              "hours": 168,
+              "count": 8,
+              "per_animal_month": 0.0058
+            }
+          ],
+          "median_hours": 41.0,
+          "median_fixes_per_day": 15.3,
+          "median_spread": 12.8,
+          "without_spread": 92,
+          "by_month": [
+            0,
+            17,
+            125,
+            120,
+            60,
+            28,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "class": "other_site",
+          "share": 0.078,
+          "bouts": 86,
+          "per_animal_month": 0.0624,
+          "birds": 7,
+          "top_bird_share": 0.43,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 13,
+              "per_animal_month": 0.0094
+            },
+            {
+              "hours": 168,
+              "count": 1,
+              "per_animal_month": 0.0007
+            }
+          ],
+          "median_hours": 40.7,
+          "median_fixes_per_day": 17.8,
+          "median_spread": 13.9,
+          "without_spread": 13,
+          "by_month": [
+            19,
+            21,
+            14,
+            0,
+            0,
+            3,
+            0,
+            0,
+            1,
+            6,
+            6,
+            16
+          ]
+        },
+        {
+          "class": "season_site",
+          "share": 0.05,
+          "bouts": 55,
+          "per_animal_month": 0.0399,
+          "birds": 9,
+          "top_bird_share": 0.364,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 2,
+              "per_animal_month": 0.0015
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "median_hours": 39.0,
+          "median_fixes_per_day": 16.7,
+          "median_spread": 13.6,
+          "without_spread": 11,
+          "by_month": [
+            0,
+            4,
+            14,
+            14,
+            6,
+            2,
+            0,
+            3,
+            4,
+            0,
+            3,
+            5
+          ]
+        },
+        {
+          "class": "one_off",
+          "share": 0.074,
+          "bouts": 82,
+          "per_animal_month": 0.0595,
+          "birds": 36,
+          "top_bird_share": 0.098,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 14,
+              "per_animal_month": 0.0102
+            },
+            {
+              "hours": 168,
+              "count": 8,
+              "per_animal_month": 0.0058
+            }
+          ],
+          "median_hours": 35.0,
+          "median_fixes_per_day": 17.0,
+          "median_spread": 12.1,
+          "without_spread": 12,
+          "by_month": [
+            13,
+            8,
+            4,
+            1,
+            2,
+            0,
+            7,
+            8,
+            20,
+            4,
+            4,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "study": "storks-bavaria",
+      "title": "White stork, Bavaria",
+      "animal_months": 1476.2,
+      "window_hours": 24.0,
+      "all": {
+        "bouts": 911,
+        "per_animal_month": 0.6171,
+        "birds": 90,
+        "top_bird_share": 0.114,
+        "beyond": [
+          {
+            "hours": 72,
+            "count": 334,
+            "per_animal_month": 0.2263
+          },
+          {
+            "hours": 168,
+            "count": 149,
+            "per_animal_month": 0.1009
+          }
+        ],
+        "median_hours": 49.1,
+        "median_fixes_per_day": 17.2,
+        "median_spread": 13.2,
+        "without_spread": 232,
+        "by_month": [
+          19,
+          47,
+          87,
+          134,
+          42,
+          235,
+          220,
+          27,
+          23,
+          25,
+          21,
+          31
+        ]
+      },
+      "classes": [
+        {
+          "class": "nestling",
+          "share": 0.299,
+          "bouts": 272,
+          "per_animal_month": 0.1843,
+          "birds": 84,
+          "top_bird_share": 0.04,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 162,
+              "per_animal_month": 0.1097
+            },
+            {
+              "hours": 168,
+              "count": 89,
+              "per_animal_month": 0.0603
+            }
+          ],
+          "median_hours": 106.0,
+          "median_fixes_per_day": 18.3,
+          "median_spread": 15.3,
+          "without_spread": 34,
+          "by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            173,
+            92,
+            7,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "class": "sparse",
+          "share": 0.151,
+          "bouts": 138,
+          "per_animal_month": 0.0935,
+          "birds": 17,
+          "top_bird_share": 0.449,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 105,
+              "per_animal_month": 0.0711
+            },
+            {
+              "hours": 168,
+              "count": 38,
+              "per_animal_month": 0.0257
+            }
+          ],
+          "median_hours": 120.0,
+          "median_fixes_per_day": 1.6,
+          "median_spread": 16.6,
+          "without_spread": 122,
+          "by_month": [
+            6,
+            19,
+            17,
+            22,
+            12,
+            10,
+            5,
+            7,
+            7,
+            9,
+            8,
+            16
+          ]
+        },
+        {
+          "class": "natal_return",
+          "share": 0.189,
+          "bouts": 172,
+          "per_animal_month": 0.1165,
+          "birds": 48,
+          "top_bird_share": 0.093,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 39,
+              "per_animal_month": 0.0264
+            },
+            {
+              "hours": 168,
+              "count": 16,
+              "per_animal_month": 0.0108
+            }
+          ],
+          "median_hours": 45.5,
+          "median_fixes_per_day": 17.8,
+          "median_spread": 14.9,
+          "without_spread": 34,
+          "by_month": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            45,
+            119,
+            8,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "class": "breeding_site",
+          "share": 0.128,
+          "bouts": 117,
+          "per_animal_month": 0.0793,
+          "birds": 5,
+          "top_bird_share": 0.368,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 6,
+              "per_animal_month": 0.0041
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "median_hours": 40.0,
+          "median_fixes_per_day": 16.0,
+          "median_spread": 10.4,
+          "without_spread": 9,
+          "by_month": [
+            0,
+            6,
+            32,
+            56,
+            20,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "class": "other_site",
+          "share": 0.032,
+          "bouts": 29,
+          "per_animal_month": 0.0196,
+          "birds": 5,
+          "top_bird_share": 0.448,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 2,
+              "per_animal_month": 0.0014
+            },
+            {
+              "hours": 168,
+              "count": 0,
+              "per_animal_month": 0.0
+            }
+          ],
+          "median_hours": 39.0,
+          "median_fixes_per_day": 16.7,
+          "median_spread": 11.3,
+          "without_spread": 2,
+          "by_month": [
+            8,
+            6,
+            4,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            6
+          ]
+        },
+        {
+          "class": "season_site",
+          "share": 0.115,
+          "bouts": 105,
+          "per_animal_month": 0.0711,
+          "birds": 17,
+          "top_bird_share": 0.152,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 8,
+              "per_animal_month": 0.0054
+            },
+            {
+              "hours": 168,
+              "count": 1,
+              "per_animal_month": 0.0007
+            }
+          ],
+          "median_hours": 36.0,
+          "median_fixes_per_day": 16.3,
+          "median_spread": 11.9,
+          "without_spread": 14,
+          "by_month": [
+            1,
+            8,
+            26,
+            47,
+            6,
+            0,
+            0,
+            0,
+            5,
+            9,
+            3,
+            0
+          ]
+        },
+        {
+          "class": "one_off",
+          "share": 0.086,
+          "bouts": 78,
+          "per_animal_month": 0.0528,
+          "birds": 40,
+          "top_bird_share": 0.077,
+          "beyond": [
+            {
+              "hours": 72,
+              "count": 12,
+              "per_animal_month": 0.0081
+            },
+            {
+              "hours": 168,
+              "count": 5,
+              "per_animal_month": 0.0034
+            }
+          ],
+          "median_hours": 37.5,
+          "median_fixes_per_day": 17.7,
+          "median_spread": 10.5,
+          "without_spread": 17,
+          "by_month": [
+            4,
+            8,
+            8,
+            8,
+            4,
+            4,
+            4,
+            5,
+            11,
+            7,
+            6,
+            9
+          ]
+        }
+      ]
+    }
+  ]
+}

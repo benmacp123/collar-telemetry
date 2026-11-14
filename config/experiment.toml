@@ -236,6 +236,38 @@ hour_matched = true
 cut = 1.0
 useful = false
 
+# What the long living still bouts are. Descriptive only: no
+# detector reads these values and nothing is scored against them. Each living
+# still bout longer than the species' mortality window is put in the first
+# class below whose test it meets, so the classes do not overlap. The cut-offs
+# were chosen by eye on the stork tuning populations on 2026-11-14, after
+# seeing the bouts, to name what the bouts are; they are provisional, and a
+# rule built on any of them must be chosen and judged as its own step.
+#   nestling:      starts before the bird's first fix `departure_radius_m`
+#                  from where its tag started (never left counts too).
+#   sparse:        fewer than `sparse_fixes_per_day` fixes a day inside the
+#                  bout: the tag, not the bird, so it is tested before place.
+#   natal_return:  within `natal_radius_m` of where the tag started and
+#                  under `natal_days` since its first fix.
+#   breeding_site: the bird has long bouts within `site_radius_m` of this one
+#                  in `site_years` or more calendar years, and this one starts
+#                  in `breeding_months` at or north of `breeding_min_lat`.
+#   other_site:    the same repeat over years, at another season or place.
+#   season_site:   `site_bouts` or more long bouts within `site_radius_m`,
+#                  all in one calendar year.
+#   one_off:       none of the above.
+[descriptive.still_bouts]
+departure_radius_m = 500.0
+sparse_fixes_per_day = 6.0
+natal_radius_m = 500.0
+natal_days = 365
+site_radius_m = 200.0
+site_years = 2
+site_bouts = 3
+breeding_months = [2, 3, 4, 5, 6, 7, 8]
+breeding_min_lat = 44.0
+marks_hours = [72, 168]
+
 # Targets, fixed in advance. `metric` is one of:
 #   load:          incidents per animal-month, written per 30 birds per week
 #   clear_hours:   median hours from opening to resolving, on false alerts (the

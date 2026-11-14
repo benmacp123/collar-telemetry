@@ -151,6 +151,8 @@ class Experiment:
         false_per_animal_month: Current false rate for the arithmetic note.
         precisions: Precisions the arithmetic note works through.
         cues: The file's ``[cues]`` table, one entry per escalation cue.
+        descriptive: The file's ``[descriptive]`` table: cut-offs used
+            only to describe data, never by a detector or a score.
         targets: Every target, in the file's order.
     """
 
@@ -175,6 +177,7 @@ class Experiment:
     false_per_animal_month: float
     precisions: tuple[float, ...]
     cues: dict
+    descriptive: dict
     targets: tuple[Target, ...]
 
     def scoring_from(self, study: str) -> datetime | None:
@@ -342,5 +345,6 @@ def experiment() -> Experiment:
         false_per_animal_month=arithmetic["false_per_animal_month"],
         precisions=tuple(arithmetic["precisions"]),
         cues=raw.get("cues", {}),
+        descriptive=raw.get("descriptive", {}),
         targets=tuple(_target(entry, animal_month) for entry in raw["targets"]),
     )

@@ -7,6 +7,7 @@ dependency, and from the detection core, which the Lambda handlers load.
 from collections import Counter
 from pathlib import Path
 
+from telemetry.analysis.bouts import TITLES as BOUT_TITLES
 from telemetry.analysis.evaluation import TAG_EVENT
 from telemetry.analysis.sweep import (
     CHOSEN_ON,
@@ -2034,4 +2035,69 @@ def write_stillness(sets: list[dict], markdown_path: Path, figures: Path) -> Non
     pyplot.rcParams.update(STYLE)
     figure = _stillness_figure(pyplot, sets)
     _save(figure, figures / "stillness-tail.png")
+    pyplot.close(figure)
+
+
+def _bouts_figure(pyplot, sets: list[dict]):
+    """Long living still bouts per animal-month, by class and population.
+
+    Args:
+        pyplot: ``matplotlib.pyplot``.
+        sets: Sets as written by ``scripts/bouts.py``.
+
+    Returns:
+        matplotlib.figure.Figure: Two panels sharing the class axis: bouts
+        past the window, and bouts past the longest mark.
+    """
+    classes = [row["class"] for row in sets[0]["classes"]]
+    window = sets[0]["window_hours"]
+    last_mark = sets[0]["all"]["beyond"][-1]["hours"]
+    panels = (
+        (f"Over {window:g} h (the window)", lambda row: row["per_animal_month"]),
+        (f"Over {last_mark:g} h", lambda row: row["beyond"][-1]["per_animal_month"]),
+    )
+    figure, axes = pyplot.subplots(1, 2, figsize=(8.5, 3.9), sharey=True)
+    height = 0.8 / len(sets)
+    for axis, (title, value) in zip(axes, panels):
+        for index, entry in enumerate(sets):
+            axis.barh(
+                [place + index * height for place in range(len(classes))],
+                [value(row) for row in entry["classes"]],
+                height=height,
+                color=SERIES[index],
+                label=entry["title"],
+            )
+        axis.set_title(title)
+        axis.set_xlabel("Bouts per animal-month")
+        axis.grid(axis="y", visible=False)
+    axes[0].set_yticks(
+        [place + height * (len(sets) - 1) / 2 for place in range(len(classes))]
+    )
+    axes[0].set_yticklabels([BOUT_TITLES[name] for name in classes])
+    # First class at the top, as in the table.
+    axes[0].invert_yaxis()
+    # Above the panels, so it cannot sit on a bar.
+    handles, names = axes[0].get_legend_handles_labels()
+    figure.legend(handles, names, loc="upper right", ncols=len(sets))
+    figure.suptitle("Living still bouts by cause", x=0.01, ha="left", color=INK)
+    figure.tight_layout(rect=(0, 0, 1, 0.95))
+    return figure
+
+
+def write_bouts_figure(sets: list[dict], figures: Path) -> None:
+    """Write the still-bout class figure.
+
+    Args:
+        sets: Sets as written by ``scripts/bouts.py``.
+        figures: Figure directory, created if needed.
+    """
+    figures.mkdir(parents=True, exist_ok=True)
+    import matplotlib  # pylint: disable=import-outside-toplevel
+
+    matplotlib.use("Agg")
+    from matplotlib import pyplot  # pylint: disable=import-outside-toplevel
+
+    pyplot.rcParams.update(STYLE)
+    figure = _bouts_figure(pyplot, sets)
+    _save(figure, figures / "bouts-classes.png")
     pyplot.close(figure)
