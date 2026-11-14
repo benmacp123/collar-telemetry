@@ -9,20 +9,27 @@ first fixes). Alerts and tracked time are counted on each side, so the
 load the nest period adds can be read off before deciding whether to
 treat that period differently.
 
-It describes alerts, not errors: every incident is counted, whether or
-not the bird later proved dead, because no outcome labels are used. A
+The split describes alerts, not errors: every incident is counted, whether
+or not the bird later proved dead, because no outcome labels are used. A
 bird that died in the nest counts on the "before" side.
 
 The radius and the number of anchoring fixes are provisional descriptive
 choices, not detector settings; two radii are reported so the conclusion
 can be seen not to hang on one.
+
+Since step 3.1 (a) the detector itself marks watch alerts raised at the
+natal nest (context ``natal_nest``). ``context_split`` counts the load
+with and without them, and, on labelled birds, how many on each side
+were right, so the cost of the marking (deaths caught only at the nest)
+is shown beside the load it moves.
 """
 
 import statistics
 from collections import defaultdict
 from datetime import datetime, timedelta
 
-from telemetry.core.alerts import Incident
+from telemetry.analysis.evaluation import ALIVE, DEAD, Truth, classify
+from telemetry.core.alerts import MORTALITY, NATAL_NEST, Incident
 from telemetry.core.fixes import Fix
 from telemetry.core.geo import haversine_m
 
@@ -147,12 +154,60 @@ def measure(
     }
 
 
+def context_split(
+    truths: list[Truth], incidents: list[Incident], animal_month: timedelta
+) -> dict:
+    """Watch load with and without natal-nest alerts, and how many were right.
+
+    Args:
+        truths: What is known about each of one population's birds.
+        incidents: Every incident that population's replay raised.
+        animal_month: Length of an animal-month.
+
+    Returns:
+        dict: Watch (mortality) alerts in all and at the natal nest, the
+        rate per animal-month with and without them, true and false counts
+        on each side for birds labelled dead or alive, and how many dead
+        birds with a true alert had them only at the natal nest.
+    """
+    months = sum((t.last_fix - t.first_fix) / animal_month for t in truths)
+    by_id = {truth.deployment_id: truth for truth in truths}
+    watch = [i for i in incidents if i.detector == MORTALITY]
+    at_nest = sum(1 for i in watch if i.context == NATAL_NEST)
+    right = {side: {"true": 0, "false": 0} for side in ("natal_nest", "other")}
+    true_sides: dict[str, set[str]] = defaultdict(set)
+    for incident in watch:
+        truth = by_id.get(incident.deployment_id)
+        # Ambiguous birds and tag events cannot call an alert right or
+        # wrong, as in the acceleration cue's cases.
+        if truth is None or truth.label not in (DEAD, ALIVE):
+            continue
+        side = "natal_nest" if incident.context == NATAL_NEST else "other"
+        kind = "true" if classify(truth, incident) == "true" else "false"
+        right[side][kind] += 1
+        if kind == "true":
+            true_sides[incident.deployment_id].add(side)
+    return {
+        "animal_months": round(months, 1),
+        "watch": len(watch),
+        "at_natal_nest": at_nest,
+        "per_animal_month_all": _rate(len(watch), months),
+        "per_animal_month_without_nest": _rate(len(watch) - at_nest, months),
+        "labelled": right,
+        "deaths_alerted": len(true_sides),
+        "deaths_only_at_nest": sum(
+            1 for sides in true_sides.values() if sides == {"natal_nest"}
+        ),
+    }
+
+
 def markdown(sets: list[dict], scenario: str) -> str:
     """The first-departure tables.
 
     Args:
         sets: One entry per population, as ``scripts/fledging.py`` writes
-            them: ``study``, ``title`` and ``radii`` (``measure`` results).
+            them: ``study``, ``title``, ``radii`` (``measure`` results) and
+            ``context`` (``context_split``'s result).
         scenario: The upload scenario the incidents came from.
 
     Returns:
@@ -198,4 +253,31 @@ def markdown(sets: list[dict], scenario: str) -> str:
                     f"| {row['per_animal_month_after']} "
                     f"| {'n/a' if share is None else f'{share:.1%}'} |"
                 )
+    lines += [
+        "",
+        "## Watch alerts marked at the natal nest",
+        "",
+        "The mortality detector marks a watch alert `natal_nest` when the bird",
+        "has never left where its track began, or is back within 500 m of it in",
+        "its first year (`telemetry.core.detectors.mortality`). Marked alerts are",
+        "still raised; this table counts them apart. True and false use the",
+        "labels, on birds labelled dead or alive only. *Deaths only at the nest*",
+        "are dead birds whose every true alert was marked: they are the cost of",
+        "anyone ignoring marked alerts.",
+        "",
+        "| Population | Watch alerts | At natal nest | Per animal-month, all "
+        "| Per animal-month, unmarked | At nest, true / false "
+        "| Elsewhere, true / false | Deaths only at the nest (of alerted) |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
+    for entry in sets:
+        split = entry["context"]
+        nest, other = split["labelled"]["natal_nest"], split["labelled"]["other"]
+        lines.append(
+            f"| {entry['title']} | {split['watch']} | {split['at_natal_nest']} "
+            f"| {split['per_animal_month_all']} "
+            f"| {split['per_animal_month_without_nest']} "
+            f"| {nest['true']} / {nest['false']} | {other['true']} / {other['false']} "
+            f"| {split['deaths_only_at_nest']} ({split['deaths_alerted']}) |"
+        )
     return "\n".join(lines) + "\n"

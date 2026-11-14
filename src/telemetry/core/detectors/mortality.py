@@ -39,14 +39,44 @@ alert lifecycle (``potential_death``), not here.
 
 Distances use the bounding box's corners, so the detector assumes tracks
 do not cross the antimeridian.
+
+**Natal nest.** For a species with ``natal`` set (white storks, tagged as
+nestlings), the detector also remembers where each track began: the
+median of its first ``NatalConfig.anchor_fixes`` fixes, worked out from the
+fixes seen so far, so a live alert never waits on later ones. Until that
+many are held the bird counts as not yet having left. An alert
+whose bird has never been more than the radius from that place, or is back
+within it in its first ``NatalConfig.days``, carries context ``NATAL_NEST`` and
+says so. It is still raised: on the stork tuning populations the nest
+zones hold 6 true watch alerts against 310 false ones, and 6 deaths are
+caught only there, so dropping them would lose those birds.
 """
 
+import statistics
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 
 from telemetry.core.fixes import Fix
 from telemetry.core.geo import haversine_m
-from telemetry.core.alerts import RESOLVED, Alert
+from telemetry.core.alerts import NATAL_NEST, RESOLVED, Alert
+
+
+@dataclass(frozen=True)
+class NatalConfig:
+    """When a mortality alert counts as being at the natal nest.
+
+    Attributes:
+        radius_m: How far, in metres, from where the track began still
+            counts as the natal nest.
+        days: How long after the first fix a return within the radius
+            still counts as the natal nest.
+        anchor_fixes: How many of the first fixes set where the track
+            began, by their median.
+    """
+
+    radius_m: float
+    days: int = 365
+    anchor_fixes: int = 24
 
 
 @dataclass(frozen=True)
@@ -65,6 +95,7 @@ class MortalityConfig:
         leave_radius_m: Once alerted, how far, in metres, a fix must be
             from the cluster's centre at the alert to count as outside;
             None keeps the box test after the alert too.
+        natal: Natal-nest settings; None turns the natal-nest context off.
     """
 
     max_extent_m: float = 100.0
@@ -72,6 +103,7 @@ class MortalityConfig:
     min_fixes: int = 6
     leave_fixes: int = 2
     leave_radius_m: float | None = 75.0
+    natal: NatalConfig | None = None
 
 
 def new_cluster(fixes: list[Fix]) -> dict:
@@ -172,6 +204,8 @@ class MortalityDetector:
             list[Alert]: An open when a cluster first qualifies, a resolve
             when the animal leaves an alerted cluster, otherwise empty.
         """
+        if self.config.natal is not None:
+            self._track_natal(state, fix)
         if "cluster" not in state:
             state.update(cluster=new_cluster([fix]), pending=[], open=False)
             return []
@@ -199,6 +233,68 @@ class MortalityDetector:
             state.pop("anchor", None)
 
         return resolved + self._check(state, deployment_id, cluster)
+
+    def _track_natal(self, state: dict, fix: Fix) -> None:
+        """Update where the track began and whether it has left there.
+
+        Args:
+            state: This detector's state for the deployment, updated in
+                place under ``natal``.
+            fix: The next clean fix, in time order.
+        """
+        natal = state.setdefault(
+            "natal",
+            {"first": fix.timestamp.isoformat(), "lats": [], "lons": [], "left": False},
+        )
+        if natal["left"]:
+            return
+        radius = self.config.natal.radius_m
+        if len(natal["lats"]) < self.config.natal.anchor_fixes:
+            natal["lats"].append(fix.lat)
+            natal["lons"].append(fix.lon)
+            if len(natal["lats"]) < self.config.natal.anchor_fixes:
+                # Judging departure from a part-built anchor would let one
+                # stray first fix count as the bird having left.
+                return
+            # The anchor is complete: judge the fixes that built it too, as
+            # every later fix is judged.
+            lat, lon = _natal_anchor(natal)
+            natal["left"] = any(
+                haversine_m(lat, lon, held_lat, held_lon) > radius
+                for held_lat, held_lon in zip(natal["lats"], natal["lons"])
+            )
+            return
+        lat, lon = _natal_anchor(natal)
+        natal["left"] = haversine_m(lat, lon, fix.lat, fix.lon) > radius
+
+    def _context(
+        self, state: dict, lat: float, lon: float, time: datetime
+    ) -> str | None:
+        """The natal-nest context for an alert, if it applies.
+
+        Args:
+            state: This detector's state for the deployment.
+            lat: Latitude of the alerted cluster's centre.
+            lon: Longitude of the alerted cluster's centre.
+            time: The alert's evidence time.
+
+        Returns:
+            str | None: ``NATAL_NEST`` if the bird has never left where its
+            track began, or is back within the radius in its first
+            ``days``; otherwise None.
+        """
+        natal = state.get("natal")
+        if natal is None:
+            return None
+        if not natal["left"]:
+            return NATAL_NEST
+        settings = self.config.natal
+        young = time - datetime.fromisoformat(natal["first"]) < timedelta(
+            days=settings.days
+        )
+        anchor_lat, anchor_lon = _natal_anchor(natal)
+        near = haversine_m(anchor_lat, anchor_lon, lat, lon) <= settings.radius_m
+        return NATAL_NEST if young and near else None
 
     def _fits(self, state: dict, fix: Fix) -> bool:
         """Whether ``fix`` stays with the current cluster.
@@ -278,13 +374,32 @@ class MortalityDetector:
         lon = cluster["sum_lon"] / cluster["n"]
         if self.config.leave_radius_m is not None:
             state["anchor"] = [lat, lon]
+        context = self._context(state, lat, lon, last)
+        if context == NATAL_NEST:
+            headline = "Stationary at natal nest: check"
+            likely = "Likely a nestling or a young bird back at its nest"
+        else:
+            headline = "Stationary: check"
+            likely = "Often rest"
         # No closing full stop: potential_death joins this message to the
         # gap's with ". ".
         message = (
-            f"Stationary: check. No movement beyond "
+            f"{headline}. No movement beyond "
             f"{self.config.max_extent_m:.0f} m for "
             f"{(last - start) / timedelta(hours=1):.0f} h ({cluster['n']} fixes) "
             f"near {lat:.5f}, {lon:.5f}; still since {start:%Y-%m-%d %H:%M} UTC. "
-            f"Often rest; could be a death or a dropped tag"
+            f"{likely}; could be a death or a dropped tag"
         )
-        return [Alert(deployment_id, self.name, last, message)]
+        return [Alert(deployment_id, self.name, last, message, context=context)]
+
+
+def _natal_anchor(natal: dict) -> tuple[float, float]:
+    """Where a track began: the median of its first fixes held so far.
+
+    Args:
+        natal: The detector's ``natal`` state, holding at least one fix.
+
+    Returns:
+        tuple[float, float]: Latitude and longitude.
+    """
+    return statistics.median(natal["lats"]), statistics.median(natal["lons"])

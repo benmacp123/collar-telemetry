@@ -96,6 +96,16 @@ upload_margin_hours = 36.0
 "Loxodonta africana" = 12.0
 "Ciconia ciconia" = 24.0
 
+# Step 3.1 (a): watch alerts at the natal nest are marked "natal_nest", not
+# dropped (6 true against 310 false on stork tuning data; 6 deaths are caught
+# only there). A taxon missing here has the context off.
+[thresholds.mortality_natal]
+days = 365
+anchor_fixes = 24
+
+[thresholds.mortality_natal.radius_m]
+"Ciconia ciconia" = 500.0
+
 # The settings `make sweep` tries. The mortality and gap detectors do not affect
 # each other, so each is swept on its own. Out to 120 h and 300 m so the grid
 # covers the longer windows a precision target might push towards.

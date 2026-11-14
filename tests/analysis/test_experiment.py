@@ -170,6 +170,21 @@ def test_quoted_thresholds_match_what_the_detectors_run():
     assert UPLOAD_MARGIN == timedelta(hours=quoted["upload_margin_hours"])
 
 
+def test_quoted_natal_nest_settings_match_what_the_detectors_run():
+    """Every taxon's natal radius, and the shared natal settings, match the
+    core; a taxon the file leaves out has the context off."""
+    quoted = experiment().thresholds["mortality_natal"]
+    for taxon, profile in PROFILES.items():
+        natal = profile.mortality.natal
+        if taxon not in quoted["radius_m"]:
+            assert natal is None
+            continue
+        assert natal.radius_m == quoted["radius_m"][taxon]
+        assert natal.days == quoted["days"]
+        assert natal.anchor_fixes == quoted["anchor_fixes"]
+    assert quoted["radius_m"], "no taxon has the natal context on"
+
+
 def test_only_unseen_held_out_sets_are_fresh():
     """Stork scoring populations are fresh; tuning, seen and unsplit sets
     are not."""

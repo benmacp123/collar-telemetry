@@ -77,7 +77,26 @@
             }
           }
         }
-      ]
+      ],
+      "context": {
+        "animal_months": 1378.3,
+        "watch": 742,
+        "at_natal_nest": 173,
+        "per_animal_month_all": 0.538,
+        "per_animal_month_without_nest": 0.413,
+        "labelled": {
+          "natal_nest": {
+            "true": 3,
+            "false": 169
+          },
+          "other": {
+            "true": 47,
+            "false": 522
+          }
+        },
+        "deaths_alerted": 50,
+        "deaths_only_at_nest": 3
+      }
     },
     {
       "study": "storks-bavaria",
@@ -155,7 +174,26 @@
             }
           }
         }
-      ]
+      ],
+      "context": {
+        "animal_months": 1476.2,
+        "watch": 567,
+        "at_natal_nest": 155,
+        "per_animal_month_all": 0.384,
+        "per_animal_month_without_nest": 0.279,
+        "labelled": {
+          "natal_nest": {
+            "true": 3,
+            "false": 141
+          },
+          "other": {
+            "true": 28,
+            "false": 361
+          }
+        },
+        "deaths_alerted": 29,
+        "deaths_only_at_nest": 3
+      }
     }
   ]
 }

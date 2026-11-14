@@ -50,6 +50,16 @@ collar to go quiet). The tier follows from the detector, so stored
 incidents cannot disagree with the rule. The detector keeps the id
 ``mortality`` so recorded outputs stay comparable.
 
+An incident may also carry a **context**: what the detector knew about
+where the animal was when it opened. So far only ``NATAL_NEST``, set by the
+mortality detector on a species with a natal radius (white storks: a
+nestling before it first leaves, or a first-year bird back at its nest).
+Such an alert is still raised and stays watch-tier, but it is marked so
+it can be shown and counted apart: nest-zone alerts are a quarter of the
+stork tuning false alerts and few true ones (``results/fledging/``).
+Context is copied from the opening alert and kept through reopens; it is
+written to dicts only when set, so outputs without it are unchanged.
+
 Incidents carry two clocks. ``opened_at`` and ``resolved_at`` are evidence
 times (the fix or tick behind the transition); ``raised_at`` and
 ``resolve_raised_at`` are when the transition was processed (replay clock
@@ -74,6 +84,7 @@ RESOLVED = "resolved"
 LATE_FIX = "late_fix"
 WATCH = "watch"
 ESCALATED = "escalated"
+NATAL_NEST = "natal_nest"
 # Only rules backed by evidence beyond stillness belong here: stillness
 # alone tops out at a few per cent precision on the vulture data.
 ESCALATED_DETECTORS = frozenset({POTENTIAL_DEATH})
@@ -105,6 +116,9 @@ class Alert:
         status: ``OPEN`` or ``RESOLVED``.
         reason: Why a resolve happened (for example ``moved``); None for an
             open.
+        context: Where the animal was when an open was raised (so far
+            only ``NATAL_NEST``); None if nothing is known or for a
+            resolve.
     """
 
     deployment_id: str
@@ -113,14 +127,16 @@ class Alert:
     message: str
     status: str = OPEN
     reason: str | None = None
+    context: str | None = None
 
     def to_dict(self) -> dict:
         """JSON-ready form, for alert files and queues.
 
         Returns:
-            dict: The alert's fields, with the time as ISO 8601 text.
+            dict: The alert's fields, with the time as ISO 8601 text;
+            ``context`` only when set.
         """
-        return {
+        data = {
             "deployment_id": self.deployment_id,
             "detector": self.detector,
             "time": self.time.isoformat(),
@@ -128,6 +144,9 @@ class Alert:
             "status": self.status,
             "reason": self.reason,
         }
+        if self.context is not None:
+            data["context"] = self.context
+        return data
 
 
 @dataclass(frozen=True)
@@ -150,6 +169,7 @@ class Incident:
         raised_at: Processing time the first open was raised, or None if
             the caller gave no clock.
         resolve_raised_at: Processing time of the final resolve, or None.
+        context: The opening alert's context, or None.
     """
 
     incident_id: str
@@ -164,6 +184,7 @@ class Incident:
     flaps: int = 0
     raised_at: datetime | None = None
     resolve_raised_at: datetime | None = None
+    context: str | None = None
 
     @property
     def tier(self) -> str:
@@ -179,9 +200,9 @@ class Incident:
 
         Returns:
             dict: The incident's fields, with times as ISO 8601 text, and
-            its tier.
+            its tier; ``context`` only when set.
         """
-        return {
+        data = {
             "incident_id": self.incident_id,
             "deployment_id": self.deployment_id,
             "detector": self.detector,
@@ -196,6 +217,9 @@ class Incident:
             "raised_at": _iso(self.raised_at),
             "resolve_raised_at": _iso(self.resolve_raised_at),
         }
+        if self.context is not None:
+            data["context"] = self.context
+        return data
 
     @classmethod
     def from_dict(cls, data: dict) -> "Incident":
@@ -203,7 +227,8 @@ class Incident:
 
         Args:
             data: A dict produced by ``Incident.to_dict``; extra keys
-                (``tier``, which is derived) are ignored.
+                (``tier``, which is derived) are ignored, and a missing
+                ``context`` means none.
 
         Returns:
             Incident: The equivalent incident.
@@ -221,6 +246,7 @@ class Incident:
             flaps=data["flaps"],
             raised_at=_from_iso(data["raised_at"]),
             resolve_raised_at=_from_iso(data["resolve_raised_at"]),
+            context=data.get("context"),
         )
 
 
@@ -418,6 +444,7 @@ class AlertLifecycle:
             opened_at=alert.time,
             message=alert.message,
             raised_at=now,
+            context=alert.context,
         )
         state["open"][alert.detector] = incident.to_dict()
         return [incident]

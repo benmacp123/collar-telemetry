@@ -35,7 +35,7 @@ from dataclasses import dataclass, field
 from datetime import timedelta
 
 from telemetry.core.cleaning import CleaningConfig
-from telemetry.core.detectors.mortality import MortalityConfig
+from telemetry.core.detectors.mortality import MortalityConfig, NatalConfig
 from telemetry.core.detectors.movement import MovementConfig
 
 
@@ -138,17 +138,23 @@ PROFILES: dict[str, SpeciesProfile] = {
         # impossible readings above (up to 478 m/s). 35 m/s sits just
         # over the 99.99th percentile; the fixes are an hour apart, so
         # implied speeds average far below any real top speed.
-        # Mortality window, provisional: the 24 h default, not yet chosen.
-        # Almost every SW Germany bird was tagged as a nestling and sits in
-        # the nest for weeks, so the window and the handling of that period
-        # are to be set on the tuning populations (make stillness, make
-        # fledging) before any held-out population is scored.
+        # Mortality window, provisional: the 24 h default, not yet chosen
+        # (step 3.1 (c) sweeps it on the tuning populations).
+        # Natal nest, provisional, chosen on the tuning populations after
+        # seeing them (make bouts, make fledging): almost every bird was
+        # tagged as a nestling, and nestlings before first leaving plus
+        # first-year returns within 500 m of the nest hold 36-49% of living
+        # still bouts past 24 h. Alerts there are marked, not dropped
+        # (alerts.py, "context"); 500 m and 365 days are the bout classes'
+        # own cut-offs.
         # Movement floor, provisional: the vultures' 10 km in 3 h, as
         # storks also travel on the wing and migrate; unchecked.
         SpeciesProfile(
             "Ciconia ciconia",
             35.0,
-            MortalityConfig(window=timedelta(hours=24)),
+            MortalityConfig(
+                window=timedelta(hours=24), natal=NatalConfig(radius_m=500.0)
+            ),
             MovementConfig(min_displacement_m=10_000.0),
         ),
     )

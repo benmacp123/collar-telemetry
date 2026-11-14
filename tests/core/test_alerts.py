@@ -7,6 +7,7 @@ from telemetry.core.alerts import (
     ESCALATED,
     POTENTIAL_DEATH,
     LATE_FIX,
+    NATAL_NEST,
     WATCH,
     OPEN,
     RESOLVED,
@@ -264,3 +265,37 @@ def test_tier_is_saved_and_derived_on_load():
         saved = json.loads(json.dumps(event.to_dict()))
         assert saved["tier"] == event.tier
         assert Incident.from_dict(saved).tier == event.tier
+
+
+def test_context_passes_from_alert_to_incident_and_survives_a_reopen():
+    """The opening alert's context is the incident's, through a flap and a
+    save, and the tier is unchanged."""
+    life, state = lifecycle(mortality=48), {}
+    nest = Alert("A", "mortality", START, "open", context=NATAL_NEST)
+    [first] = life.apply(state, [nest])
+    life.apply(state, [resolved(10)])
+    [back] = life.apply(state, [opened(40)])
+    assert first.context == back.context == NATAL_NEST
+    assert first.tier == WATCH
+    saved = json.loads(json.dumps(back.to_dict()))
+    assert saved["context"] == NATAL_NEST
+    assert Incident.from_dict(saved) == back
+
+
+def test_incidents_without_context_save_as_before():
+    """No ``context`` key is written when there is none, so older outputs
+    are unchanged, and older saves load with none."""
+    life, state = lifecycle(), {}
+    [incident] = life.apply(state, [opened(0)])
+    saved = incident.to_dict()
+    assert "context" not in saved
+    assert Incident.from_dict(saved).context is None
+
+
+def test_potential_death_does_not_take_the_nest_context():
+    """Escalation rests on its own evidence, so it is not marked."""
+    life, state = lifecycle(), {}
+    nest = Alert("A", "mortality", START, "open", context=NATAL_NEST)
+    events = life.apply(state, [nest, opened(5, "gap")])
+    [escalated] = [e for e in events if e.detector == POTENTIAL_DEATH]
+    assert escalated.context is None

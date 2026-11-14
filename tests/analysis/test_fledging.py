@@ -1,9 +1,16 @@
 """Tests for the first-departure split on hand-built tracks."""
 
+from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 
-from telemetry.analysis.fledging import first_departure, markdown, measure
-from telemetry.core.alerts import Incident
+from telemetry.analysis.evaluation import ALIVE, AMBIGUOUS, DEAD, TUNING, Truth
+from telemetry.analysis.fledging import (
+    context_split,
+    first_departure,
+    markdown,
+    measure,
+)
+from telemetry.core.alerts import MORTALITY, NATAL_NEST, Incident
 from telemetry.core.fixes import Fix
 from telemetry.core.geo import offset
 
@@ -85,9 +92,70 @@ def test_measure_splits_alerts_and_time_at_departure():
 
 
 def test_markdown_has_a_row_per_population_radius_and_alert():
-    """The report lists every measured radius and detector."""
+    """The report lists every measured radius and detector, and the
+    natal-nest split."""
     result = measure(track("A", 240, 480), [incident("A", "gap", 5)], 500.0, MONTH)
-    text = markdown([{"study": "s", "title": "Pop", "radii": [result]}], "gsm")
+    split = context_split([truth("A", ALIVE)], [], MONTH)
+    text = markdown(
+        [{"study": "s", "title": "Pop", "radii": [result], "context": split}], "gsm"
+    )
     assert "| Pop | 500 | 1 | 0 |" in text
     assert "| Pop | 500 | gap | 1 | 0 |" in text
     assert "`gsm` replay" in text
+    assert "| Pop | 0 | 0 | 0.0 | 0.0 | 0 / 0 | 0 / 0 | 0 (0) |" in text
+
+
+def truth(deployment_id, label, died_at_hour=None):
+    """A bird tracked for 30 days, dead from ``died_at_hour`` if given."""
+    still = START + (died_at_hour if died_at_hour is not None else 720) * HOUR
+    return Truth(
+        deployment_id,
+        "Ciconia ciconia",
+        label,
+        TUNING,
+        START,
+        START + 720 * HOUR,
+        still,
+        still,
+        timedelta(hours=24),
+    )
+
+
+def watch(deployment_id, hour, context=None, resolved_hour=None):
+    """A mortality incident opened at ``hour``, optionally resolved."""
+    base = incident(deployment_id, MORTALITY, hour)
+    return replace(
+        base,
+        context=context,
+        resolved_at=None if resolved_hour is None else START + resolved_hour * HOUR,
+    )
+
+
+def test_context_split_counts_load_and_rightness_on_each_side():
+    """Marked alerts are counted apart, true and false on each side, and a
+    death alerted only at the nest is counted as the marking's cost."""
+    truths = [
+        truth("nestling-dead", DEAD, died_at_hour=100),
+        truth("adult-dead", DEAD, died_at_hour=400),
+        truth("alive", ALIVE),
+        truth("unclear", AMBIGUOUS, died_at_hour=10),
+    ]
+    incidents = [
+        watch("nestling-dead", 120, NATAL_NEST),
+        watch("adult-dead", 50, NATAL_NEST, resolved_hour=60),
+        watch("adult-dead", 420),
+        watch("alive", 30, NATAL_NEST, resolved_hour=40),
+        watch("alive", 300, resolved_hour=330),
+        watch("unclear", 20, NATAL_NEST),
+        incident("alive", "gap", 500),
+    ]
+    split = context_split(truths, incidents, MONTH)
+    assert split["animal_months"] == 4.0
+    assert split["watch"] == 6 and split["at_natal_nest"] == 4
+    assert split["per_animal_month_all"] == 1.5
+    assert split["per_animal_month_without_nest"] == 0.5
+    assert split["labelled"] == {
+        "natal_nest": {"true": 1, "false": 2},
+        "other": {"true": 1, "false": 1},
+    }
+    assert split["deaths_alerted"] == 2 and split["deaths_only_at_nest"] == 1

@@ -29,3 +29,18 @@ or false: no outcome labels are used here.
 | White stork, Bavaria | 2000 | mortality | 136 | 431 | 1.472 | 0.311 | 24.0% |
 | White stork, Bavaria | 2000 | potential_death | 23 | 48 | 0.249 | 0.035 | 32.4% |
 | White stork, Bavaria | 2000 | gap | 27 | 580 | 0.292 | 0.419 | 4.4% |
+
+## Watch alerts marked at the natal nest
+
+The mortality detector marks a watch alert `natal_nest` when the bird
+has never left where its track began, or is back within 500 m of it in
+its first year (`telemetry.core.detectors.mortality`). Marked alerts are
+still raised; this table counts them apart. True and false use the
+labels, on birds labelled dead or alive only. *Deaths only at the nest*
+are dead birds whose every true alert was marked: they are the cost of
+anyone ignoring marked alerts.
+
+| Population | Watch alerts | At natal nest | Per animal-month, all | Per animal-month, unmarked | At nest, true / false | Elsewhere, true / false | Deaths only at the nest (of alerted) |
+|---|---|---|---|---|---|---|---|
+| White stork, SW Germany | 742 | 173 | 0.538 | 0.413 | 3 / 169 | 47 / 522 | 3 (50) |
+| White stork, Bavaria | 567 | 155 | 0.384 | 0.279 | 3 / 141 | 28 / 361 | 3 (29) |

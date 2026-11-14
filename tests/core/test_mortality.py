@@ -10,9 +10,11 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
+from telemetry.core.alerts import NATAL_NEST
 from telemetry.core.detectors.mortality import (
     MortalityConfig,
     MortalityDetector,
+    NatalConfig,
     extent,
     extent_with,
     new_cluster,
@@ -264,3 +266,118 @@ def test_a_short_drag_stays_one_incident():
     ]
     assert len({e.incident_id for e in events}) == 1
     assert events[-1].opened_at == at(24)
+
+
+NEST = NatalConfig(radius_m=500.0, days=30, anchor_fixes=24)
+
+
+def still_north(hours, north_m):
+    """Still hourly fixes about ``north_m`` metres north of the start."""
+    return [
+        Fix(f.deployment_id, f.timestamp, f.lat + north_m / 111_000, f.lon)
+        for f in still(hours, seed=hours[0])
+    ]
+
+
+def natal_alerts(fixes, natal=NEST):
+    """Feed ``fixes`` to a detector with the natal context; return its opens."""
+    detector = MortalityDetector(MortalityConfig(natal=natal))
+    return [a for a in feed(detector, {}, fixes) if a.status != "resolved"]
+
+
+def test_nestling_that_never_left_is_marked_at_natal_nest():
+    """A bird still where its track began alerts with the natal context and
+    says so in the message."""
+    [alert] = natal_alerts(still(range(30)))
+    assert alert.context == NATAL_NEST
+    assert alert.message.startswith("Stationary at natal nest: check.")
+    assert "still since" in alert.message
+
+
+def test_stillness_away_from_the_nest_has_no_context():
+    """After leaving, stillness 5 km away is an ordinary watch alert."""
+    fixes = still(range(30)) + moving(range(30, 36)) + still_north(range(36, 70), 5_000)
+    alerts = natal_alerts(fixes)
+    assert [a.context for a in alerts] == [NATAL_NEST, None]
+    assert alerts[-1].message.startswith("Stationary: check.")
+
+
+def test_return_to_the_nest_in_the_first_days_is_marked():
+    """A young bird back within the radius of the nest is marked again."""
+    fixes = (
+        still(range(30))
+        + still_north(range(30, 40), 3_000)
+        + still_north(range(40, 80), 200)
+    )
+    assert [a.context for a in natal_alerts(fixes)] == [NATAL_NEST, NATAL_NEST]
+
+
+def test_return_after_the_natal_days_is_not_marked():
+    """Back at the nest after ``days`` (an adult breeding there) is ordinary."""
+    late = 31 * 24
+    fixes = (
+        still(range(30))
+        + still_north(range(30, 40), 3_000)
+        + still_north(range(late, late + 40), 200)
+    )
+    assert [a.context for a in natal_alerts(fixes)] == [NATAL_NEST, None]
+
+
+def test_a_stray_first_fix_does_not_count_as_leaving():
+    """One stray fix 2 km off among the first fixes neither moves the anchor
+    nor marks the bird as gone."""
+    [first, *rest] = still(range(30))
+    stray = Fix(first.deployment_id, first.timestamp, first.lat + 0.018, first.lon)
+    [alert] = natal_alerts([stray] + rest)
+    assert alert.context == NATAL_NEST
+
+
+def test_leaving_within_the_anchor_fixes_still_counts():
+    """A bird that goes beyond the radius while the anchor is being built
+    has left, judged once the anchor is complete."""
+    fixes = (
+        still(range(10))
+        + still_north(range(10, 30), 3_000)
+        + still_north(range(30, 70), 3_000)
+    )
+    alerts = natal_alerts(fixes, NatalConfig(radius_m=500.0, anchor_fixes=12))
+    assert [a.context for a in alerts] == [None]
+
+
+def test_a_trip_and_return_inside_the_anchor_fixes_counts_as_leaving():
+    """A bird that went beyond the radius and came back before the anchor
+    was complete has still left; with no natal days, it is not marked."""
+    fixes = (
+        still(range(4)) + still_north(range(4, 7), 3_000) + still(range(7, 60), seed=7)
+    )
+    alerts = natal_alerts(fixes, NatalConfig(radius_m=500.0, days=0, anchor_fixes=12))
+    assert [a.context for a in alerts] == [None]
+
+
+def test_natal_context_is_off_by_default():
+    """Without natal settings the detector keeps no natal state and marks
+    nothing."""
+    detector, state = MortalityDetector(), {}
+    [alert] = feed(detector, state, still(range(30)))
+    assert alert.context is None and "natal" not in state
+    assert "context" not in alert.to_dict()
+
+
+def test_natal_state_round_trips_through_json_in_a_stream():
+    """Saving and resuming mid-anchor gives the same contexts."""
+    config = MortalityConfig(natal=NEST)
+    fixes = still(range(10)) + moving(range(10, 16)) + still_north(range(16, 60), 9_000)
+
+    def run(stream, part):
+        """Ingest ``part`` into ``stream``; return its incidents."""
+        return [incident for fix in part for incident in stream.ingest(fix)]
+
+    expected = run(FixStream([MortalityDetector(config)]), fixes)
+    first = FixStream([MortalityDetector(config)])
+    incidents = run(first, fixes[:12])
+    resumed = FixStream.from_dict(
+        json.loads(json.dumps(first.to_dict())), [MortalityDetector(config)]
+    )
+    incidents += run(resumed, fixes[12:])
+    assert incidents == expected
+    assert [i.context for i in expected] == [None]
