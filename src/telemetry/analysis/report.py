@@ -1900,8 +1900,8 @@ def stillness_markdown(sets: list[dict]) -> str:
         "only: every tuning bird wears an Argos PTT tag and every solar "
         "GPS/GSM tag is in the held-out set, so tag types cannot be compared "
         "here. Storks are the two tuning populations, from hourly fixes; their "
-        "deaths are taken from the deployment end type alone until the label "
-        "review, so their carcass periods are provisional.",
+        "deaths are taken from the evidence-quoted labels in `data/labels.csv`, "
+        "as their deployment end types cannot be trusted.",
         "",
         "| Set | Group | Tag | Deployments | Animal-months | Window | "
         + " | ".join(f"> {h:g} h" for h in thresholds)

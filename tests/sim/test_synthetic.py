@@ -200,7 +200,7 @@ def test_an_injected_death_is_one_incident():
     """End to end: a synthetic carcass gives one incident, alerted after the window.
 
     Uses a 200 m box: with observed carcass scatter the provisional 100 m box
-    splits 15-42% of deaths into several incidents (see PLAN.md, Phase 2),
+    splits 15-42% of deaths into several incidents,
     which is a tuning question, not what this test protects.
     """
     fixes = walk(24 * 20)

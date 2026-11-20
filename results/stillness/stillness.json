@@ -1668,28 +1668,28 @@
           "beyond": [
             {
               "hours": 12,
-              "count": 9487,
-              "per_animal_month": 6.4265
+              "count": 9483,
+              "per_animal_month": 6.4238
             },
             {
               "hours": 24,
-              "count": 914,
-              "per_animal_month": 0.6191
+              "count": 911,
+              "per_animal_month": 0.6171
             },
             {
               "hours": 36,
-              "count": 678,
-              "per_animal_month": 0.4593
+              "count": 676,
+              "per_animal_month": 0.4579
             },
             {
               "hours": 48,
-              "count": 464,
-              "per_animal_month": 0.3143
+              "count": 463,
+              "per_animal_month": 0.3136
             },
             {
               "hours": 72,
-              "count": 335,
-              "per_animal_month": 0.2269
+              "count": 334,
+              "per_animal_month": 0.2263
             },
             {
               "hours": 168,
@@ -1699,39 +1699,39 @@
           ],
           "beyond_window": {
             "hours": 24.0,
-            "count": 914,
-            "per_animal_month": 0.6191
+            "count": 911,
+            "per_animal_month": 0.6171
           },
           "curve": [
             {
               "hours": 12,
-              "count": 9487,
-              "per_animal_month": 6.4265
+              "count": 9483,
+              "per_animal_month": 6.4238
             },
             {
               "hours": 18,
-              "count": 1723,
-              "per_animal_month": 1.1672
+              "count": 1720,
+              "per_animal_month": 1.1651
             },
             {
               "hours": 24,
-              "count": 914,
-              "per_animal_month": 0.6191
+              "count": 911,
+              "per_animal_month": 0.6171
             },
             {
               "hours": 36,
-              "count": 678,
-              "per_animal_month": 0.4593
+              "count": 676,
+              "per_animal_month": 0.4579
             },
             {
               "hours": 48,
-              "count": 464,
-              "per_animal_month": 0.3143
+              "count": 463,
+              "per_animal_month": 0.3136
             },
             {
               "hours": 72,
-              "count": 335,
-              "per_animal_month": 0.2269
+              "count": 334,
+              "per_animal_month": 0.2263
             },
             {
               "hours": 96,
@@ -2022,28 +2022,28 @@
           "beyond": [
             {
               "hours": 12,
-              "count": 838,
-              "per_animal_month": 8.5636
+              "count": 837,
+              "per_animal_month": 8.5534
             },
             {
               "hours": 24,
-              "count": 80,
-              "per_animal_month": 0.8175
+              "count": 79,
+              "per_animal_month": 0.8073
             },
             {
               "hours": 36,
-              "count": 48,
-              "per_animal_month": 0.4905
+              "count": 47,
+              "per_animal_month": 0.4803
             },
             {
               "hours": 48,
-              "count": 31,
-              "per_animal_month": 0.3168
+              "count": 30,
+              "per_animal_month": 0.3066
             },
             {
               "hours": 72,
-              "count": 19,
-              "per_animal_month": 0.1942
+              "count": 18,
+              "per_animal_month": 0.1839
             },
             {
               "hours": 168,
@@ -2053,39 +2053,39 @@
           ],
           "beyond_window": {
             "hours": 24.0,
-            "count": 80,
-            "per_animal_month": 0.8175
+            "count": 79,
+            "per_animal_month": 0.8073
           },
           "curve": [
             {
               "hours": 12,
-              "count": 838,
-              "per_animal_month": 8.5636
+              "count": 837,
+              "per_animal_month": 8.5534
             },
             {
               "hours": 18,
-              "count": 152,
-              "per_animal_month": 1.5533
+              "count": 151,
+              "per_animal_month": 1.5431
             },
             {
               "hours": 24,
-              "count": 80,
-              "per_animal_month": 0.8175
+              "count": 79,
+              "per_animal_month": 0.8073
             },
             {
               "hours": 36,
-              "count": 48,
-              "per_animal_month": 0.4905
+              "count": 47,
+              "per_animal_month": 0.4803
             },
             {
               "hours": 48,
-              "count": 31,
-              "per_animal_month": 0.3168
+              "count": 30,
+              "per_animal_month": 0.3066
             },
             {
               "hours": 72,
-              "count": 19,
-              "per_animal_month": 0.1942
+              "count": 18,
+              "per_animal_month": 0.1839
             },
             {
               "hours": 96,
@@ -2140,8 +2140,8 @@
           "beyond": [
             {
               "hours": 12,
-              "count": 2223,
-              "per_animal_month": 7.019
+              "count": 2222,
+              "per_animal_month": 7.0158
             },
             {
               "hours": 24,
@@ -2177,8 +2177,8 @@
           "curve": [
             {
               "hours": 12,
-              "count": 2223,
-              "per_animal_month": 7.019
+              "count": 2222,
+              "per_animal_month": 7.0158
             },
             {
               "hours": 18,
@@ -2494,18 +2494,18 @@
           "beyond": [
             {
               "hours": 12,
-              "count": 3932,
-              "per_animal_month": 8.0238
+              "count": 3930,
+              "per_animal_month": 8.0197
             },
             {
               "hours": 24,
-              "count": 330,
-              "per_animal_month": 0.6734
+              "count": 328,
+              "per_animal_month": 0.6693
             },
             {
               "hours": 36,
-              "count": 245,
-              "per_animal_month": 0.5
+              "count": 244,
+              "per_animal_month": 0.4979
             },
             {
               "hours": 48,
@@ -2525,29 +2525,29 @@
           ],
           "beyond_window": {
             "hours": 24.0,
-            "count": 330,
-            "per_animal_month": 0.6734
+            "count": 328,
+            "per_animal_month": 0.6693
           },
           "curve": [
             {
               "hours": 12,
-              "count": 3932,
-              "per_animal_month": 8.0238
+              "count": 3930,
+              "per_animal_month": 8.0197
             },
             {
               "hours": 18,
-              "count": 659,
-              "per_animal_month": 1.3448
+              "count": 657,
+              "per_animal_month": 1.3407
             },
             {
               "hours": 24,
-              "count": 330,
-              "per_animal_month": 0.6734
+              "count": 328,
+              "per_animal_month": 0.6693
             },
             {
               "hours": 36,
-              "count": 245,
-              "per_animal_month": 0.5
+              "count": 244,
+              "per_animal_month": 0.4979
             },
             {
               "hours": 48,
@@ -2717,8 +2717,35 @@
         }
       ],
       "carcasses": {
-        "hours": [],
-        "per_animal_month": 0.0
+        "hours": [
+          29.0,
+          35.0,
+          37.3,
+          48.0,
+          49.0,
+          56.0,
+          56.8,
+          63.0,
+          77.3,
+          100.0,
+          100.0,
+          107.2,
+          131.0,
+          175.0,
+          201.7,
+          205.0,
+          223.0,
+          233.0,
+          247.0,
+          292.0,
+          336.0,
+          385.0,
+          627.0,
+          1056.0,
+          1488.0,
+          3622.0
+        ],
+        "per_animal_month": 0.0176
       }
     }
   ]
