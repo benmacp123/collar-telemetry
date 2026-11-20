@@ -157,6 +157,8 @@ class Experiment:
         cues: The file's ``[cues]`` table, one entry per escalation cue.
         descriptive: The file's ``[descriptive]`` table: cut-offs used
             only to describe data, never by a detector or a score.
+        gates: The file's ``[gate]`` table: alert marks being chosen, each
+            with its decision rule.
         targets: Every target, in the file's order.
     """
 
@@ -185,6 +187,7 @@ class Experiment:
     precisions: tuple[float, ...]
     cues: dict
     descriptive: dict
+    gates: dict
     targets: tuple[Target, ...]
 
     def scoring_from(self, study: str) -> datetime | None:
@@ -356,5 +359,6 @@ def experiment() -> Experiment:
         precisions=tuple(arithmetic["precisions"]),
         cues=raw.get("cues", {}),
         descriptive=raw.get("descriptive", {}),
+        gates=raw.get("gate", {}),
         targets=tuple(_target(entry, animal_month) for entry in raw["targets"]),
     )

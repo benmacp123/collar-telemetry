@@ -4,7 +4,7 @@
 # `make help` lists them.
 
 .PHONY: help install setup test lint format format-check profile replay \
-	evaluate results score sweep sweep-storks stillness bouts fledging acceleration departure cloud-sizing cloud-moto lambda-requirements \
+	evaluate results score sweep sweep-storks stillness bouts fledging sparse-gate acceleration departure cloud-sizing cloud-moto lambda-requirements \
 	lambda-image cloud-local lambda-zip lock tf-check tf-fmt tf-plan \
 	tf-apply tf-output tf-destroy cloud-aws cloud-clock cloud-leftovers prices fetch-storks cloud-usage cloud-cost all
 
@@ -73,6 +73,9 @@ bouts: ## Stork long still bouts sorted by cause -> results/bouts/
 
 fledging: ## Stork alerts before and after leaving the nest -> results/fledging/
 	PYTHONPATH=src python scripts/fledging.py
+
+sparse-gate: ## Sparse-tag mark rule on the stork tuning populations -> results/sparse/
+	PYTHONPATH=src python scripts/sparse_gate.py
 
 acceleration: ## Stork acceleration cue, likelihood ratios -> results/acceleration/
 	PYTHONPATH=src python scripts/acceleration.py

@@ -154,6 +154,39 @@ load_excludes_context = ["natal_nest"]
 # window in both populations (26 h and 47.5 h at 24 h) and rises with the
 # window, since a longer window keeps only the long bouts.
 
+# Step 3.1 (f): a sparse-tag mark on stork watch alerts. Written on 2026-11-20
+# before any value below was measured. Already known when it was written:
+# tags fixing under 6 times a day hold 20-26% of living still bouts past a
+# week (results/bouts/), and carcass collars fix less often than their own
+# baseline after death (results/fixrate/), so the signal is the tag's rate
+# before the still run began, not inside it.
+#
+# Signal: fixes per day over the `baseline_days` before the still run's start
+# (the "still since" time the alert states), divided by the tracked days in
+# that span (from the bird's first fix if later). Fewer than
+# `min_baseline_days` tracked means no value, and the alert is not marked.
+# An alert whose value is below a threshold would be marked `sparse_tag`:
+# still raised, watch tier, counted apart (as `natal_nest` is).
+#
+# Decision rule: stork tuning populations only, each on its own, under the
+# storks' scenario, mortality window 24 h. Take the highest threshold in
+# `thresholds_per_day` at which no population has more than
+# `max_true_marked` true watch alerts on birds graded `found` newly marked
+# (not already `natal_nest`). Load without both marks, with a by-bird
+# interval, is reported, not chosen on (it already meets its target).
+# Deaths whose every true alert is marked are reported. If no threshold
+# meets the rule, no mark is added and the miss is reported.
+[gate.sparse_tag]
+baseline_days = 7
+min_baseline_days = 2
+thresholds_per_day = [2.0, 3.0, 4.0, 6.0, 8.0, 12.0]
+max_true_marked = 1
+found_grade = "found"
+# Result of the rule above, run once on 2026-11-20 (`make sparse-gate`,
+# results/sparse/SPARSE.md): no threshold meets it, so no mark is added.
+# Bavaria marks 2 true alerts on found birds already at 2 fixes a day, both
+# from one bird (a road kill); SW Germany meets it up to 8.
+
 # How far false alerts must fall for a precision target to be possible. At
 # base rate b and precision p, false alerts per animal-month can be at most
 # b * (1 - p) / p. 33% is the measured precision that about 5 true alerts need

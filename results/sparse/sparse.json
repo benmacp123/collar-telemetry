@@ -1,0 +1,258 @@
+{
+  "scenario": "gsm",
+  "gate": {
+    "baseline_days": 7,
+    "min_baseline_days": 2,
+    "thresholds_per_day": [
+      2.0,
+      3.0,
+      4.0,
+      6.0,
+      8.0,
+      12.0
+    ],
+    "max_true_marked": 1,
+    "found_grade": "found"
+  },
+  "populations": [
+    {
+      "study": "storks-sw-germany",
+      "title": "White stork, SW Germany",
+      "summary": {
+        "watch": 742,
+        "no_rate": 91,
+        "true": 50,
+        "false": 691,
+        "median_rate_true": 19.0,
+        "median_rate_false": 18.9
+      },
+      "rows": [
+        {
+          "threshold_per_day": null,
+          "newly_marked": 0,
+          "newly_marked_true": 0,
+          "newly_marked_true_found": 0,
+          "newly_marked_false": 0,
+          "unmarked": 569,
+          "load_unmarked": 0.413,
+          "load_unmarked_by_bird": [
+            0.309529,
+            0.503772
+          ],
+          "deaths_alerted": 50,
+          "deaths_only_marked": 3
+        },
+        {
+          "threshold_per_day": 2.0,
+          "newly_marked": 26,
+          "newly_marked_true": 2,
+          "newly_marked_true_found": 0,
+          "newly_marked_false": 24,
+          "unmarked": 543,
+          "load_unmarked": 0.394,
+          "load_unmarked_by_bird": [
+            0.291464,
+            0.482796
+          ],
+          "deaths_alerted": 50,
+          "deaths_only_marked": 5
+        },
+        {
+          "threshold_per_day": 3.0,
+          "newly_marked": 42,
+          "newly_marked_true": 2,
+          "newly_marked_true_found": 0,
+          "newly_marked_false": 40,
+          "unmarked": 527,
+          "load_unmarked": 0.382,
+          "load_unmarked_by_bird": [
+            0.285946,
+            0.462516
+          ],
+          "deaths_alerted": 50,
+          "deaths_only_marked": 5
+        },
+        {
+          "threshold_per_day": 4.0,
+          "newly_marked": 55,
+          "newly_marked_true": 2,
+          "newly_marked_true_found": 0,
+          "newly_marked_false": 53,
+          "unmarked": 514,
+          "load_unmarked": 0.373,
+          "load_unmarked_by_bird": [
+            0.27231,
+            0.45747
+          ],
+          "deaths_alerted": 50,
+          "deaths_only_marked": 5
+        },
+        {
+          "threshold_per_day": 6.0,
+          "newly_marked": 91,
+          "newly_marked_true": 4,
+          "newly_marked_true_found": 1,
+          "newly_marked_false": 87,
+          "unmarked": 478,
+          "load_unmarked": 0.347,
+          "load_unmarked_by_bird": [
+            0.246684,
+            0.435684
+          ],
+          "deaths_alerted": 50,
+          "deaths_only_marked": 7
+        },
+        {
+          "threshold_per_day": 8.0,
+          "newly_marked": 111,
+          "newly_marked_true": 4,
+          "newly_marked_true_found": 1,
+          "newly_marked_false": 107,
+          "unmarked": 458,
+          "load_unmarked": 0.332,
+          "load_unmarked_by_bird": [
+            0.235203,
+            0.422157
+          ],
+          "deaths_alerted": 50,
+          "deaths_only_marked": 7
+        },
+        {
+          "threshold_per_day": 12.0,
+          "newly_marked": 210,
+          "newly_marked_true": 7,
+          "newly_marked_true_found": 2,
+          "newly_marked_false": 203,
+          "unmarked": 359,
+          "load_unmarked": 0.26,
+          "load_unmarked_by_bird": [
+            0.188118,
+            0.317559
+          ],
+          "deaths_alerted": 50,
+          "deaths_only_marked": 10
+        }
+      ]
+    },
+    {
+      "study": "storks-bavaria",
+      "title": "White stork, Bavaria",
+      "summary": {
+        "watch": 567,
+        "no_rate": 89,
+        "true": 31,
+        "false": 502,
+        "median_rate_true": 18.8,
+        "median_rate_false": 18.9
+      },
+      "rows": [
+        {
+          "threshold_per_day": null,
+          "newly_marked": 0,
+          "newly_marked_true": 0,
+          "newly_marked_true_found": 0,
+          "newly_marked_false": 0,
+          "unmarked": 412,
+          "load_unmarked": 0.279,
+          "load_unmarked_by_bird": [
+            0.181749,
+            0.374338
+          ],
+          "deaths_alerted": 29,
+          "deaths_only_marked": 3
+        },
+        {
+          "threshold_per_day": 2.0,
+          "newly_marked": 36,
+          "newly_marked_true": 4,
+          "newly_marked_true_found": 2,
+          "newly_marked_false": 31,
+          "unmarked": 376,
+          "load_unmarked": 0.255,
+          "load_unmarked_by_bird": [
+            0.172364,
+            0.333845
+          ],
+          "deaths_alerted": 29,
+          "deaths_only_marked": 5
+        },
+        {
+          "threshold_per_day": 3.0,
+          "newly_marked": 104,
+          "newly_marked_true": 5,
+          "newly_marked_true_found": 3,
+          "newly_marked_false": 98,
+          "unmarked": 308,
+          "load_unmarked": 0.209,
+          "load_unmarked_by_bird": [
+            0.152792,
+            0.265133
+          ],
+          "deaths_alerted": 29,
+          "deaths_only_marked": 6
+        },
+        {
+          "threshold_per_day": 4.0,
+          "newly_marked": 109,
+          "newly_marked_true": 5,
+          "newly_marked_true_found": 3,
+          "newly_marked_false": 102,
+          "unmarked": 303,
+          "load_unmarked": 0.205,
+          "load_unmarked_by_bird": [
+            0.151006,
+            0.259561
+          ],
+          "deaths_alerted": 29,
+          "deaths_only_marked": 6
+        },
+        {
+          "threshold_per_day": 6.0,
+          "newly_marked": 120,
+          "newly_marked_true": 5,
+          "newly_marked_true_found": 3,
+          "newly_marked_false": 113,
+          "unmarked": 292,
+          "load_unmarked": 0.198,
+          "load_unmarked_by_bird": [
+            0.148971,
+            0.243942
+          ],
+          "deaths_alerted": 29,
+          "deaths_only_marked": 6
+        },
+        {
+          "threshold_per_day": 8.0,
+          "newly_marked": 127,
+          "newly_marked_true": 5,
+          "newly_marked_true_found": 3,
+          "newly_marked_false": 119,
+          "unmarked": 285,
+          "load_unmarked": 0.193,
+          "load_unmarked_by_bird": [
+            0.145061,
+            0.23829
+          ],
+          "deaths_alerted": 29,
+          "deaths_only_marked": 6
+        },
+        {
+          "threshold_per_day": 12.0,
+          "newly_marked": 169,
+          "newly_marked_true": 7,
+          "newly_marked_true_found": 3,
+          "newly_marked_false": 146,
+          "unmarked": 243,
+          "load_unmarked": 0.165,
+          "load_unmarked_by_bird": [
+            0.116569,
+            0.210408
+          ],
+          "deaths_alerted": 29,
+          "deaths_only_marked": 8
+        }
+      ]
+    }
+  ],
+  "choice": null
+}
