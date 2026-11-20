@@ -77,6 +77,42 @@ def cluster_bootstrap(
     return [round(float(low), 6), round(float(high), 6)]
 
 
+def rate_bootstrap(
+    counts: list[tuple[int, float]],
+    resamples: int = BOOTSTRAP_RESAMPLES,
+    seed: int = BOOTSTRAP_SEED,
+) -> list[float] | None:
+    """95% percentile bootstrap of a pooled rate, resampling clusters.
+
+    The rate counterpart of ``cluster_bootstrap``: each resample draws as
+    many clusters as there are, with replacement, and divides their pooled
+    events by their pooled exposure (for alert load, alerts over
+    animal-months). Resamples with no exposure are dropped.
+
+    Args:
+        counts: (events, exposure) per cluster (deployment), in a fixed
+            order.
+        resamples: Number of resamples.
+        seed: Seed for ``numpy.random.default_rng``.
+
+    Returns:
+        list[float] | None: The 2.5th and 97.5th percentiles to 0.000001,
+        or None if there is no exposure.
+    """
+    tally = np.array(counts, dtype=float).reshape(-1, 2)
+    if tally[:, 1].sum() == 0:
+        return None
+    rng = np.random.default_rng(seed)
+    picks = rng.integers(0, len(tally), (resamples, len(tally)))
+    events = tally[picks, 0].sum(axis=1)
+    exposure = tally[picks, 1].sum(axis=1)
+    rate = np.divide(
+        events, exposure, out=np.full(resamples, np.nan), where=exposure > 0
+    )
+    low, high = np.nanpercentile(rate, [2.5, 97.5])
+    return [round(float(low), 6), round(float(high), 6)]
+
+
 def ceiling(cases: int, false: int) -> float | None:
     """Precision of a detector that fires once on every case.
 

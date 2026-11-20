@@ -1,0 +1,472 @@
+{
+  "study": "storks",
+  "set": "tuning",
+  "scenario": "gsm",
+  "mark_hours": 106.1,
+  "populations": {
+    "storks-sw-germany": "White stork, SW Germany",
+    "storks-bavaria": "White stork, Bavaria"
+  },
+  "points": [
+    {
+      "window_hours": 24.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 742,
+          "chosen": 569,
+          "load_all": 0.538,
+          "load_chosen": 0.413,
+          "load_chosen_by_bird": [
+            0.309529,
+            0.503772
+          ],
+          "false": 691,
+          "never_resolved": 4,
+          "clear_median_hours": 26.0,
+          "carcass_deaths": 48,
+          "carcass_detected": 47,
+          "rate_at_mark": 0.979,
+          "precision": 0.067,
+          "precision_by_bird": [
+            0.042453,
+            0.114088
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 567,
+          "chosen": 412,
+          "load_all": 0.384,
+          "load_chosen": 0.279,
+          "load_chosen_by_bird": [
+            0.181749,
+            0.374338
+          ],
+          "false": 532,
+          "never_resolved": 2,
+          "clear_median_hours": 47.51,
+          "carcass_deaths": 26,
+          "carcass_detected": 26,
+          "rate_at_mark": 1.0,
+          "precision": 0.055,
+          "precision_by_bird": [
+            0.033914,
+            0.08906
+          ]
+        }
+      }
+    },
+    {
+      "window_hours": 30.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 628,
+          "chosen": 448,
+          "load_all": 0.456,
+          "load_chosen": 0.325,
+          "load_chosen_by_bird": [
+            0.23751,
+            0.412617
+          ],
+          "false": 579,
+          "never_resolved": 4,
+          "clear_median_hours": 31.0,
+          "carcass_deaths": 48,
+          "carcass_detected": 44,
+          "rate_at_mark": 0.917,
+          "precision": 0.077,
+          "precision_by_bird": [
+            0.048099,
+            0.127277
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 486,
+          "chosen": 333,
+          "load_all": 0.329,
+          "load_chosen": 0.226,
+          "load_chosen_by_bird": [
+            0.13852,
+            0.316246
+          ],
+          "false": 452,
+          "never_resolved": 0,
+          "clear_median_hours": 52.0,
+          "carcass_deaths": 26,
+          "carcass_detected": 25,
+          "rate_at_mark": 0.962,
+          "precision": 0.062,
+          "precision_by_bird": [
+            0.038009,
+            0.102721
+          ]
+        }
+      }
+    },
+    {
+      "window_hours": 36.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 580,
+          "chosen": 402,
+          "load_all": 0.421,
+          "load_chosen": 0.292,
+          "load_chosen_by_bird": [
+            0.21324,
+            0.377776
+          ],
+          "false": 533,
+          "never_resolved": 3,
+          "clear_median_hours": 33.95,
+          "carcass_deaths": 48,
+          "carcass_detected": 42,
+          "rate_at_mark": 0.875,
+          "precision": 0.079,
+          "precision_by_bird": [
+            0.050066,
+            0.129677
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 454,
+          "chosen": 303,
+          "load_all": 0.308,
+          "load_chosen": 0.205,
+          "load_chosen_by_bird": [
+            0.12239,
+            0.292115
+          ],
+          "false": 422,
+          "never_resolved": 0,
+          "clear_median_hours": 55.0,
+          "carcass_deaths": 26,
+          "carcass_detected": 23,
+          "rate_at_mark": 0.885,
+          "precision": 0.062,
+          "precision_by_bird": [
+            0.037102,
+            0.101352
+          ]
+        }
+      }
+    },
+    {
+      "window_hours": 42.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 501,
+          "chosen": 331,
+          "load_all": 0.363,
+          "load_chosen": 0.24,
+          "load_chosen_by_bird": [
+            0.171474,
+            0.321564
+          ],
+          "false": 459,
+          "never_resolved": 3,
+          "clear_median_hours": 46.25,
+          "carcass_deaths": 48,
+          "carcass_detected": 38,
+          "rate_at_mark": 0.792,
+          "precision": 0.082,
+          "precision_by_bird": [
+            0.051435,
+            0.133758
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 397,
+          "chosen": 246,
+          "load_all": 0.269,
+          "load_chosen": 0.167,
+          "load_chosen_by_bird": [
+            0.09298,
+            0.244024
+          ],
+          "false": 366,
+          "never_resolved": 0,
+          "clear_median_hours": 70.5,
+          "carcass_deaths": 26,
+          "carcass_detected": 23,
+          "rate_at_mark": 0.885,
+          "precision": 0.069,
+          "precision_by_bird": [
+            0.041161,
+            0.11157
+          ]
+        }
+      }
+    },
+    {
+      "window_hours": 48.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 408,
+          "chosen": 254,
+          "load_all": 0.296,
+          "load_chosen": 0.184,
+          "load_chosen_by_bird": [
+            0.13507,
+            0.248384
+          ],
+          "false": 366,
+          "never_resolved": 3,
+          "clear_median_hours": 75.0,
+          "carcass_deaths": 48,
+          "carcass_detected": 38,
+          "rate_at_mark": 0.792,
+          "precision": 0.101,
+          "precision_by_bird": [
+            0.063964,
+            0.158305
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 337,
+          "chosen": 197,
+          "load_all": 0.228,
+          "load_chosen": 0.133,
+          "load_chosen_by_bird": [
+            0.067245,
+            0.21073
+          ],
+          "false": 309,
+          "never_resolved": 0,
+          "clear_median_hours": 96.0,
+          "carcass_deaths": 26,
+          "carcass_detected": 21,
+          "rate_at_mark": 0.808,
+          "precision": 0.072,
+          "precision_by_bird": [
+            0.041024,
+            0.120624
+          ]
+        }
+      }
+    },
+    {
+      "window_hours": 60.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 355,
+          "chosen": 208,
+          "load_all": 0.258,
+          "load_chosen": 0.151,
+          "load_chosen_by_bird": [
+            0.10552,
+            0.215062
+          ],
+          "false": 313,
+          "never_resolved": 3,
+          "clear_median_hours": 95.84,
+          "carcass_deaths": 48,
+          "carcass_detected": 38,
+          "rate_at_mark": 0.792,
+          "precision": 0.116,
+          "precision_by_bird": [
+            0.072726,
+            0.179045
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 299,
+          "chosen": 172,
+          "load_all": 0.203,
+          "load_chosen": 0.117,
+          "load_chosen_by_bird": [
+            0.051384,
+            0.191349
+          ],
+          "false": 276,
+          "never_resolved": 0,
+          "clear_median_hours": 117.5,
+          "carcass_deaths": 26,
+          "carcass_detected": 18,
+          "rate_at_mark": 0.654,
+          "precision": 0.068,
+          "precision_by_bird": [
+            0.036362,
+            0.117905
+          ]
+        }
+      }
+    },
+    {
+      "window_hours": 72.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 287,
+          "chosen": 159,
+          "load_all": 0.208,
+          "load_chosen": 0.115,
+          "load_chosen_by_bird": [
+            0.075123,
+            0.173917
+          ],
+          "false": 249,
+          "never_resolved": 3,
+          "clear_median_hours": 166.5,
+          "carcass_deaths": 48,
+          "carcass_detected": 35,
+          "rate_at_mark": 0.729,
+          "precision": 0.129,
+          "precision_by_bird": [
+            0.079901,
+            0.200894
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 263,
+          "chosen": 146,
+          "load_all": 0.178,
+          "load_chosen": 0.099,
+          "load_chosen_by_bird": [
+            0.038866,
+            0.168552
+          ],
+          "false": 240,
+          "never_resolved": 0,
+          "clear_median_hours": 140.56,
+          "carcass_deaths": 26,
+          "carcass_detected": 18,
+          "rate_at_mark": 0.654,
+          "precision": 0.077,
+          "precision_by_bird": [
+            0.040871,
+            0.134618
+          ]
+        }
+      }
+    },
+    {
+      "window_hours": 96.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 223,
+          "chosen": 109,
+          "load_all": 0.162,
+          "load_chosen": 0.079,
+          "load_chosen_by_bird": [
+            0.050229,
+            0.116719
+          ],
+          "false": 195,
+          "never_resolved": 3,
+          "clear_median_hours": 258.12,
+          "carcass_deaths": 48,
+          "carcass_detected": 25,
+          "rate_at_mark": 0.458,
+          "precision": 0.122,
+          "precision_by_bird": [
+            0.073801,
+            0.185393
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 226,
+          "chosen": 120,
+          "load_all": 0.153,
+          "load_chosen": 0.081,
+          "load_chosen_by_bird": [
+            0.030384,
+            0.146683
+          ],
+          "false": 204,
+          "never_resolved": 0,
+          "clear_median_hours": 192.0,
+          "carcass_deaths": 26,
+          "carcass_detected": 17,
+          "rate_at_mark": 0.462,
+          "precision": 0.085,
+          "precision_by_bird": [
+            0.043954,
+            0.148392
+          ]
+        }
+      }
+    },
+    {
+      "window_hours": 120.0,
+      "populations": {
+        "storks-sw-germany": {
+          "deployments": 92,
+          "animal_months": 1378.3,
+          "watch": 198,
+          "chosen": 90,
+          "load_all": 0.144,
+          "load_chosen": 0.065,
+          "load_chosen_by_bird": [
+            0.037949,
+            0.098273
+          ],
+          "false": 174,
+          "never_resolved": 3,
+          "clear_median_hours": 282.01,
+          "carcass_deaths": 48,
+          "carcass_detected": 22,
+          "rate_at_mark": 0.146,
+          "precision": 0.121,
+          "precision_by_bird": [
+            0.073469,
+            0.182927
+          ]
+        },
+        "storks-bavaria": {
+          "deployments": 90,
+          "animal_months": 1476.2,
+          "watch": 188,
+          "chosen": 88,
+          "load_all": 0.127,
+          "load_chosen": 0.06,
+          "load_chosen_by_bird": [
+            0.018763,
+            0.111593
+          ],
+          "false": 172,
+          "never_resolved": 0,
+          "clear_median_hours": 196.75,
+          "carcass_deaths": 26,
+          "carcass_detected": 14,
+          "rate_at_mark": 0.231,
+          "precision": 0.075,
+          "precision_by_bird": [
+            0.036528,
+            0.133803
+          ]
+        }
+      }
+    }
+  ],
+  "choice": null
+}

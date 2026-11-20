@@ -129,6 +129,31 @@ upload_margins_hours = [6.0, 12.0, 24.0, 36.0, 48.0]
 taxon = "Coragyps atratus"
 windows_hours = [36.0, 39.0, 42.0, 45.0, 48.0, 60.0, 72.0, 96.0, 120.0]
 
+# Step 3.1 (c): the white-stork window, swept on the stork tuning populations
+# only, under the storks' scenario, box at its default. Written on 2026-11-20
+# before any stork sweep row existed. Already known when it was written: at
+# 24 h the unmarked load was 0.413 (SW Germany) and 0.279 (Bavaria) per
+# animal-month (results/fledging/); the stork clear time had not been looked at.
+#
+# Decision rule: the shortest window at which every population in the stork
+# tuning set, each on its own, meets both the watch load and the clear-time
+# targets. Load counts only watch alerts not marked `natal_nest` (step 3.1
+# (a)): marked alerts are still raised and say where the bird is, so they are
+# reported beside it but not chosen on. Clear time is on every false watch
+# alert, marked or not. Carcass detection by the stork reference mark is
+# reported, not chosen on. Intervals resample whole birds. If no window meets
+# the rule, the window stays 24 h and the miss is reported; no target is
+# relaxed. A minimum fix density before an alert opens is a separate step.
+[sweep.storks]
+taxon = "Ciconia ciconia"
+windows_hours = [24.0, 30.0, 36.0, 42.0, 48.0, 60.0, 72.0, 96.0, 120.0]
+load_excludes_context = ["natal_nest"]
+# Result of the rule above, run once on 2026-11-20 (`make sweep-storks`,
+# results/sweep/STORKS.md): no window meets it, so the stork window stays
+# 24 h. Load is met at every window; the median clear time misses at every
+# window in both populations (26 h and 47.5 h at 24 h) and rises with the
+# window, since a longer window keeps only the long bouts.
+
 # How far false alerts must fall for a precision target to be possible. At
 # base rate b and precision p, false alerts per animal-month can be at most
 # b * (1 - p) / p. 33% is the measured precision that about 5 true alerts need

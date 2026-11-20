@@ -147,6 +147,10 @@ class Experiment:
         species_taxon: The species whose window is swept on its own.
         species_windows: Windows tried for it, every other species at its
             own window.
+        stork_taxon: The species whose window the stork sweep varies.
+        stork_windows: Windows the stork sweep tries.
+        stork_load_excludes: Alert contexts left out of the load the stork
+            window is chosen on.
         animal_months_per_carcass: Base rate for the arithmetic note.
         false_per_animal_month: Current false rate for the arithmetic note.
         precisions: Precisions the arithmetic note works through.
@@ -173,6 +177,9 @@ class Experiment:
     upload_margins: tuple[timedelta, ...]
     species_taxon: str
     species_windows: tuple[timedelta, ...]
+    stork_taxon: str
+    stork_windows: tuple[timedelta, ...]
+    stork_load_excludes: frozenset[str]
     animal_months_per_carcass: float
     false_per_animal_month: float
     precisions: tuple[float, ...]
@@ -341,6 +348,9 @@ def experiment() -> Experiment:
         upload_margins=_hours(sweep["upload_margins_hours"]),
         species_taxon=sweep["species"]["taxon"],
         species_windows=_hours(sweep["species"]["windows_hours"]),
+        stork_taxon=sweep["storks"]["taxon"],
+        stork_windows=_hours(sweep["storks"]["windows_hours"]),
+        stork_load_excludes=frozenset(sweep["storks"]["load_excludes_context"]),
         animal_months_per_carcass=arithmetic["animal_months_per_carcass"],
         false_per_animal_month=arithmetic["false_per_animal_month"],
         precisions=tuple(arithmetic["precisions"]),

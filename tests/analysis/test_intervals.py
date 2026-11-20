@@ -3,7 +3,12 @@
 import numpy as np
 import pytest
 
-from telemetry.analysis.intervals import ceiling, cluster_bootstrap, wilson
+from telemetry.analysis.intervals import (
+    ceiling,
+    cluster_bootstrap,
+    rate_bootstrap,
+    wilson,
+)
 
 
 @pytest.mark.parametrize(
@@ -91,3 +96,19 @@ def test_ceiling_is_one_alert_per_case_at_the_false_count():
     """5 carcasses against 186 false alerts cap precision near 2.6%."""
     assert ceiling(5, 186) == pytest.approx(0.0262, abs=5e-5)
     assert ceiling(0, 0) is None
+
+
+def test_rate_bootstrap_resamples_birds_not_alerts():
+    """One bird with all the alerts widens the interval to the extremes."""
+    low, high = rate_bootstrap([(4, 1.0), (0, 1.0)])
+    assert (low, high) == (0.0, 4.0)
+
+
+def test_rate_bootstrap_identical_birds_give_a_point():
+    """Birds with the same rate leave nothing to resample."""
+    assert rate_bootstrap([(1, 2.0), (1, 2.0), (1, 2.0)]) == [0.5, 0.5]
+
+
+def test_rate_bootstrap_without_exposure_is_none():
+    """No tracked time gives no rate."""
+    assert rate_bootstrap([(0, 0.0)]) is None
