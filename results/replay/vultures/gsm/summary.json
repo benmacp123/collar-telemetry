@@ -39,10 +39,10 @@
       "flaps": 46
     },
     "movement": {
-      "incidents": 188,
+      "incidents": 140,
       "open_at_end": 0,
       "late_fix": 0,
-      "flaps": 0
+      "flaps": 48
     },
     "potential_death": {
       "incidents": 94,

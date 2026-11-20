@@ -28,9 +28,9 @@
           "late_fix_per_animal_month": 0.0
         },
         "movement": {
-          "incidents": 96,
+          "incidents": 78,
           "late_fix": 0,
-          "per_animal_month": 0.135,
+          "per_animal_month": 0.11,
           "late_fix_per_animal_month": 0.0
         },
         "potential_death": {
@@ -620,9 +620,9 @@
           "late_fix_per_animal_month": 0.0
         },
         "movement": {
-          "incidents": 96,
+          "incidents": 78,
           "late_fix": 0,
-          "per_animal_month": 0.135,
+          "per_animal_month": 0.11,
           "late_fix_per_animal_month": 0.0
         },
         "potential_death": {
@@ -1212,9 +1212,9 @@
           "late_fix_per_animal_month": 0.0
         },
         "movement": {
-          "incidents": 96,
+          "incidents": 78,
           "late_fix": 0,
-          "per_animal_month": 0.135,
+          "per_animal_month": 0.11,
           "late_fix_per_animal_month": 0.0
         },
         "potential_death": {
@@ -1804,9 +1804,9 @@
           "late_fix_per_animal_month": 0.0
         },
         "movement": {
-          "incidents": 93,
+          "incidents": 76,
           "late_fix": 0,
-          "per_animal_month": 0.131,
+          "per_animal_month": 0.107,
           "late_fix_per_animal_month": 0.0
         },
         "potential_death": {

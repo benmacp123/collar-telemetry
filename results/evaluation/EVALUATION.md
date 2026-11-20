@@ -137,10 +137,10 @@ Unplanned ends that finish stationary; not counted as false alarms. Mortality de
 
 | Scenario | Mortality | False mortality | Movement | Gap | Gap, late upload | Gap resolved late | Geofence |
 |---|---|---|---|---|---|---|---|
-| Ideal | 0.59 | 0.57 | 0.14 | 0.88 | 0.00 | 0% | – |
-| GSM | 0.59 | 0.57 | 0.13 | 1.11 | 0.23 | 21% | – |
-| Satellite, daily | 0.59 | 0.57 | 0.14 | 0.56 | 0.10 | 18% | – |
-| Satellite, 2-day | 0.59 | 0.57 | 0.14 | 0.44 | 0.13 | 29% | – |
+| Ideal | 0.59 | 0.57 | 0.11 | 0.88 | 0.00 | 0% | – |
+| GSM | 0.59 | 0.57 | 0.11 | 1.11 | 0.23 | 21% | – |
+| Satellite, daily | 0.59 | 0.57 | 0.11 | 0.56 | 0.10 | 18% | – |
+| Satellite, 2-day | 0.59 | 0.57 | 0.11 | 0.44 | 0.13 | 29% | – |
 
 ### Deaths
 

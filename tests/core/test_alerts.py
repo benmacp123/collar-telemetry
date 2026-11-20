@@ -159,6 +159,18 @@ def test_reopen_after_the_window_is_a_new_incident():
     assert new.opened_at == START + 47 * HOUR and new.flaps == 0
 
 
+def test_default_merges_a_movement_reopen_within_48_hours():
+    """A migrating bird's next-morning re-open continues its movement incident."""
+    life, state = AlertLifecycle(), {}
+    [first] = life.apply(state, [opened(0, "movement")])
+    life.apply(state, [resolved(6, "movement", "normal")])
+    [back] = life.apply(state, [opened(20, "movement")])
+    assert back.incident_id == first.incident_id and back.flaps == 1
+    life.apply(state, [resolved(22, "movement", "normal")])
+    [new] = life.apply(state, [opened(71, "movement")])
+    assert new.incident_id != first.incident_id and new.flaps == 0
+
+
 def test_without_a_window_resolves_are_final():
     """A detector with no merge window never reopens an incident."""
     life, state = lifecycle(), {}

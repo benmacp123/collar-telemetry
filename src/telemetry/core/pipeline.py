@@ -140,7 +140,9 @@ class Overrides:
         if merge is None:
             return AlertLifecycle()
         return AlertLifecycle(
-            LifecycleConfig({MORTALITY: merge, POTENTIAL_DEATH: merge})
+            LifecycleConfig(
+                {**default_merge_within(), MORTALITY: merge, POTENTIAL_DEATH: merge}
+            )
         )
 
     def to_dict(self) -> dict:

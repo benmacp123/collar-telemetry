@@ -7,6 +7,7 @@ from pathlib import Path
 from telemetry.sim.arrival import SCENARIOS
 from telemetry.analysis.evaluation import build_truth
 from telemetry.analysis.experiment import experiment
+from telemetry.core.alerts import MOVEMENT_MERGE
 from telemetry.core.fixes import Deployment, Fix
 from telemetry.core.geo import offset
 from telemetry.core.pipeline import MERGE_SLACK, Overrides
@@ -132,6 +133,7 @@ def test_merge_follows_a_long_species_window():
     assert long.config.merge_within["potential_death"] == 60 * HOUR + MERGE_SLACK
     other = overrides.lifecycle(overrides.profile(profile_for("Cathartes aura")))
     assert other.config.merge_within["mortality"] == 48 * HOUR
+    assert long.config.merge_within["movement"] == MOVEMENT_MERGE
 
 
 def test_species_override_reaches_the_replayed_stream():

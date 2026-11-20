@@ -79,6 +79,9 @@ from datetime import datetime, timedelta
 OPEN = "open"
 MORTALITY = "mortality"
 GAP = "gap"
+MOVEMENT = "movement"
+# Provisional, chosen by eye from the stork tuning replays (step 3.1 (d)).
+MOVEMENT_MERGE = timedelta(hours=48)
 POTENTIAL_DEATH = "potential_death"
 RESOLVED = "resolved"
 LATE_FIX = "late_fix"
@@ -285,13 +288,23 @@ def default_merge_within() -> dict[str, timedelta]:
     48 h leaves at least 12 h of slack over every window up to 36 h, and
     ``telemetry.core.pipeline.merge_for`` lengthens it for a species with a
     longer window. ``potential_death``
-    follows mortality, since it resolves and reopens with it. Gap and
-    movement resolves are taken as final.
+    follows mortality, since it resolves and reopens with it.
+
+    Movement gets one because a migrating bird resolves at each overnight
+    roost and re-opens the next morning: on the stork tuning populations
+    the 10 km floor set the threshold for under a tenth of alerts, and
+    re-opens within 48 h of the previous one were about 60% of all of them
+    (step 3.1 (d)). The detector still re-arms and learns as before; only
+    the operator's incidents merge. Gap resolves are taken as final.
 
     Returns:
-        dict[str, timedelta]: Merge window by detector name.
+        Merge window by detector name.
     """
-    return {MORTALITY: timedelta(hours=48), POTENTIAL_DEATH: timedelta(hours=48)}
+    return {
+        MORTALITY: timedelta(hours=48),
+        POTENTIAL_DEATH: timedelta(hours=48),
+        MOVEMENT: MOVEMENT_MERGE,
+    }
 
 
 @dataclass(frozen=True)
